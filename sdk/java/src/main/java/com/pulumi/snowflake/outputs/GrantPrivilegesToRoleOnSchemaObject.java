@@ -88,21 +88,25 @@ public final class GrantPrivilegesToRoleOnSchemaObject {
 
         @CustomType.Setter
         public Builder all(@Nullable GrantPrivilegesToRoleOnSchemaObjectAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder future(@Nullable GrantPrivilegesToRoleOnSchemaObjectFuture future) {
+
             this.future = future;
             return this;
         }
         @CustomType.Setter
         public Builder objectName(@Nullable String objectName) {
+
             this.objectName = objectName;
             return this;
         }
         @CustomType.Setter
         public Builder objectType(@Nullable String objectType) {
+
             this.objectType = objectType;
             return this;
         }

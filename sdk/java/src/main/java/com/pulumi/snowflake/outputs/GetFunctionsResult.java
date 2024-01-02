@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetFunctionsFunction;
 import java.lang.String;
 import java.util.List;
@@ -86,12 +87,18 @@ public final class GetFunctionsResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder functions(List<GetFunctionsFunction> functions) {
-            this.functions = Objects.requireNonNull(functions);
+            if (functions == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "functions");
+            }
+            this.functions = functions;
             return this;
         }
         public Builder functions(GetFunctionsFunction... functions) {
@@ -99,12 +106,18 @@ public final class GetFunctionsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetFunctionsResult build() {

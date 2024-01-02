@@ -59,11 +59,13 @@ public final class DynamicTableTargetLag {
 
         @CustomType.Setter
         public Builder downstream(@Nullable Boolean downstream) {
+
             this.downstream = downstream;
             return this;
         }
         @CustomType.Setter
         public Builder maximumDuration(@Nullable String maximumDuration) {
+
             this.maximumDuration = maximumDuration;
             return this;
         }

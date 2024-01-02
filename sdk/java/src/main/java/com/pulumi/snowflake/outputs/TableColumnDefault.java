@@ -72,16 +72,19 @@ public final class TableColumnDefault {
 
         @CustomType.Setter
         public Builder constant(@Nullable String constant) {
+
             this.constant = constant;
             return this;
         }
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder sequence(@Nullable String sequence) {
+
             this.sequence = sequence;
             return this;
         }

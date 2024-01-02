@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TableColumnMaskingPolicyApplicationArgs extends com.pulumi.re
         }
 
         public TableColumnMaskingPolicyApplicationArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.maskingPolicy = Objects.requireNonNull($.maskingPolicy, "expected parameter 'maskingPolicy' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("TableColumnMaskingPolicyApplicationArgs", "column");
+            }
+            if ($.maskingPolicy == null) {
+                throw new MissingRequiredPropertyException("TableColumnMaskingPolicyApplicationArgs", "maskingPolicy");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("TableColumnMaskingPolicyApplicationArgs", "table");
+            }
             return $;
         }
     }

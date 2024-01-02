@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
 
         @CustomType.Setter
         public Builder awsSnsTopicArn(String awsSnsTopicArn) {
-            this.awsSnsTopicArn = Objects.requireNonNull(awsSnsTopicArn);
+            if (awsSnsTopicArn == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetAwsSnsIamPolicyResult", "awsSnsTopicArn");
+            }
+            this.awsSnsTopicArn = awsSnsTopicArn;
             return this;
         }
         @CustomType.Setter
         public Builder awsSnsTopicPolicyJson(String awsSnsTopicPolicyJson) {
-            this.awsSnsTopicPolicyJson = Objects.requireNonNull(awsSnsTopicPolicyJson);
+            if (awsSnsTopicPolicyJson == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetAwsSnsIamPolicyResult", "awsSnsTopicPolicyJson");
+            }
+            this.awsSnsTopicPolicyJson = awsSnsTopicPolicyJson;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetAwsSnsIamPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSystemGetAwsSnsIamPolicyResult build() {

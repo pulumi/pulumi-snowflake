@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -351,9 +352,15 @@ public final class RowAccessPolicyGrantArgs extends com.pulumi.resources.Resourc
         }
 
         public RowAccessPolicyGrantArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.rowAccessPolicyName = Objects.requireNonNull($.rowAccessPolicyName, "expected parameter 'rowAccessPolicyName' to be non-null");
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("RowAccessPolicyGrantArgs", "databaseName");
+            }
+            if ($.rowAccessPolicyName == null) {
+                throw new MissingRequiredPropertyException("RowAccessPolicyGrantArgs", "rowAccessPolicyName");
+            }
+            if ($.schemaName == null) {
+                throw new MissingRequiredPropertyException("RowAccessPolicyGrantArgs", "schemaName");
+            }
             return $;
         }
     }

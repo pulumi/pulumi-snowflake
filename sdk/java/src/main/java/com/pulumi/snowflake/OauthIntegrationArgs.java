@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -422,7 +423,9 @@ public final class OauthIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public OauthIntegrationArgs build() {
-            $.oauthClient = Objects.requireNonNull($.oauthClient, "expected parameter 'oauthClient' to be non-null");
+            if ($.oauthClient == null) {
+                throw new MissingRequiredPropertyException("OauthIntegrationArgs", "oauthClient");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetPipesPipe;
 import java.lang.String;
 import java.util.List;
@@ -86,17 +87,26 @@ public final class GetPipesResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetPipesResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPipesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pipes(List<GetPipesPipe> pipes) {
-            this.pipes = Objects.requireNonNull(pipes);
+            if (pipes == null) {
+              throw new MissingRequiredPropertyException("GetPipesResult", "pipes");
+            }
+            this.pipes = pipes;
             return this;
         }
         public Builder pipes(GetPipesPipe... pipes) {
@@ -104,7 +114,10 @@ public final class GetPipesResult {
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetPipesResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetPipesResult build() {

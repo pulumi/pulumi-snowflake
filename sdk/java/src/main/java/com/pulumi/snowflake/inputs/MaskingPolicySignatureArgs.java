@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.MaskingPolicySignatureColumnArgs;
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +60,9 @@ public final class MaskingPolicySignatureArgs extends com.pulumi.resources.Resou
         }
 
         public MaskingPolicySignatureArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicySignatureArgs", "columns");
+            }
             return $;
         }
     }

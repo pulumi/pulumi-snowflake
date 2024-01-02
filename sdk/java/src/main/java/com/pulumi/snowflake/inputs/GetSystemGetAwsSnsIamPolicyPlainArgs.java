@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetSystemGetAwsSnsIamPolicyPlainArgs extends com.pulumi.resou
         }
 
         public GetSystemGetAwsSnsIamPolicyPlainArgs build() {
-            $.awsSnsTopicArn = Objects.requireNonNull($.awsSnsTopicArn, "expected parameter 'awsSnsTopicArn' to be non-null");
+            if ($.awsSnsTopicArn == null) {
+                throw new MissingRequiredPropertyException("GetSystemGetAwsSnsIamPolicyPlainArgs", "awsSnsTopicArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ViewTagArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -405,9 +406,15 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ViewArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("ViewArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("ViewArgs", "schema");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("ViewArgs", "statement");
+            }
             return $;
         }
     }

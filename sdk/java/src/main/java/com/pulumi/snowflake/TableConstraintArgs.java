@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -496,9 +497,15 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public TableConstraintArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.tableId = Objects.requireNonNull($.tableId, "expected parameter 'tableId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("TableConstraintArgs", "columns");
+            }
+            if ($.tableId == null) {
+                throw new MissingRequiredPropertyException("TableConstraintArgs", "tableId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TableConstraintArgs", "type");
+            }
             return $;
         }
     }

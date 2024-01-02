@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -351,9 +352,15 @@ public final class TagGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagGrantArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
-            $.tagName = Objects.requireNonNull($.tagName, "expected parameter 'tagName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("TagGrantArgs", "databaseName");
+            }
+            if ($.schemaName == null) {
+                throw new MissingRequiredPropertyException("TagGrantArgs", "schemaName");
+            }
+            if ($.tagName == null) {
+                throw new MissingRequiredPropertyException("TagGrantArgs", "tagName");
+            }
             return $;
         }
     }

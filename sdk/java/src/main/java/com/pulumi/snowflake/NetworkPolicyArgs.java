@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,7 +209,9 @@ public final class NetworkPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkPolicyArgs build() {
-            $.allowedIpLists = Objects.requireNonNull($.allowedIpLists, "expected parameter 'allowedIpLists' to be non-null");
+            if ($.allowedIpLists == null) {
+                throw new MissingRequiredPropertyException("NetworkPolicyArgs", "allowedIpLists");
+            }
             return $;
         }
     }

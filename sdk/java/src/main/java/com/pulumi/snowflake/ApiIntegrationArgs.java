@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -485,8 +486,12 @@ public final class ApiIntegrationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ApiIntegrationArgs build() {
-            $.apiAllowedPrefixes = Objects.requireNonNull($.apiAllowedPrefixes, "expected parameter 'apiAllowedPrefixes' to be non-null");
-            $.apiProvider = Objects.requireNonNull($.apiProvider, "expected parameter 'apiProvider' to be non-null");
+            if ($.apiAllowedPrefixes == null) {
+                throw new MissingRequiredPropertyException("ApiIntegrationArgs", "apiAllowedPrefixes");
+            }
+            if ($.apiProvider == null) {
+                throw new MissingRequiredPropertyException("ApiIntegrationArgs", "apiProvider");
+            }
             return $;
         }
     }

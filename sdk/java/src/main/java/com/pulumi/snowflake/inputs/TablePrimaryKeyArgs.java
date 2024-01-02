@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class TablePrimaryKeyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public TablePrimaryKeyArgs build() {
-            $.keys = Objects.requireNonNull($.keys, "expected parameter 'keys' to be non-null");
+            if ($.keys == null) {
+                throw new MissingRequiredPropertyException("TablePrimaryKeyArgs", "keys");
+            }
             return $;
         }
     }

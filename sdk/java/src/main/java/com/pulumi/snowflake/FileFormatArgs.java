@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1384,9 +1385,15 @@ public final class FileFormatArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FileFormatArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.formatType = Objects.requireNonNull($.formatType, "expected parameter 'formatType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("FileFormatArgs", "database");
+            }
+            if ($.formatType == null) {
+                throw new MissingRequiredPropertyException("FileFormatArgs", "formatType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("FileFormatArgs", "schema");
+            }
             return $;
         }
     }

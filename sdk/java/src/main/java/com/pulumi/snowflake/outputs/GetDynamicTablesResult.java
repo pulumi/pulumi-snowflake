@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDynamicTablesIn;
 import com.pulumi.snowflake.outputs.GetDynamicTablesLike;
 import com.pulumi.snowflake.outputs.GetDynamicTablesLimit;
@@ -119,27 +120,36 @@ public final class GetDynamicTablesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder in(@Nullable GetDynamicTablesIn in) {
+
             this.in = in;
             return this;
         }
         @CustomType.Setter
         public Builder like(@Nullable GetDynamicTablesLike like) {
+
             this.like = like;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable GetDynamicTablesLimit limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder records(List<GetDynamicTablesRecord> records) {
-            this.records = Objects.requireNonNull(records);
+            if (records == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesResult", "records");
+            }
+            this.records = records;
             return this;
         }
         public Builder records(GetDynamicTablesRecord... records) {
@@ -147,6 +157,7 @@ public final class GetDynamicTablesResult {
         }
         @CustomType.Setter
         public Builder startsWith(@Nullable String startsWith) {
+
             this.startsWith = startsWith;
             return this;
         }

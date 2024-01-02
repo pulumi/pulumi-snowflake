@@ -59,11 +59,13 @@ public final class GetDynamicTablesLimit {
 
         @CustomType.Setter
         public Builder from(@Nullable String from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder rows(@Nullable Integer rows) {
+
             this.rows = rows;
             return this;
         }

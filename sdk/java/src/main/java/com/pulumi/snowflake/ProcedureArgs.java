@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ProcedureArgumentArgs;
 import java.lang.String;
 import java.util.List;
@@ -626,10 +627,18 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProcedureArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.returnType = Objects.requireNonNull($.returnType, "expected parameter 'returnType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("ProcedureArgs", "database");
+            }
+            if ($.returnType == null) {
+                throw new MissingRequiredPropertyException("ProcedureArgs", "returnType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("ProcedureArgs", "schema");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("ProcedureArgs", "statement");
+            }
             return $;
         }
     }

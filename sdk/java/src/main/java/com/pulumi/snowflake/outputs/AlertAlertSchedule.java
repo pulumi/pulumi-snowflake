@@ -59,11 +59,13 @@ public final class AlertAlertSchedule {
 
         @CustomType.Setter
         public Builder cron(@Nullable AlertAlertScheduleCron cron) {
+
             this.cron = cron;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }

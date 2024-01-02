@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AccountPasswordPolicyAttachmentArgs extends com.pulumi.resour
         }
 
         public AccountPasswordPolicyAttachmentArgs build() {
-            $.passwordPolicy = Objects.requireNonNull($.passwordPolicy, "expected parameter 'passwordPolicy' to be non-null");
+            if ($.passwordPolicy == null) {
+                throw new MissingRequiredPropertyException("AccountPasswordPolicyAttachmentArgs", "passwordPolicy");
+            }
             return $;
         }
     }

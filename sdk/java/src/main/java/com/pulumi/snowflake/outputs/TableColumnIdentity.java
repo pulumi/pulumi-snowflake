@@ -58,11 +58,13 @@ public final class TableColumnIdentity {
 
         @CustomType.Setter
         public Builder startNum(@Nullable Integer startNum) {
+
             this.startNum = startNum;
             return this;
         }
         @CustomType.Setter
         public Builder stepNum(@Nullable Integer stepNum) {
+
             this.stepNum = stepNum;
             return this;
         }

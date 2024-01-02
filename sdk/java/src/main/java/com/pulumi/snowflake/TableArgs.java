@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TableColumnArgs;
 import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
 import com.pulumi.snowflake.inputs.TableTagArgs;
@@ -550,9 +551,15 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "columns");
+            }
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "schema");
+            }
             return $;
         }
     }

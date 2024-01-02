@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.StageTagArgs;
 import java.lang.String;
 import java.util.List;
@@ -549,8 +550,12 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StageArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "schema");
+            }
             return $;
         }
     }

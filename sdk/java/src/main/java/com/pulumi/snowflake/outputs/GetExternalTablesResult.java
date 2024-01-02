@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetExternalTablesExternalTable;
 import java.lang.String;
 import java.util.List;
@@ -86,12 +87,18 @@ public final class GetExternalTablesResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetExternalTablesResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder externalTables(List<GetExternalTablesExternalTable> externalTables) {
-            this.externalTables = Objects.requireNonNull(externalTables);
+            if (externalTables == null) {
+              throw new MissingRequiredPropertyException("GetExternalTablesResult", "externalTables");
+            }
+            this.externalTables = externalTables;
             return this;
         }
         public Builder externalTables(GetExternalTablesExternalTable... externalTables) {
@@ -99,12 +106,18 @@ public final class GetExternalTablesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExternalTablesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetExternalTablesResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetExternalTablesResult build() {

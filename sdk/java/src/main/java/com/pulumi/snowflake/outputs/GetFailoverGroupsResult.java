@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetFailoverGroupsFailoverGroup;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class GetFailoverGroupsResult {
 
         @CustomType.Setter
         public Builder failoverGroups(List<GetFailoverGroupsFailoverGroup> failoverGroups) {
-            this.failoverGroups = Objects.requireNonNull(failoverGroups);
+            if (failoverGroups == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsResult", "failoverGroups");
+            }
+            this.failoverGroups = failoverGroups;
             return this;
         }
         public Builder failoverGroups(GetFailoverGroupsFailoverGroup... failoverGroups) {
@@ -82,11 +86,15 @@ public final class GetFailoverGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inAccount(@Nullable String inAccount) {
+
             this.inAccount = inAccount;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetSystemGenerateScimAccessTokenArgs extends com.pulumi.resou
         }
 
         public GetSystemGenerateScimAccessTokenArgs build() {
-            $.integrationName = Objects.requireNonNull($.integrationName, "expected parameter 'integrationName' to be non-null");
+            if ($.integrationName == null) {
+                throw new MissingRequiredPropertyException("GetSystemGenerateScimAccessTokenArgs", "integrationName");
+            }
             return $;
         }
     }

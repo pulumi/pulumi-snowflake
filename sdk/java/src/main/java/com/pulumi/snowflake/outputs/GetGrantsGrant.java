@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -77,42 +78,66 @@ public final class GetGrantsGrant {
 
         @CustomType.Setter
         public Builder createdOn(String createdOn) {
-            this.createdOn = Objects.requireNonNull(createdOn);
+            if (createdOn == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "createdOn");
+            }
+            this.createdOn = createdOn;
             return this;
         }
         @CustomType.Setter
         public Builder grantOption(Boolean grantOption) {
-            this.grantOption = Objects.requireNonNull(grantOption);
+            if (grantOption == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "grantOption");
+            }
+            this.grantOption = grantOption;
             return this;
         }
         @CustomType.Setter
         public Builder grantedBy(String grantedBy) {
-            this.grantedBy = Objects.requireNonNull(grantedBy);
+            if (grantedBy == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "grantedBy");
+            }
+            this.grantedBy = grantedBy;
             return this;
         }
         @CustomType.Setter
         public Builder grantedOn(String grantedOn) {
-            this.grantedOn = Objects.requireNonNull(grantedOn);
+            if (grantedOn == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "grantedOn");
+            }
+            this.grantedOn = grantedOn;
             return this;
         }
         @CustomType.Setter
         public Builder grantedTo(String grantedTo) {
-            this.grantedTo = Objects.requireNonNull(grantedTo);
+            if (grantedTo == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "grantedTo");
+            }
+            this.grantedTo = grantedTo;
             return this;
         }
         @CustomType.Setter
         public Builder granteeName(String granteeName) {
-            this.granteeName = Objects.requireNonNull(granteeName);
+            if (granteeName == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "granteeName");
+            }
+            this.granteeName = granteeName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privilege(String privilege) {
-            this.privilege = Objects.requireNonNull(privilege);
+            if (privilege == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "privilege");
+            }
+            this.privilege = privilege;
             return this;
         }
         public GetGrantsGrant build() {

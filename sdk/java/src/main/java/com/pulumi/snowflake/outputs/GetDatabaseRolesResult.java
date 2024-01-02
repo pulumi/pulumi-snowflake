@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesDatabaseRole;
 import java.lang.String;
 import java.util.List;
@@ -72,12 +73,18 @@ public final class GetDatabaseRolesResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseRolesResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder databaseRoles(List<GetDatabaseRolesDatabaseRole> databaseRoles) {
-            this.databaseRoles = Objects.requireNonNull(databaseRoles);
+            if (databaseRoles == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseRolesResult", "databaseRoles");
+            }
+            this.databaseRoles = databaseRoles;
             return this;
         }
         public Builder databaseRoles(GetDatabaseRolesDatabaseRole... databaseRoles) {
@@ -85,7 +92,10 @@ public final class GetDatabaseRolesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseRolesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetDatabaseRolesResult build() {

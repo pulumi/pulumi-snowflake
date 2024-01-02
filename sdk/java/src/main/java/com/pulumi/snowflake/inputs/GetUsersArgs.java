@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUsersArgs build() {
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("GetUsersArgs", "pattern");
+            }
             return $;
         }
     }

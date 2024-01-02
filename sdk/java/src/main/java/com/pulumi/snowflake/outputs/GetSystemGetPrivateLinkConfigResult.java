@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -168,52 +169,82 @@ public final class GetSystemGetPrivateLinkConfigResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder accountUrl(String accountUrl) {
-            this.accountUrl = Objects.requireNonNull(accountUrl);
+            if (accountUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "accountUrl");
+            }
+            this.accountUrl = accountUrl;
             return this;
         }
         @CustomType.Setter
         public Builder awsVpceId(String awsVpceId) {
-            this.awsVpceId = Objects.requireNonNull(awsVpceId);
+            if (awsVpceId == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "awsVpceId");
+            }
+            this.awsVpceId = awsVpceId;
             return this;
         }
         @CustomType.Setter
         public Builder azurePlsId(String azurePlsId) {
-            this.azurePlsId = Objects.requireNonNull(azurePlsId);
+            if (azurePlsId == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "azurePlsId");
+            }
+            this.azurePlsId = azurePlsId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internalStage(String internalStage) {
-            this.internalStage = Objects.requireNonNull(internalStage);
+            if (internalStage == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "internalStage");
+            }
+            this.internalStage = internalStage;
             return this;
         }
         @CustomType.Setter
         public Builder ocspUrl(String ocspUrl) {
-            this.ocspUrl = Objects.requireNonNull(ocspUrl);
+            if (ocspUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "ocspUrl");
+            }
+            this.ocspUrl = ocspUrl;
             return this;
         }
         @CustomType.Setter
         public Builder regionlessAccountUrl(String regionlessAccountUrl) {
-            this.regionlessAccountUrl = Objects.requireNonNull(regionlessAccountUrl);
+            if (regionlessAccountUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "regionlessAccountUrl");
+            }
+            this.regionlessAccountUrl = regionlessAccountUrl;
             return this;
         }
         @CustomType.Setter
         public Builder regionlessSnowsightUrl(String regionlessSnowsightUrl) {
-            this.regionlessSnowsightUrl = Objects.requireNonNull(regionlessSnowsightUrl);
+            if (regionlessSnowsightUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "regionlessSnowsightUrl");
+            }
+            this.regionlessSnowsightUrl = regionlessSnowsightUrl;
             return this;
         }
         @CustomType.Setter
         public Builder snowsightUrl(String snowsightUrl) {
-            this.snowsightUrl = Objects.requireNonNull(snowsightUrl);
+            if (snowsightUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "snowsightUrl");
+            }
+            this.snowsightUrl = snowsightUrl;
             return this;
         }
         public GetSystemGetPrivateLinkConfigResult build() {

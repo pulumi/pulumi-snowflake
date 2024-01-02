@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsMaterializedView;
 import java.lang.String;
 import java.util.List;
@@ -86,17 +87,26 @@ public final class GetMaterializedViewsResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetMaterializedViewsResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMaterializedViewsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder materializedViews(List<GetMaterializedViewsMaterializedView> materializedViews) {
-            this.materializedViews = Objects.requireNonNull(materializedViews);
+            if (materializedViews == null) {
+              throw new MissingRequiredPropertyException("GetMaterializedViewsResult", "materializedViews");
+            }
+            this.materializedViews = materializedViews;
             return this;
         }
         public Builder materializedViews(GetMaterializedViewsMaterializedView... materializedViews) {
@@ -104,7 +114,10 @@ public final class GetMaterializedViewsResult {
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetMaterializedViewsResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetMaterializedViewsResult build() {

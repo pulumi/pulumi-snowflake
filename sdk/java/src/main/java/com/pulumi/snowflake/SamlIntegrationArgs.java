@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -595,10 +596,18 @@ public final class SamlIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public SamlIntegrationArgs build() {
-            $.saml2Issuer = Objects.requireNonNull($.saml2Issuer, "expected parameter 'saml2Issuer' to be non-null");
-            $.saml2Provider = Objects.requireNonNull($.saml2Provider, "expected parameter 'saml2Provider' to be non-null");
-            $.saml2SsoUrl = Objects.requireNonNull($.saml2SsoUrl, "expected parameter 'saml2SsoUrl' to be non-null");
-            $.saml2X509Cert = Objects.requireNonNull($.saml2X509Cert, "expected parameter 'saml2X509Cert' to be non-null");
+            if ($.saml2Issuer == null) {
+                throw new MissingRequiredPropertyException("SamlIntegrationArgs", "saml2Issuer");
+            }
+            if ($.saml2Provider == null) {
+                throw new MissingRequiredPropertyException("SamlIntegrationArgs", "saml2Provider");
+            }
+            if ($.saml2SsoUrl == null) {
+                throw new MissingRequiredPropertyException("SamlIntegrationArgs", "saml2SsoUrl");
+            }
+            if ($.saml2X509Cert == null) {
+                throw new MissingRequiredPropertyException("SamlIntegrationArgs", "saml2X509Cert");
+            }
             return $;
         }
     }

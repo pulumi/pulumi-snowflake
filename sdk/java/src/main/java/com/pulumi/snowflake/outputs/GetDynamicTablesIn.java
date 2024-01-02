@@ -73,16 +73,19 @@ public final class GetDynamicTablesIn {
 
         @CustomType.Setter
         public Builder account(@Nullable Boolean account) {
+
             this.account = account;
             return this;
         }
         @CustomType.Setter
         public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder schema(@Nullable String schema) {
+
             this.schema = schema;
             return this;
         }

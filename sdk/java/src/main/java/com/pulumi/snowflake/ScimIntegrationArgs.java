@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ScimIntegrationArgs build() {
-            $.provisionerRole = Objects.requireNonNull($.provisionerRole, "expected parameter 'provisionerRole' to be non-null");
-            $.scimClient = Objects.requireNonNull($.scimClient, "expected parameter 'scimClient' to be non-null");
+            if ($.provisionerRole == null) {
+                throw new MissingRequiredPropertyException("ScimIntegrationArgs", "provisionerRole");
+            }
+            if ($.scimClient == null) {
+                throw new MissingRequiredPropertyException("ScimIntegrationArgs", "scimClient");
+            }
             return $;
         }
     }
