@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabase;
 import java.lang.Boolean;
 import java.lang.String;
@@ -117,7 +118,10 @@ public final class GetDatabasesResult {
 
         @CustomType.Setter
         public Builder databases(List<GetDatabasesDatabase> databases) {
-            this.databases = Objects.requireNonNull(databases);
+            if (databases == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesResult", "databases");
+            }
+            this.databases = databases;
             return this;
         }
         public Builder databases(GetDatabasesDatabase... databases) {
@@ -125,26 +129,33 @@ public final class GetDatabasesResult {
         }
         @CustomType.Setter
         public Builder history(@Nullable Boolean history) {
+
             this.history = history;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder startsWith(@Nullable String startsWith) {
+
             this.startsWith = startsWith;
             return this;
         }
         @CustomType.Setter
         public Builder terse(@Nullable Boolean terse) {
+
             this.terse = terse;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ManagedAccountArgs build() {
-            $.adminName = Objects.requireNonNull($.adminName, "expected parameter 'adminName' to be non-null");
-            $.adminPassword = Objects.requireNonNull($.adminPassword, "expected parameter 'adminPassword' to be non-null");
+            if ($.adminName == null) {
+                throw new MissingRequiredPropertyException("ManagedAccountArgs", "adminName");
+            }
+            if ($.adminPassword == null) {
+                throw new MissingRequiredPropertyException("ManagedAccountArgs", "adminPassword");
+            }
             return $;
         }
     }

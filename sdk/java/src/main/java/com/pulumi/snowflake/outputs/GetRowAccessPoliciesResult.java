@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetRowAccessPoliciesRowAccessPolicy;
 import java.lang.String;
 import java.util.List;
@@ -86,17 +87,26 @@ public final class GetRowAccessPoliciesResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetRowAccessPoliciesResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRowAccessPoliciesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder rowAccessPolicies(List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies) {
-            this.rowAccessPolicies = Objects.requireNonNull(rowAccessPolicies);
+            if (rowAccessPolicies == null) {
+              throw new MissingRequiredPropertyException("GetRowAccessPoliciesResult", "rowAccessPolicies");
+            }
+            this.rowAccessPolicies = rowAccessPolicies;
             return this;
         }
         public Builder rowAccessPolicies(GetRowAccessPoliciesRowAccessPolicy... rowAccessPolicies) {
@@ -104,7 +114,10 @@ public final class GetRowAccessPoliciesResult {
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetRowAccessPoliciesResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetRowAccessPoliciesResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.MaskingPolicySignatureColumn;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +36,10 @@ public final class MaskingPolicySignature {
 
         @CustomType.Setter
         public Builder columns(List<MaskingPolicySignatureColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("MaskingPolicySignature", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(MaskingPolicySignatureColumn... columns) {

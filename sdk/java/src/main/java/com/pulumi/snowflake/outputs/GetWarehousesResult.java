@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetWarehousesWarehouse;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class GetWarehousesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder warehouses(List<GetWarehousesWarehouse> warehouses) {
-            this.warehouses = Objects.requireNonNull(warehouses);
+            if (warehouses == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesResult", "warehouses");
+            }
+            this.warehouses = warehouses;
             return this;
         }
         public Builder warehouses(GetWarehousesWarehouse... warehouses) {

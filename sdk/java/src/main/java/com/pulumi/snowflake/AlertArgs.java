@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -374,11 +375,21 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AlertArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.condition = Objects.requireNonNull($.condition, "expected parameter 'condition' to be non-null");
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.warehouse = Objects.requireNonNull($.warehouse, "expected parameter 'warehouse' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("AlertArgs", "action");
+            }
+            if ($.condition == null) {
+                throw new MissingRequiredPropertyException("AlertArgs", "condition");
+            }
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("AlertArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("AlertArgs", "schema");
+            }
+            if ($.warehouse == null) {
+                throw new MissingRequiredPropertyException("AlertArgs", "warehouse");
+            }
             return $;
         }
     }

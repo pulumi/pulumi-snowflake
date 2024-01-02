@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.config.inputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -58,27 +59,42 @@ public final class TokenAccessor {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("TokenAccessor", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("TokenAccessor", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder redirectUri(String redirectUri) {
-            this.redirectUri = Objects.requireNonNull(redirectUri);
+            if (redirectUri == null) {
+              throw new MissingRequiredPropertyException("TokenAccessor", "redirectUri");
+            }
+            this.redirectUri = redirectUri;
             return this;
         }
         @CustomType.Setter
         public Builder refreshToken(String refreshToken) {
-            this.refreshToken = Objects.requireNonNull(refreshToken);
+            if (refreshToken == null) {
+              throw new MissingRequiredPropertyException("TokenAccessor", "refreshToken");
+            }
+            this.refreshToken = refreshToken;
             return this;
         }
         @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
-            this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
+            if (tokenEndpoint == null) {
+              throw new MissingRequiredPropertyException("TokenAccessor", "tokenEndpoint");
+            }
+            this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         public TokenAccessor build() {

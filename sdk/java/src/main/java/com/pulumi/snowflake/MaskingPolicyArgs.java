@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -411,11 +412,21 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MaskingPolicyArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.maskingExpression = Objects.requireNonNull($.maskingExpression, "expected parameter 'maskingExpression' to be non-null");
-            $.returnDataType = Objects.requireNonNull($.returnDataType, "expected parameter 'returnDataType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.signature = Objects.requireNonNull($.signature, "expected parameter 'signature' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "database");
+            }
+            if ($.maskingExpression == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "maskingExpression");
+            }
+            if ($.returnDataType == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "returnDataType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "schema");
+            }
+            if ($.signature == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "signature");
+            }
             return $;
         }
     }

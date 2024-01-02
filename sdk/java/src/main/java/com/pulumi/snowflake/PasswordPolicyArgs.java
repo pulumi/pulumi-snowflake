@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -670,8 +671,12 @@ public final class PasswordPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PasswordPolicyArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("PasswordPolicyArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("PasswordPolicyArgs", "schema");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class GetFileFormatsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFileFormatsArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("GetFileFormatsArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("GetFileFormatsArgs", "schema");
+            }
             return $;
         }
     }

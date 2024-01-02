@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetFileFormatsFileFormat;
 import java.lang.String;
 import java.util.List;
@@ -86,12 +87,18 @@ public final class GetFileFormatsResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder fileFormats(List<GetFileFormatsFileFormat> fileFormats) {
-            this.fileFormats = Objects.requireNonNull(fileFormats);
+            if (fileFormats == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsResult", "fileFormats");
+            }
+            this.fileFormats = fileFormats;
             return this;
         }
         public Builder fileFormats(GetFileFormatsFileFormat... fileFormats) {
@@ -99,12 +106,18 @@ public final class GetFileFormatsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetFileFormatsResult build() {

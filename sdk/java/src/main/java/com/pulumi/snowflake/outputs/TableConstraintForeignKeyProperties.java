@@ -87,21 +87,25 @@ public final class TableConstraintForeignKeyProperties {
 
         @CustomType.Setter
         public Builder match(@Nullable String match) {
+
             this.match = match;
             return this;
         }
         @CustomType.Setter
         public Builder onDelete(@Nullable String onDelete) {
+
             this.onDelete = onDelete;
             return this;
         }
         @CustomType.Setter
         public Builder onUpdate(@Nullable String onUpdate) {
+
             this.onUpdate = onUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder references(@Nullable TableConstraintForeignKeyPropertiesReferences references) {
+
             this.references = references;
             return this;
         }

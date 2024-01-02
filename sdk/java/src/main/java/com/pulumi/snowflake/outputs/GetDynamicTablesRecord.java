@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -150,102 +151,162 @@ public final class GetDynamicTablesRecord {
 
         @CustomType.Setter
         public Builder automaticClustering(Boolean automaticClustering) {
-            this.automaticClustering = Objects.requireNonNull(automaticClustering);
+            if (automaticClustering == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "automaticClustering");
+            }
+            this.automaticClustering = automaticClustering;
             return this;
         }
         @CustomType.Setter
         public Builder bytes(Integer bytes) {
-            this.bytes = Objects.requireNonNull(bytes);
+            if (bytes == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "bytes");
+            }
+            this.bytes = bytes;
             return this;
         }
         @CustomType.Setter
         public Builder clusterBy(String clusterBy) {
-            this.clusterBy = Objects.requireNonNull(clusterBy);
+            if (clusterBy == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "clusterBy");
+            }
+            this.clusterBy = clusterBy;
             return this;
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder createdOn(String createdOn) {
-            this.createdOn = Objects.requireNonNull(createdOn);
+            if (createdOn == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "createdOn");
+            }
+            this.createdOn = createdOn;
             return this;
         }
         @CustomType.Setter
         public Builder dataTimestamp(String dataTimestamp) {
-            this.dataTimestamp = Objects.requireNonNull(dataTimestamp);
+            if (dataTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "dataTimestamp");
+            }
+            this.dataTimestamp = dataTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder isClone(Boolean isClone) {
-            this.isClone = Objects.requireNonNull(isClone);
+            if (isClone == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "isClone");
+            }
+            this.isClone = isClone;
             return this;
         }
         @CustomType.Setter
         public Builder isReplica(Boolean isReplica) {
-            this.isReplica = Objects.requireNonNull(isReplica);
+            if (isReplica == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "isReplica");
+            }
+            this.isReplica = isReplica;
             return this;
         }
         @CustomType.Setter
         public Builder lastSuspendedOn(String lastSuspendedOn) {
-            this.lastSuspendedOn = Objects.requireNonNull(lastSuspendedOn);
+            if (lastSuspendedOn == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "lastSuspendedOn");
+            }
+            this.lastSuspendedOn = lastSuspendedOn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder refreshMode(String refreshMode) {
-            this.refreshMode = Objects.requireNonNull(refreshMode);
+            if (refreshMode == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "refreshMode");
+            }
+            this.refreshMode = refreshMode;
             return this;
         }
         @CustomType.Setter
         public Builder refreshModeReason(String refreshModeReason) {
-            this.refreshModeReason = Objects.requireNonNull(refreshModeReason);
+            if (refreshModeReason == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "refreshModeReason");
+            }
+            this.refreshModeReason = refreshModeReason;
             return this;
         }
         @CustomType.Setter
         public Builder rows(Integer rows) {
-            this.rows = Objects.requireNonNull(rows);
+            if (rows == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "rows");
+            }
+            this.rows = rows;
             return this;
         }
         @CustomType.Setter
         public Builder schedulingState(String schedulingState) {
-            this.schedulingState = Objects.requireNonNull(schedulingState);
+            if (schedulingState == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "schedulingState");
+            }
+            this.schedulingState = schedulingState;
             return this;
         }
         @CustomType.Setter
         public Builder schemaName(String schemaName) {
-            this.schemaName = Objects.requireNonNull(schemaName);
+            if (schemaName == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "schemaName");
+            }
+            this.schemaName = schemaName;
             return this;
         }
         @CustomType.Setter
         public Builder targetLag(String targetLag) {
-            this.targetLag = Objects.requireNonNull(targetLag);
+            if (targetLag == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "targetLag");
+            }
+            this.targetLag = targetLag;
             return this;
         }
         @CustomType.Setter
         public Builder text(String text) {
-            this.text = Objects.requireNonNull(text);
+            if (text == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "text");
+            }
+            this.text = text;
             return this;
         }
         @CustomType.Setter
         public Builder warehouse(String warehouse) {
-            this.warehouse = Objects.requireNonNull(warehouse);
+            if (warehouse == null) {
+              throw new MissingRequiredPropertyException("GetDynamicTablesRecord", "warehouse");
+            }
+            this.warehouse = warehouse;
             return this;
         }
         public GetDynamicTablesRecord build() {

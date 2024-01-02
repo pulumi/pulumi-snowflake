@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ExternalTableColumnArgs;
 import com.pulumi.snowflake.inputs.ExternalTableTagArgs;
 import java.lang.Boolean;
@@ -611,11 +612,21 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ExternalTableArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.fileFormat = Objects.requireNonNull($.fileFormat, "expected parameter 'fileFormat' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("ExternalTableArgs", "columns");
+            }
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("ExternalTableArgs", "database");
+            }
+            if ($.fileFormat == null) {
+                throw new MissingRequiredPropertyException("ExternalTableArgs", "fileFormat");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("ExternalTableArgs", "location");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("ExternalTableArgs", "schema");
+            }
             return $;
         }
     }

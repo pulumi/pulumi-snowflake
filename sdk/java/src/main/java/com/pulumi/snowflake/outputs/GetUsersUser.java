@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -108,22 +109,34 @@ public final class GetUsersUser {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder defaultNamespace(String defaultNamespace) {
-            this.defaultNamespace = Objects.requireNonNull(defaultNamespace);
+            if (defaultNamespace == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "defaultNamespace");
+            }
+            this.defaultNamespace = defaultNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRole(String defaultRole) {
-            this.defaultRole = Objects.requireNonNull(defaultRole);
+            if (defaultRole == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "defaultRole");
+            }
+            this.defaultRole = defaultRole;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryRoles(List<String> defaultSecondaryRoles) {
-            this.defaultSecondaryRoles = Objects.requireNonNull(defaultSecondaryRoles);
+            if (defaultSecondaryRoles == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "defaultSecondaryRoles");
+            }
+            this.defaultSecondaryRoles = defaultSecondaryRoles;
             return this;
         }
         public Builder defaultSecondaryRoles(String... defaultSecondaryRoles) {
@@ -131,47 +144,74 @@ public final class GetUsersUser {
         }
         @CustomType.Setter
         public Builder defaultWarehouse(String defaultWarehouse) {
-            this.defaultWarehouse = Objects.requireNonNull(defaultWarehouse);
+            if (defaultWarehouse == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "defaultWarehouse");
+            }
+            this.defaultWarehouse = defaultWarehouse;
             return this;
         }
         @CustomType.Setter
         public Builder disabled(Boolean disabled) {
-            this.disabled = Objects.requireNonNull(disabled);
+            if (disabled == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "disabled");
+            }
+            this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder firstName(String firstName) {
-            this.firstName = Objects.requireNonNull(firstName);
+            if (firstName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "firstName");
+            }
+            this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
         public Builder hasRsaPublicKey(Boolean hasRsaPublicKey) {
-            this.hasRsaPublicKey = Objects.requireNonNull(hasRsaPublicKey);
+            if (hasRsaPublicKey == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "hasRsaPublicKey");
+            }
+            this.hasRsaPublicKey = hasRsaPublicKey;
             return this;
         }
         @CustomType.Setter
         public Builder lastName(String lastName) {
-            this.lastName = Objects.requireNonNull(lastName);
+            if (lastName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "lastName");
+            }
+            this.lastName = lastName;
             return this;
         }
         @CustomType.Setter
         public Builder loginName(String loginName) {
-            this.loginName = Objects.requireNonNull(loginName);
+            if (loginName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "loginName");
+            }
+            this.loginName = loginName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetUsersUser build() {

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetGrantsFutureGrantsTo extends com.pulumi.resources.InvokeAr
         }
 
         public GetGrantsFutureGrantsTo build() {
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("GetGrantsFutureGrantsTo", "role");
+            }
             return $;
         }
     }

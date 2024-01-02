@@ -72,16 +72,19 @@ public final class GrantPrivilegesToRoleOnSchema {
 
         @CustomType.Setter
         public Builder allSchemasInDatabase(@Nullable String allSchemasInDatabase) {
+
             this.allSchemasInDatabase = allSchemasInDatabase;
             return this;
         }
         @CustomType.Setter
         public Builder futureSchemasInDatabase(@Nullable String futureSchemasInDatabase) {
+
             this.futureSchemasInDatabase = futureSchemasInDatabase;
             return this;
         }
         @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
+
             this.schemaName = schemaName;
             return this;
         }

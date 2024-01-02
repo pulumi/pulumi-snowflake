@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GrantPrivilegesToRoleOnAccountObjectArgs extends com.pulumi.r
         }
 
         public GrantPrivilegesToRoleOnAccountObjectArgs build() {
-            $.objectName = Objects.requireNonNull($.objectName, "expected parameter 'objectName' to be non-null");
-            $.objectType = Objects.requireNonNull($.objectType, "expected parameter 'objectType' to be non-null");
+            if ($.objectName == null) {
+                throw new MissingRequiredPropertyException("GrantPrivilegesToRoleOnAccountObjectArgs", "objectName");
+            }
+            if ($.objectType == null) {
+                throw new MissingRequiredPropertyException("GrantPrivilegesToRoleOnAccountObjectArgs", "objectType");
+            }
             return $;
         }
     }

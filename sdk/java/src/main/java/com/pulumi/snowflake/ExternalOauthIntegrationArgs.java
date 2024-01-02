@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -683,11 +684,21 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
         }
 
         public ExternalOauthIntegrationArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.snowflakeUserMappingAttribute = Objects.requireNonNull($.snowflakeUserMappingAttribute, "expected parameter 'snowflakeUserMappingAttribute' to be non-null");
-            $.tokenUserMappingClaims = Objects.requireNonNull($.tokenUserMappingClaims, "expected parameter 'tokenUserMappingClaims' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "enabled");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "issuer");
+            }
+            if ($.snowflakeUserMappingAttribute == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "snowflakeUserMappingAttribute");
+            }
+            if ($.tokenUserMappingClaims == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "tokenUserMappingClaims");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "type");
+            }
             return $;
         }
     }

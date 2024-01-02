@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetParametersParameter;
 import java.lang.String;
 import java.util.List;
@@ -130,27 +131,36 @@ public final class GetParametersResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetParametersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder objectName(@Nullable String objectName) {
+
             this.objectName = objectName;
             return this;
         }
         @CustomType.Setter
         public Builder objectType(@Nullable String objectType) {
+
             this.objectType = objectType;
             return this;
         }
         @CustomType.Setter
         public Builder parameterType(@Nullable String parameterType) {
+
             this.parameterType = parameterType;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(List<GetParametersParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetParametersResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetParametersParameter... parameters) {
@@ -158,11 +168,13 @@ public final class GetParametersResult {
         }
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }

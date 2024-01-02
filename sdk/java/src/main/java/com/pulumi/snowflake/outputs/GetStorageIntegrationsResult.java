@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetStorageIntegrationsStorageIntegration;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class GetStorageIntegrationsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStorageIntegrationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder storageIntegrations(List<GetStorageIntegrationsStorageIntegration> storageIntegrations) {
-            this.storageIntegrations = Objects.requireNonNull(storageIntegrations);
+            if (storageIntegrations == null) {
+              throw new MissingRequiredPropertyException("GetStorageIntegrationsResult", "storageIntegrations");
+            }
+            this.storageIntegrations = storageIntegrations;
             return this;
         }
         public Builder storageIntegrations(GetStorageIntegrationsStorageIntegration... storageIntegrations) {

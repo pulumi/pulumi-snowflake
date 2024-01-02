@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
@@ -133,17 +134,26 @@ public final class GetFailoverGroupsFailoverGroup {
 
         @CustomType.Setter
         public Builder accountLocator(String accountLocator) {
-            this.accountLocator = Objects.requireNonNull(accountLocator);
+            if (accountLocator == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "accountLocator");
+            }
+            this.accountLocator = accountLocator;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder allowedAccounts(List<Object> allowedAccounts) {
-            this.allowedAccounts = Objects.requireNonNull(allowedAccounts);
+            if (allowedAccounts == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "allowedAccounts");
+            }
+            this.allowedAccounts = allowedAccounts;
             return this;
         }
         public Builder allowedAccounts(Object... allowedAccounts) {
@@ -151,7 +161,10 @@ public final class GetFailoverGroupsFailoverGroup {
         }
         @CustomType.Setter
         public Builder allowedIntegrationTypes(List<Object> allowedIntegrationTypes) {
-            this.allowedIntegrationTypes = Objects.requireNonNull(allowedIntegrationTypes);
+            if (allowedIntegrationTypes == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "allowedIntegrationTypes");
+            }
+            this.allowedIntegrationTypes = allowedIntegrationTypes;
             return this;
         }
         public Builder allowedIntegrationTypes(Object... allowedIntegrationTypes) {
@@ -159,27 +172,42 @@ public final class GetFailoverGroupsFailoverGroup {
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder createdOn(String createdOn) {
-            this.createdOn = Objects.requireNonNull(createdOn);
+            if (createdOn == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "createdOn");
+            }
+            this.createdOn = createdOn;
             return this;
         }
         @CustomType.Setter
         public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = Objects.requireNonNull(isPrimary);
+            if (isPrimary == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "isPrimary");
+            }
+            this.isPrimary = isPrimary;
             return this;
         }
         @CustomType.Setter
         public Builder nextScheduledRefresh(String nextScheduledRefresh) {
-            this.nextScheduledRefresh = Objects.requireNonNull(nextScheduledRefresh);
+            if (nextScheduledRefresh == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "nextScheduledRefresh");
+            }
+            this.nextScheduledRefresh = nextScheduledRefresh;
             return this;
         }
         @CustomType.Setter
         public Builder objectTypes(List<Object> objectTypes) {
-            this.objectTypes = Objects.requireNonNull(objectTypes);
+            if (objectTypes == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "objectTypes");
+            }
+            this.objectTypes = objectTypes;
             return this;
         }
         public Builder objectTypes(Object... objectTypes) {
@@ -187,42 +215,66 @@ public final class GetFailoverGroupsFailoverGroup {
         }
         @CustomType.Setter
         public Builder organizationName(String organizationName) {
-            this.organizationName = Objects.requireNonNull(organizationName);
+            if (organizationName == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "organizationName");
+            }
+            this.organizationName = organizationName;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder primary(String primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder regionGroup(String regionGroup) {
-            this.regionGroup = Objects.requireNonNull(regionGroup);
+            if (regionGroup == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "regionGroup");
+            }
+            this.regionGroup = regionGroup;
             return this;
         }
         @CustomType.Setter
         public Builder replicationSchedule(String replicationSchedule) {
-            this.replicationSchedule = Objects.requireNonNull(replicationSchedule);
+            if (replicationSchedule == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "replicationSchedule");
+            }
+            this.replicationSchedule = replicationSchedule;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryState(String secondaryState) {
-            this.secondaryState = Objects.requireNonNull(secondaryState);
+            if (secondaryState == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "secondaryState");
+            }
+            this.secondaryState = secondaryState;
             return this;
         }
         @CustomType.Setter
         public Builder snowflakeRegion(String snowflakeRegion) {
-            this.snowflakeRegion = Objects.requireNonNull(snowflakeRegion);
+            if (snowflakeRegion == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "snowflakeRegion");
+            }
+            this.snowflakeRegion = snowflakeRegion;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetFailoverGroupsFailoverGroup", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetFailoverGroupsFailoverGroup build() {

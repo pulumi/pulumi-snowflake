@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnAccountObjectArgs;
 import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaArgs;
 import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaObjectArgs;
@@ -350,7 +351,9 @@ public final class GrantPrivilegesToRoleArgs extends com.pulumi.resources.Resour
         }
 
         public GrantPrivilegesToRoleArgs build() {
-            $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
+            if ($.roleName == null) {
+                throw new MissingRequiredPropertyException("GrantPrivilegesToRoleArgs", "roleName");
+            }
             return $;
         }
     }

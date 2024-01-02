@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class FailoverGroupFromReplicaArgs extends com.pulumi.resources.Res
         }
 
         public FailoverGroupFromReplicaArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.organizationName = Objects.requireNonNull($.organizationName, "expected parameter 'organizationName' to be non-null");
-            $.sourceAccountName = Objects.requireNonNull($.sourceAccountName, "expected parameter 'sourceAccountName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupFromReplicaArgs", "name");
+            }
+            if ($.organizationName == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupFromReplicaArgs", "organizationName");
+            }
+            if ($.sourceAccountName == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupFromReplicaArgs", "sourceAccountName");
+            }
             return $;
         }
     }

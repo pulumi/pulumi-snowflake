@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -122,11 +123,21 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
         }
 
         public ProviderTokenAccessorArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.redirectUri = Objects.requireNonNull($.redirectUri, "expected parameter 'redirectUri' to be non-null");
-            $.refreshToken = Objects.requireNonNull($.refreshToken, "expected parameter 'refreshToken' to be non-null");
-            $.tokenEndpoint = Objects.requireNonNull($.tokenEndpoint, "expected parameter 'tokenEndpoint' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("ProviderTokenAccessorArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("ProviderTokenAccessorArgs", "clientSecret");
+            }
+            if ($.redirectUri == null) {
+                throw new MissingRequiredPropertyException("ProviderTokenAccessorArgs", "redirectUri");
+            }
+            if ($.refreshToken == null) {
+                throw new MissingRequiredPropertyException("ProviderTokenAccessorArgs", "refreshToken");
+            }
+            if ($.tokenEndpoint == null) {
+                throw new MissingRequiredPropertyException("ProviderTokenAccessorArgs", "tokenEndpoint");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class GrantPrivilegesToRoleOnSchemaObjectFuture {
 
         @CustomType.Setter
         public Builder inDatabase(@Nullable String inDatabase) {
+
             this.inDatabase = inDatabase;
             return this;
         }
         @CustomType.Setter
         public Builder inSchema(@Nullable String inSchema) {
+
             this.inSchema = inSchema;
             return this;
         }
         @CustomType.Setter
         public Builder objectTypePlural(String objectTypePlural) {
-            this.objectTypePlural = Objects.requireNonNull(objectTypePlural);
+            if (objectTypePlural == null) {
+              throw new MissingRequiredPropertyException("GrantPrivilegesToRoleOnSchemaObjectFuture", "objectTypePlural");
+            }
+            this.objectTypePlural = objectTypePlural;
             return this;
         }
         public GrantPrivilegesToRoleOnSchemaObjectFuture build() {

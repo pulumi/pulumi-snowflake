@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -79,7 +80,9 @@ public final class DatabaseReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         public DatabaseReplicationConfigurationArgs build() {
-            $.accounts = Objects.requireNonNull($.accounts, "expected parameter 'accounts' to be non-null");
+            if ($.accounts == null) {
+                throw new MissingRequiredPropertyException("DatabaseReplicationConfigurationArgs", "accounts");
+            }
             return $;
         }
     }

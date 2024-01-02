@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TagAssociationObjectIdentifierArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -290,10 +291,18 @@ public final class TagAssociationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public TagAssociationArgs build() {
-            $.objectIdentifiers = Objects.requireNonNull($.objectIdentifiers, "expected parameter 'objectIdentifiers' to be non-null");
-            $.objectType = Objects.requireNonNull($.objectType, "expected parameter 'objectType' to be non-null");
-            $.tagId = Objects.requireNonNull($.tagId, "expected parameter 'tagId' to be non-null");
-            $.tagValue = Objects.requireNonNull($.tagValue, "expected parameter 'tagValue' to be non-null");
+            if ($.objectIdentifiers == null) {
+                throw new MissingRequiredPropertyException("TagAssociationArgs", "objectIdentifiers");
+            }
+            if ($.objectType == null) {
+                throw new MissingRequiredPropertyException("TagAssociationArgs", "objectType");
+            }
+            if ($.tagId == null) {
+                throw new MissingRequiredPropertyException("TagAssociationArgs", "tagId");
+            }
+            if ($.tagValue == null) {
+                throw new MissingRequiredPropertyException("TagAssociationArgs", "tagValue");
+            }
             return $;
         }
     }

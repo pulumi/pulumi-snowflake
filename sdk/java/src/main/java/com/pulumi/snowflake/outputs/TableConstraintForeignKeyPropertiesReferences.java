@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class TableConstraintForeignKeyPropertiesReferences {
 
         @CustomType.Setter
         public Builder columns(List<String> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("TableConstraintForeignKeyPropertiesReferences", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(String... columns) {
@@ -65,7 +69,10 @@ public final class TableConstraintForeignKeyPropertiesReferences {
         }
         @CustomType.Setter
         public Builder tableId(String tableId) {
-            this.tableId = Objects.requireNonNull(tableId);
+            if (tableId == null) {
+              throw new MissingRequiredPropertyException("TableConstraintForeignKeyPropertiesReferences", "tableId");
+            }
+            this.tableId = tableId;
             return this;
         }
         public TableConstraintForeignKeyPropertiesReferences build() {

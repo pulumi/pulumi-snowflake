@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class RoleOwnershipGrantArgs extends com.pulumi.resources.ResourceA
         }
 
         public RoleOwnershipGrantArgs build() {
-            $.onRoleName = Objects.requireNonNull($.onRoleName, "expected parameter 'onRoleName' to be non-null");
-            $.toRoleName = Objects.requireNonNull($.toRoleName, "expected parameter 'toRoleName' to be non-null");
+            if ($.onRoleName == null) {
+                throw new MissingRequiredPropertyException("RoleOwnershipGrantArgs", "onRoleName");
+            }
+            if ($.toRoleName == null) {
+                throw new MissingRequiredPropertyException("RoleOwnershipGrantArgs", "toRoleName");
+            }
             return $;
         }
     }

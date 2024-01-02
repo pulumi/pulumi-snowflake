@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FailoverGroupReplicationScheduleCronArgs extends com.pulumi.r
         }
 
         public FailoverGroupReplicationScheduleCronArgs build() {
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupReplicationScheduleCronArgs", "expression");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupReplicationScheduleCronArgs", "timeZone");
+            }
             return $;
         }
     }

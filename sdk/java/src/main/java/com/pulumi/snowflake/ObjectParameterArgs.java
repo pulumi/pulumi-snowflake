@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -237,8 +238,12 @@ public final class ObjectParameterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ObjectParameterArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ObjectParameterArgs", "key");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ObjectParameterArgs", "value");
+            }
             return $;
         }
     }

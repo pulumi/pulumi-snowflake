@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -277,7 +278,9 @@ public final class WarehouseGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public WarehouseGrantArgs build() {
-            $.warehouseName = Objects.requireNonNull($.warehouseName, "expected parameter 'warehouseName' to be non-null");
+            if ($.warehouseName == null) {
+                throw new MissingRequiredPropertyException("WarehouseGrantArgs", "warehouseName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.DynamicTableTargetLagArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -337,11 +338,21 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DynamicTableArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.targetLag = Objects.requireNonNull($.targetLag, "expected parameter 'targetLag' to be non-null");
-            $.warehouse = Objects.requireNonNull($.warehouse, "expected parameter 'warehouse' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("DynamicTableArgs", "database");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("DynamicTableArgs", "query");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("DynamicTableArgs", "schema");
+            }
+            if ($.targetLag == null) {
+                throw new MissingRequiredPropertyException("DynamicTableArgs", "targetLag");
+            }
+            if ($.warehouse == null) {
+                throw new MissingRequiredPropertyException("DynamicTableArgs", "warehouse");
+            }
             return $;
         }
     }

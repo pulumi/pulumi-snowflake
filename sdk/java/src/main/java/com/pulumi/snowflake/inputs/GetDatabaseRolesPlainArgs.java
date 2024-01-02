@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetDatabaseRolesPlainArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("GetDatabaseRolesPlainArgs", "database");
+            }
             return $;
         }
     }

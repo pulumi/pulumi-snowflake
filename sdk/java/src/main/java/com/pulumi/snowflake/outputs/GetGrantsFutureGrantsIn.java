@@ -59,11 +59,13 @@ public final class GetGrantsFutureGrantsIn {
 
         @CustomType.Setter
         public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder schema(@Nullable GetGrantsFutureGrantsInSchema schema) {
+
             this.schema = schema;
             return this;
         }

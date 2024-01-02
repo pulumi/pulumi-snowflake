@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,22 +53,34 @@ public final class GetResourceMonitorsResourceMonitor {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder creditQuota(String creditQuota) {
-            this.creditQuota = Objects.requireNonNull(creditQuota);
+            if (creditQuota == null) {
+              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "creditQuota");
+            }
+            this.creditQuota = creditQuota;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetResourceMonitorsResourceMonitor build() {

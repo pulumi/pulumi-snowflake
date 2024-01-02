@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -277,7 +278,9 @@ public final class FailoverGroupGrantArgs extends com.pulumi.resources.ResourceA
         }
 
         public FailoverGroupGrantArgs build() {
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupGrantArgs", "roles");
+            }
             return $;
         }
     }
