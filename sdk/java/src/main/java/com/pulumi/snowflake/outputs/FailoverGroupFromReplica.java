@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class FailoverGroupFromReplica {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FailoverGroupFromReplica", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder organizationName(String organizationName) {
-            this.organizationName = Objects.requireNonNull(organizationName);
+            if (organizationName == null) {
+              throw new MissingRequiredPropertyException("FailoverGroupFromReplica", "organizationName");
+            }
+            this.organizationName = organizationName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAccountName(String sourceAccountName) {
-            this.sourceAccountName = Objects.requireNonNull(sourceAccountName);
+            if (sourceAccountName == null) {
+              throw new MissingRequiredPropertyException("FailoverGroupFromReplica", "sourceAccountName");
+            }
+            this.sourceAccountName = sourceAccountName;
             return this;
         }
         public FailoverGroupFromReplica build() {

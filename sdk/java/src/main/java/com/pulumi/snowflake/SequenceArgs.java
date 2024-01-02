@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SequenceArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("SequenceArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("SequenceArgs", "schema");
+            }
             return $;
         }
     }

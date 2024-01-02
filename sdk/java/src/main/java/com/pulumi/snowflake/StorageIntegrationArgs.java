@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -291,8 +292,12 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
         }
 
         public StorageIntegrationArgs build() {
-            $.storageAllowedLocations = Objects.requireNonNull($.storageAllowedLocations, "expected parameter 'storageAllowedLocations' to be non-null");
-            $.storageProvider = Objects.requireNonNull($.storageProvider, "expected parameter 'storageProvider' to be non-null");
+            if ($.storageAllowedLocations == null) {
+                throw new MissingRequiredPropertyException("StorageIntegrationArgs", "storageAllowedLocations");
+            }
+            if ($.storageProvider == null) {
+                throw new MissingRequiredPropertyException("StorageIntegrationArgs", "storageProvider");
+            }
             return $;
         }
     }

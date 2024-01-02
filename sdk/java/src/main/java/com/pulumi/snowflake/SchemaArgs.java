@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.SchemaTagArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -332,7 +333,9 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SchemaArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "database");
+            }
             return $;
         }
     }

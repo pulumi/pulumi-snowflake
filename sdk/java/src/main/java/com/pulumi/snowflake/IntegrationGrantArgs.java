@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -277,7 +278,9 @@ public final class IntegrationGrantArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IntegrationGrantArgs build() {
-            $.integrationName = Objects.requireNonNull($.integrationName, "expected parameter 'integrationName' to be non-null");
+            if ($.integrationName == null) {
+                throw new MissingRequiredPropertyException("IntegrationGrantArgs", "integrationName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,8 +63,12 @@ public final class GetSequencesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetSequencesPlainArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("GetSequencesPlainArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("GetSequencesPlainArgs", "schema");
+            }
             return $;
         }
     }

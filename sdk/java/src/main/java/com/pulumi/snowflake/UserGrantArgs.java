@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -240,8 +241,12 @@ public final class UserGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserGrantArgs build() {
-            $.privilege = Objects.requireNonNull($.privilege, "expected parameter 'privilege' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.privilege == null) {
+                throw new MissingRequiredPropertyException("UserGrantArgs", "privilege");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserGrantArgs", "userName");
+            }
             return $;
         }
     }

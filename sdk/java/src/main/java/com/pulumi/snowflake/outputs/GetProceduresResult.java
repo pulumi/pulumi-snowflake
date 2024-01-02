@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetProceduresProcedure;
 import java.lang.String;
 import java.util.List;
@@ -86,17 +87,26 @@ public final class GetProceduresResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetProceduresResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProceduresResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder procedures(List<GetProceduresProcedure> procedures) {
-            this.procedures = Objects.requireNonNull(procedures);
+            if (procedures == null) {
+              throw new MissingRequiredPropertyException("GetProceduresResult", "procedures");
+            }
+            this.procedures = procedures;
             return this;
         }
         public Builder procedures(GetProceduresProcedure... procedures) {
@@ -104,7 +114,10 @@ public final class GetProceduresResult {
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetProceduresResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetProceduresResult build() {

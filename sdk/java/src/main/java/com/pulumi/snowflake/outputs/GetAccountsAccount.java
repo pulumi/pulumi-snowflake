@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,82 +127,130 @@ public final class GetAccountsAccount {
 
         @CustomType.Setter
         public Builder accountLocator(String accountLocator) {
-            this.accountLocator = Objects.requireNonNull(accountLocator);
+            if (accountLocator == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "accountLocator");
+            }
+            this.accountLocator = accountLocator;
             return this;
         }
         @CustomType.Setter
         public Builder accountLocatorUrl(String accountLocatorUrl) {
-            this.accountLocatorUrl = Objects.requireNonNull(accountLocatorUrl);
+            if (accountLocatorUrl == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "accountLocatorUrl");
+            }
+            this.accountLocatorUrl = accountLocatorUrl;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder accountUrl(String accountUrl) {
-            this.accountUrl = Objects.requireNonNull(accountUrl);
+            if (accountUrl == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "accountUrl");
+            }
+            this.accountUrl = accountUrl;
             return this;
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder consumptionBillingEntityName(String consumptionBillingEntityName) {
-            this.consumptionBillingEntityName = Objects.requireNonNull(consumptionBillingEntityName);
+            if (consumptionBillingEntityName == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "consumptionBillingEntityName");
+            }
+            this.consumptionBillingEntityName = consumptionBillingEntityName;
             return this;
         }
         @CustomType.Setter
         public Builder createdOn(String createdOn) {
-            this.createdOn = Objects.requireNonNull(createdOn);
+            if (createdOn == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "createdOn");
+            }
+            this.createdOn = createdOn;
             return this;
         }
         @CustomType.Setter
         public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+            if (edition == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "edition");
+            }
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
         public Builder isOrgAdmin(Boolean isOrgAdmin) {
-            this.isOrgAdmin = Objects.requireNonNull(isOrgAdmin);
+            if (isOrgAdmin == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "isOrgAdmin");
+            }
+            this.isOrgAdmin = isOrgAdmin;
             return this;
         }
         @CustomType.Setter
         public Builder managedAccounts(Integer managedAccounts) {
-            this.managedAccounts = Objects.requireNonNull(managedAccounts);
+            if (managedAccounts == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "managedAccounts");
+            }
+            this.managedAccounts = managedAccounts;
             return this;
         }
         @CustomType.Setter
         public Builder marketplaceConsumerBillingEntityName(String marketplaceConsumerBillingEntityName) {
-            this.marketplaceConsumerBillingEntityName = Objects.requireNonNull(marketplaceConsumerBillingEntityName);
+            if (marketplaceConsumerBillingEntityName == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "marketplaceConsumerBillingEntityName");
+            }
+            this.marketplaceConsumerBillingEntityName = marketplaceConsumerBillingEntityName;
             return this;
         }
         @CustomType.Setter
         public Builder marketplaceProviderBillingEntityName(String marketplaceProviderBillingEntityName) {
-            this.marketplaceProviderBillingEntityName = Objects.requireNonNull(marketplaceProviderBillingEntityName);
+            if (marketplaceProviderBillingEntityName == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "marketplaceProviderBillingEntityName");
+            }
+            this.marketplaceProviderBillingEntityName = marketplaceProviderBillingEntityName;
             return this;
         }
         @CustomType.Setter
         public Builder oldAccountUrl(String oldAccountUrl) {
-            this.oldAccountUrl = Objects.requireNonNull(oldAccountUrl);
+            if (oldAccountUrl == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "oldAccountUrl");
+            }
+            this.oldAccountUrl = oldAccountUrl;
             return this;
         }
         @CustomType.Setter
         public Builder organizationName(String organizationName) {
-            this.organizationName = Objects.requireNonNull(organizationName);
+            if (organizationName == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "organizationName");
+            }
+            this.organizationName = organizationName;
             return this;
         }
         @CustomType.Setter
         public Builder regionGroup(String regionGroup) {
-            this.regionGroup = Objects.requireNonNull(regionGroup);
+            if (regionGroup == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "regionGroup");
+            }
+            this.regionGroup = regionGroup;
             return this;
         }
         @CustomType.Setter
         public Builder snowflakeRegion(String snowflakeRegion) {
-            this.snowflakeRegion = Objects.requireNonNull(snowflakeRegion);
+            if (snowflakeRegion == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "snowflakeRegion");
+            }
+            this.snowflakeRegion = snowflakeRegion;
             return this;
         }
         public GetAccountsAccount build() {

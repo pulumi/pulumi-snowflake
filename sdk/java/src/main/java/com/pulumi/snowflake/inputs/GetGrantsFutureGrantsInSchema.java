@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,7 +93,9 @@ public final class GetGrantsFutureGrantsInSchema extends com.pulumi.resources.In
         }
 
         public GetGrantsFutureGrantsInSchema build() {
-            $.schemaName = Objects.requireNonNull($.schemaName, "expected parameter 'schemaName' to be non-null");
+            if ($.schemaName == null) {
+                throw new MissingRequiredPropertyException("GetGrantsFutureGrantsInSchema", "schemaName");
+            }
             return $;
         }
     }

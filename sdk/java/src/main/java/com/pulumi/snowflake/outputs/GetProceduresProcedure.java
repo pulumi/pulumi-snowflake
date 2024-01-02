@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class GetProceduresProcedure {
 
         @CustomType.Setter
         public Builder argumentTypes(List<String> argumentTypes) {
-            this.argumentTypes = Objects.requireNonNull(argumentTypes);
+            if (argumentTypes == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "argumentTypes");
+            }
+            this.argumentTypes = argumentTypes;
             return this;
         }
         public Builder argumentTypes(String... argumentTypes) {
@@ -73,27 +77,42 @@ public final class GetProceduresProcedure {
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder returnType(String returnType) {
-            this.returnType = Objects.requireNonNull(returnType);
+            if (returnType == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "returnType");
+            }
+            this.returnType = returnType;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetProceduresProcedure", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetProceduresProcedure build() {

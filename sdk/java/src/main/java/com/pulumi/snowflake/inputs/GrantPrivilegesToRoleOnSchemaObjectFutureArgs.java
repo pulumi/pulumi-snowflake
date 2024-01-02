@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class GrantPrivilegesToRoleOnSchemaObjectFutureArgs extends com.pul
         }
 
         public GrantPrivilegesToRoleOnSchemaObjectFutureArgs build() {
-            $.objectTypePlural = Objects.requireNonNull($.objectTypePlural, "expected parameter 'objectTypePlural' to be non-null");
+            if ($.objectTypePlural == null) {
+                throw new MissingRequiredPropertyException("GrantPrivilegesToRoleOnSchemaObjectFutureArgs", "objectTypePlural");
+            }
             return $;
         }
     }

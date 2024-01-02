@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetSystemGenerateScimAccessTokenResult {
 
         @CustomType.Setter
         public Builder accessToken(String accessToken) {
-            this.accessToken = Objects.requireNonNull(accessToken);
+            if (accessToken == null) {
+              throw new MissingRequiredPropertyException("GetSystemGenerateScimAccessTokenResult", "accessToken");
+            }
+            this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSystemGenerateScimAccessTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder integrationName(String integrationName) {
-            this.integrationName = Objects.requireNonNull(integrationName);
+            if (integrationName == null) {
+              throw new MissingRequiredPropertyException("GetSystemGenerateScimAccessTokenResult", "integrationName");
+            }
+            this.integrationName = integrationName;
             return this;
         }
         public GetSystemGenerateScimAccessTokenResult build() {

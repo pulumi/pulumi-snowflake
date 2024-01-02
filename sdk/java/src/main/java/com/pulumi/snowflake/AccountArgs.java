@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -522,9 +523,15 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.adminName = Objects.requireNonNull($.adminName, "expected parameter 'adminName' to be non-null");
-            $.edition = Objects.requireNonNull($.edition, "expected parameter 'edition' to be non-null");
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
+            if ($.adminName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "adminName");
+            }
+            if ($.edition == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "edition");
+            }
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "email");
+            }
             return $;
         }
     }

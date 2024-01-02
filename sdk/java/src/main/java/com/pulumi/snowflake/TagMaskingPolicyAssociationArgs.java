@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TagMaskingPolicyAssociationArgs extends com.pulumi.resources.
         }
 
         public TagMaskingPolicyAssociationArgs build() {
-            $.maskingPolicyId = Objects.requireNonNull($.maskingPolicyId, "expected parameter 'maskingPolicyId' to be non-null");
-            $.tagId = Objects.requireNonNull($.tagId, "expected parameter 'tagId' to be non-null");
+            if ($.maskingPolicyId == null) {
+                throw new MissingRequiredPropertyException("TagMaskingPolicyAssociationArgs", "maskingPolicyId");
+            }
+            if ($.tagId == null) {
+                throw new MissingRequiredPropertyException("TagMaskingPolicyAssociationArgs", "tagId");
+            }
             return $;
         }
     }

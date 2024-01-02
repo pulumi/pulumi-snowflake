@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetSharesShare;
 import java.lang.String;
 import java.util.List;
@@ -74,17 +75,24 @@ public final class GetSharesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSharesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder shares(List<GetSharesShare> shares) {
-            this.shares = Objects.requireNonNull(shares);
+            if (shares == null) {
+              throw new MissingRequiredPropertyException("GetSharesResult", "shares");
+            }
+            this.shares = shares;
             return this;
         }
         public Builder shares(GetSharesShare... shares) {

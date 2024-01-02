@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesMaskingPolicy;
 import java.lang.String;
 import java.util.List;
@@ -86,17 +87,26 @@ public final class GetMaskingPoliciesResult {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maskingPolicies(List<GetMaskingPoliciesMaskingPolicy> maskingPolicies) {
-            this.maskingPolicies = Objects.requireNonNull(maskingPolicies);
+            if (maskingPolicies == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "maskingPolicies");
+            }
+            this.maskingPolicies = maskingPolicies;
             return this;
         }
         public Builder maskingPolicies(GetMaskingPoliciesMaskingPolicy... maskingPolicies) {
@@ -104,7 +114,10 @@ public final class GetMaskingPoliciesResult {
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetMaskingPoliciesResult build() {

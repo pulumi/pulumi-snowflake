@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.FunctionArgumentArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -664,10 +665,18 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FunctionArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.returnType = Objects.requireNonNull($.returnType, "expected parameter 'returnType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "database");
+            }
+            if ($.returnType == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "returnType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "schema");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "statement");
+            }
             return $;
         }
     }

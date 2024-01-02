@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseReplicationConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -92,47 +93,74 @@ public final class GetDatabasesDatabase {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder createdOn(String createdOn) {
-            this.createdOn = Objects.requireNonNull(createdOn);
+            if (createdOn == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "createdOn");
+            }
+            this.createdOn = createdOn;
             return this;
         }
         @CustomType.Setter
         public Builder isCurrent(Boolean isCurrent) {
-            this.isCurrent = Objects.requireNonNull(isCurrent);
+            if (isCurrent == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "isCurrent");
+            }
+            this.isCurrent = isCurrent;
             return this;
         }
         @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = Objects.requireNonNull(isDefault);
+            if (isDefault == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "isDefault");
+            }
+            this.isDefault = isDefault;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder options(String options) {
-            this.options = Objects.requireNonNull(options);
+            if (options == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "options");
+            }
+            this.options = options;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder replicationConfigurations(List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations) {
-            this.replicationConfigurations = Objects.requireNonNull(replicationConfigurations);
+            if (replicationConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "replicationConfigurations");
+            }
+            this.replicationConfigurations = replicationConfigurations;
             return this;
         }
         public Builder replicationConfigurations(GetDatabasesDatabaseReplicationConfiguration... replicationConfigurations) {
@@ -140,7 +168,10 @@ public final class GetDatabasesDatabase {
         }
         @CustomType.Setter
         public Builder retentionTime(Integer retentionTime) {
-            this.retentionTime = Objects.requireNonNull(retentionTime);
+            if (retentionTime == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "retentionTime");
+            }
+            this.retentionTime = retentionTime;
             return this;
         }
         public GetDatabasesDatabase build() {

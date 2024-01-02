@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -42,7 +43,10 @@ public final class GetDatabasesDatabaseReplicationConfiguration {
 
         @CustomType.Setter
         public Builder accounts(List<String> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+            if (accounts == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabaseReplicationConfiguration", "accounts");
+            }
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(String... accounts) {
@@ -50,7 +54,10 @@ public final class GetDatabasesDatabaseReplicationConfiguration {
         }
         @CustomType.Setter
         public Builder ignoreEditionCheck(Boolean ignoreEditionCheck) {
-            this.ignoreEditionCheck = Objects.requireNonNull(ignoreEditionCheck);
+            if (ignoreEditionCheck == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabaseReplicationConfiguration", "ignoreEditionCheck");
+            }
+            this.ignoreEditionCheck = ignoreEditionCheck;
             return this;
         }
         public GetDatabasesDatabaseReplicationConfiguration build() {

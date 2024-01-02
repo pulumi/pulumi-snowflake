@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetGrantsFutureGrantsIn;
 import com.pulumi.snowflake.outputs.GetGrantsFutureGrantsTo;
 import com.pulumi.snowflake.outputs.GetGrantsGrant;
@@ -135,17 +136,22 @@ public final class GetGrantsResult {
 
         @CustomType.Setter
         public Builder futureGrantsIn(@Nullable GetGrantsFutureGrantsIn futureGrantsIn) {
+
             this.futureGrantsIn = futureGrantsIn;
             return this;
         }
         @CustomType.Setter
         public Builder futureGrantsTo(@Nullable GetGrantsFutureGrantsTo futureGrantsTo) {
+
             this.futureGrantsTo = futureGrantsTo;
             return this;
         }
         @CustomType.Setter
         public Builder grants(List<GetGrantsGrant> grants) {
-            this.grants = Objects.requireNonNull(grants);
+            if (grants == null) {
+              throw new MissingRequiredPropertyException("GetGrantsResult", "grants");
+            }
+            this.grants = grants;
             return this;
         }
         public Builder grants(GetGrantsGrant... grants) {
@@ -153,22 +159,28 @@ public final class GetGrantsResult {
         }
         @CustomType.Setter
         public Builder grantsOf(@Nullable GetGrantsGrantsOf grantsOf) {
+
             this.grantsOf = grantsOf;
             return this;
         }
         @CustomType.Setter
         public Builder grantsOn(@Nullable GetGrantsGrantsOn grantsOn) {
+
             this.grantsOn = grantsOn;
             return this;
         }
         @CustomType.Setter
         public Builder grantsTo(@Nullable GetGrantsGrantsTo grantsTo) {
+
             this.grantsTo = grantsTo;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGrantsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetGrantsResult build() {

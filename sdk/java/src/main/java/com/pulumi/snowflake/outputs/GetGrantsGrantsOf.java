@@ -58,11 +58,13 @@ public final class GetGrantsGrantsOf {
 
         @CustomType.Setter
         public Builder role(@Nullable String role) {
+
             this.role = role;
             return this;
         }
         @CustomType.Setter
         public Builder share(@Nullable String share) {
+
             this.share = share;
             return this;
         }

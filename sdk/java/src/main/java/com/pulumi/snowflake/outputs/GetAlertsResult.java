@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetAlertsAlert;
 import java.lang.String;
 import java.util.List;
@@ -102,7 +103,10 @@ public final class GetAlertsResult {
 
         @CustomType.Setter
         public Builder alerts(List<GetAlertsAlert> alerts) {
-            this.alerts = Objects.requireNonNull(alerts);
+            if (alerts == null) {
+              throw new MissingRequiredPropertyException("GetAlertsResult", "alerts");
+            }
+            this.alerts = alerts;
             return this;
         }
         public Builder alerts(GetAlertsAlert... alerts) {
@@ -110,21 +114,27 @@ public final class GetAlertsResult {
         }
         @CustomType.Setter
         public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAlertsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder schema(@Nullable String schema) {
+
             this.schema = schema;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetAccountsAccount;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class GetAccountsResult {
 
         @CustomType.Setter
         public Builder accounts(List<GetAccountsAccount> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+            if (accounts == null) {
+              throw new MissingRequiredPropertyException("GetAccountsResult", "accounts");
+            }
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(GetAccountsAccount... accounts) {
@@ -82,11 +86,15 @@ public final class GetAccountsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }

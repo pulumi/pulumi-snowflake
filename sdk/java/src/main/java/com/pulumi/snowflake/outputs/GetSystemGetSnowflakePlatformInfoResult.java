@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
 
         @CustomType.Setter
         public Builder awsVpcIds(List<String> awsVpcIds) {
-            this.awsVpcIds = Objects.requireNonNull(awsVpcIds);
+            if (awsVpcIds == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetSnowflakePlatformInfoResult", "awsVpcIds");
+            }
+            this.awsVpcIds = awsVpcIds;
             return this;
         }
         public Builder awsVpcIds(String... awsVpcIds) {
@@ -79,7 +83,10 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
         }
         @CustomType.Setter
         public Builder azureVnetSubnetIds(List<String> azureVnetSubnetIds) {
-            this.azureVnetSubnetIds = Objects.requireNonNull(azureVnetSubnetIds);
+            if (azureVnetSubnetIds == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetSnowflakePlatformInfoResult", "azureVnetSubnetIds");
+            }
+            this.azureVnetSubnetIds = azureVnetSubnetIds;
             return this;
         }
         public Builder azureVnetSubnetIds(String... azureVnetSubnetIds) {
@@ -87,7 +94,10 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetSnowflakePlatformInfoResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSystemGetSnowflakePlatformInfoResult build() {

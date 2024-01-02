@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -64,32 +65,50 @@ public final class GetWarehousesWarehouse {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scalingPolicy(String scalingPolicy) {
-            this.scalingPolicy = Objects.requireNonNull(scalingPolicy);
+            if (scalingPolicy == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "scalingPolicy");
+            }
+            this.scalingPolicy = scalingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder size(String size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetWarehousesWarehouse build() {

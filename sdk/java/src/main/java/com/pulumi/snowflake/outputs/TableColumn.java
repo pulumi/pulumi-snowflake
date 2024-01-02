@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.TableColumnDefault;
 import com.pulumi.snowflake.outputs.TableColumnIdentity;
 import java.lang.Boolean;
@@ -131,37 +132,48 @@ public final class TableColumn {
 
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
+
             this.comment = comment;
             return this;
         }
         @CustomType.Setter("default")
         public Builder default_(@Nullable TableColumnDefault default_) {
+
             this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder identity(@Nullable TableColumnIdentity identity) {
+
             this.identity = identity;
             return this;
         }
         @CustomType.Setter
         public Builder maskingPolicy(@Nullable String maskingPolicy) {
+
             this.maskingPolicy = maskingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TableColumn", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nullable(@Nullable Boolean nullable) {
+
             this.nullable = nullable;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("TableColumn", "type");
+            }
+            this.type = type;
             return this;
         }
         public TableColumn build() {

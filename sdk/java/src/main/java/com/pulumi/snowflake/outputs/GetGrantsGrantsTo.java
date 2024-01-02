@@ -72,16 +72,19 @@ public final class GetGrantsGrantsTo {
 
         @CustomType.Setter
         public Builder role(@Nullable String role) {
+
             this.role = role;
             return this;
         }
         @CustomType.Setter
         public Builder share(@Nullable String share) {
+
             this.share = share;
             return this;
         }
         @CustomType.Setter
         public Builder user(@Nullable String user) {
+
             this.user = user;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ExternalFunctionArgArgs;
 import com.pulumi.snowflake.inputs.ExternalFunctionHeaderArgs;
 import java.lang.Boolean;
@@ -703,12 +704,24 @@ public final class ExternalFunctionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ExternalFunctionArgs build() {
-            $.apiIntegration = Objects.requireNonNull($.apiIntegration, "expected parameter 'apiIntegration' to be non-null");
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.returnBehavior = Objects.requireNonNull($.returnBehavior, "expected parameter 'returnBehavior' to be non-null");
-            $.returnType = Objects.requireNonNull($.returnType, "expected parameter 'returnType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.urlOfProxyAndResource = Objects.requireNonNull($.urlOfProxyAndResource, "expected parameter 'urlOfProxyAndResource' to be non-null");
+            if ($.apiIntegration == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "apiIntegration");
+            }
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "database");
+            }
+            if ($.returnBehavior == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "returnBehavior");
+            }
+            if ($.returnType == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "returnType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "schema");
+            }
+            if ($.urlOfProxyAndResource == null) {
+                throw new MissingRequiredPropertyException("ExternalFunctionArgs", "urlOfProxyAndResource");
+            }
             return $;
         }
     }

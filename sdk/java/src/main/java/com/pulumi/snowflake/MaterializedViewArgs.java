@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.MaterializedViewTagArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -405,10 +406,18 @@ public final class MaterializedViewArgs extends com.pulumi.resources.ResourceArg
         }
 
         public MaterializedViewArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
-            $.warehouse = Objects.requireNonNull($.warehouse, "expected parameter 'warehouse' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("MaterializedViewArgs", "database");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("MaterializedViewArgs", "schema");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("MaterializedViewArgs", "statement");
+            }
+            if ($.warehouse == null) {
+                throw new MissingRequiredPropertyException("MaterializedViewArgs", "warehouse");
+            }
             return $;
         }
     }

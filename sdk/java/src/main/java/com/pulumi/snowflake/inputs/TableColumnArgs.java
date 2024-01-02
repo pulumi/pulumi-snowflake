@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
 import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
 import java.lang.Boolean;
@@ -301,8 +302,12 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableColumnArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("TableColumnArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TableColumnArgs", "type");
+            }
             return $;
         }
     }
