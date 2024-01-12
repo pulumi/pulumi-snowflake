@@ -233,6 +233,30 @@
                     }
                 }
             },
+            "snowflake_grant_privileges_to_database_role": {
+                "current": "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole",
+                "fields": {
+                    "on_schema": {
+                        "maxItemsOne": true
+                    },
+                    "on_schema_object": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "all": {
+                                    "maxItemsOne": true
+                                },
+                                "future": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "privileges": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_grant_privileges_to_role": {
                 "current": "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole",
                 "fields": {
@@ -1101,6 +1125,7 @@
             "snowflake:index/fileFormatGrant:FileFormatGrant": "snowflake_file_format_grant",
             "snowflake:index/function:Function": "snowflake_function",
             "snowflake:index/functionGrant:FunctionGrant": "snowflake_function_grant",
+            "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": "snowflake_grant_privileges_to_database_role",
             "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": "snowflake_grant_privileges_to_role",
             "snowflake:index/integrationGrant:IntegrationGrant": "snowflake_integration_grant",
             "snowflake:index/managedAccount:ManagedAccount": "snowflake_managed_account",
@@ -1221,6 +1246,25 @@
             },
             "snowflake:index/FailoverGroupReplicationScheduleCron:FailoverGroupReplicationScheduleCron": {
                 "timeZone": "time_zone"
+            },
+            "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema": {
+                "allSchemasInDatabase": "all_schemas_in_database",
+                "futureSchemasInDatabase": "future_schemas_in_database",
+                "schemaName": "schema_name"
+            },
+            "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObject:GrantPrivilegesToDatabaseRoleOnSchemaObject": {
+                "objectName": "object_name",
+                "objectType": "object_type"
+            },
+            "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectAll:GrantPrivilegesToDatabaseRoleOnSchemaObjectAll": {
+                "inDatabase": "in_database",
+                "inSchema": "in_schema",
+                "objectTypePlural": "object_type_plural"
+            },
+            "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture:GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture": {
+                "inDatabase": "in_database",
+                "inSchema": "in_schema",
+                "objectTypePlural": "object_type_plural"
             },
             "snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject": {
                 "objectName": "object_name",
@@ -1373,6 +1417,7 @@
                 "fileFormat": "file_format",
                 "partitionBies": "partition_by",
                 "refreshOnCreate": "refresh_on_create",
+                "tableFormat": "table_format",
                 "tags": "tag"
             },
             "snowflake:index/externalTableGrant:ExternalTableGrant": {
@@ -1648,6 +1693,16 @@
             },
             "snowflake:index/getWarehousesWarehouse:getWarehousesWarehouse": {
                 "scalingPolicy": "scaling_policy"
+            },
+            "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": {
+                "allPrivileges": "all_privileges",
+                "alwaysApply": "always_apply",
+                "alwaysApplyTrigger": "always_apply_trigger",
+                "databaseRoleName": "database_role_name",
+                "onDatabase": "on_database",
+                "onSchema": "on_schema",
+                "onSchemaObject": "on_schema_object",
+                "withGrantOption": "with_grant_option"
             },
             "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": {
                 "allPrivileges": "all_privileges",

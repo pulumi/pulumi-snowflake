@@ -216,6 +216,21 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+     * 
+     */
+    @Import(name="tableFormat")
+    private @Nullable Output<String> tableFormat;
+
+    /**
+     * @return Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+     * 
+     */
+    public Optional<Output<String>> tableFormat() {
+        return Optional.ofNullable(this.tableFormat);
+    }
+
+    /**
      * Definitions of a tag to associate with the resource.
      * 
      * @deprecated
@@ -254,6 +269,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         this.pattern = $.pattern;
         this.refreshOnCreate = $.refreshOnCreate;
         this.schema = $.schema;
+        this.tableFormat = $.tableFormat;
         this.tags = $.tags;
     }
 
@@ -566,6 +582,27 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param tableFormat Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableFormat(@Nullable Output<String> tableFormat) {
+            $.tableFormat = tableFormat;
+            return this;
+        }
+
+        /**
+         * @param tableFormat Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableFormat(String tableFormat) {
+            return tableFormat(Output.of(tableFormat));
         }
 
         /**

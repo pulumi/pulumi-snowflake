@@ -91,6 +91,8 @@ type ExternalTable struct {
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
 	// Name of the schema that the tag was created in.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+	TableFormat pulumi.StringPtrOutput `pulumi:"tableFormat"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -170,6 +172,8 @@ type externalTableState struct {
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// Name of the schema that the tag was created in.
 	Schema *string `pulumi:"schema"`
+	// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+	TableFormat *string `pulumi:"tableFormat"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -205,6 +209,8 @@ type ExternalTableState struct {
 	RefreshOnCreate pulumi.BoolPtrInput
 	// Name of the schema that the tag was created in.
 	Schema pulumi.StringPtrInput
+	// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+	TableFormat pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -242,6 +248,8 @@ type externalTableArgs struct {
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// Name of the schema that the tag was created in.
 	Schema string `pulumi:"schema"`
+	// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+	TableFormat *string `pulumi:"tableFormat"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -276,6 +284,8 @@ type ExternalTableArgs struct {
 	RefreshOnCreate pulumi.BoolPtrInput
 	// Name of the schema that the tag was created in.
 	Schema pulumi.StringInput
+	// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+	TableFormat pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -437,6 +447,11 @@ func (o ExternalTableOutput) RefreshOnCreate() pulumi.BoolPtrOutput {
 // Name of the schema that the tag was created in.
 func (o ExternalTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+func (o ExternalTableOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.TableFormat }).(pulumi.StringPtrOutput)
 }
 
 // Definitions of a tag to associate with the resource.

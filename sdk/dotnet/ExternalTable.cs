@@ -140,6 +140,12 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
+        /// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        /// </summary>
+        [Output("tableFormat")]
+        public Output<string?> TableFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Definitions of a tag to associate with the resource.
         /// </summary>
         [Output("tags")]
@@ -281,6 +287,12 @@ namespace Pulumi.Snowflake
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        /// </summary>
+        [Input("tableFormat")]
+        public Input<string>? TableFormat { get; set; }
+
         [Input("tags")]
         private InputList<Inputs.ExternalTableTagArgs>? _tags;
 
@@ -397,6 +409,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        /// <summary>
+        /// Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        /// </summary>
+        [Input("tableFormat")]
+        public Input<string>? TableFormat { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ExternalTableTagGetArgs>? _tags;

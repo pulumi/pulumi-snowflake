@@ -29,6 +29,7 @@ class ExternalTableArgs:
                  partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
+                 table_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a ExternalTable resource.
@@ -45,6 +46,7 @@ class ExternalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "columns", columns)
@@ -68,6 +70,8 @@ class ExternalTableArgs:
             pulumi.set(__self__, "pattern", pattern)
         if refresh_on_create is not None:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
@@ -231,6 +235,18 @@ class ExternalTableArgs:
         pulumi.set(self, "refresh_on_create", value)
 
     @property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        """
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_format", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
         """
@@ -263,6 +279,7 @@ class _ExternalTableState:
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 table_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalTable resources.
@@ -280,6 +297,7 @@ class _ExternalTableState:
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if auto_refresh is not None:
@@ -310,6 +328,8 @@ class _ExternalTableState:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
         if tags is not None:
             warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
@@ -485,6 +505,18 @@ class _ExternalTableState:
         pulumi.set(self, "schema", value)
 
     @property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        """
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_format", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
         """
@@ -518,6 +550,7 @@ class ExternalTable(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 table_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -567,6 +600,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -635,6 +669,7 @@ class ExternalTable(pulumi.CustomResource):
                  pattern: Optional[pulumi.Input[str]] = None,
                  refresh_on_create: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 table_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -668,6 +703,7 @@ class ExternalTable(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["table_format"] = table_format
             __props__.__dict__["tags"] = tags
             __props__.__dict__["owner"] = None
         super(ExternalTable, __self__).__init__(
@@ -694,6 +730,7 @@ class ExternalTable(pulumi.CustomResource):
             pattern: Optional[pulumi.Input[str]] = None,
             refresh_on_create: Optional[pulumi.Input[bool]] = None,
             schema: Optional[pulumi.Input[str]] = None,
+            table_format: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]]] = None) -> 'ExternalTable':
         """
         Get an existing ExternalTable resource's state with the given name, id, and optional extra
@@ -716,6 +753,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -736,6 +774,7 @@ class ExternalTable(pulumi.CustomResource):
         __props__.__dict__["pattern"] = pattern
         __props__.__dict__["refresh_on_create"] = refresh_on_create
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["table_format"] = table_format
         __props__.__dict__["tags"] = tags
         return ExternalTable(resource_name, opts=opts, __props__=__props__)
 
@@ -850,6 +889,14 @@ class ExternalTable(pulumi.CustomResource):
         Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+        """
+        return pulumi.get(self, "table_format")
 
     @property
     @pulumi.getter
