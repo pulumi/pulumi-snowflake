@@ -598,6 +598,93 @@
                 "type"
             ]
         },
+        "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema": {
+            "properties": {
+                "allSchemasInDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "futureSchemasInDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObject:GrantPrivilegesToDatabaseRoleOnSchemaObject": {
+            "properties": {
+                "all": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectAll:GrantPrivilegesToDatabaseRoleOnSchemaObjectAll",
+                    "description": "Configures the privilege to be granted on all objects in either a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "future": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture:GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture",
+                    "description": "Configures the privilege to be granted on future objects in either a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the object on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectAll:GrantPrivilegesToDatabaseRoleOnSchemaObjectAll": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
+            ]
+        },
+        "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture:GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
+            ]
+        },
         "snowflake:index/GrantPrivilegesToRoleOnAccountObject:GrantPrivilegesToRoleOnAccountObject": {
             "properties": {
                 "objectName": {
@@ -4959,6 +5046,10 @@
                     "type": "string",
                     "description": "Name of the schema that the tag was created in.\n"
                 },
+                "tableFormat": {
+                    "type": "string",
+                    "description": "Identifies the external table table type. For now, only \"delta\" for Delta Lake table format is supported.\n"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -5047,6 +5138,11 @@
                 "schema": {
                     "type": "string",
                     "description": "Name of the schema that the tag was created in.\n",
+                    "willReplaceOnChanges": true
+                },
+                "tableFormat": {
+                    "type": "string",
+                    "description": "Identifies the external table table type. For now, only \"delta\" for Delta Lake table format is supported.\n",
                     "willReplaceOnChanges": true
                 },
                 "tags": {
@@ -5141,6 +5237,11 @@
                     "schema": {
                         "type": "string",
                         "description": "Name of the schema that the tag was created in.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "tableFormat": {
+                        "type": "string",
+                        "description": "Identifies the external table table type. For now, only \"delta\" for Delta Lake table format is supported.\n",
                         "willReplaceOnChanges": true
                     },
                     "tags": {
@@ -6748,6 +6849,152 @@
                     "withGrantOption": {
                         "type": "boolean",
                         "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": {
+            "description": "!\u003e **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).\n\n{{% examples %}}\n## Example Usage\n### on database privileges\n##################################\n\n# list of privileges\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  privileges         = [\"CREATE\", \"MONITOR\"]\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_database        = snowflake_database_role.db_role.database\n}\n\n# all privileges + grant option\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_database        = snowflake_database_role.db_role.database\n  all_privileges     = true\n  with_grant_option  = true\n}\n\n# all privileges + grant option + always apply\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_database        = snowflake_database_role.db_role.database\n  always_apply       = true\n  all_privileges     = true\n  with_grant_option  = true\n}\n\n##################################\n### schema privileges\n##################################\n\n# list of privileges\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  privileges         = [\"MODIFY\", \"CREATE TABLE\"]\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_schema {\n    schema_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"my_schema\\\"\" # note this is a fully qualified name!\n  }\n}\n\n# all privileges + grant option\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_schema {\n    schema_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"my_schema\\\"\" # note this is a fully qualified name!\n  }\n  all_privileges    = true\n  with_grant_option = true\n}\n\n# all schemas in database\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  privileges         = [\"MODIFY\", \"CREATE TABLE\"]\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_schema {\n    all_schemas_in_database = snowflake_database_role.db_role.database\n  }\n}\n\n# future schemas in database\nresource \"snowflake_grant_privileges_to_database_role\" \"example\" {\n  privileges         = [\"MODIFY\", \"CREATE TABLE\"]\n  database_role_name = \"\\\"${snowflake_database_role.db_role.database}\\\".\\\"${snowflake_database_role.db_role.name}\\\"\"\n  on_schema {\n    future_schemas_in_database = snowflake_database_role.db_role.database\n  }\n}\n\n##################################\n{{% /examples %}}\n\n## Import\n\n### Import examples #### Grant all privileges OnDatabase\n\n```sh\n $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \\\"test_db_role\\\"|false|false|ALL|OnDatabase|\\\"test_db\\\"\"`\n```\n\n #### Grant list of privileges OnAllSchemasInDatabase\n\n```sh\n $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \\\"test_db_role\\\"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\\\"test_db\\\"\"`\n```\n\n #### Grant list of privileges on table\n\n```sh\n $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \\\"test_table\\\"\"`\n```\n\n #### Grant list of privileges OnAll tables in schema\n\n```sh\n $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \\\"test_schema\\\"\"`\n```\n\n ",
+            "properties": {
+                "allPrivileges": {
+                    "type": "boolean",
+                    "description": "Grant all privileges on the database role.\n"
+                },
+                "alwaysApply": {
+                    "type": "boolean",
+                    "description": "If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is\nsupposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to\nX” scenarios to make sure that every new object in a given database / schema is granted by the account role and every\nnew privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions\nof the config being eventually convergent (producing an empty plan).\n"
+                },
+                "alwaysApplyTrigger": {
+                    "type": "string",
+                    "description": "This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.\n"
+                },
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role to which privileges will be granted.\n"
+                },
+                "onDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database on which privileges will be granted.\n"
+                },
+                "onSchema": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema",
+                    "description": "Specifies the schema on which privileges will be granted.\n"
+                },
+                "onSchemaObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObject:GrantPrivilegesToDatabaseRoleOnSchemaObject",
+                    "description": "Specifies the schema object on which privileges will be granted.\n"
+                },
+                "privileges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The privileges to grant on the database role.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "If specified, allows the recipient role to grant the privileges to other roles.\n"
+                }
+            },
+            "required": [
+                "databaseRoleName"
+            ],
+            "inputProperties": {
+                "allPrivileges": {
+                    "type": "boolean",
+                    "description": "Grant all privileges on the database role.\n"
+                },
+                "alwaysApply": {
+                    "type": "boolean",
+                    "description": "If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is\nsupposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to\nX” scenarios to make sure that every new object in a given database / schema is granted by the account role and every\nnew privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions\nof the config being eventually convergent (producing an empty plan).\n"
+                },
+                "alwaysApplyTrigger": {
+                    "type": "string",
+                    "description": "This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.\n"
+                },
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role to which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onSchema": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema",
+                    "description": "Specifies the schema on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "onSchemaObject": {
+                    "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObject:GrantPrivilegesToDatabaseRoleOnSchemaObject",
+                    "description": "Specifies the schema object on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privileges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The privileges to grant on the database role.\n"
+                },
+                "withGrantOption": {
+                    "type": "boolean",
+                    "description": "If specified, allows the recipient role to grant the privileges to other roles.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "databaseRoleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantPrivilegesToDatabaseRole resources.\n",
+                "properties": {
+                    "allPrivileges": {
+                        "type": "boolean",
+                        "description": "Grant all privileges on the database role.\n"
+                    },
+                    "alwaysApply": {
+                        "type": "boolean",
+                        "description": "If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is\nsupposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to\nX” scenarios to make sure that every new object in a given database / schema is granted by the account role and every\nnew privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions\nof the config being eventually convergent (producing an empty plan).\n"
+                    },
+                    "alwaysApplyTrigger": {
+                        "type": "string",
+                        "description": "This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.\n"
+                    },
+                    "databaseRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the database role to which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onDatabase": {
+                        "type": "string",
+                        "description": "The fully qualified name of the database on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onSchema": {
+                        "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema",
+                        "description": "Specifies the schema on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "onSchemaObject": {
+                        "$ref": "#/types/snowflake:index/GrantPrivilegesToDatabaseRoleOnSchemaObject:GrantPrivilegesToDatabaseRoleOnSchemaObject",
+                        "description": "Specifies the schema object on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "privileges": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The privileges to grant on the database role.\n"
+                    },
+                    "withGrantOption": {
+                        "type": "boolean",
+                        "description": "If specified, allows the recipient role to grant the privileges to other roles.\n",
                         "willReplaceOnChanges": true
                     }
                 },
