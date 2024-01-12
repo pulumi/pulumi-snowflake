@@ -64,6 +64,7 @@ from .get_tasks import *
 from .get_users import *
 from .get_views import *
 from .get_warehouses import *
+from .grant_privileges_to_database_role import *
 from .grant_privileges_to_role import *
 from .integration_grant import *
 from .managed_account import *
@@ -300,6 +301,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/functionGrant:FunctionGrant": "FunctionGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/grantPrivilegesToDatabaseRole",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": "GrantPrivilegesToDatabaseRole"
   }
  },
  {

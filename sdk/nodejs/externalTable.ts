@@ -124,6 +124,10 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
+     * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+     */
+    public readonly tableFormat!: pulumi.Output<string | undefined>;
+    /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
@@ -157,6 +161,7 @@ export class ExternalTable extends pulumi.CustomResource {
             resourceInputs["pattern"] = state ? state.pattern : undefined;
             resourceInputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["tableFormat"] = state ? state.tableFormat : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExternalTableArgs | undefined;
@@ -188,6 +193,7 @@ export class ExternalTable extends pulumi.CustomResource {
             resourceInputs["pattern"] = args ? args.pattern : undefined;
             resourceInputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["tableFormat"] = args ? args.tableFormat : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["owner"] = undefined /*out*/;
         }
@@ -257,6 +263,10 @@ export interface ExternalTableState {
      */
     schema?: pulumi.Input<string>;
     /**
+     * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+     */
+    tableFormat?: pulumi.Input<string>;
+    /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
@@ -320,6 +330,10 @@ export interface ExternalTableArgs {
      * Name of the schema that the tag was created in.
      */
     schema: pulumi.Input<string>;
+    /**
+     * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
+     */
+    tableFormat?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
      *

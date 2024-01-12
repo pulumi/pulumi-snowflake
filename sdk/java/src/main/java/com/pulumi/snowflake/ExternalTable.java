@@ -270,6 +270,20 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
+     * Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+     * 
+     */
+    @Export(name="tableFormat", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tableFormat;
+
+    /**
+     * @return Identifies the external table table type. For now, only &#34;delta&#34; for Delta Lake table format is supported.
+     * 
+     */
+    public Output<Optional<String>> tableFormat() {
+        return Codegen.optional(this.tableFormat);
+    }
+    /**
      * Definitions of a tag to associate with the resource.
      * 
      * @deprecated

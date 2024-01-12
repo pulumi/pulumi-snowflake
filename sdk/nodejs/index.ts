@@ -300,6 +300,11 @@ export const getWarehouses: typeof import("./getWarehouses").getWarehouses = nul
 export const getWarehousesOutput: typeof import("./getWarehouses").getWarehousesOutput = null as any;
 utilities.lazyLoad(exports, ["getWarehouses","getWarehousesOutput"], () => require("./getWarehouses"));
 
+export { GrantPrivilegesToDatabaseRoleArgs, GrantPrivilegesToDatabaseRoleState } from "./grantPrivilegesToDatabaseRole";
+export type GrantPrivilegesToDatabaseRole = import("./grantPrivilegesToDatabaseRole").GrantPrivilegesToDatabaseRole;
+export const GrantPrivilegesToDatabaseRole: typeof import("./grantPrivilegesToDatabaseRole").GrantPrivilegesToDatabaseRole = null as any;
+utilities.lazyLoad(exports, ["GrantPrivilegesToDatabaseRole"], () => require("./grantPrivilegesToDatabaseRole"));
+
 export { GrantPrivilegesToRoleArgs, GrantPrivilegesToRoleState } from "./grantPrivilegesToRole";
 export type GrantPrivilegesToRole = import("./grantPrivilegesToRole").GrantPrivilegesToRole;
 export const GrantPrivilegesToRole: typeof import("./grantPrivilegesToRole").GrantPrivilegesToRole = null as any;
@@ -641,6 +646,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "snowflake:index/functionGrant:FunctionGrant":
                 return new FunctionGrant(name, <any>undefined, { urn })
+            case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
+                return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole":
                 return new GrantPrivilegesToRole(name, <any>undefined, { urn })
             case "snowflake:index/integrationGrant:IntegrationGrant":
@@ -779,6 +786,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/integrationGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
