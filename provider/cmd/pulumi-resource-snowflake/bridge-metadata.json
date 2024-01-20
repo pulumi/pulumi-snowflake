@@ -233,6 +233,12 @@
                     }
                 }
             },
+            "snowflake_grant_account_role": {
+                "current": "snowflake:index/grantAccountRole:GrantAccountRole"
+            },
+            "snowflake_grant_database_role": {
+                "current": "snowflake:index/grantDatabaseRole:GrantDatabaseRole"
+            },
             "snowflake_grant_privileges_to_database_role": {
                 "current": "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole",
                 "fields": {
@@ -1125,6 +1131,8 @@
             "snowflake:index/fileFormatGrant:FileFormatGrant": "snowflake_file_format_grant",
             "snowflake:index/function:Function": "snowflake_function",
             "snowflake:index/functionGrant:FunctionGrant": "snowflake_function_grant",
+            "snowflake:index/grantAccountRole:GrantAccountRole": "snowflake_grant_account_role",
+            "snowflake:index/grantDatabaseRole:GrantDatabaseRole": "snowflake_grant_database_role",
             "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": "snowflake_grant_privileges_to_database_role",
             "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": "snowflake_grant_privileges_to_role",
             "snowflake:index/integrationGrant:IntegrationGrant": "snowflake_integration_grant",
@@ -1693,6 +1701,17 @@
             },
             "snowflake:index/getWarehousesWarehouse:getWarehousesWarehouse": {
                 "scalingPolicy": "scaling_policy"
+            },
+            "snowflake:index/grantAccountRole:GrantAccountRole": {
+                "parentRoleName": "parent_role_name",
+                "roleName": "role_name",
+                "userName": "user_name"
+            },
+            "snowflake:index/grantDatabaseRole:GrantDatabaseRole": {
+                "databaseRoleName": "database_role_name",
+                "parentDatabaseRoleName": "parent_database_role_name",
+                "parentRoleName": "parent_role_name",
+                "shareName": "share_name"
             },
             "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": {
                 "allPrivileges": "all_privileges",

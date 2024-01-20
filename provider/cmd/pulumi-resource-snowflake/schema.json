@@ -61,7 +61,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set\nexplicitly to JWT for private key authentication.\n"
             },
             "browserAuth": {
                 "type": "boolean",
@@ -2533,7 +2533,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set\nexplicitly to JWT for private key authentication.\n"
             },
             "browserAuth": {
                 "type": "boolean",
@@ -2743,7 +2743,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,\nUsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set\nexplicitly to JWT for private key authentication.\n"
             },
             "browserAuth": {
                 "type": "boolean",
@@ -6849,6 +6849,142 @@
                     "withGrantOption": {
                         "type": "boolean",
                         "description": "When this is set to true, allows the recipient role to grant the privileges to other roles.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/grantAccountRole:GrantAccountRole": {
+            "description": "{{% examples %}}\n## Example Usage\n### grant account role to account role\n##################################\n\nresource \"snowflake_role\" \"role\" {\n  name = var.role_name\n}\n\nresource \"snowflake_role\" \"parent_role\" {\n  name = var.parent_role_name\n}\n\nresource \"snowflake_grant_account_role\" \"g\" {\n  role_name        = snowflake_role.role.name\n  parent_role_name = snowflake_role.parent_role.name\n}\n\n\n##################################\n{{% /examples %}}\n\n## Import\n\nformat is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)\n\n```sh\n $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole \"\\\"test_role\\\"|ROLE|\\\"test_parent_role\\\"\"\n```\n\n ",
+            "properties": {
+                "parentRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent role which will create a parent-child relationship between the roles.\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the role which will be granted to the user or parent role.\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the user on which specified role will be granted.\n"
+                }
+            },
+            "required": [
+                "roleName"
+            ],
+            "inputProperties": {
+                "parentRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent role which will create a parent-child relationship between the roles.\n",
+                    "willReplaceOnChanges": true
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the role which will be granted to the user or parent role.\n",
+                    "willReplaceOnChanges": true
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the user on which specified role will be granted.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "roleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantAccountRole resources.\n",
+                "properties": {
+                    "parentRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the parent role which will create a parent-child relationship between the roles.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the role which will be granted to the user or parent role.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the user on which specified role will be granted.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/grantDatabaseRole:GrantDatabaseRole": {
+            "description": "{{% examples %}}\n## Example Usage\n### grant database role to account role\n##################################\n\nresource \"snowflake_database_role\" \"database_role\" {\n  database = var.database\n  name     = var.database_role_name\n}\n\nresource \"snowflake_role\" \"parent_role\" {\n  name = var.parent_role_name\n}\n\nresource \"snowflake_grant_database_role\" \"g\" {\n  database_role_name = \"\\\"${var.database}\\\".\\\"${snowflake_database_role.database_role.name}\\\"\"\n  parent_role_name   = snowflake_role.parent_role.name\n}\n\n##################################\n### grant database role to database role\n##################################\n\nresource \"snowflake_database_role\" \"database_role\" {\n  database = var.database\n  name     = var.database_role_name\n}\n\nresource \"snowflake_database_role\" \"parent_database_role\" {\n  database = var.database\n  name     = var.parent_database_role_name\n}\n\nresource \"snowflake_grant_database_role\" \"g\" {\n  database_role_name        = \"\\\"${var.database}\\\".\\\"${snowflake_database_role.database_role.name}\\\"\"\n  parent_database_role_name = \"\\\"${var.database}\\\".\\\"${snowflake_database_role.parent_database_role.name}\\\"\"\n}\n\n##################################\n{{% /examples %}}\n\n## Import\n\nformat is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)\n\n```sh\n $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \\\"test_db_role\\\"|ROLE|\\\"test_parent_role\\\"\"\n```\n\n ",
+            "properties": {
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role which will be granted to share or parent role.\n"
+                },
+                "parentDatabaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent database role which will create a parent-child relationship between the roles.\n"
+                },
+                "parentRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent account role which will create a parent-child relationship between the roles.\n"
+                },
+                "shareName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the share on which privileges will be granted.\n"
+                }
+            },
+            "required": [
+                "databaseRoleName"
+            ],
+            "inputProperties": {
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role which will be granted to share or parent role.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentDatabaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent database role which will create a parent-child relationship between the roles.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the parent account role which will create a parent-child relationship between the roles.\n",
+                    "willReplaceOnChanges": true
+                },
+                "shareName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the share on which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "databaseRoleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantDatabaseRole resources.\n",
+                "properties": {
+                    "databaseRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the database role which will be granted to share or parent role.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentDatabaseRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the parent database role which will create a parent-child relationship between the roles.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the parent account role which will create a parent-child relationship between the roles.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "shareName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the share on which privileges will be granted.\n",
                         "willReplaceOnChanges": true
                     }
                 },
