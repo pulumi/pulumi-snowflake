@@ -29,7 +29,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        /// UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+        /// explicitly to JWT for private key authentication.
         /// </summary>
         [Output("authenticator")]
         public Output<string?> Authenticator { get; private set; } = null!;
@@ -243,7 +244,8 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        /// UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+        /// explicitly to JWT for private key authentication.
         /// </summary>
         [Input("authenticator")]
         public Input<string>? Authenticator { get; set; }

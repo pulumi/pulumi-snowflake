@@ -66,7 +66,8 @@ class ProviderArgs:
                from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
                connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+               explicitly to JWT for private key authentication.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[bool] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
@@ -326,7 +327,8 @@ class ProviderArgs:
         """
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+        explicitly to JWT for private key authentication.
         """
         return pulumi.get(self, "authenticator")
 
@@ -971,7 +973,8 @@ class Provider(pulumi.ProviderResource):
                from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
         :param pulumi.Input[str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
                connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+               UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+               explicitly to JWT for private key authentication.
         :param pulumi.Input[bool] browser_auth: Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         :param pulumi.Input[str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[bool] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
@@ -1237,7 +1240,8 @@ class Provider(pulumi.ProviderResource):
         """
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
         connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+        explicitly to JWT for private key authentication.
         """
         return pulumi.get(self, "authenticator")
 

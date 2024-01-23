@@ -74,6 +74,8 @@
         "getUsers.ts",
         "getViews.ts",
         "getWarehouses.ts",
+        "grantAccountRole.ts",
+        "grantDatabaseRole.ts",
         "grantPrivilegesToDatabaseRole.ts",
         "grantPrivilegesToRole.ts",
         "index.ts",

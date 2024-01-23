@@ -43,7 +43,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
      * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+     * explicitly to JWT for private key authentication.
      * 
      */
     @Import(name="authenticator")
@@ -52,7 +53,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
      * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+     * explicitly to JWT for private key authentication.
      * 
      */
     public Optional<Output<String>> authenticator() {
@@ -942,7 +944,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
          * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-         * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+         * explicitly to JWT for private key authentication.
          * 
          * @return builder
          * 
@@ -955,7 +958,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
          * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-         * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
+         * explicitly to JWT for private key authentication.
          * 
          * @return builder
          * 
