@@ -10,25 +10,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetParametersParameter {
+    /**
+     * @return The default value of the parameter
+     * 
+     */
     private String default_;
+    /**
+     * @return The description of the parameter
+     * 
+     */
     private String description;
+    /**
+     * @return The name of the parameter
+     * 
+     */
     private String key;
+    /**
+     * @return The level of the parameter
+     * 
+     */
     private String level;
+    /**
+     * @return The value of the parameter
+     * 
+     */
     private String value;
 
     private GetParametersParameter() {}
+    /**
+     * @return The default value of the parameter
+     * 
+     */
     public String default_() {
         return this.default_;
     }
+    /**
+     * @return The description of the parameter
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return The name of the parameter
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The level of the parameter
+     * 
+     */
     public String level() {
         return this.level;
     }
+    /**
+     * @return The value of the parameter
+     * 
+     */
     public String value() {
         return this.value;
     }

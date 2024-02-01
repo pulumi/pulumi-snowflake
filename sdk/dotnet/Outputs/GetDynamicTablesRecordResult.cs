@@ -13,25 +13,85 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetDynamicTablesRecordResult
     {
+        /// <summary>
+        /// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+        /// </summary>
         public readonly bool AutomaticClustering;
+        /// <summary>
+        /// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+        /// </summary>
         public readonly int Bytes;
+        /// <summary>
+        /// The clustering key for the dynamic table.
+        /// </summary>
         public readonly string ClusterBy;
+        /// <summary>
+        /// Comment for the dynamic table.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Date and time when the dynamic table was created.
+        /// </summary>
         public readonly string CreatedOn;
+        /// <summary>
+        /// Timestamp of the data in the base object(s) that is included in the dynamic table.
+        /// </summary>
         public readonly string DataTimestamp;
+        /// <summary>
+        /// Database in which the dynamic table is stored.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// TRUE if the dynamic table has been cloned, else FALSE.
+        /// </summary>
         public readonly bool IsClone;
+        /// <summary>
+        /// TRUE if the dynamic table is a replica. else FALSE.
+        /// </summary>
         public readonly bool IsReplica;
+        /// <summary>
+        /// Timestamp of last suspension.
+        /// </summary>
         public readonly string LastSuspendedOn;
+        /// <summary>
+        /// Name of the dynamic table.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Role that owns the dynamic table.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        /// </summary>
         public readonly string RefreshMode;
+        /// <summary>
+        /// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+        /// </summary>
         public readonly string RefreshModeReason;
+        /// <summary>
+        /// Number of rows in the table.
+        /// </summary>
         public readonly int Rows;
+        /// <summary>
+        /// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        /// </summary>
         public readonly string SchedulingState;
+        /// <summary>
+        /// Schema in which the dynamic table is stored.
+        /// </summary>
         public readonly string SchemaName;
+        /// <summary>
+        /// The maximum duration that the dynamic table’s content should lag behind real time.
+        /// </summary>
         public readonly string TargetLag;
+        /// <summary>
+        /// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+        /// </summary>
         public readonly string Text;
+        /// <summary>
+        /// Warehouse that provides the required resources to perform the incremental refreshes.
+        /// </summary>
         public readonly string Warehouse;
 
         [OutputConstructor]

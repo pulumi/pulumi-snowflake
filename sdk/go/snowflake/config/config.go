@@ -34,7 +34,7 @@ func GetAuthenticator(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:authenticator")
 }
 
-// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+// Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
 //
 // Deprecated: Use `authenticator` instead
 func GetBrowserAuth(ctx *pulumi.Context) bool {
@@ -133,9 +133,9 @@ func GetLoginTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:loginTimeout")
 }
 
-// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-// `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
-// environment variable.
+// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browserAuth`,
+// `privateKeyPath`, `oauthRefreshToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+// variable.
 //
 // Deprecated: Use `token` instead
 func GetOauthAccessToken(ctx *pulumi.Context) string {
@@ -150,7 +150,7 @@ func GetOauthAccessToken(ctx *pulumi.Context) string {
 	return value
 }
 
-// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+// Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
 //
 // Deprecated: Use `token_accessor.0.client_id` instead
 func GetOauthClientId(ctx *pulumi.Context) string {
@@ -165,7 +165,7 @@ func GetOauthClientId(ctx *pulumi.Context) string {
 	return value
 }
 
-// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+// Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
 // variable.
 //
 // Deprecated: Use `token_accessor.0.client_secret` instead
@@ -181,7 +181,7 @@ func GetOauthClientSecret(ctx *pulumi.Context) string {
 	return value
 }
 
-// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+// Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
 //
 // Deprecated: Use `token_accessor.0.token_endpoint` instead
 func GetOauthEndpoint(ctx *pulumi.Context) string {
@@ -196,8 +196,7 @@ func GetOauthEndpoint(ctx *pulumi.Context) string {
 	return value
 }
 
-// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
-// variable.
+// Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
 //
 // Deprecated: Use `token_accessor.0.redirect_uri` instead
 func GetOauthRedirectUrl(ctx *pulumi.Context) string {
@@ -213,9 +212,9 @@ func GetOauthRedirectUrl(ctx *pulumi.Context) string {
 }
 
 // Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
-// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-// `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
-// environment variable.
+// `oauthClientId`, `oauthClientSecret`, `oauthEndpoint`, `oauthRedirectUrl`. Cannot be used with `browserAuth`,
+// `privateKeyPath`, `oauthAccessToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+// variable.
 //
 // Deprecated: Use `token_accessor.0.refresh_token` instead
 func GetOauthRefreshToken(ctx *pulumi.Context) string {
@@ -259,8 +258,8 @@ func GetPasscodeInPassword(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:passcodeInPassword")
 }
 
-// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
-// the `SNOWFLAKE_PASSWORD` environment variable.
+// Password for username+password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the
+// `SNOWFLAKE_PASSWORD` environment variable.
 func GetPassword(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:password")
 	if err == nil {
@@ -287,7 +286,7 @@ func GetPort(ctx *pulumi.Context) int {
 	return value
 }
 
-// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
+// Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from
 // `SNOWFLAKE_PRIVATE_KEY` environment variable.
 func GetPrivateKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:privateKey")
@@ -307,7 +306,7 @@ func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 	return value
 }
 
-// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+// Path to a private key for using keypair authentication. Cannot be used with `browserAuth`, `oauthAccessToken` or
 // `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 //
 // Deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead

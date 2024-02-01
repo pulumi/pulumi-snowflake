@@ -10,25 +10,65 @@ import java.util.Objects;
 
 @CustomType
 public final class TokenAccessor {
+    /**
+     * @return The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+     * 
+     */
     private String clientId;
+    /**
+     * @return The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+     * 
+     */
     private String clientSecret;
+    /**
+     * @return The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+     * 
+     */
     private String redirectUri;
+    /**
+     * @return The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+     * 
+     */
     private String refreshToken;
+    /**
+     * @return The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+     * 
+     */
     private String tokenEndpoint;
 
     private TokenAccessor() {}
+    /**
+     * @return The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+     * 
+     */
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+     * 
+     */
     public String clientSecret() {
         return this.clientSecret;
     }
+    /**
+     * @return The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+     * 
+     */
     public String redirectUri() {
         return this.redirectUri;
     }
+    /**
+     * @return The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+     * 
+     */
     public String refreshToken() {
         return this.refreshToken;
     }
+    /**
+     * @return The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+     * 
+     */
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }

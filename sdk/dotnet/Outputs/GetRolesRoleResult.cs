@@ -13,8 +13,17 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetRolesRoleResult
     {
+        /// <summary>
+        /// The comment on the role
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Identifier for the role.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The owner of the role
+        /// </summary>
         public readonly string Owner;
 
         [OutputConstructor]
