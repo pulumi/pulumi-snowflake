@@ -350,22 +350,27 @@
             "properties": {
                 "clientId": {
                     "type": "string",
+                    "description": "The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.\n",
                     "secret": true
                 },
                 "clientSecret": {
                     "type": "string",
+                    "description": "The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.\n",
                     "secret": true
                 },
                 "redirectUri": {
                     "type": "string",
+                    "description": "The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.\n",
                     "secret": true
                 },
                 "refreshToken": {
                     "type": "string",
+                    "description": "The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.\n",
                     "secret": true
                 },
                 "tokenEndpoint": {
                     "type": "string",
+                    "description": "The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.\n",
                     "secret": true
                 }
             },
@@ -894,22 +899,27 @@
             "properties": {
                 "clientId": {
                     "type": "string",
+                    "description": "The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.\n",
                     "secret": true
                 },
                 "clientSecret": {
                     "type": "string",
+                    "description": "The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.\n",
                     "secret": true
                 },
                 "redirectUri": {
                     "type": "string",
+                    "description": "The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.\n",
                     "secret": true
                 },
                 "refreshToken": {
                     "type": "string",
+                    "description": "The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.\n",
                     "secret": true
                 },
                 "tokenEndpoint": {
                     "type": "string",
+                    "description": "The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.\n",
                     "secret": true
                 }
             },
@@ -1209,52 +1219,68 @@
         "snowflake:index/getAccountsAccount:getAccountsAccount": {
             "properties": {
                 "accountLocator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "System-assigned identifier of the acccount.\n"
                 },
                 "accountLocatorUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Legacy Snowflake access URL syntax that includes the region_name and account_locator.\n"
                 },
                 "accountName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "User-defined name that identifies an account within the organization.\n"
                 },
                 "accountUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Preferred Snowflake access URL that includes the values of organization_name and account_name.\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Comment for the account.\n"
                 },
                 "consumptionBillingEntityName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the consumption billing entity.\n"
                 },
                 "createdOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date and time when the account was created.\n"
                 },
                 "edition": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Snowflake Edition of the account.\n"
                 },
                 "isOrgAdmin": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.\n"
                 },
                 "managedAccounts": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Indicates how many managed accounts have been created by the account.\n"
                 },
                 "marketplaceConsumerBillingEntityName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the marketplace consumer billing entity.\n"
                 },
                 "marketplaceProviderBillingEntityName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the marketplace provider billing entity.\n"
                 },
                 "oldAccountUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The previous account URL for a given account.\n"
                 },
                 "organizationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the organization.\n"
                 },
                 "regionGroup": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.\n"
                 },
                 "snowflakeRegion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).\n"
                 }
             },
             "type": "object",
@@ -1285,25 +1311,32 @@
         "snowflake:index/getAlertsAlert:getAlertsAlert": {
             "properties": {
                 "action": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The text of the SQL statement that should be executed when the alert is triggered.\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Comment for the alert.\n"
                 },
                 "condition": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The text of the SQL statement that serves as the condition when the alert should be triggered.\n"
                 },
                 "databaseName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Database in which the alert is stored.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the alert.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)\n"
                 },
                 "schemaName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Schema in which the alert is stored.\n"
                 }
             },
             "type": "object",
@@ -1325,13 +1358,16 @@
         "snowflake:index/getDatabaseRolesDatabaseRole:getDatabaseRolesDatabaseRole": {
             "properties": {
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The comment on the role\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Identifier for the role.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The owner of the role\n"
                 }
             },
             "type": "object",
@@ -1469,64 +1505,84 @@
         "snowflake:index/getDynamicTablesRecord:getDynamicTablesRecord": {
             "properties": {
                 "automaticClustering": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.\n"
                 },
                 "bytes": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Number of bytes that will be scanned if the entire dynamic table is scanned in a query.\n"
                 },
                 "clusterBy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The clustering key for the dynamic table.\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Comment for the dynamic table.\n"
                 },
                 "createdOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date and time when the dynamic table was created.\n"
                 },
                 "dataTimestamp": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Timestamp of the data in the base object(s) that is included in the dynamic table.\n"
                 },
                 "databaseName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Database in which the dynamic table is stored.\n"
                 },
                 "isClone": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "TRUE if the dynamic table has been cloned, else FALSE.\n"
                 },
                 "isReplica": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "TRUE if the dynamic table is a replica. else FALSE.\n"
                 },
                 "lastSuspendedOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Timestamp of last suspension.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the dynamic table.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Role that owns the dynamic table.\n"
                 },
                 "refreshMode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.\n"
                 },
                 "refreshModeReason": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.\n"
                 },
                 "rows": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Number of rows in the table.\n"
                 },
                 "schedulingState": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
                 },
                 "schemaName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Schema in which the dynamic table is stored.\n"
                 },
                 "targetLag": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The maximum duration that the dynamic table’s content should lag behind real time.\n"
                 },
                 "text": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).\n"
                 },
                 "warehouse": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Warehouse that provides the required resources to perform the incremental refreshes.\n"
                 }
             },
             "type": "object",
@@ -1621,64 +1677,81 @@
         "snowflake:index/getFailoverGroupsFailoverGroup:getFailoverGroupsFailoverGroup": {
             "properties": {
                 "accountLocator": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Account locator in a region.\n"
                 },
                 "accountName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the account.\n"
                 },
                 "allowedAccounts": {
                     "type": "array",
                     "items": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "List of accounts enabled for replication and failover.\n"
                 },
                 "allowedIntegrationTypes": {
                     "type": "array",
                     "items": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "A list of integration types that are enabled for replication.\n"
                 },
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Comment string.\n"
                 },
                 "createdOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date and time failover group was created.\n"
                 },
                 "isPrimary": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the failover group is the primary group.\n"
                 },
                 "nextScheduledRefresh": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Date and time of the next scheduled refresh.\n"
                 },
                 "objectTypes": {
                     "type": "array",
                     "items": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "List of specified object types enabled for replication and failover.\n"
                 },
                 "organizationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of your Snowflake organization.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.\n"
                 },
                 "primary": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the primary group.\n"
                 },
                 "regionGroup": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.\n"
                 },
                 "replicationSchedule": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Scheduled interval for refresh; NULL if no replication schedule is set.\n"
                 },
                 "secondaryState": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.\n"
                 },
                 "snowflakeRegion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of group. Valid value is FAILOVER.\n"
                 }
             },
             "type": "object",
@@ -1822,28 +1895,36 @@
         "snowflake:index/getGrantsGrant:getGrantsGrant": {
             "properties": {
                 "createdOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The date and time the grant was created\n"
                 },
                 "grantOption": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether the grantee can grant the privilege to others\n"
                 },
                 "grantedBy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The role that granted the privilege\n"
                 },
                 "grantedOn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The object on which the privilege was granted\n"
                 },
                 "grantedTo": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The role to which the privilege was granted\n"
                 },
                 "granteeName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the role to which the privilege was granted\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the object on which the privilege was granted\n"
                 },
                 "privilege": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The privilege granted\n"
                 }
             },
             "type": "object",
@@ -1973,19 +2054,24 @@
         "snowflake:index/getParametersParameter:getParametersParameter": {
             "properties": {
                 "default": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The default value of the parameter\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter\n"
                 },
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the parameter\n"
                 },
                 "level": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The level of the parameter\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the parameter\n"
                 }
             },
             "type": "object",
@@ -2104,13 +2190,16 @@
         "snowflake:index/getRolesRole:getRolesRole": {
             "properties": {
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The comment on the role\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Identifier for the role.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The owner of the role\n"
                 }
             },
             "type": "object",
@@ -2208,22 +2297,27 @@
         "snowflake:index/getSharesShare:getSharesShare": {
             "properties": {
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The comment on the share.\n"
                 },
                 "kind": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The kind of the share.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Identifier for the share.\n"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The owner of the share.\n"
                 },
                 "tos": {
                     "type": "array",
                     "items": {
                         "$ref": "pulumi.json#/Any"
-                    }
+                    },
+                    "description": "For the OUTBOUND share, list of consumers.\n"
                 }
             },
             "type": "object",
