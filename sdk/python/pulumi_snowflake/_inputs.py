@@ -1273,6 +1273,13 @@ class ProviderTokenAccessorArgs:
                  redirect_uri: pulumi.Input[str],
                  refresh_token: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+        :param pulumi.Input[str] client_secret: The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[str] redirect_uri: The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+        :param pulumi.Input[str] refresh_token: The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+        :param pulumi.Input[str] token_endpoint: The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "redirect_uri", redirect_uri)
@@ -1282,6 +1289,9 @@ class ProviderTokenAccessorArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
+        """
+        The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -1291,6 +1301,9 @@ class ProviderTokenAccessorArgs:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
+        """
+        The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -1300,6 +1313,9 @@ class ProviderTokenAccessorArgs:
     @property
     @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> pulumi.Input[str]:
+        """
+        The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+        """
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
@@ -1309,6 +1325,9 @@ class ProviderTokenAccessorArgs:
     @property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> pulumi.Input[str]:
+        """
+        The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+        """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
@@ -1318,6 +1337,9 @@ class ProviderTokenAccessorArgs:
     @property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> pulumi.Input[str]:
+        """
+        The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+        """
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter

@@ -148,37 +148,115 @@ export interface FunctionArgument {
 }
 
 export interface GetAccountsAccount {
+    /**
+     * System-assigned identifier of the acccount.
+     */
     accountLocator: string;
+    /**
+     * Legacy Snowflake access URL syntax that includes the regionName and account_locator.
+     */
     accountLocatorUrl: string;
+    /**
+     * User-defined name that identifies an account within the organization.
+     */
     accountName: string;
+    /**
+     * Preferred Snowflake access URL that includes the values of organizationName and account_name.
+     */
     accountUrl: string;
+    /**
+     * Comment for the account.
+     */
     comment: string;
+    /**
+     * Name of the consumption billing entity.
+     */
     consumptionBillingEntityName: string;
+    /**
+     * Date and time when the account was created.
+     */
     createdOn: string;
+    /**
+     * Snowflake Edition of the account.
+     */
     edition: string;
+    /**
+     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     */
     isOrgAdmin: boolean;
+    /**
+     * Indicates how many managed accounts have been created by the account.
+     */
     managedAccounts: number;
+    /**
+     * Name of the marketplace consumer billing entity.
+     */
     marketplaceConsumerBillingEntityName: string;
+    /**
+     * Name of the marketplace provider billing entity.
+     */
     marketplaceProviderBillingEntityName: string;
+    /**
+     * The previous account URL for a given account.
+     */
     oldAccountUrl: string;
+    /**
+     * Name of the organization.
+     */
     organizationName: string;
+    /**
+     * Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     */
     regionGroup: string;
+    /**
+     * Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     */
     snowflakeRegion: string;
 }
 
 export interface GetAlertsAlert {
+    /**
+     * The text of the SQL statement that should be executed when the alert is triggered.
+     */
     action: string;
+    /**
+     * Comment for the alert.
+     */
     comment: string;
+    /**
+     * The text of the SQL statement that serves as the condition when the alert should be triggered.
+     */
     condition: string;
+    /**
+     * Database in which the alert is stored.
+     */
     databaseName: string;
+    /**
+     * Name of the alert.
+     */
     name: string;
+    /**
+     * Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+     */
     owner: string;
+    /**
+     * Schema in which the alert is stored.
+     */
     schemaName: string;
 }
 
 export interface GetDatabaseRolesDatabaseRole {
+    /**
+     * The comment on the role
+     */
     comment: string;
+    /**
+     * Identifier for the role.
+     */
     name: string;
+    /**
+     * The owner of the role
+     */
     owner: string;
 }
 
@@ -234,25 +312,85 @@ export interface GetDynamicTablesLimit {
 }
 
 export interface GetDynamicTablesRecord {
+    /**
+     * Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+     */
     automaticClustering: boolean;
+    /**
+     * Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+     */
     bytes: number;
+    /**
+     * The clustering key for the dynamic table.
+     */
     clusterBy: string;
+    /**
+     * Comment for the dynamic table.
+     */
     comment: string;
+    /**
+     * Date and time when the dynamic table was created.
+     */
     createdOn: string;
+    /**
+     * Timestamp of the data in the base object(s) that is included in the dynamic table.
+     */
     dataTimestamp: string;
+    /**
+     * Database in which the dynamic table is stored.
+     */
     databaseName: string;
+    /**
+     * TRUE if the dynamic table has been cloned, else FALSE.
+     */
     isClone: boolean;
+    /**
+     * TRUE if the dynamic table is a replica. else FALSE.
+     */
     isReplica: boolean;
+    /**
+     * Timestamp of last suspension.
+     */
     lastSuspendedOn: string;
+    /**
+     * Name of the dynamic table.
+     */
     name: string;
+    /**
+     * Role that owns the dynamic table.
+     */
     owner: string;
+    /**
+     * INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     */
     refreshMode: string;
+    /**
+     * Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+     */
     refreshModeReason: string;
+    /**
+     * Number of rows in the table.
+     */
     rows: number;
+    /**
+     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     */
     schedulingState: string;
+    /**
+     * Schema in which the dynamic table is stored.
+     */
     schemaName: string;
+    /**
+     * The maximum duration that the dynamic table’s content should lag behind real time.
+     */
     targetLag: string;
+    /**
+     * The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+     */
     text: string;
+    /**
+     * Warehouse that provides the required resources to perform the incremental refreshes.
+     */
     warehouse: string;
 }
 
@@ -272,22 +410,73 @@ export interface GetExternalTablesExternalTable {
 }
 
 export interface GetFailoverGroupsFailoverGroup {
+    /**
+     * Account locator in a region.
+     */
     accountLocator: string;
+    /**
+     * Name of the account.
+     */
     accountName: string;
+    /**
+     * List of accounts enabled for replication and failover.
+     */
     allowedAccounts: any[];
+    /**
+     * A list of integration types that are enabled for replication.
+     */
     allowedIntegrationTypes: any[];
+    /**
+     * Comment string.
+     */
     comment: string;
+    /**
+     * Date and time failover group was created.
+     */
     createdOn: string;
+    /**
+     * Indicates whether the failover group is the primary group.
+     */
     isPrimary: boolean;
+    /**
+     * Date and time of the next scheduled refresh.
+     */
     nextScheduledRefresh: string;
+    /**
+     * List of specified object types enabled for replication and failover.
+     */
     objectTypes: any[];
+    /**
+     * Name of your Snowflake organization.
+     */
     organizationName: string;
+    /**
+     * Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+     */
     owner: string;
+    /**
+     * Name of the primary group.
+     */
     primary: string;
+    /**
+     * Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     */
     regionGroup: string;
+    /**
+     * Scheduled interval for refresh; NULL if no replication schedule is set.
+     */
     replicationSchedule: string;
+    /**
+     * Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+     */
     secondaryState: string;
+    /**
+     * Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     */
     snowflakeRegion: string;
+    /**
+     * Type of group. Valid value is FAILOVER.
+     */
     type: string;
 }
 
@@ -338,13 +527,37 @@ export interface GetGrantsFutureGrantsTo {
 }
 
 export interface GetGrantsGrant {
+    /**
+     * The date and time the grant was created
+     */
     createdOn: string;
+    /**
+     * Whether the grantee can grant the privilege to others
+     */
     grantOption: boolean;
+    /**
+     * The role that granted the privilege
+     */
     grantedBy: string;
+    /**
+     * The object on which the privilege was granted
+     */
     grantedOn: string;
+    /**
+     * The role to which the privilege was granted
+     */
     grantedTo: string;
+    /**
+     * The name of the role to which the privilege was granted
+     */
     granteeName: string;
+    /**
+     * The name of the object on which the privilege was granted
+     */
     name: string;
+    /**
+     * The privilege granted
+     */
     privilege: string;
 }
 
@@ -405,10 +618,25 @@ export interface GetMaterializedViewsMaterializedView {
 }
 
 export interface GetParametersParameter {
+    /**
+     * The default value of the parameter
+     */
     default: string;
+    /**
+     * The description of the parameter
+     */
     description: string;
+    /**
+     * The name of the parameter
+     */
     key: string;
+    /**
+     * The level of the parameter
+     */
     level: string;
+    /**
+     * The value of the parameter
+     */
     value: string;
 }
 
@@ -437,8 +665,17 @@ export interface GetResourceMonitorsResourceMonitor {
 }
 
 export interface GetRolesRole {
+    /**
+     * The comment on the role
+     */
     comment: string;
+    /**
+     * Identifier for the role.
+     */
     name: string;
+    /**
+     * The owner of the role
+     */
     owner: string;
 }
 
@@ -463,10 +700,25 @@ export interface GetSequencesSequence {
 }
 
 export interface GetSharesShare {
+    /**
+     * The comment on the share.
+     */
     comment: string;
+    /**
+     * The kind of the share.
+     */
     kind: string;
+    /**
+     * Identifier for the share.
+     */
     name: string;
+    /**
+     * The owner of the share.
+     */
     owner: string;
+    /**
+     * For the OUTBOUND share, list of consumers.
+     */
     tos: any[];
 }
 
@@ -937,10 +1189,25 @@ export interface ViewTag {
 
 export namespace config {
     export interface TokenAccessor {
+        /**
+         * The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+         */
         clientId: string;
+        /**
+         * The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+         */
         clientSecret: string;
+        /**
+         * The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+         */
         redirectUri: string;
+        /**
+         * The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+         */
         refreshToken: string;
+        /**
+         * The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+         */
         tokenEndpoint: string;
     }
 

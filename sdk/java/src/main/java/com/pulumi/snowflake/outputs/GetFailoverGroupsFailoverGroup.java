@@ -13,73 +13,209 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFailoverGroupsFailoverGroup {
+    /**
+     * @return Account locator in a region.
+     * 
+     */
     private String accountLocator;
+    /**
+     * @return Name of the account.
+     * 
+     */
     private String accountName;
+    /**
+     * @return List of accounts enabled for replication and failover.
+     * 
+     */
     private List<Object> allowedAccounts;
+    /**
+     * @return A list of integration types that are enabled for replication.
+     * 
+     */
     private List<Object> allowedIntegrationTypes;
+    /**
+     * @return Comment string.
+     * 
+     */
     private String comment;
+    /**
+     * @return Date and time failover group was created.
+     * 
+     */
     private String createdOn;
+    /**
+     * @return Indicates whether the failover group is the primary group.
+     * 
+     */
     private Boolean isPrimary;
+    /**
+     * @return Date and time of the next scheduled refresh.
+     * 
+     */
     private String nextScheduledRefresh;
+    /**
+     * @return List of specified object types enabled for replication and failover.
+     * 
+     */
     private List<Object> objectTypes;
+    /**
+     * @return Name of your Snowflake organization.
+     * 
+     */
     private String organizationName;
+    /**
+     * @return Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+     * 
+     */
     private String owner;
+    /**
+     * @return Name of the primary group.
+     * 
+     */
     private String primary;
+    /**
+     * @return Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     * 
+     */
     private String regionGroup;
+    /**
+     * @return Scheduled interval for refresh; NULL if no replication schedule is set.
+     * 
+     */
     private String replicationSchedule;
+    /**
+     * @return Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+     * 
+     */
     private String secondaryState;
+    /**
+     * @return Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     * 
+     */
     private String snowflakeRegion;
+    /**
+     * @return Type of group. Valid value is FAILOVER.
+     * 
+     */
     private String type;
 
     private GetFailoverGroupsFailoverGroup() {}
+    /**
+     * @return Account locator in a region.
+     * 
+     */
     public String accountLocator() {
         return this.accountLocator;
     }
+    /**
+     * @return Name of the account.
+     * 
+     */
     public String accountName() {
         return this.accountName;
     }
+    /**
+     * @return List of accounts enabled for replication and failover.
+     * 
+     */
     public List<Object> allowedAccounts() {
         return this.allowedAccounts;
     }
+    /**
+     * @return A list of integration types that are enabled for replication.
+     * 
+     */
     public List<Object> allowedIntegrationTypes() {
         return this.allowedIntegrationTypes;
     }
+    /**
+     * @return Comment string.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Date and time failover group was created.
+     * 
+     */
     public String createdOn() {
         return this.createdOn;
     }
+    /**
+     * @return Indicates whether the failover group is the primary group.
+     * 
+     */
     public Boolean isPrimary() {
         return this.isPrimary;
     }
+    /**
+     * @return Date and time of the next scheduled refresh.
+     * 
+     */
     public String nextScheduledRefresh() {
         return this.nextScheduledRefresh;
     }
+    /**
+     * @return List of specified object types enabled for replication and failover.
+     * 
+     */
     public List<Object> objectTypes() {
         return this.objectTypes;
     }
+    /**
+     * @return Name of your Snowflake organization.
+     * 
+     */
     public String organizationName() {
         return this.organizationName;
     }
+    /**
+     * @return Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return Name of the primary group.
+     * 
+     */
     public String primary() {
         return this.primary;
     }
+    /**
+     * @return Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     * 
+     */
     public String regionGroup() {
         return this.regionGroup;
     }
+    /**
+     * @return Scheduled interval for refresh; NULL if no replication schedule is set.
+     * 
+     */
     public String replicationSchedule() {
         return this.replicationSchedule;
     }
+    /**
+     * @return Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+     * 
+     */
     public String secondaryState() {
         return this.secondaryState;
     }
+    /**
+     * @return Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     * 
+     */
     public String snowflakeRegion() {
         return this.snowflakeRegion;
     }
+    /**
+     * @return Type of group. Valid value is FAILOVER.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -518,10 +518,25 @@ namespace Pulumi.Snowflake
 
              public class TokenAccessor
              {
+            /// <summary>
+            /// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+            /// </summary>
                 public string ClientId { get; set; }
+            /// <summary>
+            /// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+            /// </summary>
                 public string ClientSecret { get; set; }
+            /// <summary>
+            /// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+            /// </summary>
                 public string RedirectUri { get; set; }
+            /// <summary>
+            /// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+            /// </summary>
                 public string RefreshToken { get; set; }
+            /// <summary>
+            /// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+            /// </summary>
                 public string TokenEndpoint { get; set; }
             }
         }

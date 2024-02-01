@@ -13,12 +13,33 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetAlertsAlertResult
     {
+        /// <summary>
+        /// The text of the SQL statement that should be executed when the alert is triggered.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// Comment for the alert.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// The text of the SQL statement that serves as the condition when the alert should be triggered.
+        /// </summary>
         public readonly string Condition;
+        /// <summary>
+        /// Database in which the alert is stored.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Name of the alert.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// Schema in which the alert is stored.
+        /// </summary>
         public readonly string SchemaName;
 
         [OutputConstructor]
