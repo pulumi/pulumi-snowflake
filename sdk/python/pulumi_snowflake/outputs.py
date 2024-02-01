@@ -1986,6 +1986,24 @@ class GetAccountsAccountResult(dict):
                  organization_name: str,
                  region_group: str,
                  snowflake_region: str):
+        """
+        :param str account_locator: System-assigned identifier of the acccount.
+        :param str account_locator_url: Legacy Snowflake access URL syntax that includes the region_name and account_locator.
+        :param str account_name: User-defined name that identifies an account within the organization.
+        :param str account_url: Preferred Snowflake access URL that includes the values of organization_name and account_name.
+        :param str comment: Comment for the account.
+        :param str consumption_billing_entity_name: Name of the consumption billing entity.
+        :param str created_on: Date and time when the account was created.
+        :param str edition: Snowflake Edition of the account.
+        :param bool is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+        :param int managed_accounts: Indicates how many managed accounts have been created by the account.
+        :param str marketplace_consumer_billing_entity_name: Name of the marketplace consumer billing entity.
+        :param str marketplace_provider_billing_entity_name: Name of the marketplace provider billing entity.
+        :param str old_account_url: The previous account URL for a given account.
+        :param str organization_name: Name of the organization.
+        :param str region_group: Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+        :param str snowflake_region: Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+        """
         pulumi.set(__self__, "account_locator", account_locator)
         pulumi.set(__self__, "account_locator_url", account_locator_url)
         pulumi.set(__self__, "account_name", account_name)
@@ -2006,81 +2024,129 @@ class GetAccountsAccountResult(dict):
     @property
     @pulumi.getter(name="accountLocator")
     def account_locator(self) -> str:
+        """
+        System-assigned identifier of the acccount.
+        """
         return pulumi.get(self, "account_locator")
 
     @property
     @pulumi.getter(name="accountLocatorUrl")
     def account_locator_url(self) -> str:
+        """
+        Legacy Snowflake access URL syntax that includes the region_name and account_locator.
+        """
         return pulumi.get(self, "account_locator_url")
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
+        """
+        User-defined name that identifies an account within the organization.
+        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="accountUrl")
     def account_url(self) -> str:
+        """
+        Preferred Snowflake access URL that includes the values of organization_name and account_name.
+        """
         return pulumi.get(self, "account_url")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment for the account.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="consumptionBillingEntityName")
     def consumption_billing_entity_name(self) -> str:
+        """
+        Name of the consumption billing entity.
+        """
         return pulumi.get(self, "consumption_billing_entity_name")
 
     @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> str:
+        """
+        Date and time when the account was created.
+        """
         return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter
     def edition(self) -> str:
+        """
+        Snowflake Edition of the account.
+        """
         return pulumi.get(self, "edition")
 
     @property
     @pulumi.getter(name="isOrgAdmin")
     def is_org_admin(self) -> bool:
+        """
+        Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+        """
         return pulumi.get(self, "is_org_admin")
 
     @property
     @pulumi.getter(name="managedAccounts")
     def managed_accounts(self) -> int:
+        """
+        Indicates how many managed accounts have been created by the account.
+        """
         return pulumi.get(self, "managed_accounts")
 
     @property
     @pulumi.getter(name="marketplaceConsumerBillingEntityName")
     def marketplace_consumer_billing_entity_name(self) -> str:
+        """
+        Name of the marketplace consumer billing entity.
+        """
         return pulumi.get(self, "marketplace_consumer_billing_entity_name")
 
     @property
     @pulumi.getter(name="marketplaceProviderBillingEntityName")
     def marketplace_provider_billing_entity_name(self) -> str:
+        """
+        Name of the marketplace provider billing entity.
+        """
         return pulumi.get(self, "marketplace_provider_billing_entity_name")
 
     @property
     @pulumi.getter(name="oldAccountUrl")
     def old_account_url(self) -> str:
+        """
+        The previous account URL for a given account.
+        """
         return pulumi.get(self, "old_account_url")
 
     @property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> str:
+        """
+        Name of the organization.
+        """
         return pulumi.get(self, "organization_name")
 
     @property
     @pulumi.getter(name="regionGroup")
     def region_group(self) -> str:
+        """
+        Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+        """
         return pulumi.get(self, "region_group")
 
     @property
     @pulumi.getter(name="snowflakeRegion")
     def snowflake_region(self) -> str:
+        """
+        Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+        """
         return pulumi.get(self, "snowflake_region")
 
 
@@ -2094,6 +2160,15 @@ class GetAlertsAlertResult(dict):
                  name: str,
                  owner: str,
                  schema_name: str):
+        """
+        :param str action: The text of the SQL statement that should be executed when the alert is triggered.
+        :param str comment: Comment for the alert.
+        :param str condition: The text of the SQL statement that serves as the condition when the alert should be triggered.
+        :param str database_name: Database in which the alert is stored.
+        :param str name: Name of the alert.
+        :param str owner: Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+        :param str schema_name: Schema in which the alert is stored.
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "condition", condition)
@@ -2105,36 +2180,57 @@ class GetAlertsAlertResult(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        The text of the SQL statement that should be executed when the alert is triggered.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment for the alert.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def condition(self) -> str:
+        """
+        The text of the SQL statement that serves as the condition when the alert should be triggered.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        Database in which the alert is stored.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the alert.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> str:
+        """
+        Schema in which the alert is stored.
+        """
         return pulumi.get(self, "schema_name")
 
 
@@ -2144,6 +2240,11 @@ class GetDatabaseRolesDatabaseRoleResult(dict):
                  comment: str,
                  name: str,
                  owner: str):
+        """
+        :param str comment: The comment on the role
+        :param str name: Identifier for the role.
+        :param str owner: The owner of the role
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -2151,16 +2252,25 @@ class GetDatabaseRolesDatabaseRoleResult(dict):
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        The comment on the role
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Identifier for the role.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        The owner of the role
+        """
         return pulumi.get(self, "owner")
 
 
@@ -2373,6 +2483,28 @@ class GetDynamicTablesRecordResult(dict):
                  target_lag: str,
                  text: str,
                  warehouse: str):
+        """
+        :param bool automatic_clustering: Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+        :param int bytes: Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+        :param str cluster_by: The clustering key for the dynamic table.
+        :param str comment: Comment for the dynamic table.
+        :param str created_on: Date and time when the dynamic table was created.
+        :param str data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
+        :param str database_name: Database in which the dynamic table is stored.
+        :param bool is_clone: TRUE if the dynamic table has been cloned, else FALSE.
+        :param bool is_replica: TRUE if the dynamic table is a replica. else FALSE.
+        :param str last_suspended_on: Timestamp of last suspension.
+        :param str name: Name of the dynamic table.
+        :param str owner: Role that owns the dynamic table.
+        :param str refresh_mode: INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        :param str refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+        :param int rows: Number of rows in the table.
+        :param str scheduling_state: Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        :param str schema_name: Schema in which the dynamic table is stored.
+        :param str target_lag: The maximum duration that the dynamic table’s content should lag behind real time.
+        :param str text: The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+        :param str warehouse: Warehouse that provides the required resources to perform the incremental refreshes.
+        """
         pulumi.set(__self__, "automatic_clustering", automatic_clustering)
         pulumi.set(__self__, "bytes", bytes)
         pulumi.set(__self__, "cluster_by", cluster_by)
@@ -2397,101 +2529,161 @@ class GetDynamicTablesRecordResult(dict):
     @property
     @pulumi.getter(name="automaticClustering")
     def automatic_clustering(self) -> bool:
+        """
+        Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+        """
         return pulumi.get(self, "automatic_clustering")
 
     @property
     @pulumi.getter
     def bytes(self) -> int:
+        """
+        Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+        """
         return pulumi.get(self, "bytes")
 
     @property
     @pulumi.getter(name="clusterBy")
     def cluster_by(self) -> str:
+        """
+        The clustering key for the dynamic table.
+        """
         return pulumi.get(self, "cluster_by")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment for the dynamic table.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> str:
+        """
+        Date and time when the dynamic table was created.
+        """
         return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter(name="dataTimestamp")
     def data_timestamp(self) -> str:
+        """
+        Timestamp of the data in the base object(s) that is included in the dynamic table.
+        """
         return pulumi.get(self, "data_timestamp")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        Database in which the dynamic table is stored.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="isClone")
     def is_clone(self) -> bool:
+        """
+        TRUE if the dynamic table has been cloned, else FALSE.
+        """
         return pulumi.get(self, "is_clone")
 
     @property
     @pulumi.getter(name="isReplica")
     def is_replica(self) -> bool:
+        """
+        TRUE if the dynamic table is a replica. else FALSE.
+        """
         return pulumi.get(self, "is_replica")
 
     @property
     @pulumi.getter(name="lastSuspendedOn")
     def last_suspended_on(self) -> str:
+        """
+        Timestamp of last suspension.
+        """
         return pulumi.get(self, "last_suspended_on")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the dynamic table.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Role that owns the dynamic table.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="refreshMode")
     def refresh_mode(self) -> str:
+        """
+        INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        """
         return pulumi.get(self, "refresh_mode")
 
     @property
     @pulumi.getter(name="refreshModeReason")
     def refresh_mode_reason(self) -> str:
+        """
+        Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+        """
         return pulumi.get(self, "refresh_mode_reason")
 
     @property
     @pulumi.getter
     def rows(self) -> int:
+        """
+        Number of rows in the table.
+        """
         return pulumi.get(self, "rows")
 
     @property
     @pulumi.getter(name="schedulingState")
     def scheduling_state(self) -> str:
+        """
+        Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        """
         return pulumi.get(self, "scheduling_state")
 
     @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> str:
+        """
+        Schema in which the dynamic table is stored.
+        """
         return pulumi.get(self, "schema_name")
 
     @property
     @pulumi.getter(name="targetLag")
     def target_lag(self) -> str:
+        """
+        The maximum duration that the dynamic table’s content should lag behind real time.
+        """
         return pulumi.get(self, "target_lag")
 
     @property
     @pulumi.getter
     def text(self) -> str:
+        """
+        The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+        """
         return pulumi.get(self, "text")
 
     @property
     @pulumi.getter
     def warehouse(self) -> str:
+        """
+        Warehouse that provides the required resources to perform the incremental refreshes.
+        """
         return pulumi.get(self, "warehouse")
 
 
@@ -2588,6 +2780,25 @@ class GetFailoverGroupsFailoverGroupResult(dict):
                  secondary_state: str,
                  snowflake_region: str,
                  type: str):
+        """
+        :param str account_locator: Account locator in a region.
+        :param str account_name: Name of the account.
+        :param Sequence[Any] allowed_accounts: List of accounts enabled for replication and failover.
+        :param Sequence[Any] allowed_integration_types: A list of integration types that are enabled for replication.
+        :param str comment: Comment string.
+        :param str created_on: Date and time failover group was created.
+        :param bool is_primary: Indicates whether the failover group is the primary group.
+        :param str next_scheduled_refresh: Date and time of the next scheduled refresh.
+        :param Sequence[Any] object_types: List of specified object types enabled for replication and failover.
+        :param str organization_name: Name of your Snowflake organization.
+        :param str owner: Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+        :param str primary: Name of the primary group.
+        :param str region_group: Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+        :param str replication_schedule: Scheduled interval for refresh; NULL if no replication schedule is set.
+        :param str secondary_state: Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+        :param str snowflake_region: Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+        :param str type: Type of group. Valid value is FAILOVER.
+        """
         pulumi.set(__self__, "account_locator", account_locator)
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "allowed_accounts", allowed_accounts)
@@ -2609,86 +2820,137 @@ class GetFailoverGroupsFailoverGroupResult(dict):
     @property
     @pulumi.getter(name="accountLocator")
     def account_locator(self) -> str:
+        """
+        Account locator in a region.
+        """
         return pulumi.get(self, "account_locator")
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
+        """
+        Name of the account.
+        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="allowedAccounts")
     def allowed_accounts(self) -> Sequence[Any]:
+        """
+        List of accounts enabled for replication and failover.
+        """
         return pulumi.get(self, "allowed_accounts")
 
     @property
     @pulumi.getter(name="allowedIntegrationTypes")
     def allowed_integration_types(self) -> Sequence[Any]:
+        """
+        A list of integration types that are enabled for replication.
+        """
         return pulumi.get(self, "allowed_integration_types")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        Comment string.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> str:
+        """
+        Date and time failover group was created.
+        """
         return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> bool:
+        """
+        Indicates whether the failover group is the primary group.
+        """
         return pulumi.get(self, "is_primary")
 
     @property
     @pulumi.getter(name="nextScheduledRefresh")
     def next_scheduled_refresh(self) -> str:
+        """
+        Date and time of the next scheduled refresh.
+        """
         return pulumi.get(self, "next_scheduled_refresh")
 
     @property
     @pulumi.getter(name="objectTypes")
     def object_types(self) -> Sequence[Any]:
+        """
+        List of specified object types enabled for replication and failover.
+        """
         return pulumi.get(self, "object_types")
 
     @property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> str:
+        """
+        Name of your Snowflake organization.
+        """
         return pulumi.get(self, "organization_name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def primary(self) -> str:
+        """
+        Name of the primary group.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter(name="regionGroup")
     def region_group(self) -> str:
+        """
+        Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+        """
         return pulumi.get(self, "region_group")
 
     @property
     @pulumi.getter(name="replicationSchedule")
     def replication_schedule(self) -> str:
+        """
+        Scheduled interval for refresh; NULL if no replication schedule is set.
+        """
         return pulumi.get(self, "replication_schedule")
 
     @property
     @pulumi.getter(name="secondaryState")
     def secondary_state(self) -> str:
+        """
+        Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+        """
         return pulumi.get(self, "secondary_state")
 
     @property
     @pulumi.getter(name="snowflakeRegion")
     def snowflake_region(self) -> str:
+        """
+        Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+        """
         return pulumi.get(self, "snowflake_region")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of group. Valid value is FAILOVER.
+        """
         return pulumi.get(self, "type")
 
 
@@ -2869,6 +3131,16 @@ class GetGrantsGrantResult(dict):
                  grantee_name: str,
                  name: str,
                  privilege: str):
+        """
+        :param str created_on: The date and time the grant was created
+        :param bool grant_option: Whether the grantee can grant the privilege to others
+        :param str granted_by: The role that granted the privilege
+        :param str granted_on: The object on which the privilege was granted
+        :param str granted_to: The role to which the privilege was granted
+        :param str grantee_name: The name of the role to which the privilege was granted
+        :param str name: The name of the object on which the privilege was granted
+        :param str privilege: The privilege granted
+        """
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "grant_option", grant_option)
         pulumi.set(__self__, "granted_by", granted_by)
@@ -2881,41 +3153,65 @@ class GetGrantsGrantResult(dict):
     @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> str:
+        """
+        The date and time the grant was created
+        """
         return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter(name="grantOption")
     def grant_option(self) -> bool:
+        """
+        Whether the grantee can grant the privilege to others
+        """
         return pulumi.get(self, "grant_option")
 
     @property
     @pulumi.getter(name="grantedBy")
     def granted_by(self) -> str:
+        """
+        The role that granted the privilege
+        """
         return pulumi.get(self, "granted_by")
 
     @property
     @pulumi.getter(name="grantedOn")
     def granted_on(self) -> str:
+        """
+        The object on which the privilege was granted
+        """
         return pulumi.get(self, "granted_on")
 
     @property
     @pulumi.getter(name="grantedTo")
     def granted_to(self) -> str:
+        """
+        The role to which the privilege was granted
+        """
         return pulumi.get(self, "granted_to")
 
     @property
     @pulumi.getter(name="granteeName")
     def grantee_name(self) -> str:
+        """
+        The name of the role to which the privilege was granted
+        """
         return pulumi.get(self, "grantee_name")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the object on which the privilege was granted
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def privilege(self) -> str:
+        """
+        The privilege granted
+        """
         return pulumi.get(self, "privilege")
 
 
@@ -3117,6 +3413,13 @@ class GetParametersParameterResult(dict):
                  key: str,
                  level: str,
                  value: str):
+        """
+        :param str default: The default value of the parameter
+        :param str description: The description of the parameter
+        :param str key: The name of the parameter
+        :param str level: The level of the parameter
+        :param str value: The value of the parameter
+        """
         pulumi.set(__self__, "default", default)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "key", key)
@@ -3126,26 +3429,41 @@ class GetParametersParameterResult(dict):
     @property
     @pulumi.getter
     def default(self) -> str:
+        """
+        The default value of the parameter
+        """
         return pulumi.get(self, "default")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        The description of the parameter
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the parameter
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level of the parameter
+        """
         return pulumi.get(self, "level")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value of the parameter
+        """
         return pulumi.get(self, "value")
 
 
@@ -3275,6 +3593,11 @@ class GetRolesRoleResult(dict):
                  comment: str,
                  name: str,
                  owner: str):
+        """
+        :param str comment: The comment on the role
+        :param str name: Identifier for the role.
+        :param str owner: The owner of the role
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -3282,16 +3605,25 @@ class GetRolesRoleResult(dict):
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        The comment on the role
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Identifier for the role.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        The owner of the role
+        """
         return pulumi.get(self, "owner")
 
 
@@ -3395,6 +3727,13 @@ class GetSharesShareResult(dict):
                  name: str,
                  owner: str,
                  tos: Sequence[Any]):
+        """
+        :param str comment: The comment on the share.
+        :param str kind: The kind of the share.
+        :param str name: Identifier for the share.
+        :param str owner: The owner of the share.
+        :param Sequence[Any] tos: For the OUTBOUND share, list of consumers.
+        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
@@ -3404,26 +3743,41 @@ class GetSharesShareResult(dict):
     @property
     @pulumi.getter
     def comment(self) -> str:
+        """
+        The comment on the share.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def kind(self) -> str:
+        """
+        The kind of the share.
+        """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Identifier for the share.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        The owner of the share.
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def tos(self) -> Sequence[Any]:
+        """
+        For the OUTBOUND share, list of consumers.
+        """
         return pulumi.get(self, "tos")
 
 

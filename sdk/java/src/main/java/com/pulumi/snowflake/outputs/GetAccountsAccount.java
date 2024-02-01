@@ -12,69 +12,197 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountsAccount {
+    /**
+     * @return System-assigned identifier of the acccount.
+     * 
+     */
     private String accountLocator;
+    /**
+     * @return Legacy Snowflake access URL syntax that includes the region_name and account_locator.
+     * 
+     */
     private String accountLocatorUrl;
+    /**
+     * @return User-defined name that identifies an account within the organization.
+     * 
+     */
     private String accountName;
+    /**
+     * @return Preferred Snowflake access URL that includes the values of organization_name and account_name.
+     * 
+     */
     private String accountUrl;
+    /**
+     * @return Comment for the account.
+     * 
+     */
     private String comment;
+    /**
+     * @return Name of the consumption billing entity.
+     * 
+     */
     private String consumptionBillingEntityName;
+    /**
+     * @return Date and time when the account was created.
+     * 
+     */
     private String createdOn;
+    /**
+     * @return Snowflake Edition of the account.
+     * 
+     */
     private String edition;
+    /**
+     * @return Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
     private Boolean isOrgAdmin;
+    /**
+     * @return Indicates how many managed accounts have been created by the account.
+     * 
+     */
     private Integer managedAccounts;
+    /**
+     * @return Name of the marketplace consumer billing entity.
+     * 
+     */
     private String marketplaceConsumerBillingEntityName;
+    /**
+     * @return Name of the marketplace provider billing entity.
+     * 
+     */
     private String marketplaceProviderBillingEntityName;
+    /**
+     * @return The previous account URL for a given account.
+     * 
+     */
     private String oldAccountUrl;
+    /**
+     * @return Name of the organization.
+     * 
+     */
     private String organizationName;
+    /**
+     * @return Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     * 
+     */
     private String regionGroup;
+    /**
+     * @return Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     * 
+     */
     private String snowflakeRegion;
 
     private GetAccountsAccount() {}
+    /**
+     * @return System-assigned identifier of the acccount.
+     * 
+     */
     public String accountLocator() {
         return this.accountLocator;
     }
+    /**
+     * @return Legacy Snowflake access URL syntax that includes the region_name and account_locator.
+     * 
+     */
     public String accountLocatorUrl() {
         return this.accountLocatorUrl;
     }
+    /**
+     * @return User-defined name that identifies an account within the organization.
+     * 
+     */
     public String accountName() {
         return this.accountName;
     }
+    /**
+     * @return Preferred Snowflake access URL that includes the values of organization_name and account_name.
+     * 
+     */
     public String accountUrl() {
         return this.accountUrl;
     }
+    /**
+     * @return Comment for the account.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Name of the consumption billing entity.
+     * 
+     */
     public String consumptionBillingEntityName() {
         return this.consumptionBillingEntityName;
     }
+    /**
+     * @return Date and time when the account was created.
+     * 
+     */
     public String createdOn() {
         return this.createdOn;
     }
+    /**
+     * @return Snowflake Edition of the account.
+     * 
+     */
     public String edition() {
         return this.edition;
     }
+    /**
+     * @return Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * 
+     */
     public Boolean isOrgAdmin() {
         return this.isOrgAdmin;
     }
+    /**
+     * @return Indicates how many managed accounts have been created by the account.
+     * 
+     */
     public Integer managedAccounts() {
         return this.managedAccounts;
     }
+    /**
+     * @return Name of the marketplace consumer billing entity.
+     * 
+     */
     public String marketplaceConsumerBillingEntityName() {
         return this.marketplaceConsumerBillingEntityName;
     }
+    /**
+     * @return Name of the marketplace provider billing entity.
+     * 
+     */
     public String marketplaceProviderBillingEntityName() {
         return this.marketplaceProviderBillingEntityName;
     }
+    /**
+     * @return The previous account URL for a given account.
+     * 
+     */
     public String oldAccountUrl() {
         return this.oldAccountUrl;
     }
+    /**
+     * @return Name of the organization.
+     * 
+     */
     public String organizationName() {
         return this.organizationName;
     }
+    /**
+     * @return Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+     * 
+     */
     public String regionGroup() {
         return this.regionGroup;
     }
+    /**
+     * @return Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+     * 
+     */
     public String snowflakeRegion() {
         return this.snowflakeRegion;
     }

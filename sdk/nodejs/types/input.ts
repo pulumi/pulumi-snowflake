@@ -541,10 +541,25 @@ export interface ProcedureArgument {
 }
 
 export interface ProviderTokenAccessor {
+    /**
+     * The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+     */
     clientId: pulumi.Input<string>;
+    /**
+     * The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+     */
     clientSecret: pulumi.Input<string>;
+    /**
+     * The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+     */
     redirectUri: pulumi.Input<string>;
+    /**
+     * The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+     */
     refreshToken: pulumi.Input<string>;
+    /**
+     * The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+     */
     tokenEndpoint: pulumi.Input<string>;
 }
 

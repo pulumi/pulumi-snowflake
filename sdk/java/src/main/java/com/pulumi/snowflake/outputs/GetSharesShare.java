@@ -12,25 +12,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSharesShare {
+    /**
+     * @return The comment on the share.
+     * 
+     */
     private String comment;
+    /**
+     * @return The kind of the share.
+     * 
+     */
     private String kind;
+    /**
+     * @return Identifier for the share.
+     * 
+     */
     private String name;
+    /**
+     * @return The owner of the share.
+     * 
+     */
     private String owner;
+    /**
+     * @return For the OUTBOUND share, list of consumers.
+     * 
+     */
     private List<Object> tos;
 
     private GetSharesShare() {}
+    /**
+     * @return The comment on the share.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return The kind of the share.
+     * 
+     */
     public String kind() {
         return this.kind;
     }
+    /**
+     * @return Identifier for the share.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The owner of the share.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return For the OUTBOUND share, list of consumers.
+     * 
+     */
     public List<Object> tos() {
         return this.tos;
     }

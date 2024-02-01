@@ -13,10 +13,25 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetParametersParameterResult
     {
+        /// <summary>
+        /// The default value of the parameter
+        /// </summary>
         public readonly string Default;
+        /// <summary>
+        /// The description of the parameter
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The name of the parameter
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The level of the parameter
+        /// </summary>
         public readonly string Level;
+        /// <summary>
+        /// The value of the parameter
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

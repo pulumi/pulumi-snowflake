@@ -3842,10 +3842,15 @@ func (o ProcedureArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureArgument
 }
 
 type ProviderTokenAccessor struct {
-	ClientId      string `pulumi:"clientId"`
-	ClientSecret  string `pulumi:"clientSecret"`
-	RedirectUri   string `pulumi:"redirectUri"`
-	RefreshToken  string `pulumi:"refreshToken"`
+	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+	ClientId string `pulumi:"clientId"`
+	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+	RedirectUri string `pulumi:"redirectUri"`
+	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+	RefreshToken string `pulumi:"refreshToken"`
+	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
 }
 
@@ -3861,10 +3866,15 @@ type ProviderTokenAccessorInput interface {
 }
 
 type ProviderTokenAccessorArgs struct {
-	ClientId      pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret  pulumi.StringInput `pulumi:"clientSecret"`
-	RedirectUri   pulumi.StringInput `pulumi:"redirectUri"`
-	RefreshToken  pulumi.StringInput `pulumi:"refreshToken"`
+	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
+	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+	RefreshToken pulumi.StringInput `pulumi:"refreshToken"`
+	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 }
 
@@ -3945,22 +3955,27 @@ func (o ProviderTokenAccessorOutput) ToProviderTokenAccessorPtrOutputWithContext
 	}).(ProviderTokenAccessorPtrOutput)
 }
 
+// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
 func (o ProviderTokenAccessorOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 func (o ProviderTokenAccessorOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
 func (o ProviderTokenAccessorOutput) RedirectUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RedirectUri }).(pulumi.StringOutput)
 }
 
+// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
 func (o ProviderTokenAccessorOutput) RefreshToken() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.RefreshToken }).(pulumi.StringOutput)
 }
 
+// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 func (o ProviderTokenAccessorOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderTokenAccessor) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
@@ -3989,6 +4004,7 @@ func (o ProviderTokenAccessorPtrOutput) Elem() ProviderTokenAccessorOutput {
 	}).(ProviderTokenAccessorOutput)
 }
 
+// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
 func (o ProviderTokenAccessorPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
 		if v == nil {
@@ -3998,6 +4014,7 @@ func (o ProviderTokenAccessorPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 func (o ProviderTokenAccessorPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
 		if v == nil {
@@ -4007,6 +4024,7 @@ func (o ProviderTokenAccessorPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
 func (o ProviderTokenAccessorPtrOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
 		if v == nil {
@@ -4016,6 +4034,7 @@ func (o ProviderTokenAccessorPtrOutput) RedirectUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
 func (o ProviderTokenAccessorPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
 		if v == nil {
@@ -4025,6 +4044,7 @@ func (o ProviderTokenAccessorPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 func (o ProviderTokenAccessorPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderTokenAccessor) *string {
 		if v == nil {
@@ -5760,22 +5780,38 @@ func (o ViewTagArrayOutput) Index(i pulumi.IntInput) ViewTagOutput {
 }
 
 type GetAccountsAccount struct {
-	AccountLocator                       string `pulumi:"accountLocator"`
-	AccountLocatorUrl                    string `pulumi:"accountLocatorUrl"`
-	AccountName                          string `pulumi:"accountName"`
-	AccountUrl                           string `pulumi:"accountUrl"`
-	Comment                              string `pulumi:"comment"`
-	ConsumptionBillingEntityName         string `pulumi:"consumptionBillingEntityName"`
-	CreatedOn                            string `pulumi:"createdOn"`
-	Edition                              string `pulumi:"edition"`
-	IsOrgAdmin                           bool   `pulumi:"isOrgAdmin"`
-	ManagedAccounts                      int    `pulumi:"managedAccounts"`
+	// System-assigned identifier of the acccount.
+	AccountLocator string `pulumi:"accountLocator"`
+	// Legacy Snowflake access URL syntax that includes the regionName and account_locator.
+	AccountLocatorUrl string `pulumi:"accountLocatorUrl"`
+	// User-defined name that identifies an account within the organization.
+	AccountName string `pulumi:"accountName"`
+	// Preferred Snowflake access URL that includes the values of organizationName and account_name.
+	AccountUrl string `pulumi:"accountUrl"`
+	// Comment for the account.
+	Comment string `pulumi:"comment"`
+	// Name of the consumption billing entity.
+	ConsumptionBillingEntityName string `pulumi:"consumptionBillingEntityName"`
+	// Date and time when the account was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// Snowflake Edition of the account.
+	Edition string `pulumi:"edition"`
+	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+	IsOrgAdmin bool `pulumi:"isOrgAdmin"`
+	// Indicates how many managed accounts have been created by the account.
+	ManagedAccounts int `pulumi:"managedAccounts"`
+	// Name of the marketplace consumer billing entity.
 	MarketplaceConsumerBillingEntityName string `pulumi:"marketplaceConsumerBillingEntityName"`
+	// Name of the marketplace provider billing entity.
 	MarketplaceProviderBillingEntityName string `pulumi:"marketplaceProviderBillingEntityName"`
-	OldAccountUrl                        string `pulumi:"oldAccountUrl"`
-	OrganizationName                     string `pulumi:"organizationName"`
-	RegionGroup                          string `pulumi:"regionGroup"`
-	SnowflakeRegion                      string `pulumi:"snowflakeRegion"`
+	// The previous account URL for a given account.
+	OldAccountUrl string `pulumi:"oldAccountUrl"`
+	// Name of the organization.
+	OrganizationName string `pulumi:"organizationName"`
+	// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+	RegionGroup string `pulumi:"regionGroup"`
+	// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+	SnowflakeRegion string `pulumi:"snowflakeRegion"`
 }
 
 // GetAccountsAccountInput is an input type that accepts GetAccountsAccountArgs and GetAccountsAccountOutput values.
@@ -5790,22 +5826,38 @@ type GetAccountsAccountInput interface {
 }
 
 type GetAccountsAccountArgs struct {
-	AccountLocator                       pulumi.StringInput `pulumi:"accountLocator"`
-	AccountLocatorUrl                    pulumi.StringInput `pulumi:"accountLocatorUrl"`
-	AccountName                          pulumi.StringInput `pulumi:"accountName"`
-	AccountUrl                           pulumi.StringInput `pulumi:"accountUrl"`
-	Comment                              pulumi.StringInput `pulumi:"comment"`
-	ConsumptionBillingEntityName         pulumi.StringInput `pulumi:"consumptionBillingEntityName"`
-	CreatedOn                            pulumi.StringInput `pulumi:"createdOn"`
-	Edition                              pulumi.StringInput `pulumi:"edition"`
-	IsOrgAdmin                           pulumi.BoolInput   `pulumi:"isOrgAdmin"`
-	ManagedAccounts                      pulumi.IntInput    `pulumi:"managedAccounts"`
+	// System-assigned identifier of the acccount.
+	AccountLocator pulumi.StringInput `pulumi:"accountLocator"`
+	// Legacy Snowflake access URL syntax that includes the regionName and account_locator.
+	AccountLocatorUrl pulumi.StringInput `pulumi:"accountLocatorUrl"`
+	// User-defined name that identifies an account within the organization.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Preferred Snowflake access URL that includes the values of organizationName and account_name.
+	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
+	// Comment for the account.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Name of the consumption billing entity.
+	ConsumptionBillingEntityName pulumi.StringInput `pulumi:"consumptionBillingEntityName"`
+	// Date and time when the account was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// Snowflake Edition of the account.
+	Edition pulumi.StringInput `pulumi:"edition"`
+	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+	IsOrgAdmin pulumi.BoolInput `pulumi:"isOrgAdmin"`
+	// Indicates how many managed accounts have been created by the account.
+	ManagedAccounts pulumi.IntInput `pulumi:"managedAccounts"`
+	// Name of the marketplace consumer billing entity.
 	MarketplaceConsumerBillingEntityName pulumi.StringInput `pulumi:"marketplaceConsumerBillingEntityName"`
+	// Name of the marketplace provider billing entity.
 	MarketplaceProviderBillingEntityName pulumi.StringInput `pulumi:"marketplaceProviderBillingEntityName"`
-	OldAccountUrl                        pulumi.StringInput `pulumi:"oldAccountUrl"`
-	OrganizationName                     pulumi.StringInput `pulumi:"organizationName"`
-	RegionGroup                          pulumi.StringInput `pulumi:"regionGroup"`
-	SnowflakeRegion                      pulumi.StringInput `pulumi:"snowflakeRegion"`
+	// The previous account URL for a given account.
+	OldAccountUrl pulumi.StringInput `pulumi:"oldAccountUrl"`
+	// Name of the organization.
+	OrganizationName pulumi.StringInput `pulumi:"organizationName"`
+	// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+	RegionGroup pulumi.StringInput `pulumi:"regionGroup"`
+	// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+	SnowflakeRegion pulumi.StringInput `pulumi:"snowflakeRegion"`
 }
 
 func (GetAccountsAccountArgs) ElementType() reflect.Type {
@@ -5859,66 +5911,82 @@ func (o GetAccountsAccountOutput) ToGetAccountsAccountOutputWithContext(ctx cont
 	return o
 }
 
+// System-assigned identifier of the acccount.
 func (o GetAccountsAccountOutput) AccountLocator() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountLocator }).(pulumi.StringOutput)
 }
 
+// Legacy Snowflake access URL syntax that includes the regionName and account_locator.
 func (o GetAccountsAccountOutput) AccountLocatorUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountLocatorUrl }).(pulumi.StringOutput)
 }
 
+// User-defined name that identifies an account within the organization.
 func (o GetAccountsAccountOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// Preferred Snowflake access URL that includes the values of organizationName and account_name.
 func (o GetAccountsAccountOutput) AccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.AccountUrl }).(pulumi.StringOutput)
 }
 
+// Comment for the account.
 func (o GetAccountsAccountOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Name of the consumption billing entity.
 func (o GetAccountsAccountOutput) ConsumptionBillingEntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.ConsumptionBillingEntityName }).(pulumi.StringOutput)
 }
 
+// Date and time when the account was created.
 func (o GetAccountsAccountOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
+// Snowflake Edition of the account.
 func (o GetAccountsAccountOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.Edition }).(pulumi.StringOutput)
 }
 
+// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
 func (o GetAccountsAccountOutput) IsOrgAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountsAccount) bool { return v.IsOrgAdmin }).(pulumi.BoolOutput)
 }
 
+// Indicates how many managed accounts have been created by the account.
 func (o GetAccountsAccountOutput) ManagedAccounts() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAccountsAccount) int { return v.ManagedAccounts }).(pulumi.IntOutput)
 }
 
+// Name of the marketplace consumer billing entity.
 func (o GetAccountsAccountOutput) MarketplaceConsumerBillingEntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.MarketplaceConsumerBillingEntityName }).(pulumi.StringOutput)
 }
 
+// Name of the marketplace provider billing entity.
 func (o GetAccountsAccountOutput) MarketplaceProviderBillingEntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.MarketplaceProviderBillingEntityName }).(pulumi.StringOutput)
 }
 
+// The previous account URL for a given account.
 func (o GetAccountsAccountOutput) OldAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.OldAccountUrl }).(pulumi.StringOutput)
 }
 
+// Name of the organization.
 func (o GetAccountsAccountOutput) OrganizationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.OrganizationName }).(pulumi.StringOutput)
 }
 
+// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
 func (o GetAccountsAccountOutput) RegionGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.RegionGroup }).(pulumi.StringOutput)
 }
 
+// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
 func (o GetAccountsAccountOutput) SnowflakeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsAccount) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
 }
@@ -5944,13 +6012,20 @@ func (o GetAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetAccountsAccou
 }
 
 type GetAlertsAlert struct {
-	Action       string `pulumi:"action"`
-	Comment      string `pulumi:"comment"`
-	Condition    string `pulumi:"condition"`
+	// The text of the SQL statement that should be executed when the alert is triggered.
+	Action string `pulumi:"action"`
+	// Comment for the alert.
+	Comment string `pulumi:"comment"`
+	// The text of the SQL statement that serves as the condition when the alert should be triggered.
+	Condition string `pulumi:"condition"`
+	// Database in which the alert is stored.
 	DatabaseName string `pulumi:"databaseName"`
-	Name         string `pulumi:"name"`
-	Owner        string `pulumi:"owner"`
-	SchemaName   string `pulumi:"schemaName"`
+	// Name of the alert.
+	Name string `pulumi:"name"`
+	// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+	Owner string `pulumi:"owner"`
+	// Schema in which the alert is stored.
+	SchemaName string `pulumi:"schemaName"`
 }
 
 // GetAlertsAlertInput is an input type that accepts GetAlertsAlertArgs and GetAlertsAlertOutput values.
@@ -5965,13 +6040,20 @@ type GetAlertsAlertInput interface {
 }
 
 type GetAlertsAlertArgs struct {
-	Action       pulumi.StringInput `pulumi:"action"`
-	Comment      pulumi.StringInput `pulumi:"comment"`
-	Condition    pulumi.StringInput `pulumi:"condition"`
+	// The text of the SQL statement that should be executed when the alert is triggered.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Comment for the alert.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The text of the SQL statement that serves as the condition when the alert should be triggered.
+	Condition pulumi.StringInput `pulumi:"condition"`
+	// Database in which the alert is stored.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	Name         pulumi.StringInput `pulumi:"name"`
-	Owner        pulumi.StringInput `pulumi:"owner"`
-	SchemaName   pulumi.StringInput `pulumi:"schemaName"`
+	// Name of the alert.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Schema in which the alert is stored.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
 }
 
 func (GetAlertsAlertArgs) ElementType() reflect.Type {
@@ -6025,30 +6107,37 @@ func (o GetAlertsAlertOutput) ToGetAlertsAlertOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The text of the SQL statement that should be executed when the alert is triggered.
 func (o GetAlertsAlertOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// Comment for the alert.
 func (o GetAlertsAlertOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The text of the SQL statement that serves as the condition when the alert should be triggered.
 func (o GetAlertsAlertOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.Condition }).(pulumi.StringOutput)
 }
 
+// Database in which the alert is stored.
 func (o GetAlertsAlertOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Name of the alert.
 func (o GetAlertsAlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
 func (o GetAlertsAlertOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// Schema in which the alert is stored.
 func (o GetAlertsAlertOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertsAlert) string { return v.SchemaName }).(pulumi.StringOutput)
 }
@@ -6074,9 +6163,12 @@ func (o GetAlertsAlertArrayOutput) Index(i pulumi.IntInput) GetAlertsAlertOutput
 }
 
 type GetDatabaseRolesDatabaseRole struct {
+	// The comment on the role
 	Comment string `pulumi:"comment"`
-	Name    string `pulumi:"name"`
-	Owner   string `pulumi:"owner"`
+	// Identifier for the role.
+	Name string `pulumi:"name"`
+	// The owner of the role
+	Owner string `pulumi:"owner"`
 }
 
 // GetDatabaseRolesDatabaseRoleInput is an input type that accepts GetDatabaseRolesDatabaseRoleArgs and GetDatabaseRolesDatabaseRoleOutput values.
@@ -6091,9 +6183,12 @@ type GetDatabaseRolesDatabaseRoleInput interface {
 }
 
 type GetDatabaseRolesDatabaseRoleArgs struct {
+	// The comment on the role
 	Comment pulumi.StringInput `pulumi:"comment"`
-	Name    pulumi.StringInput `pulumi:"name"`
-	Owner   pulumi.StringInput `pulumi:"owner"`
+	// Identifier for the role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The owner of the role
+	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
 func (GetDatabaseRolesDatabaseRoleArgs) ElementType() reflect.Type {
@@ -6147,14 +6242,17 @@ func (o GetDatabaseRolesDatabaseRoleOutput) ToGetDatabaseRolesDatabaseRoleOutput
 	return o
 }
 
+// The comment on the role
 func (o GetDatabaseRolesDatabaseRoleOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Identifier for the role.
 func (o GetDatabaseRolesDatabaseRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The owner of the role
 func (o GetDatabaseRolesDatabaseRoleOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -6898,26 +6996,46 @@ func (o GetDynamicTablesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
 }
 
 type GetDynamicTablesRecord struct {
-	AutomaticClustering bool   `pulumi:"automaticClustering"`
-	Bytes               int    `pulumi:"bytes"`
-	ClusterBy           string `pulumi:"clusterBy"`
-	Comment             string `pulumi:"comment"`
-	CreatedOn           string `pulumi:"createdOn"`
-	DataTimestamp       string `pulumi:"dataTimestamp"`
-	DatabaseName        string `pulumi:"databaseName"`
-	IsClone             bool   `pulumi:"isClone"`
-	IsReplica           bool   `pulumi:"isReplica"`
-	LastSuspendedOn     string `pulumi:"lastSuspendedOn"`
-	Name                string `pulumi:"name"`
-	Owner               string `pulumi:"owner"`
-	RefreshMode         string `pulumi:"refreshMode"`
-	RefreshModeReason   string `pulumi:"refreshModeReason"`
-	Rows                int    `pulumi:"rows"`
-	SchedulingState     string `pulumi:"schedulingState"`
-	SchemaName          string `pulumi:"schemaName"`
-	TargetLag           string `pulumi:"targetLag"`
-	Text                string `pulumi:"text"`
-	Warehouse           string `pulumi:"warehouse"`
+	// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+	AutomaticClustering bool `pulumi:"automaticClustering"`
+	// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+	Bytes int `pulumi:"bytes"`
+	// The clustering key for the dynamic table.
+	ClusterBy string `pulumi:"clusterBy"`
+	// Comment for the dynamic table.
+	Comment string `pulumi:"comment"`
+	// Date and time when the dynamic table was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// Timestamp of the data in the base object(s) that is included in the dynamic table.
+	DataTimestamp string `pulumi:"dataTimestamp"`
+	// Database in which the dynamic table is stored.
+	DatabaseName string `pulumi:"databaseName"`
+	// TRUE if the dynamic table has been cloned, else FALSE.
+	IsClone bool `pulumi:"isClone"`
+	// TRUE if the dynamic table is a replica. else FALSE.
+	IsReplica bool `pulumi:"isReplica"`
+	// Timestamp of last suspension.
+	LastSuspendedOn string `pulumi:"lastSuspendedOn"`
+	// Name of the dynamic table.
+	Name string `pulumi:"name"`
+	// Role that owns the dynamic table.
+	Owner string `pulumi:"owner"`
+	// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+	RefreshMode string `pulumi:"refreshMode"`
+	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+	RefreshModeReason string `pulumi:"refreshModeReason"`
+	// Number of rows in the table.
+	Rows int `pulumi:"rows"`
+	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	SchedulingState string `pulumi:"schedulingState"`
+	// Schema in which the dynamic table is stored.
+	SchemaName string `pulumi:"schemaName"`
+	// The maximum duration that the dynamic table’s content should lag behind real time.
+	TargetLag string `pulumi:"targetLag"`
+	// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+	Text string `pulumi:"text"`
+	// Warehouse that provides the required resources to perform the incremental refreshes.
+	Warehouse string `pulumi:"warehouse"`
 }
 
 // GetDynamicTablesRecordInput is an input type that accepts GetDynamicTablesRecordArgs and GetDynamicTablesRecordOutput values.
@@ -6932,26 +7050,46 @@ type GetDynamicTablesRecordInput interface {
 }
 
 type GetDynamicTablesRecordArgs struct {
-	AutomaticClustering pulumi.BoolInput   `pulumi:"automaticClustering"`
-	Bytes               pulumi.IntInput    `pulumi:"bytes"`
-	ClusterBy           pulumi.StringInput `pulumi:"clusterBy"`
-	Comment             pulumi.StringInput `pulumi:"comment"`
-	CreatedOn           pulumi.StringInput `pulumi:"createdOn"`
-	DataTimestamp       pulumi.StringInput `pulumi:"dataTimestamp"`
-	DatabaseName        pulumi.StringInput `pulumi:"databaseName"`
-	IsClone             pulumi.BoolInput   `pulumi:"isClone"`
-	IsReplica           pulumi.BoolInput   `pulumi:"isReplica"`
-	LastSuspendedOn     pulumi.StringInput `pulumi:"lastSuspendedOn"`
-	Name                pulumi.StringInput `pulumi:"name"`
-	Owner               pulumi.StringInput `pulumi:"owner"`
-	RefreshMode         pulumi.StringInput `pulumi:"refreshMode"`
-	RefreshModeReason   pulumi.StringInput `pulumi:"refreshModeReason"`
-	Rows                pulumi.IntInput    `pulumi:"rows"`
-	SchedulingState     pulumi.StringInput `pulumi:"schedulingState"`
-	SchemaName          pulumi.StringInput `pulumi:"schemaName"`
-	TargetLag           pulumi.StringInput `pulumi:"targetLag"`
-	Text                pulumi.StringInput `pulumi:"text"`
-	Warehouse           pulumi.StringInput `pulumi:"warehouse"`
+	// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+	AutomaticClustering pulumi.BoolInput `pulumi:"automaticClustering"`
+	// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+	Bytes pulumi.IntInput `pulumi:"bytes"`
+	// The clustering key for the dynamic table.
+	ClusterBy pulumi.StringInput `pulumi:"clusterBy"`
+	// Comment for the dynamic table.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Date and time when the dynamic table was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// Timestamp of the data in the base object(s) that is included in the dynamic table.
+	DataTimestamp pulumi.StringInput `pulumi:"dataTimestamp"`
+	// Database in which the dynamic table is stored.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// TRUE if the dynamic table has been cloned, else FALSE.
+	IsClone pulumi.BoolInput `pulumi:"isClone"`
+	// TRUE if the dynamic table is a replica. else FALSE.
+	IsReplica pulumi.BoolInput `pulumi:"isReplica"`
+	// Timestamp of last suspension.
+	LastSuspendedOn pulumi.StringInput `pulumi:"lastSuspendedOn"`
+	// Name of the dynamic table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Role that owns the dynamic table.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+	RefreshMode pulumi.StringInput `pulumi:"refreshMode"`
+	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+	RefreshModeReason pulumi.StringInput `pulumi:"refreshModeReason"`
+	// Number of rows in the table.
+	Rows pulumi.IntInput `pulumi:"rows"`
+	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	SchedulingState pulumi.StringInput `pulumi:"schedulingState"`
+	// Schema in which the dynamic table is stored.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+	// The maximum duration that the dynamic table’s content should lag behind real time.
+	TargetLag pulumi.StringInput `pulumi:"targetLag"`
+	// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+	Text pulumi.StringInput `pulumi:"text"`
+	// Warehouse that provides the required resources to perform the incremental refreshes.
+	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
 func (GetDynamicTablesRecordArgs) ElementType() reflect.Type {
@@ -7005,82 +7143,102 @@ func (o GetDynamicTablesRecordOutput) ToGetDynamicTablesRecordOutputWithContext(
 	return o
 }
 
+// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
 func (o GetDynamicTablesRecordOutput) AutomaticClustering() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.AutomaticClustering }).(pulumi.BoolOutput)
 }
 
+// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
 func (o GetDynamicTablesRecordOutput) Bytes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Bytes }).(pulumi.IntOutput)
 }
 
+// The clustering key for the dynamic table.
 func (o GetDynamicTablesRecordOutput) ClusterBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.ClusterBy }).(pulumi.StringOutput)
 }
 
+// Comment for the dynamic table.
 func (o GetDynamicTablesRecordOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Date and time when the dynamic table was created.
 func (o GetDynamicTablesRecordOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
+// Timestamp of the data in the base object(s) that is included in the dynamic table.
 func (o GetDynamicTablesRecordOutput) DataTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DataTimestamp }).(pulumi.StringOutput)
 }
 
+// Database in which the dynamic table is stored.
 func (o GetDynamicTablesRecordOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// TRUE if the dynamic table has been cloned, else FALSE.
 func (o GetDynamicTablesRecordOutput) IsClone() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsClone }).(pulumi.BoolOutput)
 }
 
+// TRUE if the dynamic table is a replica. else FALSE.
 func (o GetDynamicTablesRecordOutput) IsReplica() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsReplica }).(pulumi.BoolOutput)
 }
 
+// Timestamp of last suspension.
 func (o GetDynamicTablesRecordOutput) LastSuspendedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.LastSuspendedOn }).(pulumi.StringOutput)
 }
 
+// Name of the dynamic table.
 func (o GetDynamicTablesRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Role that owns the dynamic table.
 func (o GetDynamicTablesRecordOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
 func (o GetDynamicTablesRecordOutput) RefreshMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshMode }).(pulumi.StringOutput)
 }
 
+// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
 func (o GetDynamicTablesRecordOutput) RefreshModeReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshModeReason }).(pulumi.StringOutput)
 }
 
+// Number of rows in the table.
 func (o GetDynamicTablesRecordOutput) Rows() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Rows }).(pulumi.IntOutput)
 }
 
+// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 func (o GetDynamicTablesRecordOutput) SchedulingState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchedulingState }).(pulumi.StringOutput)
 }
 
+// Schema in which the dynamic table is stored.
 func (o GetDynamicTablesRecordOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchemaName }).(pulumi.StringOutput)
 }
 
+// The maximum duration that the dynamic table’s content should lag behind real time.
 func (o GetDynamicTablesRecordOutput) TargetLag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.TargetLag }).(pulumi.StringOutput)
 }
 
+// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
 func (o GetDynamicTablesRecordOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Text }).(pulumi.StringOutput)
 }
 
+// Warehouse that provides the required resources to perform the incremental refreshes.
 func (o GetDynamicTablesRecordOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Warehouse }).(pulumi.StringOutput)
 }
@@ -7336,23 +7494,40 @@ func (o GetExternalTablesExternalTableArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetFailoverGroupsFailoverGroup struct {
-	AccountLocator          string        `pulumi:"accountLocator"`
-	AccountName             string        `pulumi:"accountName"`
-	AllowedAccounts         []interface{} `pulumi:"allowedAccounts"`
+	// Account locator in a region.
+	AccountLocator string `pulumi:"accountLocator"`
+	// Name of the account.
+	AccountName string `pulumi:"accountName"`
+	// List of accounts enabled for replication and failover.
+	AllowedAccounts []interface{} `pulumi:"allowedAccounts"`
+	// A list of integration types that are enabled for replication.
 	AllowedIntegrationTypes []interface{} `pulumi:"allowedIntegrationTypes"`
-	Comment                 string        `pulumi:"comment"`
-	CreatedOn               string        `pulumi:"createdOn"`
-	IsPrimary               bool          `pulumi:"isPrimary"`
-	NextScheduledRefresh    string        `pulumi:"nextScheduledRefresh"`
-	ObjectTypes             []interface{} `pulumi:"objectTypes"`
-	OrganizationName        string        `pulumi:"organizationName"`
-	Owner                   string        `pulumi:"owner"`
-	Primary                 string        `pulumi:"primary"`
-	RegionGroup             string        `pulumi:"regionGroup"`
-	ReplicationSchedule     string        `pulumi:"replicationSchedule"`
-	SecondaryState          string        `pulumi:"secondaryState"`
-	SnowflakeRegion         string        `pulumi:"snowflakeRegion"`
-	Type                    string        `pulumi:"type"`
+	// Comment string.
+	Comment string `pulumi:"comment"`
+	// Date and time failover group was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// Indicates whether the failover group is the primary group.
+	IsPrimary bool `pulumi:"isPrimary"`
+	// Date and time of the next scheduled refresh.
+	NextScheduledRefresh string `pulumi:"nextScheduledRefresh"`
+	// List of specified object types enabled for replication and failover.
+	ObjectTypes []interface{} `pulumi:"objectTypes"`
+	// Name of your Snowflake organization.
+	OrganizationName string `pulumi:"organizationName"`
+	// Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+	Owner string `pulumi:"owner"`
+	// Name of the primary group.
+	Primary string `pulumi:"primary"`
+	// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+	RegionGroup string `pulumi:"regionGroup"`
+	// Scheduled interval for refresh; NULL if no replication schedule is set.
+	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	// Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+	SecondaryState string `pulumi:"secondaryState"`
+	// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+	SnowflakeRegion string `pulumi:"snowflakeRegion"`
+	// Type of group. Valid value is FAILOVER.
+	Type string `pulumi:"type"`
 }
 
 // GetFailoverGroupsFailoverGroupInput is an input type that accepts GetFailoverGroupsFailoverGroupArgs and GetFailoverGroupsFailoverGroupOutput values.
@@ -7367,23 +7542,40 @@ type GetFailoverGroupsFailoverGroupInput interface {
 }
 
 type GetFailoverGroupsFailoverGroupArgs struct {
-	AccountLocator          pulumi.StringInput `pulumi:"accountLocator"`
-	AccountName             pulumi.StringInput `pulumi:"accountName"`
-	AllowedAccounts         pulumi.ArrayInput  `pulumi:"allowedAccounts"`
-	AllowedIntegrationTypes pulumi.ArrayInput  `pulumi:"allowedIntegrationTypes"`
-	Comment                 pulumi.StringInput `pulumi:"comment"`
-	CreatedOn               pulumi.StringInput `pulumi:"createdOn"`
-	IsPrimary               pulumi.BoolInput   `pulumi:"isPrimary"`
-	NextScheduledRefresh    pulumi.StringInput `pulumi:"nextScheduledRefresh"`
-	ObjectTypes             pulumi.ArrayInput  `pulumi:"objectTypes"`
-	OrganizationName        pulumi.StringInput `pulumi:"organizationName"`
-	Owner                   pulumi.StringInput `pulumi:"owner"`
-	Primary                 pulumi.StringInput `pulumi:"primary"`
-	RegionGroup             pulumi.StringInput `pulumi:"regionGroup"`
-	ReplicationSchedule     pulumi.StringInput `pulumi:"replicationSchedule"`
-	SecondaryState          pulumi.StringInput `pulumi:"secondaryState"`
-	SnowflakeRegion         pulumi.StringInput `pulumi:"snowflakeRegion"`
-	Type                    pulumi.StringInput `pulumi:"type"`
+	// Account locator in a region.
+	AccountLocator pulumi.StringInput `pulumi:"accountLocator"`
+	// Name of the account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// List of accounts enabled for replication and failover.
+	AllowedAccounts pulumi.ArrayInput `pulumi:"allowedAccounts"`
+	// A list of integration types that are enabled for replication.
+	AllowedIntegrationTypes pulumi.ArrayInput `pulumi:"allowedIntegrationTypes"`
+	// Comment string.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Date and time failover group was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// Indicates whether the failover group is the primary group.
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// Date and time of the next scheduled refresh.
+	NextScheduledRefresh pulumi.StringInput `pulumi:"nextScheduledRefresh"`
+	// List of specified object types enabled for replication and failover.
+	ObjectTypes pulumi.ArrayInput `pulumi:"objectTypes"`
+	// Name of your Snowflake organization.
+	OrganizationName pulumi.StringInput `pulumi:"organizationName"`
+	// Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Name of the primary group.
+	Primary pulumi.StringInput `pulumi:"primary"`
+	// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+	RegionGroup pulumi.StringInput `pulumi:"regionGroup"`
+	// Scheduled interval for refresh; NULL if no replication schedule is set.
+	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	// Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+	SecondaryState pulumi.StringInput `pulumi:"secondaryState"`
+	// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+	SnowflakeRegion pulumi.StringInput `pulumi:"snowflakeRegion"`
+	// Type of group. Valid value is FAILOVER.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetFailoverGroupsFailoverGroupArgs) ElementType() reflect.Type {
@@ -7437,70 +7629,87 @@ func (o GetFailoverGroupsFailoverGroupOutput) ToGetFailoverGroupsFailoverGroupOu
 	return o
 }
 
+// Account locator in a region.
 func (o GetFailoverGroupsFailoverGroupOutput) AccountLocator() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.AccountLocator }).(pulumi.StringOutput)
 }
 
+// Name of the account.
 func (o GetFailoverGroupsFailoverGroupOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// List of accounts enabled for replication and failover.
 func (o GetFailoverGroupsFailoverGroupOutput) AllowedAccounts() pulumi.ArrayOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.AllowedAccounts }).(pulumi.ArrayOutput)
 }
 
+// A list of integration types that are enabled for replication.
 func (o GetFailoverGroupsFailoverGroupOutput) AllowedIntegrationTypes() pulumi.ArrayOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.AllowedIntegrationTypes }).(pulumi.ArrayOutput)
 }
 
+// Comment string.
 func (o GetFailoverGroupsFailoverGroupOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Date and time failover group was created.
 func (o GetFailoverGroupsFailoverGroupOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
+// Indicates whether the failover group is the primary group.
 func (o GetFailoverGroupsFailoverGroupOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
+// Date and time of the next scheduled refresh.
 func (o GetFailoverGroupsFailoverGroupOutput) NextScheduledRefresh() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.NextScheduledRefresh }).(pulumi.StringOutput)
 }
 
+// List of specified object types enabled for replication and failover.
 func (o GetFailoverGroupsFailoverGroupOutput) ObjectTypes() pulumi.ArrayOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) []interface{} { return v.ObjectTypes }).(pulumi.ArrayOutput)
 }
 
+// Name of your Snowflake organization.
 func (o GetFailoverGroupsFailoverGroupOutput) OrganizationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.OrganizationName }).(pulumi.StringOutput)
 }
 
+// Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
 func (o GetFailoverGroupsFailoverGroupOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// Name of the primary group.
 func (o GetFailoverGroupsFailoverGroupOutput) Primary() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Primary }).(pulumi.StringOutput)
 }
 
+// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
 func (o GetFailoverGroupsFailoverGroupOutput) RegionGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.RegionGroup }).(pulumi.StringOutput)
 }
 
+// Scheduled interval for refresh; NULL if no replication schedule is set.
 func (o GetFailoverGroupsFailoverGroupOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
 
+// Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
 func (o GetFailoverGroupsFailoverGroupOutput) SecondaryState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.SecondaryState }).(pulumi.StringOutput)
 }
 
+// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
 func (o GetFailoverGroupsFailoverGroupOutput) SnowflakeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
 }
 
+// Type of group. Valid value is FAILOVER.
 func (o GetFailoverGroupsFailoverGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFailoverGroupsFailoverGroup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8217,14 +8426,22 @@ func (o GetGrantsFutureGrantsToPtrOutput) Role() pulumi.StringPtrOutput {
 }
 
 type GetGrantsGrant struct {
-	CreatedOn   string `pulumi:"createdOn"`
-	GrantOption bool   `pulumi:"grantOption"`
-	GrantedBy   string `pulumi:"grantedBy"`
-	GrantedOn   string `pulumi:"grantedOn"`
-	GrantedTo   string `pulumi:"grantedTo"`
+	// The date and time the grant was created
+	CreatedOn string `pulumi:"createdOn"`
+	// Whether the grantee can grant the privilege to others
+	GrantOption bool `pulumi:"grantOption"`
+	// The role that granted the privilege
+	GrantedBy string `pulumi:"grantedBy"`
+	// The object on which the privilege was granted
+	GrantedOn string `pulumi:"grantedOn"`
+	// The role to which the privilege was granted
+	GrantedTo string `pulumi:"grantedTo"`
+	// The name of the role to which the privilege was granted
 	GranteeName string `pulumi:"granteeName"`
-	Name        string `pulumi:"name"`
-	Privilege   string `pulumi:"privilege"`
+	// The name of the object on which the privilege was granted
+	Name string `pulumi:"name"`
+	// The privilege granted
+	Privilege string `pulumi:"privilege"`
 }
 
 // GetGrantsGrantInput is an input type that accepts GetGrantsGrantArgs and GetGrantsGrantOutput values.
@@ -8239,14 +8456,22 @@ type GetGrantsGrantInput interface {
 }
 
 type GetGrantsGrantArgs struct {
-	CreatedOn   pulumi.StringInput `pulumi:"createdOn"`
-	GrantOption pulumi.BoolInput   `pulumi:"grantOption"`
-	GrantedBy   pulumi.StringInput `pulumi:"grantedBy"`
-	GrantedOn   pulumi.StringInput `pulumi:"grantedOn"`
-	GrantedTo   pulumi.StringInput `pulumi:"grantedTo"`
+	// The date and time the grant was created
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// Whether the grantee can grant the privilege to others
+	GrantOption pulumi.BoolInput `pulumi:"grantOption"`
+	// The role that granted the privilege
+	GrantedBy pulumi.StringInput `pulumi:"grantedBy"`
+	// The object on which the privilege was granted
+	GrantedOn pulumi.StringInput `pulumi:"grantedOn"`
+	// The role to which the privilege was granted
+	GrantedTo pulumi.StringInput `pulumi:"grantedTo"`
+	// The name of the role to which the privilege was granted
 	GranteeName pulumi.StringInput `pulumi:"granteeName"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	Privilege   pulumi.StringInput `pulumi:"privilege"`
+	// The name of the object on which the privilege was granted
+	Name pulumi.StringInput `pulumi:"name"`
+	// The privilege granted
+	Privilege pulumi.StringInput `pulumi:"privilege"`
 }
 
 func (GetGrantsGrantArgs) ElementType() reflect.Type {
@@ -8300,34 +8525,42 @@ func (o GetGrantsGrantOutput) ToGetGrantsGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The date and time the grant was created
 func (o GetGrantsGrantOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
+// Whether the grantee can grant the privilege to others
 func (o GetGrantsGrantOutput) GrantOption() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGrantsGrant) bool { return v.GrantOption }).(pulumi.BoolOutput)
 }
 
+// The role that granted the privilege
 func (o GetGrantsGrantOutput) GrantedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedBy }).(pulumi.StringOutput)
 }
 
+// The object on which the privilege was granted
 func (o GetGrantsGrantOutput) GrantedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedOn }).(pulumi.StringOutput)
 }
 
+// The role to which the privilege was granted
 func (o GetGrantsGrantOutput) GrantedTo() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedTo }).(pulumi.StringOutput)
 }
 
+// The name of the role to which the privilege was granted
 func (o GetGrantsGrantOutput) GranteeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GranteeName }).(pulumi.StringOutput)
 }
 
+// The name of the object on which the privilege was granted
 func (o GetGrantsGrantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The privilege granted
 func (o GetGrantsGrantOutput) Privilege() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.Privilege }).(pulumi.StringOutput)
 }
@@ -9089,11 +9322,16 @@ func (o GetMaterializedViewsMaterializedViewArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetParametersParameter struct {
-	Default     string `pulumi:"default"`
+	// The default value of the parameter
+	Default string `pulumi:"default"`
+	// The description of the parameter
 	Description string `pulumi:"description"`
-	Key         string `pulumi:"key"`
-	Level       string `pulumi:"level"`
-	Value       string `pulumi:"value"`
+	// The name of the parameter
+	Key string `pulumi:"key"`
+	// The level of the parameter
+	Level string `pulumi:"level"`
+	// The value of the parameter
+	Value string `pulumi:"value"`
 }
 
 // GetParametersParameterInput is an input type that accepts GetParametersParameterArgs and GetParametersParameterOutput values.
@@ -9108,11 +9346,16 @@ type GetParametersParameterInput interface {
 }
 
 type GetParametersParameterArgs struct {
-	Default     pulumi.StringInput `pulumi:"default"`
+	// The default value of the parameter
+	Default pulumi.StringInput `pulumi:"default"`
+	// The description of the parameter
 	Description pulumi.StringInput `pulumi:"description"`
-	Key         pulumi.StringInput `pulumi:"key"`
-	Level       pulumi.StringInput `pulumi:"level"`
-	Value       pulumi.StringInput `pulumi:"value"`
+	// The name of the parameter
+	Key pulumi.StringInput `pulumi:"key"`
+	// The level of the parameter
+	Level pulumi.StringInput `pulumi:"level"`
+	// The value of the parameter
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetParametersParameterArgs) ElementType() reflect.Type {
@@ -9166,22 +9409,27 @@ func (o GetParametersParameterOutput) ToGetParametersParameterOutputWithContext(
 	return o
 }
 
+// The default value of the parameter
 func (o GetParametersParameterOutput) Default() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Default }).(pulumi.StringOutput)
 }
 
+// The description of the parameter
 func (o GetParametersParameterOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The name of the parameter
 func (o GetParametersParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The level of the parameter
 func (o GetParametersParameterOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Level }).(pulumi.StringOutput)
 }
 
+// The value of the parameter
 func (o GetParametersParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParametersParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9561,9 +9809,12 @@ func (o GetResourceMonitorsResourceMonitorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRolesRole struct {
+	// The comment on the role
 	Comment string `pulumi:"comment"`
-	Name    string `pulumi:"name"`
-	Owner   string `pulumi:"owner"`
+	// Identifier for the role.
+	Name string `pulumi:"name"`
+	// The owner of the role
+	Owner string `pulumi:"owner"`
 }
 
 // GetRolesRoleInput is an input type that accepts GetRolesRoleArgs and GetRolesRoleOutput values.
@@ -9578,9 +9829,12 @@ type GetRolesRoleInput interface {
 }
 
 type GetRolesRoleArgs struct {
+	// The comment on the role
 	Comment pulumi.StringInput `pulumi:"comment"`
-	Name    pulumi.StringInput `pulumi:"name"`
-	Owner   pulumi.StringInput `pulumi:"owner"`
+	// Identifier for the role.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The owner of the role
+	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
 func (GetRolesRoleArgs) ElementType() reflect.Type {
@@ -9634,14 +9888,17 @@ func (o GetRolesRoleOutput) ToGetRolesRoleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The comment on the role
 func (o GetRolesRoleOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Identifier for the role.
 func (o GetRolesRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The owner of the role
 func (o GetRolesRoleOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -9997,11 +10254,16 @@ func (o GetSequencesSequenceArrayOutput) Index(i pulumi.IntInput) GetSequencesSe
 }
 
 type GetSharesShare struct {
-	Comment string        `pulumi:"comment"`
-	Kind    string        `pulumi:"kind"`
-	Name    string        `pulumi:"name"`
-	Owner   string        `pulumi:"owner"`
-	Tos     []interface{} `pulumi:"tos"`
+	// The comment on the share.
+	Comment string `pulumi:"comment"`
+	// The kind of the share.
+	Kind string `pulumi:"kind"`
+	// Identifier for the share.
+	Name string `pulumi:"name"`
+	// The owner of the share.
+	Owner string `pulumi:"owner"`
+	// For the OUTBOUND share, list of consumers.
+	Tos []interface{} `pulumi:"tos"`
 }
 
 // GetSharesShareInput is an input type that accepts GetSharesShareArgs and GetSharesShareOutput values.
@@ -10016,11 +10278,16 @@ type GetSharesShareInput interface {
 }
 
 type GetSharesShareArgs struct {
+	// The comment on the share.
 	Comment pulumi.StringInput `pulumi:"comment"`
-	Kind    pulumi.StringInput `pulumi:"kind"`
-	Name    pulumi.StringInput `pulumi:"name"`
-	Owner   pulumi.StringInput `pulumi:"owner"`
-	Tos     pulumi.ArrayInput  `pulumi:"tos"`
+	// The kind of the share.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Identifier for the share.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The owner of the share.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// For the OUTBOUND share, list of consumers.
+	Tos pulumi.ArrayInput `pulumi:"tos"`
 }
 
 func (GetSharesShareArgs) ElementType() reflect.Type {
@@ -10074,22 +10341,27 @@ func (o GetSharesShareOutput) ToGetSharesShareOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The comment on the share.
 func (o GetSharesShareOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesShare) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The kind of the share.
 func (o GetSharesShareOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesShare) string { return v.Kind }).(pulumi.StringOutput)
 }
 
+// Identifier for the share.
 func (o GetSharesShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesShare) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The owner of the share.
 func (o GetSharesShareOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesShare) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// For the OUTBOUND share, list of consumers.
 func (o GetSharesShareOutput) Tos() pulumi.ArrayOutput {
 	return o.ApplyT(func(v GetSharesShare) []interface{} { return v.Tos }).(pulumi.ArrayOutput)
 }

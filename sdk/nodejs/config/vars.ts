@@ -37,7 +37,7 @@ Object.defineProperty(exports, "authenticator", {
 });
 
 /**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+ * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
  */
 export declare const browserAuth: boolean | undefined;
 Object.defineProperty(exports, "browserAuth", {
@@ -202,9 +202,9 @@ Object.defineProperty(exports, "loginTimeout", {
 });
 
 /**
- * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
- * `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
- * environment variable.
+ * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browserAuth`,
+ * `privateKeyPath`, `oauthRefreshToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
+ * variable.
  */
 export declare const oauthAccessToken: string | undefined;
 Object.defineProperty(exports, "oauthAccessToken", {
@@ -215,7 +215,7 @@ Object.defineProperty(exports, "oauthAccessToken", {
 });
 
 /**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+ * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
  */
 export declare const oauthClientId: string | undefined;
 Object.defineProperty(exports, "oauthClientId", {
@@ -226,7 +226,7 @@ Object.defineProperty(exports, "oauthClientId", {
 });
 
 /**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
+ * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
  * variable.
  */
 export declare const oauthClientSecret: string | undefined;
@@ -238,7 +238,7 @@ Object.defineProperty(exports, "oauthClientSecret", {
 });
 
 /**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
+ * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
  */
 export declare const oauthEndpoint: string | undefined;
 Object.defineProperty(exports, "oauthEndpoint", {
@@ -249,8 +249,7 @@ Object.defineProperty(exports, "oauthEndpoint", {
 });
 
 /**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
- * variable.
+ * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
  */
 export declare const oauthRedirectUrl: string | undefined;
 Object.defineProperty(exports, "oauthRedirectUrl", {
@@ -262,9 +261,9 @@ Object.defineProperty(exports, "oauthRedirectUrl", {
 
 /**
  * Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
- * `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
- * `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
- * environment variable.
+ * `oauthClientId`, `oauthClientSecret`, `oauthEndpoint`, `oauthRedirectUrl`. Cannot be used with `browserAuth`,
+ * `privateKeyPath`, `oauthAccessToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
+ * variable.
  */
 export declare const oauthRefreshToken: string | undefined;
 Object.defineProperty(exports, "oauthRefreshToken", {
@@ -334,8 +333,8 @@ Object.defineProperty(exports, "passcodeInPassword", {
 });
 
 /**
- * Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
- * the `SNOWFLAKE_PASSWORD` environment variable.
+ * Password for username+password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the
+ * `SNOWFLAKE_PASSWORD` environment variable.
  */
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
@@ -358,7 +357,7 @@ Object.defineProperty(exports, "port", {
 });
 
 /**
- * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
+ * Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  */
 export declare const privateKey: string | undefined;
@@ -382,7 +381,7 @@ Object.defineProperty(exports, "privateKeyPassphrase", {
 });
 
 /**
- * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
+ * Path to a private key for using keypair authentication. Cannot be used with `browserAuth`, `oauthAccessToken` or
  * `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
  */
 export declare const privateKeyPath: string | undefined;

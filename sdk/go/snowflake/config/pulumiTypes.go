@@ -14,10 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TokenAccessor struct {
-	ClientId      string `pulumi:"clientId"`
-	ClientSecret  string `pulumi:"clientSecret"`
-	RedirectUri   string `pulumi:"redirectUri"`
-	RefreshToken  string `pulumi:"refreshToken"`
+	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+	ClientId string `pulumi:"clientId"`
+	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+	RedirectUri string `pulumi:"redirectUri"`
+	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+	RefreshToken string `pulumi:"refreshToken"`
+	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
 }
 
@@ -33,10 +38,15 @@ type TokenAccessorInput interface {
 }
 
 type TokenAccessorArgs struct {
-	ClientId      pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret  pulumi.StringInput `pulumi:"clientSecret"`
-	RedirectUri   pulumi.StringInput `pulumi:"redirectUri"`
-	RefreshToken  pulumi.StringInput `pulumi:"refreshToken"`
+	// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
+	// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+	RefreshToken pulumi.StringInput `pulumi:"refreshToken"`
+	// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 }
 
@@ -66,22 +76,27 @@ func (o TokenAccessorOutput) ToTokenAccessorOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
 func (o TokenAccessorOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
 func (o TokenAccessorOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
 func (o TokenAccessorOutput) RedirectUri() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.RedirectUri }).(pulumi.StringOutput)
 }
 
+// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
 func (o TokenAccessorOutput) RefreshToken() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.RefreshToken }).(pulumi.StringOutput)
 }
 
+// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
 func (o TokenAccessorOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenAccessor) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }

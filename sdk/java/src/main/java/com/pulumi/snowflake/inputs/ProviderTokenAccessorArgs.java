@@ -14,37 +14,77 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
 
     public static final ProviderTokenAccessorArgs Empty = new ProviderTokenAccessorArgs();
 
+    /**
+     * The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+     * 
+     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
+    /**
+     * @return The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+     * 
+     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
+    /**
+     * The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+     * 
+     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
+    /**
+     * @return The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+     * 
+     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
+    /**
+     * The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+     * 
+     */
     @Import(name="redirectUri", required=true)
     private Output<String> redirectUri;
 
+    /**
+     * @return The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+     * 
+     */
     public Output<String> redirectUri() {
         return this.redirectUri;
     }
 
+    /**
+     * The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+     * 
+     */
     @Import(name="refreshToken", required=true)
     private Output<String> refreshToken;
 
+    /**
+     * @return The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+     * 
+     */
     public Output<String> refreshToken() {
         return this.refreshToken;
     }
 
+    /**
+     * The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+     * 
+     */
     @Import(name="tokenEndpoint", required=true)
     private Output<String> tokenEndpoint;
 
+    /**
+     * @return The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+     * 
+     */
     public Output<String> tokenEndpoint() {
         return this.tokenEndpoint;
     }
@@ -77,47 +117,107 @@ public final class ProviderTokenAccessorArgs extends com.pulumi.resources.Resour
             $ = new ProviderTokenAccessorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clientId The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param redirectUri The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redirectUri(Output<String> redirectUri) {
             $.redirectUri = redirectUri;
             return this;
         }
 
+        /**
+         * @param redirectUri The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redirectUri(String redirectUri) {
             return redirectUri(Output.of(redirectUri));
         }
 
+        /**
+         * @param refreshToken The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
+        /**
+         * @param refreshToken The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }
 
+        /**
+         * @param tokenEndpoint The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(Output<String> tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
+        /**
+         * @param tokenEndpoint The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
         }

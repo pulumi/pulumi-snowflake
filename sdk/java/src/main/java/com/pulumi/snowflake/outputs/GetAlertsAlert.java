@@ -10,33 +10,89 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAlertsAlert {
+    /**
+     * @return The text of the SQL statement that should be executed when the alert is triggered.
+     * 
+     */
     private String action;
+    /**
+     * @return Comment for the alert.
+     * 
+     */
     private String comment;
+    /**
+     * @return The text of the SQL statement that serves as the condition when the alert should be triggered.
+     * 
+     */
     private String condition;
+    /**
+     * @return Database in which the alert is stored.
+     * 
+     */
     private String databaseName;
+    /**
+     * @return Name of the alert.
+     * 
+     */
     private String name;
+    /**
+     * @return Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+     * 
+     */
     private String owner;
+    /**
+     * @return Schema in which the alert is stored.
+     * 
+     */
     private String schemaName;
 
     private GetAlertsAlert() {}
+    /**
+     * @return The text of the SQL statement that should be executed when the alert is triggered.
+     * 
+     */
     public String action() {
         return this.action;
     }
+    /**
+     * @return Comment for the alert.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return The text of the SQL statement that serves as the condition when the alert should be triggered.
+     * 
+     */
     public String condition() {
         return this.condition;
     }
+    /**
+     * @return Database in which the alert is stored.
+     * 
+     */
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return Name of the alert.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
+     * 
+     */
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return Schema in which the alert is stored.
+     * 
+     */
     public String schemaName() {
         return this.schemaName;
     }
