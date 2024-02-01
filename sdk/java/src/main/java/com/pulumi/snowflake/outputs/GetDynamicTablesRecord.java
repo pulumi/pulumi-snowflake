@@ -12,85 +12,245 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDynamicTablesRecord {
+    /**
+     * @return Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+     * 
+     */
     private Boolean automaticClustering;
+    /**
+     * @return Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+     * 
+     */
     private Integer bytes;
+    /**
+     * @return The clustering key for the dynamic table.
+     * 
+     */
     private String clusterBy;
+    /**
+     * @return Comment for the dynamic table.
+     * 
+     */
     private String comment;
+    /**
+     * @return Date and time when the dynamic table was created.
+     * 
+     */
     private String createdOn;
+    /**
+     * @return Timestamp of the data in the base object(s) that is included in the dynamic table.
+     * 
+     */
     private String dataTimestamp;
+    /**
+     * @return Database in which the dynamic table is stored.
+     * 
+     */
     private String databaseName;
+    /**
+     * @return TRUE if the dynamic table has been cloned, else FALSE.
+     * 
+     */
     private Boolean isClone;
+    /**
+     * @return TRUE if the dynamic table is a replica. else FALSE.
+     * 
+     */
     private Boolean isReplica;
+    /**
+     * @return Timestamp of last suspension.
+     * 
+     */
     private String lastSuspendedOn;
+    /**
+     * @return Name of the dynamic table.
+     * 
+     */
     private String name;
+    /**
+     * @return Role that owns the dynamic table.
+     * 
+     */
     private String owner;
+    /**
+     * @return INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * 
+     */
     private String refreshMode;
+    /**
+     * @return Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+     * 
+     */
     private String refreshModeReason;
+    /**
+     * @return Number of rows in the table.
+     * 
+     */
     private Integer rows;
+    /**
+     * @return Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * 
+     */
     private String schedulingState;
+    /**
+     * @return Schema in which the dynamic table is stored.
+     * 
+     */
     private String schemaName;
+    /**
+     * @return The maximum duration that the dynamic table’s content should lag behind real time.
+     * 
+     */
     private String targetLag;
+    /**
+     * @return The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+     * 
+     */
     private String text;
+    /**
+     * @return Warehouse that provides the required resources to perform the incremental refreshes.
+     * 
+     */
     private String warehouse;
 
     private GetDynamicTablesRecord() {}
+    /**
+     * @return Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+     * 
+     */
     public Boolean automaticClustering() {
         return this.automaticClustering;
     }
+    /**
+     * @return Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+     * 
+     */
     public Integer bytes() {
         return this.bytes;
     }
+    /**
+     * @return The clustering key for the dynamic table.
+     * 
+     */
     public String clusterBy() {
         return this.clusterBy;
     }
+    /**
+     * @return Comment for the dynamic table.
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Date and time when the dynamic table was created.
+     * 
+     */
     public String createdOn() {
         return this.createdOn;
     }
+    /**
+     * @return Timestamp of the data in the base object(s) that is included in the dynamic table.
+     * 
+     */
     public String dataTimestamp() {
         return this.dataTimestamp;
     }
+    /**
+     * @return Database in which the dynamic table is stored.
+     * 
+     */
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return TRUE if the dynamic table has been cloned, else FALSE.
+     * 
+     */
     public Boolean isClone() {
         return this.isClone;
     }
+    /**
+     * @return TRUE if the dynamic table is a replica. else FALSE.
+     * 
+     */
     public Boolean isReplica() {
         return this.isReplica;
     }
+    /**
+     * @return Timestamp of last suspension.
+     * 
+     */
     public String lastSuspendedOn() {
         return this.lastSuspendedOn;
     }
+    /**
+     * @return Name of the dynamic table.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Role that owns the dynamic table.
+     * 
+     */
     public String owner() {
         return this.owner;
     }
+    /**
+     * @return INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * 
+     */
     public String refreshMode() {
         return this.refreshMode;
     }
+    /**
+     * @return Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+     * 
+     */
     public String refreshModeReason() {
         return this.refreshModeReason;
     }
+    /**
+     * @return Number of rows in the table.
+     * 
+     */
     public Integer rows() {
         return this.rows;
     }
+    /**
+     * @return Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * 
+     */
     public String schedulingState() {
         return this.schedulingState;
     }
+    /**
+     * @return Schema in which the dynamic table is stored.
+     * 
+     */
     public String schemaName() {
         return this.schemaName;
     }
+    /**
+     * @return The maximum duration that the dynamic table’s content should lag behind real time.
+     * 
+     */
     public String targetLag() {
         return this.targetLag;
     }
+    /**
+     * @return The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+     * 
+     */
     public String text() {
         return this.text;
     }
+    /**
+     * @return Warehouse that provides the required resources to perform the incremental refreshes.
+     * 
+     */
     public String warehouse() {
         return this.warehouse;
     }

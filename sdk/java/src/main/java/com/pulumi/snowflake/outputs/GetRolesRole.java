@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRolesRole {
+    /**
+     * @return The comment on the role
+     * 
+     */
     private String comment;
+    /**
+     * @return Identifier for the role.
+     * 
+     */
     private String name;
+    /**
+     * @return The owner of the role
+     * 
+     */
     private String owner;
 
     private GetRolesRole() {}
+    /**
+     * @return The comment on the role
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Identifier for the role.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The owner of the role
+     * 
+     */
     public String owner() {
         return this.owner;
     }

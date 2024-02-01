@@ -13,10 +13,25 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetSharesShareResult
     {
+        /// <summary>
+        /// The comment on the share.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// The kind of the share.
+        /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// Identifier for the share.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The owner of the share.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// For the OUTBOUND share, list of consumers.
+        /// </summary>
         public readonly ImmutableArray<object> Tos;
 
         [OutputConstructor]

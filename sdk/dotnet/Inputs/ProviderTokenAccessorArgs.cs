@@ -14,6 +14,10 @@ namespace Pulumi.Snowflake.Inputs
     {
         [Input("clientId", required: true)]
         private Input<string>? _clientId;
+
+        /// <summary>
+        /// The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+        /// </summary>
         public Input<string>? ClientId
         {
             get => _clientId;
@@ -26,6 +30,10 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -38,6 +46,10 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("redirectUri", required: true)]
         private Input<string>? _redirectUri;
+
+        /// <summary>
+        /// The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+        /// </summary>
         public Input<string>? RedirectUri
         {
             get => _redirectUri;
@@ -50,6 +62,10 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("refreshToken", required: true)]
         private Input<string>? _refreshToken;
+
+        /// <summary>
+        /// The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+        /// </summary>
         public Input<string>? RefreshToken
         {
             get => _refreshToken;
@@ -62,6 +78,10 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("tokenEndpoint", required: true)]
         private Input<string>? _tokenEndpoint;
+
+        /// <summary>
+        /// The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+        /// </summary>
         public Input<string>? TokenEndpoint
         {
             get => _tokenEndpoint;

@@ -13,22 +13,73 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetFailoverGroupsFailoverGroupResult
     {
+        /// <summary>
+        /// Account locator in a region.
+        /// </summary>
         public readonly string AccountLocator;
+        /// <summary>
+        /// Name of the account.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// List of accounts enabled for replication and failover.
+        /// </summary>
         public readonly ImmutableArray<object> AllowedAccounts;
+        /// <summary>
+        /// A list of integration types that are enabled for replication.
+        /// </summary>
         public readonly ImmutableArray<object> AllowedIntegrationTypes;
+        /// <summary>
+        /// Comment string.
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Date and time failover group was created.
+        /// </summary>
         public readonly string CreatedOn;
+        /// <summary>
+        /// Indicates whether the failover group is the primary group.
+        /// </summary>
         public readonly bool IsPrimary;
+        /// <summary>
+        /// Date and time of the next scheduled refresh.
+        /// </summary>
         public readonly string NextScheduledRefresh;
+        /// <summary>
+        /// List of specified object types enabled for replication and failover.
+        /// </summary>
         public readonly ImmutableArray<object> ObjectTypes;
+        /// <summary>
+        /// Name of your Snowflake organization.
+        /// </summary>
         public readonly string OrganizationName;
+        /// <summary>
+        /// Name of the role with the OWNERSHIP privilege on the failover group. NULL if the failover group is in a different region.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// Name of the primary group.
+        /// </summary>
         public readonly string Primary;
+        /// <summary>
+        /// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
+        /// </summary>
         public readonly string RegionGroup;
+        /// <summary>
+        /// Scheduled interval for refresh; NULL if no replication schedule is set.
+        /// </summary>
         public readonly string ReplicationSchedule;
+        /// <summary>
+        /// Current state of scheduled refresh. Valid values are started or suspended. NULL if no replication schedule is set.
+        /// </summary>
         public readonly string SecondaryState;
+        /// <summary>
+        /// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
+        /// </summary>
         public readonly string SnowflakeRegion;
+        /// <summary>
+        /// Type of group. Valid value is FAILOVER.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
