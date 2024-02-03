@@ -56,13 +56,13 @@ namespace Pulumi.Snowflake
         public Output<string> AwsSnsIamUserArn { get; private set; } = null!;
 
         /// <summary>
-        /// AWS IAM role ARN for notification integration to assume
+        /// AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         /// </summary>
         [Output("awsSnsRoleArn")]
         public Output<string?> AwsSnsRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// AWS SNS Topic ARN for notification integration to connect to
+        /// AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         /// </summary>
         [Output("awsSnsTopicArn")]
         public Output<string?> AwsSnsTopicArn { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Snowflake
         public Output<string?> AwsSqsRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Output("azureStorageQueuePrimaryUri")]
         public Output<string?> AzureStorageQueuePrimaryUri { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
@@ -146,10 +146,10 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
         [Output("notificationProvider")]
-        public Output<string?> NotificationProvider { get; private set; } = null!;
+        public Output<string> NotificationProvider { get; private set; } = null!;
 
         /// <summary>
         /// A type of integration
@@ -165,7 +165,7 @@ namespace Pulumi.Snowflake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NotificationIntegration(string name, NotificationIntegrationArgs? args = null, CustomResourceOptions? options = null)
+        public NotificationIntegration(string name, NotificationIntegrationArgs args, CustomResourceOptions? options = null)
             : base("snowflake:index/notificationIntegration:NotificationIntegration", name, args ?? new NotificationIntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -204,13 +204,13 @@ namespace Pulumi.Snowflake
     public sealed class NotificationIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS IAM role ARN for notification integration to assume
+        /// AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         /// </summary>
         [Input("awsSnsRoleArn")]
         public Input<string>? AwsSnsRoleArn { get; set; }
 
         /// <summary>
-        /// AWS SNS Topic ARN for notification integration to connect to
+        /// AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         /// </summary>
         [Input("awsSnsTopicArn")]
         public Input<string>? AwsSnsTopicArn { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSqsRoleArn { get; set; }
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureStorageQueuePrimaryUri")]
         public Input<string>? AzureStorageQueuePrimaryUri { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -270,10 +270,10 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
-        [Input("notificationProvider")]
-        public Input<string>? NotificationProvider { get; set; }
+        [Input("notificationProvider", required: true)]
+        public Input<string> NotificationProvider { get; set; } = null!;
 
         /// <summary>
         /// A type of integration
@@ -302,13 +302,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSnsIamUserArn { get; set; }
 
         /// <summary>
-        /// AWS IAM role ARN for notification integration to assume
+        /// AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         /// </summary>
         [Input("awsSnsRoleArn")]
         public Input<string>? AwsSnsRoleArn { get; set; }
 
         /// <summary>
-        /// AWS SNS Topic ARN for notification integration to connect to
+        /// AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         /// </summary>
         [Input("awsSnsTopicArn")]
         public Input<string>? AwsSnsTopicArn { get; set; }
@@ -338,13 +338,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSqsRoleArn { get; set; }
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureStorageQueuePrimaryUri")]
         public Input<string>? AzureStorageQueuePrimaryUri { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }

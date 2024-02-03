@@ -112,7 +112,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyResult> RowAccessPolicies;
         /// <summary>
-        /// The schema from which to return the row access policyfrom.
+        /// The schema from which to return the row access policy from.
         /// </summary>
         public readonly string Schema;
 

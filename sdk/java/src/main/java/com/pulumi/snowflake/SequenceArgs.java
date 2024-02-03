@@ -78,6 +78,21 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    @Import(name="ordering")
+    private @Nullable Output<String> ordering;
+
+    /**
+     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    public Optional<Output<String>> ordering() {
+        return Optional.ofNullable(this.ordering);
+    }
+
+    /**
      * The schema in which to create the sequence. Don&#39;t use the | character.
      * 
      */
@@ -99,6 +114,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         this.database = $.database;
         this.increment = $.increment;
         this.name = $.name;
+        this.ordering = $.ordering;
         this.schema = $.schema;
     }
 
@@ -202,6 +218,27 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ordering(@Nullable Output<String> ordering) {
+            $.ordering = ordering;
+            return this;
+        }
+
+        /**
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ordering(String ordering) {
+            return ordering(Output.of(ordering));
         }
 
         /**

@@ -64,7 +64,7 @@ class GetRowAccessPoliciesResult:
     @pulumi.getter
     def schema(self) -> str:
         """
-        The schema from which to return the row access policyfrom.
+        The schema from which to return the row access policy from.
         """
         return pulumi.get(self, "schema")
 

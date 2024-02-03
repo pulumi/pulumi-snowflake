@@ -71,8 +71,10 @@ type Sequence struct {
 	Increment pulumi.IntPtrOutput `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The next value the sequence will provide.
+	// The increment sequence interval.
 	NextValue pulumi.IntOutput `pulumi:"nextValue"`
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	Ordering pulumi.StringPtrOutput `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
@@ -123,8 +125,10 @@ type sequenceState struct {
 	Increment *int `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name *string `pulumi:"name"`
-	// The next value the sequence will provide.
+	// The increment sequence interval.
 	NextValue *int `pulumi:"nextValue"`
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	Ordering *string `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema *string `pulumi:"schema"`
 }
@@ -140,8 +144,10 @@ type SequenceState struct {
 	Increment pulumi.IntPtrInput
 	// Specifies the name for the sequence.
 	Name pulumi.StringPtrInput
-	// The next value the sequence will provide.
+	// The increment sequence interval.
 	NextValue pulumi.IntPtrInput
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	Ordering pulumi.StringPtrInput
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringPtrInput
 }
@@ -159,6 +165,8 @@ type sequenceArgs struct {
 	Increment *int `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name *string `pulumi:"name"`
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	Ordering *string `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema string `pulumi:"schema"`
 }
@@ -173,6 +181,8 @@ type SequenceArgs struct {
 	Increment pulumi.IntPtrInput
 	// Specifies the name for the sequence.
 	Name pulumi.StringPtrInput
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	Ordering pulumi.StringPtrInput
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringInput
 }
@@ -289,9 +299,14 @@ func (o SequenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The next value the sequence will provide.
+// The increment sequence interval.
 func (o SequenceOutput) NextValue() pulumi.IntOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.IntOutput { return v.NextValue }).(pulumi.IntOutput)
+}
+
+// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+func (o SequenceOutput) Ordering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sequence) pulumi.StringPtrOutput { return v.Ordering }).(pulumi.StringPtrOutput)
 }
 
 // The schema in which to create the sequence. Don't use the | character.

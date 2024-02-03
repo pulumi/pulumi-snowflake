@@ -5,6 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -17,14 +18,14 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     public static final NotificationIntegrationArgs Empty = new NotificationIntegrationArgs();
 
     /**
-     * AWS IAM role ARN for notification integration to assume
+     * AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
      * 
      */
     @Import(name="awsSnsRoleArn")
     private @Nullable Output<String> awsSnsRoleArn;
 
     /**
-     * @return AWS IAM role ARN for notification integration to assume
+     * @return AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
      * 
      */
     public Optional<Output<String>> awsSnsRoleArn() {
@@ -32,14 +33,14 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * AWS SNS Topic ARN for notification integration to connect to
+     * AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
      * 
      */
     @Import(name="awsSnsTopicArn")
     private @Nullable Output<String> awsSnsTopicArn;
 
     /**
-     * @return AWS SNS Topic ARN for notification integration to connect to
+     * @return AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
      * 
      */
     public Optional<Output<String>> awsSnsTopicArn() {
@@ -49,14 +50,22 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     /**
      * AWS SQS queue ARN for notification integration to connect to
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Import(name="awsSqsArn")
     private @Nullable Output<String> awsSqsArn;
 
     /**
      * @return AWS SQS queue ARN for notification integration to connect to
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     public Optional<Output<String>> awsSqsArn() {
         return Optional.ofNullable(this.awsSqsArn);
     }
@@ -64,27 +73,35 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     /**
      * AWS IAM role ARN for notification integration to assume
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Import(name="awsSqsRoleArn")
     private @Nullable Output<String> awsSqsRoleArn;
 
     /**
      * @return AWS IAM role ARN for notification integration to assume
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     public Optional<Output<String>> awsSqsRoleArn() {
         return Optional.ofNullable(this.awsSqsRoleArn);
     }
 
     /**
-     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Import(name="azureStorageQueuePrimaryUri")
     private @Nullable Output<String> azureStorageQueuePrimaryUri;
 
     /**
-     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Optional<Output<String>> azureStorageQueuePrimaryUri() {
@@ -92,14 +109,14 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ID of the Azure Active Directory tenant used for identity management
+     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
     /**
-     * @return The ID of the Azure Active Directory tenant used for identity management
+     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Optional<Output<String>> azureTenantId() {
@@ -124,14 +141,22 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     @Import(name="direction")
     private @Nullable Output<String> direction;
 
     /**
      * @return Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     public Optional<Output<String>> direction() {
         return Optional.ofNullable(this.direction);
     }
@@ -181,31 +206,39 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+     * The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
-    @Import(name="notificationProvider")
-    private @Nullable Output<String> notificationProvider;
+    @Import(name="notificationProvider", required=true)
+    private Output<String> notificationProvider;
 
     /**
-     * @return The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+     * @return The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
-    public Optional<Output<String>> notificationProvider() {
-        return Optional.ofNullable(this.notificationProvider);
+    public Output<String> notificationProvider() {
+        return this.notificationProvider;
     }
 
     /**
      * A type of integration
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return A type of integration
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -248,7 +281,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param awsSnsRoleArn AWS IAM role ARN for notification integration to assume
+         * @param awsSnsRoleArn AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
          * 
          * @return builder
          * 
@@ -259,7 +292,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param awsSnsRoleArn AWS IAM role ARN for notification integration to assume
+         * @param awsSnsRoleArn AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
          * 
          * @return builder
          * 
@@ -269,7 +302,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param awsSnsTopicArn AWS SNS Topic ARN for notification integration to connect to
+         * @param awsSnsTopicArn AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
          * 
          * @return builder
          * 
@@ -280,7 +313,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param awsSnsTopicArn AWS SNS Topic ARN for notification integration to connect to
+         * @param awsSnsTopicArn AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
          * 
          * @return builder
          * 
@@ -294,7 +327,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * No longer supported notification method
+         * 
          */
+        @Deprecated /* No longer supported notification method */
         public Builder awsSqsArn(@Nullable Output<String> awsSqsArn) {
             $.awsSqsArn = awsSqsArn;
             return this;
@@ -305,7 +342,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * No longer supported notification method
+         * 
          */
+        @Deprecated /* No longer supported notification method */
         public Builder awsSqsArn(String awsSqsArn) {
             return awsSqsArn(Output.of(awsSqsArn));
         }
@@ -315,7 +356,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * No longer supported notification method
+         * 
          */
+        @Deprecated /* No longer supported notification method */
         public Builder awsSqsRoleArn(@Nullable Output<String> awsSqsRoleArn) {
             $.awsSqsRoleArn = awsSqsRoleArn;
             return this;
@@ -326,13 +371,17 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * No longer supported notification method
+         * 
          */
+        @Deprecated /* No longer supported notification method */
         public Builder awsSqsRoleArn(String awsSqsRoleArn) {
             return awsSqsRoleArn(Output.of(awsSqsRoleArn));
         }
 
         /**
-         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -343,7 +392,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -353,7 +402,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management
+         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -364,7 +413,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management
+         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -399,7 +448,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * Will be removed - it is added automatically on the SDK level.
+         * 
          */
+        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
         public Builder direction(@Nullable Output<String> direction) {
             $.direction = direction;
             return this;
@@ -410,7 +463,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * Will be removed - it is added automatically on the SDK level.
+         * 
          */
+        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
         public Builder direction(String direction) {
             return direction(Output.of(direction));
         }
@@ -476,18 +533,18 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param notificationProvider The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
          * 
          * @return builder
          * 
          */
-        public Builder notificationProvider(@Nullable Output<String> notificationProvider) {
+        public Builder notificationProvider(Output<String> notificationProvider) {
             $.notificationProvider = notificationProvider;
             return this;
         }
 
         /**
-         * @param notificationProvider The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
          * 
          * @return builder
          * 
@@ -501,7 +558,11 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * Will be removed - it is added automatically on the SDK level.
+         * 
          */
+        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
@@ -512,12 +573,19 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * Will be removed - it is added automatically on the SDK level.
+         * 
          */
+        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
         public NotificationIntegrationArgs build() {
+            if ($.notificationProvider == null) {
+                throw new MissingRequiredPropertyException("NotificationIntegrationArgs", "notificationProvider");
+            }
             return $;
         }
     }

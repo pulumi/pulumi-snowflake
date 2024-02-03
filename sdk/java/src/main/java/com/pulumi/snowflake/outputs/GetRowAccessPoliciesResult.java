@@ -28,7 +28,7 @@ public final class GetRowAccessPoliciesResult {
      */
     private List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
     /**
-     * @return The schema from which to return the row access policyfrom.
+     * @return The schema from which to return the row access policy from.
      * 
      */
     private String schema;
@@ -56,7 +56,7 @@ public final class GetRowAccessPoliciesResult {
         return this.rowAccessPolicies;
     }
     /**
-     * @return The schema from which to return the row access policyfrom.
+     * @return The schema from which to return the row access policy from.
      * 
      */
     public String schema() {

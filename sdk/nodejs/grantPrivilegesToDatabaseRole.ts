@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** This is a preview resource. It's ready for general use. In case of any errors, please file an issue in our GitHub repository.
+ *
  * !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  *
  * ## Example Usage
@@ -147,7 +149,7 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
-     * This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
     /**
@@ -234,7 +236,7 @@ export interface GrantPrivilegesToDatabaseRoleState {
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
@@ -280,7 +282,7 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      */
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**

@@ -92,18 +92,33 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The next value the sequence will provide.
+     * The increment sequence interval.
      * 
      */
     @Import(name="nextValue")
     private @Nullable Output<Integer> nextValue;
 
     /**
-     * @return The next value the sequence will provide.
+     * @return The increment sequence interval.
      * 
      */
     public Optional<Output<Integer>> nextValue() {
         return Optional.ofNullable(this.nextValue);
+    }
+
+    /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    @Import(name="ordering")
+    private @Nullable Output<String> ordering;
+
+    /**
+     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    public Optional<Output<String>> ordering() {
+        return Optional.ofNullable(this.ordering);
     }
 
     /**
@@ -130,6 +145,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         this.increment = $.increment;
         this.name = $.name;
         this.nextValue = $.nextValue;
+        this.ordering = $.ordering;
         this.schema = $.schema;
     }
 
@@ -257,7 +273,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nextValue The next value the sequence will provide.
+         * @param nextValue The increment sequence interval.
          * 
          * @return builder
          * 
@@ -268,13 +284,34 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nextValue The next value the sequence will provide.
+         * @param nextValue The increment sequence interval.
          * 
          * @return builder
          * 
          */
         public Builder nextValue(Integer nextValue) {
             return nextValue(Output.of(nextValue));
+        }
+
+        /**
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ordering(@Nullable Output<String> ordering) {
+            $.ordering = ordering;
+            return this;
+        }
+
+        /**
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ordering(String ordering) {
+            return ordering(Output.of(ordering));
         }
 
         /**

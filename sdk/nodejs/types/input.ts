@@ -353,6 +353,69 @@ export interface GetGrantsGrantsToArgs {
     user?: pulumi.Input<string>;
 }
 
+export interface GrantPrivilegesToAccountRoleOnAccountObject {
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName: pulumi.Input<string>;
+    /**
+     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+     */
+    objectType: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchema {
+    /**
+     * The fully qualified name of the database.
+     */
+    allSchemasInDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the database.
+     */
+    futureSchemasInDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the schema.
+     */
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaObject {
+    /**
+     * Configures the privilege to be granted on all objects in either a database or schema.
+     */
+    all?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll>;
+    /**
+     * Configures the privilege to be granted on all objects in either a database or schema.
+     */
+    future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture>;
+    /**
+     * The fully qualified name of the object on which privileges will be granted.
+     */
+    objectName?: pulumi.Input<string>;
+    /**
+     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     */
+    objectType?: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
+    inDatabase?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string>;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     */
+    objectTypePlural: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
+    inDatabase?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string>;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     */
+    objectTypePlural: pulumi.Input<string>;
+}
+
 export interface GrantPrivilegesToDatabaseRoleOnSchema {
     /**
      * The fully qualified name of the database.

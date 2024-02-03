@@ -19,6 +19,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** This is a preview resource. It&#39;s ready for general use. In case of any errors, please file an issue in our GitHub repository.
+ * 
  * !&gt; **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  * 
  * ## Example Usage
@@ -158,14 +160,14 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Export(name="alwaysApplyTrigger", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alwaysApplyTrigger;
 
     /**
-     * @return This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Output<Optional<String>> alwaysApplyTrigger() {
