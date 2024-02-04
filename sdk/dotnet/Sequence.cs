@@ -78,10 +78,16 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The next value the sequence will provide.
+        /// The increment sequence interval.
         /// </summary>
         [Output("nextValue")]
         public Output<int> NextValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// </summary>
+        [Output("ordering")]
+        public Output<string?> Ordering { get; private set; } = null!;
 
         /// <summary>
         /// The schema in which to create the sequence. Don't use the | character.
@@ -160,6 +166,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// </summary>
+        [Input("ordering")]
+        public Input<string>? Ordering { get; set; }
+
+        /// <summary>
         /// The schema in which to create the sequence. Don't use the | character.
         /// </summary>
         [Input("schema", required: true)]
@@ -204,10 +216,16 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The next value the sequence will provide.
+        /// The increment sequence interval.
         /// </summary>
         [Input("nextValue")]
         public Input<int>? NextValue { get; set; }
+
+        /// <summary>
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// </summary>
+        [Input("ordering")]
+        public Input<string>? Ordering { get; set; }
 
         /// <summary>
         /// The schema in which to create the sequence. Don't use the | character.

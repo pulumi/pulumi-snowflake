@@ -53,7 +53,7 @@ export interface GetRowAccessPoliciesResult {
      */
     readonly rowAccessPolicies: outputs.GetRowAccessPoliciesRowAccessPolicy[];
     /**
-     * The schema from which to return the row access policyfrom.
+     * The schema from which to return the row access policy from.
      */
     readonly schema: string;
 }

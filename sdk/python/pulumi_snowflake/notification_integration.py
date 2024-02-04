@@ -14,6 +14,7 @@ __all__ = ['NotificationIntegrationArgs', 'NotificationIntegration']
 @pulumi.input_type
 class NotificationIntegrationArgs:
     def __init__(__self__, *,
+                 notification_provider: pulumi.Input[str],
                  aws_sns_role_arn: Optional[pulumi.Input[str]] = None,
                  aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  aws_sqs_arn: Optional[pulumi.Input[str]] = None,
@@ -26,29 +27,35 @@ class NotificationIntegrationArgs:
                  gcp_pubsub_subscription_name: Optional[pulumi.Input[str]] = None,
                  gcp_pubsub_topic_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_provider: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationIntegration resource.
-        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
         :param pulumi.Input[str] type: A type of integration
         """
+        pulumi.set(__self__, "notification_provider", notification_provider)
         if aws_sns_role_arn is not None:
             pulumi.set(__self__, "aws_sns_role_arn", aws_sns_role_arn)
         if aws_sns_topic_arn is not None:
             pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
+        if aws_sqs_arn is not None:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
+        if aws_sqs_role_arn is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
         if aws_sqs_role_arn is not None:
             pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
@@ -57,6 +64,9 @@ class NotificationIntegrationArgs:
             pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if direction is not None:
+            warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+            pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
         if direction is not None:
             pulumi.set(__self__, "direction", direction)
         if enabled is not None:
@@ -67,16 +77,29 @@ class NotificationIntegrationArgs:
             pulumi.set(__self__, "gcp_pubsub_topic_name", gcp_pubsub_topic_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if notification_provider is not None:
-            pulumi.set(__self__, "notification_provider", notification_provider)
+        if type is not None:
+            warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="notificationProvider")
+    def notification_provider(self) -> pulumi.Input[str]:
+        """
+        The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
+        """
+        return pulumi.get(self, "notification_provider")
+
+    @notification_provider.setter
+    def notification_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_provider", value)
 
     @property
     @pulumi.getter(name="awsSnsRoleArn")
     def aws_sns_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS IAM role ARN for notification integration to assume
+        AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         """
         return pulumi.get(self, "aws_sns_role_arn")
 
@@ -88,7 +111,7 @@ class NotificationIntegrationArgs:
     @pulumi.getter(name="awsSnsTopicArn")
     def aws_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS SNS Topic ARN for notification integration to connect to
+        AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
@@ -102,6 +125,9 @@ class NotificationIntegrationArgs:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
@@ -114,6 +140,9 @@ class NotificationIntegrationArgs:
         """
         AWS IAM role ARN for notification integration to assume
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
@@ -124,7 +153,7 @@ class NotificationIntegrationArgs:
     @pulumi.getter(name="azureStorageQueuePrimaryUri")
     def azure_storage_queue_primary_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_storage_queue_primary_uri")
 
@@ -136,7 +165,7 @@ class NotificationIntegrationArgs:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Azure Active Directory tenant used for identity management
+        The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -162,6 +191,9 @@ class NotificationIntegrationArgs:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -211,23 +243,14 @@ class NotificationIntegrationArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="notificationProvider")
-    def notification_provider(self) -> Optional[pulumi.Input[str]]:
-        """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
-        """
-        return pulumi.get(self, "notification_provider")
-
-    @notification_provider.setter
-    def notification_provider(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "notification_provider", value)
-
-    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         A type of integration
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -262,21 +285,21 @@ class _NotificationIntegrationState:
         Input properties used for looking up and filtering NotificationIntegration resources.
         :param pulumi.Input[str] aws_sns_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sns_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
-        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         :param pulumi.Input[str] type: A type of integration
         """
         if aws_sns_external_id is not None:
@@ -288,11 +311,23 @@ class _NotificationIntegrationState:
         if aws_sns_topic_arn is not None:
             pulumi.set(__self__, "aws_sns_topic_arn", aws_sns_topic_arn)
         if aws_sqs_arn is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
+        if aws_sqs_arn is not None:
             pulumi.set(__self__, "aws_sqs_arn", aws_sqs_arn)
+        if aws_sqs_external_id is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_external_id is deprecated: No longer supported notification method""")
         if aws_sqs_external_id is not None:
             pulumi.set(__self__, "aws_sqs_external_id", aws_sqs_external_id)
         if aws_sqs_iam_user_arn is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_iam_user_arn is deprecated: No longer supported notification method""")
+        if aws_sqs_iam_user_arn is not None:
             pulumi.set(__self__, "aws_sqs_iam_user_arn", aws_sqs_iam_user_arn)
+        if aws_sqs_role_arn is not None:
+            warnings.warn("""No longer supported notification method""", DeprecationWarning)
+            pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
         if aws_sqs_role_arn is not None:
             pulumi.set(__self__, "aws_sqs_role_arn", aws_sqs_role_arn)
         if azure_storage_queue_primary_uri is not None:
@@ -303,6 +338,9 @@ class _NotificationIntegrationState:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
             pulumi.set(__self__, "created_on", created_on)
+        if direction is not None:
+            warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+            pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
         if direction is not None:
             pulumi.set(__self__, "direction", direction)
         if enabled is not None:
@@ -317,6 +355,9 @@ class _NotificationIntegrationState:
             pulumi.set(__self__, "name", name)
         if notification_provider is not None:
             pulumi.set(__self__, "notification_provider", notification_provider)
+        if type is not None:
+            warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -348,7 +389,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="awsSnsRoleArn")
     def aws_sns_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS IAM role ARN for notification integration to assume
+        AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         """
         return pulumi.get(self, "aws_sns_role_arn")
 
@@ -360,7 +401,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="awsSnsTopicArn")
     def aws_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS SNS Topic ARN for notification integration to connect to
+        AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
@@ -374,6 +415,9 @@ class _NotificationIntegrationState:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
@@ -386,6 +430,9 @@ class _NotificationIntegrationState:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_external_id is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_external_id")
 
     @aws_sqs_external_id.setter
@@ -398,6 +445,9 @@ class _NotificationIntegrationState:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_iam_user_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @aws_sqs_iam_user_arn.setter
@@ -410,6 +460,9 @@ class _NotificationIntegrationState:
         """
         AWS IAM role ARN for notification integration to assume
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
@@ -420,7 +473,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="azureStorageQueuePrimaryUri")
     def azure_storage_queue_primary_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_storage_queue_primary_uri")
 
@@ -432,7 +485,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Azure Active Directory tenant used for identity management
+        The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -470,6 +523,9 @@ class _NotificationIntegrationState:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -534,7 +590,7 @@ class _NotificationIntegrationState:
     @pulumi.getter(name="notificationProvider")
     def notification_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -548,6 +604,9 @@ class _NotificationIntegrationState:
         """
         A type of integration
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -600,24 +659,24 @@ class NotificationIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         :param pulumi.Input[str] type: A type of integration
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NotificationIntegrationArgs] = None,
+                 args: NotificationIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -692,6 +751,8 @@ class NotificationIntegration(pulumi.CustomResource):
             __props__.__dict__["gcp_pubsub_subscription_name"] = gcp_pubsub_subscription_name
             __props__.__dict__["gcp_pubsub_topic_name"] = gcp_pubsub_topic_name
             __props__.__dict__["name"] = name
+            if notification_provider is None and not opts.urn:
+                raise TypeError("Missing required property 'notification_provider'")
             __props__.__dict__["notification_provider"] = notification_provider
             __props__.__dict__["type"] = type
             __props__.__dict__["aws_sns_external_id"] = None
@@ -739,21 +800,21 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_sns_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sns_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
-        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to
+        :param pulumi.Input[str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
+        :param pulumi.Input[str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         :param pulumi.Input[str] aws_sqs_arn: AWS SQS queue ARN for notification integration to connect to
         :param pulumi.Input[str] aws_sqs_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[str] aws_sqs_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[str] aws_sqs_role_arn: AWS IAM role ARN for notification integration to assume
-        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications
-        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management
+        :param pulumi.Input[str] azure_storage_queue_primary_uri: The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+        :param pulumi.Input[str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[str] comment: A comment for the integration
         :param pulumi.Input[str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         :param pulumi.Input[str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
-        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        :param pulumi.Input[str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         :param pulumi.Input[str] type: A type of integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -802,7 +863,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="awsSnsRoleArn")
     def aws_sns_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        AWS IAM role ARN for notification integration to assume
+        AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         """
         return pulumi.get(self, "aws_sns_role_arn")
 
@@ -810,7 +871,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="awsSnsTopicArn")
     def aws_sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        AWS SNS Topic ARN for notification integration to connect to
+        AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
@@ -820,6 +881,9 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         AWS SQS queue ARN for notification integration to connect to
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_arn")
 
     @property
@@ -828,6 +892,9 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_external_id is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_external_id")
 
     @property
@@ -836,6 +903,9 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_iam_user_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @property
@@ -844,13 +914,16 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         AWS IAM role ARN for notification integration to assume
         """
+        warnings.warn("""No longer supported notification method""", DeprecationWarning)
+        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
+
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @property
     @pulumi.getter(name="azureStorageQueuePrimaryUri")
     def azure_storage_queue_primary_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+        The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_storage_queue_primary_uri")
 
@@ -858,7 +931,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Azure Active Directory tenant used for identity management
+        The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -884,6 +957,9 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "direction")
 
     @property
@@ -922,9 +998,9 @@ class NotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationProvider")
-    def notification_provider(self) -> pulumi.Output[Optional[str]]:
+    def notification_provider(self) -> pulumi.Output[str]:
         """
-        The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+        The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         """
         return pulumi.get(self, "notification_provider")
 
@@ -934,5 +1010,8 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         A type of integration
         """
+        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
+
         return pulumi.get(self, "type")
 

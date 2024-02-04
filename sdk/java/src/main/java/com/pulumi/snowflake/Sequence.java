@@ -138,18 +138,32 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The next value the sequence will provide.
+     * The increment sequence interval.
      * 
      */
     @Export(name="nextValue", refs={Integer.class}, tree="[0]")
     private Output<Integer> nextValue;
 
     /**
-     * @return The next value the sequence will provide.
+     * @return The increment sequence interval.
      * 
      */
     public Output<Integer> nextValue() {
         return this.nextValue;
+    }
+    /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    @Export(name="ordering", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ordering;
+
+    /**
+     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * 
+     */
+    public Output<Optional<String>> ordering() {
+        return Codegen.optional(this.ordering);
     }
     /**
      * The schema in which to create the sequence. Don&#39;t use the | character.

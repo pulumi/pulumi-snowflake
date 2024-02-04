@@ -3,13 +3,13 @@ module github.com/pulumi/pulumi-snowflake/provider
 go 1.21
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 	gocloud.dev => gocloud.dev v0.29.0
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.84.1
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.85.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.73.0
 	github.com/pulumi/pulumi/sdk/v3 v3.104.2
 )

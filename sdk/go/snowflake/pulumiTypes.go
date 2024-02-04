@@ -1673,6 +1673,869 @@ func (o FunctionArgumentArrayOutput) Index(i pulumi.IntInput) FunctionArgumentOu
 	}).(FunctionArgumentOutput)
 }
 
+type GrantPrivilegesToAccountRoleOnAccountObject struct {
+	// The fully qualified name of the object on which privileges will be granted.
+	ObjectName string `pulumi:"objectName"`
+	// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+	ObjectType string `pulumi:"objectType"`
+}
+
+// GrantPrivilegesToAccountRoleOnAccountObjectInput is an input type that accepts GrantPrivilegesToAccountRoleOnAccountObjectArgs and GrantPrivilegesToAccountRoleOnAccountObjectOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnAccountObjectInput` via:
+//
+//	GrantPrivilegesToAccountRoleOnAccountObjectArgs{...}
+type GrantPrivilegesToAccountRoleOnAccountObjectInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnAccountObjectOutput() GrantPrivilegesToAccountRoleOnAccountObjectOutput
+	ToGrantPrivilegesToAccountRoleOnAccountObjectOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnAccountObjectOutput
+}
+
+type GrantPrivilegesToAccountRoleOnAccountObjectArgs struct {
+	// The fully qualified name of the object on which privileges will be granted.
+	ObjectName pulumi.StringInput `pulumi:"objectName"`
+	// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (GrantPrivilegesToAccountRoleOnAccountObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObject)(nil)).Elem()
+}
+
+func (i GrantPrivilegesToAccountRoleOnAccountObjectArgs) ToGrantPrivilegesToAccountRoleOnAccountObjectOutput() GrantPrivilegesToAccountRoleOnAccountObjectOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnAccountObjectOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnAccountObjectArgs) ToGrantPrivilegesToAccountRoleOnAccountObjectOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnAccountObjectOutput)
+}
+
+func (i GrantPrivilegesToAccountRoleOnAccountObjectArgs) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutput() GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnAccountObjectArgs) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnAccountObjectOutput).ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(ctx)
+}
+
+// GrantPrivilegesToAccountRoleOnAccountObjectPtrInput is an input type that accepts GrantPrivilegesToAccountRoleOnAccountObjectArgs, GrantPrivilegesToAccountRoleOnAccountObjectPtr and GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnAccountObjectPtrInput` via:
+//
+//	        GrantPrivilegesToAccountRoleOnAccountObjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantPrivilegesToAccountRoleOnAccountObjectPtrInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutput() GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput
+	ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput
+}
+
+type grantPrivilegesToAccountRoleOnAccountObjectPtrType GrantPrivilegesToAccountRoleOnAccountObjectArgs
+
+func GrantPrivilegesToAccountRoleOnAccountObjectPtr(v *GrantPrivilegesToAccountRoleOnAccountObjectArgs) GrantPrivilegesToAccountRoleOnAccountObjectPtrInput {
+	return (*grantPrivilegesToAccountRoleOnAccountObjectPtrType)(v)
+}
+
+func (*grantPrivilegesToAccountRoleOnAccountObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnAccountObject)(nil)).Elem()
+}
+
+func (i *grantPrivilegesToAccountRoleOnAccountObjectPtrType) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutput() GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *grantPrivilegesToAccountRoleOnAccountObjectPtrType) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnAccountObjectOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnAccountObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObject)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectOutput() GrantPrivilegesToAccountRoleOnAccountObjectOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutput() GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return o.ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(context.Background())
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantPrivilegesToAccountRoleOnAccountObject) *GrantPrivilegesToAccountRoleOnAccountObject {
+		return &v
+	}).(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput)
+}
+
+// The fully qualified name of the object on which privileges will be granted.
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) string { return v.ObjectName }).(pulumi.StringOutput)
+}
+
+// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnAccountObject)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutput() GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ToGrantPrivilegesToAccountRoleOnAccountObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) Elem() GrantPrivilegesToAccountRoleOnAccountObjectOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) GrantPrivilegesToAccountRoleOnAccountObject {
+		if v != nil {
+			return *v
+		}
+		var ret GrantPrivilegesToAccountRoleOnAccountObject
+		return ret
+	}).(GrantPrivilegesToAccountRoleOnAccountObjectOutput)
+}
+
+// The fully qualified name of the object on which privileges will be granted.
+func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchema struct {
+	// The fully qualified name of the database.
+	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
+	// The fully qualified name of the database.
+	FutureSchemasInDatabase *string `pulumi:"futureSchemasInDatabase"`
+	// The fully qualified name of the schema.
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaArgs and GrantPrivilegesToAccountRoleOnSchemaOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaInput` via:
+//
+//	GrantPrivilegesToAccountRoleOnSchemaArgs{...}
+type GrantPrivilegesToAccountRoleOnSchemaInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaOutput() GrantPrivilegesToAccountRoleOnSchemaOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaOutput
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaArgs struct {
+	// The fully qualified name of the database.
+	AllSchemasInDatabase pulumi.StringPtrInput `pulumi:"allSchemasInDatabase"`
+	// The fully qualified name of the database.
+	FutureSchemasInDatabase pulumi.StringPtrInput `pulumi:"futureSchemasInDatabase"`
+	// The fully qualified name of the schema.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (GrantPrivilegesToAccountRoleOnSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchema)(nil)).Elem()
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaArgs) ToGrantPrivilegesToAccountRoleOnSchemaOutput() GrantPrivilegesToAccountRoleOnSchemaOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaArgs) ToGrantPrivilegesToAccountRoleOnSchemaOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaOutput)
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaArgs) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutput() GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaArgs) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaOutput).ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(ctx)
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaPtrInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaArgs, GrantPrivilegesToAccountRoleOnSchemaPtr and GrantPrivilegesToAccountRoleOnSchemaPtrOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaPtrInput` via:
+//
+//	        GrantPrivilegesToAccountRoleOnSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantPrivilegesToAccountRoleOnSchemaPtrInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaPtrOutput() GrantPrivilegesToAccountRoleOnSchemaPtrOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaPtrOutput
+}
+
+type grantPrivilegesToAccountRoleOnSchemaPtrType GrantPrivilegesToAccountRoleOnSchemaArgs
+
+func GrantPrivilegesToAccountRoleOnSchemaPtr(v *GrantPrivilegesToAccountRoleOnSchemaArgs) GrantPrivilegesToAccountRoleOnSchemaPtrInput {
+	return (*grantPrivilegesToAccountRoleOnSchemaPtrType)(v)
+}
+
+func (*grantPrivilegesToAccountRoleOnSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchema)(nil)).Elem()
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaPtrType) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutput() GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaPtrType) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchema)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) ToGrantPrivilegesToAccountRoleOnSchemaOutput() GrantPrivilegesToAccountRoleOnSchemaOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) ToGrantPrivilegesToAccountRoleOnSchemaOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutput() GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return o.ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantPrivilegesToAccountRoleOnSchema) *GrantPrivilegesToAccountRoleOnSchema {
+		return &v
+	}).(GrantPrivilegesToAccountRoleOnSchemaPtrOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) AllSchemasInDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *string { return v.AllSchemasInDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) FutureSchemasInDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *string { return v.FutureSchemasInDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchema)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutput() GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) Elem() GrantPrivilegesToAccountRoleOnSchemaOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) GrantPrivilegesToAccountRoleOnSchema {
+		if v != nil {
+			return *v
+		}
+		var ret GrantPrivilegesToAccountRoleOnSchema
+		return ret
+	}).(GrantPrivilegesToAccountRoleOnSchemaOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) AllSchemasInDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllSchemasInDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) FutureSchemasInDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FutureSchemasInDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObject struct {
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	All *GrantPrivilegesToAccountRoleOnSchemaObjectAll `pulumi:"all"`
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	Future *GrantPrivilegesToAccountRoleOnSchemaObjectFuture `pulumi:"future"`
+	// The fully qualified name of the object on which privileges will be granted.
+	ObjectName *string `pulumi:"objectName"`
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	ObjectType *string `pulumi:"objectType"`
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectArgs and GrantPrivilegesToAccountRoleOnSchemaObjectOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectInput` via:
+//
+//	GrantPrivilegesToAccountRoleOnSchemaObjectArgs{...}
+type GrantPrivilegesToAccountRoleOnSchemaObjectInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectOutput() GrantPrivilegesToAccountRoleOnSchemaObjectOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectOutput
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectArgs struct {
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	All GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	Future GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
+	// The fully qualified name of the object on which privileges will be granted.
+	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
+}
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObject)(nil)).Elem()
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectOutput() GrantPrivilegesToAccountRoleOnSchemaObjectOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectOutput)
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectOutput).ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(ctx)
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectArgs, GrantPrivilegesToAccountRoleOnSchemaObjectPtr and GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput` via:
+//
+//	        GrantPrivilegesToAccountRoleOnSchemaObjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput
+}
+
+type grantPrivilegesToAccountRoleOnSchemaObjectPtrType GrantPrivilegesToAccountRoleOnSchemaObjectArgs
+
+func GrantPrivilegesToAccountRoleOnSchemaObjectPtr(v *GrantPrivilegesToAccountRoleOnSchemaObjectArgs) GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput {
+	return (*grantPrivilegesToAccountRoleOnSchemaObjectPtrType)(v)
+}
+
+func (*grantPrivilegesToAccountRoleOnSchemaObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObject)(nil)).Elem()
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectPtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectPtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObject)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectOutput() GrantPrivilegesToAccountRoleOnSchemaObjectOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return o.ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(context.Background())
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObject {
+		return &v
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) All() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectAll {
+		return v.All
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Future() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
+		return v.Future
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
+}
+
+// The fully qualified name of the object on which privileges will be granted.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
+}
+
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObject)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Elem() GrantPrivilegesToAccountRoleOnSchemaObjectOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) GrantPrivilegesToAccountRoleOnSchemaObject {
+		if v != nil {
+			return *v
+		}
+		var ret GrantPrivilegesToAccountRoleOnSchemaObject
+		return ret
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) All() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectAll {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Future() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
+		if v == nil {
+			return nil
+		}
+		return v.Future
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
+}
+
+// The fully qualified name of the object on which privileges will be granted.
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectAll struct {
+	InDatabase *string `pulumi:"inDatabase"`
+	InSchema   *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectAllInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs and GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectAllInput` via:
+//
+//	GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs{...}
+type GrantPrivilegesToAccountRoleOnSchemaObjectAllInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs struct {
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
+}
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectAll)(nil)).Elem()
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput)
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput).ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(ctx)
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs, GrantPrivilegesToAccountRoleOnSchemaObjectAllPtr and GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput` via:
+//
+//	        GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput
+}
+
+type grantPrivilegesToAccountRoleOnSchemaObjectAllPtrType GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs
+
+func GrantPrivilegesToAccountRoleOnSchemaObjectAllPtr(v *GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput {
+	return (*grantPrivilegesToAccountRoleOnSchemaObjectAllPtrType)(v)
+}
+
+func (*grantPrivilegesToAccountRoleOnSchemaObjectAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObjectAll)(nil)).Elem()
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectAllPtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(context.Background())
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectAllPtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectAll)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o.ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(context.Background())
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *GrantPrivilegesToAccountRoleOnSchemaObjectAll {
+		return &v
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
+}
+
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObjectAll)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) Elem() GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) GrantPrivilegesToAccountRoleOnSchemaObjectAll {
+		if v != nil {
+			return *v
+		}
+		var ret GrantPrivilegesToAccountRoleOnSchemaObjectAll
+		return ret
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectTypePlural
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
+	InDatabase *string `pulumi:"inDatabase"`
+	InSchema   *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs and GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput` via:
+//
+//	GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs{...}
+type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
+}
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectFuture)(nil)).Elem()
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput)
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(context.Background())
+}
+
+func (i GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput).ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(ctx)
+}
+
+// GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput is an input type that accepts GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs, GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtr and GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput values.
+// You can construct a concrete instance of `GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput` via:
+//
+//	        GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput interface {
+	pulumi.Input
+
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput
+	ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput
+}
+
+type grantPrivilegesToAccountRoleOnSchemaObjectFuturePtrType GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs
+
+func GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtr(v *GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput {
+	return (*grantPrivilegesToAccountRoleOnSchemaObjectFuturePtrType)(v)
+}
+
+func (*grantPrivilegesToAccountRoleOnSchemaObjectFuturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObjectFuture)(nil)).Elem()
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectFuturePtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return i.ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(context.Background())
+}
+
+func (i *grantPrivilegesToAccountRoleOnSchemaObjectFuturePtrType) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectFuture)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFutureOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o.ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(context.Background())
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
+		return &v
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
+}
+
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
+}
+
+type GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput struct{ *pulumi.OutputState }
+
+func (GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantPrivilegesToAccountRoleOnSchemaObjectFuture)(nil)).Elem()
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ToGrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutputWithContext(ctx context.Context) GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
+	return o
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) Elem() GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
+		if v != nil {
+			return *v
+		}
+		var ret GrantPrivilegesToAccountRoleOnSchemaObjectFuture
+		return ret
+	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectTypePlural
+	}).(pulumi.StringPtrOutput)
+}
+
 type GrantPrivilegesToDatabaseRoleOnSchema struct {
 	// The fully qualified name of the database.
 	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
@@ -11391,6 +12254,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronPtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObjectInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnAccountObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObjectPtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnAccountObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaPtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectAllInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaPtrInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{})
@@ -11549,6 +12422,16 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnAccountObjectOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaPtrOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput{})
+	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput{})

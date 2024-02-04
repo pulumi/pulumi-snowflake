@@ -18,7 +18,8 @@ class SequenceArgs:
                  schema: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
                  increment: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 ordering: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Sequence resource.
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
@@ -26,6 +27,7 @@ class SequenceArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
+        :param pulumi.Input[str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -35,6 +37,8 @@ class SequenceArgs:
             pulumi.set(__self__, "increment", increment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ordering is not None:
+            pulumi.set(__self__, "ordering", ordering)
 
     @property
     @pulumi.getter
@@ -96,6 +100,18 @@ class SequenceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def ordering(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        """
+        return pulumi.get(self, "ordering")
+
+    @ordering.setter
+    def ordering(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ordering", value)
+
 
 @pulumi.input_type
 class _SequenceState:
@@ -106,6 +122,7 @@ class _SequenceState:
                  increment: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_value: Optional[pulumi.Input[int]] = None,
+                 ordering: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Sequence resources.
@@ -114,7 +131,8 @@ class _SequenceState:
         :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
-        :param pulumi.Input[int] next_value: The next value the sequence will provide.
+        :param pulumi.Input[int] next_value: The increment sequence interval.
+        :param pulumi.Input[str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         if comment is not None:
@@ -129,6 +147,8 @@ class _SequenceState:
             pulumi.set(__self__, "name", name)
         if next_value is not None:
             pulumi.set(__self__, "next_value", next_value)
+        if ordering is not None:
+            pulumi.set(__self__, "ordering", ordering)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
 
@@ -196,13 +216,25 @@ class _SequenceState:
     @pulumi.getter(name="nextValue")
     def next_value(self) -> Optional[pulumi.Input[int]]:
         """
-        The next value the sequence will provide.
+        The increment sequence interval.
         """
         return pulumi.get(self, "next_value")
 
     @next_value.setter
     def next_value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "next_value", value)
+
+    @property
+    @pulumi.getter
+    def ordering(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        """
+        return pulumi.get(self, "ordering")
+
+    @ordering.setter
+    def ordering(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ordering", value)
 
     @property
     @pulumi.getter
@@ -226,6 +258,7 @@ class Sequence(pulumi.CustomResource):
                  database: Optional[pulumi.Input[str]] = None,
                  increment: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ordering: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -256,6 +289,7 @@ class Sequence(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
+        :param pulumi.Input[str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         ...
@@ -305,6 +339,7 @@ class Sequence(pulumi.CustomResource):
                  database: Optional[pulumi.Input[str]] = None,
                  increment: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ordering: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -321,6 +356,7 @@ class Sequence(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["increment"] = increment
             __props__.__dict__["name"] = name
+            __props__.__dict__["ordering"] = ordering
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
@@ -342,6 +378,7 @@ class Sequence(pulumi.CustomResource):
             increment: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             next_value: Optional[pulumi.Input[int]] = None,
+            ordering: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None) -> 'Sequence':
         """
         Get an existing Sequence resource's state with the given name, id, and optional extra
@@ -355,7 +392,8 @@ class Sequence(pulumi.CustomResource):
         :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
-        :param pulumi.Input[int] next_value: The next value the sequence will provide.
+        :param pulumi.Input[int] next_value: The increment sequence interval.
+        :param pulumi.Input[str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,6 +406,7 @@ class Sequence(pulumi.CustomResource):
         __props__.__dict__["increment"] = increment
         __props__.__dict__["name"] = name
         __props__.__dict__["next_value"] = next_value
+        __props__.__dict__["ordering"] = ordering
         __props__.__dict__["schema"] = schema
         return Sequence(resource_name, opts=opts, __props__=__props__)
 
@@ -415,9 +454,17 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter(name="nextValue")
     def next_value(self) -> pulumi.Output[int]:
         """
-        The next value the sequence will provide.
+        The increment sequence interval.
         """
         return pulumi.get(self, "next_value")
+
+    @property
+    @pulumi.getter
+    def ordering(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        """
+        return pulumi.get(self, "ordering")
 
     @property
     @pulumi.getter

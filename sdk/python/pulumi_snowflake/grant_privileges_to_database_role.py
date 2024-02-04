@@ -34,7 +34,7 @@ class GrantPrivilegesToDatabaseRoleArgs:
                X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
                new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
                of the config being eventually convergent (producing an empty plan).
-        :param pulumi.Input[str] always_apply_trigger: This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
@@ -103,7 +103,7 @@ class GrantPrivilegesToDatabaseRoleArgs:
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> Optional[pulumi.Input[str]]:
         """
-        This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
@@ -192,7 +192,7 @@ class _GrantPrivilegesToDatabaseRoleState:
                X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
                new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
                of the config being eventually convergent (producing an empty plan).
-        :param pulumi.Input[str] always_apply_trigger: This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
@@ -251,7 +251,7 @@ class _GrantPrivilegesToDatabaseRoleState:
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> Optional[pulumi.Input[str]]:
         """
-        This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
@@ -348,6 +348,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        > **Note** This is a preview resource. It's ready for general use. In case of any errors, please file an issue in our GitHub repository.
+
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
         ## Example Usage
@@ -455,7 +457,7 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
                new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
                of the config being eventually convergent (producing an empty plan).
-        :param pulumi.Input[str] always_apply_trigger: This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
         :param pulumi.Input[pulumi.InputType['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] on_schema: Specifies the schema on which privileges will be granted.
@@ -470,6 +472,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  args: GrantPrivilegesToDatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note** This is a preview resource. It's ready for general use. In case of any errors, please file an issue in our GitHub repository.
+
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
         ## Example Usage
@@ -645,7 +649,7 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
                new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
                of the config being eventually convergent (producing an empty plan).
-        :param pulumi.Input[str] always_apply_trigger: This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
         :param pulumi.Input[pulumi.InputType['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] on_schema: Specifies the schema on which privileges will be granted.
@@ -692,7 +696,7 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> pulumi.Output[Optional[str]]:
         """
-        This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 

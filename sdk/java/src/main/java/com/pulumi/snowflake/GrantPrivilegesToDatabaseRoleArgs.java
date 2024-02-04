@@ -59,14 +59,14 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
     }
 
     /**
-     * This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Import(name="alwaysApplyTrigger")
     private @Nullable Output<String> alwaysApplyTrigger;
 
     /**
-     * @return This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Optional<Output<String>> alwaysApplyTrigger() {
@@ -246,7 +246,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This field should not be set and its main purpose is to achieve the functionality described by always_apply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 

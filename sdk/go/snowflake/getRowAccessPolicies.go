@@ -61,7 +61,7 @@ type GetRowAccessPoliciesResult struct {
 	Id string `pulumi:"id"`
 	// The row access policy in the schema
 	RowAccessPolicies []GetRowAccessPoliciesRowAccessPolicy `pulumi:"rowAccessPolicies"`
-	// The schema from which to return the row access policyfrom.
+	// The schema from which to return the row access policy from.
 	Schema string `pulumi:"schema"`
 }
 
@@ -118,7 +118,7 @@ func (o GetRowAccessPoliciesResultOutput) RowAccessPolicies() GetRowAccessPolici
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) []GetRowAccessPoliciesRowAccessPolicy { return v.RowAccessPolicies }).(GetRowAccessPoliciesRowAccessPolicyArrayOutput)
 }
 
-// The schema from which to return the row access policyfrom.
+// The schema from which to return the row access policy from.
 func (o GetRowAccessPoliciesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
 }

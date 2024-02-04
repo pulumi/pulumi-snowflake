@@ -23,6 +23,11 @@ __all__ = [
     'FailoverGroupReplicationSchedule',
     'FailoverGroupReplicationScheduleCron',
     'FunctionArgument',
+    'GrantPrivilegesToAccountRoleOnAccountObject',
+    'GrantPrivilegesToAccountRoleOnSchema',
+    'GrantPrivilegesToAccountRoleOnSchemaObject',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectAll',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectFuture',
     'GrantPrivilegesToDatabaseRoleOnSchema',
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
@@ -584,6 +589,302 @@ class FunctionArgument(dict):
         The argument type
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnAccountObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectName":
+            suggest = "object_name"
+        elif key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnAccountObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnAccountObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnAccountObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_name: str,
+                 object_type: str):
+        """
+        :param str object_name: The fully qualified name of the object on which privileges will be granted.
+        :param str object_type: The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        """
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> str:
+        """
+        The fully qualified name of the object on which privileges will be granted.
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allSchemasInDatabase":
+            suggest = "all_schemas_in_database"
+        elif key == "futureSchemasInDatabase":
+            suggest = "future_schemas_in_database"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_schemas_in_database: Optional[str] = None,
+                 future_schemas_in_database: Optional[str] = None,
+                 schema_name: Optional[str] = None):
+        """
+        :param str all_schemas_in_database: The fully qualified name of the database.
+        :param str future_schemas_in_database: The fully qualified name of the database.
+        :param str schema_name: The fully qualified name of the schema.
+        """
+        if all_schemas_in_database is not None:
+            pulumi.set(__self__, "all_schemas_in_database", all_schemas_in_database)
+        if future_schemas_in_database is not None:
+            pulumi.set(__self__, "future_schemas_in_database", future_schemas_in_database)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="allSchemasInDatabase")
+    def all_schemas_in_database(self) -> Optional[str]:
+        """
+        The fully qualified name of the database.
+        """
+        return pulumi.get(self, "all_schemas_in_database")
+
+    @property
+    @pulumi.getter(name="futureSchemasInDatabase")
+    def future_schemas_in_database(self) -> Optional[str]:
+        """
+        The fully qualified name of the database.
+        """
+        return pulumi.get(self, "future_schemas_in_database")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        """
+        The fully qualified name of the schema.
+        """
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectName":
+            suggest = "object_name"
+        elif key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchemaObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll'] = None,
+                 future: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture'] = None,
+                 object_name: Optional[str] = None,
+                 object_type: Optional[str] = None):
+        """
+        :param 'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
+        :param 'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on all objects in either a database or schema.
+        :param str object_name: The fully qualified name of the object on which privileges will be granted.
+        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if future is not None:
+            pulumi.set(__self__, "future", future)
+        if object_name is not None:
+            pulumi.set(__self__, "object_name", object_name)
+        if object_type is not None:
+            pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll']:
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter
+    def future(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture']:
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        return pulumi.get(self, "future")
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Optional[str]:
+        """
+        The fully qualified name of the object on which privileges will be granted.
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> Optional[str]:
+        """
+        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypePlural":
+            suggest = "object_type_plural"
+        elif key == "inDatabase":
+            suggest = "in_database"
+        elif key == "inSchema":
+            suggest = "in_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchemaObjectAll. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectAll.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectAll.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type_plural: str,
+                 in_database: Optional[str] = None,
+                 in_schema: Optional[str] = None):
+        """
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> str:
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[str]:
+        return pulumi.get(self, "in_database")
+
+    @property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[str]:
+        return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypePlural":
+            suggest = "object_type_plural"
+        elif key == "inDatabase":
+            suggest = "in_database"
+        elif key == "inSchema":
+            suggest = "in_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchemaObjectFuture. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectFuture.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectFuture.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type_plural: str,
+                 in_database: Optional[str] = None,
+                 in_schema: Optional[str] = None):
+        """
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> str:
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[str]:
+        return pulumi.get(self, "in_database")
+
+    @property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[str]:
+        return pulumi.get(self, "in_schema")
 
 
 @pulumi.output_type

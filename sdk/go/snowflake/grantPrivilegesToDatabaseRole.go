@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** This is a preview resource. It's ready for general use. In case of any errors, please file an issue in our GitHub repository.
+//
 // !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 //
 // ## Example Usage
@@ -136,7 +138,7 @@ type GrantPrivilegesToDatabaseRole struct {
 	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
 	// of the config being eventually convergent (producing an empty plan).
 	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
-	// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
 	DatabaseRoleName pulumi.StringOutput `pulumi:"databaseRoleName"`
@@ -193,7 +195,7 @@ type grantPrivilegesToDatabaseRoleState struct {
 	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
 	// of the config being eventually convergent (producing an empty plan).
 	AlwaysApply *bool `pulumi:"alwaysApply"`
-	// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
@@ -218,7 +220,7 @@ type GrantPrivilegesToDatabaseRoleState struct {
 	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
 	// of the config being eventually convergent (producing an empty plan).
 	AlwaysApply pulumi.BoolPtrInput
-	// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
 	DatabaseRoleName pulumi.StringPtrInput
@@ -247,7 +249,7 @@ type grantPrivilegesToDatabaseRoleArgs struct {
 	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
 	// of the config being eventually convergent (producing an empty plan).
 	AlwaysApply *bool `pulumi:"alwaysApply"`
-	// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
 	DatabaseRoleName string `pulumi:"databaseRoleName"`
@@ -273,7 +275,7 @@ type GrantPrivilegesToDatabaseRoleArgs struct {
 	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
 	// of the config being eventually convergent (producing an empty plan).
 	AlwaysApply pulumi.BoolPtrInput
-	// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
 	DatabaseRoleName pulumi.StringInput
@@ -390,7 +392,7 @@ func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApply() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }
 
-// This field should not be set and its main purpose is to achieve the functionality described by alwaysApply field. This is value will be flipped to the opposite value on every pulumi up, thus creating a new plan that will re-apply grants.
+// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApplyTrigger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringPtrOutput { return v.AlwaysApplyTrigger }).(pulumi.StringPtrOutput)
 }

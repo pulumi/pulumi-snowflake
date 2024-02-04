@@ -310,6 +310,11 @@ export type GrantDatabaseRole = import("./grantDatabaseRole").GrantDatabaseRole;
 export const GrantDatabaseRole: typeof import("./grantDatabaseRole").GrantDatabaseRole = null as any;
 utilities.lazyLoad(exports, ["GrantDatabaseRole"], () => require("./grantDatabaseRole"));
 
+export { GrantPrivilegesToAccountRoleArgs, GrantPrivilegesToAccountRoleState } from "./grantPrivilegesToAccountRole";
+export type GrantPrivilegesToAccountRole = import("./grantPrivilegesToAccountRole").GrantPrivilegesToAccountRole;
+export const GrantPrivilegesToAccountRole: typeof import("./grantPrivilegesToAccountRole").GrantPrivilegesToAccountRole = null as any;
+utilities.lazyLoad(exports, ["GrantPrivilegesToAccountRole"], () => require("./grantPrivilegesToAccountRole"));
+
 export { GrantPrivilegesToDatabaseRoleArgs, GrantPrivilegesToDatabaseRoleState } from "./grantPrivilegesToDatabaseRole";
 export type GrantPrivilegesToDatabaseRole = import("./grantPrivilegesToDatabaseRole").GrantPrivilegesToDatabaseRole;
 export const GrantPrivilegesToDatabaseRole: typeof import("./grantPrivilegesToDatabaseRole").GrantPrivilegesToDatabaseRole = null as any;
@@ -319,6 +324,11 @@ export { GrantPrivilegesToRoleArgs, GrantPrivilegesToRoleState } from "./grantPr
 export type GrantPrivilegesToRole = import("./grantPrivilegesToRole").GrantPrivilegesToRole;
 export const GrantPrivilegesToRole: typeof import("./grantPrivilegesToRole").GrantPrivilegesToRole = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToRole"], () => require("./grantPrivilegesToRole"));
+
+export { GrantPrivilegesToShareArgs, GrantPrivilegesToShareState } from "./grantPrivilegesToShare";
+export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPrivilegesToShare;
+export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
+utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
 
 export { IntegrationGrantArgs, IntegrationGrantState } from "./integrationGrant";
 export type IntegrationGrant = import("./integrationGrant").IntegrationGrant;
@@ -660,10 +670,14 @@ const _module = {
                 return new GrantAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantDatabaseRole:GrantDatabaseRole":
                 return new GrantDatabaseRole(name, <any>undefined, { urn })
+            case "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole":
+                return new GrantPrivilegesToAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole":
                 return new GrantPrivilegesToRole(name, <any>undefined, { urn })
+            case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
+                return new GrantPrivilegesToShare(name, <any>undefined, { urn })
             case "snowflake:index/integrationGrant:IntegrationGrant":
                 return new IntegrationGrant(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
@@ -802,8 +816,10 @@ pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/integrationGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)

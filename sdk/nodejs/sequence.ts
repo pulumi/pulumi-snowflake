@@ -76,9 +76,13 @@ export class Sequence extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The next value the sequence will provide.
+     * The increment sequence interval.
      */
     public /*out*/ readonly nextValue!: pulumi.Output<number>;
+    /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     */
+    public readonly ordering!: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */
@@ -103,6 +107,7 @@ export class Sequence extends pulumi.CustomResource {
             resourceInputs["increment"] = state ? state.increment : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nextValue"] = state ? state.nextValue : undefined;
+            resourceInputs["ordering"] = state ? state.ordering : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as SequenceArgs | undefined;
@@ -116,6 +121,7 @@ export class Sequence extends pulumi.CustomResource {
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["increment"] = args ? args.increment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ordering"] = args ? args.ordering : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["nextValue"] = undefined /*out*/;
@@ -150,9 +156,13 @@ export interface SequenceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The next value the sequence will provide.
+     * The increment sequence interval.
      */
     nextValue?: pulumi.Input<number>;
+    /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     */
+    ordering?: pulumi.Input<string>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */
@@ -179,6 +189,10 @@ export interface SequenceArgs {
      * Specifies the name for the sequence.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     */
+    ordering?: pulumi.Input<string>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */

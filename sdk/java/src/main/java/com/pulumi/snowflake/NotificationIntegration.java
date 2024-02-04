@@ -90,28 +90,28 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return this.awsSnsIamUserArn;
     }
     /**
-     * AWS IAM role ARN for notification integration to assume
+     * AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
      * 
      */
     @Export(name="awsSnsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsRoleArn;
 
     /**
-     * @return AWS IAM role ARN for notification integration to assume
+     * @return AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
      * 
      */
     public Output<Optional<String>> awsSnsRoleArn() {
         return Codegen.optional(this.awsSnsRoleArn);
     }
     /**
-     * AWS SNS Topic ARN for notification integration to connect to
+     * AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
      * 
      */
     @Export(name="awsSnsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSnsTopicArn;
 
     /**
-     * @return AWS SNS Topic ARN for notification integration to connect to
+     * @return AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
      * 
      */
     public Output<Optional<String>> awsSnsTopicArn() {
@@ -120,7 +120,11 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * AWS SQS queue ARN for notification integration to connect to
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Export(name="awsSqsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsArn;
 
@@ -134,7 +138,11 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Export(name="awsSqsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsSqsExternalId;
 
@@ -148,7 +156,11 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Export(name="awsSqsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> awsSqsIamUserArn;
 
@@ -162,7 +174,11 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * AWS IAM role ARN for notification integration to assume
      * 
+     * @deprecated
+     * No longer supported notification method
+     * 
      */
+    @Deprecated /* No longer supported notification method */
     @Export(name="awsSqsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsRoleArn;
 
@@ -174,28 +190,28 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.awsSqsRoleArn);
     }
     /**
-     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Export(name="azureStorageQueuePrimaryUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureStorageQueuePrimaryUri;
 
     /**
-     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications
+     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Output<Optional<String>> azureStorageQueuePrimaryUri() {
         return Codegen.optional(this.azureStorageQueuePrimaryUri);
     }
     /**
-     * The ID of the Azure Active Directory tenant used for identity management
+     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
-     * @return The ID of the Azure Active Directory tenant used for identity management
+     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Output<Optional<String>> azureTenantId() {
@@ -232,7 +248,11 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     @Export(name="direction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> direction;
 
@@ -298,23 +318,27 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+     * The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
     @Export(name="notificationProvider", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> notificationProvider;
+    private Output<String> notificationProvider;
 
     /**
-     * @return The third-party cloud message queuing service (e.g. AZURE*STORAGE*QUEUE, AWS*SQS, AWS*SNS)
+     * @return The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
-    public Output<Optional<String>> notificationProvider() {
-        return Codegen.optional(this.notificationProvider);
+    public Output<String> notificationProvider() {
+        return this.notificationProvider;
     }
     /**
      * A type of integration
      * 
+     * @deprecated
+     * Will be removed - it is added automatically on the SDK level.
+     * 
      */
+    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
@@ -338,7 +362,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationIntegration(String name, @Nullable NotificationIntegrationArgs args) {
+    public NotificationIntegration(String name, NotificationIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -347,7 +371,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationIntegration(String name, @Nullable NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public NotificationIntegration(String name, NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/notificationIntegration:NotificationIntegration", name, args == null ? NotificationIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

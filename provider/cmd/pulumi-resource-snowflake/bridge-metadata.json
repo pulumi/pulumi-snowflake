@@ -239,6 +239,33 @@
             "snowflake_grant_database_role": {
                 "current": "snowflake:index/grantDatabaseRole:GrantDatabaseRole"
             },
+            "snowflake_grant_privileges_to_account_role": {
+                "current": "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole",
+                "fields": {
+                    "on_account_object": {
+                        "maxItemsOne": true
+                    },
+                    "on_schema": {
+                        "maxItemsOne": true
+                    },
+                    "on_schema_object": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "all": {
+                                    "maxItemsOne": true
+                                },
+                                "future": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "privileges": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_grant_privileges_to_database_role": {
                 "current": "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole",
                 "fields": {
@@ -285,6 +312,14 @@
                             }
                         }
                     },
+                    "privileges": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_grant_privileges_to_share": {
+                "current": "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare",
+                "fields": {
                     "privileges": {
                         "maxItemsOne": false
                     }
@@ -1133,8 +1168,10 @@
             "snowflake:index/functionGrant:FunctionGrant": "snowflake_function_grant",
             "snowflake:index/grantAccountRole:GrantAccountRole": "snowflake_grant_account_role",
             "snowflake:index/grantDatabaseRole:GrantDatabaseRole": "snowflake_grant_database_role",
+            "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole": "snowflake_grant_privileges_to_account_role",
             "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": "snowflake_grant_privileges_to_database_role",
             "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": "snowflake_grant_privileges_to_role",
+            "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": "snowflake_grant_privileges_to_share",
             "snowflake:index/integrationGrant:IntegrationGrant": "snowflake_integration_grant",
             "snowflake:index/managedAccount:ManagedAccount": "snowflake_managed_account",
             "snowflake:index/maskingPolicy:MaskingPolicy": "snowflake_masking_policy",
@@ -1254,6 +1291,29 @@
             },
             "snowflake:index/FailoverGroupReplicationScheduleCron:FailoverGroupReplicationScheduleCron": {
                 "timeZone": "time_zone"
+            },
+            "snowflake:index/GrantPrivilegesToAccountRoleOnAccountObject:GrantPrivilegesToAccountRoleOnAccountObject": {
+                "objectName": "object_name",
+                "objectType": "object_type"
+            },
+            "snowflake:index/GrantPrivilegesToAccountRoleOnSchema:GrantPrivilegesToAccountRoleOnSchema": {
+                "allSchemasInDatabase": "all_schemas_in_database",
+                "futureSchemasInDatabase": "future_schemas_in_database",
+                "schemaName": "schema_name"
+            },
+            "snowflake:index/GrantPrivilegesToAccountRoleOnSchemaObject:GrantPrivilegesToAccountRoleOnSchemaObject": {
+                "objectName": "object_name",
+                "objectType": "object_type"
+            },
+            "snowflake:index/GrantPrivilegesToAccountRoleOnSchemaObjectAll:GrantPrivilegesToAccountRoleOnSchemaObjectAll": {
+                "inDatabase": "in_database",
+                "inSchema": "in_schema",
+                "objectTypePlural": "object_type_plural"
+            },
+            "snowflake:index/GrantPrivilegesToAccountRoleOnSchemaObjectFuture:GrantPrivilegesToAccountRoleOnSchemaObjectFuture": {
+                "inDatabase": "in_database",
+                "inSchema": "in_schema",
+                "objectTypePlural": "object_type_plural"
             },
             "snowflake:index/GrantPrivilegesToDatabaseRoleOnSchema:GrantPrivilegesToDatabaseRoleOnSchema": {
                 "allSchemasInDatabase": "all_schemas_in_database",
@@ -1713,6 +1773,17 @@
                 "parentRoleName": "parent_role_name",
                 "shareName": "share_name"
             },
+            "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole": {
+                "accountRoleName": "account_role_name",
+                "allPrivileges": "all_privileges",
+                "alwaysApply": "always_apply",
+                "alwaysApplyTrigger": "always_apply_trigger",
+                "onAccount": "on_account",
+                "onAccountObject": "on_account_object",
+                "onSchema": "on_schema",
+                "onSchemaObject": "on_schema_object",
+                "withGrantOption": "with_grant_option"
+            },
             "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole": {
                 "allPrivileges": "all_privileges",
                 "alwaysApply": "always_apply",
@@ -1731,6 +1802,15 @@
                 "onSchemaObject": "on_schema_object",
                 "roleName": "role_name",
                 "withGrantOption": "with_grant_option"
+            },
+            "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": {
+                "onAllTablesInSchema": "on_all_tables_in_schema",
+                "onDatabase": "on_database",
+                "onSchema": "on_schema",
+                "onTable": "on_table",
+                "onTag": "on_tag",
+                "onView": "on_view",
+                "toShare": "to_share"
             },
             "snowflake:index/integrationGrant:IntegrationGrant": {
                 "enableMultipleGrants": "enable_multiple_grants",

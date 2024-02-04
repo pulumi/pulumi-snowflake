@@ -66,8 +66,10 @@ from .get_views import *
 from .get_warehouses import *
 from .grant_account_role import *
 from .grant_database_role import *
+from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_role import *
+from .grant_privileges_to_share import *
 from .integration_grant import *
 from .managed_account import *
 from .masking_policy import *
@@ -323,6 +325,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/grantPrivilegesToAccountRole",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole": "GrantPrivilegesToAccountRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/grantPrivilegesToDatabaseRole",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -335,6 +345,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": "GrantPrivilegesToRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/grantPrivilegesToShare",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": "GrantPrivilegesToShare"
   }
  },
  {
