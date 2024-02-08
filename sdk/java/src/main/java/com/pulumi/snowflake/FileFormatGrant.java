@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * format is database_name|schema_name|file_format_name|privilege|with_grant_option|on_future|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_FILE_FORMAT|USAGE|false|false|role1,role2&#39;
+ * $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_FILE_FORMAT|USAGE|false|false|role1,role2&#39;
  * ```
  * 
  */

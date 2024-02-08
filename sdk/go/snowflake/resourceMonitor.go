@@ -55,9 +55,7 @@ import (
 // format is the resource monitor name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
-//
+// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
 // ```
 type ResourceMonitor struct {
 	pulumi.CustomResourceState

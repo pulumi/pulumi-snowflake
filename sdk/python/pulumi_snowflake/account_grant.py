@@ -190,7 +190,7 @@ class AccountGrant(pulumi.CustomResource):
         format is privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
+        $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,7 +228,7 @@ class AccountGrant(pulumi.CustomResource):
         format is privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
+        $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

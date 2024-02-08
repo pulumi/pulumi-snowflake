@@ -86,9 +86,7 @@ import (
 // format is database name | schema name | task name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
-//
+// $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
 // ```
 type Task struct {
 	pulumi.CustomResourceState

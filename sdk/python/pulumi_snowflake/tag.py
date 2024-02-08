@@ -219,7 +219,7 @@ class Tag(pulumi.CustomResource):
         format is database name | schema name | tag name
 
         ```sh
-         $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class Tag(pulumi.CustomResource):
         format is database name | schema name | tag name
 
         ```sh
-         $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
         ```
 
         :param str resource_name: The name of the resource.

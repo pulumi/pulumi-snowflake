@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * format is privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/accountGrant:AccountGrant example &#34;privilege|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/accountGrant:AccountGrant example &#34;privilege|false|role1,role2&#34;
  * ```
  * 
  */

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | stored procedure name | &lt;list of arg types, separated with &#39;-&#39;&gt;
  * 
  * ```sh
- *  $ pulumi import snowflake:index/procedure:Procedure example &#39;dbName|schemaName|procedureName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/procedure:Procedure example &#39;dbName|schemaName|procedureName|varchar-varchar-varchar&#39;
  * ```
  * 
  */

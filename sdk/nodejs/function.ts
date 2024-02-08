@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | function name | <list of arg types, separated with '-'>
  *
  * ```sh
- *  $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+ * $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
  * ```
  */
 export class Function extends pulumi.CustomResource {

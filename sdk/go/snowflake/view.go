@@ -48,9 +48,7 @@ import (
 // format is database name | schema name | view name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
-//
+// $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
 // ```
 type View struct {
 	pulumi.CustomResourceState

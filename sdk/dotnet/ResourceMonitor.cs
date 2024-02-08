@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     /// format is the resource monitor name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+    /// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitor:ResourceMonitor")]

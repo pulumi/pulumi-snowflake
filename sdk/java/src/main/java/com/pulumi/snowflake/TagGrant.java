@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * format is database|schema|tag|privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/tagGrant:TagGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/tagGrant:TagGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2&#34;
  * ```
  * 
  */

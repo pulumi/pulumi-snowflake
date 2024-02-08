@@ -64,9 +64,7 @@ import (
 // format is database name | schema name | policy name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
-//
+// $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
 // ```
 type MaskingPolicy struct {
 	pulumi.CustomResourceState

@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | alert name
  *
  * ```sh
- *  $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+ * $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
  * ```
  */
 export class Alert extends pulumi.CustomResource {

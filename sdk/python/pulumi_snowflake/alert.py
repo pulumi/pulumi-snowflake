@@ -352,7 +352,7 @@ class Alert(pulumi.CustomResource):
         format is database name | schema name | alert name
 
         ```sh
-         $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+        $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,7 +398,7 @@ class Alert(pulumi.CustomResource):
         format is database name | schema name | alert name
 
         ```sh
-         $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+        $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
         ```
 
         :param str resource_name: The name of the resource.

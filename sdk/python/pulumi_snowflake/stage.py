@@ -516,7 +516,7 @@ class Stage(pulumi.CustomResource):
         format is database name | schema name | stage name
 
         ```sh
-         $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+        $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -565,7 +565,7 @@ class Stage(pulumi.CustomResource):
         format is database name | schema name | stage name
 
         ```sh
-         $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+        $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
         ```
 
         :param str resource_name: The name of the resource.

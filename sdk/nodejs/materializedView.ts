@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | view name
  *
  * ```sh
- *  $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+ * $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
  * ```
  */
 export class MaterializedView extends pulumi.CustomResource {

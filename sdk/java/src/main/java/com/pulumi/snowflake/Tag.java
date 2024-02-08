@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | tag name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/tag:Tag example &#39;dbName|schemaName|tagName&#39;
+ * $ pulumi import snowflake:index/tag:Tag example &#39;dbName|schemaName|tagName&#39;
  * ```
  * 
  */

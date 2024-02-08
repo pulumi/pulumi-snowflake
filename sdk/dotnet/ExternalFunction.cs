@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | external function name | &lt;list of function arg types, separated with '-'&gt;
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
+    /// $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalFunction:ExternalFunction")]

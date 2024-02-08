@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2&#34;
+ * $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */

@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles"
  *
  * ```sh
- *  $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2"
+ * $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2"
  * ```
  */
 export class TaskGrant extends pulumi.CustomResource {

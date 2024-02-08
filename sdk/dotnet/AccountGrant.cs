@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     /// format is privilege|with_grant_option|roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
+    /// $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountGrant:AccountGrant")]

@@ -43,7 +43,7 @@ namespace Pulumi.Snowflake
     /// format is database_name|schema_name|file_format_name|privilege|with_grant_option|on_future|roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example "MY_DATABASE|MY_SCHEMA|MY_FILE_FORMAT|USAGE|false|false|role1,role2'
+    /// $ pulumi import snowflake:index/fileFormatGrant:FileFormatGrant example "MY_DATABASE|MY_SCHEMA|MY_FILE_FORMAT|USAGE|false|false|role1,role2'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/fileFormatGrant:FileFormatGrant")]

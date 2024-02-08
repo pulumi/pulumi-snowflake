@@ -515,7 +515,7 @@ class ResourceMonitor(pulumi.CustomResource):
         format is the resource monitor name
 
         ```sh
-         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+        $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -569,7 +569,7 @@ class ResourceMonitor(pulumi.CustomResource):
         format is the resource monitor name
 
         ```sh
-         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+        $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
         ```
 
         :param str resource_name: The name of the resource.

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | table name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/table:Table example &#39;databaseName|schemaName|tableName&#39;
+ * $ pulumi import snowflake:index/table:Table example &#39;databaseName|schemaName|tableName&#39;
  * ```
  * 
  */

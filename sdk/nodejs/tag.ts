@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | tag name
  *
  * ```sh
- *  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+ * $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
  * ```
  */
 export class Tag extends pulumi.CustomResource {

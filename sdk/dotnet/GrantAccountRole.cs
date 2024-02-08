@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
     /// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole "\"test_role\"|ROLE|\"test_parent_role\""
+    /// $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole "\"test_role\"|ROLE|\"test_parent_role\""
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantAccountRole:GrantAccountRole")]

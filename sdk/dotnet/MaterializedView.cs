@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | view name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+    /// $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedView:MaterializedView")]

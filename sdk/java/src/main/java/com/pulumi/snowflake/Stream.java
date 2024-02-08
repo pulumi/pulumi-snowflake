@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | stream name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/stream:Stream example &#39;dbName|schemaName|streamName&#39;
+ * $ pulumi import snowflake:index/stream:Stream example &#39;dbName|schemaName|streamName&#39;
  * ```
  * 
  */

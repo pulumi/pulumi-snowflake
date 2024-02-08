@@ -427,7 +427,7 @@ class ExternalTableGrant(pulumi.CustomResource):
         format is database|schema|external_table|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE_NAME|SELECT|false|false|role1,role2|share1,share2"
+        $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE_NAME|SELECT|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -480,7 +480,7 @@ class ExternalTableGrant(pulumi.CustomResource):
         format is database|schema|external_table|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE_NAME|SELECT|false|false|role1,role2|share1,share2"
+        $ pulumi import snowflake:index/externalTableGrant:ExternalTableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE_NAME|SELECT|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.

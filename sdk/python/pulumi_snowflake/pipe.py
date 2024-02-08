@@ -365,7 +365,7 @@ class Pipe(pulumi.CustomResource):
         format is database name | schema name | pipe name
 
         ```sh
-         $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,7 +392,7 @@ class Pipe(pulumi.CustomResource):
         format is database name | schema name | pipe name
 
         ```sh
-         $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
         ```
 
         :param str resource_name: The name of the resource.
