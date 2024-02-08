@@ -58,9 +58,7 @@ import (
 // format is database name | schema name | tag name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
-//
+// $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

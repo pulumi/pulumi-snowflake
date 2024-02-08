@@ -17,9 +17,7 @@ import (
 // ### OnView
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
-//
+// $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
 // ```
 type GrantPrivilegesToShare struct {
 	pulumi.CustomResourceState

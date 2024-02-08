@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * format is database_name|schema_name|stream_name|privilege|with_grant_option|on_future|roles&#34;
  * 
  * ```sh
- *  $ pulumi import snowflake:index/streamGrant:StreamGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_STREAM|SELECT|false|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/streamGrant:StreamGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_STREAM|SELECT|false|false|role1,role2&#34;
  * ```
  * 
  */

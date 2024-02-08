@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | view name
  *
  * ```sh
- *  $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+ * $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
  * ```
  */
 export class View extends pulumi.CustomResource {

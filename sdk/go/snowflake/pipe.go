@@ -17,9 +17,7 @@ import (
 // format is database name | schema name | pipe name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
-//
+// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState

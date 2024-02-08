@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | task name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/task:Task example &#39;dbName|schemaName|taskName&#39;
+ * $ pulumi import snowflake:index/task:Task example &#39;dbName|schemaName|taskName&#39;
  * ```
  * 
  */

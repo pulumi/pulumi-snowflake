@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | policy name
  *
  * ```sh
- *  $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+ * $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
  * ```
  */
 export class RowAccessPolicy extends pulumi.CustomResource {

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * format is database_name|schema_name|masking_policy_name|privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example &#34;dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example &#34;dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2&#34;
  * ```
  * 
  */

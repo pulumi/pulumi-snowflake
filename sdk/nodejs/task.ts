@@ -56,7 +56,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | task name
  *
  * ```sh
- *  $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+ * $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
  * ```
  */
 export class Task extends pulumi.CustomResource {

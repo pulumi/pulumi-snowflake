@@ -37,7 +37,7 @@ namespace Pulumi.Snowflake
     /// format is dbName | schemaName
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
+    /// $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/schema:Schema")]

@@ -318,7 +318,7 @@ class TagGrant(pulumi.CustomResource):
         format is database|schema|tag|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/tagGrant:TagGrant example "MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2"
+        $ pulumi import snowflake:index/tagGrant:TagGrant example "MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,7 +359,7 @@ class TagGrant(pulumi.CustomResource):
         format is database|schema|tag|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/tagGrant:TagGrant example "MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2"
+        $ pulumi import snowflake:index/tagGrant:TagGrant example "MY_DATABASE|MY_SCHEMA|MY_TAG|USAGE|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

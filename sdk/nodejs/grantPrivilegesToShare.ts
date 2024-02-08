@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ### OnView
  *
  * ```sh
- *  $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
+ * $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
  * ```
  */
 export class GrantPrivilegesToShare extends pulumi.CustomResource {

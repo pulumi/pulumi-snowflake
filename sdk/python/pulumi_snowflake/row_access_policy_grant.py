@@ -322,7 +322,7 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
         format is database_name|schema_name|row_access_policy_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example "MY_DATABASE|MY_SCHEMA|MY_ROW_ACCESS_POLICY_NAME|SELECT|false|role1,role2"
+        $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example "MY_DATABASE|MY_SCHEMA|MY_ROW_ACCESS_POLICY_NAME|SELECT|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -367,7 +367,7 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
         format is database_name|schema_name|row_access_policy_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example "MY_DATABASE|MY_SCHEMA|MY_ROW_ACCESS_POLICY_NAME|SELECT|false|role1,role2"
+        $ pulumi import snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant example "MY_DATABASE|MY_SCHEMA|MY_ROW_ACCESS_POLICY_NAME|SELECT|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

@@ -220,7 +220,7 @@ class ResourceMonitorGrant(pulumi.CustomResource):
         format is monitor_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example "MY_RESOURCE_MONITOR|MONITOR|false|role1,role2"
+        $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example "MY_RESOURCE_MONITOR|MONITOR|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -257,7 +257,7 @@ class ResourceMonitorGrant(pulumi.CustomResource):
         format is monitor_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example "MY_RESOURCE_MONITOR|MONITOR|false|role1,role2"
+        $ pulumi import snowflake:index/resourceMonitorGrant:ResourceMonitorGrant example "MY_RESOURCE_MONITOR|MONITOR|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

@@ -362,7 +362,7 @@ class MaterializedView(pulumi.CustomResource):
         format is database name | schema name | view name
 
         ```sh
-         $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+        $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -405,7 +405,7 @@ class MaterializedView(pulumi.CustomResource):
         format is database name | schema name | view name
 
         ```sh
-         $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
+        $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,7 +15,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | pipe name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+    /// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/pipe:Pipe")]

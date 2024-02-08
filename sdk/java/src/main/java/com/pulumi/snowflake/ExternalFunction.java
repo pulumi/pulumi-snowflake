@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | external function name | &lt;list of function arg types, separated with &#39;-&#39;&gt;
  * 
  * ```sh
- *  $ pulumi import snowflake:index/externalFunction:ExternalFunction example &#39;dbName|schemaName|externalFunctionName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/externalFunction:ExternalFunction example &#39;dbName|schemaName|externalFunctionName|varchar-varchar-varchar&#39;
  * ```
  * 
  */

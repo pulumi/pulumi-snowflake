@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * format is warehouse_name|privilege|with_grant_option|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example &#34;MY_WAREHOUSE|MODIFY|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/warehouseGrant:WarehouseGrant example &#34;MY_WAREHOUSE|MODIFY|false|role1,role2&#34;
  * ```
  * 
  */

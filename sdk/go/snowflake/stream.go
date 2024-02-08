@@ -17,9 +17,7 @@ import (
 // format is database name | schema name | stream name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
-//
+// $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
 // ```
 type Stream struct {
 	pulumi.CustomResourceState

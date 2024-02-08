@@ -390,7 +390,7 @@ class SequenceGrant(pulumi.CustomResource):
         format is database_name|schema_name|sequence_name|privilege|with_grant_option|on_future|roles
 
         ```sh
-         $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example "MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2"
+        $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example "MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -438,7 +438,7 @@ class SequenceGrant(pulumi.CustomResource):
         format is database_name|schema_name|sequence_name|privilege|with_grant_option|on_future|roles
 
         ```sh
-         $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example "MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2"
+        $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example "MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

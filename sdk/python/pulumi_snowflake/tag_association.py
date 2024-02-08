@@ -294,7 +294,7 @@ class TagAssociation(pulumi.CustomResource):
         format is dbName.schemaName.tagName or dbName.schemaName.tagName
 
         ```sh
-         $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+        $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -365,7 +365,7 @@ class TagAssociation(pulumi.CustomResource):
         format is dbName.schemaName.tagName or dbName.schemaName.tagName
 
         ```sh
-         $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+        $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
         ```
 
         :param str resource_name: The name of the resource.

@@ -49,9 +49,7 @@ import (
 // format is database name | schema name | view name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
-//
+// $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
 // ```
 type MaterializedView struct {
 	pulumi.CustomResourceState
