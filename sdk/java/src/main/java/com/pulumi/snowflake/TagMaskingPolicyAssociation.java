@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * format is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example &#39;tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name&#39;
+ * $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example &#39;tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name&#39;
  * ```
  * 
  */

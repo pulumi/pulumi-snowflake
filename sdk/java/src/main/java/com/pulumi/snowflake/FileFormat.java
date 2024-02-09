@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | file format name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/fileFormat:FileFormat example &#39;dbName|schemaName|fileFormatName&#39;
+ * $ pulumi import snowflake:index/fileFormat:FileFormat example &#39;dbName|schemaName|fileFormatName&#39;
  * ```
  * 
  */

@@ -607,7 +607,7 @@ class Task(pulumi.CustomResource):
         format is database name | schema name | task name
 
         ```sh
-         $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+        $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -684,7 +684,7 @@ class Task(pulumi.CustomResource):
         format is database name | schema name | task name
 
         ```sh
-         $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+        $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
         ```
 
         :param str resource_name: The name of the resource.

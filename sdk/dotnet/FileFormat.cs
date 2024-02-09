@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | file format name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+    /// $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/fileFormat:FileFormat")]

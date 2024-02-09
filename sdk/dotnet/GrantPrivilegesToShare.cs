@@ -15,7 +15,7 @@ namespace Pulumi.Snowflake
     /// ### OnView
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare &lt;view_name&gt;"`
+    /// $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare &lt;view_name&gt;"`
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare")]

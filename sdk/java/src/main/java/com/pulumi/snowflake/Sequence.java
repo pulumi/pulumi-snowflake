@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | sequence name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/sequence:Sequence example &#39;dbName|schemaName|sequenceName&#39;
+ * $ pulumi import snowflake:index/sequence:Sequence example &#39;dbName|schemaName|sequenceName&#39;
  * ```
  * 
  */

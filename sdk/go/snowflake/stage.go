@@ -60,9 +60,7 @@ import (
 // format is database name | schema name | stage name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
-//
+// $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
 // ```
 type Stage struct {
 	pulumi.CustomResourceState

@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * format is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name
  *
  * ```sh
- *  $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'
+ * $ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'
  * ```
  */
 export class TagMaskingPolicyAssociation extends pulumi.CustomResource {

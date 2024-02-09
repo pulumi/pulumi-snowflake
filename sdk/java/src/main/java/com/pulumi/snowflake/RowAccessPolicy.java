@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | policy name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example &#39;dbName|schemaName|policyName&#39;
+ * $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example &#39;dbName|schemaName|policyName&#39;
  * ```
  * 
  */

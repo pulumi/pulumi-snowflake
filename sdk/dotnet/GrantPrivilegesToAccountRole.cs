@@ -12,28 +12,30 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// ### Import examples #### Grant all privileges OnAccountObject (Database)
+    /// ### Import examples
+    /// 
+    /// #### Grant all privileges OnAccountObject (Database)
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\"test_db_role\"|false|false|ALL|OnAccountObject|DATABASE|\"test_db\""`
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\"test_db_role\"|false|false|ALL|OnAccountObject|DATABASE|\"test_db\""`
     /// ```
     /// 
     /// #### Grant list of privileges OnAllSchemasInDatabase
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\"test_db_role\"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\"test_db\""`
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\"test_db_role\"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\"test_db\""`
     /// ```
     /// 
     /// #### Grant list of privileges on table
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \"test_table\""`
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \"test_table\""`
     /// ```
     /// 
     /// #### Grant list of privileges OnAll tables in schema
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \"test_schema\""`
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \"test_schema\""`
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")]

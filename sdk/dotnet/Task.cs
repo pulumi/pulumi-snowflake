@@ -77,7 +77,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | task name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+    /// $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/task:Task")]

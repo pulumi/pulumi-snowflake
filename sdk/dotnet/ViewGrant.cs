@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
     /// format is database_name|schema_name|view_name|privilege|with_grant_option|on_future|on_all|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/viewGrant:ViewGrant example "MY_DATABASE|MY_SCHEMA|MY_VIEW|USAGE|false|false|false|role1,role2|share1,share2"
+    /// $ pulumi import snowflake:index/viewGrant:ViewGrant example "MY_DATABASE|MY_SCHEMA|MY_VIEW|USAGE|false|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/viewGrant:ViewGrant")]

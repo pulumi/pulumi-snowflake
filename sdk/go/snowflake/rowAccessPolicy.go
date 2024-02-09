@@ -49,9 +49,7 @@ import (
 // format is database name | schema name | policy name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
-//
+// $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
 // ```
 type RowAccessPolicy struct {
 	pulumi.CustomResourceState

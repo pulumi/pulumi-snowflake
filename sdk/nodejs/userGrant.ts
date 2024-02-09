@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * format is user_name|privilege|with_grant_option|roles
  *
  * ```sh
- *  $ pulumi import snowflake:index/userGrant:UserGrant example "USERNAME|MONITOR|false|role1,role2"
+ * $ pulumi import snowflake:index/userGrant:UserGrant example "USERNAME|MONITOR|false|role1,role2"
  * ```
  */
 export class UserGrant extends pulumi.CustomResource {

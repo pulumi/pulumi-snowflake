@@ -1236,7 +1236,7 @@ class FileFormat(pulumi.CustomResource):
         format is database name | schema name | file format name
 
         ```sh
-         $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+        $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -1302,7 +1302,7 @@ class FileFormat(pulumi.CustomResource):
         format is database name | schema name | file format name
 
         ```sh
-         $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+        $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
         ```
 
         :param str resource_name: The name of the resource.

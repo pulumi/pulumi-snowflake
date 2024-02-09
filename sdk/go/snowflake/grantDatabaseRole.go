@@ -56,9 +56,7 @@ import (
 // format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \"test_db_role\"|ROLE|\"test_parent_role\""
-//
+// $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \"test_db_role\"|ROLE|\"test_parent_role\""
 // ```
 type GrantDatabaseRole struct {
 	pulumi.CustomResourceState

@@ -72,9 +72,7 @@ import (
 // format is role_name|roles|users
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name|role1,role2|user1,user2"
-//
+// $ pulumi import snowflake:index/roleGrants:RoleGrants example "role_name|role1,role2|user1,user2"
 // ```
 type RoleGrants struct {
 	pulumi.CustomResourceState

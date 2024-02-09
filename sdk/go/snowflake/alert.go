@@ -52,9 +52,7 @@ import (
 // format is database name | schema name | alert name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
-//
+// $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
 // ```
 type Alert struct {
 	pulumi.CustomResourceState

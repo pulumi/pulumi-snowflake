@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | tag name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+    /// $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tag:Tag")]

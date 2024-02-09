@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * format is the resource monitor name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;resourceMonitorName&#39;
+ * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;resourceMonitorName&#39;
  * ```
  * 
  */

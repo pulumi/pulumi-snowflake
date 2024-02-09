@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | external table name
  *
  * ```sh
- *  $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+ * $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
  * ```
  */
 export class ExternalTable extends pulumi.CustomResource {

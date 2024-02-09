@@ -58,9 +58,7 @@ import (
 // format is database name | schema name | external function name | <list of function arg types, separated with '-'>
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
-//
+// $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
 // ```
 type ExternalFunction struct {
 	pulumi.CustomResourceState

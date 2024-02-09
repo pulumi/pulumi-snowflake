@@ -41,7 +41,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | sequence name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+    /// $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/sequence:Sequence")]

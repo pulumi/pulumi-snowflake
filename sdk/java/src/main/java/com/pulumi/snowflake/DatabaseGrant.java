@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * format is database_name|privilege|with_grant_option|roles|shares
  * 
  * ```sh
- *  $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example &#34;MY_DATABASE|USAGE|false|role1,role2|share1,share2&#34;
+ * $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example &#34;MY_DATABASE|USAGE|false|role1,role2|share1,share2&#34;
  * ```
  * 
  */

@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * format is dbName | schemaName
  *
  * ```sh
- *  $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
+ * $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
  * ```
  */
 export class Schema extends pulumi.CustomResource {
