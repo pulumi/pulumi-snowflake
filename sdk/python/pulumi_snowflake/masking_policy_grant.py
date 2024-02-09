@@ -323,7 +323,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         format is database_name|schema_name|masking_policy_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example "dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2"
+        $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example "dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -369,7 +369,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         format is database_name|schema_name|masking_policy_name|privilege|with_grant_option|roles
 
         ```sh
-         $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example "dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2"
+        $ pulumi import snowflake:index/maskingPolicyGrant:MaskingPolicyGrant example "dbName|schemaName|maskingPolicyName|USAGE|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

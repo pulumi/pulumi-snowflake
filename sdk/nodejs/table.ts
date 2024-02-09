@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | table name
  *
  * ```sh
- *  $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
+ * $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
  * ```
  */
 export class Table extends pulumi.CustomResource {

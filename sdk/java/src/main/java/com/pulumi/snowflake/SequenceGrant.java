@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * format is database_name|schema_name|sequence_name|privilege|with_grant_option|on_future|roles
  * 
  * ```sh
- *  $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/sequenceGrant:SequenceGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_SEQUENCE|USAGE|false|false|role1,role2&#34;
  * ```
  * 
  */

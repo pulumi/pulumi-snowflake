@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * format is database name | schema name | file format name
  *
  * ```sh
- *  $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+ * $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
  * ```
  */
 export class FileFormat extends pulumi.CustomResource {

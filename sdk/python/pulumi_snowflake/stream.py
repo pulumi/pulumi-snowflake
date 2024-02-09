@@ -383,7 +383,7 @@ class Stream(pulumi.CustomResource):
         format is database name | schema name | stream name
 
         ```sh
-         $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
+        $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,7 +411,7 @@ class Stream(pulumi.CustomResource):
         format is database name | schema name | stream name
 
         ```sh
-         $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
+        $ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'
         ```
 
         :param str resource_name: The name of the resource.

@@ -104,9 +104,7 @@ import (
 // format is dbName.schemaName.tagName or dbName.schemaName.tagName
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
-//
+// $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
 // ```
 type TagAssociation struct {
 	pulumi.CustomResourceState

@@ -56,9 +56,7 @@ import (
 // format is database name | schema name | external table name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
-//
+// $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
 // ```
 type ExternalTable struct {
 	pulumi.CustomResourceState

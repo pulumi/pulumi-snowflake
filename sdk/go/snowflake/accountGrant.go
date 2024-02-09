@@ -47,9 +47,7 @@ import (
 // format is privilege|with_grant_option|roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
-//
+// $ pulumi import snowflake:index/accountGrant:AccountGrant example "privilege|false|role1,role2"
 // ```
 type AccountGrant struct {
 	pulumi.CustomResourceState

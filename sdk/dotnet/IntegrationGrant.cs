@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
     /// format is integration_name|privilege|with_grant_option|roles
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example "MY_INTEGRATION|USAGE|false|role1,role2"
+    /// $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example "MY_INTEGRATION|USAGE|false|role1,role2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/integrationGrant:IntegrationGrant")]

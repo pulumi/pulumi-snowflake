@@ -464,7 +464,7 @@ class ProcedureGrant(pulumi.CustomResource):
         format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
+        $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -522,7 +522,7 @@ class ProcedureGrant(pulumi.CustomResource):
         format is database_name|schema_name|procedure_name|argument_data_types|privilege|with_grant_option|on_future|roles|shares
 
         ```sh
-         $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
+        $ pulumi import snowflake:index/procedureGrant:ProcedureGrant example "MY_DATABASE|MY_SCHEMA|MY_PROCEDURE|ARG1TYPE,ARG2TYPE|USAGE|false|false|role1,role2|share1,share2"
         ```
 
         :param str resource_name: The name of the resource.

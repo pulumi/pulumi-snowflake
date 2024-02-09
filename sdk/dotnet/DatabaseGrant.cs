@@ -45,7 +45,7 @@ namespace Pulumi.Snowflake
     /// format is database_name|privilege|with_grant_option|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example "MY_DATABASE|USAGE|false|role1,role2|share1,share2"
+    /// $ pulumi import snowflake:index/databaseGrant:DatabaseGrant example "MY_DATABASE|USAGE|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/databaseGrant:DatabaseGrant")]

@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | external table name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+    /// $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalTable:ExternalTable")]

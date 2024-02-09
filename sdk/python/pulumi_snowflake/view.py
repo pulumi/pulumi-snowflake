@@ -378,7 +378,7 @@ class View(pulumi.CustomResource):
         format is database name | schema name | view name
 
         ```sh
-         $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+        $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,7 +420,7 @@ class View(pulumi.CustomResource):
         format is database name | schema name | view name
 
         ```sh
-         $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+        $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
         ```
 
         :param str resource_name: The name of the resource.

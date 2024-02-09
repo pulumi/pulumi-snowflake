@@ -582,7 +582,7 @@ class ExternalTable(pulumi.CustomResource):
         format is database name | schema name | external table name
 
         ```sh
-         $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+        $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -638,7 +638,7 @@ class ExternalTable(pulumi.CustomResource):
         format is database name | schema name | external table name
 
         ```sh
-         $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+        $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
         ```
 
         :param str resource_name: The name of the resource.

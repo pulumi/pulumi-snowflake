@@ -49,9 +49,7 @@ import (
 // format is integration_name|privilege|with_grant_option|roles
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/integrationGrant:IntegrationGrant example "MY_INTEGRATION|USAGE|false|role1,role2"
-//
+// $ pulumi import snowflake:index/integrationGrant:IntegrationGrant example "MY_INTEGRATION|USAGE|false|role1,role2"
 // ```
 type IntegrationGrant struct {
 	pulumi.CustomResourceState

@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     /// format is database name | schema name | view name
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+    /// $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/view:View")]

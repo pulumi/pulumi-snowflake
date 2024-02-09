@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     /// format is database_name|schema_name|materialized_view_name|privilege|with_grant_option|on_future|on_all|roles|shares
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example "MY_DATABASE|MY_SCHEMA|MY_MV_NAME|SELECT|false|false|role1,role2|share1,share2"
+    /// $ pulumi import snowflake:index/materializedViewGrant:MaterializedViewGrant example "MY_DATABASE|MY_SCHEMA|MY_MV_NAME|SELECT|false|false|role1,role2|share1,share2"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedViewGrant:MaterializedViewGrant")]

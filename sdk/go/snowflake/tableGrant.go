@@ -54,9 +54,7 @@ import (
 // format is database_name|schema_name|table_name|privilege|with_grant_option|on_future|on_all|roles|shares
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/tableGrant:TableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE|USAGE|false|false|false|role1,role2|share1,share2"
-//
+// $ pulumi import snowflake:index/tableGrant:TableGrant example "MY_DATABASE|MY_SCHEMA|MY_TABLE|USAGE|false|false|false|role1,role2|share1,share2"
 // ```
 type TableGrant struct {
 	pulumi.CustomResourceState

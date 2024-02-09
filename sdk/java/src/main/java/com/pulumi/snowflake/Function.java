@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | function name | &lt;list of arg types, separated with &#39;-&#39;&gt;
  * 
  * ```sh
- *  $ pulumi import snowflake:index/function:Function example &#39;dbName|schemaName|functionName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/function:Function example &#39;dbName|schemaName|functionName|varchar-varchar-varchar&#39;
  * ```
  * 
  */

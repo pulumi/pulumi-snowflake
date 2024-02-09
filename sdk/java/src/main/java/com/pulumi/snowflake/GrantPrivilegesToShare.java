@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ### OnView
  * 
  * ```sh
- *  $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare &lt;view_name&gt;&#34;`
+ * $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare &lt;view_name&gt;&#34;`
  * ```
  * 
  */

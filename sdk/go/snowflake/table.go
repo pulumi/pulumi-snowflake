@@ -17,9 +17,7 @@ import (
 // format is database name | schema name | table name
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
-//
+// $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
 // ```
 type Table struct {
 	pulumi.CustomResourceState

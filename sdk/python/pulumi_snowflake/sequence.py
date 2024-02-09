@@ -280,7 +280,7 @@ class Sequence(pulumi.CustomResource):
         format is database name | schema name | sequence name
 
         ```sh
-         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+        $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,7 +317,7 @@ class Sequence(pulumi.CustomResource):
         format is database name | schema name | sequence name
 
         ```sh
-         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+        $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
         ```
 
         :param str resource_name: The name of the resource.

@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * format is database name | schema name | stage name
  * 
  * ```sh
- *  $ pulumi import snowflake:index/stage:Stage example &#39;dbName|schemaName|stageName&#39;
+ * $ pulumi import snowflake:index/stage:Stage example &#39;dbName|schemaName|stageName&#39;
  * ```
  * 
  */
