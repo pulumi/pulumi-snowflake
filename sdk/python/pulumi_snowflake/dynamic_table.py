@@ -22,8 +22,10 @@ class DynamicTableArgs:
                  target_lag: pulumi.Input['DynamicTableTargetLagArgs'],
                  warehouse: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
+                 initialize: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 or_replace: Optional[pulumi.Input[bool]] = None):
+                 or_replace: Optional[pulumi.Input[bool]] = None,
+                 refresh_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DynamicTable resource.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
@@ -32,8 +34,10 @@ class DynamicTableArgs:
         :param pulumi.Input['DynamicTableTargetLagArgs'] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
         :param pulumi.Input[str] comment: Specifies a comment for the dynamic table.
+        :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         :param pulumi.Input[bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
+        :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "query", query)
@@ -42,10 +46,14 @@ class DynamicTableArgs:
         pulumi.set(__self__, "warehouse", warehouse)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if initialize is not None:
+            pulumi.set(__self__, "initialize", initialize)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if or_replace is not None:
             pulumi.set(__self__, "or_replace", or_replace)
+        if refresh_mode is not None:
+            pulumi.set(__self__, "refresh_mode", refresh_mode)
 
     @property
     @pulumi.getter
@@ -121,6 +129,18 @@ class DynamicTableArgs:
 
     @property
     @pulumi.getter
+    def initialize(self) -> Optional[pulumi.Input[str]]:
+        """
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        """
+        return pulumi.get(self, "initialize")
+
+    @initialize.setter
+    def initialize(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initialize", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
@@ -143,6 +163,18 @@ class DynamicTableArgs:
     def or_replace(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "or_replace", value)
 
+    @property
+    @pulumi.getter(name="refreshMode")
+    def refresh_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        """
+        return pulumi.get(self, "refresh_mode")
+
+    @refresh_mode.setter
+    def refresh_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_mode", value)
+
 
 @pulumi.input_type
 class _DynamicTableState:
@@ -151,8 +183,10 @@ class _DynamicTableState:
                  bytes: Optional[pulumi.Input[int]] = None,
                  cluster_by: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
                  data_timestamp: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 initialize: Optional[pulumi.Input[str]] = None,
                  is_clone: Optional[pulumi.Input[bool]] = None,
                  is_replica: Optional[pulumi.Input[bool]] = None,
                  last_suspended_on: Optional[pulumi.Input[str]] = None,
@@ -173,8 +207,10 @@ class _DynamicTableState:
         :param pulumi.Input[int] bytes: Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
         :param pulumi.Input[str] cluster_by: The clustering key for the dynamic table.
         :param pulumi.Input[str] comment: Specifies a comment for the dynamic table.
+        :param pulumi.Input[str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
+        :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
         :param pulumi.Input[str] last_suspended_on: Timestamp of last suspension.
@@ -182,7 +218,7 @@ class _DynamicTableState:
         :param pulumi.Input[bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[str] owner: Role that owns the dynamic table.
         :param pulumi.Input[str] query: Specifies the query to use to populate the dynamic table.
-        :param pulumi.Input[str] refresh_mode: INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[int] rows: Number of rows in the table.
         :param pulumi.Input[str] scheduling_state: Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
@@ -198,10 +234,14 @@ class _DynamicTableState:
             pulumi.set(__self__, "cluster_by", cluster_by)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
         if data_timestamp is not None:
             pulumi.set(__self__, "data_timestamp", data_timestamp)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if initialize is not None:
+            pulumi.set(__self__, "initialize", initialize)
         if is_clone is not None:
             pulumi.set(__self__, "is_clone", is_clone)
         if is_replica is not None:
@@ -280,6 +320,18 @@ class _DynamicTableState:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time when this dynamic table was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
     @pulumi.getter(name="dataTimestamp")
     def data_timestamp(self) -> Optional[pulumi.Input[str]]:
         """
@@ -302,6 +354,18 @@ class _DynamicTableState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def initialize(self) -> Optional[pulumi.Input[str]]:
+        """
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        """
+        return pulumi.get(self, "initialize")
+
+    @initialize.setter
+    def initialize(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initialize", value)
 
     @property
     @pulumi.getter(name="isClone")
@@ -391,7 +455,7 @@ class _DynamicTableState:
     @pulumi.getter(name="refreshMode")
     def refresh_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         """
         return pulumi.get(self, "refresh_mode")
 
@@ -479,9 +543,11 @@ class DynamicTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 initialize: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  query: Optional[pulumi.Input[str]] = None,
+                 refresh_mode: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  target_lag: Optional[pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
@@ -515,9 +581,11 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the dynamic table.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
+        :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         :param pulumi.Input[bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[str] query: Specifies the query to use to populate the dynamic table.
+        :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] schema: The schema in which to create the dynamic table.
         :param pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
@@ -570,9 +638,11 @@ class DynamicTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 initialize: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  query: Optional[pulumi.Input[str]] = None,
+                 refresh_mode: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  target_lag: Optional[pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
@@ -589,11 +659,13 @@ class DynamicTable(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["initialize"] = initialize
             __props__.__dict__["name"] = name
             __props__.__dict__["or_replace"] = or_replace
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
+            __props__.__dict__["refresh_mode"] = refresh_mode
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
@@ -606,12 +678,12 @@ class DynamicTable(pulumi.CustomResource):
             __props__.__dict__["automatic_clustering"] = None
             __props__.__dict__["bytes"] = None
             __props__.__dict__["cluster_by"] = None
+            __props__.__dict__["created_on"] = None
             __props__.__dict__["data_timestamp"] = None
             __props__.__dict__["is_clone"] = None
             __props__.__dict__["is_replica"] = None
             __props__.__dict__["last_suspended_on"] = None
             __props__.__dict__["owner"] = None
-            __props__.__dict__["refresh_mode"] = None
             __props__.__dict__["refresh_mode_reason"] = None
             __props__.__dict__["rows"] = None
             __props__.__dict__["scheduling_state"] = None
@@ -629,8 +701,10 @@ class DynamicTable(pulumi.CustomResource):
             bytes: Optional[pulumi.Input[int]] = None,
             cluster_by: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
+            created_on: Optional[pulumi.Input[str]] = None,
             data_timestamp: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            initialize: Optional[pulumi.Input[str]] = None,
             is_clone: Optional[pulumi.Input[bool]] = None,
             is_replica: Optional[pulumi.Input[bool]] = None,
             last_suspended_on: Optional[pulumi.Input[str]] = None,
@@ -656,8 +730,10 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[int] bytes: Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
         :param pulumi.Input[str] cluster_by: The clustering key for the dynamic table.
         :param pulumi.Input[str] comment: Specifies a comment for the dynamic table.
+        :param pulumi.Input[str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
+        :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
         :param pulumi.Input[str] last_suspended_on: Timestamp of last suspension.
@@ -665,7 +741,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[str] owner: Role that owns the dynamic table.
         :param pulumi.Input[str] query: Specifies the query to use to populate the dynamic table.
-        :param pulumi.Input[str] refresh_mode: INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[int] rows: Number of rows in the table.
         :param pulumi.Input[str] scheduling_state: Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
@@ -681,8 +757,10 @@ class DynamicTable(pulumi.CustomResource):
         __props__.__dict__["bytes"] = bytes
         __props__.__dict__["cluster_by"] = cluster_by
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["created_on"] = created_on
         __props__.__dict__["data_timestamp"] = data_timestamp
         __props__.__dict__["database"] = database
+        __props__.__dict__["initialize"] = initialize
         __props__.__dict__["is_clone"] = is_clone
         __props__.__dict__["is_replica"] = is_replica
         __props__.__dict__["last_suspended_on"] = last_suspended_on
@@ -732,6 +810,14 @@ class DynamicTable(pulumi.CustomResource):
         return pulumi.get(self, "comment")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Output[str]:
+        """
+        Time when this dynamic table was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter(name="dataTimestamp")
     def data_timestamp(self) -> pulumi.Output[str]:
         """
@@ -746,6 +832,14 @@ class DynamicTable(pulumi.CustomResource):
         The database in which to create the dynamic table.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def initialize(self) -> pulumi.Output[Optional[str]]:
+        """
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        """
+        return pulumi.get(self, "initialize")
 
     @property
     @pulumi.getter(name="isClone")
@@ -805,9 +899,9 @@ class DynamicTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshMode")
-    def refresh_mode(self) -> pulumi.Output[str]:
+    def refresh_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         """
         return pulumi.get(self, "refresh_mode")
 

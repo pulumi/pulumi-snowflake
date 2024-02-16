@@ -126,7 +126,7 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly returnBehavior!: pulumi.Output<string>;
     /**
-     * Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     public readonly returnNullAllowed!: pulumi.Output<boolean | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface ExternalFunctionState {
      */
     returnBehavior?: pulumi.Input<string>;
     /**
-     * Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     returnNullAllowed?: pulumi.Input<boolean>;
     /**
@@ -352,7 +352,7 @@ export interface ExternalFunctionArgs {
      */
     returnBehavior: pulumi.Input<string>;
     /**
-     * Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     returnNullAllowed?: pulumi.Input<boolean>;
     /**

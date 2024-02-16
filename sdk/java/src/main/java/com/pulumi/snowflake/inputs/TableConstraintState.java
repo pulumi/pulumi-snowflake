@@ -36,14 +36,22 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     /**
      * Comment for the table constraint
      * 
+     * @deprecated
+     * Not used. Will be removed.
+     * 
      */
+    @Deprecated /* Not used. Will be removed. */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
      * @return Comment for the table constraint
      * 
+     * @deprecated
+     * Not used. Will be removed.
+     * 
      */
+    @Deprecated /* Not used. Will be removed. */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
@@ -169,14 +177,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+     * Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+     * @return Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
      * 
      */
     public Optional<Output<String>> type() {
@@ -269,7 +277,11 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
+         * @deprecated
+         * Not used. Will be removed.
+         * 
          */
+        @Deprecated /* Not used. Will be removed. */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
@@ -280,7 +292,11 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
+         * @deprecated
+         * Not used. Will be removed.
+         * 
          */
+        @Deprecated /* Not used. Will be removed. */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
@@ -454,7 +470,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+         * @param type Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
          * 
          * @return builder
          * 
@@ -465,7 +481,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+         * @param type Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
          * 
          * @return builder
          * 

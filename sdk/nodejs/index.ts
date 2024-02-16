@@ -585,6 +585,11 @@ export type UserOwnershipGrant = import("./userOwnershipGrant").UserOwnershipGra
 export const UserOwnershipGrant: typeof import("./userOwnershipGrant").UserOwnershipGrant = null as any;
 utilities.lazyLoad(exports, ["UserOwnershipGrant"], () => require("./userOwnershipGrant"));
 
+export { UserPasswordPolicyAttachmentArgs, UserPasswordPolicyAttachmentState } from "./userPasswordPolicyAttachment";
+export type UserPasswordPolicyAttachment = import("./userPasswordPolicyAttachment").UserPasswordPolicyAttachment;
+export const UserPasswordPolicyAttachment: typeof import("./userPasswordPolicyAttachment").UserPasswordPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPasswordPolicyAttachment"], () => require("./userPasswordPolicyAttachment"));
+
 export { UserPublicKeysArgs, UserPublicKeysState } from "./userPublicKeys";
 export type UserPublicKeys = import("./userPublicKeys").UserPublicKeys;
 export const UserPublicKeys: typeof import("./userPublicKeys").UserPublicKeys = null as any;
@@ -778,6 +783,8 @@ const _module = {
                 return new UserGrant(name, <any>undefined, { urn })
             case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
                 return new UserOwnershipGrant(name, <any>undefined, { urn })
+            case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
+                return new UserPasswordPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
                 return new UserPublicKeys(name, <any>undefined, { urn })
             case "snowflake:index/view:View":
@@ -870,6 +877,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/unsafeExecute", _modul
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userOwnershipGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/userPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/viewGrant", _module)

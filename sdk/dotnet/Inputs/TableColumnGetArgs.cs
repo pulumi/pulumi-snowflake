@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<Inputs.TableColumnIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Masking policy to apply on column
+        /// Masking policy to apply on column. It has to be a fully qualified name.
         /// </summary>
         [Input("maskingPolicy")]
         public Input<string>? MaskingPolicy { get; set; }

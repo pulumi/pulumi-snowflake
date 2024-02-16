@@ -9,6 +9,8 @@ import com.pulumi.snowflake.outputs.GetExternalFunctionsExternalFunction;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExternalFunctionsResult {
@@ -16,7 +18,7 @@ public final class GetExternalFunctionsResult {
      * @return The database from which to return the schemas from.
      * 
      */
-    private String database;
+    private @Nullable String database;
     /**
      * @return The external functions in the schema
      * 
@@ -31,15 +33,15 @@ public final class GetExternalFunctionsResult {
      * @return The schema from which to return the external functions from.
      * 
      */
-    private String schema;
+    private @Nullable String schema;
 
     private GetExternalFunctionsResult() {}
     /**
      * @return The database from which to return the schemas from.
      * 
      */
-    public String database() {
-        return this.database;
+    public Optional<String> database() {
+        return Optional.ofNullable(this.database);
     }
     /**
      * @return The external functions in the schema
@@ -59,8 +61,8 @@ public final class GetExternalFunctionsResult {
      * @return The schema from which to return the external functions from.
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<String> schema() {
+        return Optional.ofNullable(this.schema);
     }
 
     public static Builder builder() {
@@ -72,10 +74,10 @@ public final class GetExternalFunctionsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
+        private @Nullable String database;
         private List<GetExternalFunctionsExternalFunction> externalFunctions;
         private String id;
-        private String schema;
+        private @Nullable String schema;
         public Builder() {}
         public Builder(GetExternalFunctionsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,10 +88,8 @@ public final class GetExternalFunctionsResult {
         }
 
         @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetExternalFunctionsResult", "database");
-            }
+        public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
@@ -113,10 +113,8 @@ public final class GetExternalFunctionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetExternalFunctionsResult", "schema");
-            }
+        public Builder schema(@Nullable String schema) {
+
             this.schema = schema;
             return this;
         }

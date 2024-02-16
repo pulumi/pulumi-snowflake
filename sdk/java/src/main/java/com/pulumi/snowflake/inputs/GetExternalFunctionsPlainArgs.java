@@ -4,27 +4,28 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetExternalFunctionsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetExternalFunctionsPlainArgs Empty = new GetExternalFunctionsPlainArgs();
 
-    @Import(name="database", required=true)
-    private String database;
+    @Import(name="database")
+    private @Nullable String database;
 
-    public String database() {
-        return this.database;
+    public Optional<String> database() {
+        return Optional.ofNullable(this.database);
     }
 
-    @Import(name="schema", required=true)
-    private String schema;
+    @Import(name="schema")
+    private @Nullable String schema;
 
-    public String schema() {
-        return this.schema;
+    public Optional<String> schema() {
+        return Optional.ofNullable(this.schema);
     }
 
     private GetExternalFunctionsPlainArgs() {}
@@ -52,23 +53,17 @@ public final class GetExternalFunctionsPlainArgs extends com.pulumi.resources.In
             $ = new GetExternalFunctionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder database(String database) {
+        public Builder database(@Nullable String database) {
             $.database = database;
             return this;
         }
 
-        public Builder schema(String schema) {
+        public Builder schema(@Nullable String schema) {
             $.schema = schema;
             return this;
         }
 
         public GetExternalFunctionsPlainArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetExternalFunctionsPlainArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetExternalFunctionsPlainArgs", "schema");
-            }
             return $;
         }
     }

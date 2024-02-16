@@ -106,6 +106,12 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        /// </summary>
+        [Output("secure")]
+        public Output<bool?> Secure { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the code used to create the procedure.
         /// </summary>
         [Output("statement")]
@@ -260,6 +266,12 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
+        /// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        /// </summary>
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
+
+        /// <summary>
         /// Specifies the code used to create the procedure.
         /// </summary>
         [Input("statement", required: true)]
@@ -374,6 +386,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        /// <summary>
+        /// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        /// </summary>
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
 
         /// <summary>
         /// Specifies the code used to create the procedure.

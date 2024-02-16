@@ -697,7 +697,7 @@ export interface TableColumn {
      */
     identity?: pulumi.Input<inputs.TableColumnIdentity>;
     /**
-     * Masking policy to apply on column
+     * Masking policy to apply on column. It has to be a fully qualified name.
      */
     maskingPolicy?: pulumi.Input<string>;
     /**

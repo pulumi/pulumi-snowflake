@@ -58,7 +58,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsSecure { get; private set; } = null!;
 
         /// <summary>
-        /// The language of the statement
+        /// Specifies the language of the stored function code.
         /// </summary>
         [Output("language")]
         public Output<string?> Language { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript / java / sql / python code used to create the function.
+        /// Specifies the javascript / java / scala / sql / python code used to create the function.
         /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// The language of the statement
+        /// Specifies the language of the stored function code.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the javascript / java / sql / python code used to create the function.
+        /// Specifies the javascript / java / scala / sql / python code used to create the function.
         /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// The language of the statement
+        /// Specifies the language of the stored function code.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the javascript / java / sql / python code used to create the function.
+        /// Specifies the javascript / java / scala / sql / python code used to create the function.
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.ProcedureArgumentArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -171,14 +172,22 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the behavior of the function when returning results
      * 
+     * @deprecated
+     * These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
+     * 
      */
+    @Deprecated /* These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation. */
     @Import(name="returnBehavior")
     private @Nullable Output<String> returnBehavior;
 
     /**
      * @return Specifies the behavior of the function when returning results
      * 
+     * @deprecated
+     * These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
+     * 
      */
+    @Deprecated /* These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation. */
     public Optional<Output<String>> returnBehavior() {
         return Optional.ofNullable(this.returnBehavior);
     }
@@ -229,6 +238,21 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     * 
+     */
+    @Import(name="secure")
+    private @Nullable Output<Boolean> secure;
+
+    /**
+     * @return Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     * 
+     */
+    public Optional<Output<Boolean>> secure() {
+        return Optional.ofNullable(this.secure);
+    }
+
+    /**
      * Specifies the code used to create the procedure.
      * 
      */
@@ -260,6 +284,7 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         this.returnType = $.returnType;
         this.runtimeVersion = $.runtimeVersion;
         this.schema = $.schema;
+        this.secure = $.secure;
         this.statement = $.statement;
     }
 
@@ -526,7 +551,11 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
+         * 
          */
+        @Deprecated /* These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation. */
         public Builder returnBehavior(@Nullable Output<String> returnBehavior) {
             $.returnBehavior = returnBehavior;
             return this;
@@ -537,7 +566,11 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
+         * 
          */
+        @Deprecated /* These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation. */
         public Builder returnBehavior(String returnBehavior) {
             return returnBehavior(Output.of(returnBehavior));
         }
@@ -603,6 +636,27 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param secure Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(@Nullable Output<Boolean> secure) {
+            $.secure = secure;
+            return this;
+        }
+
+        /**
+         * @param secure Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secure(Boolean secure) {
+            return secure(Output.of(secure));
         }
 
         /**

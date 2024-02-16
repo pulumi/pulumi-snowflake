@@ -200,14 +200,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isSecure);
     }
     /**
-     * The language of the statement
+     * Specifies the language of the stored function code.
      * 
      */
     @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
-     * @return The language of the statement
+     * @return Specifies the language of the stored function code.
      * 
      */
     public Output<Optional<String>> language() {
@@ -312,14 +312,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the javascript / java / sql / python code used to create the function.
+     * Specifies the javascript / java / scala / sql / python code used to create the function.
      * 
      */
     @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
-     * @return Specifies the javascript / java / sql / python code used to create the function.
+     * @return Specifies the javascript / java / scala / sql / python code used to create the function.
      * 
      */
     public Output<String> statement() {

@@ -273,14 +273,14 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.returnBehavior;
     }
     /**
-     * Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Export(name="returnNullAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> returnNullAllowed;
 
     /**
-     * @return Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Output<Optional<Boolean>> returnNullAllowed() {

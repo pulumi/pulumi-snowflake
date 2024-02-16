@@ -32,7 +32,7 @@ class TableConstraintArgs:
         The set of arguments for constructing a TableConstraint resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
         :param pulumi.Input[str] table_id: Name of constraint
-        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[str] comment: Comment for the table constraint
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
@@ -46,6 +46,9 @@ class TableConstraintArgs:
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "table_id", table_id)
         pulumi.set(__self__, "type", type)
+        if comment is not None:
+            warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
+            pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if deferrable is not None:
@@ -93,7 +96,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         """
         return pulumi.get(self, "type")
 
@@ -107,6 +110,9 @@ class TableConstraintArgs:
         """
         Comment for the table constraint
         """
+        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
+        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
+
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -237,11 +243,14 @@ class _TableConstraintState:
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[str] table_id: Name of constraint
-        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
+        if comment is not None:
+            warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
+            pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if deferrable is not None:
@@ -283,6 +292,9 @@ class _TableConstraintState:
         """
         Comment for the table constraint
         """
+        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
+        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
+
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -389,7 +401,7 @@ class _TableConstraintState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         """
         return pulumi.get(self, "type")
 
@@ -474,16 +486,16 @@ class TableConstraint(pulumi.CustomResource):
             ])
         primary_key = snowflake.TableConstraint("primaryKey",
             type="PRIMARY KEY",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col1"],
             comment="hello world")
         foreign_key = snowflake.TableConstraint("foreignKey",
             type="FOREIGN KEY",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col2"],
             foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
                 references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
-                    table_id=fk_t.id,
+                    table_id=fk_t.qualified_name,
                     columns=["fk_col1"],
                 ),
             ),
@@ -493,7 +505,7 @@ class TableConstraint(pulumi.CustomResource):
             comment="hello fk")
         unique = snowflake.TableConstraint("unique",
             type="UNIQUE",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col3"],
             comment="hello unique")
         ```
@@ -516,7 +528,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[str] table_id: Name of constraint
-        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         ...
@@ -571,16 +583,16 @@ class TableConstraint(pulumi.CustomResource):
             ])
         primary_key = snowflake.TableConstraint("primaryKey",
             type="PRIMARY KEY",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col1"],
             comment="hello world")
         foreign_key = snowflake.TableConstraint("foreignKey",
             type="FOREIGN KEY",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col2"],
             foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
                 references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
-                    table_id=fk_t.id,
+                    table_id=fk_t.qualified_name,
                     columns=["fk_col1"],
                 ),
             ),
@@ -590,7 +602,7 @@ class TableConstraint(pulumi.CustomResource):
             comment="hello fk")
         unique = snowflake.TableConstraint("unique",
             type="UNIQUE",
-            table_id=table.id,
+            table_id=table.qualified_name,
             columns=["col3"],
             comment="hello unique")
         ```
@@ -694,7 +706,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[str] table_id: Name of constraint
-        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -729,6 +741,9 @@ class TableConstraint(pulumi.CustomResource):
         """
         Comment for the table constraint
         """
+        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
+        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
+
         return pulumi.get(self, "comment")
 
     @property
@@ -799,7 +814,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         """
         return pulumi.get(self, "type")
 

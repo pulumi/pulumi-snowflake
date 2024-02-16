@@ -1804,7 +1804,7 @@ class TableColumn(dict):
         :param str comment: Column comment
         :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param str masking_policy: Masking policy to apply on column
+        :param str masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
         :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         pulumi.set(__self__, "name", name)
@@ -1864,7 +1864,7 @@ class TableColumn(dict):
     @pulumi.getter(name="maskingPolicy")
     def masking_policy(self) -> Optional[str]:
         """
-        Masking policy to apply on column
+        Masking policy to apply on column. It has to be a fully qualified name.
         """
         return pulumi.get(self, "masking_policy")
 

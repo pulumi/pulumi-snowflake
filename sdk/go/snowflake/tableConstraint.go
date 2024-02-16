@@ -81,7 +81,7 @@ import (
 //			}
 //			_, err = snowflake.NewTableConstraint(ctx, "primaryKey", &snowflake.TableConstraintArgs{
 //				Type:    pulumi.String("PRIMARY KEY"),
-//				TableId: table.ID(),
+//				TableId: table.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col1"),
 //				},
@@ -92,13 +92,13 @@ import (
 //			}
 //			_, err = snowflake.NewTableConstraint(ctx, "foreignKey", &snowflake.TableConstraintArgs{
 //				Type:    pulumi.String("FOREIGN KEY"),
-//				TableId: table.ID(),
+//				TableId: table.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col2"),
 //				},
 //				ForeignKeyProperties: &snowflake.TableConstraintForeignKeyPropertiesArgs{
 //					References: &snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{
-//						TableId: fkT.ID(),
+//						TableId: fkT.QualifiedName,
 //						Columns: pulumi.StringArray{
 //							pulumi.String("fk_col1"),
 //						},
@@ -114,7 +114,7 @@ import (
 //			}
 //			_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
 //				Type:    pulumi.String("UNIQUE"),
-//				TableId: table.ID(),
+//				TableId: table.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col3"),
 //				},
@@ -142,6 +142,8 @@ type TableConstraint struct {
 	// Columns to use in foreign key reference
 	Columns pulumi.StringArrayOutput `pulumi:"columns"`
 	// Comment for the table constraint
+	//
+	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrOutput `pulumi:"deferrable"`
@@ -159,7 +161,7 @@ type TableConstraint struct {
 	Rely pulumi.BoolPtrOutput `pulumi:"rely"`
 	// Name of constraint
 	TableId pulumi.StringOutput `pulumi:"tableId"`
-	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
@@ -207,6 +209,8 @@ type tableConstraintState struct {
 	// Columns to use in foreign key reference
 	Columns []string `pulumi:"columns"`
 	// Comment for the table constraint
+	//
+	// Deprecated: Not used. Will be removed.
 	Comment *string `pulumi:"comment"`
 	// Whether the constraint is deferrable
 	Deferrable *bool `pulumi:"deferrable"`
@@ -224,7 +228,7 @@ type tableConstraintState struct {
 	Rely *bool `pulumi:"rely"`
 	// Name of constraint
 	TableId *string `pulumi:"tableId"`
-	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type *string `pulumi:"type"`
 	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate *bool `pulumi:"validate"`
@@ -234,6 +238,8 @@ type TableConstraintState struct {
 	// Columns to use in foreign key reference
 	Columns pulumi.StringArrayInput
 	// Comment for the table constraint
+	//
+	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrInput
 	// Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrInput
@@ -251,7 +257,7 @@ type TableConstraintState struct {
 	Rely pulumi.BoolPtrInput
 	// Name of constraint
 	TableId pulumi.StringPtrInput
-	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringPtrInput
 	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrInput
@@ -265,6 +271,8 @@ type tableConstraintArgs struct {
 	// Columns to use in foreign key reference
 	Columns []string `pulumi:"columns"`
 	// Comment for the table constraint
+	//
+	// Deprecated: Not used. Will be removed.
 	Comment *string `pulumi:"comment"`
 	// Whether the constraint is deferrable
 	Deferrable *bool `pulumi:"deferrable"`
@@ -282,7 +290,7 @@ type tableConstraintArgs struct {
 	Rely *bool `pulumi:"rely"`
 	// Name of constraint
 	TableId string `pulumi:"tableId"`
-	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type string `pulumi:"type"`
 	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate *bool `pulumi:"validate"`
@@ -293,6 +301,8 @@ type TableConstraintArgs struct {
 	// Columns to use in foreign key reference
 	Columns pulumi.StringArrayInput
 	// Comment for the table constraint
+	//
+	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrInput
 	// Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrInput
@@ -310,7 +320,7 @@ type TableConstraintArgs struct {
 	Rely pulumi.BoolPtrInput
 	// Name of constraint
 	TableId pulumi.StringInput
-	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringInput
 	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrInput
@@ -409,6 +419,8 @@ func (o TableConstraintOutput) Columns() pulumi.StringArrayOutput {
 }
 
 // Comment for the table constraint
+//
+// Deprecated: Not used. Will be removed.
 func (o TableConstraintOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -453,7 +465,7 @@ func (o TableConstraintOutput) TableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringOutput { return v.TableId }).(pulumi.StringOutput)
 }
 
-// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 func (o TableConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

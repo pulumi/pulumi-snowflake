@@ -30,7 +30,8 @@ class ProcedureArgs:
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
                  packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  return_behavior: Optional[pulumi.Input[str]] = None,
-                 runtime_version: Optional[pulumi.Input[str]] = None):
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Procedure resource.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
@@ -48,6 +49,7 @@ class ProcedureArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
+        :param pulumi.Input[bool] secure: Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "return_type", return_type)
@@ -72,9 +74,14 @@ class ProcedureArgs:
         if packages is not None:
             pulumi.set(__self__, "packages", packages)
         if return_behavior is not None:
+            warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
+            pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
+        if return_behavior is not None:
             pulumi.set(__self__, "return_behavior", return_behavior)
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
 
     @property
     @pulumi.getter
@@ -238,6 +245,9 @@ class ProcedureArgs:
         """
         Specifies the behavior of the function when returning results
         """
+        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
+        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
+
         return pulumi.get(self, "return_behavior")
 
     @return_behavior.setter
@@ -255,6 +265,18 @@ class ProcedureArgs:
     @runtime_version.setter
     def runtime_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
 
 
 @pulumi.input_type
@@ -274,6 +296,7 @@ class _ProcedureState:
                  return_type: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
                  statement: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Procedure resources.
@@ -291,6 +314,7 @@ class _ProcedureState:
         :param pulumi.Input[str] return_type: The return type of the procedure
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the procedure. Don't use the | character.
+        :param pulumi.Input[bool] secure: Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         """
         if arguments is not None:
@@ -314,6 +338,9 @@ class _ProcedureState:
         if packages is not None:
             pulumi.set(__self__, "packages", packages)
         if return_behavior is not None:
+            warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
+            pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
+        if return_behavior is not None:
             pulumi.set(__self__, "return_behavior", return_behavior)
         if return_type is not None:
             pulumi.set(__self__, "return_type", return_type)
@@ -321,6 +348,8 @@ class _ProcedureState:
             pulumi.set(__self__, "runtime_version", runtime_version)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
 
@@ -450,6 +479,9 @@ class _ProcedureState:
         """
         Specifies the behavior of the function when returning results
         """
+        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
+        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
+
         return pulumi.get(self, "return_behavior")
 
     @return_behavior.setter
@@ -494,6 +526,18 @@ class _ProcedureState:
 
     @property
     @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
+
+    @property
+    @pulumi.getter
     def statement(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the code used to create the procedure.
@@ -524,6 +568,7 @@ class Procedure(pulumi.CustomResource):
                  return_type: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -551,6 +596,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the procedure
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the procedure. Don't use the | character.
+        :param pulumi.Input[bool] secure: Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         """
         ...
@@ -597,6 +643,7 @@ class Procedure(pulumi.CustomResource):
                  return_type: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -627,6 +674,7 @@ class Procedure(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["secure"] = secure
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
@@ -654,6 +702,7 @@ class Procedure(pulumi.CustomResource):
             return_type: Optional[pulumi.Input[str]] = None,
             runtime_version: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
+            secure: Optional[pulumi.Input[bool]] = None,
             statement: Optional[pulumi.Input[str]] = None) -> 'Procedure':
         """
         Get an existing Procedure resource's state with the given name, id, and optional extra
@@ -676,6 +725,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the procedure
         :param pulumi.Input[str] runtime_version: Required for Python procedures. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the procedure. Don't use the | character.
+        :param pulumi.Input[bool] secure: Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -696,6 +746,7 @@ class Procedure(pulumi.CustomResource):
         __props__.__dict__["return_type"] = return_type
         __props__.__dict__["runtime_version"] = runtime_version
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["secure"] = secure
         __props__.__dict__["statement"] = statement
         return Procedure(resource_name, opts=opts, __props__=__props__)
 
@@ -785,6 +836,9 @@ class Procedure(pulumi.CustomResource):
         """
         Specifies the behavior of the function when returning results
         """
+        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
+        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
+
         return pulumi.get(self, "return_behavior")
 
     @property
@@ -810,6 +864,14 @@ class Procedure(pulumi.CustomResource):
         The schema in which to create the procedure. Don't use the | character.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def secure(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+        """
+        return pulumi.get(self, "secure")
 
     @property
     @pulumi.getter

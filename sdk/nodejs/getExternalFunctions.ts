@@ -19,7 +19,8 @@ import * as utilities from "./utilities";
  * });
  * ```
  */
-export function getExternalFunctions(args: GetExternalFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalFunctionsResult> {
+export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalFunctionsResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getExternalFunctions:getExternalFunctions", {
@@ -32,8 +33,8 @@ export function getExternalFunctions(args: GetExternalFunctionsArgs, opts?: pulu
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsArgs {
-    database: string;
-    schema: string;
+    database?: string;
+    schema?: string;
 }
 
 /**
@@ -43,7 +44,7 @@ export interface GetExternalFunctionsResult {
     /**
      * The database from which to return the schemas from.
      */
-    readonly database: string;
+    readonly database?: string;
     /**
      * The external functions in the schema
      */
@@ -55,7 +56,7 @@ export interface GetExternalFunctionsResult {
     /**
      * The schema from which to return the external functions from.
      */
-    readonly schema: string;
+    readonly schema?: string;
 }
 /**
  * ## Example Usage
@@ -70,7 +71,7 @@ export interface GetExternalFunctionsResult {
  * });
  * ```
  */
-export function getExternalFunctionsOutput(args: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
+export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
     return pulumi.output(args).apply((a: any) => getExternalFunctions(a, opts))
 }
 
@@ -78,6 +79,6 @@ export function getExternalFunctionsOutput(args: GetExternalFunctionsOutputArgs,
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsOutputArgs {
-    database: pulumi.Input<string>;
-    schema: pulumi.Input<string>;
+    database?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
 }

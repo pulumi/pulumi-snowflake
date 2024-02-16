@@ -1113,7 +1113,7 @@ export interface TableColumn {
      */
     identity?: outputs.TableColumnIdentity;
     /**
-     * Masking policy to apply on column
+     * Masking policy to apply on column. It has to be a fully qualified name.
      */
     maskingPolicy?: string;
     /**

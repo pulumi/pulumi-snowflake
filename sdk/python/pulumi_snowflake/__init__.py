@@ -121,6 +121,7 @@ from .unsafe_execute import *
 from .user import *
 from .user_grant import *
 from .user_ownership_grant import *
+from .user_password_policy_attachment import *
 from .user_public_keys import *
 from .view import *
 from .view_grant import *
@@ -753,6 +754,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "UserOwnershipGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userPasswordPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment": "UserPasswordPolicyAttachment"
   }
  },
  {

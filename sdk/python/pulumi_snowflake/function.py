@@ -37,13 +37,13 @@ class FunctionArgs:
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
-        :param pulumi.Input[str] statement: Specifies the javascript / java / sql / python code used to create the function.
+        :param pulumi.Input[str] statement: Specifies the javascript / java / scala / sql / python code used to create the function.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
-        :param pulumi.Input[str] language: The language of the statement
+        :param pulumi.Input[str] language: Specifies the language of the stored function code.
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
@@ -120,7 +120,7 @@ class FunctionArgs:
     @pulumi.getter
     def statement(self) -> pulumi.Input[str]:
         """
-        Specifies the javascript / java / sql / python code used to create the function.
+        Specifies the javascript / java / scala / sql / python code used to create the function.
         """
         return pulumi.get(self, "statement")
 
@@ -192,7 +192,7 @@ class FunctionArgs:
     @pulumi.getter
     def language(self) -> Optional[pulumi.Input[str]]:
         """
-        The language of the statement
+        Specifies the language of the stored function code.
         """
         return pulumi.get(self, "language")
 
@@ -300,7 +300,7 @@ class _FunctionState:
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
-        :param pulumi.Input[str] language: The language of the statement
+        :param pulumi.Input[str] language: Specifies the language of the stored function code.
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
@@ -308,7 +308,7 @@ class _FunctionState:
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] runtime_version: Required for Python functions. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
-        :param pulumi.Input[str] statement: Specifies the javascript / java / sql / python code used to create the function.
+        :param pulumi.Input[str] statement: Specifies the javascript / java / scala / sql / python code used to create the function.
         :param pulumi.Input[str] target_path: The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         """
         if arguments is not None:
@@ -420,7 +420,7 @@ class _FunctionState:
     @pulumi.getter
     def language(self) -> Optional[pulumi.Input[str]]:
         """
-        The language of the statement
+        Specifies the language of the stored function code.
         """
         return pulumi.get(self, "language")
 
@@ -516,7 +516,7 @@ class _FunctionState:
     @pulumi.getter
     def statement(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the javascript / java / sql / python code used to create the function.
+        Specifies the javascript / java / scala / sql / python code used to create the function.
         """
         return pulumi.get(self, "statement")
 
@@ -576,7 +576,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
-        :param pulumi.Input[str] language: The language of the statement
+        :param pulumi.Input[str] language: Specifies the language of the stored function code.
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
@@ -584,7 +584,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] runtime_version: Required for Python functions. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
-        :param pulumi.Input[str] statement: Specifies the javascript / java / sql / python code used to create the function.
+        :param pulumi.Input[str] statement: Specifies the javascript / java / scala / sql / python code used to create the function.
         :param pulumi.Input[str] target_path: The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         """
         ...
@@ -705,7 +705,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
-        :param pulumi.Input[str] language: The language of the statement
+        :param pulumi.Input[str] language: Specifies the language of the stored function code.
         :param pulumi.Input[str] name: The argument name
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
@@ -713,7 +713,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] return_type: The return type of the function
         :param pulumi.Input[str] runtime_version: Required for Python functions. Specifies Python runtime version.
         :param pulumi.Input[str] schema: The schema in which to create the function. Don't use the | character.
-        :param pulumi.Input[str] statement: Specifies the javascript / java / sql / python code used to create the function.
+        :param pulumi.Input[str] statement: Specifies the javascript / java / scala / sql / python code used to create the function.
         :param pulumi.Input[str] target_path: The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -790,7 +790,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def language(self) -> pulumi.Output[Optional[str]]:
         """
-        The language of the statement
+        Specifies the language of the stored function code.
         """
         return pulumi.get(self, "language")
 
@@ -854,7 +854,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def statement(self) -> pulumi.Output[str]:
         """
-        Specifies the javascript / java / sql / python code used to create the function.
+        Specifies the javascript / java / scala / sql / python code used to create the function.
         """
         return pulumi.get(self, "statement")
 
