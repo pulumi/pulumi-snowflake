@@ -747,6 +747,9 @@
             "snowflake_user_ownership_grant": {
                 "current": "snowflake:index/userOwnershipGrant:UserOwnershipGrant"
             },
+            "snowflake_user_password_policy_attachment": {
+                "current": "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment"
+            },
             "snowflake_user_public_keys": {
                 "current": "snowflake:index/userPublicKeys:UserPublicKeys"
             },
@@ -1222,6 +1225,7 @@
             "snowflake:index/user:User": "snowflake_user",
             "snowflake:index/userGrant:UserGrant": "snowflake_user_grant",
             "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "snowflake_user_ownership_grant",
+            "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment": "snowflake_user_password_policy_attachment",
             "snowflake:index/userPublicKeys:UserPublicKeys": "snowflake_user_public_keys",
             "snowflake:index/view:View": "snowflake_view",
             "snowflake:index/viewGrant:ViewGrant": "snowflake_view_grant",
@@ -1435,6 +1439,7 @@
             "snowflake:index/dynamicTable:DynamicTable": {
                 "automaticClustering": "automatic_clustering",
                 "clusterBy": "cluster_by",
+                "createdOn": "created_on",
                 "dataTimestamp": "data_timestamp",
                 "isClone": "is_clone",
                 "isReplica": "is_replica",
@@ -2188,6 +2193,10 @@
                 "onUserName": "on_user_name",
                 "revertOwnershipToRoleName": "revert_ownership_to_role_name",
                 "toRoleName": "to_role_name"
+            },
+            "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment": {
+                "passwordPolicyName": "password_policy_name",
+                "userName": "user_name"
             },
             "snowflake:index/userPublicKeys:UserPublicKeys": {
                 "rsaPublicKey": "rsa_public_key",

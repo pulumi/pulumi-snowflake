@@ -1134,7 +1134,7 @@
                 },
                 "maskingPolicy": {
                     "type": "string",
-                    "description": "Masking policy to apply on column\n"
+                    "description": "Masking policy to apply on column. It has to be a fully qualified name.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4311,6 +4311,10 @@
                     "type": "string",
                     "description": "Specifies a comment for the dynamic table.\n"
                 },
+                "createdOn": {
+                    "type": "string",
+                    "description": "Time when this dynamic table was created.\n"
+                },
                 "dataTimestamp": {
                     "type": "string",
                     "description": "Timestamp of the data in the base object(s) that is included in the dynamic table.\n"
@@ -4318,6 +4322,10 @@
                 "database": {
                     "type": "string",
                     "description": "The database in which to create the dynamic table.\n"
+                },
+                "initialize": {
+                    "type": "string",
+                    "description": "Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.\n"
                 },
                 "isClone": {
                     "type": "boolean",
@@ -4349,7 +4357,7 @@
                 },
                 "refreshMode": {
                     "type": "string",
-                    "description": "INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.\n"
+                    "description": "INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.\n"
                 },
                 "refreshModeReason": {
                     "type": "string",
@@ -4380,6 +4388,7 @@
                 "automaticClustering",
                 "bytes",
                 "clusterBy",
+                "createdOn",
                 "dataTimestamp",
                 "database",
                 "isClone",
@@ -4388,7 +4397,6 @@
                 "name",
                 "owner",
                 "query",
-                "refreshMode",
                 "refreshModeReason",
                 "rows",
                 "schedulingState",
@@ -4405,6 +4413,11 @@
                     "type": "string",
                     "description": "The database in which to create the dynamic table.\n"
                 },
+                "initialize": {
+                    "type": "string",
+                    "description": "Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.\n",
+                    "willReplaceOnChanges": true
+                },
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.\n",
@@ -4419,6 +4432,11 @@
                     "description": "Specifies the query to use to populate the dynamic table.\n",
                     "willReplaceOnChanges": true
                 },
+                "refreshMode": {
+                    "type": "string",
+                    "description": "INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.\n",
+                    "willReplaceOnChanges": true
+                },
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the dynamic table.\n"
@@ -4429,8 +4447,7 @@
                 },
                 "warehouse": {
                     "type": "string",
-                    "description": "The warehouse in which to create the dynamic table.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The warehouse in which to create the dynamic table.\n"
                 }
             },
             "requiredInputs": [
@@ -4459,6 +4476,10 @@
                         "type": "string",
                         "description": "Specifies a comment for the dynamic table.\n"
                     },
+                    "createdOn": {
+                        "type": "string",
+                        "description": "Time when this dynamic table was created.\n"
+                    },
                     "dataTimestamp": {
                         "type": "string",
                         "description": "Timestamp of the data in the base object(s) that is included in the dynamic table.\n"
@@ -4466,6 +4487,11 @@
                     "database": {
                         "type": "string",
                         "description": "The database in which to create the dynamic table.\n"
+                    },
+                    "initialize": {
+                        "type": "string",
+                        "description": "Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.\n",
+                        "willReplaceOnChanges": true
                     },
                     "isClone": {
                         "type": "boolean",
@@ -4499,7 +4525,8 @@
                     },
                     "refreshMode": {
                         "type": "string",
-                        "description": "INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.\n"
+                        "description": "INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.\n",
+                        "willReplaceOnChanges": true
                     },
                     "refreshModeReason": {
                         "type": "string",
@@ -4523,8 +4550,7 @@
                     },
                     "warehouse": {
                         "type": "string",
-                        "description": "The warehouse in which to create the dynamic table.\n",
-                        "willReplaceOnChanges": true
+                        "description": "The warehouse in which to create the dynamic table.\n"
                     }
                 },
                 "type": "object"
@@ -4673,7 +4699,7 @@
                 },
                 "returnNullAllowed": {
                     "type": "boolean",
-                    "description": "Indicates whether the function can return NULL values or must return only NON-NULL values.\n"
+                    "description": "Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).\n"
                 },
                 "returnType": {
                     "type": "string",
@@ -4714,8 +4740,7 @@
                 },
                 "comment": {
                     "type": "string",
-                    "description": "A description of the external function.\n",
-                    "willReplaceOnChanges": true
+                    "description": "A description of the external function.\n"
                 },
                 "compression": {
                     "type": "string",
@@ -4775,7 +4800,7 @@
                 },
                 "returnNullAllowed": {
                     "type": "boolean",
-                    "description": "Indicates whether the function can return NULL values or must return only NON-NULL values.\n",
+                    "description": "Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).\n",
                     "willReplaceOnChanges": true
                 },
                 "returnType": {
@@ -4820,8 +4845,7 @@
                     },
                     "comment": {
                         "type": "string",
-                        "description": "A description of the external function.\n",
-                        "willReplaceOnChanges": true
+                        "description": "A description of the external function.\n"
                     },
                     "compression": {
                         "type": "string",
@@ -4885,7 +4909,7 @@
                     },
                     "returnNullAllowed": {
                         "type": "boolean",
-                        "description": "Indicates whether the function can return NULL values or must return only NON-NULL values.\n",
+                        "description": "Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).\n",
                         "willReplaceOnChanges": true
                     },
                     "returnType": {
@@ -6611,7 +6635,7 @@
                 },
                 "language": {
                     "type": "string",
-                    "description": "The language of the statement\n"
+                    "description": "Specifies the language of the stored function code.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6646,7 +6670,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript / java / sql / python code used to create the function.\n"
+                    "description": "Specifies the javascript / java / scala / sql / python code used to create the function.\n"
                 },
                 "targetPath": {
                     "type": "string",
@@ -6697,8 +6721,7 @@
                 },
                 "language": {
                     "type": "string",
-                    "description": "The language of the statement\n",
-                    "willReplaceOnChanges": true
+                    "description": "Specifies the language of the stored function code.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6739,7 +6762,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the javascript / java / sql / python code used to create the function.\n",
+                    "description": "Specifies the javascript / java / scala / sql / python code used to create the function.\n",
                     "willReplaceOnChanges": true
                 },
                 "targetPath": {
@@ -6793,8 +6816,7 @@
                     },
                     "language": {
                         "type": "string",
-                        "description": "The language of the statement\n",
-                        "willReplaceOnChanges": true
+                        "description": "Specifies the language of the stored function code.\n"
                     },
                     "name": {
                         "type": "string",
@@ -6835,7 +6857,7 @@
                     },
                     "statement": {
                         "type": "string",
-                        "description": "Specifies the javascript / java / sql / python code used to create the function.\n",
+                        "description": "Specifies the javascript / java / scala / sql / python code used to create the function.\n",
                         "willReplaceOnChanges": true
                     },
                     "targetPath": {
@@ -8955,8 +8977,7 @@
                 "direction": {
                     "type": "string",
                     "description": "Direction of the cloud messaging with respect to Snowflake (required only for error notifications)\n",
-                    "deprecationMessage": "Will be removed - it is added automatically on the SDK level.",
-                    "willReplaceOnChanges": true
+                    "deprecationMessage": "Will be removed - it is added automatically on the SDK level."
                 },
                 "enabled": {
                     "type": "boolean"
@@ -9050,8 +9071,7 @@
                     "direction": {
                         "type": "string",
                         "description": "Direction of the cloud messaging with respect to Snowflake (required only for error notifications)\n",
-                        "deprecationMessage": "Will be removed - it is added automatically on the SDK level.",
-                        "willReplaceOnChanges": true
+                        "deprecationMessage": "Will be removed - it is added automatically on the SDK level."
                     },
                     "enabled": {
                         "type": "boolean"
@@ -9946,7 +9966,8 @@
                 },
                 "returnBehavior": {
                     "type": "string",
-                    "description": "Specifies the behavior of the function when returning results\n"
+                    "description": "Specifies the behavior of the function when returning results\n",
+                    "deprecationMessage": "These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation."
                 },
                 "returnType": {
                     "type": "string",
@@ -9959,6 +9980,10 @@
                 "schema": {
                     "type": "string",
                     "description": "The schema in which to create the procedure. Don't use the | character.\n"
+                },
+                "secure": {
+                    "type": "boolean",
+                    "description": "Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.\n"
                 },
                 "statement": {
                     "type": "string",
@@ -10031,6 +10056,7 @@
                 "returnBehavior": {
                     "type": "string",
                     "description": "Specifies the behavior of the function when returning results\n",
+                    "deprecationMessage": "These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.",
                     "willReplaceOnChanges": true
                 },
                 "returnType": {
@@ -10047,6 +10073,10 @@
                     "type": "string",
                     "description": "The schema in which to create the procedure. Don't use the | character.\n",
                     "willReplaceOnChanges": true
+                },
+                "secure": {
+                    "type": "boolean",
+                    "description": "Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.\n"
                 },
                 "statement": {
                     "type": "string",
@@ -10121,6 +10151,7 @@
                     "returnBehavior": {
                         "type": "string",
                         "description": "Specifies the behavior of the function when returning results\n",
+                        "deprecationMessage": "These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.",
                         "willReplaceOnChanges": true
                     },
                     "returnType": {
@@ -10137,6 +10168,10 @@
                         "type": "string",
                         "description": "The schema in which to create the procedure. Don't use the | character.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "secure": {
+                        "type": "boolean",
+                        "description": "Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.\n"
                     },
                     "statement": {
                         "type": "string",
@@ -12123,7 +12158,7 @@
             }
         },
         "snowflake:index/share:Share": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    accounts: [\"organizationName.accountName\"],\n    comment: \"cool comment\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    accounts=[\"organizationName.accountName\"],\n    comment=\"cool comment\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Accounts = new[]\n        {\n            \"organizationName.accountName\",\n        },\n        Comment = \"cool comment\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"organizationName.accountName\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .accounts(\"organizationName.accountName\")\n            .comment(\"cool comment\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      accounts:\n        - organizationName.accountName\n      comment: cool comment\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    comment: \"cool comment\",\n    accounts: [\"organizationName.accountName\"],\n});\nconst example = new snowflake.Database(\"example\", {}, {\n    dependsOn: [test],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    comment=\"cool comment\",\n    accounts=[\"organizationName.accountName\"])\nexample = snowflake.Database(\"example\", opts=pulumi.ResourceOptions(depends_on=[test]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Comment = \"cool comment\",\n        Accounts = new[]\n        {\n            \"organizationName.accountName\",\n        },\n    });\n\n    var example = new Snowflake.Database(\"example\", new()\n    {\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            test,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"organizationName.accountName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"example\", nil, pulumi.DependsOn([]pulumi.Resource{\n\t\t\ttest,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .comment(\"cool comment\")\n            .accounts(\"organizationName.accountName\")\n            .build());\n\n        var example = new Database(\"example\", DatabaseArgs.Empty, CustomResourceOptions.builder()\n            .dependsOn(test)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      comment: cool comment\n      accounts:\n        - organizationName.accountName\n  example:\n    type: snowflake:Database\n    options:\n      dependson:\n        - ${test}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n```sh\n $ pulumi import snowflake:index/share:Share example name\n```\n\n ",
             "properties": {
                 "accounts": {
                     "type": "array",
@@ -13126,8 +13161,7 @@
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
-                    "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n",
-                    "deprecationMessage": "Use snowflake_object_parameter instead"
+                    "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n"
                 },
                 "database": {
                     "type": "string",
@@ -13201,8 +13235,7 @@
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
-                    "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n",
-                    "deprecationMessage": "Use snowflake_object_parameter instead"
+                    "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n"
                 },
                 "database": {
                     "type": "string",
@@ -13269,8 +13302,7 @@
                     },
                     "dataRetentionTimeInDays": {
                         "type": "integer",
-                        "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n",
-                        "deprecationMessage": "Use snowflake_object_parameter instead"
+                        "description": "Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.\n"
                     },
                     "database": {
                         "type": "string",
@@ -13377,7 +13409,7 @@
             }
         },
         "snowflake:index/tableConstraint:TableConstraint": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst table = new snowflake.Table(\"table\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [\n        {\n            name: \"col1\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"col2\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"col3\",\n            type: \"text\",\n            nullable: false,\n        },\n    ],\n});\nconst fkT = new snowflake.Table(\"fkT\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [\n        {\n            name: \"fk_col1\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"fk_col2\",\n            type: \"text\",\n            nullable: false,\n        },\n    ],\n});\nconst primaryKey = new snowflake.TableConstraint(\"primaryKey\", {\n    type: \"PRIMARY KEY\",\n    tableId: table.id,\n    columns: [\"col1\"],\n    comment: \"hello world\",\n});\nconst foreignKey = new snowflake.TableConstraint(\"foreignKey\", {\n    type: \"FOREIGN KEY\",\n    tableId: table.id,\n    columns: [\"col2\"],\n    foreignKeyProperties: {\n        references: {\n            tableId: fkT.id,\n            columns: [\"fk_col1\"],\n        },\n    },\n    enforced: false,\n    deferrable: false,\n    initially: \"IMMEDIATE\",\n    comment: \"hello fk\",\n});\nconst unique = new snowflake.TableConstraint(\"unique\", {\n    type: \"UNIQUE\",\n    tableId: table.id,\n    columns: [\"col3\"],\n    comment: \"hello unique\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nschema = snowflake.Schema(\"schema\", database=database.name)\ntable = snowflake.Table(\"table\",\n    database=database.name,\n    schema=schema.name,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"col1\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"col2\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"col3\",\n            type=\"text\",\n            nullable=False,\n        ),\n    ])\nfk_t = snowflake.Table(\"fkT\",\n    database=database.name,\n    schema=schema.name,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"fk_col1\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"fk_col2\",\n            type=\"text\",\n            nullable=False,\n        ),\n    ])\nprimary_key = snowflake.TableConstraint(\"primaryKey\",\n    type=\"PRIMARY KEY\",\n    table_id=table.id,\n    columns=[\"col1\"],\n    comment=\"hello world\")\nforeign_key = snowflake.TableConstraint(\"foreignKey\",\n    type=\"FOREIGN KEY\",\n    table_id=table.id,\n    columns=[\"col2\"],\n    foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(\n        references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(\n            table_id=fk_t.id,\n            columns=[\"fk_col1\"],\n        ),\n    ),\n    enforced=False,\n    deferrable=False,\n    initially=\"IMMEDIATE\",\n    comment=\"hello fk\")\nunique = snowflake.TableConstraint(\"unique\",\n    type=\"UNIQUE\",\n    table_id=table.id,\n    columns=[\"col3\"],\n    comment=\"hello unique\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var table = new Snowflake.Table(\"table\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col1\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col2\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col3\",\n                Type = \"text\",\n                Nullable = false,\n            },\n        },\n    });\n\n    var fkT = new Snowflake.Table(\"fkT\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"fk_col1\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"fk_col2\",\n                Type = \"text\",\n                Nullable = false,\n            },\n        },\n    });\n\n    var primaryKey = new Snowflake.TableConstraint(\"primaryKey\", new()\n    {\n        Type = \"PRIMARY KEY\",\n        TableId = table.Id,\n        Columns = new[]\n        {\n            \"col1\",\n        },\n        Comment = \"hello world\",\n    });\n\n    var foreignKey = new Snowflake.TableConstraint(\"foreignKey\", new()\n    {\n        Type = \"FOREIGN KEY\",\n        TableId = table.Id,\n        Columns = new[]\n        {\n            \"col2\",\n        },\n        ForeignKeyProperties = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesArgs\n        {\n            References = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesReferencesArgs\n            {\n                TableId = fkT.Id,\n                Columns = new[]\n                {\n                    \"fk_col1\",\n                },\n            },\n        },\n        Enforced = false,\n        Deferrable = false,\n        Initially = \"IMMEDIATE\",\n        Comment = \"hello fk\",\n    });\n\n    var unique = new Snowflake.TableConstraint(\"unique\", new()\n    {\n        Type = \"UNIQUE\",\n        TableId = table.Id,\n        Columns = new[]\n        {\n            \"col3\",\n        },\n        Comment = \"hello unique\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttable, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col1\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col2\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col3\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfkT, err := snowflake.NewTable(ctx, \"fkT\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"fk_col1\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"fk_col2\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"primaryKey\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"PRIMARY KEY\"),\n\t\t\tTableId: table.ID(),\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col1\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"hello world\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"foreignKey\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"FOREIGN KEY\"),\n\t\t\tTableId: table.ID(),\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col2\"),\n\t\t\t},\n\t\t\tForeignKeyProperties: \u0026snowflake.TableConstraintForeignKeyPropertiesArgs{\n\t\t\t\tReferences: \u0026snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{\n\t\t\t\t\tTableId: fkT.ID(),\n\t\t\t\t\tColumns: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"fk_col1\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnforced:   pulumi.Bool(false),\n\t\t\tDeferrable: pulumi.Bool(false),\n\t\t\tInitially:  pulumi.String(\"IMMEDIATE\"),\n\t\t\tComment:    pulumi.String(\"hello fk\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"unique\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"UNIQUE\"),\n\t\t\tTableId: table.ID(),\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col3\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"hello unique\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport com.pulumi.snowflake.TableConstraint;\nimport com.pulumi.snowflake.TableConstraintArgs;\nimport com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesArgs;\nimport com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesReferencesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(            \n                TableColumnArgs.builder()\n                    .name(\"col1\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"col2\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"col3\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build())\n            .build());\n\n        var fkT = new Table(\"fkT\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(            \n                TableColumnArgs.builder()\n                    .name(\"fk_col1\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"fk_col2\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build())\n            .build());\n\n        var primaryKey = new TableConstraint(\"primaryKey\", TableConstraintArgs.builder()        \n            .type(\"PRIMARY KEY\")\n            .tableId(table.id())\n            .columns(\"col1\")\n            .comment(\"hello world\")\n            .build());\n\n        var foreignKey = new TableConstraint(\"foreignKey\", TableConstraintArgs.builder()        \n            .type(\"FOREIGN KEY\")\n            .tableId(table.id())\n            .columns(\"col2\")\n            .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()\n                .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()\n                    .tableId(fkT.id())\n                    .columns(\"fk_col1\")\n                    .build())\n                .build())\n            .enforced(false)\n            .deferrable(false)\n            .initially(\"IMMEDIATE\")\n            .comment(\"hello fk\")\n            .build());\n\n        var unique = new TableConstraint(\"unique\", TableConstraintArgs.builder()        \n            .type(\"UNIQUE\")\n            .tableId(table.id())\n            .columns(\"col3\")\n            .comment(\"hello unique\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  table:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: col1\n          type: text\n          nullable: false\n        - name: col2\n          type: text\n          nullable: false\n        - name: col3\n          type: text\n          nullable: false\n  fkT:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: fk_col1\n          type: text\n          nullable: false\n        - name: fk_col2\n          type: text\n          nullable: false\n  primaryKey:\n    type: snowflake:TableConstraint\n    properties:\n      type: PRIMARY KEY\n      tableId: ${table.id}\n      columns:\n        - col1\n      comment: hello world\n  foreignKey:\n    type: snowflake:TableConstraint\n    properties:\n      type: FOREIGN KEY\n      tableId: ${table.id}\n      columns:\n        - col2\n      foreignKeyProperties:\n        references:\n          tableId: ${fkT.id}\n          columns:\n            - fk_col1\n      enforced: false\n      deferrable: false\n      initially: IMMEDIATE\n      comment: hello fk\n  unique:\n    type: snowflake:TableConstraint\n    properties:\n      type: UNIQUE\n      tableId: ${table.id}\n      columns:\n        - col3\n      comment: hello unique\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n```sh\n $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst database = new snowflake.Database(\"database\", {});\nconst schema = new snowflake.Schema(\"schema\", {database: database.name});\nconst table = new snowflake.Table(\"table\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [\n        {\n            name: \"col1\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"col2\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"col3\",\n            type: \"text\",\n            nullable: false,\n        },\n    ],\n});\nconst fkT = new snowflake.Table(\"fkT\", {\n    database: database.name,\n    schema: schema.name,\n    columns: [\n        {\n            name: \"fk_col1\",\n            type: \"text\",\n            nullable: false,\n        },\n        {\n            name: \"fk_col2\",\n            type: \"text\",\n            nullable: false,\n        },\n    ],\n});\nconst primaryKey = new snowflake.TableConstraint(\"primaryKey\", {\n    type: \"PRIMARY KEY\",\n    tableId: table.qualifiedName,\n    columns: [\"col1\"],\n    comment: \"hello world\",\n});\nconst foreignKey = new snowflake.TableConstraint(\"foreignKey\", {\n    type: \"FOREIGN KEY\",\n    tableId: table.qualifiedName,\n    columns: [\"col2\"],\n    foreignKeyProperties: {\n        references: {\n            tableId: fkT.qualifiedName,\n            columns: [\"fk_col1\"],\n        },\n    },\n    enforced: false,\n    deferrable: false,\n    initially: \"IMMEDIATE\",\n    comment: \"hello fk\",\n});\nconst unique = new snowflake.TableConstraint(\"unique\", {\n    type: \"UNIQUE\",\n    tableId: table.qualifiedName,\n    columns: [\"col3\"],\n    comment: \"hello unique\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndatabase = snowflake.Database(\"database\")\nschema = snowflake.Schema(\"schema\", database=database.name)\ntable = snowflake.Table(\"table\",\n    database=database.name,\n    schema=schema.name,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"col1\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"col2\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"col3\",\n            type=\"text\",\n            nullable=False,\n        ),\n    ])\nfk_t = snowflake.Table(\"fkT\",\n    database=database.name,\n    schema=schema.name,\n    columns=[\n        snowflake.TableColumnArgs(\n            name=\"fk_col1\",\n            type=\"text\",\n            nullable=False,\n        ),\n        snowflake.TableColumnArgs(\n            name=\"fk_col2\",\n            type=\"text\",\n            nullable=False,\n        ),\n    ])\nprimary_key = snowflake.TableConstraint(\"primaryKey\",\n    type=\"PRIMARY KEY\",\n    table_id=table.qualified_name,\n    columns=[\"col1\"],\n    comment=\"hello world\")\nforeign_key = snowflake.TableConstraint(\"foreignKey\",\n    type=\"FOREIGN KEY\",\n    table_id=table.qualified_name,\n    columns=[\"col2\"],\n    foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(\n        references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(\n            table_id=fk_t.qualified_name,\n            columns=[\"fk_col1\"],\n        ),\n    ),\n    enforced=False,\n    deferrable=False,\n    initially=\"IMMEDIATE\",\n    comment=\"hello fk\")\nunique = snowflake.TableConstraint(\"unique\",\n    type=\"UNIQUE\",\n    table_id=table.qualified_name,\n    columns=[\"col3\"],\n    comment=\"hello unique\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var database = new Snowflake.Database(\"database\");\n\n    var schema = new Snowflake.Schema(\"schema\", new()\n    {\n        Database = database.Name,\n    });\n\n    var table = new Snowflake.Table(\"table\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col1\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col2\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"col3\",\n                Type = \"text\",\n                Nullable = false,\n            },\n        },\n    });\n\n    var fkT = new Snowflake.Table(\"fkT\", new()\n    {\n        Database = database.Name,\n        Schema = schema.Name,\n        Columns = new[]\n        {\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"fk_col1\",\n                Type = \"text\",\n                Nullable = false,\n            },\n            new Snowflake.Inputs.TableColumnArgs\n            {\n                Name = \"fk_col2\",\n                Type = \"text\",\n                Nullable = false,\n            },\n        },\n    });\n\n    var primaryKey = new Snowflake.TableConstraint(\"primaryKey\", new()\n    {\n        Type = \"PRIMARY KEY\",\n        TableId = table.QualifiedName,\n        Columns = new[]\n        {\n            \"col1\",\n        },\n        Comment = \"hello world\",\n    });\n\n    var foreignKey = new Snowflake.TableConstraint(\"foreignKey\", new()\n    {\n        Type = \"FOREIGN KEY\",\n        TableId = table.QualifiedName,\n        Columns = new[]\n        {\n            \"col2\",\n        },\n        ForeignKeyProperties = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesArgs\n        {\n            References = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesReferencesArgs\n            {\n                TableId = fkT.QualifiedName,\n                Columns = new[]\n                {\n                    \"fk_col1\",\n                },\n            },\n        },\n        Enforced = false,\n        Deferrable = false,\n        Initially = \"IMMEDIATE\",\n        Comment = \"hello fk\",\n    });\n\n    var unique = new Snowflake.TableConstraint(\"unique\", new()\n    {\n        Type = \"UNIQUE\",\n        TableId = table.QualifiedName,\n        Columns = new[]\n        {\n            \"col3\",\n        },\n        Comment = \"hello unique\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabase, err := snowflake.NewDatabase(ctx, \"database\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tschema, err := snowflake.NewSchema(ctx, \"schema\", \u0026snowflake.SchemaArgs{\n\t\t\tDatabase: database.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttable, err := snowflake.NewTable(ctx, \"table\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col1\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col2\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"col3\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfkT, err := snowflake.NewTable(ctx, \"fkT\", \u0026snowflake.TableArgs{\n\t\t\tDatabase: database.Name,\n\t\t\tSchema:   schema.Name,\n\t\t\tColumns: snowflake.TableColumnArray{\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"fk_col1\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t\t\u0026snowflake.TableColumnArgs{\n\t\t\t\t\tName:     pulumi.String(\"fk_col2\"),\n\t\t\t\t\tType:     pulumi.String(\"text\"),\n\t\t\t\t\tNullable: pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"primaryKey\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"PRIMARY KEY\"),\n\t\t\tTableId: table.QualifiedName,\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col1\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"hello world\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"foreignKey\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"FOREIGN KEY\"),\n\t\t\tTableId: table.QualifiedName,\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col2\"),\n\t\t\t},\n\t\t\tForeignKeyProperties: \u0026snowflake.TableConstraintForeignKeyPropertiesArgs{\n\t\t\t\tReferences: \u0026snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{\n\t\t\t\t\tTableId: fkT.QualifiedName,\n\t\t\t\t\tColumns: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"fk_col1\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnforced:   pulumi.Bool(false),\n\t\t\tDeferrable: pulumi.Bool(false),\n\t\t\tInitially:  pulumi.String(\"IMMEDIATE\"),\n\t\t\tComment:    pulumi.String(\"hello fk\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewTableConstraint(ctx, \"unique\", \u0026snowflake.TableConstraintArgs{\n\t\t\tType:    pulumi.String(\"UNIQUE\"),\n\t\t\tTableId: table.QualifiedName,\n\t\t\tColumns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"col3\"),\n\t\t\t},\n\t\t\tComment: pulumi.String(\"hello unique\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport com.pulumi.snowflake.TableConstraint;\nimport com.pulumi.snowflake.TableConstraintArgs;\nimport com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesArgs;\nimport com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesReferencesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var database = new Database(\"database\");\n\n        var schema = new Schema(\"schema\", SchemaArgs.builder()        \n            .database(database.name())\n            .build());\n\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(            \n                TableColumnArgs.builder()\n                    .name(\"col1\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"col2\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"col3\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build())\n            .build());\n\n        var fkT = new Table(\"fkT\", TableArgs.builder()        \n            .database(database.name())\n            .schema(schema.name())\n            .columns(            \n                TableColumnArgs.builder()\n                    .name(\"fk_col1\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build(),\n                TableColumnArgs.builder()\n                    .name(\"fk_col2\")\n                    .type(\"text\")\n                    .nullable(false)\n                    .build())\n            .build());\n\n        var primaryKey = new TableConstraint(\"primaryKey\", TableConstraintArgs.builder()        \n            .type(\"PRIMARY KEY\")\n            .tableId(table.qualifiedName())\n            .columns(\"col1\")\n            .comment(\"hello world\")\n            .build());\n\n        var foreignKey = new TableConstraint(\"foreignKey\", TableConstraintArgs.builder()        \n            .type(\"FOREIGN KEY\")\n            .tableId(table.qualifiedName())\n            .columns(\"col2\")\n            .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()\n                .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()\n                    .tableId(fkT.qualifiedName())\n                    .columns(\"fk_col1\")\n                    .build())\n                .build())\n            .enforced(false)\n            .deferrable(false)\n            .initially(\"IMMEDIATE\")\n            .comment(\"hello fk\")\n            .build());\n\n        var unique = new TableConstraint(\"unique\", TableConstraintArgs.builder()        \n            .type(\"UNIQUE\")\n            .tableId(table.qualifiedName())\n            .columns(\"col3\")\n            .comment(\"hello unique\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  database:\n    type: snowflake:Database\n  schema:\n    type: snowflake:Schema\n    properties:\n      database: ${database.name}\n  table:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: col1\n          type: text\n          nullable: false\n        - name: col2\n          type: text\n          nullable: false\n        - name: col3\n          type: text\n          nullable: false\n  fkT:\n    type: snowflake:Table\n    properties:\n      database: ${database.name}\n      schema: ${schema.name}\n      columns:\n        - name: fk_col1\n          type: text\n          nullable: false\n        - name: fk_col2\n          type: text\n          nullable: false\n  primaryKey:\n    type: snowflake:TableConstraint\n    properties:\n      type: PRIMARY KEY\n      tableId: ${table.qualifiedName}\n      columns:\n        - col1\n      comment: hello world\n  foreignKey:\n    type: snowflake:TableConstraint\n    properties:\n      type: FOREIGN KEY\n      tableId: ${table.qualifiedName}\n      columns:\n        - col2\n      foreignKeyProperties:\n        references:\n          tableId: ${fkT.qualifiedName}\n          columns:\n            - fk_col1\n      enforced: false\n      deferrable: false\n      initially: IMMEDIATE\n      comment: hello fk\n  unique:\n    type: snowflake:TableConstraint\n    properties:\n      type: UNIQUE\n      tableId: ${table.qualifiedName}\n      columns:\n        - col3\n      comment: hello unique\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n```sh\n $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'\n```\n\n ",
             "properties": {
                 "columns": {
                     "type": "array",
@@ -13388,7 +13420,8 @@
                 },
                 "comment": {
                     "type": "string",
-                    "description": "Comment for the table constraint\n"
+                    "description": "Comment for the table constraint\n",
+                    "deprecationMessage": "Not used. Will be removed."
                 },
                 "deferrable": {
                     "type": "boolean",
@@ -13424,7 +13457,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'\n"
+                    "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'\n"
                 },
                 "validate": {
                     "type": "boolean",
@@ -13449,7 +13482,7 @@
                 "comment": {
                     "type": "string",
                     "description": "Comment for the table constraint\n",
-                    "willReplaceOnChanges": true
+                    "deprecationMessage": "Not used. Will be removed."
                 },
                 "deferrable": {
                     "type": "boolean",
@@ -13492,7 +13525,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'\n",
+                    "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'\n",
                     "willReplaceOnChanges": true
                 },
                 "validate": {
@@ -13520,7 +13553,7 @@
                     "comment": {
                         "type": "string",
                         "description": "Comment for the table constraint\n",
-                        "willReplaceOnChanges": true
+                        "deprecationMessage": "Not used. Will be removed."
                     },
                     "deferrable": {
                         "type": "boolean",
@@ -13563,7 +13596,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'\n",
+                        "description": "Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'\n",
                         "willReplaceOnChanges": true
                     },
                     "validate": {
@@ -15053,6 +15086,55 @@
                 "type": "object"
             }
         },
+        "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment": {
+            "description": "Specifies the password policy to use for a certain user.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.User;\nimport com.pulumi.snowflake.PasswordPolicy;\nimport com.pulumi.snowflake.PasswordPolicyArgs;\nimport com.pulumi.snowflake.UserPasswordPolicyAttachment;\nimport com.pulumi.snowflake.UserPasswordPolicyAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var user = new User(\"user\");\n\n        var pp = new PasswordPolicy(\"pp\", PasswordPolicyArgs.builder()        \n            .database(\"prod\")\n            .schema(\"security\")\n            .build());\n\n        var ppa = new UserPasswordPolicyAttachment(\"ppa\", UserPasswordPolicyAttachmentArgs.builder()        \n            .passwordPolicyDatabase(pp.database())\n            .passwordPolicySchema(pp.schema())\n            .passwordPolicyName(pp.name())\n            .userName(user.name())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  user:\n    type: snowflake:User\n  pp:\n    type: snowflake:PasswordPolicy\n    properties:\n      database: prod\n      schema: security\n  ppa:\n    type: snowflake:UserPasswordPolicyAttachment\n    properties:\n      passwordPolicyDatabase: ${pp.database}\n      passwordPolicySchema: ${pp.schema}\n      passwordPolicyName: ${pp.name}\n      userName: ${user.name}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n```sh\n $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example \"MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME\"\n```\n\n ",
+            "properties": {
+                "passwordPolicyName": {
+                    "type": "string",
+                    "description": "Fully qualified name of the password policy\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "User name of the user you want to attach the password policy to\n"
+                }
+            },
+            "required": [
+                "passwordPolicyName",
+                "userName"
+            ],
+            "inputProperties": {
+                "passwordPolicyName": {
+                    "type": "string",
+                    "description": "Fully qualified name of the password policy\n",
+                    "willReplaceOnChanges": true
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "User name of the user you want to attach the password policy to\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "passwordPolicyName",
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserPasswordPolicyAttachment resources.\n",
+                "properties": {
+                    "passwordPolicyName": {
+                        "type": "string",
+                        "description": "Fully qualified name of the password policy\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "User name of the user you want to attach the password policy to\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/userPublicKeys:UserPublicKeys": {
             "properties": {
                 "name": {
@@ -16157,7 +16239,7 @@
             }
         },
         "snowflake:index/getExternalFunctions:getExternalFunctions": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getExternalFunctions({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_external_functions(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetExternalFunctions.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Schema = \"MYSCHEMA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetExternalFunctions(ctx, \u0026snowflake.GetExternalFunctionsArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tSchema:   \"MYSCHEMA\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getExternalFunctions\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getExternalFunctions({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_external_functions(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetExternalFunctions.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Schema = \"MYSCHEMA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetExternalFunctions(ctx, \u0026snowflake.GetExternalFunctionsArgs{\n\t\t\tDatabase: pulumi.StringRef(\"MYDB\"),\n\t\t\tSchema:   pulumi.StringRef(\"MYSCHEMA\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getExternalFunctions\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getExternalFunctions.\n",
                 "properties": {
@@ -16168,11 +16250,7 @@
                         "type": "string"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "database",
-                    "schema"
-                ]
+                "type": "object"
             },
             "outputs": {
                 "description": "A collection of values returned by getExternalFunctions.\n",
@@ -16199,9 +16277,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "database",
                     "externalFunctions",
-                    "schema",
                     "id"
                 ]
             }
