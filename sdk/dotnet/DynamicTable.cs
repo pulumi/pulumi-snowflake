@@ -71,6 +71,12 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
+        /// Time when this dynamic table was created.
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string> CreatedOn { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp of the data in the base object(s) that is included in the dynamic table.
         /// </summary>
         [Output("dataTimestamp")]
@@ -81,6 +87,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// </summary>
+        [Output("initialize")]
+        public Output<string?> Initialize { get; private set; } = null!;
 
         /// <summary>
         /// TRUE if the dynamic table has been cloned, else FALSE.
@@ -125,10 +137,10 @@ namespace Pulumi.Snowflake
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Output("refreshMode")]
-        public Output<string> RefreshMode { get; private set; } = null!;
+        public Output<string?> RefreshMode { get; private set; } = null!;
 
         /// <summary>
         /// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
@@ -225,6 +237,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// </summary>
+        [Input("initialize")]
+        public Input<string>? Initialize { get; set; }
+
+        /// <summary>
         /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         /// </summary>
         [Input("name")]
@@ -241,6 +259,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
+
+        /// <summary>
+        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        /// </summary>
+        [Input("refreshMode")]
+        public Input<string>? RefreshMode { get; set; }
 
         /// <summary>
         /// The schema in which to create the dynamic table.
@@ -293,6 +317,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// Time when this dynamic table was created.
+        /// </summary>
+        [Input("createdOn")]
+        public Input<string>? CreatedOn { get; set; }
+
+        /// <summary>
         /// Timestamp of the data in the base object(s) that is included in the dynamic table.
         /// </summary>
         [Input("dataTimestamp")]
@@ -303,6 +333,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// </summary>
+        [Input("initialize")]
+        public Input<string>? Initialize { get; set; }
 
         /// <summary>
         /// TRUE if the dynamic table has been cloned, else FALSE.
@@ -347,7 +383,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Input("refreshMode")]
         public Input<string>? RefreshMode { get; set; }

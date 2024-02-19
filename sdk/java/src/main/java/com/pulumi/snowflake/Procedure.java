@@ -11,6 +11,7 @@ import com.pulumi.snowflake.ProcedureArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ProcedureState;
 import com.pulumi.snowflake.outputs.ProcedureArgument;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -236,7 +237,11 @@ public class Procedure extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the behavior of the function when returning results
      * 
+     * @deprecated
+     * These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
+     * 
      */
+    @Deprecated /* These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation. */
     @Export(name="returnBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> returnBehavior;
 
@@ -288,6 +293,20 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      */
     public Output<String> schema() {
         return this.schema;
+    }
+    /**
+     * Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     * 
+     */
+    @Export(name="secure", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> secure;
+
+    /**
+     * @return Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     * 
+     */
+    public Output<Optional<Boolean>> secure() {
+        return Codegen.optional(this.secure);
     }
     /**
      * Specifies the code used to create the procedure.

@@ -65,14 +65,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Masking policy to apply on column
+     * Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     @Import(name="maskingPolicy")
     private @Nullable Output<String> maskingPolicy;
 
     /**
-     * @return Masking policy to apply on column
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     public Optional<Output<String>> maskingPolicy() {
@@ -218,7 +218,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicy Masking policy to apply on column
+         * @param maskingPolicy Masking policy to apply on column. It has to be a fully qualified name.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicy Masking policy to apply on column
+         * @param maskingPolicy Masking policy to apply on column. It has to be a fully qualified name.
          * 
          * @return builder
          * 

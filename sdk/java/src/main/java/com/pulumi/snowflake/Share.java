@@ -25,6 +25,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Share;
  * import com.pulumi.snowflake.ShareArgs;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,8 +42,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Share(&#34;test&#34;, ShareArgs.builder()        
- *             .accounts(&#34;organizationName.accountName&#34;)
  *             .comment(&#34;cool comment&#34;)
+ *             .accounts(&#34;organizationName.accountName&#34;)
+ *             .build());
+ * 
+ *         var example = new Database(&#34;example&#34;, DatabaseArgs.Empty, CustomResourceOptions.builder()
+ *             .dependsOn(test)
  *             .build());
  * 
  *     }

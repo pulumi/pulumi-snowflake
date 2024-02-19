@@ -49,6 +49,21 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    @Import(name="initialize")
+    private @Nullable Output<String> initialize;
+
+    /**
+     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    public Optional<Output<String>> initialize() {
+        return Optional.ofNullable(this.initialize);
+    }
+
+    /**
      * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      * 
      */
@@ -91,6 +106,21 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> query() {
         return this.query;
+    }
+
+    /**
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * 
+     */
+    @Import(name="refreshMode")
+    private @Nullable Output<String> refreshMode;
+
+    /**
+     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * 
+     */
+    public Optional<Output<String>> refreshMode() {
+        return Optional.ofNullable(this.refreshMode);
     }
 
     /**
@@ -143,9 +173,11 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     private DynamicTableArgs(DynamicTableArgs $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.initialize = $.initialize;
         this.name = $.name;
         this.orReplace = $.orReplace;
         this.query = $.query;
+        this.refreshMode = $.refreshMode;
         this.schema = $.schema;
         this.targetLag = $.targetLag;
         this.warehouse = $.warehouse;
@@ -212,6 +244,27 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialize(@Nullable Output<String> initialize) {
+            $.initialize = initialize;
+            return this;
+        }
+
+        /**
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialize(String initialize) {
+            return initialize(Output.of(initialize));
+        }
+
+        /**
          * @param name Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
          * 
          * @return builder
@@ -272,6 +325,27 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder query(String query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshMode(@Nullable Output<String> refreshMode) {
+            $.refreshMode = refreshMode;
+            return this;
+        }
+
+        /**
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshMode(String refreshMode) {
+            return refreshMode(Output.of(refreshMode));
         }
 
         /**

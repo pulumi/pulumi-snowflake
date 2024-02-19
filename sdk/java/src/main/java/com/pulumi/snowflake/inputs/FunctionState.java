@@ -109,14 +109,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The language of the statement
+     * Specifies the language of the stored function code.
      * 
      */
     @Import(name="language")
     private @Nullable Output<String> language;
 
     /**
-     * @return The language of the statement
+     * @return Specifies the language of the stored function code.
      * 
      */
     public Optional<Output<String>> language() {
@@ -229,14 +229,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the javascript / java / sql / python code used to create the function.
+     * Specifies the javascript / java / scala / sql / python code used to create the function.
      * 
      */
     @Import(name="statement")
     private @Nullable Output<String> statement;
 
     /**
-     * @return Specifies the javascript / java / sql / python code used to create the function.
+     * @return Specifies the javascript / java / scala / sql / python code used to create the function.
      * 
      */
     public Optional<Output<String>> statement() {
@@ -444,7 +444,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param language The language of the statement
+         * @param language Specifies the language of the stored function code.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param language The language of the statement
+         * @param language Specifies the language of the stored function code.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the javascript / java / sql / python code used to create the function.
+         * @param statement Specifies the javascript / java / scala / sql / python code used to create the function.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the javascript / java / sql / python code used to create the function.
+         * @param statement Specifies the javascript / java / scala / sql / python code used to create the function.
          * 
          * @return builder
          * 

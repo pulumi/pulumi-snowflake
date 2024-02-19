@@ -77,6 +77,10 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Time when this dynamic table was created.
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      */
     public /*out*/ readonly dataTimestamp!: pulumi.Output<string>;
@@ -84,6 +88,10 @@ export class DynamicTable extends pulumi.CustomResource {
      * The database in which to create the dynamic table.
      */
     public readonly database!: pulumi.Output<string>;
+    /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     */
+    public readonly initialize!: pulumi.Output<string | undefined>;
     /**
      * TRUE if the dynamic table has been cloned, else FALSE.
      */
@@ -113,9 +121,9 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
-     * INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
-    public /*out*/ readonly refreshMode!: pulumi.Output<string>;
+    public readonly refreshMode!: pulumi.Output<string | undefined>;
     /**
      * Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
      */
@@ -158,8 +166,10 @@ export class DynamicTable extends pulumi.CustomResource {
             resourceInputs["bytes"] = state ? state.bytes : undefined;
             resourceInputs["clusterBy"] = state ? state.clusterBy : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["dataTimestamp"] = state ? state.dataTimestamp : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["initialize"] = state ? state.initialize : undefined;
             resourceInputs["isClone"] = state ? state.isClone : undefined;
             resourceInputs["isReplica"] = state ? state.isReplica : undefined;
             resourceInputs["lastSuspendedOn"] = state ? state.lastSuspendedOn : undefined;
@@ -193,21 +203,23 @@ export class DynamicTable extends pulumi.CustomResource {
             }
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["initialize"] = args ? args.initialize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["orReplace"] = args ? args.orReplace : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["refreshMode"] = args ? args.refreshMode : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["targetLag"] = args ? args.targetLag : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
             resourceInputs["automaticClustering"] = undefined /*out*/;
             resourceInputs["bytes"] = undefined /*out*/;
             resourceInputs["clusterBy"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["dataTimestamp"] = undefined /*out*/;
             resourceInputs["isClone"] = undefined /*out*/;
             resourceInputs["isReplica"] = undefined /*out*/;
             resourceInputs["lastSuspendedOn"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
-            resourceInputs["refreshMode"] = undefined /*out*/;
             resourceInputs["refreshModeReason"] = undefined /*out*/;
             resourceInputs["rows"] = undefined /*out*/;
             resourceInputs["schedulingState"] = undefined /*out*/;
@@ -238,6 +250,10 @@ export interface DynamicTableState {
      */
     comment?: pulumi.Input<string>;
     /**
+     * Time when this dynamic table was created.
+     */
+    createdOn?: pulumi.Input<string>;
+    /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      */
     dataTimestamp?: pulumi.Input<string>;
@@ -245,6 +261,10 @@ export interface DynamicTableState {
      * The database in which to create the dynamic table.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     */
+    initialize?: pulumi.Input<string>;
     /**
      * TRUE if the dynamic table has been cloned, else FALSE.
      */
@@ -274,7 +294,7 @@ export interface DynamicTableState {
      */
     query?: pulumi.Input<string>;
     /**
-     * INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     refreshMode?: pulumi.Input<string>;
     /**
@@ -316,6 +336,10 @@ export interface DynamicTableArgs {
      */
     database: pulumi.Input<string>;
     /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     */
+    initialize?: pulumi.Input<string>;
+    /**
      * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
     name?: pulumi.Input<string>;
@@ -327,6 +351,10 @@ export interface DynamicTableArgs {
      * Specifies the query to use to populate the dynamic table.
      */
     query: pulumi.Input<string>;
+    /**
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     */
+    refreshMode?: pulumi.Input<string>;
     /**
      * The schema in which to create the dynamic table.
      */

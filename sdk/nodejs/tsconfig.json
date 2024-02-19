@@ -135,6 +135,7 @@
         "user.ts",
         "userGrant.ts",
         "userOwnershipGrant.ts",
+        "userPasswordPolicyAttachment.ts",
         "userPublicKeys.ts",
         "utilities.ts",
         "view.ts",

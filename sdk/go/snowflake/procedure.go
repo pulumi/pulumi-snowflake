@@ -43,6 +43,8 @@ type Procedure struct {
 	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayOutput `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
+	//
+	// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 	ReturnBehavior pulumi.StringPtrOutput `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType pulumi.StringOutput `pulumi:"returnType"`
@@ -50,6 +52,8 @@ type Procedure struct {
 	RuntimeVersion pulumi.StringPtrOutput `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
 	// Specifies the code used to create the procedure.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 }
@@ -117,6 +121,8 @@ type procedureState struct {
 	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
+	//
+	// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 	ReturnBehavior *string `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType *string `pulumi:"returnType"`
@@ -124,6 +130,8 @@ type procedureState struct {
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema *string `pulumi:"schema"`
+	// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+	Secure *bool `pulumi:"secure"`
 	// Specifies the code used to create the procedure.
 	Statement *string `pulumi:"statement"`
 }
@@ -150,6 +158,8 @@ type ProcedureState struct {
 	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
+	//
+	// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 	ReturnBehavior pulumi.StringPtrInput
 	// The return type of the procedure
 	ReturnType pulumi.StringPtrInput
@@ -157,6 +167,8 @@ type ProcedureState struct {
 	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringPtrInput
+	// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+	Secure pulumi.BoolPtrInput
 	// Specifies the code used to create the procedure.
 	Statement pulumi.StringPtrInput
 }
@@ -187,6 +199,8 @@ type procedureArgs struct {
 	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages []string `pulumi:"packages"`
 	// Specifies the behavior of the function when returning results
+	//
+	// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 	ReturnBehavior *string `pulumi:"returnBehavior"`
 	// The return type of the procedure
 	ReturnType string `pulumi:"returnType"`
@@ -194,6 +208,8 @@ type procedureArgs struct {
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema string `pulumi:"schema"`
+	// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+	Secure *bool `pulumi:"secure"`
 	// Specifies the code used to create the procedure.
 	Statement string `pulumi:"statement"`
 }
@@ -221,6 +237,8 @@ type ProcedureArgs struct {
 	// List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
 	Packages pulumi.StringArrayInput
 	// Specifies the behavior of the function when returning results
+	//
+	// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 	ReturnBehavior pulumi.StringPtrInput
 	// The return type of the procedure
 	ReturnType pulumi.StringInput
@@ -228,6 +246,8 @@ type ProcedureArgs struct {
 	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the procedure. Don't use the | character.
 	Schema pulumi.StringInput
+	// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+	Secure pulumi.BoolPtrInput
 	// Specifies the code used to create the procedure.
 	Statement pulumi.StringInput
 }
@@ -370,6 +390,8 @@ func (o ProcedureOutput) Packages() pulumi.StringArrayOutput {
 }
 
 // Specifies the behavior of the function when returning results
+//
+// Deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
 func (o ProcedureOutput) ReturnBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ReturnBehavior }).(pulumi.StringPtrOutput)
 }
@@ -387,6 +409,11 @@ func (o ProcedureOutput) RuntimeVersion() pulumi.StringPtrOutput {
 // The schema in which to create the procedure. Don't use the | character.
 func (o ProcedureOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+func (o ProcedureOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.BoolPtrOutput { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the code used to create the procedure.

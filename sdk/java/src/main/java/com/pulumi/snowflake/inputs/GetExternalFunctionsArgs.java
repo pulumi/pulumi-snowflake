@@ -5,27 +5,28 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetExternalFunctionsArgs Empty = new GetExternalFunctionsArgs();
 
-    @Import(name="database", required=true)
-    private Output<String> database;
+    @Import(name="database")
+    private @Nullable Output<String> database;
 
-    public Output<String> database() {
-        return this.database;
+    public Optional<Output<String>> database() {
+        return Optional.ofNullable(this.database);
     }
 
-    @Import(name="schema", required=true)
-    private Output<String> schema;
+    @Import(name="schema")
+    private @Nullable Output<String> schema;
 
-    public Output<String> schema() {
-        return this.schema;
+    public Optional<Output<String>> schema() {
+        return Optional.ofNullable(this.schema);
     }
 
     private GetExternalFunctionsArgs() {}
@@ -53,7 +54,7 @@ public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeA
             $ = new GetExternalFunctionsArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder database(Output<String> database) {
+        public Builder database(@Nullable Output<String> database) {
             $.database = database;
             return this;
         }
@@ -62,7 +63,7 @@ public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeA
             return database(Output.of(database));
         }
 
-        public Builder schema(Output<String> schema) {
+        public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
@@ -72,12 +73,6 @@ public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetExternalFunctionsArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetExternalFunctionsArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetExternalFunctionsArgs", "schema");
-            }
             return $;
         }
     }

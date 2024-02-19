@@ -217,14 +217,14 @@ public final class ExternalFunctionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Import(name="returnNullAllowed")
     private @Nullable Output<Boolean> returnNullAllowed;
 
     /**
-     * @return Indicates whether the function can return NULL values or must return only NON-NULL values.
+     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Optional<Output<Boolean>> returnNullAllowed() {
@@ -620,7 +620,7 @@ public final class ExternalFunctionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param returnNullAllowed Indicates whether the function can return NULL values or must return only NON-NULL values.
+         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class ExternalFunctionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param returnNullAllowed Indicates whether the function can return NULL values or must return only NON-NULL values.
+         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 

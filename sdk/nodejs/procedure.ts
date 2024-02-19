@@ -85,6 +85,8 @@ export class Procedure extends pulumi.CustomResource {
     public readonly packages!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the behavior of the function when returning results
+     *
+     * @deprecated These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
      */
     public readonly returnBehavior!: pulumi.Output<string | undefined>;
     /**
@@ -99,6 +101,10 @@ export class Procedure extends pulumi.CustomResource {
      * The schema in which to create the procedure. Don't use the | character.
      */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     */
+    public readonly secure!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the code used to create the procedure.
      */
@@ -131,6 +137,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["returnType"] = state ? state.returnType : undefined;
             resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["secure"] = state ? state.secure : undefined;
             resourceInputs["statement"] = state ? state.statement : undefined;
         } else {
             const args = argsOrState as ProcedureArgs | undefined;
@@ -160,6 +167,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["returnType"] = args ? args.returnType : undefined;
             resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["secure"] = args ? args.secure : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -213,6 +221,8 @@ export interface ProcedureState {
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the behavior of the function when returning results
+     *
+     * @deprecated These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
      */
     returnBehavior?: pulumi.Input<string>;
     /**
@@ -227,6 +237,10 @@ export interface ProcedureState {
      * The schema in which to create the procedure. Don't use the | character.
      */
     schema?: pulumi.Input<string>;
+    /**
+     * Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     */
+    secure?: pulumi.Input<boolean>;
     /**
      * Specifies the code used to create the procedure.
      */
@@ -279,6 +293,8 @@ export interface ProcedureArgs {
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the behavior of the function when returning results
+     *
+     * @deprecated These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.
      */
     returnBehavior?: pulumi.Input<string>;
     /**
@@ -293,6 +309,10 @@ export interface ProcedureArgs {
      * The schema in which to create the procedure. Don't use the | character.
      */
     schema: pulumi.Input<string>;
+    /**
+     * Specifies that the procedure is secure. For more information about secure procedures, see Protecting Sensitive Information with Secure UDFs and Stored Procedures.
+     */
+    secure?: pulumi.Input<boolean>;
     /**
      * Specifies the code used to create the procedure.
      */

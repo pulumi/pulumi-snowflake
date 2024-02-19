@@ -51,7 +51,7 @@ class ExternalFunctionArgs:
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
-        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
+        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         pulumi.set(__self__, "api_integration", api_integration)
         pulumi.set(__self__, "database", database)
@@ -278,7 +278,7 @@ class ExternalFunctionArgs:
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the function can return NULL values or must return only NON-NULL values.
+        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
@@ -324,7 +324,7 @@ class _ExternalFunctionState:
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
+        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[str] schema: The schema in which to create the external function.
         :param pulumi.Input[str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -538,7 +538,7 @@ class _ExternalFunctionState:
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the function can return NULL values or must return only NON-NULL values.
+        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
@@ -655,7 +655,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
+        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[str] schema: The schema in which to create the external function.
         :param pulumi.Input[str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -820,7 +820,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values or must return only NON-NULL values.
+        :param pulumi.Input[bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[str] schema: The schema in which to create the external function.
         :param pulumi.Input[str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -965,7 +965,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the function can return NULL values or must return only NON-NULL values.
+        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 

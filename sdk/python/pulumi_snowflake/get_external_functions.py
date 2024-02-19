@@ -38,7 +38,7 @@ class GetExternalFunctionsResult:
 
     @property
     @pulumi.getter
-    def database(self) -> str:
+    def database(self) -> Optional[str]:
         """
         The database from which to return the schemas from.
         """
@@ -62,7 +62,7 @@ class GetExternalFunctionsResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def schema(self) -> Optional[str]:
         """
         The schema from which to return the external functions from.
         """
@@ -109,8 +109,8 @@ def get_external_functions(database: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_external_functions)
-def get_external_functions_output(database: Optional[pulumi.Input[str]] = None,
-                                  schema: Optional[pulumi.Input[str]] = None,
+def get_external_functions_output(database: Optional[pulumi.Input[Optional[str]]] = None,
+                                  schema: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalFunctionsResult]:
     """
     ## Example Usage

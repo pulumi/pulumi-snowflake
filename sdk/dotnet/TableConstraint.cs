@@ -78,7 +78,7 @@ namespace Pulumi.Snowflake
     ///     var primaryKey = new Snowflake.TableConstraint("primaryKey", new()
     ///     {
     ///         Type = "PRIMARY KEY",
-    ///         TableId = table.Id,
+    ///         TableId = table.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col1",
@@ -89,7 +89,7 @@ namespace Pulumi.Snowflake
     ///     var foreignKey = new Snowflake.TableConstraint("foreignKey", new()
     ///     {
     ///         Type = "FOREIGN KEY",
-    ///         TableId = table.Id,
+    ///         TableId = table.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col2",
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
     ///         {
     ///             References = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesReferencesArgs
     ///             {
-    ///                 TableId = fkT.Id,
+    ///                 TableId = fkT.QualifiedName,
     ///                 Columns = new[]
     ///                 {
     ///                     "fk_col1",
@@ -114,7 +114,7 @@ namespace Pulumi.Snowflake
     ///     var unique = new Snowflake.TableConstraint("unique", new()
     ///     {
     ///         Type = "UNIQUE",
-    ///         TableId = table.Id,
+    ///         TableId = table.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col3",
@@ -195,7 +195,7 @@ namespace Pulumi.Snowflake
         public Output<string> TableId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Snowflake
         public Input<string> TableId { get; set; } = null!;
 
         /// <summary>
-        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -405,7 +405,7 @@ namespace Pulumi.Snowflake
         public Input<string>? TableId { get; set; }
 
         /// <summary>
-        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+        /// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

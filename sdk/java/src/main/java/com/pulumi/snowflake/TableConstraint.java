@@ -93,18 +93,18 @@ import javax.annotation.Nullable;
  * 
  *         var primaryKey = new TableConstraint(&#34;primaryKey&#34;, TableConstraintArgs.builder()        
  *             .type(&#34;PRIMARY KEY&#34;)
- *             .tableId(table.id())
+ *             .tableId(table.qualifiedName())
  *             .columns(&#34;col1&#34;)
  *             .comment(&#34;hello world&#34;)
  *             .build());
  * 
  *         var foreignKey = new TableConstraint(&#34;foreignKey&#34;, TableConstraintArgs.builder()        
  *             .type(&#34;FOREIGN KEY&#34;)
- *             .tableId(table.id())
+ *             .tableId(table.qualifiedName())
  *             .columns(&#34;col2&#34;)
  *             .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()
  *                 .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()
- *                     .tableId(fkT.id())
+ *                     .tableId(fkT.qualifiedName())
  *                     .columns(&#34;fk_col1&#34;)
  *                     .build())
  *                 .build())
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  *         var unique = new TableConstraint(&#34;unique&#34;, TableConstraintArgs.builder()        
  *             .type(&#34;UNIQUE&#34;)
- *             .tableId(table.id())
+ *             .tableId(table.qualifiedName())
  *             .columns(&#34;col3&#34;)
  *             .comment(&#34;hello unique&#34;)
  *             .build());
@@ -151,7 +151,11 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
     /**
      * Comment for the table constraint
      * 
+     * @deprecated
+     * Not used. Will be removed.
+     * 
      */
+    @Deprecated /* Not used. Will be removed. */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
@@ -275,14 +279,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return this.tableId;
     }
     /**
-     * Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+     * Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, &#39;FOREIGN KEY&#39;, or &#39;NOT NULL&#39;
+     * @return Type of constraint, one of &#39;UNIQUE&#39;, &#39;PRIMARY KEY&#39;, or &#39;FOREIGN KEY&#39;
      * 
      */
     public Output<String> type() {

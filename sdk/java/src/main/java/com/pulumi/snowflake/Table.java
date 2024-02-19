@@ -109,11 +109,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
      * 
-     * @deprecated
-     * Use snowflake_object_parameter instead
-     * 
      */
-    @Deprecated /* Use snowflake_object_parameter instead */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 

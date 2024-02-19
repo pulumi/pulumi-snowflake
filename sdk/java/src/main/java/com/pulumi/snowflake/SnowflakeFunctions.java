@@ -1127,6 +1127,78 @@ public final class SnowflakeFunctions {
      * ```
      * 
      */
+    public static Output<GetExternalFunctionsResult> getExternalFunctions() {
+        return getExternalFunctions(GetExternalFunctionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain() {
+        return getExternalFunctionsPlain(GetExternalFunctionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
+     *             .database(&#34;MYDB&#34;)
+     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args) {
         return getExternalFunctions(args, InvokeOptions.Empty);
     }

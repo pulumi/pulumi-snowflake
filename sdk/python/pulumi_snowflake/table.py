@@ -56,9 +56,6 @@ class TableArgs:
         if data_retention_days is not None:
             pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
-            warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
-            pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
-        if data_retention_time_in_days is not None:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -166,9 +163,6 @@ class TableArgs:
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
-        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
-
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
@@ -264,9 +258,6 @@ class _TableState:
         if data_retention_days is not None:
             pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
-            warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
-            pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
-        if data_retention_time_in_days is not None:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if database is not None:
             pulumi.set(__self__, "database", database)
@@ -358,9 +349,6 @@ class _TableState:
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
-        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
-
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
@@ -679,9 +667,6 @@ class Table(pulumi.CustomResource):
         """
         Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
         """
-        warnings.warn("""Use snowflake_object_parameter instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_time_in_days is deprecated: Use snowflake_object_parameter instead""")
-
         return pulumi.get(self, "data_retention_time_in_days")
 
     @property

@@ -79,6 +79,21 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Time when this dynamic table was created.
+     * 
+     */
+    @Import(name="createdOn")
+    private @Nullable Output<String> createdOn;
+
+    /**
+     * @return Time when this dynamic table was created.
+     * 
+     */
+    public Optional<Output<String>> createdOn() {
+        return Optional.ofNullable(this.createdOn);
+    }
+
+    /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      * 
      */
@@ -106,6 +121,21 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
+    }
+
+    /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    @Import(name="initialize")
+    private @Nullable Output<String> initialize;
+
+    /**
+     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    public Optional<Output<String>> initialize() {
+        return Optional.ofNullable(this.initialize);
     }
 
     /**
@@ -214,14 +244,14 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
     @Import(name="refreshMode")
     private @Nullable Output<String> refreshMode;
 
     /**
-     * @return INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
     public Optional<Output<String>> refreshMode() {
@@ -325,8 +355,10 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         this.bytes = $.bytes;
         this.clusterBy = $.clusterBy;
         this.comment = $.comment;
+        this.createdOn = $.createdOn;
         this.dataTimestamp = $.dataTimestamp;
         this.database = $.database;
+        this.initialize = $.initialize;
         this.isClone = $.isClone;
         this.isReplica = $.isReplica;
         this.lastSuspendedOn = $.lastSuspendedOn;
@@ -446,6 +478,27 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param createdOn Time when this dynamic table was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdOn(@Nullable Output<String> createdOn) {
+            $.createdOn = createdOn;
+            return this;
+        }
+
+        /**
+         * @param createdOn Time when this dynamic table was created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdOn(String createdOn) {
+            return createdOn(Output.of(createdOn));
+        }
+
+        /**
          * @param dataTimestamp Timestamp of the data in the base object(s) that is included in the dynamic table.
          * 
          * @return builder
@@ -485,6 +538,27 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialize(@Nullable Output<String> initialize) {
+            $.initialize = initialize;
+            return this;
+        }
+
+        /**
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialize(String initialize) {
+            return initialize(Output.of(initialize));
         }
 
         /**
@@ -635,7 +709,7 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshMode INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
          * 
          * @return builder
          * 
@@ -646,7 +720,7 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshMode INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
          * 
          * @return builder
          * 

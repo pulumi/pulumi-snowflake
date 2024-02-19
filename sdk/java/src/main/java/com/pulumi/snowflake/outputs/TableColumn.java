@@ -31,7 +31,7 @@ public final class TableColumn {
      */
     private @Nullable TableColumnIdentity identity;
     /**
-     * @return Masking policy to apply on column
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     private @Nullable String maskingPolicy;
@@ -74,7 +74,7 @@ public final class TableColumn {
         return Optional.ofNullable(this.identity);
     }
     /**
-     * @return Masking policy to apply on column
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     public Optional<String> maskingPolicy() {

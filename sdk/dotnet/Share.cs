@@ -22,11 +22,21 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.Share("test", new()
     ///     {
+    ///         Comment = "cool comment",
     ///         Accounts = new[]
     ///         {
     ///             "organizationName.accountName",
     ///         },
-    ///         Comment = "cool comment",
+    ///     });
+    /// 
+    ///     var example = new Snowflake.Database("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             test,
+    ///         },
     ///     });
     /// 
     /// });

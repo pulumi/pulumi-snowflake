@@ -122,6 +122,20 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
+     * Time when this dynamic table was created.
+     * 
+     */
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
+    private Output<String> createdOn;
+
+    /**
+     * @return Time when this dynamic table was created.
+     * 
+     */
+    public Output<String> createdOn() {
+        return this.createdOn;
+    }
+    /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      * 
      */
@@ -148,6 +162,20 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    @Export(name="initialize", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> initialize;
+
+    /**
+     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * 
+     */
+    public Output<Optional<String>> initialize() {
+        return Codegen.optional(this.initialize);
     }
     /**
      * TRUE if the dynamic table has been cloned, else FALSE.
@@ -248,18 +276,18 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
     @Export(name="refreshMode", refs={String.class}, tree="[0]")
-    private Output<String> refreshMode;
+    private Output</* @Nullable */ String> refreshMode;
 
     /**
-     * @return INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
-    public Output<String> refreshMode() {
-        return this.refreshMode;
+    public Output<Optional<String>> refreshMode() {
+        return Codegen.optional(this.refreshMode);
     }
     /**
      * Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.

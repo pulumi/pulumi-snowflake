@@ -91,7 +91,7 @@ type ExternalFunction struct {
 	ResponseTranslator pulumi.StringPtrOutput `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringOutput `pulumi:"returnBehavior"`
-	// Indicates whether the function can return NULL values or must return only NON-NULL values.
+	// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 	ReturnNullAllowed pulumi.BoolPtrOutput `pulumi:"returnNullAllowed"`
 	// Specifies the data type returned by the external function.
 	ReturnType pulumi.StringOutput `pulumi:"returnType"`
@@ -177,7 +177,7 @@ type externalFunctionState struct {
 	ResponseTranslator *string `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior *string `pulumi:"returnBehavior"`
-	// Indicates whether the function can return NULL values or must return only NON-NULL values.
+	// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 	ReturnNullAllowed *bool `pulumi:"returnNullAllowed"`
 	// Specifies the data type returned by the external function.
 	ReturnType *string `pulumi:"returnType"`
@@ -216,7 +216,7 @@ type ExternalFunctionState struct {
 	ResponseTranslator pulumi.StringPtrInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringPtrInput
-	// Indicates whether the function can return NULL values or must return only NON-NULL values.
+	// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 	ReturnNullAllowed pulumi.BoolPtrInput
 	// Specifies the data type returned by the external function.
 	ReturnType pulumi.StringPtrInput
@@ -257,7 +257,7 @@ type externalFunctionArgs struct {
 	ResponseTranslator *string `pulumi:"responseTranslator"`
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior string `pulumi:"returnBehavior"`
-	// Indicates whether the function can return NULL values or must return only NON-NULL values.
+	// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 	ReturnNullAllowed *bool `pulumi:"returnNullAllowed"`
 	// Specifies the data type returned by the external function.
 	ReturnType string `pulumi:"returnType"`
@@ -295,7 +295,7 @@ type ExternalFunctionArgs struct {
 	ResponseTranslator pulumi.StringPtrInput
 	// Specifies the behavior of the function when returning results
 	ReturnBehavior pulumi.StringInput
-	// Indicates whether the function can return NULL values or must return only NON-NULL values.
+	// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 	ReturnNullAllowed pulumi.BoolPtrInput
 	// Specifies the data type returned by the external function.
 	ReturnType pulumi.StringInput
@@ -462,7 +462,7 @@ func (o ExternalFunctionOutput) ReturnBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.ReturnBehavior }).(pulumi.StringOutput)
 }
 
-// Indicates whether the function can return NULL values or must return only NON-NULL values.
+// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
 func (o ExternalFunctionOutput) ReturnNullAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.BoolPtrOutput { return v.ReturnNullAllowed }).(pulumi.BoolPtrOutput)
 }

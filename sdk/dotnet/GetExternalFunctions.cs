@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetExternalFunctionsResult> InvokeAsync(GetExternalFunctionsArgs args, InvokeOptions? options = null)
+        public static Task<GetExternalFunctionsResult> InvokeAsync(GetExternalFunctionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsArgs(), options.WithDefaults());
 
         /// <summary>
@@ -62,18 +62,18 @@ namespace Pulumi.Snowflake
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetExternalFunctionsResult> Invoke(GetExternalFunctionsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetExternalFunctionsResult> Invoke(GetExternalFunctionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetExternalFunctionsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("database")]
+        public string? Database { get; set; }
 
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("schema")]
+        public string? Schema { get; set; }
 
         public GetExternalFunctionsArgs()
         {
@@ -83,11 +83,11 @@ namespace Pulumi.Snowflake
 
     public sealed class GetExternalFunctionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("database")]
+        public Input<string>? Database { get; set; }
 
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("schema")]
+        public Input<string>? Schema { get; set; }
 
         public GetExternalFunctionsInvokeArgs()
         {
@@ -102,7 +102,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The database from which to return the schemas from.
         /// </summary>
-        public readonly string Database;
+        public readonly string? Database;
         /// <summary>
         /// The external functions in the schema
         /// </summary>
@@ -114,17 +114,17 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// The schema from which to return the external functions from.
         /// </summary>
-        public readonly string Schema;
+        public readonly string? Schema;
 
         [OutputConstructor]
         private GetExternalFunctionsResult(
-            string database,
+            string? database,
 
             ImmutableArray<Outputs.GetExternalFunctionsExternalFunctionResult> externalFunctions,
 
             string id,
 
-            string schema)
+            string? schema)
         {
             Database = database;
             ExternalFunctions = externalFunctions;

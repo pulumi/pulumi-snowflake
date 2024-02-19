@@ -34,7 +34,7 @@ type Function struct {
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// Specifies that the function is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// The language of the statement
+	// Specifies the language of the stored function code.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// The argument name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -50,7 +50,7 @@ type Function struct {
 	RuntimeVersion pulumi.StringPtrOutput `pulumi:"runtimeVersion"`
 	// The schema in which to create the function. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies the javascript / java / sql / python code used to create the function.
+	// Specifies the javascript / java / scala / sql / python code used to create the function.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrOutput `pulumi:"targetPath"`
@@ -110,7 +110,7 @@ type functionState struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies that the function is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// The language of the statement
+	// Specifies the language of the stored function code.
 	Language *string `pulumi:"language"`
 	// The argument name
 	Name *string `pulumi:"name"`
@@ -126,7 +126,7 @@ type functionState struct {
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the function. Don't use the | character.
 	Schema *string `pulumi:"schema"`
-	// Specifies the javascript / java / sql / python code used to create the function.
+	// Specifies the javascript / java / scala / sql / python code used to create the function.
 	Statement *string `pulumi:"statement"`
 	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath *string `pulumi:"targetPath"`
@@ -145,7 +145,7 @@ type FunctionState struct {
 	Imports pulumi.StringArrayInput
 	// Specifies that the function is secure.
 	IsSecure pulumi.BoolPtrInput
-	// The language of the statement
+	// Specifies the language of the stored function code.
 	Language pulumi.StringPtrInput
 	// The argument name
 	Name pulumi.StringPtrInput
@@ -161,7 +161,7 @@ type FunctionState struct {
 	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the function. Don't use the | character.
 	Schema pulumi.StringPtrInput
-	// Specifies the javascript / java / sql / python code used to create the function.
+	// Specifies the javascript / java / scala / sql / python code used to create the function.
 	Statement pulumi.StringPtrInput
 	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrInput
@@ -184,7 +184,7 @@ type functionArgs struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies that the function is secure.
 	IsSecure *bool `pulumi:"isSecure"`
-	// The language of the statement
+	// Specifies the language of the stored function code.
 	Language *string `pulumi:"language"`
 	// The argument name
 	Name *string `pulumi:"name"`
@@ -200,7 +200,7 @@ type functionArgs struct {
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The schema in which to create the function. Don't use the | character.
 	Schema string `pulumi:"schema"`
-	// Specifies the javascript / java / sql / python code used to create the function.
+	// Specifies the javascript / java / scala / sql / python code used to create the function.
 	Statement string `pulumi:"statement"`
 	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath *string `pulumi:"targetPath"`
@@ -220,7 +220,7 @@ type FunctionArgs struct {
 	Imports pulumi.StringArrayInput
 	// Specifies that the function is secure.
 	IsSecure pulumi.BoolPtrInput
-	// The language of the statement
+	// Specifies the language of the stored function code.
 	Language pulumi.StringPtrInput
 	// The argument name
 	Name pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type FunctionArgs struct {
 	RuntimeVersion pulumi.StringPtrInput
 	// The schema in which to create the function. Don't use the | character.
 	Schema pulumi.StringInput
-	// Specifies the javascript / java / sql / python code used to create the function.
+	// Specifies the javascript / java / scala / sql / python code used to create the function.
 	Statement pulumi.StringInput
 	// The target path for the Java / Python functions. For Java, it is the path of compiled jar files and for the Python it is the path of the Python files.
 	TargetPath pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o FunctionOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
 
-// The language of the statement
+// Specifies the language of the stored function code.
 func (o FunctionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
@@ -399,7 +399,7 @@ func (o FunctionOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies the javascript / java / sql / python code used to create the function.
+// Specifies the javascript / java / scala / sql / python code used to create the function.
 func (o FunctionOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }

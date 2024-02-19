@@ -5296,7 +5296,7 @@ type TableColumn struct {
 	Default *TableColumnDefault `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
-	// Masking policy to apply on column
+	// Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy *string `pulumi:"maskingPolicy"`
 	// Column name
 	Name string `pulumi:"name"`
@@ -5324,7 +5324,7 @@ type TableColumnArgs struct {
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
-	// Masking policy to apply on column
+	// Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy pulumi.StringPtrInput `pulumi:"maskingPolicy"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5400,7 +5400,7 @@ func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
-// Masking policy to apply on column
+// Masking policy to apply on column. It has to be a fully qualified name.
 func (o TableColumnOutput) MaskingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.MaskingPolicy }).(pulumi.StringPtrOutput)
 }

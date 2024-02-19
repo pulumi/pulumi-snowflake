@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.TableColumnIdentity? Identity;
         /// <summary>
-        /// Masking policy to apply on column
+        /// Masking policy to apply on column. It has to be a fully qualified name.
         /// </summary>
         public readonly string? MaskingPolicy;
         /// <summary>

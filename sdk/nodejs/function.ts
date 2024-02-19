@@ -68,7 +68,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
-     * The language of the statement
+     * Specifies the language of the stored function code.
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
@@ -100,7 +100,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Specifies the javascript / java / sql / python code used to create the function.
+     * Specifies the javascript / java / scala / sql / python code used to create the function.
      */
     public readonly statement!: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export interface FunctionState {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * The language of the statement
+     * Specifies the language of the stored function code.
      */
     language?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface FunctionState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies the javascript / java / sql / python code used to create the function.
+     * Specifies the javascript / java / scala / sql / python code used to create the function.
      */
     statement?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface FunctionArgs {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * The language of the statement
+     * Specifies the language of the stored function code.
      */
     language?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface FunctionArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the javascript / java / sql / python code used to create the function.
+     * Specifies the javascript / java / scala / sql / python code used to create the function.
      */
     statement: pulumi.Input<string>;
     /**

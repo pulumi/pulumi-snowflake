@@ -54,17 +54,17 @@ import * as utilities from "./utilities";
  * });
  * const primaryKey = new snowflake.TableConstraint("primaryKey", {
  *     type: "PRIMARY KEY",
- *     tableId: table.id,
+ *     tableId: table.qualifiedName,
  *     columns: ["col1"],
  *     comment: "hello world",
  * });
  * const foreignKey = new snowflake.TableConstraint("foreignKey", {
  *     type: "FOREIGN KEY",
- *     tableId: table.id,
+ *     tableId: table.qualifiedName,
  *     columns: ["col2"],
  *     foreignKeyProperties: {
  *         references: {
- *             tableId: fkT.id,
+ *             tableId: fkT.qualifiedName,
  *             columns: ["fk_col1"],
  *         },
  *     },
@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  * });
  * const unique = new snowflake.TableConstraint("unique", {
  *     type: "UNIQUE",
- *     tableId: table.id,
+ *     tableId: table.qualifiedName,
  *     columns: ["col3"],
  *     comment: "hello unique",
  * });
@@ -121,6 +121,8 @@ export class TableConstraint extends pulumi.CustomResource {
     public readonly columns!: pulumi.Output<string[]>;
     /**
      * Comment for the table constraint
+     *
+     * @deprecated Not used. Will be removed.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -156,7 +158,7 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly tableId!: pulumi.Output<string>;
     /**
-     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -228,6 +230,8 @@ export interface TableConstraintState {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Comment for the table constraint
+     *
+     * @deprecated Not used. Will be removed.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -263,7 +267,7 @@ export interface TableConstraintState {
      */
     tableId?: pulumi.Input<string>;
     /**
-     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
      */
     type?: pulumi.Input<string>;
     /**
@@ -282,6 +286,8 @@ export interface TableConstraintArgs {
     columns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Comment for the table constraint
+     *
+     * @deprecated Not used. Will be removed.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -317,7 +323,7 @@ export interface TableConstraintArgs {
      */
     tableId: pulumi.Input<string>;
     /**
-     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', 'FOREIGN KEY', or 'NOT NULL'
+     * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
      */
     type: pulumi.Input<string>;
     /**
