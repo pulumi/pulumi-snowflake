@@ -26,6 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
 //			_, err := snowflake.NewDynamicTable(ctx, "dt", &snowflake.DynamicTableArgs{
 //				Comment:  pulumi.String("example comment"),
 //				Database: pulumi.String("mydb"),

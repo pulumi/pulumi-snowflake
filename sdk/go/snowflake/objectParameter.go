@@ -91,6 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Setting object parameter at account level
 //			_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
 //				Key:       pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
 //				Value:     pulumi.String("89"),
