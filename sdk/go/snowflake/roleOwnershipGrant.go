@@ -36,6 +36,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ensure the Terraform user inherits ownership privileges for the rking_test_role role
+//			// otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
 //			_, err = snowflake.NewRoleGrants(ctx, "grants", &snowflake.RoleGrantsArgs{
 //				RoleName: role.Name,
 //				Roles: pulumi.StringArray{
