@@ -81,14 +81,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      * 
      */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
     /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      * 
      */
     public Output<Optional<Boolean>> copyGrants() {

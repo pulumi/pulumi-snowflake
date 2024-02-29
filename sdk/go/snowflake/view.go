@@ -55,7 +55,7 @@ type View struct {
 
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The timestamp at which the view was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
@@ -118,7 +118,7 @@ func GetView(ctx *pulumi.Context,
 type viewState struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The timestamp at which the view was created.
 	CreatedOn *string `pulumi:"createdOn"`
@@ -143,7 +143,7 @@ type viewState struct {
 type ViewState struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants pulumi.BoolPtrInput
 	// The timestamp at which the view was created.
 	CreatedOn pulumi.StringPtrInput
@@ -172,7 +172,7 @@ func (ViewState) ElementType() reflect.Type {
 type viewArgs struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
@@ -196,7 +196,7 @@ type viewArgs struct {
 type ViewArgs struct {
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants pulumi.BoolPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
@@ -308,7 +308,7 @@ func (o ViewOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 func (o ViewOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }

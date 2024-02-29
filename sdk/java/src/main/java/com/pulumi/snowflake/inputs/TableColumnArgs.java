@@ -20,6 +20,21 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableColumnArgs Empty = new TableColumnArgs();
 
     /**
+     * Column collation, e.g. utf8
+     * 
+     */
+    @Import(name="collate")
+    private @Nullable Output<String> collate;
+
+    /**
+     * @return Column collation, e.g. utf8
+     * 
+     */
+    public Optional<Output<String>> collate() {
+        return Optional.ofNullable(this.collate);
+    }
+
+    /**
      * Column comment
      * 
      */
@@ -127,6 +142,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     private TableColumnArgs() {}
 
     private TableColumnArgs(TableColumnArgs $) {
+        this.collate = $.collate;
         this.comment = $.comment;
         this.default_ = $.default_;
         this.identity = $.identity;
@@ -152,6 +168,27 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TableColumnArgs defaults) {
             $ = new TableColumnArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param collate Column collation, e.g. utf8
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collate(@Nullable Output<String> collate) {
+            $.collate = collate;
+            return this;
+        }
+
+        /**
+         * @param collate Column collation, e.g. utf8
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collate(String collate) {
+            return collate(Output.of(collate));
         }
 
         /**

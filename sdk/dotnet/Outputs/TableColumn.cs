@@ -14,6 +14,10 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TableColumn
     {
         /// <summary>
+        /// Column collation, e.g. utf8
+        /// </summary>
+        public readonly string? Collate;
+        /// <summary>
         /// Column comment
         /// </summary>
         public readonly string? Comment;
@@ -44,6 +48,8 @@ namespace Pulumi.Snowflake.Outputs
 
         [OutputConstructor]
         private TableColumn(
+            string? collate,
+
             string? comment,
 
             Outputs.TableColumnDefault? @default,
@@ -58,6 +64,7 @@ namespace Pulumi.Snowflake.Outputs
 
             string type)
         {
+            Collate = collate;
             Comment = comment;
             Default = @default;
             Identity = identity;

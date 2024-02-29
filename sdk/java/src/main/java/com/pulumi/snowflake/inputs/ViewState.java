@@ -34,14 +34,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      * 
      */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
     /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      * 
      */
     public Optional<Output<Boolean>> copyGrants() {
@@ -231,7 +231,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
          * 
          * @return builder
          * 

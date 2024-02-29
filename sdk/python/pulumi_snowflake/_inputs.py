@@ -1819,6 +1819,7 @@ class TableColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 collate: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input['TableColumnDefaultArgs']] = None,
                  identity: Optional[pulumi.Input['TableColumnIdentityArgs']] = None,
@@ -1827,6 +1828,7 @@ class TableColumnArgs:
         """
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] type: Column type, e.g. VARIANT
+        :param pulumi.Input[str] collate: Column collation, e.g. utf8
         :param pulumi.Input[str] comment: Column comment
         :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
@@ -1835,6 +1837,8 @@ class TableColumnArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if collate is not None:
+            pulumi.set(__self__, "collate", collate)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if default is not None:
@@ -1869,6 +1873,18 @@ class TableColumnArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def collate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column collation, e.g. utf8
+        """
+        return pulumi.get(self, "collate")
+
+    @collate.setter
+    def collate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collate", value)
 
     @property
     @pulumi.getter

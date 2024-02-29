@@ -22,7 +22,6 @@ class TableArgs:
                  change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
@@ -35,8 +34,7 @@ class TableArgs:
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[str] comment: Column comment
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
@@ -50,11 +48,6 @@ class TableArgs:
             pulumi.set(__self__, "cluster_bies", cluster_bies)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if data_retention_days is not None:
-            warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
-        if data_retention_days is not None:
-            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if name is not None:
@@ -143,25 +136,10 @@ class TableArgs:
         pulumi.set(self, "comment", value)
 
     @property
-    @pulumi.getter(name="dataRetentionDays")
-    def data_retention_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        """
-        warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
-
-        return pulumi.get(self, "data_retention_days")
-
-    @data_retention_days.setter
-    def data_retention_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "data_retention_days", value)
-
-    @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -219,7 +197,6 @@ class _TableState:
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -234,8 +211,7 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Column comment
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] owner: Name of the role that owns the table.
@@ -252,11 +228,6 @@ class _TableState:
             pulumi.set(__self__, "columns", columns)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if data_retention_days is not None:
-            warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
-        if data_retention_days is not None:
-            pulumi.set(__self__, "data_retention_days", data_retention_days)
         if data_retention_time_in_days is not None:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if database is not None:
@@ -329,25 +300,10 @@ class _TableState:
         pulumi.set(self, "comment", value)
 
     @property
-    @pulumi.getter(name="dataRetentionDays")
-    def data_retention_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        """
-        warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
-
-        return pulumi.get(self, "data_retention_days")
-
-    @data_retention_days.setter
-    def data_retention_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "data_retention_days", value)
-
-    @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -455,7 +411,6 @@ class Table(pulumi.CustomResource):
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -478,8 +433,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Column comment
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
@@ -520,7 +474,6 @@ class Table(pulumi.CustomResource):
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 data_retention_days: Optional[pulumi.Input[int]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -542,7 +495,6 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'columns'")
             __props__.__dict__["columns"] = columns
             __props__.__dict__["comment"] = comment
-            __props__.__dict__["data_retention_days"] = data_retention_days
             __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
@@ -569,7 +521,6 @@ class Table(pulumi.CustomResource):
             cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            data_retention_days: Optional[pulumi.Input[int]] = None,
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             database: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -589,8 +540,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Column comment
-        :param pulumi.Input[int] data_retention_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] owner: Name of the role that owns the table.
@@ -607,7 +557,6 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["cluster_bies"] = cluster_bies
         __props__.__dict__["columns"] = columns
         __props__.__dict__["comment"] = comment
-        __props__.__dict__["data_retention_days"] = data_retention_days
         __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
         __props__.__dict__["database"] = database
         __props__.__dict__["name"] = name
@@ -651,21 +600,10 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "comment")
 
     @property
-    @pulumi.getter(name="dataRetentionDays")
-    def data_retention_days(self) -> pulumi.Output[Optional[int]]:
-        """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-        """
-        warnings.warn("""Use data_retention_time_in_days attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""data_retention_days is deprecated: Use data_retention_time_in_days attribute instead""")
-
-        return pulumi.get(self, "data_retention_days")
-
-    @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 

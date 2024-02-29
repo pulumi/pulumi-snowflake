@@ -30,11 +30,7 @@ type Table struct {
 	Columns TableColumnArrayOutput `pulumi:"columns"`
 	// Column comment
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-	//
-	// Deprecated: Use data_retention_time_in_days attribute instead
-	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
 	// Name of the database that the tag was created in.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -103,11 +99,7 @@ type tableState struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Column comment
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-	//
-	// Deprecated: Use data_retention_time_in_days attribute instead
-	DataRetentionDays *int `pulumi:"dataRetentionDays"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -138,11 +130,7 @@ type TableState struct {
 	Columns TableColumnArrayInput
 	// Column comment
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-	//
-	// Deprecated: Use data_retention_time_in_days attribute instead
-	DataRetentionDays pulumi.IntPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput
@@ -177,11 +165,7 @@ type tableArgs struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Column comment
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-	//
-	// Deprecated: Use data_retention_time_in_days attribute instead
-	DataRetentionDays *int `pulumi:"dataRetentionDays"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
@@ -209,11 +193,7 @@ type TableArgs struct {
 	Columns TableColumnArrayInput
 	// Column comment
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-	//
-	// Deprecated: Use data_retention_time_in_days attribute instead
-	DataRetentionDays pulumi.IntPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
@@ -338,14 +318,7 @@ func (o TableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-//
-// Deprecated: Use data_retention_time_in_days attribute instead
-func (o TableOutput) DataRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionDays }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 func (o TableOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }

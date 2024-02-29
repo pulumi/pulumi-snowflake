@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * const fromReplica = new snowflake.Database("fromReplica", {
  *     comment: "test comment",
  *     dataRetentionTimeInDays: 3,
- *     fromReplica: "org1\".\"account1\".\"primary_db_name",
+ *     fromReplica: "\"org1\".\"account1\".\"primary_db_name\"",
  * });
  * const fromShare = new snowflake.Database("fromShare", {
  *     comment: "test comment",
@@ -77,7 +77,7 @@ export class Database extends pulumi.CustomResource {
 
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
@@ -145,7 +145,7 @@ export class Database extends pulumi.CustomResource {
 export interface DatabaseState {
     comment?: pulumi.Input<string>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
@@ -177,7 +177,7 @@ export interface DatabaseState {
 export interface DatabaseArgs {
     comment?: pulumi.Input<string>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**

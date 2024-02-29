@@ -1101,6 +1101,10 @@ export interface StageTag {
 
 export interface TableColumn {
     /**
+     * Column collation, e.g. utf8
+     */
+    collate?: string;
+    /**
      * Column comment
      */
     comment?: string;
