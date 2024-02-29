@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *         var fromReplica = new Database(&#34;fromReplica&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment&#34;)
  *             .dataRetentionTimeInDays(3)
- *             .fromReplica(&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name&#34;)
+ *             .fromReplica(&#34;\&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name\&#34;&#34;)
  *             .build());
  * 
  *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
@@ -91,14 +91,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding &amp; Using Time Travel.
+     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
      * 
      */
     public Output<Optional<Integer>> dataRetentionTimeInDays() {

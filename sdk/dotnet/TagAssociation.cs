@@ -88,6 +88,22 @@ namespace Pulumi.Snowflake
     ///         TagValue = "engineering",
     ///     });
     /// 
+    ///     var columnAssociation = new Snowflake.TagAssociation("columnAssociation", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
+    ///             {
+    ///                 Name = test.Name.Apply(name =&gt; $"{name}.column_name"),
+    ///                 Database = snowflake_database.Test.Name,
+    ///                 Schema = snowflake_schema.Test.Name,
+    ///             },
+    ///         },
+    ///         ObjectType = "COLUMN",
+    ///         TagId = snowflake_tag.Test.Id,
+    ///         TagValue = "engineering",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

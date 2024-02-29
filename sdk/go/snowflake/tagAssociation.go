@@ -19,6 +19,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -87,6 +89,23 @@ import (
 //					},
 //				},
 //				ObjectType: pulumi.String("TABLE"),
+//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
+//				TagValue:   pulumi.String("engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTagAssociation(ctx, "columnAssociation", &snowflake.TagAssociationArgs{
+//				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
+//					&snowflake.TagAssociationObjectIdentifierArgs{
+//						Name: test.Name.ApplyT(func(name string) (string, error) {
+//							return fmt.Sprintf("%v.column_name", name), nil
+//						}).(pulumi.StringOutput),
+//						Database: pulumi.Any(snowflake_database.Test.Name),
+//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//					},
+//				},
+//				ObjectType: pulumi.String("COLUMN"),
 //				TagId:      pulumi.Any(snowflake_tag.Test.Id),
 //				TagValue:   pulumi.String("engineering"),
 //			})

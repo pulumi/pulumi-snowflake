@@ -5290,6 +5290,8 @@ func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
 }
 
 type TableColumn struct {
+	// Column collation, e.g. utf8
+	Collate *string `pulumi:"collate"`
 	// Column comment
 	Comment *string `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
@@ -5318,6 +5320,8 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
+	// Column collation, e.g. utf8
+	Collate pulumi.StringPtrInput `pulumi:"collate"`
 	// Column comment
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
@@ -5383,6 +5387,11 @@ func (o TableColumnOutput) ToTableColumnOutput() TableColumnOutput {
 
 func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) TableColumnOutput {
 	return o
+}
+
+// Column collation, e.g. utf8
+func (o TableColumnOutput) Collate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.Collate }).(pulumi.StringPtrOutput)
 }
 
 // Column comment

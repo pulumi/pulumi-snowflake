@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        /// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }

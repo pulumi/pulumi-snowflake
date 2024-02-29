@@ -56,6 +56,16 @@ import * as utilities from "./utilities";
  *     tagId: snowflake_tag.test.id,
  *     tagValue: "engineering",
  * });
+ * const columnAssociation = new snowflake.TagAssociation("columnAssociation", {
+ *     objectIdentifiers: [{
+ *         name: pulumi.interpolate`${test.name}.column_name`,
+ *         database: snowflake_database.test.name,
+ *         schema: snowflake_schema.test.name,
+ *     }],
+ *     objectType: "COLUMN",
+ *     tagId: snowflake_tag.test.id,
+ *     tagValue: "engineering",
+ * });
  * ```
  *
  * ## Import

@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableColumn {
     /**
+     * @return Column collation, e.g. utf8
+     * 
+     */
+    private @Nullable String collate;
+    /**
      * @return Column comment
      * 
      */
@@ -52,6 +57,13 @@ public final class TableColumn {
     private String type;
 
     private TableColumn() {}
+    /**
+     * @return Column collation, e.g. utf8
+     * 
+     */
+    public Optional<String> collate() {
+        return Optional.ofNullable(this.collate);
+    }
     /**
      * @return Column comment
      * 
@@ -111,6 +123,7 @@ public final class TableColumn {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String collate;
         private @Nullable String comment;
         private @Nullable TableColumnDefault default_;
         private @Nullable TableColumnIdentity identity;
@@ -121,6 +134,7 @@ public final class TableColumn {
         public Builder() {}
         public Builder(TableColumn defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.collate = defaults.collate;
     	      this.comment = defaults.comment;
     	      this.default_ = defaults.default_;
     	      this.identity = defaults.identity;
@@ -130,6 +144,12 @@ public final class TableColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder collate(@Nullable String collate) {
+
+            this.collate = collate;
+            return this;
+        }
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
 
@@ -178,6 +198,7 @@ public final class TableColumn {
         }
         public TableColumn build() {
             final var _resultValue = new TableColumn();
+            _resultValue.collate = collate;
             _resultValue.comment = comment;
             _resultValue.default_ = default_;
             _resultValue.identity = identity;

@@ -60,13 +60,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-     *
-     * @deprecated Use data_retention_time_in_days attribute instead
-     */
-    public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
-    /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
@@ -119,7 +113,6 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["clusterBies"] = state ? state.clusterBies : undefined;
             resourceInputs["columns"] = state ? state.columns : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["dataRetentionDays"] = state ? state.dataRetentionDays : undefined;
             resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -143,7 +136,6 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["clusterBies"] = args ? args.clusterBies : undefined;
             resourceInputs["columns"] = args ? args.columns : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["dataRetentionDays"] = args ? args.dataRetentionDays : undefined;
             resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -179,13 +171,7 @@ export interface TableState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-     *
-     * @deprecated Use data_retention_time_in_days attribute instead
-     */
-    dataRetentionDays?: pulumi.Input<number>;
-    /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
@@ -243,13 +229,7 @@ export interface TableArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
-     *
-     * @deprecated Use data_retention_time_in_days attribute instead
-     */
-    dataRetentionDays?: pulumi.Input<number>;
-    /**
-     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. Default value is 1, if you wish to inherit the parent schema setting then pass in the schema attribute to this argument.
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**

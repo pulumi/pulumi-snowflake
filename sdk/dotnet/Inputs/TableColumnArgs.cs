@@ -13,6 +13,12 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TableColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Column collation, e.g. utf8
+        /// </summary>
+        [Input("collate")]
+        public Input<string>? Collate { get; set; }
+
+        /// <summary>
         /// Column comment
         /// </summary>
         [Input("comment")]

@@ -54,7 +54,7 @@ type Schema struct {
 
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 	DataRetentionDays pulumi.IntPtrOutput `pulumi:"dataRetentionDays"`
 	// Name of the database that the tag was created in.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -105,7 +105,7 @@ func GetSchema(ctx *pulumi.Context,
 type schemaState struct {
 	// Specifies a comment for the schema.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
@@ -124,7 +124,7 @@ type schemaState struct {
 type SchemaState struct {
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 	DataRetentionDays pulumi.IntPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (SchemaState) ElementType() reflect.Type {
 type schemaArgs struct {
 	// Specifies a comment for the schema.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 	DataRetentionDays *int `pulumi:"dataRetentionDays"`
 	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
@@ -167,7 +167,7 @@ type schemaArgs struct {
 type SchemaArgs struct {
 	// Specifies a comment for the schema.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 	DataRetentionDays pulumi.IntPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
@@ -275,7 +275,7 @@ func (o SchemaOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema.
+// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
 func (o SchemaOutput) DataRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntPtrOutput { return v.DataRetentionDays }).(pulumi.IntPtrOutput)
 }

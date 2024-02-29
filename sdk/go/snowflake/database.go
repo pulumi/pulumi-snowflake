@@ -48,7 +48,7 @@ import (
 //			_, err = snowflake.NewDatabase(ctx, "fromReplica", &snowflake.DatabaseArgs{
 //				Comment:                 pulumi.String("test comment"),
 //				DataRetentionTimeInDays: pulumi.Int(3),
-//				FromReplica:             pulumi.String("org1\".\"account1\".\"primary_db_name"),
+//				FromReplica:             pulumi.String("\"org1\".\"account1\".\"primary_db_name\""),
 //			})
 //			if err != nil {
 //				return err
@@ -80,7 +80,7 @@ type Database struct {
 	pulumi.CustomResourceState
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
@@ -126,7 +126,7 @@ func GetDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
 	Comment *string `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
@@ -143,7 +143,7 @@ type databaseState struct {
 
 type DatabaseState struct {
 	Comment pulumi.StringPtrInput
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
@@ -164,7 +164,7 @@ func (DatabaseState) ElementType() reflect.Type {
 
 type databaseArgs struct {
 	Comment *string `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
@@ -182,7 +182,7 @@ type databaseArgs struct {
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
 	Comment pulumi.StringPtrInput
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
@@ -288,7 +288,7 @@ func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see Understanding & Using Time Travel.
+// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
 func (o DatabaseOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }

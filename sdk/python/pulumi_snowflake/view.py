@@ -31,7 +31,7 @@ class ViewArgs:
         :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
@@ -108,7 +108,7 @@ class ViewArgs:
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[bool]]:
         """
-        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         """
         return pulumi.get(self, "copy_grants")
 
@@ -184,7 +184,7 @@ class _ViewState:
         """
         Input properties used for looking up and filtering View resources.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
@@ -234,7 +234,7 @@ class _ViewState:
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[bool]]:
         """
-        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         """
         return pulumi.get(self, "copy_grants")
 
@@ -384,7 +384,7 @@ class View(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Tag name, e.g. department.
@@ -500,7 +500,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
         :param pulumi.Input[str] database: Name of the database that the tag was created in.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
@@ -538,7 +538,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> pulumi.Output[Optional[bool]]:
         """
-        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+        Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         """
         return pulumi.get(self, "copy_grants")
 

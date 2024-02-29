@@ -98,6 +98,17 @@ import javax.annotation.Nullable;
  *             .tagValue(&#34;engineering&#34;)
  *             .build());
  * 
+ *         var columnAssociation = new TagAssociation(&#34;columnAssociation&#34;, TagAssociationArgs.builder()        
+ *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
+ *                 .name(test.name().applyValue(name -&gt; String.format(&#34;%s.column_name&#34;, name)))
+ *                 .database(snowflake_database.test().name())
+ *                 .schema(snowflake_schema.test().name())
+ *                 .build())
+ *             .objectType(&#34;COLUMN&#34;)
+ *             .tagId(snowflake_tag.test().id())
+ *             .tagValue(&#34;engineering&#34;)
+ *             .build());
+ * 
  *     }
  * }
  * ```

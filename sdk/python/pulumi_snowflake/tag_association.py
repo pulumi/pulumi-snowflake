@@ -287,6 +287,15 @@ class TagAssociation(pulumi.CustomResource):
             object_type="TABLE",
             tag_id=snowflake_tag["test"]["id"],
             tag_value="engineering")
+        column_association = snowflake.TagAssociation("columnAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=test.name.apply(lambda name: f"{name}.column_name"),
+                database=snowflake_database["test"]["name"],
+                schema=snowflake_schema["test"]["name"],
+            )],
+            object_type="COLUMN",
+            tag_id=snowflake_tag["test"]["id"],
+            tag_value="engineering")
         ```
 
         ## Import
@@ -356,6 +365,15 @@ class TagAssociation(pulumi.CustomResource):
                 schema=snowflake_schema["test"]["name"],
             )],
             object_type="TABLE",
+            tag_id=snowflake_tag["test"]["id"],
+            tag_value="engineering")
+        column_association = snowflake.TagAssociation("columnAssociation",
+            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
+                name=test.name.apply(lambda name: f"{name}.column_name"),
+                database=snowflake_database["test"]["name"],
+                schema=snowflake_schema["test"]["name"],
+            )],
+            object_type="COLUMN",
             tag_id=snowflake_tag["test"]["id"],
             tag_value="engineering")
         ```

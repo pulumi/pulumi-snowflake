@@ -64,7 +64,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface ViewState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -209,7 +209,7 @@ export interface ViewArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
      */
     copyGrants?: pulumi.Input<boolean>;
     /**

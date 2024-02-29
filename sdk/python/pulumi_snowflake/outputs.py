@@ -1793,6 +1793,7 @@ class TableColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
+                 collate: Optional[str] = None,
                  comment: Optional[str] = None,
                  default: Optional['outputs.TableColumnDefault'] = None,
                  identity: Optional['outputs.TableColumnIdentity'] = None,
@@ -1801,6 +1802,7 @@ class TableColumn(dict):
         """
         :param str name: Column name
         :param str type: Column type, e.g. VARIANT
+        :param str collate: Column collation, e.g. utf8
         :param str comment: Column comment
         :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
@@ -1809,6 +1811,8 @@ class TableColumn(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if collate is not None:
+            pulumi.set(__self__, "collate", collate)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if default is not None:
@@ -1835,6 +1839,14 @@ class TableColumn(dict):
         Column type, e.g. VARIANT
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def collate(self) -> Optional[str]:
+        """
+        Column collation, e.g. utf8
+        """
+        return pulumi.get(self, "collate")
 
     @property
     @pulumi.getter
