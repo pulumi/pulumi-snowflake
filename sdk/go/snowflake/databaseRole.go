@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,13 +39,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
-//
+// $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
 // ```
 type DatabaseRole struct {
 	pulumi.CustomResourceState

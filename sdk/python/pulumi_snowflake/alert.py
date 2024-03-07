@@ -330,6 +330,7 @@ class Alert(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -346,6 +347,7 @@ class Alert(pulumi.CustomResource):
             schema="schema",
             warehouse="warehouse")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -376,6 +378,7 @@ class Alert(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -392,6 +395,7 @@ class Alert(pulumi.CustomResource):
             schema="schema",
             warehouse="warehouse")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

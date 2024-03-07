@@ -12,10 +12,9 @@ namespace Pulumi.Snowflake
     public static class GetViews
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,17 +31,15 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetViewsResult> InvokeAsync(GetViewsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,8 +56,7 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetViewsResult> Invoke(GetViewsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsInvokeArgs(), options.WithDefaults());

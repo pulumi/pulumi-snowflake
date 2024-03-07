@@ -353,75 +353,155 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db_role = snowflake.DatabaseRole("dbRole", database="database")
+        ##################################
         ### on database privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["CREATE", "MONITOR"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-        }
-
+        example_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleGrantPrivilegesToDatabaseRole",
+            privileges=[
+                "CREATE",
+                "MONITOR",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database)
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-          all_privileges     = true
-          with_grant_option  = true
-        }
-
+        example_index_grant_privileges_to_database_role_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database,
+            all_privileges=True,
+            with_grant_option=True)
         # all privileges + grant option + always apply
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-          always_apply       = true
-          all_privileges     = true
-          with_grant_option  = true
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database,
+            always_apply=True,
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### schema privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            schema_name = "\\"${snowflake_database_role.db_role.database}\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role1 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                schema_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            schema_name = "\\"${snowflake_database_role.db_role.database}\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role2 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                schema_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         # all schemas in database
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            all_schemas_in_database = snowflake_database_role.db_role.database
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role3 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                all_schemas_in_database=db_role.database,
+            ))
         # future schemas in database
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            future_schemas_in_database = snowflake_database_role.db_role.database
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role4 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                future_schemas_in_database=db_role.database,
+            ))
         ##################################
+        ### schema object privileges
+        ##################################
+        # list of privileges
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role5 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5",
+            privileges=[
+                "SELECT",
+                "REFERENCES",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\".\\"my_view\\""),
+            ))
+        # all privileges + grant option
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role6 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\".\\"my_view\\""),
+            ),
+            all_privileges=True,
+            with_grant_option=True)
+        # all in database
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role7 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_database=db_role.database,
+                ),
+            ))
+        # all in schema
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role8 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_schema=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+                ),
+            ))
+        # future in database
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role9 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_database=db_role.database,
+                ),
+            ))
+        # future in schema
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role10 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_schema=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -479,75 +559,155 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db_role = snowflake.DatabaseRole("dbRole", database="database")
+        ##################################
         ### on database privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["CREATE", "MONITOR"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-        }
-
+        example_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleGrantPrivilegesToDatabaseRole",
+            privileges=[
+                "CREATE",
+                "MONITOR",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database)
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-          all_privileges     = true
-          with_grant_option  = true
-        }
-
+        example_index_grant_privileges_to_database_role_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database,
+            all_privileges=True,
+            with_grant_option=True)
         # all privileges + grant option + always apply
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_database        = snowflake_database_role.db_role.database
-          always_apply       = true
-          all_privileges     = true
-          with_grant_option  = true
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_database=db_role.database,
+            always_apply=True,
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### schema privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            schema_name = "\\"${snowflake_database_role.db_role.database}\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role1 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                schema_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            schema_name = "\\"${snowflake_database_role.db_role.database}\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role2 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                schema_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         # all schemas in database
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            all_schemas_in_database = snowflake_database_role.db_role.database
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role3 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                all_schemas_in_database=db_role.database,
+            ))
         # future schemas in database
-        resource "snowflake_grant_privileges_to_database_role" "example" {
-          privileges         = ["MODIFY", "CREATE TABLE"]
-          database_role_name = "\\"${snowflake_database_role.db_role.database}\\".\\"${snowflake_database_role.db_role.name}\\""
-          on_schema {
-            future_schemas_in_database = snowflake_database_role.db_role.database
-          }
-        }
-
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role4 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs(
+                future_schemas_in_database=db_role.database,
+            ))
         ##################################
+        ### schema object privileges
+        ##################################
+        # list of privileges
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role5 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5",
+            privileges=[
+                "SELECT",
+                "REFERENCES",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\".\\"my_view\\""),
+            ))
+        # all privileges + grant option
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role6 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6",
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\".\\"my_view\\""),
+            ),
+            all_privileges=True,
+            with_grant_option=True)
+        # all in database
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role7 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_database=db_role.database,
+                ),
+            ))
+        # all in schema
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role8 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_schema=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+                ),
+            ))
+        # future in database
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role9 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_database=db_role.database,
+                ),
+            ))
+        # future in schema
+        example_snowflake_index_grant_privileges_to_database_role_grant_privileges_to_database_role10 = snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            database_role_name=pulumi.Output.all(db_role.database, db_role.name).apply(lambda database, name: f"\\"{database}\\".\\"{name}\\""),
+            on_schema_object=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_schema=db_role.database.apply(lambda database: f"\\"{database}\\".\\"my_schema\\""),
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,6 +35,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetStorageIntegrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageIntegrationsResult

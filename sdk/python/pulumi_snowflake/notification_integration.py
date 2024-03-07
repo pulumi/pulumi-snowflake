@@ -637,6 +637,7 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -650,11 +651,12 @@ class NotificationIntegration(pulumi.CustomResource):
             notification_provider="AZURE_STORAGE_QUEUE",
             type="QUEUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+        $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -681,6 +683,7 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -694,11 +697,12 @@ class NotificationIntegration(pulumi.CustomResource):
             notification_provider="AZURE_STORAGE_QUEUE",
             type="QUEUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+        $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
         ```
 
         :param str resource_name: The name of the resource.

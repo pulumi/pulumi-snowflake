@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,11 +20,12 @@ import * as utilities from "./utilities";
  *     dependsOn: [test],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/share:Share example name
+ * $ pulumi import snowflake:index/share:Share example name
  * ```
  */
 export class Share extends pulumi.CustomResource {

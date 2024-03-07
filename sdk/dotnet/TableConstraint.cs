@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,11 +125,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+    /// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tableConstraint:TableConstraint")]

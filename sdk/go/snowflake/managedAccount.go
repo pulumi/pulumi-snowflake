@@ -12,12 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/managedAccount:ManagedAccount example name
-//
+// $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
 // ```
 type ManagedAccount struct {
 	pulumi.CustomResourceState

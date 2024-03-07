@@ -73,12 +73,14 @@ def get_system_generate_scim_access_token(integration_name: Optional[str] = None
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str integration_name: SCIM Integration Name
@@ -100,12 +102,14 @@ def get_system_generate_scim_access_token_output(integration_name: Optional[pulu
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str integration_name: SCIM Integration Name

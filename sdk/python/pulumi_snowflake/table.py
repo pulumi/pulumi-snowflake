@@ -419,6 +419,8 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | table name
@@ -447,6 +449,8 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | table name

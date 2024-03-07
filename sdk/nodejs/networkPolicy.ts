@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -17,11 +18,12 @@ import * as utilities from "./utilities";
  *     comment: "A policy.",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
+ * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
  * ```
  */
 export class NetworkPolicy extends pulumi.CustomResource {

@@ -18,6 +18,7 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,11 +50,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/account:Account account &lt;account_locator&gt;
+    /// $ pulumi import snowflake:index/account:Account account &lt;account_locator&gt;
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/account:Account")]
@@ -66,13 +68,13 @@ namespace Pulumi.Snowflake
         public Output<string> AdminName { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
         /// </summary>
         [Output("adminPassword")]
         public Output<string?> AdminPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         /// </summary>
         [Output("adminRsaPublicKey")]
         public Output<string?> AdminRsaPublicKey { get; private set; } = null!;
@@ -207,7 +209,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -223,7 +225,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminRsaPublicKey;
 
         /// <summary>
-        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         /// </summary>
         public Input<string>? AdminRsaPublicKey
         {
@@ -343,7 +345,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        /// Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -359,7 +361,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminRsaPublicKey;
 
         /// <summary>
-        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        /// Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         /// </summary>
         public Input<string>? AdminRsaPublicKey
         {

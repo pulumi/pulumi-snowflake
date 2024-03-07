@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,13 +76,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
-//
+// $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
 // ```
 type FailoverGroup struct {
 	pulumi.CustomResourceState

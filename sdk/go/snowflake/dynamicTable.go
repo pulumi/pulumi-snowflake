@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,13 +46,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
-//
+// $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
 // ```
 type DynamicTable struct {
 	pulumi.CustomResourceState

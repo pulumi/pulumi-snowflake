@@ -141,17 +141,19 @@ class Role(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         role = snowflake.Role("role", comment="A role.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/role:Role example roleName
+        $ pulumi import snowflake:index/role:Role example roleName
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,17 +170,19 @@ class Role(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         role = snowflake.Role("role", comment="A role.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/role:Role example roleName
+        $ pulumi import snowflake:index/role:Role example roleName
         ```
 
         :param str resource_name: The name of the resource.

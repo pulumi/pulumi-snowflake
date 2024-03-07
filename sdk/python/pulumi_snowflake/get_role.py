@@ -75,12 +75,14 @@ def get_role(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_role(name="role1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The role for which to return metadata.
@@ -104,12 +106,14 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_role(name="role1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The role for which to return metadata.

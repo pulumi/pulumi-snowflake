@@ -12,10 +12,9 @@ namespace Pulumi.Snowflake
     public static class GetPipes
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,17 +31,15 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPipesResult> InvokeAsync(GetPipesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipesResult>("snowflake:index/getPipes:getPipes", args ?? new GetPipesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,8 +56,7 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPipesResult> Invoke(GetPipesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipesResult>("snowflake:index/getPipes:getPipes", args ?? new GetPipesInvokeArgs(), options.WithDefaults());

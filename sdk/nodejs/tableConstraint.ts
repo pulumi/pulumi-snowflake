@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -80,11 +81,12 @@ import * as utilities from "./utilities";
  *     comment: "hello unique",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+ * $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
  * ```
  */
 export class TableConstraint extends pulumi.CustomResource {

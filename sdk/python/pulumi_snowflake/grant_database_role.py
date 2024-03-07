@@ -166,43 +166,36 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ##################################
         ### grant database role to account role
         ##################################
-
-        resource "snowflake_database_role" "database_role" {
-          database = var.database
-          name     = var.database_role_name
-        }
-
-        resource "snowflake_role" "parent_role" {
-          name = var.parent_role_name
-        }
-
-        resource "snowflake_grant_database_role" "g" {
-          database_role_name = "\\"${var.database}\\".\\"${snowflake_database_role.database_role.name}\\""
-          parent_role_name   = snowflake_role.parent_role.name
-        }
-
+        database_role_database_role = snowflake.DatabaseRole("databaseRoleDatabaseRole", database=var["database"])
+        parent_role = snowflake.Role("parentRole")
+        grant_database_role = snowflake.GrantDatabaseRole("grantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            parent_role_name=parent_role.name)
         ##################################
         ### grant database role to database role
         ##################################
-
-        resource "snowflake_database_role" "database_role" {
-          database = var.database
-          name     = var.database_role_name
-        }
-
-        resource "snowflake_database_role" "parent_database_role" {
-          database = var.database
-          name     = var.parent_database_role_name
-        }
-
-        resource "snowflake_grant_database_role" "g" {
-          database_role_name        = "\\"${var.database}\\".\\"${snowflake_database_role.database_role.name}\\""
-          parent_database_role_name = "\\"${var.database}\\".\\"${snowflake_database_role.parent_database_role.name}\\""
-        }
-
+        database_role_index_database_role_database_role = snowflake.DatabaseRole("databaseRoleIndex/databaseRoleDatabaseRole", database=var["database"])
+        parent_database_role = snowflake.DatabaseRole("parentDatabaseRole", database=var["database"])
+        index_grant_database_role_grant_database_role = snowflake.GrantDatabaseRole("index/grantDatabaseRoleGrantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            parent_database_role_name=parent_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""))
         ##################################
+        ### grant database role to share
+        ##################################
+        snowflake_index_grant_database_role_grant_database_role = snowflake.GrantDatabaseRole("snowflakeIndex/grantDatabaseRoleGrantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            share_name=snowflake_share["share"]["name"])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,43 +220,36 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ##################################
         ### grant database role to account role
         ##################################
-
-        resource "snowflake_database_role" "database_role" {
-          database = var.database
-          name     = var.database_role_name
-        }
-
-        resource "snowflake_role" "parent_role" {
-          name = var.parent_role_name
-        }
-
-        resource "snowflake_grant_database_role" "g" {
-          database_role_name = "\\"${var.database}\\".\\"${snowflake_database_role.database_role.name}\\""
-          parent_role_name   = snowflake_role.parent_role.name
-        }
-
+        database_role_database_role = snowflake.DatabaseRole("databaseRoleDatabaseRole", database=var["database"])
+        parent_role = snowflake.Role("parentRole")
+        grant_database_role = snowflake.GrantDatabaseRole("grantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            parent_role_name=parent_role.name)
         ##################################
         ### grant database role to database role
         ##################################
-
-        resource "snowflake_database_role" "database_role" {
-          database = var.database
-          name     = var.database_role_name
-        }
-
-        resource "snowflake_database_role" "parent_database_role" {
-          database = var.database
-          name     = var.parent_database_role_name
-        }
-
-        resource "snowflake_grant_database_role" "g" {
-          database_role_name        = "\\"${var.database}\\".\\"${snowflake_database_role.database_role.name}\\""
-          parent_database_role_name = "\\"${var.database}\\".\\"${snowflake_database_role.parent_database_role.name}\\""
-        }
-
+        database_role_index_database_role_database_role = snowflake.DatabaseRole("databaseRoleIndex/databaseRoleDatabaseRole", database=var["database"])
+        parent_database_role = snowflake.DatabaseRole("parentDatabaseRole", database=var["database"])
+        index_grant_database_role_grant_database_role = snowflake.GrantDatabaseRole("index/grantDatabaseRoleGrantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            parent_database_role_name=parent_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""))
         ##################################
+        ### grant database role to share
+        ##################################
+        snowflake_index_grant_database_role_grant_database_role = snowflake.GrantDatabaseRole("snowflakeIndex/grantDatabaseRoleGrantDatabaseRole",
+            database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
+            share_name=snowflake_share["share"]["name"])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

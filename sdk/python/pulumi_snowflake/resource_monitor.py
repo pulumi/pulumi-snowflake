@@ -489,6 +489,7 @@ class ResourceMonitor(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -509,6 +510,7 @@ class ResourceMonitor(pulumi.CustomResource):
             suspend_immediate_triggers=90,
             suspend_triggers=50)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -543,6 +545,7 @@ class ResourceMonitor(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -563,6 +566,7 @@ class ResourceMonitor(pulumi.CustomResource):
             suspend_immediate_triggers=90,
             suspend_triggers=50)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

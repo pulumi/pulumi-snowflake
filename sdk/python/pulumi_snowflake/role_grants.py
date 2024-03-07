@@ -173,6 +173,7 @@ class RoleGrants(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -189,6 +190,7 @@ class RoleGrants(pulumi.CustomResource):
                 user2.name,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,6 +219,7 @@ class RoleGrants(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -233,6 +236,7 @@ class RoleGrants(pulumi.CustomResource):
                 user2.name,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

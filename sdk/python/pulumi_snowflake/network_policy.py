@@ -167,6 +167,7 @@ class NetworkPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -176,11 +177,12 @@ class NetworkPolicy(pulumi.CustomResource):
             blocked_ip_lists=["192.168.0.101"],
             comment="A policy.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
+        $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,6 +201,7 @@ class NetworkPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -208,11 +211,12 @@ class NetworkPolicy(pulumi.CustomResource):
             blocked_ip_lists=["192.168.0.101"],
             comment="A policy.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
+        $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
         ```
 
         :param str resource_name: The name of the resource.

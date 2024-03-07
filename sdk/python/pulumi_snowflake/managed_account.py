@@ -277,10 +277,12 @@ class ManagedAccount(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+        $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,10 +300,12 @@ class ManagedAccount(pulumi.CustomResource):
                  args: ManagedAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+        $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
         ```
 
         :param str resource_name: The name of the resource.

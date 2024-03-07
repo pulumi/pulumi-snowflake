@@ -15,7 +15,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
+    /// $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment")]

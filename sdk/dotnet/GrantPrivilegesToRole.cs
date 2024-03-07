@@ -13,91 +13,243 @@ namespace Pulumi.Snowflake
     /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. &lt;deprecation&gt;
     /// 
     /// ## Example Usage
-    /// ### global privileges
-    /// ##################################
     /// 
-    /// # list of privileges
-    /// resource "snowflake_grant_privileges_to_role" "g1" {
-    ///   privileges = ["MODIFY", "USAGE"]
-    ///   role_name  = snowflake_role.r.name
-    ///   on_account = true
-    /// }
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// # all privileges + grant option
-    /// resource "snowflake_grant_privileges_to_role" "g2" {
-    ///   role_name         = snowflake_role.r.name
-    ///   on_account        = true
-    ///   all_privileges    = true
-    ///   with_grant_option = true
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //#################################
+    ///     //## global privileges
+    ///     //#################################
+    ///     // list of privileges
+    ///     var g1 = new Snowflake.GrantPrivilegesToRole("g1", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "MODIFY",
+    ///             "USAGE",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnAccount = true,
+    ///     });
     /// 
-    /// ##################################
-    /// ### account object privileges
-    /// ##################################
+    ///     // all privileges + grant option
+    ///     var g2 = new Snowflake.GrantPrivilegesToRole("g2", new()
+    ///     {
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnAccount = true,
+    ///         AllPrivileges = true,
+    ///         WithGrantOption = true,
+    ///     });
     /// 
-    /// # list of privileges
-    /// resource "snowflake_grant_privileges_to_role" "g3" {
-    ///   privileges = ["CREATE", "MONITOR"]
-    ///   role_name  = snowflake_role.r.name
-    ///   on_account_object {
-    ///     object_type = "DATABASE"
-    ///     object_name = snowflake_database.d.name
-    ///   }
-    /// }
+    ///     //#################################
+    ///     //## account object privileges
+    ///     //#################################
+    ///     // list of privileges
+    ///     var g3 = new Snowflake.GrantPrivilegesToRole("g3", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "CREATE",
+    ///             "MONITOR",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnAccountObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnAccountObjectArgs
+    ///         {
+    ///             ObjectType = "DATABASE",
+    ///             ObjectName = snowflake_database.D.Name,
+    ///         },
+    ///     });
     /// 
-    /// # all privileges + grant option
-    /// resource "snowflake_grant_privileges_to_role" "g4" {
-    ///   role_name = snowflake_role.r.name
-    ///   on_account_object {
-    ///     object_type = "DATABASE"
-    ///     object_name = snowflake_database.d.name
-    ///   }
-    ///   all_privileges    = true
-    ///   with_grant_option = true
-    /// }
+    ///     // all privileges + grant option
+    ///     var g4 = new Snowflake.GrantPrivilegesToRole("g4", new()
+    ///     {
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnAccountObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnAccountObjectArgs
+    ///         {
+    ///             ObjectType = "DATABASE",
+    ///             ObjectName = snowflake_database.D.Name,
+    ///         },
+    ///         AllPrivileges = true,
+    ///         WithGrantOption = true,
+    ///     });
     /// 
-    /// ##################################
-    /// ### schema privileges
-    /// ##################################
+    ///     //#################################
+    ///     //## schema privileges
+    ///     //#################################
+    ///     // list of privileges
+    ///     var g5 = new Snowflake.GrantPrivilegesToRole("g5", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "MODIFY",
+    ///             "CREATE TABLE",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
+    ///         {
+    ///             SchemaName = "\"my_db\".\"my_schema\"",
+    ///         },
+    ///     });
     /// 
-    /// # list of privileges
-    /// resource "snowflake_grant_privileges_to_role" "g5" {
-    ///   privileges = ["MODIFY", "CREATE TABLE"]
-    ///   role_name  = snowflake_role.r.name
-    ///   on_schema {
-    ///     schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
-    ///   }
-    /// }
+    ///     // all privileges + grant option
+    ///     var g6 = new Snowflake.GrantPrivilegesToRole("g6", new()
+    ///     {
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
+    ///         {
+    ///             SchemaName = "\"my_db\".\"my_schema\"",
+    ///         },
+    ///         AllPrivileges = true,
+    ///         WithGrantOption = true,
+    ///     });
     /// 
-    /// # all privileges + grant option
-    /// resource "snowflake_grant_privileges_to_role" "g6" {
-    ///   role_name = snowflake_role.r.name
-    ///   on_schema {
-    ///     schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
-    ///   }
-    ///   all_privileges    = true
-    ///   with_grant_option = true
-    /// }
+    ///     // all schemas in database
+    ///     var g7 = new Snowflake.GrantPrivilegesToRole("g7", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "MODIFY",
+    ///             "CREATE TABLE",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
+    ///         {
+    ///             AllSchemasInDatabase = snowflake_database.D.Name,
+    ///         },
+    ///     });
     /// 
-    /// # all schemas in database
-    /// resource "snowflake_grant_privileges_to_role" "g7" {
-    ///   privileges = ["MODIFY", "CREATE TABLE"]
-    ///   role_name  = snowflake_role.r.name
-    ///   on_schema {
-    ///     all_schemas_in_database = snowflake_database.d.name
-    ///   }
-    /// }
+    ///     // future schemas in database
+    ///     var g8 = new Snowflake.GrantPrivilegesToRole("g8", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "MODIFY",
+    ///             "CREATE TABLE",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
+    ///         {
+    ///             FutureSchemasInDatabase = snowflake_database.D.Name,
+    ///         },
+    ///     });
     /// 
-    /// # future schemas in database
-    /// resource "snowflake_grant_privileges_to_role" "g8" {
-    ///   privileges = ["MODIFY", "CREATE TABLE"]
-    ///   role_name  = snowflake_role.r.name
-    ///   on_schema {
-    ///     future_schemas_in_database = snowflake_database.d.name
-    ///   }
-    /// }
+    ///     //#################################
+    ///     //## schema object privileges
+    ///     //#################################
+    ///     // list of privileges
+    ///     var g9 = new Snowflake.GrantPrivilegesToRole("g9", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "SELECT",
+    ///             "REFERENCES",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             ObjectType = "VIEW",
+    ///             ObjectName = "\"my_db\".\"my_schema\".\"my_view\"",
+    ///         },
+    ///     });
     /// 
-    /// ##################################
+    ///     // all privileges + grant option
+    ///     var g10 = new Snowflake.GrantPrivilegesToRole("g10", new()
+    ///     {
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             ObjectType = "VIEW",
+    ///             ObjectName = "\"my_db\".\"my_schema\".\"my_view\"",
+    ///         },
+    ///         AllPrivileges = true,
+    ///         WithGrantOption = true,
+    ///     });
+    /// 
+    ///     // all in database
+    ///     var g11 = new Snowflake.GrantPrivilegesToRole("g11", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "SELECT",
+    ///             "INSERT",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             All = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectAllArgs
+    ///             {
+    ///                 ObjectTypePlural = "TABLES",
+    ///                 InDatabase = snowflake_database.D.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // all in schema
+    ///     var g12 = new Snowflake.GrantPrivilegesToRole("g12", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "SELECT",
+    ///             "INSERT",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             All = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectAllArgs
+    ///             {
+    ///                 ObjectTypePlural = "TABLES",
+    ///                 InSchema = "\"my_db\".\"my_schema\"",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // future in database
+    ///     var g13 = new Snowflake.GrantPrivilegesToRole("g13", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "SELECT",
+    ///             "INSERT",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             Future = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectFutureArgs
+    ///             {
+    ///                 ObjectTypePlural = "TABLES",
+    ///                 InDatabase = snowflake_database.D.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // future in schema
+    ///     var g14 = new Snowflake.GrantPrivilegesToRole("g14", new()
+    ///     {
+    ///         Privileges = new[]
+    ///         {
+    ///             "SELECT",
+    ///             "INSERT",
+    ///         },
+    ///         RoleName = snowflake_role.R.Name,
+    ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
+    ///         {
+    ///             Future = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectFutureArgs
+    ///             {
+    ///                 ObjectTypePlural = "TABLES",
+    ///                 InSchema = "\"my_db\".\"my_schema\"",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

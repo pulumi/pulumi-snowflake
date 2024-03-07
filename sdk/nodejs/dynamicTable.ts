@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -25,11 +26,12 @@ import * as utilities from "./utilities";
  *     warehouse: "mywh",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
+ * $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
  * ```
  */
 export class DynamicTable extends pulumi.CustomResource {

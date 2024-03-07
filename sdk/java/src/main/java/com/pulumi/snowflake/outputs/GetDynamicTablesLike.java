@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetDynamicTablesLike {
     /**
-     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
      * 
      */
     private String pattern;
 
     private GetDynamicTablesLike() {}
     /**
-     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
      * 
      */
     public String pattern() {

@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     value: _this.then(_this => _this.url),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurrentAccountResult> {
 
@@ -50,6 +52,7 @@ export interface GetCurrentAccountResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,6 +64,7 @@ export interface GetCurrentAccountResult {
  *     value: _this.then(_this => _this.url),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCurrentAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentAccountResult> {
     return pulumi.output(getCurrentAccount(opts))

@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,11 +97,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;❄️&lt;object_type&gt;❄️&lt;object_identifier&gt;
+    /// $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;❄️&lt;object_type&gt;❄️&lt;object_identifier&gt;
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/objectParameter:ObjectParameter")]

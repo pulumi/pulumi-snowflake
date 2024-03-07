@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlerts(args?: GetAlertsArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsResult> {
     args = args || {};
@@ -76,6 +78,7 @@ export interface GetAlertsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -85,6 +88,7 @@ export interface GetAlertsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsResult> {
     return pulumi.output(args).apply((a: any) => getAlerts(a, opts))

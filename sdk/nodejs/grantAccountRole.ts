@@ -6,23 +6,32 @@ import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
- * ### grant account role to account role
- * ##################################
  *
- * resource "snowflake_role" "role" {
- *   name = var.role_name
- * }
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
  *
- * resource "snowflake_role" "parent_role" {
- *   name = var.parent_role_name
- * }
- *
- * resource "snowflake_grant_account_role" "g" {
- *   role_name        = snowflake_role.role.name
- *   parent_role_name = snowflake_role.parent_role.name
- * }
- *
- * ##################################
+ * //#################################
+ * //## grant account role to account role
+ * //#################################
+ * const roleRole = new snowflake.Role("roleRole", {});
+ * const parentRole = new snowflake.Role("parentRole", {});
+ * const grantAccountRole = new snowflake.GrantAccountRole("grantAccountRole", {
+ *     roleName: roleRole.name,
+ *     parentRoleName: parentRole.name,
+ * });
+ * //#################################
+ * //## grant account role to user
+ * //#################################
+ * const roleIndex_roleRole = new snowflake.Role("roleIndex/roleRole", {});
+ * const user = new snowflake.User("user", {});
+ * const index_grantAccountRoleGrantAccountRole = new snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole", {
+ *     roleName: roleRole.name,
+ *     userName: user.name,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
