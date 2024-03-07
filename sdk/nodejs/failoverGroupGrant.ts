@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. <deprecation>
+ */
 export class FailoverGroupGrant extends pulumi.CustomResource {
     /**
      * Get an existing FailoverGroupGrant resource's state with the given name, ID, and optional extra

@@ -18,6 +18,8 @@ import (
 //
 // > **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `queryResults` being empty.
 //
+// > **Deprecation** Experimental resource. Will be deleted in the upcoming versions. Use at your own risk. <deprecation>
+//
 // Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
 //
 // ## Example Usage

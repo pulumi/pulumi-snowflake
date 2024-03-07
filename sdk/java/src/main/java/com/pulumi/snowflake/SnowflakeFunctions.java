@@ -3333,6 +3333,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getResourceMonitors:getResourceMonitors", TypeShape.of(GetResourceMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3368,6 +3370,8 @@ public final class SnowflakeFunctions {
         return getRole(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3403,6 +3407,8 @@ public final class SnowflakeFunctions {
         return getRolePlain(args, InvokeOptions.Empty);
     }
     /**
+     * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3438,6 +3444,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;

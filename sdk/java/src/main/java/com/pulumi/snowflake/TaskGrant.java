@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. &lt;deprecation&gt;
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -57,10 +59,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles&#34;
+ * format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|on_all|roles&#34;
  * 
  * ```sh
- * $ pulumi import snowflake:index/taskGrant:TaskGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2&#34;
+ * $ pulumi import snowflake:index/taskGrant:TaskGrant example &#34;MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|false|role1,role2&#34;
  * ```
  * 
  */

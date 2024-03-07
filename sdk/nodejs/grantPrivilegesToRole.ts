@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. <deprecation>
+ *
  * ## Example Usage
  * ### global privileges
  * ##################################

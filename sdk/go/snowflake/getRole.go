@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use getRoles instead. <deprecation>
+//
 // ## Example Usage
 //
 // ```go

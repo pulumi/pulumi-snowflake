@@ -20,6 +20,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. &lt;deprecation&gt;
+ * 
  * ## Example Usage
  * ### global privileges
  * ##################################

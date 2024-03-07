@@ -366,6 +366,8 @@ class TaskGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         ## Example Usage
 
         ```python
@@ -387,10 +389,10 @@ class TaskGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles"
+        format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|on_all|roles"
 
         ```sh
-        $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2"
+        $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.
@@ -414,6 +416,8 @@ class TaskGrant(pulumi.CustomResource):
                  args: TaskGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         ## Example Usage
 
         ```python
@@ -435,10 +439,10 @@ class TaskGrant(pulumi.CustomResource):
 
         ## Import
 
-        format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|roles"
+        format is database_name|schema_name|task_name|privilege|with_grant_option|on_future|on_all|roles"
 
         ```sh
-        $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|role1,role2"
+        $ pulumi import snowflake:index/taskGrant:TaskGrant example "MY_DATABASE|MY_SCHEMA|MY_TASK|OPERATE|false|false|false|role1,role2"
         ```
 
         :param str resource_name: The name of the resource.

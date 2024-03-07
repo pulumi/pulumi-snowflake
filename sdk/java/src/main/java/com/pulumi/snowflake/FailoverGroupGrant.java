@@ -16,6 +16,10 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. &lt;deprecation&gt;
+ * 
+ */
 @ResourceType(type="snowflake:index/failoverGroupGrant:FailoverGroupGrant")
 public class FailoverGroupGrant extends com.pulumi.resources.CustomResource {
     /**
