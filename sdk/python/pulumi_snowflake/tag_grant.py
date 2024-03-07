@@ -299,6 +299,8 @@ class TagGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         ## Example Usage
 
         ```python
@@ -340,6 +342,8 @@ class TagGrant(pulumi.CustomResource):
                  args: TagGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         ## Example Usage
 
         ```python

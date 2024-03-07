@@ -71,6 +71,8 @@ class AwaitableGetRoleResult(GetRoleResult):
 def get_role(name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
+    > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use get_roles instead. <deprecation>
+
     ## Example Usage
 
     ```python
@@ -98,6 +100,8 @@ def get_role(name: Optional[str] = None,
 def get_role_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
     """
+    > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use get_roles instead. <deprecation>
+
     ## Example Usage
 
     ```python

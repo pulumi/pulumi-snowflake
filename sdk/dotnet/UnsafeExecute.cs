@@ -16,6 +16,8 @@ namespace Pulumi.Snowflake
     /// 
     /// &gt; **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.
     /// 
+    /// &gt; **Deprecation** Experimental resource. Will be deleted in the upcoming versions. Use at your own risk. &lt;deprecation&gt;
+    /// 
     /// Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
     /// 
     /// ## Example Usage

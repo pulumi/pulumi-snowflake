@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     public static class GetRole
     {
         /// <summary>
+        /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -38,6 +40,8 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("snowflake:index/getRole:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

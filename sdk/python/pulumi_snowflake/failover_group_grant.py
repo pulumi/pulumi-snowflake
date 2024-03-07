@@ -235,7 +235,8 @@ class FailoverGroupGrant(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FailoverGroupGrant resource with the given unique name, props, and options.
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
@@ -253,7 +254,8 @@ class FailoverGroupGrant(pulumi.CustomResource):
                  args: FailoverGroupGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FailoverGroupGrant resource with the given unique name, props, and options.
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+
         :param str resource_name: The name of the resource.
         :param FailoverGroupGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
