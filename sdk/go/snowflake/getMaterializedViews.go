@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, opts ...pulumi.InvokeOption) (*GetMaterializedViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaterializedViewsResult

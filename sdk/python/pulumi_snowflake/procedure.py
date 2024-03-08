@@ -572,6 +572,8 @@ class Procedure(pulumi.CustomResource):
                  statement: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
@@ -606,6 +608,8 @@ class Procedure(pulumi.CustomResource):
                  args: ProcedureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>

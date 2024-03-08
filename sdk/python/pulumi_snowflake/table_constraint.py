@@ -443,6 +443,7 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -509,11 +510,12 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
         ```
 
         :param str resource_name: The name of the resource.
@@ -540,6 +542,7 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -606,11 +609,12 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
         ```
 
         :param str resource_name: The name of the resource.

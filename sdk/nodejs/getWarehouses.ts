@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getWarehouses({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWarehouses(opts?: pulumi.InvokeOptions): Promise<GetWarehousesResult> {
 
@@ -39,12 +41,14 @@ export interface GetWarehousesResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getWarehouses({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWarehousesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetWarehousesResult> {
     return pulumi.output(getWarehouses(opts))

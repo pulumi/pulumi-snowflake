@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -17,11 +18,12 @@ import * as utilities from "./utilities";
  *     enabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
+ * $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
  * ```
  */
 export class EmailNotificationIntegration extends pulumi.CustomResource {

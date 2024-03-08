@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     pattern: "usage",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getShares(args?: GetSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetSharesResult> {
     args = args || {};
@@ -58,6 +60,7 @@ export interface GetSharesResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -67,6 +70,7 @@ export interface GetSharesResult {
  *     pattern: "usage",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSharesOutput(args?: GetSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharesResult> {
     return pulumi.output(args).apply((a: any) => getShares(a, opts))

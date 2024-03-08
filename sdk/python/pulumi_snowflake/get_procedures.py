@@ -87,6 +87,7 @@ def get_procedures(database: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -94,6 +95,7 @@ def get_procedures(database: Optional[str] = None,
     current = snowflake.get_procedures(database="MYDB",
         schema="MYSCHEMA")
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['database'] = database
@@ -115,6 +117,7 @@ def get_procedures_output(database: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -122,5 +125,6 @@ def get_procedures_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_procedures(database="MYDB",
         schema="MYSCHEMA")
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -43,11 +44,12 @@ import * as utilities from "./utilities";
  *     provider: snowflake.account2,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
+ * $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
  * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {

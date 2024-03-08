@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -16,11 +17,12 @@ import * as utilities from "./utilities";
  *     database: "database",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+ * $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
  * ```
  */
 export class DatabaseRole extends pulumi.CustomResource {

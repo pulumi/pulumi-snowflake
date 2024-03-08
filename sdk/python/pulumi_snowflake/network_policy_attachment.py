@@ -134,6 +134,7 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -146,11 +147,12 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                 "user2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
+        $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,6 +170,7 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -180,11 +183,12 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                 "user2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
+        $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
         ```
 
         :param str resource_name: The name of the resource.

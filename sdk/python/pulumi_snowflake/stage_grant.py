@@ -370,6 +370,7 @@ class StageGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -386,6 +387,7 @@ class StageGrant(pulumi.CustomResource):
             stage_name="stage",
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -420,6 +422,7 @@ class StageGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -436,6 +439,7 @@ class StageGrant(pulumi.CustomResource):
             stage_name="stage",
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

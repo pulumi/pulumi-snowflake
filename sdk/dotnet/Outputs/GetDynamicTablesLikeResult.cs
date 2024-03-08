@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetDynamicTablesLikeResult
     {
         /// <summary>
-        /// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        /// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
         /// </summary>
         public readonly string Pattern;
 

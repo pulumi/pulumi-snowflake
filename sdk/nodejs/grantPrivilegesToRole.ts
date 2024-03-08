@@ -10,91 +10,184 @@ import * as utilities from "./utilities";
  * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. <deprecation>
  *
  * ## Example Usage
- * ### global privileges
- * ##################################
  *
- * # list of privileges
- * resource "snowflake_grant_privileges_to_role" "g1" {
- *   privileges = ["MODIFY", "USAGE"]
- *   role_name  = snowflake_role.r.name
- *   on_account = true
- * }
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
  *
- * # all privileges + grant option
- * resource "snowflake_grant_privileges_to_role" "g2" {
- *   role_name         = snowflake_role.r.name
- *   on_account        = true
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- *
- * ##################################
- * ### account object privileges
- * ##################################
- *
- * # list of privileges
- * resource "snowflake_grant_privileges_to_role" "g3" {
- *   privileges = ["CREATE", "MONITOR"]
- *   role_name  = snowflake_role.r.name
- *   on_account_object {
- *     object_type = "DATABASE"
- *     object_name = snowflake_database.d.name
- *   }
- * }
- *
- * # all privileges + grant option
- * resource "snowflake_grant_privileges_to_role" "g4" {
- *   role_name = snowflake_role.r.name
- *   on_account_object {
- *     object_type = "DATABASE"
- *     object_name = snowflake_database.d.name
- *   }
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- *
- * ##################################
- * ### schema privileges
- * ##################################
- *
- * # list of privileges
- * resource "snowflake_grant_privileges_to_role" "g5" {
- *   privileges = ["MODIFY", "CREATE TABLE"]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
- *   }
- * }
- *
- * # all privileges + grant option
- * resource "snowflake_grant_privileges_to_role" "g6" {
- *   role_name = snowflake_role.r.name
- *   on_schema {
- *     schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
- *   }
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- *
- * # all schemas in database
- * resource "snowflake_grant_privileges_to_role" "g7" {
- *   privileges = ["MODIFY", "CREATE TABLE"]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     all_schemas_in_database = snowflake_database.d.name
- *   }
- * }
- *
- * # future schemas in database
- * resource "snowflake_grant_privileges_to_role" "g8" {
- *   privileges = ["MODIFY", "CREATE TABLE"]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     future_schemas_in_database = snowflake_database.d.name
- *   }
- * }
- *
- * ##################################
+ * //#################################
+ * //## global privileges
+ * //#################################
+ * // list of privileges
+ * const g1 = new snowflake.GrantPrivilegesToRole("g1", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "USAGE",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onAccount: true,
+ * });
+ * // all privileges + grant option
+ * const g2 = new snowflake.GrantPrivilegesToRole("g2", {
+ *     roleName: snowflake_role.r.name,
+ *     onAccount: true,
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * //#################################
+ * //## account object privileges
+ * //#################################
+ * // list of privileges
+ * const g3 = new snowflake.GrantPrivilegesToRole("g3", {
+ *     privileges: [
+ *         "CREATE",
+ *         "MONITOR",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onAccountObject: {
+ *         objectType: "DATABASE",
+ *         objectName: snowflake_database.d.name,
+ *     },
+ * });
+ * // all privileges + grant option
+ * const g4 = new snowflake.GrantPrivilegesToRole("g4", {
+ *     roleName: snowflake_role.r.name,
+ *     onAccountObject: {
+ *         objectType: "DATABASE",
+ *         objectName: snowflake_database.d.name,
+ *     },
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * //#################################
+ * //## schema privileges
+ * //#################################
+ * // list of privileges
+ * const g5 = new snowflake.GrantPrivilegesToRole("g5", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchema: {
+ *         schemaName: "\"my_db\".\"my_schema\"",
+ *     },
+ * });
+ * // all privileges + grant option
+ * const g6 = new snowflake.GrantPrivilegesToRole("g6", {
+ *     roleName: snowflake_role.r.name,
+ *     onSchema: {
+ *         schemaName: "\"my_db\".\"my_schema\"",
+ *     },
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * // all schemas in database
+ * const g7 = new snowflake.GrantPrivilegesToRole("g7", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchema: {
+ *         allSchemasInDatabase: snowflake_database.d.name,
+ *     },
+ * });
+ * // future schemas in database
+ * const g8 = new snowflake.GrantPrivilegesToRole("g8", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchema: {
+ *         futureSchemasInDatabase: snowflake_database.d.name,
+ *     },
+ * });
+ * //#################################
+ * //## schema object privileges
+ * //#################################
+ * // list of privileges
+ * const g9 = new snowflake.GrantPrivilegesToRole("g9", {
+ *     privileges: [
+ *         "SELECT",
+ *         "REFERENCES",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         objectType: "VIEW",
+ *         objectName: "\"my_db\".\"my_schema\".\"my_view\"",
+ *     },
+ * });
+ * // all privileges + grant option
+ * const g10 = new snowflake.GrantPrivilegesToRole("g10", {
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         objectType: "VIEW",
+ *         objectName: "\"my_db\".\"my_schema\".\"my_view\"",
+ *     },
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * // all in database
+ * const g11 = new snowflake.GrantPrivilegesToRole("g11", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         all: {
+ *             objectTypePlural: "TABLES",
+ *             inDatabase: snowflake_database.d.name,
+ *         },
+ *     },
+ * });
+ * // all in schema
+ * const g12 = new snowflake.GrantPrivilegesToRole("g12", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         all: {
+ *             objectTypePlural: "TABLES",
+ *             inSchema: "\"my_db\".\"my_schema\"",
+ *         },
+ *     },
+ * });
+ * // future in database
+ * const g13 = new snowflake.GrantPrivilegesToRole("g13", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         future: {
+ *             objectTypePlural: "TABLES",
+ *             inDatabase: snowflake_database.d.name,
+ *         },
+ *     },
+ * });
+ * // future in schema
+ * const g14 = new snowflake.GrantPrivilegesToRole("g14", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     roleName: snowflake_role.r.name,
+ *     onSchemaObject: {
+ *         future: {
+ *             objectTypePlural: "TABLES",
+ *             inSchema: "\"my_db\".\"my_schema\"",
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

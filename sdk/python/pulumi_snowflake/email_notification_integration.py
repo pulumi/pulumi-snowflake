@@ -151,6 +151,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -160,11 +161,12 @@ class EmailNotificationIntegration(pulumi.CustomResource):
             comment="A notification integration.",
             enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
+        $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,6 +183,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -190,11 +193,12 @@ class EmailNotificationIntegration(pulumi.CustomResource):
             comment="A notification integration.",
             enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
+        $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
         ```
 
         :param str resource_name: The name of the resource.

@@ -555,6 +555,7 @@ class DynamicTable(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -570,11 +571,12 @@ class DynamicTable(pulumi.CustomResource):
             ),
             warehouse="mywh")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
+        $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
         ```
 
         :param str resource_name: The name of the resource.
@@ -599,6 +601,7 @@ class DynamicTable(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -614,11 +617,12 @@ class DynamicTable(pulumi.CustomResource):
             ),
             warehouse="mywh")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
+        $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
         ```
 
         :param str resource_name: The name of the resource.

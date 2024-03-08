@@ -14,10 +14,9 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("snowflake:index/getRole:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("snowflake:index/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());

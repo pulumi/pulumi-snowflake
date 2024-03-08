@@ -577,6 +577,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -590,11 +591,12 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             token_user_mapping_claims=["upn"],
             type="AZURE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -627,6 +629,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -640,11 +643,12 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             token_user_mapping_claims=["upn"],
             type="AZURE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
         ```
 
         :param str resource_name: The name of the resource.

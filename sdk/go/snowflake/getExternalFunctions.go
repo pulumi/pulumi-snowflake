@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, opts ...pulumi.InvokeOption) (*GetExternalFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalFunctionsResult

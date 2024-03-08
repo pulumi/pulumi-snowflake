@@ -166,6 +166,7 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -182,11 +183,12 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
+        $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,6 +207,7 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -221,11 +224,12 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
+        $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
         ```
 
         :param str resource_name: The name of the resource.

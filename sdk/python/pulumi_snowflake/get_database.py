@@ -133,12 +133,14 @@ def get_database(name: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The database from which to return its metadata.
@@ -167,12 +169,14 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The database from which to return its metadata.

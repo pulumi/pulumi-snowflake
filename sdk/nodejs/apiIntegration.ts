@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -31,11 +32,12 @@ import * as utilities from "./utilities";
  *     googleAudience: "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
+ * $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
  * ```
  */
 export class ApiIntegration extends pulumi.CustomResource {

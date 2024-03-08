@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSystemGenerateScimAccessToken(ctx *pulumi.Context, args *GetSystemGenerateScimAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetSystemGenerateScimAccessTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGenerateScimAccessTokenResult

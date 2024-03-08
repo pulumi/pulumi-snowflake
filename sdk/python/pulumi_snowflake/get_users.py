@@ -74,12 +74,14 @@ def get_users(pattern: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_users(pattern="user1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
@@ -101,12 +103,14 @@ def get_users_output(pattern: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_users(pattern="user1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters

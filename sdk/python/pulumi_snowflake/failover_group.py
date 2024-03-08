@@ -335,6 +335,7 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -367,11 +368,12 @@ class FailoverGroup(pulumi.CustomResource):
         ),
         opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
+        $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
         ```
 
         :param str resource_name: The name of the resource.
@@ -395,6 +397,7 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -427,11 +430,12 @@ class FailoverGroup(pulumi.CustomResource):
         ),
         opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
+        $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
         ```
 
         :param str resource_name: The name of the resource.

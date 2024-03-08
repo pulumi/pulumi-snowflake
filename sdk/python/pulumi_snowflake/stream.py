@@ -378,6 +378,8 @@ class Stream(pulumi.CustomResource):
                  show_initial_rows: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | stream name
@@ -406,6 +408,8 @@ class Stream(pulumi.CustomResource):
                  args: StreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | stream name

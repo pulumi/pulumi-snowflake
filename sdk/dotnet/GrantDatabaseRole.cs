@@ -11,43 +11,63 @@ namespace Pulumi.Snowflake
 {
     /// <summary>
     /// ## Example Usage
-    /// ### grant database role to account role
-    /// ##################################
     /// 
-    /// resource "snowflake_database_role" "database_role" {
-    ///   database = var.database
-    ///   name     = var.database_role_name
-    /// }
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// resource "snowflake_role" "parent_role" {
-    ///   name = var.parent_role_name
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //#################################
+    ///     //## grant database role to account role
+    ///     //#################################
+    ///     var databaseRoleDatabaseRole = new Snowflake.DatabaseRole("databaseRoleDatabaseRole", new()
+    ///     {
+    ///         Database = @var.Database,
+    ///     });
     /// 
-    /// resource "snowflake_grant_database_role" "g" {
-    ///   database_role_name = "\"${var.database}\".\"${snowflake_database_role.database_role.name}\""
-    ///   parent_role_name   = snowflake_role.parent_role.name
-    /// }
+    ///     var parentRole = new Snowflake.Role("parentRole");
     /// 
-    /// ##################################
-    /// ### grant database role to database role
-    /// ##################################
+    ///     var grantDatabaseRole = new Snowflake.GrantDatabaseRole("grantDatabaseRole", new()
+    ///     {
+    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
+    ///         ParentRoleName = parentRole.Name,
+    ///     });
     /// 
-    /// resource "snowflake_database_role" "database_role" {
-    ///   database = var.database
-    ///   name     = var.database_role_name
-    /// }
+    ///     //#################################
+    ///     //## grant database role to database role
+    ///     //#################################
+    ///     var databaseRoleIndex_databaseRoleDatabaseRole = new Snowflake.DatabaseRole("databaseRoleIndex/databaseRoleDatabaseRole", new()
+    ///     {
+    ///         Database = @var.Database,
+    ///     });
     /// 
-    /// resource "snowflake_database_role" "parent_database_role" {
-    ///   database = var.database
-    ///   name     = var.parent_database_role_name
-    /// }
+    ///     var parentDatabaseRole = new Snowflake.DatabaseRole("parentDatabaseRole", new()
+    ///     {
+    ///         Database = @var.Database,
+    ///     });
     /// 
-    /// resource "snowflake_grant_database_role" "g" {
-    ///   database_role_name        = "\"${var.database}\".\"${snowflake_database_role.database_role.name}\""
-    ///   parent_database_role_name = "\"${var.database}\".\"${snowflake_database_role.parent_database_role.name}\""
-    /// }
+    ///     var index_grantDatabaseRoleGrantDatabaseRole = new Snowflake.GrantDatabaseRole("index/grantDatabaseRoleGrantDatabaseRole", new()
+    ///     {
+    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
+    ///         ParentDatabaseRoleName = parentDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
+    ///     });
     /// 
-    /// ##################################
+    ///     //#################################
+    ///     //## grant database role to share
+    ///     //#################################
+    ///     var snowflakeIndex_grantDatabaseRoleGrantDatabaseRole = new Snowflake.GrantDatabaseRole("snowflakeIndex/grantDatabaseRoleGrantDatabaseRole", new()
+    ///     {
+    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
+    ///         ShareName = snowflake_share.Share.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

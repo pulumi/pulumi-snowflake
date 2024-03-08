@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
+ * $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
  * ```
  */
 export class UserPasswordPolicyAttachment extends pulumi.CustomResource {

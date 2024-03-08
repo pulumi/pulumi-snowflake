@@ -166,6 +166,7 @@ class SessionParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -179,11 +180,12 @@ class SessionParameter(pulumi.CustomResource):
             on_account=True,
             value="BASE64")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
+        $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -202,6 +204,7 @@ class SessionParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -215,11 +218,12 @@ class SessionParameter(pulumi.CustomResource):
             on_account=True,
             value="BASE64")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
+        $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
         ```
 
         :param str resource_name: The name of the resource.

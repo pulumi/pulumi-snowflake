@@ -15,99 +15,229 @@ import (
 // > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
 //
 // ## Example Usage
-// ### global privileges
-// ##################################
 //
-// # list of privileges
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
 //
-//	resource "snowflake_grant_privileges_to_role" "g1" {
-//	  privileges = ["MODIFY", "USAGE"]
-//	  role_name  = snowflake_role.r.name
-//	  on_account = true
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// #################################
+//			// ## global privileges
+//			// #################################
+//			// list of privileges
+//			_, err := snowflake.NewGrantPrivilegesToRole(ctx, "g1", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("USAGE"),
+//				},
+//				RoleName:  pulumi.Any(snowflake_role.R.Name),
+//				OnAccount: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g2", &snowflake.GrantPrivilegesToRoleArgs{
+//				RoleName:        pulumi.Any(snowflake_role.R.Name),
+//				OnAccount:       pulumi.Bool(true),
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g3", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("CREATE"),
+//					pulumi.String("MONITOR"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnAccountObject: &snowflake.GrantPrivilegesToRoleOnAccountObjectArgs{
+//					ObjectType: pulumi.String("DATABASE"),
+//					ObjectName: pulumi.Any(snowflake_database.D.Name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g4", &snowflake.GrantPrivilegesToRoleArgs{
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnAccountObject: &snowflake.GrantPrivilegesToRoleOnAccountObjectArgs{
+//					ObjectType: pulumi.String("DATABASE"),
+//					ObjectName: pulumi.Any(snowflake_database.D.Name),
+//				},
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g5", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
+//					SchemaName: pulumi.String("\"my_db\".\"my_schema\""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g6", &snowflake.GrantPrivilegesToRoleArgs{
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
+//					SchemaName: pulumi.String("\"my_db\".\"my_schema\""),
+//				},
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all schemas in database
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g7", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
+//					AllSchemasInDatabase: pulumi.Any(snowflake_database.D.Name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future schemas in database
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g8", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
+//					FutureSchemasInDatabase: pulumi.Any(snowflake_database.D.Name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g9", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("REFERENCES"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					ObjectType: pulumi.String("VIEW"),
+//					ObjectName: pulumi.String("\"my_db\".\"my_schema\".\"my_view\""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g10", &snowflake.GrantPrivilegesToRoleArgs{
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					ObjectType: pulumi.String("VIEW"),
+//					ObjectName: pulumi.String("\"my_db\".\"my_schema\".\"my_view\""),
+//				},
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all in database
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g11", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					All: &snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InDatabase:       pulumi.Any(snowflake_database.D.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all in schema
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g12", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					All: &snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InSchema:         pulumi.String("\"my_db\".\"my_schema\""),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future in database
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g13", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					Future: &snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InDatabase:       pulumi.Any(snowflake_database.D.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future in schema
+//			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g14", &snowflake.GrantPrivilegesToRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
+//					Future: &snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InSchema:         pulumi.String("\"my_db\".\"my_schema\""),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// # all privileges + grant option
-//
-//	resource "snowflake_grant_privileges_to_role" "g2" {
-//	  role_name         = snowflake_role.r.name
-//	  on_account        = true
-//	  all_privileges    = true
-//	  with_grant_option = true
-//	}
-//
-// ##################################
-// ### account object privileges
-// ##################################
-//
-// # list of privileges
-//
-//	resource "snowflake_grant_privileges_to_role" "g3" {
-//	  privileges = ["CREATE", "MONITOR"]
-//	  role_name  = snowflake_role.r.name
-//	  on_account_object {
-//	    object_type = "DATABASE"
-//	    object_name = snowflake_database.d.name
-//	  }
-//	}
-//
-// # all privileges + grant option
-//
-//	resource "snowflake_grant_privileges_to_role" "g4" {
-//	  role_name = snowflake_role.r.name
-//	  on_account_object {
-//	    object_type = "DATABASE"
-//	    object_name = snowflake_database.d.name
-//	  }
-//	  all_privileges    = true
-//	  with_grant_option = true
-//	}
-//
-// ##################################
-// ### schema privileges
-// ##################################
-//
-// # list of privileges
-//
-//	resource "snowflake_grant_privileges_to_role" "g5" {
-//	  privileges = ["MODIFY", "CREATE TABLE"]
-//	  role_name  = snowflake_role.r.name
-//	  on_schema {
-//	    schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
-//	  }
-//	}
-//
-// # all privileges + grant option
-//
-//	resource "snowflake_grant_privileges_to_role" "g6" {
-//	  role_name = snowflake_role.r.name
-//	  on_schema {
-//	    schema_name = "\"my_db\".\"my_schema\"" # note this is a fully qualified name!
-//	  }
-//	  all_privileges    = true
-//	  with_grant_option = true
-//	}
-//
-// # all schemas in database
-//
-//	resource "snowflake_grant_privileges_to_role" "g7" {
-//	  privileges = ["MODIFY", "CREATE TABLE"]
-//	  role_name  = snowflake_role.r.name
-//	  on_schema {
-//	    all_schemas_in_database = snowflake_database.d.name
-//	  }
-//	}
-//
-// # future schemas in database
-//
-//	resource "snowflake_grant_privileges_to_role" "g8" {
-//	  privileges = ["MODIFY", "CREATE TABLE"]
-//	  role_name  = snowflake_role.r.name
-//	  on_schema {
-//	    future_schemas_in_database = snowflake_database.d.name
-//	  }
-//	}
-//
-// ##################################
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -280,6 +280,7 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -291,6 +292,7 @@ class Schema(pulumi.CustomResource):
             is_managed=False,
             is_transient=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,6 +321,7 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -330,6 +333,7 @@ class Schema(pulumi.CustomResource):
             is_managed=False,
             is_transient=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

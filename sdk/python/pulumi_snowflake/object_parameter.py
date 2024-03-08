@@ -201,6 +201,7 @@ class ObjectParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -244,11 +245,12 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             on_account=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
         ```
 
         :param str resource_name: The name of the resource.
@@ -268,6 +270,7 @@ class ObjectParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -311,11 +314,12 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             on_account=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
         ```
 
         :param str resource_name: The name of the resource.

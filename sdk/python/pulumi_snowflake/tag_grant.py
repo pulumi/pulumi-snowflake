@@ -303,6 +303,7 @@ class TagGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -314,6 +315,7 @@ class TagGrant(pulumi.CustomResource):
             schema_name="schema",
             tag_name="tag")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,6 +348,7 @@ class TagGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -357,6 +360,7 @@ class TagGrant(pulumi.CustomResource):
             schema_name="schema",
             tag_name="tag")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -100,6 +100,7 @@ class AccountParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -111,11 +112,12 @@ class AccountParameter(pulumi.CustomResource):
             key="CLIENT_ENCRYPTION_KEY_SIZE",
             value="256")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
+        $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -132,6 +134,7 @@ class AccountParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -143,11 +146,12 @@ class AccountParameter(pulumi.CustomResource):
             key="CLIENT_ENCRYPTION_KEY_SIZE",
             value="256")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
+        $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
         ```
 
         :param str resource_name: The name of the resource.
