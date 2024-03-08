@@ -169,7 +169,7 @@ class RoleGrants(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantAccountRole instead. <deprecation>
 
         ## Example Usage
 
@@ -213,7 +213,7 @@ class RoleGrants(pulumi.CustomResource):
                  args: RoleGrantsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantAccountRole instead. <deprecation>
 
         ## Example Usage
 
