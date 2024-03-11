@@ -7575,7 +7575,7 @@ func (o GetDynamicTablesInPtrOutput) Schema() pulumi.StringPtrOutput {
 }
 
 type GetDynamicTablesLike struct {
-	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -7591,7 +7591,7 @@ type GetDynamicTablesLikeInput interface {
 }
 
 type GetDynamicTablesLikeArgs struct {
-	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -7672,7 +7672,7 @@ func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikePtrOutputWithContext(c
 	}).(GetDynamicTablesLikePtrOutput)
 }
 
-// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
 func (o GetDynamicTablesLikeOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDynamicTablesLike) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -7701,7 +7701,7 @@ func (o GetDynamicTablesLikePtrOutput) Elem() GetDynamicTablesLikeOutput {
 	}).(GetDynamicTablesLikeOutput)
 }
 
-// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
 func (o GetDynamicTablesLikePtrOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetDynamicTablesLike) *string {
 		if v == nil {

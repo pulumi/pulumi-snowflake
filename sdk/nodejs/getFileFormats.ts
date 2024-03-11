@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOptions): Promise<GetFileFormatsResult> {
 
@@ -60,6 +62,7 @@ export interface GetFileFormatsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -69,6 +72,7 @@ export interface GetFileFormatsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileFormatsResult> {
     return pulumi.output(args).apply((a: any) => getFileFormats(a, opts))

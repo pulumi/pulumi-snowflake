@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,11 +35,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/accountParameter:AccountParameter p &lt;parameter_name&gt;
+    /// $ pulumi import snowflake:index/accountParameter:AccountParameter p &lt;parameter_name&gt;
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountParameter:AccountParameter")]

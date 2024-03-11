@@ -303,6 +303,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -319,6 +320,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
             schema_name="EXAMPLE_SCHEMA_NAME",
             with_grant_option=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,6 +353,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -367,6 +370,7 @@ class MaskingPolicyGrant(pulumi.CustomResource):
             schema_name="EXAMPLE_SCHEMA_NAME",
             with_grant_option=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

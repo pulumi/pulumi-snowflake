@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment")

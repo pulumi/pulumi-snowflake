@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,11 +63,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example &#34;&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;&#34;
+ * $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example &#34;&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;&#34;
  * ```
  * 
  */

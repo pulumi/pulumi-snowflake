@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,11 +48,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;"
+    /// $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "&lt;on_role_name&gt;|&lt;to_role_name&gt;|&lt;current_grants&gt;"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/roleOwnershipGrant:RoleOwnershipGrant")]

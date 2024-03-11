@@ -74,12 +74,14 @@ def get_database_roles(database: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     db_roles = snowflake.get_database_roles(database="MYDB")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str database: The database from which to return the database roles from.
@@ -101,12 +103,14 @@ def get_database_roles_output(database: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     db_roles = snowflake.get_database_roles(database="MYDB")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str database: The database from which to return the database roles from.

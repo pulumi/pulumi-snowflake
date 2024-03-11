@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,11 +29,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
+    /// $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/warehouse:Warehouse")]

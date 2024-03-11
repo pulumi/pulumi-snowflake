@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,11 +36,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
+    /// $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicy:NetworkPolicy")]

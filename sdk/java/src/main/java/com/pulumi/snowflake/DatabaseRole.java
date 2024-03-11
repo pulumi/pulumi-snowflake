@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/databaseRole:DatabaseRole example &#39;dbName|roleName&#39;
+ * $ pulumi import snowflake:index/databaseRole:DatabaseRole example &#39;dbName|roleName&#39;
  * ```
  * 
  */

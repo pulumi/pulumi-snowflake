@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -101,11 +103,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;❄️&lt;object_type&gt;❄️&lt;object_identifier&gt;
+ * $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;❄️&lt;object_type&gt;❄️&lt;object_identifier&gt;
  * ```
  * 
  */

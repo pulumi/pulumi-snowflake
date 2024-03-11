@@ -199,6 +199,7 @@ class Tag(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -213,6 +214,7 @@ class Tag(pulumi.CustomResource):
                 "engineering",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -239,6 +241,7 @@ class Tag(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -253,6 +256,7 @@ class Tag(pulumi.CustomResource):
                 "engineering",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

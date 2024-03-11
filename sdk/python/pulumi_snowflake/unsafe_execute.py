@@ -157,56 +157,6 @@ class UnsafeExecute(pulumi.CustomResource):
 
         Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
 
-        ## Example Usage
-        ### simple use cases
-        ##################################
-
-        # create and destroy resource
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE ABC"
-          revert  = "DROP DATABASE ABC"
-        }
-
-        # create and destroy resource using qualified name
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE \\"abc\\""
-          revert  = "DROP DATABASE \\"abc\\""
-        }
-
-        # with query
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE ABC"
-          revert  = "DROP DATABASE ABC"
-          query   = "SHOW DATABASES LIKE '%ABC%'"
-        }
-
-        ##################################
-        ### grants example
-        ##################################
-
-        # grant and revoke privilege USAGE to ROLE on database
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "GRANT USAGE ON DATABASE ABC TO ROLE XYZ"
-          revert  = "REVOKE USAGE ON DATABASE ABC FROM ROLE XYZ"
-        }
-
-        # grant and revoke with for_each
-        variable "database_grants" {
-          type = list(object({
-            database_name = string
-            role_id       = string
-            privileges    = list(string)
-          }))
-        }
-
-        resource "snowflake_unsafe_execute" "test" {
-          for_each = { for index, db_grant in var.database_grants : index => db_grant }
-          execute  = "GRANT ${join(",", each.value.privileges)} ON DATABASE ${each.value.database_name} TO ROLE ${each.value.role_id}"
-          revert   = "REVOKE ${join(",", each.value.privileges)} ON DATABASE ${each.value.database_name} FROM ROLE ${each.value.role_id}"
-        }
-
-        ##################################
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] execute: SQL statement to execute. Forces recreation of resource on change.
@@ -229,56 +179,6 @@ class UnsafeExecute(pulumi.CustomResource):
         > **Deprecation** Experimental resource. Will be deleted in the upcoming versions. Use at your own risk. <deprecation>
 
         Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
-
-        ## Example Usage
-        ### simple use cases
-        ##################################
-
-        # create and destroy resource
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE ABC"
-          revert  = "DROP DATABASE ABC"
-        }
-
-        # create and destroy resource using qualified name
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE \\"abc\\""
-          revert  = "DROP DATABASE \\"abc\\""
-        }
-
-        # with query
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "CREATE DATABASE ABC"
-          revert  = "DROP DATABASE ABC"
-          query   = "SHOW DATABASES LIKE '%ABC%'"
-        }
-
-        ##################################
-        ### grants example
-        ##################################
-
-        # grant and revoke privilege USAGE to ROLE on database
-        resource "snowflake_unsafe_execute" "test" {
-          execute = "GRANT USAGE ON DATABASE ABC TO ROLE XYZ"
-          revert  = "REVOKE USAGE ON DATABASE ABC FROM ROLE XYZ"
-        }
-
-        # grant and revoke with for_each
-        variable "database_grants" {
-          type = list(object({
-            database_name = string
-            role_id       = string
-            privileges    = list(string)
-          }))
-        }
-
-        resource "snowflake_unsafe_execute" "test" {
-          for_each = { for index, db_grant in var.database_grants : index => db_grant }
-          execute  = "GRANT ${join(",", each.value.privileges)} ON DATABASE ${each.value.database_name} TO ROLE ${each.value.role_id}"
-          revert   = "REVOKE ${join(",", each.value.privileges)} ON DATABASE ${each.value.database_name} FROM ROLE ${each.value.role_id}"
-        }
-
-        ##################################
 
         :param str resource_name: The name of the resource.
         :param UnsafeExecuteArgs args: The arguments to use to populate this resource's properties.

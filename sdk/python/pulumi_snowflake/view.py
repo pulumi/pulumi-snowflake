@@ -360,6 +360,7 @@ class View(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -372,6 +373,7 @@ class View(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -402,6 +404,7 @@ class View(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -414,6 +417,7 @@ class View(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

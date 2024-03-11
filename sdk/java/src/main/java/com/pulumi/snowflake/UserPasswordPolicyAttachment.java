@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,11 +60,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example &#34;MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME&#34;
+ * $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example &#34;MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME&#34;
  * ```
  * 
  */

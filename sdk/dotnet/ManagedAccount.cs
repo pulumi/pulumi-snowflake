@@ -10,10 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+    /// $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/managedAccount:ManagedAccount")]

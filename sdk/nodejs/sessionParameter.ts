@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -22,11 +23,12 @@ import * as utilities from "./utilities";
  *     value: "BASE64",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
+ * $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
  * ```
  */
 export class SessionParameter extends pulumi.CustomResource {

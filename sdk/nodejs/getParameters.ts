@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -29,6 +30,7 @@ import * as utilities from "./utilities";
  *     user: "TEST_USER",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getParameters(args?: GetParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersResult> {
     args = args || {};
@@ -105,6 +107,7 @@ export interface GetParametersResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -125,6 +128,7 @@ export interface GetParametersResult {
  *     user: "TEST_USER",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getParametersOutput(args?: GetParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersResult> {
     return pulumi.output(args).apply((a: any) => getParameters(a, opts))

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTasks(args: GetTasksArgs, opts?: pulumi.InvokeOptions): Promise<GetTasksResult> {
 
@@ -60,6 +62,7 @@ export interface GetTasksResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -69,6 +72,7 @@ export interface GetTasksResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTasksOutput(args: GetTasksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTasksResult> {
     return pulumi.output(args).apply((a: any) => getTasks(a, opts))

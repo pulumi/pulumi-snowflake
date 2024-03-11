@@ -27,56 +27,6 @@ import javax.annotation.Nullable;
  * 
  * Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
  * 
- * ## Example Usage
- * ### simple use cases
- * ##################################
- * 
- * # create and destroy resource
- * resource &#34;snowflake_unsafe_execute&#34; &#34;test&#34; {
- *   execute = &#34;CREATE DATABASE ABC&#34;
- *   revert  = &#34;DROP DATABASE ABC&#34;
- * }
- * 
- * # create and destroy resource using qualified name
- * resource &#34;snowflake_unsafe_execute&#34; &#34;test&#34; {
- *   execute = &#34;CREATE DATABASE \&#34;abc\&#34;&#34;
- *   revert  = &#34;DROP DATABASE \&#34;abc\&#34;&#34;
- * }
- * 
- * # with query
- * resource &#34;snowflake_unsafe_execute&#34; &#34;test&#34; {
- *   execute = &#34;CREATE DATABASE ABC&#34;
- *   revert  = &#34;DROP DATABASE ABC&#34;
- *   query   = &#34;SHOW DATABASES LIKE &#39;%ABC%&#39;&#34;
- * }
- * 
- * ##################################
- * ### grants example
- * ##################################
- * 
- * # grant and revoke privilege USAGE to ROLE on database
- * resource &#34;snowflake_unsafe_execute&#34; &#34;test&#34; {
- *   execute = &#34;GRANT USAGE ON DATABASE ABC TO ROLE XYZ&#34;
- *   revert  = &#34;REVOKE USAGE ON DATABASE ABC FROM ROLE XYZ&#34;
- * }
- * 
- * # grant and revoke with for_each
- * variable &#34;database_grants&#34; {
- *   type = list(object({
- *     database_name = string
- *     role_id       = string
- *     privileges    = list(string)
- *   }))
- * }
- * 
- * resource &#34;snowflake_unsafe_execute&#34; &#34;test&#34; {
- *   for_each = { for index, db_grant in var.database_grants : index =&gt; db_grant }
- *   execute  = &#34;GRANT ${join(&#34;,&#34;, each.value.privileges)} ON DATABASE ${each.value.database_name} TO ROLE ${each.value.role_id}&#34;
- *   revert   = &#34;REVOKE ${join(&#34;,&#34;, each.value.privileges)} ON DATABASE ${each.value.database_name} FROM ROLE ${each.value.role_id}&#34;
- * }
- * 
- * ##################################
- * 
  */
 @ResourceType(type="snowflake:index/unsafeExecute:UnsafeExecute")
 public class UnsafeExecute extends com.pulumi.resources.CustomResource {

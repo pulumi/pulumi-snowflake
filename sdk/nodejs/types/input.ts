@@ -179,14 +179,14 @@ export interface GetDynamicTablesInArgs {
 
 export interface GetDynamicTablesLike {
     /**
-     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
      */
     pattern: string;
 }
 
 export interface GetDynamicTablesLikeArgs {
     /**
-     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
      */
     pattern: pulumi.Input<string>;
 }

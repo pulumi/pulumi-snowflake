@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,13 +69,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/database:Database example name
-//
+// $ pulumi import snowflake:index/database:Database example name
 // ```
 type Database struct {
 	pulumi.CustomResourceState

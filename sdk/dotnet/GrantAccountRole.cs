@@ -11,23 +11,45 @@ namespace Pulumi.Snowflake
 {
     /// <summary>
     /// ## Example Usage
-    /// ### grant account role to account role
-    /// ##################################
     /// 
-    /// resource "snowflake_role" "role" {
-    ///   name = var.role_name
-    /// }
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
     /// 
-    /// resource "snowflake_role" "parent_role" {
-    ///   name = var.parent_role_name
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //#################################
+    ///     //## grant account role to account role
+    ///     //#################################
+    ///     var roleRole = new Snowflake.Role("roleRole");
     /// 
-    /// resource "snowflake_grant_account_role" "g" {
-    ///   role_name        = snowflake_role.role.name
-    ///   parent_role_name = snowflake_role.parent_role.name
-    /// }
+    ///     var parentRole = new Snowflake.Role("parentRole");
     /// 
-    /// ##################################
+    ///     var grantAccountRole = new Snowflake.GrantAccountRole("grantAccountRole", new()
+    ///     {
+    ///         RoleName = roleRole.Name,
+    ///         ParentRoleName = parentRole.Name,
+    ///     });
+    /// 
+    ///     //#################################
+    ///     //## grant account role to user
+    ///     //#################################
+    ///     var roleIndex_roleRole = new Snowflake.Role("roleIndex/roleRole");
+    /// 
+    ///     var user = new Snowflake.User("user");
+    /// 
+    ///     var index_grantAccountRoleGrantAccountRole = new Snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole", new()
+    ///     {
+    ///         RoleName = roleRole.Name,
+    ///         UserName = user.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

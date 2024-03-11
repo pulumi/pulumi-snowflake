@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -28,11 +29,12 @@ import * as utilities from "./utilities";
  *     rsaPublicKey2: "...",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/user:User example userName
+ * $ pulumi import snowflake:index/user:User example userName
  * ```
  */
 export class User extends pulumi.CustomResource {

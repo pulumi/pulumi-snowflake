@@ -132,6 +132,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +163,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertsResult> getAlerts() {
@@ -168,6 +171,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -197,6 +202,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain() {
@@ -204,6 +210,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -233,6 +241,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args) {
@@ -240,6 +249,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -269,6 +280,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args) {
@@ -276,6 +288,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -305,6 +319,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args, InvokeOptions options) {
@@ -312,6 +327,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -341,6 +358,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
@@ -348,6 +366,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -380,6 +400,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount() {
@@ -387,6 +408,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -419,6 +442,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain() {
@@ -426,6 +450,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -458,6 +484,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args) {
@@ -465,6 +492,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -497,6 +526,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args) {
@@ -504,6 +534,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,6 +568,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args, InvokeOptions options) {
@@ -543,6 +576,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -575,6 +610,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args, InvokeOptions options) {
@@ -600,6 +636,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,6 +666,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
@@ -635,6 +674,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -663,6 +704,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -670,6 +712,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -698,6 +742,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
@@ -705,6 +750,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -733,6 +780,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
@@ -740,6 +788,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -768,6 +818,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args) {
@@ -775,6 +826,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -803,6 +856,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args) {
@@ -810,6 +864,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -838,6 +894,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args, InvokeOptions options) {
@@ -845,6 +902,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -873,6 +932,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabaseRolesResult> getDatabaseRolesPlain(GetDatabaseRolesPlainArgs args, InvokeOptions options) {
@@ -880,6 +940,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -906,6 +968,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabasesResult> getDatabases() {
@@ -913,6 +976,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -939,6 +1004,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain() {
@@ -946,6 +1012,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -972,6 +1040,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabasesResult> getDatabases(GetDatabasesArgs args) {
@@ -979,6 +1048,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1005,6 +1076,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args) {
@@ -1012,6 +1084,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1038,6 +1112,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDatabasesResult> getDatabases(GetDatabasesArgs args, InvokeOptions options) {
@@ -1045,6 +1120,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1071,6 +1148,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args, InvokeOptions options) {
@@ -1096,6 +1174,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1125,6 +1205,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions() {
@@ -1132,6 +1213,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1161,6 +1244,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain() {
@@ -1168,6 +1252,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1197,6 +1283,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args) {
@@ -1204,6 +1291,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1233,6 +1322,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain(GetExternalFunctionsPlainArgs args) {
@@ -1240,6 +1330,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1269,6 +1361,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args, InvokeOptions options) {
@@ -1276,6 +1369,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1305,6 +1400,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain(GetExternalFunctionsPlainArgs args, InvokeOptions options) {
@@ -1312,6 +1408,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1341,6 +1439,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args) {
@@ -1348,6 +1447,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1377,6 +1478,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args) {
@@ -1384,6 +1486,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1413,6 +1517,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args, InvokeOptions options) {
@@ -1420,6 +1525,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1449,6 +1556,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args, InvokeOptions options) {
@@ -1474,6 +1582,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1503,6 +1613,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args) {
@@ -1510,6 +1621,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1539,6 +1652,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args) {
@@ -1546,6 +1660,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1575,6 +1691,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOptions options) {
@@ -1582,6 +1699,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1611,6 +1730,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args, InvokeOptions options) {
@@ -1618,6 +1738,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1647,6 +1769,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args) {
@@ -1654,6 +1777,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1683,6 +1808,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args) {
@@ -1690,6 +1816,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1719,6 +1847,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
@@ -1726,6 +1855,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1755,6 +1886,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args, InvokeOptions options) {
@@ -1762,6 +1894,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1838,6 +1972,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGrantsResult> getGrants() {
@@ -1845,6 +1980,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1921,6 +2058,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain() {
@@ -1928,6 +2066,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2004,6 +2144,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGrantsResult> getGrants(GetGrantsArgs args) {
@@ -2011,6 +2152,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2087,6 +2230,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args) {
@@ -2094,6 +2238,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2170,6 +2316,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGrantsResult> getGrants(GetGrantsArgs args, InvokeOptions options) {
@@ -2177,6 +2324,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2253,6 +2402,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
@@ -2260,6 +2410,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2289,6 +2441,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaskingPoliciesResult> getMaskingPolicies(GetMaskingPoliciesArgs args) {
@@ -2296,6 +2449,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2325,6 +2480,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaskingPoliciesResult> getMaskingPoliciesPlain(GetMaskingPoliciesPlainArgs args) {
@@ -2332,6 +2488,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2361,6 +2519,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaskingPoliciesResult> getMaskingPolicies(GetMaskingPoliciesArgs args, InvokeOptions options) {
@@ -2368,6 +2527,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2397,6 +2558,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaskingPoliciesResult> getMaskingPoliciesPlain(GetMaskingPoliciesPlainArgs args, InvokeOptions options) {
@@ -2404,6 +2566,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2433,6 +2597,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args) {
@@ -2440,6 +2605,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2469,6 +2636,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args) {
@@ -2476,6 +2644,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2505,6 +2675,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args, InvokeOptions options) {
@@ -2512,6 +2683,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2541,6 +2714,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args, InvokeOptions options) {
@@ -2548,6 +2722,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2592,6 +2768,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetParametersResult> getParameters() {
@@ -2599,6 +2776,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2643,6 +2822,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain() {
@@ -2650,6 +2830,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2694,6 +2876,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetParametersResult> getParameters(GetParametersArgs args) {
@@ -2701,6 +2884,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2745,6 +2930,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args) {
@@ -2752,6 +2938,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2796,6 +2984,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetParametersResult> getParameters(GetParametersArgs args, InvokeOptions options) {
@@ -2803,6 +2992,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2847,6 +3038,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args, InvokeOptions options) {
@@ -2854,6 +3046,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2883,6 +3077,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args) {
@@ -2890,6 +3085,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2919,6 +3116,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipesResult> getPipesPlain(GetPipesPlainArgs args) {
@@ -2926,6 +3124,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2955,6 +3155,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args, InvokeOptions options) {
@@ -2962,6 +3163,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2991,6 +3194,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipesResult> getPipesPlain(GetPipesPlainArgs args, InvokeOptions options) {
@@ -2998,6 +3202,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3027,6 +3233,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args) {
@@ -3034,6 +3241,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3063,6 +3272,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProceduresResult> getProceduresPlain(GetProceduresPlainArgs args) {
@@ -3070,6 +3280,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3099,6 +3311,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args, InvokeOptions options) {
@@ -3106,6 +3319,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3135,6 +3350,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProceduresResult> getProceduresPlain(GetProceduresPlainArgs args, InvokeOptions options) {
@@ -3142,6 +3358,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3167,6 +3385,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceMonitorsResult> getResourceMonitors() {
@@ -3174,6 +3393,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3199,6 +3420,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceMonitorsResult> getResourceMonitorsPlain() {
@@ -3206,6 +3428,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3231,6 +3455,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceMonitorsResult> getResourceMonitors(InvokeArgs args) {
@@ -3238,6 +3463,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3263,6 +3490,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceMonitorsResult> getResourceMonitorsPlain(InvokeArgs args) {
@@ -3270,6 +3498,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3295,6 +3525,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceMonitorsResult> getResourceMonitors(InvokeArgs args, InvokeOptions options) {
@@ -3302,6 +3533,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3327,6 +3560,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceMonitorsResult> getResourceMonitorsPlain(InvokeArgs args, InvokeOptions options) {
@@ -3336,6 +3570,8 @@ public final class SnowflakeFunctions {
      * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3364,6 +3600,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleResult> getRole(GetRoleArgs args) {
@@ -3373,6 +3610,8 @@ public final class SnowflakeFunctions {
      * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3401,6 +3640,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args) {
@@ -3410,6 +3650,8 @@ public final class SnowflakeFunctions {
      * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3438,6 +3680,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleResult> getRole(GetRoleArgs args, InvokeOptions options) {
@@ -3447,6 +3690,8 @@ public final class SnowflakeFunctions {
      * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.getRoles instead. &lt;deprecation&gt;
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3475,6 +3720,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
@@ -3482,6 +3728,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3512,6 +3760,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles() {
@@ -3519,6 +3768,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3549,6 +3800,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain() {
@@ -3556,6 +3808,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3586,6 +3840,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args) {
@@ -3593,6 +3848,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3623,6 +3880,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args) {
@@ -3630,6 +3888,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3660,6 +3920,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args, InvokeOptions options) {
@@ -3667,6 +3928,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3697,6 +3960,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args, InvokeOptions options) {
@@ -3704,6 +3968,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3733,6 +3999,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRowAccessPoliciesResult> getRowAccessPolicies(GetRowAccessPoliciesArgs args) {
@@ -3740,6 +4007,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3769,6 +4038,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRowAccessPoliciesResult> getRowAccessPoliciesPlain(GetRowAccessPoliciesPlainArgs args) {
@@ -3776,6 +4046,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3805,6 +4077,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRowAccessPoliciesResult> getRowAccessPolicies(GetRowAccessPoliciesArgs args, InvokeOptions options) {
@@ -3812,6 +4085,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3841,6 +4116,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRowAccessPoliciesResult> getRowAccessPoliciesPlain(GetRowAccessPoliciesPlainArgs args, InvokeOptions options) {
@@ -3848,6 +4124,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3876,6 +4154,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args) {
@@ -3883,6 +4162,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3911,6 +4192,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args) {
@@ -3918,6 +4200,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3946,6 +4230,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOptions options) {
@@ -3953,6 +4238,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3981,6 +4268,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args, InvokeOptions options) {
@@ -3988,6 +4276,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4017,6 +4307,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args) {
@@ -4024,6 +4315,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4053,6 +4346,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args) {
@@ -4060,6 +4354,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4089,6 +4385,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args, InvokeOptions options) {
@@ -4096,6 +4393,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4125,6 +4424,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args, InvokeOptions options) {
@@ -4132,6 +4432,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4162,6 +4464,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharesResult> getShares() {
@@ -4169,6 +4472,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4199,6 +4504,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain() {
@@ -4206,6 +4512,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4236,6 +4544,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharesResult> getShares(GetSharesArgs args) {
@@ -4243,6 +4552,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4273,6 +4584,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args) {
@@ -4280,6 +4592,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4310,6 +4624,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOptions options) {
@@ -4317,6 +4632,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4347,6 +4664,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args, InvokeOptions options) {
@@ -4354,6 +4672,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4383,6 +4703,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args) {
@@ -4390,6 +4711,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4419,6 +4742,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStagesResult> getStagesPlain(GetStagesPlainArgs args) {
@@ -4426,6 +4750,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4455,6 +4781,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args, InvokeOptions options) {
@@ -4462,6 +4789,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4491,6 +4820,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStagesResult> getStagesPlain(GetStagesPlainArgs args, InvokeOptions options) {
@@ -4498,6 +4828,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4523,6 +4855,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations() {
@@ -4530,6 +4863,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4555,6 +4890,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain() {
@@ -4562,6 +4898,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4587,6 +4925,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args) {
@@ -4594,6 +4933,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4619,6 +4960,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain(InvokeArgs args) {
@@ -4626,6 +4968,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4651,6 +4995,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args, InvokeOptions options) {
@@ -4658,6 +5003,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4683,6 +5030,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain(InvokeArgs args, InvokeOptions options) {
@@ -4690,6 +5038,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4719,6 +5069,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamsResult> getStreams(GetStreamsArgs args) {
@@ -4726,6 +5077,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4755,6 +5108,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamsResult> getStreamsPlain(GetStreamsPlainArgs args) {
@@ -4762,6 +5116,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4791,6 +5147,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamsResult> getStreams(GetStreamsArgs args, InvokeOptions options) {
@@ -4798,6 +5155,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4827,6 +5186,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamsResult> getStreamsPlain(GetStreamsPlainArgs args, InvokeOptions options) {
@@ -4834,6 +5194,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4862,6 +5224,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args) {
@@ -4869,6 +5232,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4897,6 +5262,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args) {
@@ -4904,6 +5270,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4932,6 +5300,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args, InvokeOptions options) {
@@ -4939,6 +5308,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4967,6 +5338,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args, InvokeOptions options) {
@@ -4984,21 +5356,45 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig() {
         return getSystemGetPrivateLinkConfig(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain() {
         return getSystemGetPrivateLinkConfigPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args) {
         return getSystemGetPrivateLinkConfig(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args) {
         return getSystemGetPrivateLinkConfigPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
@@ -5022,6 +5418,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5051,6 +5449,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTablesResult> getTables(GetTablesArgs args) {
@@ -5058,6 +5457,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5087,6 +5488,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTablesResult> getTablesPlain(GetTablesPlainArgs args) {
@@ -5094,6 +5496,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5123,6 +5527,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTablesResult> getTables(GetTablesArgs args, InvokeOptions options) {
@@ -5130,6 +5535,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5159,6 +5566,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTablesResult> getTablesPlain(GetTablesPlainArgs args, InvokeOptions options) {
@@ -5166,6 +5574,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5195,6 +5605,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTasksResult> getTasks(GetTasksArgs args) {
@@ -5202,6 +5613,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5231,6 +5644,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTasksResult> getTasksPlain(GetTasksPlainArgs args) {
@@ -5238,6 +5652,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5267,6 +5683,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTasksResult> getTasks(GetTasksArgs args, InvokeOptions options) {
@@ -5274,6 +5691,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5303,6 +5722,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTasksResult> getTasksPlain(GetTasksPlainArgs args, InvokeOptions options) {
@@ -5310,6 +5730,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5338,6 +5760,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -5345,6 +5768,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5373,6 +5798,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -5380,6 +5806,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5408,6 +5836,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -5415,6 +5844,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5443,6 +5874,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
@@ -5450,6 +5882,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5479,6 +5913,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetViewsResult> getViews(GetViewsArgs args) {
@@ -5486,6 +5921,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5515,6 +5952,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetViewsResult> getViewsPlain(GetViewsPlainArgs args) {
@@ -5522,6 +5960,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5551,6 +5991,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetViewsResult> getViews(GetViewsArgs args, InvokeOptions options) {
@@ -5558,6 +5999,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5587,6 +6030,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetViewsResult> getViewsPlain(GetViewsPlainArgs args, InvokeOptions options) {
@@ -5594,6 +6038,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5619,6 +6065,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWarehousesResult> getWarehouses() {
@@ -5626,6 +6073,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5651,6 +6100,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWarehousesResult> getWarehousesPlain() {
@@ -5658,6 +6108,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5683,6 +6135,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWarehousesResult> getWarehouses(InvokeArgs args) {
@@ -5690,6 +6143,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5715,6 +6170,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWarehousesResult> getWarehousesPlain(InvokeArgs args) {
@@ -5722,6 +6178,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5747,6 +6205,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWarehousesResult> getWarehouses(InvokeArgs args, InvokeOptions options) {
@@ -5754,6 +6213,8 @@ public final class SnowflakeFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5779,6 +6240,7 @@ public final class SnowflakeFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWarehousesResult> getWarehousesPlain(InvokeArgs args, InvokeOptions options) {

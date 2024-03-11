@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -25,11 +26,12 @@ import * as utilities from "./utilities";
  *     currentGrants: "COPY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
+ * $ pulumi import snowflake:index/roleOwnershipGrant:RoleOwnershipGrant example "<on_role_name>|<to_role_name>|<current_grants>"
  * ```
  */
 export class RoleOwnershipGrant extends pulumi.CustomResource {

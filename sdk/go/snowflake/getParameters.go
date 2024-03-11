@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,6 +55,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetParameters(ctx *pulumi.Context, args *GetParametersArgs, opts ...pulumi.InvokeOption) (*GetParametersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetParametersResult

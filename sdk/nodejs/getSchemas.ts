@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     database: "MYDB",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
 
@@ -53,6 +55,7 @@ export interface GetSchemasResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -61,6 +64,7 @@ export interface GetSchemasResult {
  *     database: "MYDB",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemasOutput(args: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
     return pulumi.output(args).apply((a: any) => getSchemas(a, opts))

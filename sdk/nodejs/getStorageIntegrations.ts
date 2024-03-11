@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getStorageIntegrations({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStorageIntegrations(opts?: pulumi.InvokeOptions): Promise<GetStorageIntegrationsResult> {
 
@@ -39,12 +41,14 @@ export interface GetStorageIntegrationsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getStorageIntegrations({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStorageIntegrationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageIntegrationsResult> {
     return pulumi.output(getStorageIntegrations(opts))

@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+ * $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
  * ```
  */
 export class StorageIntegration extends pulumi.CustomResource {

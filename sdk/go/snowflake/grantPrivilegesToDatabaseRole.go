@@ -17,82 +17,281 @@ import (
 // !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 //
 // ## Example Usage
-// ### on database privileges
-// ##################################
 //
-// # list of privileges
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
 //
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  privileges         = ["CREATE", "MONITOR"]
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_database        = snowflake_database_role.db_role.database
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			dbRole, err := snowflake.NewDatabaseRole(ctx, "dbRole", &snowflake.DatabaseRoleArgs{
+//				Database: pulumi.String("database"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("CREATE"),
+//					pulumi.String("MONITOR"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnDatabase: dbRole.Database,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnDatabase:      dbRole.Database,
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option + always apply
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnDatabase:      dbRole.Database,
+//				AlwaysApply:     pulumi.Bool(true),
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
+//					SchemaName: dbRole.Database.ApplyT(func(database string) (string, error) {
+//						return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
+//					SchemaName: dbRole.Database.ApplyT(func(database string) (string, error) {
+//						return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
+//					}).(pulumi.StringOutput),
+//				},
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all schemas in database
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
+//					AllSchemasInDatabase: dbRole.Database,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future schemas in database
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("MODIFY"),
+//					pulumi.String("CREATE TABLE"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
+//					FutureSchemasInDatabase: dbRole.Database,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// list of privileges
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("REFERENCES"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					ObjectType: pulumi.String("VIEW"),
+//					ObjectName: dbRole.Database.ApplyT(func(database string) (string, error) {
+//						return fmt.Sprintf("\"%v\".\"my_schema\".\"my_view\"", database), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all privileges + grant option
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					ObjectType: pulumi.String("VIEW"),
+//					ObjectName: dbRole.Database.ApplyT(func(database string) (string, error) {
+//						return fmt.Sprintf("\"%v\".\"my_schema\".\"my_view\"", database), nil
+//					}).(pulumi.StringOutput),
+//				},
+//				AllPrivileges:   pulumi.Bool(true),
+//				WithGrantOption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all in database
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					All: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InDatabase:       dbRole.Database,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all in schema
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					All: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InSchema: dbRole.Database.ApplyT(func(database string) (string, error) {
+//							return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future in database
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					Future: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InDatabase:       dbRole.Database,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// future in schema
+//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
+//				Privileges: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//					pulumi.String("INSERT"),
+//				},
+//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					database := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
+//				}).(pulumi.StringOutput),
+//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
+//					Future: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{
+//						ObjectTypePlural: pulumi.String("TABLES"),
+//						InSchema: dbRole.Database.ApplyT(func(database string) (string, error) {
+//							return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// # all privileges + grant option
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_database        = snowflake_database_role.db_role.database
-//	  all_privileges     = true
-//	  with_grant_option  = true
-//	}
-//
-// # all privileges + grant option + always apply
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_database        = snowflake_database_role.db_role.database
-//	  always_apply       = true
-//	  all_privileges     = true
-//	  with_grant_option  = true
-//	}
-//
-// ##################################
-// ### schema privileges
-// ##################################
-//
-// # list of privileges
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  privileges         = ["MODIFY", "CREATE TABLE"]
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_schema {
-//	    schema_name = "\"${snowflake_database_role.db_role.database}\".\"my_schema\"" # note this is a fully qualified name!
-//	  }
-//	}
-//
-// # all privileges + grant option
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_schema {
-//	    schema_name = "\"${snowflake_database_role.db_role.database}\".\"my_schema\"" # note this is a fully qualified name!
-//	  }
-//	  all_privileges    = true
-//	  with_grant_option = true
-//	}
-//
-// # all schemas in database
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  privileges         = ["MODIFY", "CREATE TABLE"]
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_schema {
-//	    all_schemas_in_database = snowflake_database_role.db_role.database
-//	  }
-//	}
-//
-// # future schemas in database
-//
-//	resource "snowflake_grant_privileges_to_database_role" "example" {
-//	  privileges         = ["MODIFY", "CREATE TABLE"]
-//	  database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
-//	  on_schema {
-//	    future_schemas_in_database = snowflake_database_role.db_role.database
-//	  }
-//	}
-//
-// ##################################
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,13 +46,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
-//
+// $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
 // ```
 type AccountParameter struct {
 	pulumi.CustomResourceState

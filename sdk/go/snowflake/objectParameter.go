@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,13 +106,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
-//
+// $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
 // ```
 type ObjectParameter struct {
 	pulumi.CustomResourceState
