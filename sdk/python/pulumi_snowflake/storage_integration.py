@@ -402,10 +402,12 @@ class StorageIntegration(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+        $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -421,10 +423,12 @@ class StorageIntegration(pulumi.CustomResource):
                  args: StorageIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+        $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
         ```
 
         :param str resource_name: The name of the resource.

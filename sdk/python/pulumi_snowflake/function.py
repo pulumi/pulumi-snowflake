@@ -560,6 +560,8 @@ class Function(pulumi.CustomResource):
                  target_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | function name | <list of arg types, separated with '-'>
@@ -594,6 +596,8 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | function name | <list of arg types, separated with '-'>

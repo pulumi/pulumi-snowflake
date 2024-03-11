@@ -16,43 +16,65 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
- * ### grant database role to account role
- * ##################################
  * 
- * resource &#34;snowflake_database_role&#34; &#34;database_role&#34; {
- *   database = var.database
- *   name     = var.database_role_name
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.DatabaseRole;
+ * import com.pulumi.snowflake.DatabaseRoleArgs;
+ * import com.pulumi.snowflake.Role;
+ * import com.pulumi.snowflake.GrantDatabaseRole;
+ * import com.pulumi.snowflake.GrantDatabaseRoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var databaseRoleDatabaseRole = new DatabaseRole(&#34;databaseRoleDatabaseRole&#34;, DatabaseRoleArgs.builder()        
+ *             .database(var_.database())
+ *             .build());
+ * 
+ *         var parentRole = new Role(&#34;parentRole&#34;);
+ * 
+ *         var grantDatabaseRole = new GrantDatabaseRole(&#34;grantDatabaseRole&#34;, GrantDatabaseRoleArgs.builder()        
+ *             .databaseRoleName(databaseRoleDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
+ *             .parentRoleName(parentRole.name())
+ *             .build());
+ * 
+ *         var databaseRoleIndex_databaseRoleDatabaseRole = new DatabaseRole(&#34;databaseRoleIndex/databaseRoleDatabaseRole&#34;, DatabaseRoleArgs.builder()        
+ *             .database(var_.database())
+ *             .build());
+ * 
+ *         var parentDatabaseRole = new DatabaseRole(&#34;parentDatabaseRole&#34;, DatabaseRoleArgs.builder()        
+ *             .database(var_.database())
+ *             .build());
+ * 
+ *         var index_grantDatabaseRoleGrantDatabaseRole = new GrantDatabaseRole(&#34;index/grantDatabaseRoleGrantDatabaseRole&#34;, GrantDatabaseRoleArgs.builder()        
+ *             .databaseRoleName(databaseRoleDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
+ *             .parentDatabaseRoleName(parentDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
+ *             .build());
+ * 
+ *         var snowflakeIndex_grantDatabaseRoleGrantDatabaseRole = new GrantDatabaseRole(&#34;snowflakeIndex/grantDatabaseRoleGrantDatabaseRole&#34;, GrantDatabaseRoleArgs.builder()        
+ *             .databaseRoleName(databaseRoleDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
+ *             .shareName(snowflake_share.share().name())
+ *             .build());
+ * 
+ *     }
  * }
- * 
- * resource &#34;snowflake_role&#34; &#34;parent_role&#34; {
- *   name = var.parent_role_name
- * }
- * 
- * resource &#34;snowflake_grant_database_role&#34; &#34;g&#34; {
- *   database_role_name = &#34;\&#34;${var.database}\&#34;.\&#34;${snowflake_database_role.database_role.name}\&#34;&#34;
- *   parent_role_name   = snowflake_role.parent_role.name
- * }
- * 
- * ##################################
- * ### grant database role to database role
- * ##################################
- * 
- * resource &#34;snowflake_database_role&#34; &#34;database_role&#34; {
- *   database = var.database
- *   name     = var.database_role_name
- * }
- * 
- * resource &#34;snowflake_database_role&#34; &#34;parent_database_role&#34; {
- *   database = var.database
- *   name     = var.parent_database_role_name
- * }
- * 
- * resource &#34;snowflake_grant_database_role&#34; &#34;g&#34; {
- *   database_role_name        = &#34;\&#34;${var.database}\&#34;.\&#34;${snowflake_database_role.database_role.name}\&#34;&#34;
- *   parent_database_role_name = &#34;\&#34;${var.database}\&#34;.\&#34;${snowflake_database_role.parent_database_role.name}\&#34;&#34;
- * }
- * 
- * ##################################
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

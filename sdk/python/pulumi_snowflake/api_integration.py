@@ -494,6 +494,7 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -515,11 +516,12 @@ class ApiIntegration(pulumi.CustomResource):
             enabled=True,
             google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
+        $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
         ```
 
         :param str resource_name: The name of the resource.
@@ -545,6 +547,7 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -566,11 +569,12 @@ class ApiIntegration(pulumi.CustomResource):
             enabled=True,
             google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
+        $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
         ```
 
         :param str resource_name: The name of the resource.

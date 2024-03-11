@@ -10,10 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+    /// $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/storageIntegration:StorageIntegration")]

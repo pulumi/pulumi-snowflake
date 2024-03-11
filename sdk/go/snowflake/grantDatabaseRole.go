@@ -13,43 +13,82 @@ import (
 )
 
 // ## Example Usage
-// ### grant database role to account role
-// ##################################
 //
-//	resource "snowflake_database_role" "database_role" {
-//	  database = var.database
-//	  name     = var.database_role_name
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// #################################
+//			// ## grant database role to account role
+//			// #################################
+//			databaseRoleDatabaseRole, err := snowflake.NewDatabaseRole(ctx, "databaseRoleDatabaseRole", &snowflake.DatabaseRoleArgs{
+//				Database: pulumi.Any(_var.Database),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			parentRole, err := snowflake.NewRole(ctx, "parentRole", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewGrantDatabaseRole(ctx, "grantDatabaseRole", &snowflake.GrantDatabaseRoleArgs{
+//				DatabaseRoleName: databaseRoleDatabaseRole.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("\"%v\".\"%v\"", _var.Database, name), nil
+//				}).(pulumi.StringOutput),
+//				ParentRoleName: parentRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabaseRole(ctx, "databaseRoleIndex/databaseRoleDatabaseRole", &snowflake.DatabaseRoleArgs{
+//				Database: pulumi.Any(_var.Database),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			parentDatabaseRole, err := snowflake.NewDatabaseRole(ctx, "parentDatabaseRole", &snowflake.DatabaseRoleArgs{
+//				Database: pulumi.Any(_var.Database),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewGrantDatabaseRole(ctx, "index/grantDatabaseRoleGrantDatabaseRole", &snowflake.GrantDatabaseRoleArgs{
+//				DatabaseRoleName: databaseRoleDatabaseRole.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("\"%v\".\"%v\"", _var.Database, name), nil
+//				}).(pulumi.StringOutput),
+//				ParentDatabaseRoleName: parentDatabaseRole.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("\"%v\".\"%v\"", _var.Database, name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewGrantDatabaseRole(ctx, "snowflakeIndex/grantDatabaseRoleGrantDatabaseRole", &snowflake.GrantDatabaseRoleArgs{
+//				DatabaseRoleName: databaseRoleDatabaseRole.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("\"%v\".\"%v\"", _var.Database, name), nil
+//				}).(pulumi.StringOutput),
+//				ShareName: pulumi.Any(snowflake_share.Share.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-//	resource "snowflake_role" "parent_role" {
-//	  name = var.parent_role_name
-//	}
-//
-//	resource "snowflake_grant_database_role" "g" {
-//	  database_role_name = "\"${var.database}\".\"${snowflake_database_role.database_role.name}\""
-//	  parent_role_name   = snowflake_role.parent_role.name
-//	}
-//
-// ##################################
-// ### grant database role to database role
-// ##################################
-//
-//	resource "snowflake_database_role" "database_role" {
-//	  database = var.database
-//	  name     = var.database_role_name
-//	}
-//
-//	resource "snowflake_database_role" "parent_database_role" {
-//	  database = var.database
-//	  name     = var.parent_database_role_name
-//	}
-//
-//	resource "snowflake_grant_database_role" "g" {
-//	  database_role_name        = "\"${var.database}\".\"${snowflake_database_role.database_role.name}\""
-//	  parent_database_role_name = "\"${var.database}\".\"${snowflake_database_role.parent_database_role.name}\""
-//	}
-//
-// ##################################
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

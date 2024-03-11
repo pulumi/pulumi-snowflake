@@ -174,6 +174,7 @@ class AccountGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -186,6 +187,7 @@ class AccountGrant(pulumi.CustomResource):
             ],
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,6 +216,7 @@ class AccountGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -226,6 +229,7 @@ class AccountGrant(pulumi.CustomResource):
             ],
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,13 +44,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
-//
+// $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
 // ```
 type NetworkPolicy struct {
 	pulumi.CustomResourceState

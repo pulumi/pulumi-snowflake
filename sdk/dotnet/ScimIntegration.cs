@@ -12,6 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,11 +30,12 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
+    /// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/scimIntegration:ScimIntegration")]

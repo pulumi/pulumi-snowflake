@@ -494,6 +494,7 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -510,6 +511,7 @@ class Stage(pulumi.CustomResource):
             privilege="OWNERSHIP",
             stage_name=example_stage.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -543,6 +545,7 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -559,6 +562,7 @@ class Stage(pulumi.CustomResource):
             privilege="OWNERSHIP",
             stage_name=example_stage.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

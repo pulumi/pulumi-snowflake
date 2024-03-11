@@ -12,75 +12,168 @@ import * as utilities from "./utilities";
  * !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  *
  * ## Example Usage
- * ### on database privileges
- * ##################################
  *
- * # list of privileges
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   privileges         = ["CREATE", "MONITOR"]
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_database        = snowflake_database_role.db_role.database
- * }
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
  *
- * # all privileges + grant option
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_database        = snowflake_database_role.db_role.database
- *   all_privileges     = true
- *   with_grant_option  = true
- * }
- *
- * # all privileges + grant option + always apply
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_database        = snowflake_database_role.db_role.database
- *   always_apply       = true
- *   all_privileges     = true
- *   with_grant_option  = true
- * }
- *
- * ##################################
- * ### schema privileges
- * ##################################
- *
- * # list of privileges
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   privileges         = ["MODIFY", "CREATE TABLE"]
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_schema {
- *     schema_name = "\"${snowflake_database_role.db_role.database}\".\"my_schema\"" # note this is a fully qualified name!
- *   }
- * }
- *
- * # all privileges + grant option
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_schema {
- *     schema_name = "\"${snowflake_database_role.db_role.database}\".\"my_schema\"" # note this is a fully qualified name!
- *   }
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- *
- * # all schemas in database
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   privileges         = ["MODIFY", "CREATE TABLE"]
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_schema {
- *     all_schemas_in_database = snowflake_database_role.db_role.database
- *   }
- * }
- *
- * # future schemas in database
- * resource "snowflake_grant_privileges_to_database_role" "example" {
- *   privileges         = ["MODIFY", "CREATE TABLE"]
- *   database_role_name = "\"${snowflake_database_role.db_role.database}\".\"${snowflake_database_role.db_role.name}\""
- *   on_schema {
- *     future_schemas_in_database = snowflake_database_role.db_role.database
- *   }
- * }
- *
- * ##################################
+ * const dbRole = new snowflake.DatabaseRole("dbRole", {database: "database"});
+ * //#################################
+ * //## on database privileges
+ * //#################################
+ * // list of privileges
+ * const exampleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleGrantPrivilegesToDatabaseRole", {
+ *     privileges: [
+ *         "CREATE",
+ *         "MONITOR",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onDatabase: dbRole.database,
+ * });
+ * // all privileges + grant option
+ * const exampleIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", {
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onDatabase: dbRole.database,
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * // all privileges + grant option + always apply
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", {
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onDatabase: dbRole.database,
+ *     alwaysApply: true,
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * //#################################
+ * //## schema privileges
+ * //#################################
+ * // list of privileges
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchema: {
+ *         schemaName: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
+ *     },
+ * });
+ * // all privileges + grant option
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2", {
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchema: {
+ *         schemaName: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
+ *     },
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * // all schemas in database
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchema: {
+ *         allSchemasInDatabase: dbRole.database,
+ *     },
+ * });
+ * // future schemas in database
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4", {
+ *     privileges: [
+ *         "MODIFY",
+ *         "CREATE TABLE",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchema: {
+ *         futureSchemasInDatabase: dbRole.database,
+ *     },
+ * });
+ * //#################################
+ * //## schema object privileges
+ * //#################################
+ * // list of privileges
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5", {
+ *     privileges: [
+ *         "SELECT",
+ *         "REFERENCES",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         objectType: "VIEW",
+ *         objectName: pulumi.interpolate`"${dbRole.database}"."my_schema"."my_view"`,
+ *     },
+ * });
+ * // all privileges + grant option
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6", {
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         objectType: "VIEW",
+ *         objectName: pulumi.interpolate`"${dbRole.database}"."my_schema"."my_view"`,
+ *     },
+ *     allPrivileges: true,
+ *     withGrantOption: true,
+ * });
+ * // all in database
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         all: {
+ *             objectTypePlural: "TABLES",
+ *             inDatabase: dbRole.database,
+ *         },
+ *     },
+ * });
+ * // all in schema
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         all: {
+ *             objectTypePlural: "TABLES",
+ *             inSchema: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
+ *         },
+ *     },
+ * });
+ * // future in database
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         future: {
+ *             objectTypePlural: "TABLES",
+ *             inDatabase: dbRole.database,
+ *         },
+ *     },
+ * });
+ * // future in schema
+ * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10", {
+ *     privileges: [
+ *         "SELECT",
+ *         "INSERT",
+ *     ],
+ *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
+ *     onSchemaObject: {
+ *         future: {
+ *             objectTypePlural: "TABLES",
+ *             inSchema: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

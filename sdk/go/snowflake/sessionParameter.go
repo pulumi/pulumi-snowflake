@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,13 +48,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
-//
+// $ pulumi import snowflake:index/sessionParameter:SessionParameter s <parameter_name>
 // ```
 type SessionParameter struct {
 	pulumi.CustomResourceState

@@ -302,91 +302,170 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
         > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
 
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ##################################
         ### global privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g1" {
-          privileges = ["MODIFY", "USAGE"]
-          role_name  = snowflake_role.r.name
-          on_account = true
-        }
-
+        g1 = snowflake.GrantPrivilegesToRole("g1",
+            privileges=[
+                "MODIFY",
+                "USAGE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_account=True)
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g2" {
-          role_name         = snowflake_role.r.name
-          on_account        = true
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g2 = snowflake.GrantPrivilegesToRole("g2",
+            role_name=snowflake_role["r"]["name"],
+            on_account=True,
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### account object privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g3" {
-          privileges = ["CREATE", "MONITOR"]
-          role_name  = snowflake_role.r.name
-          on_account_object {
-            object_type = "DATABASE"
-            object_name = snowflake_database.d.name
-          }
-        }
-
+        g3 = snowflake.GrantPrivilegesToRole("g3",
+            privileges=[
+                "CREATE",
+                "MONITOR",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
+                object_type="DATABASE",
+                object_name=snowflake_database["d"]["name"],
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g4" {
-          role_name = snowflake_role.r.name
-          on_account_object {
-            object_type = "DATABASE"
-            object_name = snowflake_database.d.name
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g4 = snowflake.GrantPrivilegesToRole("g4",
+            role_name=snowflake_role["r"]["name"],
+            on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
+                object_type="DATABASE",
+                object_name=snowflake_database["d"]["name"],
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### schema privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g5" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            schema_name = "\\"my_db\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-        }
-
+        g5 = snowflake.GrantPrivilegesToRole("g5",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                schema_name="\\"my_db\\".\\"my_schema\\"",
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g6" {
-          role_name = snowflake_role.r.name
-          on_schema {
-            schema_name = "\\"my_db\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g6 = snowflake.GrantPrivilegesToRole("g6",
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                schema_name="\\"my_db\\".\\"my_schema\\"",
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         # all schemas in database
-        resource "snowflake_grant_privileges_to_role" "g7" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            all_schemas_in_database = snowflake_database.d.name
-          }
-        }
-
+        g7 = snowflake.GrantPrivilegesToRole("g7",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                all_schemas_in_database=snowflake_database["d"]["name"],
+            ))
         # future schemas in database
-        resource "snowflake_grant_privileges_to_role" "g8" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            future_schemas_in_database = snowflake_database.d.name
-          }
-        }
-
+        g8 = snowflake.GrantPrivilegesToRole("g8",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                future_schemas_in_database=snowflake_database["d"]["name"],
+            ))
         ##################################
+        ### schema object privileges
+        ##################################
+        # list of privileges
+        g9 = snowflake.GrantPrivilegesToRole("g9",
+            privileges=[
+                "SELECT",
+                "REFERENCES",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
+            ))
+        # all privileges + grant option
+        g10 = snowflake.GrantPrivilegesToRole("g10",
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
+            ),
+            all_privileges=True,
+            with_grant_option=True)
+        # all in database
+        g11 = snowflake.GrantPrivilegesToRole("g11",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_database=snowflake_database["d"]["name"],
+                ),
+            ))
+        # all in schema
+        g12 = snowflake.GrantPrivilegesToRole("g12",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_schema="\\"my_db\\".\\"my_schema\\"",
+                ),
+            ))
+        # future in database
+        g13 = snowflake.GrantPrivilegesToRole("g13",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_database=snowflake_database["d"]["name"],
+                ),
+            ))
+        # future in schema
+        g14 = snowflake.GrantPrivilegesToRole("g14",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_schema="\\"my_db\\".\\"my_schema\\"",
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -417,91 +496,170 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
         > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantPrivilegesToAccountRole instead. <deprecation>
 
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ##################################
         ### global privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g1" {
-          privileges = ["MODIFY", "USAGE"]
-          role_name  = snowflake_role.r.name
-          on_account = true
-        }
-
+        g1 = snowflake.GrantPrivilegesToRole("g1",
+            privileges=[
+                "MODIFY",
+                "USAGE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_account=True)
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g2" {
-          role_name         = snowflake_role.r.name
-          on_account        = true
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g2 = snowflake.GrantPrivilegesToRole("g2",
+            role_name=snowflake_role["r"]["name"],
+            on_account=True,
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### account object privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g3" {
-          privileges = ["CREATE", "MONITOR"]
-          role_name  = snowflake_role.r.name
-          on_account_object {
-            object_type = "DATABASE"
-            object_name = snowflake_database.d.name
-          }
-        }
-
+        g3 = snowflake.GrantPrivilegesToRole("g3",
+            privileges=[
+                "CREATE",
+                "MONITOR",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
+                object_type="DATABASE",
+                object_name=snowflake_database["d"]["name"],
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g4" {
-          role_name = snowflake_role.r.name
-          on_account_object {
-            object_type = "DATABASE"
-            object_name = snowflake_database.d.name
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g4 = snowflake.GrantPrivilegesToRole("g4",
+            role_name=snowflake_role["r"]["name"],
+            on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
+                object_type="DATABASE",
+                object_name=snowflake_database["d"]["name"],
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         ##################################
         ### schema privileges
         ##################################
-
         # list of privileges
-        resource "snowflake_grant_privileges_to_role" "g5" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            schema_name = "\\"my_db\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-        }
-
+        g5 = snowflake.GrantPrivilegesToRole("g5",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                schema_name="\\"my_db\\".\\"my_schema\\"",
+            ))
         # all privileges + grant option
-        resource "snowflake_grant_privileges_to_role" "g6" {
-          role_name = snowflake_role.r.name
-          on_schema {
-            schema_name = "\\"my_db\\".\\"my_schema\\"" # note this is a fully qualified name!
-          }
-          all_privileges    = true
-          with_grant_option = true
-        }
-
+        g6 = snowflake.GrantPrivilegesToRole("g6",
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                schema_name="\\"my_db\\".\\"my_schema\\"",
+            ),
+            all_privileges=True,
+            with_grant_option=True)
         # all schemas in database
-        resource "snowflake_grant_privileges_to_role" "g7" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            all_schemas_in_database = snowflake_database.d.name
-          }
-        }
-
+        g7 = snowflake.GrantPrivilegesToRole("g7",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                all_schemas_in_database=snowflake_database["d"]["name"],
+            ))
         # future schemas in database
-        resource "snowflake_grant_privileges_to_role" "g8" {
-          privileges = ["MODIFY", "CREATE TABLE"]
-          role_name  = snowflake_role.r.name
-          on_schema {
-            future_schemas_in_database = snowflake_database.d.name
-          }
-        }
-
+        g8 = snowflake.GrantPrivilegesToRole("g8",
+            privileges=[
+                "MODIFY",
+                "CREATE TABLE",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
+                future_schemas_in_database=snowflake_database["d"]["name"],
+            ))
         ##################################
+        ### schema object privileges
+        ##################################
+        # list of privileges
+        g9 = snowflake.GrantPrivilegesToRole("g9",
+            privileges=[
+                "SELECT",
+                "REFERENCES",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
+            ))
+        # all privileges + grant option
+        g10 = snowflake.GrantPrivilegesToRole("g10",
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                object_type="VIEW",
+                object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
+            ),
+            all_privileges=True,
+            with_grant_option=True)
+        # all in database
+        g11 = snowflake.GrantPrivilegesToRole("g11",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_database=snowflake_database["d"]["name"],
+                ),
+            ))
+        # all in schema
+        g12 = snowflake.GrantPrivilegesToRole("g12",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
+                    object_type_plural="TABLES",
+                    in_schema="\\"my_db\\".\\"my_schema\\"",
+                ),
+            ))
+        # future in database
+        g13 = snowflake.GrantPrivilegesToRole("g13",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_database=snowflake_database["d"]["name"],
+                ),
+            ))
+        # future in schema
+        g14 = snowflake.GrantPrivilegesToRole("g14",
+            privileges=[
+                "SELECT",
+                "INSERT",
+            ],
+            role_name=snowflake_role["r"]["name"],
+            on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
+                future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
+                    object_type_plural="TABLES",
+                    in_schema="\\"my_db\\".\\"my_schema\\"",
+                ),
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,13 +38,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
-//
+// $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
 // ```
 type Warehouse struct {
 	pulumi.CustomResourceState

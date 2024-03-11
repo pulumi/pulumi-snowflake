@@ -134,6 +134,7 @@ class DatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -142,11 +143,12 @@ class DatabaseRole(pulumi.CustomResource):
             comment="my db role",
             database="database")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -164,6 +166,7 @@ class DatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -172,11 +175,12 @@ class DatabaseRole(pulumi.CustomResource):
             comment="my db role",
             database="database")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
         ```
 
         :param str resource_name: The name of the resource.

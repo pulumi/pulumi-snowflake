@@ -360,6 +360,8 @@ class Pipe(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | pipe name
@@ -387,6 +389,8 @@ class Pipe(pulumi.CustomResource):
                  args: PipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
         ## Import
 
         format is database name | schema name | pipe name

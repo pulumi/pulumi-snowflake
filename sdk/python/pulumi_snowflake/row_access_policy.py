@@ -230,6 +230,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -243,6 +244,7 @@ class RowAccessPolicy(pulumi.CustomResource):
                 "B": "VARCHAR",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -270,6 +272,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -283,6 +286,7 @@ class RowAccessPolicy(pulumi.CustomResource):
                 "B": "VARCHAR",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

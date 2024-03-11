@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getResourceMonitors({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResourceMonitors(opts?: pulumi.InvokeOptions): Promise<GetResourceMonitorsResult> {
 
@@ -39,12 +41,14 @@ export interface GetResourceMonitorsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const current = snowflake.getResourceMonitors({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResourceMonitorsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceMonitorsResult> {
     return pulumi.output(getResourceMonitors(opts))

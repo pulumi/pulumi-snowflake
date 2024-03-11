@@ -9,17 +9,19 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const role = new snowflake.Role("role", {comment: "A role."});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/role:Role example roleName
+ * $ pulumi import snowflake:index/role:Role example roleName
  * ```
  */
 export class Role extends pulumi.CustomResource {

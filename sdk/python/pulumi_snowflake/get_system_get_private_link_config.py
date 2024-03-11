@@ -154,7 +154,7 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
 
 def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetPrivateLinkConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -176,6 +176,6 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
 @_utilities.lift_output_func(get_system_get_private_link_config)
 def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
     """
     ...

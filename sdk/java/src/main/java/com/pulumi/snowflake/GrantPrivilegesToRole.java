@@ -23,91 +23,186 @@ import javax.annotation.Nullable;
  * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantPrivilegesToAccountRole instead. &lt;deprecation&gt;
  * 
  * ## Example Usage
- * ### global privileges
- * ##################################
  * 
- * # list of privileges
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g1&#34; {
- *   privileges = [&#34;MODIFY&#34;, &#34;USAGE&#34;]
- *   role_name  = snowflake_role.r.name
- *   on_account = true
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.GrantPrivilegesToRole;
+ * import com.pulumi.snowflake.GrantPrivilegesToRoleArgs;
+ * import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnAccountObjectArgs;
+ * import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaArgs;
+ * import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaObjectArgs;
+ * import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaObjectAllArgs;
+ * import com.pulumi.snowflake.inputs.GrantPrivilegesToRoleOnSchemaObjectFutureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var g1 = new GrantPrivilegesToRole(&#34;g1&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;MODIFY&#34;,
+ *                 &#34;USAGE&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onAccount(true)
+ *             .build());
+ * 
+ *         var g2 = new GrantPrivilegesToRole(&#34;g2&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .roleName(snowflake_role.r().name())
+ *             .onAccount(true)
+ *             .allPrivileges(true)
+ *             .withGrantOption(true)
+ *             .build());
+ * 
+ *         var g3 = new GrantPrivilegesToRole(&#34;g3&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;CREATE&#34;,
+ *                 &#34;MONITOR&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
+ *                 .objectType(&#34;DATABASE&#34;)
+ *                 .objectName(snowflake_database.d().name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g4 = new GrantPrivilegesToRole(&#34;g4&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .roleName(snowflake_role.r().name())
+ *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
+ *                 .objectType(&#34;DATABASE&#34;)
+ *                 .objectName(snowflake_database.d().name())
+ *                 .build())
+ *             .allPrivileges(true)
+ *             .withGrantOption(true)
+ *             .build());
+ * 
+ *         var g5 = new GrantPrivilegesToRole(&#34;g5&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;MODIFY&#34;,
+ *                 &#34;CREATE TABLE&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
+ *                 .schemaName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var g6 = new GrantPrivilegesToRole(&#34;g6&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
+ *                 .schemaName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
+ *                 .build())
+ *             .allPrivileges(true)
+ *             .withGrantOption(true)
+ *             .build());
+ * 
+ *         var g7 = new GrantPrivilegesToRole(&#34;g7&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;MODIFY&#34;,
+ *                 &#34;CREATE TABLE&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
+ *                 .allSchemasInDatabase(snowflake_database.d().name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g8 = new GrantPrivilegesToRole(&#34;g8&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;MODIFY&#34;,
+ *                 &#34;CREATE TABLE&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
+ *                 .futureSchemasInDatabase(snowflake_database.d().name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g9 = new GrantPrivilegesToRole(&#34;g9&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;SELECT&#34;,
+ *                 &#34;REFERENCES&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .objectType(&#34;VIEW&#34;)
+ *                 .objectName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;.\&#34;my_view\&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var g10 = new GrantPrivilegesToRole(&#34;g10&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .objectType(&#34;VIEW&#34;)
+ *                 .objectName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;.\&#34;my_view\&#34;&#34;)
+ *                 .build())
+ *             .allPrivileges(true)
+ *             .withGrantOption(true)
+ *             .build());
+ * 
+ *         var g11 = new GrantPrivilegesToRole(&#34;g11&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;SELECT&#34;,
+ *                 &#34;INSERT&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .all(GrantPrivilegesToRoleOnSchemaObjectAllArgs.builder()
+ *                     .objectTypePlural(&#34;TABLES&#34;)
+ *                     .inDatabase(snowflake_database.d().name())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g12 = new GrantPrivilegesToRole(&#34;g12&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;SELECT&#34;,
+ *                 &#34;INSERT&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .all(GrantPrivilegesToRoleOnSchemaObjectAllArgs.builder()
+ *                     .objectTypePlural(&#34;TABLES&#34;)
+ *                     .inSchema(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g13 = new GrantPrivilegesToRole(&#34;g13&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;SELECT&#34;,
+ *                 &#34;INSERT&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .future(GrantPrivilegesToRoleOnSchemaObjectFutureArgs.builder()
+ *                     .objectTypePlural(&#34;TABLES&#34;)
+ *                     .inDatabase(snowflake_database.d().name())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var g14 = new GrantPrivilegesToRole(&#34;g14&#34;, GrantPrivilegesToRoleArgs.builder()        
+ *             .privileges(            
+ *                 &#34;SELECT&#34;,
+ *                 &#34;INSERT&#34;)
+ *             .roleName(snowflake_role.r().name())
+ *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
+ *                 .future(GrantPrivilegesToRoleOnSchemaObjectFutureArgs.builder()
+ *                     .objectTypePlural(&#34;TABLES&#34;)
+ *                     .inSchema(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
  * }
- * 
- * # all privileges + grant option
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g2&#34; {
- *   role_name         = snowflake_role.r.name
- *   on_account        = true
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- * 
- * ##################################
- * ### account object privileges
- * ##################################
- * 
- * # list of privileges
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g3&#34; {
- *   privileges = [&#34;CREATE&#34;, &#34;MONITOR&#34;]
- *   role_name  = snowflake_role.r.name
- *   on_account_object {
- *     object_type = &#34;DATABASE&#34;
- *     object_name = snowflake_database.d.name
- *   }
- * }
- * 
- * # all privileges + grant option
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g4&#34; {
- *   role_name = snowflake_role.r.name
- *   on_account_object {
- *     object_type = &#34;DATABASE&#34;
- *     object_name = snowflake_database.d.name
- *   }
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- * 
- * ##################################
- * ### schema privileges
- * ##################################
- * 
- * # list of privileges
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g5&#34; {
- *   privileges = [&#34;MODIFY&#34;, &#34;CREATE TABLE&#34;]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     schema_name = &#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34; # note this is a fully qualified name!
- *   }
- * }
- * 
- * # all privileges + grant option
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g6&#34; {
- *   role_name = snowflake_role.r.name
- *   on_schema {
- *     schema_name = &#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34; # note this is a fully qualified name!
- *   }
- *   all_privileges    = true
- *   with_grant_option = true
- * }
- * 
- * # all schemas in database
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g7&#34; {
- *   privileges = [&#34;MODIFY&#34;, &#34;CREATE TABLE&#34;]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     all_schemas_in_database = snowflake_database.d.name
- *   }
- * }
- * 
- * # future schemas in database
- * resource &#34;snowflake_grant_privileges_to_role&#34; &#34;g8&#34; {
- *   privileges = [&#34;MODIFY&#34;, &#34;CREATE TABLE&#34;]
- *   role_name  = snowflake_role.r.name
- *   on_schema {
- *     future_schemas_in_database = snowflake_database.d.name
- *   }
- * }
- * 
- * ##################################
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

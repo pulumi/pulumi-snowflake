@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -16,11 +17,12 @@ import * as utilities from "./utilities";
  *     warehouseSize: "small",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
+ * $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
  * ```
  */
 export class Warehouse extends pulumi.CustomResource {

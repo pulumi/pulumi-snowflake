@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -20,11 +21,12 @@ import * as utilities from "./utilities";
  *     value: "256",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
+ * $ pulumi import snowflake:index/accountParameter:AccountParameter p <parameter_name>
  * ```
  */
 export class AccountParameter extends pulumi.CustomResource {

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,11 +56,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+ * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
  * ```
  * 
  */

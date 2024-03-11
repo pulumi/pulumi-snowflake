@@ -436,6 +436,7 @@ class FunctionGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -460,6 +461,7 @@ class FunctionGrant(pulumi.CustomResource):
             ],
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -496,6 +498,7 @@ class FunctionGrant(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -520,6 +523,7 @@ class FunctionGrant(pulumi.CustomResource):
             ],
             with_grant_option=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
