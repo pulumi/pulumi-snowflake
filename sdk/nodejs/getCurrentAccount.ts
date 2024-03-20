@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const this = snowflake.getCurrentAccount({});
  * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: "String",
+ *     type: aws.ssm.ParameterType.String,
  *     value: _this.then(_this => _this.url),
  * });
  * ```
@@ -60,7 +60,7 @@ export interface GetCurrentAccountResult {
  *
  * const this = snowflake.getCurrentAccount({});
  * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: "String",
+ *     type: aws.ssm.ParameterType.String,
  *     value: _this.then(_this => _this.url),
  * });
  * ```
