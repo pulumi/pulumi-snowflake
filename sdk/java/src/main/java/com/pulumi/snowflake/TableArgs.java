@@ -131,10 +131,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
      * Definitions of primary key constraint to create on table
      * 
      * @deprecated
-     * Use snowflake_table_constraint instead
+     * Use snowflake.TableConstraint instead
      * 
      */
-    @Deprecated /* Use snowflake_table_constraint instead */
+    @Deprecated /* Use snowflake.TableConstraint instead */
     @Import(name="primaryKey")
     private @Nullable Output<TablePrimaryKeyArgs> primaryKey;
 
@@ -142,10 +142,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
      * @return Definitions of primary key constraint to create on table
      * 
      * @deprecated
-     * Use snowflake_table_constraint instead
+     * Use snowflake.TableConstraint instead
      * 
      */
-    @Deprecated /* Use snowflake_table_constraint instead */
+    @Deprecated /* Use snowflake.TableConstraint instead */
     public Optional<Output<TablePrimaryKeyArgs>> primaryKey() {
         return Optional.ofNullable(this.primaryKey);
     }
@@ -394,10 +394,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use snowflake_table_constraint instead
+         * Use snowflake.TableConstraint instead
          * 
          */
-        @Deprecated /* Use snowflake_table_constraint instead */
+        @Deprecated /* Use snowflake.TableConstraint instead */
         public Builder primaryKey(@Nullable Output<TablePrimaryKeyArgs> primaryKey) {
             $.primaryKey = primaryKey;
             return this;
@@ -409,10 +409,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use snowflake_table_constraint instead
+         * Use snowflake.TableConstraint instead
          * 
          */
-        @Deprecated /* Use snowflake_table_constraint instead */
+        @Deprecated /* Use snowflake.TableConstraint instead */
         public Builder primaryKey(TablePrimaryKeyArgs primaryKey) {
             return primaryKey(Output.of(primaryKey));
         }

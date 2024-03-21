@@ -134,7 +134,7 @@ type TagAssociation struct {
 	ObjectIdentifiers TagAssociationObjectIdentifierArrayOutput `pulumi:"objectIdentifiers"`
 	// Specifies the object identifier for the tag association.
 	//
-	// Deprecated: Use `object_identifier` instead
+	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrOutput `pulumi:"objectName"`
 	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
 	ObjectType pulumi.StringOutput `pulumi:"objectType"`
@@ -192,7 +192,7 @@ type tagAssociationState struct {
 	ObjectIdentifiers []TagAssociationObjectIdentifier `pulumi:"objectIdentifiers"`
 	// Specifies the object identifier for the tag association.
 	//
-	// Deprecated: Use `object_identifier` instead
+	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
 	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
 	ObjectType *string `pulumi:"objectType"`
@@ -209,7 +209,7 @@ type TagAssociationState struct {
 	ObjectIdentifiers TagAssociationObjectIdentifierArrayInput
 	// Specifies the object identifier for the tag association.
 	//
-	// Deprecated: Use `object_identifier` instead
+	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
 	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
 	ObjectType pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type tagAssociationArgs struct {
 	ObjectIdentifiers []TagAssociationObjectIdentifier `pulumi:"objectIdentifiers"`
 	// Specifies the object identifier for the tag association.
 	//
-	// Deprecated: Use `object_identifier` instead
+	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
 	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
 	ObjectType string `pulumi:"objectType"`
@@ -248,7 +248,7 @@ type TagAssociationArgs struct {
 	ObjectIdentifiers TagAssociationObjectIdentifierArrayInput
 	// Specifies the object identifier for the tag association.
 	//
-	// Deprecated: Use `object_identifier` instead
+	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
 	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
 	ObjectType pulumi.StringInput
@@ -354,7 +354,7 @@ func (o TagAssociationOutput) ObjectIdentifiers() TagAssociationObjectIdentifier
 
 // Specifies the object identifier for the tag association.
 //
-// Deprecated: Use `object_identifier` instead
+// Deprecated: Use `objectIdentifier` instead
 func (o TagAssociationOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringPtrOutput { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
