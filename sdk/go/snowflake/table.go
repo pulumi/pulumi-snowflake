@@ -42,7 +42,7 @@ type Table struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Definitions of primary key constraint to create on table
 	//
-	// Deprecated: Use snowflake_table_constraint instead
+	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
 	// Qualified name of the table.
 	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
@@ -111,7 +111,7 @@ type tableState struct {
 	Owner *string `pulumi:"owner"`
 	// Definitions of primary key constraint to create on table
 	//
-	// Deprecated: Use snowflake_table_constraint instead
+	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// Qualified name of the table.
 	QualifiedName *string `pulumi:"qualifiedName"`
@@ -142,7 +142,7 @@ type TableState struct {
 	Owner pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
 	//
-	// Deprecated: Use snowflake_table_constraint instead
+	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
 	// Qualified name of the table.
 	QualifiedName pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type tableArgs struct {
 	Name *string `pulumi:"name"`
 	// Definitions of primary key constraint to create on table
 	//
-	// Deprecated: Use snowflake_table_constraint instead
+	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// Name of the schema that the tag was created in.
 	Schema string `pulumi:"schema"`
@@ -203,7 +203,7 @@ type TableArgs struct {
 	Name pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
 	//
-	// Deprecated: Use snowflake_table_constraint instead
+	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
 	// Name of the schema that the tag was created in.
 	Schema pulumi.StringInput
@@ -342,7 +342,7 @@ func (o TableOutput) Owner() pulumi.StringOutput {
 
 // Definitions of primary key constraint to create on table
 //
-// Deprecated: Use snowflake_table_constraint instead
+// Deprecated: Use TableConstraint instead
 func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
 	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
 }

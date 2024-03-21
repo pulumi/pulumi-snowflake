@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
         /// 
         ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
         ///     {
-        ///         Type = "String",
+        ///         Type = Aws.Ssm.ParameterType.String,
         ///         Value = @this.Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
         ///     });
         /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         /// 
         ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
         ///     {
-        ///         Type = "String",
+        ///         Type = Aws.Ssm.ParameterType.String,
         ///         Value = @this.Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
         ///     });
         /// 
