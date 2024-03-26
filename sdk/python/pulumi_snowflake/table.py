@@ -53,8 +53,8 @@ class TableArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_key is not None:
-            warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-            pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
+            warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+            pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if tags is not None:
@@ -165,8 +165,8 @@ class TableArgs:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
 
         return pulumi.get(self, "primary_key")
 
@@ -237,8 +237,8 @@ class _TableState:
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if primary_key is not None:
-            warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-            pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
+            warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+            pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if qualified_name is not None:
@@ -353,8 +353,8 @@ class _TableState:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
 
         return pulumi.get(self, "primary_key")
 
@@ -641,8 +641,8 @@ class Table(pulumi.CustomResource):
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
+        warnings.warn("""Use snowflake_table_constraint instead""", DeprecationWarning)
+        pulumi.log.warn("""primary_key is deprecated: Use snowflake_table_constraint instead""")
 
         return pulumi.get(self, "primary_key")
 

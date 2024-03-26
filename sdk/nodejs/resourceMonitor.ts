@@ -106,7 +106,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendImmediateTrigger instead
+     * @deprecated Use suspend_immediate_trigger instead
      */
     public readonly suspendImmediateTriggers!: pulumi.Output<number[] | undefined>;
     /**
@@ -116,7 +116,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendTrigger instead
+     * @deprecated Use suspend_trigger instead
      */
     public readonly suspendTriggers!: pulumi.Output<number[] | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface ResourceMonitorState {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendImmediateTrigger instead
+     * @deprecated Use suspend_immediate_trigger instead
      */
     suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -224,7 +224,7 @@ export interface ResourceMonitorState {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendTrigger instead
+     * @deprecated Use suspend_trigger instead
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -276,7 +276,7 @@ export interface ResourceMonitorArgs {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendImmediateTrigger instead
+     * @deprecated Use suspend_immediate_trigger instead
      */
     suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -286,7 +286,7 @@ export interface ResourceMonitorArgs {
     /**
      * A list of percentage thresholds at which to suspend all warehouses.
      *
-     * @deprecated Use suspendTrigger instead
+     * @deprecated Use suspend_trigger instead
      */
     suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
