@@ -113,7 +113,7 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * Specifies the object identifier for the tag association.
      *
-     * @deprecated Use `objectIdentifier` instead
+     * @deprecated Use `object_identifier` instead
      */
     public readonly objectName!: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface TagAssociationState {
     /**
      * Specifies the object identifier for the tag association.
      *
-     * @deprecated Use `objectIdentifier` instead
+     * @deprecated Use `object_identifier` instead
      */
     objectName?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface TagAssociationArgs {
     /**
      * Specifies the object identifier for the tag association.
      *
-     * @deprecated Use `objectIdentifier` instead
+     * @deprecated Use `object_identifier` instead
      */
     objectName?: pulumi.Input<string>;
     /**

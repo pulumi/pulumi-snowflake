@@ -13178,7 +13178,7 @@
                 "primaryKey": {
                     "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
                     "description": "Definitions of primary key constraint to create on table\n",
-                    "deprecationMessage": "Use snowflake.TableConstraint instead"
+                    "deprecationMessage": "Use snowflake_table_constraint instead"
                 },
                 "qualifiedName": {
                     "type": "string",
@@ -13244,7 +13244,7 @@
                 "primaryKey": {
                     "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
                     "description": "Definitions of primary key constraint to create on table\n",
-                    "deprecationMessage": "Use snowflake.TableConstraint instead"
+                    "deprecationMessage": "Use snowflake_table_constraint instead"
                 },
                 "schema": {
                     "type": "string",
@@ -13310,7 +13310,7 @@
                     "primaryKey": {
                         "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
                         "description": "Definitions of primary key constraint to create on table\n",
-                        "deprecationMessage": "Use snowflake.TableConstraint instead"
+                        "deprecationMessage": "Use snowflake_table_constraint instead"
                     },
                     "qualifiedName": {
                         "type": "string",

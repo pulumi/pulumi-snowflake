@@ -82,13 +82,13 @@ type ResourceMonitor struct {
 	SuspendImmediateTrigger pulumi.IntPtrOutput `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendImmediateTrigger instead
+	// Deprecated: Use suspend_immediate_trigger instead
 	SuspendImmediateTriggers pulumi.IntArrayOutput `pulumi:"suspendImmediateTriggers"`
 	// The number that represents the percentage threshold at which to suspend all warehouses.
 	SuspendTrigger pulumi.IntPtrOutput `pulumi:"suspendTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendTrigger instead
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayOutput `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayOutput `pulumi:"warehouses"`
@@ -144,13 +144,13 @@ type resourceMonitorState struct {
 	SuspendImmediateTrigger *int `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendImmediateTrigger instead
+	// Deprecated: Use suspend_immediate_trigger instead
 	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
 	// The number that represents the percentage threshold at which to suspend all warehouses.
 	SuspendTrigger *int `pulumi:"suspendTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendTrigger instead
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses []string `pulumi:"warehouses"`
@@ -177,13 +177,13 @@ type ResourceMonitorState struct {
 	SuspendImmediateTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendImmediateTrigger instead
+	// Deprecated: Use suspend_immediate_trigger instead
 	SuspendImmediateTriggers pulumi.IntArrayInput
 	// The number that represents the percentage threshold at which to suspend all warehouses.
 	SuspendTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendTrigger instead
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayInput
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayInput
@@ -214,13 +214,13 @@ type resourceMonitorArgs struct {
 	SuspendImmediateTrigger *int `pulumi:"suspendImmediateTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendImmediateTrigger instead
+	// Deprecated: Use suspend_immediate_trigger instead
 	SuspendImmediateTriggers []int `pulumi:"suspendImmediateTriggers"`
 	// The number that represents the percentage threshold at which to suspend all warehouses.
 	SuspendTrigger *int `pulumi:"suspendTrigger"`
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendTrigger instead
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers []int `pulumi:"suspendTriggers"`
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses []string `pulumi:"warehouses"`
@@ -248,13 +248,13 @@ type ResourceMonitorArgs struct {
 	SuspendImmediateTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendImmediateTrigger instead
+	// Deprecated: Use suspend_immediate_trigger instead
 	SuspendImmediateTriggers pulumi.IntArrayInput
 	// The number that represents the percentage threshold at which to suspend all warehouses.
 	SuspendTrigger pulumi.IntPtrInput
 	// A list of percentage thresholds at which to suspend all warehouses.
 	//
-	// Deprecated: Use suspendTrigger instead
+	// Deprecated: Use suspend_trigger instead
 	SuspendTriggers pulumi.IntArrayInput
 	// A list of warehouses to apply the resource monitor to.
 	Warehouses pulumi.StringArrayInput
@@ -394,7 +394,7 @@ func (o ResourceMonitorOutput) SuspendImmediateTrigger() pulumi.IntPtrOutput {
 
 // A list of percentage thresholds at which to suspend all warehouses.
 //
-// Deprecated: Use suspendImmediateTrigger instead
+// Deprecated: Use suspend_immediate_trigger instead
 func (o ResourceMonitorOutput) SuspendImmediateTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendImmediateTriggers }).(pulumi.IntArrayOutput)
 }
@@ -406,7 +406,7 @@ func (o ResourceMonitorOutput) SuspendTrigger() pulumi.IntPtrOutput {
 
 // A list of percentage thresholds at which to suspend all warehouses.
 //
-// Deprecated: Use suspendTrigger instead
+// Deprecated: Use suspend_trigger instead
 func (o ResourceMonitorOutput) SuspendTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.SuspendTriggers }).(pulumi.IntArrayOutput)
 }
