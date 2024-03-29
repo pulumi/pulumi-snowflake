@@ -42,6 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //#################################
+ *         //## grant database role to account role
+ *         //#################################
  *         var databaseRoleDatabaseRole = new DatabaseRole(&#34;databaseRoleDatabaseRole&#34;, DatabaseRoleArgs.builder()        
  *             .database(var_.database())
  *             .build());
@@ -53,6 +56,9 @@ import javax.annotation.Nullable;
  *             .parentRoleName(parentRole.name())
  *             .build());
  * 
+ *         //#################################
+ *         //## grant database role to database role
+ *         //#################################
  *         var databaseRoleIndex_databaseRoleDatabaseRole = new DatabaseRole(&#34;databaseRoleIndex/databaseRoleDatabaseRole&#34;, DatabaseRoleArgs.builder()        
  *             .database(var_.database())
  *             .build());
@@ -66,6 +72,9 @@ import javax.annotation.Nullable;
  *             .parentDatabaseRoleName(parentDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
  *             .build());
  * 
+ *         //#################################
+ *         //## grant database role to share
+ *         //#################################
  *         var snowflakeIndex_grantDatabaseRoleGrantDatabaseRole = new GrantDatabaseRole(&#34;snowflakeIndex/grantDatabaseRoleGrantDatabaseRole&#34;, GrantDatabaseRoleArgs.builder()        
  *             .databaseRoleName(databaseRoleDatabaseRole.name().applyValue(name -&gt; String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, var_.database(),name)))
  *             .shareName(snowflake_share.share().name())

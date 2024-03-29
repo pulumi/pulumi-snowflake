@@ -34,9 +34,9 @@ namespace Pulumi.Snowflake
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             test,
+    ///             test, 
     ///         },
     ///     });
     /// 

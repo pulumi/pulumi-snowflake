@@ -57,6 +57,10 @@ import javax.annotation.Nullable;
  *             .database(&#34;database&#34;)
  *             .build());
  * 
+ *         //#################################
+ *         //## on database privileges
+ *         //#################################
+ *         // list of privileges
  *         var exampleGrantPrivilegesToDatabaseRole = new GrantPrivilegesToDatabaseRole(&#34;exampleGrantPrivilegesToDatabaseRole&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;CREATE&#34;,
@@ -69,6 +73,7 @@ import javax.annotation.Nullable;
  *             .onDatabase(dbRole.database())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var exampleIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new GrantPrivilegesToDatabaseRole(&#34;exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .databaseRoleName(Output.tuple(dbRole.database(), dbRole.name()).applyValue(values -&gt; {
  *                 var database = values.t1;
@@ -80,6 +85,7 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         // all privileges + grant option + always apply
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .databaseRoleName(Output.tuple(dbRole.database(), dbRole.name()).applyValue(values -&gt; {
  *                 var database = values.t1;
@@ -92,6 +98,10 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         //#################################
+ *         //## schema privileges
+ *         //#################################
+ *         // list of privileges
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -106,6 +116,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .databaseRoleName(Output.tuple(dbRole.database(), dbRole.name()).applyValue(values -&gt; {
  *                 var database = values.t1;
@@ -119,6 +130,7 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         // all schemas in database
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -133,6 +145,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future schemas in database
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -147,6 +160,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //#################################
+ *         //## schema object privileges
+ *         //#################################
+ *         // list of privileges
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -162,6 +179,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .databaseRoleName(Output.tuple(dbRole.database(), dbRole.name()).applyValue(values -&gt; {
  *                 var database = values.t1;
@@ -176,6 +194,7 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         // all in database
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -193,6 +212,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all in schema
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -210,6 +230,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future in database
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -227,6 +248,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future in schema
  *         var exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10 = new GrantPrivilegesToDatabaseRole(&#34;exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10&#34;, GrantPrivilegesToDatabaseRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,

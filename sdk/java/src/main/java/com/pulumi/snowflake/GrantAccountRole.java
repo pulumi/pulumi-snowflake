@@ -41,6 +41,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //#################################
+ *         //## grant account role to account role
+ *         //#################################
  *         var roleRole = new Role(&#34;roleRole&#34;);
  * 
  *         var parentRole = new Role(&#34;parentRole&#34;);
@@ -50,6 +53,9 @@ import javax.annotation.Nullable;
  *             .parentRoleName(parentRole.name())
  *             .build());
  * 
+ *         //#################################
+ *         //## grant account role to user
+ *         //#################################
  *         var roleIndex_roleRole = new Role(&#34;roleIndex/roleRole&#34;);
  * 
  *         var user = new User(&#34;user&#34;);
