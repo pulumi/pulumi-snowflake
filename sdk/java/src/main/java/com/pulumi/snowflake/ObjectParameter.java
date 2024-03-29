@@ -94,6 +94,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Setting object parameter at account level
  *         var o4 = new ObjectParameter(&#34;o4&#34;, ObjectParameterArgs.builder()        
  *             .key(&#34;DATA_RETENTION_TIME_IN_DAYS&#34;)
  *             .value(&#34;89&#34;)

@@ -49,6 +49,8 @@ import javax.annotation.Nullable;
  * 
  *         var otherRole = new Role(&#34;otherRole&#34;);
  * 
+ *         // ensure the Terraform user inherits ownership privileges for the rking_test_role role
+ *         // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
  *         var grants = new RoleGrants(&#34;grants&#34;, RoleGrantsArgs.builder()        
  *             .roleName(role.name())
  *             .roles(&#34;ACCOUNTADMIN&#34;)

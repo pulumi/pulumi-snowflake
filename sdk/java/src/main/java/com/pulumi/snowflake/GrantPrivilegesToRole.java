@@ -51,6 +51,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //#################################
+ *         //## global privileges
+ *         //#################################
+ *         // list of privileges
  *         var g1 = new GrantPrivilegesToRole(&#34;g1&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -59,6 +63,7 @@ import javax.annotation.Nullable;
  *             .onAccount(true)
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var g2 = new GrantPrivilegesToRole(&#34;g2&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .roleName(snowflake_role.r().name())
  *             .onAccount(true)
@@ -66,6 +71,10 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         //#################################
+ *         //## account object privileges
+ *         //#################################
+ *         // list of privileges
  *         var g3 = new GrantPrivilegesToRole(&#34;g3&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;CREATE&#34;,
@@ -77,6 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var g4 = new GrantPrivilegesToRole(&#34;g4&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .roleName(snowflake_role.r().name())
  *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
@@ -87,6 +97,10 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         //#################################
+ *         //## schema privileges
+ *         //#################################
+ *         // list of privileges
  *         var g5 = new GrantPrivilegesToRole(&#34;g5&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -97,6 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var g6 = new GrantPrivilegesToRole(&#34;g6&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .roleName(snowflake_role.r().name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
@@ -106,6 +121,7 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         // all schemas in database
  *         var g7 = new GrantPrivilegesToRole(&#34;g7&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -116,6 +132,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future schemas in database
  *         var g8 = new GrantPrivilegesToRole(&#34;g8&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
@@ -126,6 +143,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         //#################################
+ *         //## schema object privileges
+ *         //#################################
+ *         // list of privileges
  *         var g9 = new GrantPrivilegesToRole(&#34;g9&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -137,6 +158,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all privileges + grant option
  *         var g10 = new GrantPrivilegesToRole(&#34;g10&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .roleName(snowflake_role.r().name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
@@ -147,6 +169,7 @@ import javax.annotation.Nullable;
  *             .withGrantOption(true)
  *             .build());
  * 
+ *         // all in database
  *         var g11 = new GrantPrivilegesToRole(&#34;g11&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -160,6 +183,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // all in schema
  *         var g12 = new GrantPrivilegesToRole(&#34;g12&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -173,6 +197,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future in database
  *         var g13 = new GrantPrivilegesToRole(&#34;g13&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,
@@ -186,6 +211,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // future in schema
  *         var g14 = new GrantPrivilegesToRole(&#34;g14&#34;, GrantPrivilegesToRoleArgs.builder()        
  *             .privileges(            
  *                 &#34;SELECT&#34;,

@@ -47,15 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create database
  *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
  *             .dataRetentionDays(1)
  *             .build());
  * 
+ *         // Create schema
  *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
  *             .database(db.name())
  *             .dataRetentionDays(1)
  *             .build());
  * 
+ *         // Example for Java language
  *         var testFunctJava = new Function(&#34;testFunctJava&#34;, FunctionArgs.builder()        
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)
@@ -70,6 +73,7 @@ import javax.annotation.Nullable;
  *             .statement(&#34;class CoolFunc {public static String test(int n) {return \&#34;hello!\&#34;;}}&#34;)
  *             .build());
  * 
+ *         // Example for Python language
  *         var pythonTest = new Function(&#34;pythonTest&#34;, FunctionArgs.builder()        
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)
@@ -87,6 +91,7 @@ import javax.annotation.Nullable;
  *             .statement(&#34;def add_py(i): return i+1&#34;)
  *             .build());
  * 
+ *         // Example SQL language
  *         var sqlTest = new Function(&#34;sqlTest&#34;, FunctionArgs.builder()        
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)

@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Alternative provider with masking_admin role
  *         var masking = new Provider(&#34;masking&#34;, ProviderArgs.builder()        
  *             .role(&#34;MASKING_ADMIN&#34;)
  *             .build());
@@ -67,6 +68,7 @@ import javax.annotation.Nullable;
  *                 .provider(snowflake.masking())
  *                 .build());
  * 
+ *         // Table is created by the default provider
  *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
  *             .database(&#34;EXAMPLE_DB&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
