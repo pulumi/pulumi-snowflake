@@ -98,28 +98,28 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.adminName;
     }
     /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
     /**
-     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     public Output<Optional<String>> adminPassword() {
         return Codegen.optional(this.adminPassword);
     }
     /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     @Export(name="adminRsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminRsaPublicKey;
 
     /**
-     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     public Output<Optional<String>> adminRsaPublicKey() {
