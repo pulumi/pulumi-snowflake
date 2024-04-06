@@ -15,14 +15,14 @@ public final class GetDynamicTablesLikeArgs extends com.pulumi.resources.Resourc
     public static final GetDynamicTablesLikeArgs Empty = new GetDynamicTablesLikeArgs();
 
     /**
-     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
      * 
      */
     public Output<String> pattern() {
@@ -54,7 +54,7 @@ public final class GetDynamicTablesLikeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetDynamicTablesLikeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
          * 
          * @return builder
          * 

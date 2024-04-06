@@ -2439,7 +2439,7 @@ class GetDynamicTablesLikeArgs:
     def __init__(__self__, *,
                  pattern: str):
         """
-        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -2447,7 +2447,7 @@ class GetDynamicTablesLikeArgs:
     @pulumi.getter
     def pattern(self) -> str:
         """
-        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
         """
         return pulumi.get(self, "pattern")
 

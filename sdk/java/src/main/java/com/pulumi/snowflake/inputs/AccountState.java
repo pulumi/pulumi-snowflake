@@ -33,14 +33,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     @Import(name="adminPassword")
     private @Nullable Output<String> adminPassword;
 
     /**
-     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -48,14 +48,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     @Import(name="adminRsaPublicKey")
     private @Nullable Output<String> adminRsaPublicKey;
 
     /**
-     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     public Optional<Output<String>> adminRsaPublicKey() {
@@ -286,7 +286,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPassword Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+         * @param adminPassword Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPassword Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+         * @param adminPassword Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminRsaPublicKey Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+         * @param adminRsaPublicKey Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminRsaPublicKey Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+         * @param adminRsaPublicKey Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
          * 
          * @return builder
          * 
