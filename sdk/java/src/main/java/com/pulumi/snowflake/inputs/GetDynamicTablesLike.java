@@ -14,14 +14,14 @@ public final class GetDynamicTablesLike extends com.pulumi.resources.InvokeArgs 
     public static final GetDynamicTablesLike Empty = new GetDynamicTablesLike();
 
     /**
-     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+     * Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
      * 
      */
     @Import(name="pattern", required=true)
     private String pattern;
 
     /**
-     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+     * @return Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
      * 
      */
     public String pattern() {
@@ -53,7 +53,7 @@ public final class GetDynamicTablesLike extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+         * @param pattern Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
          * 
          * @return builder
          * 
