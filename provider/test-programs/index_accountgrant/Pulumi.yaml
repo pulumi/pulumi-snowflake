@@ -1,0 +1,19 @@
+name: index_accountgrant9XOe6XgqziGU
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/2ab84136-43fd-4765-bf92-3a68c1e9d5d7.zip
+outputs:
+  accountGrantRole: ${exampleAccountGrant.roles[0]}
+  roleName: ${exampleRole.name}
+resources:
+  exampleAccountGrant:
+    properties:
+      privilege: CREATE DATABASE
+      roles:
+        - ${exampleRole.name}
+    type: snowflake:AccountGrant
+  exampleRole:
+    type: snowflake:Role

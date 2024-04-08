@@ -1,0 +1,24 @@
+name: index_table5nS4EYSDgyV1
+runtime: yaml
+description: A minimal Pulumi YAML program to create a Snowflake table with necessary dependencies
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/cb834e96-31ba-47f0-88ab-967258b2fd30.zip
+resources:
+  my_database:
+    type: snowflake:Database
+  my_schema:
+    properties:
+      database: ${my_database.name}
+    type: snowflake:Schema
+  my_table:
+    properties:
+      columns:
+        - name: id
+          type: NUMBER(38,0)
+        - name: name
+          type: TEXT
+      database: ${my_database.name}
+      schema: ${my_schema.name}
+    type: snowflake:Table

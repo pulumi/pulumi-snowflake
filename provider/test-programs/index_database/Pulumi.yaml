@@ -1,0 +1,42 @@
+name: index_databaseK1w012UT8Wct
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/b2e13122-42a0-4df7-8e80-1f75bde32c97.zip
+outputs:
+  snowflakeDatabaseName: ${exampleDatabase.name}
+  snowflakeRoleName: ${exampleRole.name}
+  snowflakeSchemaName: ${exampleSchema.name}
+  snowflakeUserName: ${exampleUser.name}
+  snowflakeWarehouseName: ${exampleWarehouse.name}
+resources:
+  exampleDatabase:
+    type: snowflake:Database
+  exampleGrant:
+    properties:
+      databaseName: ${exampleDatabase.name}
+      roles:
+        - ${exampleRole.name}
+    type: snowflake:DatabaseGrant
+  exampleRole:
+    type: snowflake:Role
+  exampleSchema:
+    properties:
+      database: ${exampleDatabase.name}
+    type: snowflake:Schema
+  exampleUser:
+    properties:
+      defaultRole: my_snowflake_role
+      disabled: false
+      displayName: Example User
+      loginName: example_login
+    type: snowflake:User
+  exampleWarehouse:
+    properties:
+      autoResume: true
+      autoSuspend: 300
+      maxClusterCount: 1
+      warehouseSize: X-SMALL
+    type: snowflake:Warehouse

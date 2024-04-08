@@ -1,0 +1,19 @@
+name: index_databasegrantuauVxBfeFZz2
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/d009c937-2a66-4d6d-8d57-992e870e364e.zip
+resources:
+  myDatabase:
+    type: snowflake:Database
+  myDatabaseGrant:
+    properties:
+      databaseName: ${myDatabase.name}
+      privilege: USAGE
+      roles:
+        - ${myRole.name}
+    type: snowflake:DatabaseGrant
+  myRole:
+    type: snowflake:Role

@@ -1,0 +1,17 @@
+name: index_schemaE0L0kpeiuAt6
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/08309d5e-0a78-4cf1-9c10-01b222a93126.zip
+outputs:
+  databaseName: ${my_snowflake_database.name}
+  schemaName: ${my_snowflake_schema.name}
+resources:
+  my_snowflake_database:
+    type: snowflake:Database
+  my_snowflake_schema:
+    properties:
+      database: ${my_snowflake_database.name}
+    type: snowflake:Schema
