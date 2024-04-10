@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake.Inputs
         public bool? Account { get; set; }
 
         /// <summary>
-        /// Name of object to list privileges on
+        /// Name of object to list privileges on.
         /// </summary>
         [Input("objectName")]
         public string? ObjectName { get; set; }

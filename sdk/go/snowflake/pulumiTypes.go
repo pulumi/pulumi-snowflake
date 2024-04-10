@@ -1673,6 +1673,550 @@ func (o FunctionArgumentArrayOutput) Index(i pulumi.IntInput) FunctionArgumentOu
 	}).(FunctionArgumentOutput)
 }
 
+type GrantOwnershipOn struct {
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	All *GrantOwnershipOnAll `pulumi:"all"`
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	Future *GrantOwnershipOnFuture `pulumi:"future"`
+	// Specifies the identifier for the object on which you are transferring ownership.
+	ObjectName *string `pulumi:"objectName"`
+	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	ObjectType *string `pulumi:"objectType"`
+}
+
+// GrantOwnershipOnInput is an input type that accepts GrantOwnershipOnArgs and GrantOwnershipOnOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnInput` via:
+//
+//	GrantOwnershipOnArgs{...}
+type GrantOwnershipOnInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnOutput() GrantOwnershipOnOutput
+	ToGrantOwnershipOnOutputWithContext(context.Context) GrantOwnershipOnOutput
+}
+
+type GrantOwnershipOnArgs struct {
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	All GrantOwnershipOnAllPtrInput `pulumi:"all"`
+	// Configures the privilege to be granted on all objects in either a database or schema.
+	Future GrantOwnershipOnFuturePtrInput `pulumi:"future"`
+	// Specifies the identifier for the object on which you are transferring ownership.
+	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
+	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
+}
+
+func (GrantOwnershipOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOn)(nil)).Elem()
+}
+
+func (i GrantOwnershipOnArgs) ToGrantOwnershipOnOutput() GrantOwnershipOnOutput {
+	return i.ToGrantOwnershipOnOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnArgs) ToGrantOwnershipOnOutputWithContext(ctx context.Context) GrantOwnershipOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnOutput)
+}
+
+func (i GrantOwnershipOnArgs) ToGrantOwnershipOnPtrOutput() GrantOwnershipOnPtrOutput {
+	return i.ToGrantOwnershipOnPtrOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnArgs) ToGrantOwnershipOnPtrOutputWithContext(ctx context.Context) GrantOwnershipOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnOutput).ToGrantOwnershipOnPtrOutputWithContext(ctx)
+}
+
+// GrantOwnershipOnPtrInput is an input type that accepts GrantOwnershipOnArgs, GrantOwnershipOnPtr and GrantOwnershipOnPtrOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnPtrInput` via:
+//
+//	        GrantOwnershipOnArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantOwnershipOnPtrInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnPtrOutput() GrantOwnershipOnPtrOutput
+	ToGrantOwnershipOnPtrOutputWithContext(context.Context) GrantOwnershipOnPtrOutput
+}
+
+type grantOwnershipOnPtrType GrantOwnershipOnArgs
+
+func GrantOwnershipOnPtr(v *GrantOwnershipOnArgs) GrantOwnershipOnPtrInput {
+	return (*grantOwnershipOnPtrType)(v)
+}
+
+func (*grantOwnershipOnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOn)(nil)).Elem()
+}
+
+func (i *grantOwnershipOnPtrType) ToGrantOwnershipOnPtrOutput() GrantOwnershipOnPtrOutput {
+	return i.ToGrantOwnershipOnPtrOutputWithContext(context.Background())
+}
+
+func (i *grantOwnershipOnPtrType) ToGrantOwnershipOnPtrOutputWithContext(ctx context.Context) GrantOwnershipOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnPtrOutput)
+}
+
+type GrantOwnershipOnOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOn)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnOutput) ToGrantOwnershipOnOutput() GrantOwnershipOnOutput {
+	return o
+}
+
+func (o GrantOwnershipOnOutput) ToGrantOwnershipOnOutputWithContext(ctx context.Context) GrantOwnershipOnOutput {
+	return o
+}
+
+func (o GrantOwnershipOnOutput) ToGrantOwnershipOnPtrOutput() GrantOwnershipOnPtrOutput {
+	return o.ToGrantOwnershipOnPtrOutputWithContext(context.Background())
+}
+
+func (o GrantOwnershipOnOutput) ToGrantOwnershipOnPtrOutputWithContext(ctx context.Context) GrantOwnershipOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantOwnershipOn) *GrantOwnershipOn {
+		return &v
+	}).(GrantOwnershipOnPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantOwnershipOnOutput) All() GrantOwnershipOnAllPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOn) *GrantOwnershipOnAll { return v.All }).(GrantOwnershipOnAllPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantOwnershipOnOutput) Future() GrantOwnershipOnFuturePtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOn) *GrantOwnershipOnFuture { return v.Future }).(GrantOwnershipOnFuturePtrOutput)
+}
+
+// Specifies the identifier for the object on which you are transferring ownership.
+func (o GrantOwnershipOnOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+func (o GrantOwnershipOnOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+type GrantOwnershipOnPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOn)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnPtrOutput) ToGrantOwnershipOnPtrOutput() GrantOwnershipOnPtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnPtrOutput) ToGrantOwnershipOnPtrOutputWithContext(ctx context.Context) GrantOwnershipOnPtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnPtrOutput) Elem() GrantOwnershipOnOutput {
+	return o.ApplyT(func(v *GrantOwnershipOn) GrantOwnershipOn {
+		if v != nil {
+			return *v
+		}
+		var ret GrantOwnershipOn
+		return ret
+	}).(GrantOwnershipOnOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantOwnershipOnPtrOutput) All() GrantOwnershipOnAllPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOn) *GrantOwnershipOnAll {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(GrantOwnershipOnAllPtrOutput)
+}
+
+// Configures the privilege to be granted on all objects in either a database or schema.
+func (o GrantOwnershipOnPtrOutput) Future() GrantOwnershipOnFuturePtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOn) *GrantOwnershipOnFuture {
+		if v == nil {
+			return nil
+		}
+		return v.Future
+	}).(GrantOwnershipOnFuturePtrOutput)
+}
+
+// Specifies the identifier for the object on which you are transferring ownership.
+func (o GrantOwnershipOnPtrOutput) ObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+func (o GrantOwnershipOnPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantOwnershipOnAll struct {
+	// The fully qualified name of the database.
+	InDatabase *string `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
+}
+
+// GrantOwnershipOnAllInput is an input type that accepts GrantOwnershipOnAllArgs and GrantOwnershipOnAllOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnAllInput` via:
+//
+//	GrantOwnershipOnAllArgs{...}
+type GrantOwnershipOnAllInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnAllOutput() GrantOwnershipOnAllOutput
+	ToGrantOwnershipOnAllOutputWithContext(context.Context) GrantOwnershipOnAllOutput
+}
+
+type GrantOwnershipOnAllArgs struct {
+	// The fully qualified name of the database.
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
+}
+
+func (GrantOwnershipOnAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOnAll)(nil)).Elem()
+}
+
+func (i GrantOwnershipOnAllArgs) ToGrantOwnershipOnAllOutput() GrantOwnershipOnAllOutput {
+	return i.ToGrantOwnershipOnAllOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnAllArgs) ToGrantOwnershipOnAllOutputWithContext(ctx context.Context) GrantOwnershipOnAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnAllOutput)
+}
+
+func (i GrantOwnershipOnAllArgs) ToGrantOwnershipOnAllPtrOutput() GrantOwnershipOnAllPtrOutput {
+	return i.ToGrantOwnershipOnAllPtrOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnAllArgs) ToGrantOwnershipOnAllPtrOutputWithContext(ctx context.Context) GrantOwnershipOnAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnAllOutput).ToGrantOwnershipOnAllPtrOutputWithContext(ctx)
+}
+
+// GrantOwnershipOnAllPtrInput is an input type that accepts GrantOwnershipOnAllArgs, GrantOwnershipOnAllPtr and GrantOwnershipOnAllPtrOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnAllPtrInput` via:
+//
+//	        GrantOwnershipOnAllArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantOwnershipOnAllPtrInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnAllPtrOutput() GrantOwnershipOnAllPtrOutput
+	ToGrantOwnershipOnAllPtrOutputWithContext(context.Context) GrantOwnershipOnAllPtrOutput
+}
+
+type grantOwnershipOnAllPtrType GrantOwnershipOnAllArgs
+
+func GrantOwnershipOnAllPtr(v *GrantOwnershipOnAllArgs) GrantOwnershipOnAllPtrInput {
+	return (*grantOwnershipOnAllPtrType)(v)
+}
+
+func (*grantOwnershipOnAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOnAll)(nil)).Elem()
+}
+
+func (i *grantOwnershipOnAllPtrType) ToGrantOwnershipOnAllPtrOutput() GrantOwnershipOnAllPtrOutput {
+	return i.ToGrantOwnershipOnAllPtrOutputWithContext(context.Background())
+}
+
+func (i *grantOwnershipOnAllPtrType) ToGrantOwnershipOnAllPtrOutputWithContext(ctx context.Context) GrantOwnershipOnAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnAllPtrOutput)
+}
+
+type GrantOwnershipOnAllOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOnAll)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnAllOutput) ToGrantOwnershipOnAllOutput() GrantOwnershipOnAllOutput {
+	return o
+}
+
+func (o GrantOwnershipOnAllOutput) ToGrantOwnershipOnAllOutputWithContext(ctx context.Context) GrantOwnershipOnAllOutput {
+	return o
+}
+
+func (o GrantOwnershipOnAllOutput) ToGrantOwnershipOnAllPtrOutput() GrantOwnershipOnAllPtrOutput {
+	return o.ToGrantOwnershipOnAllPtrOutputWithContext(context.Background())
+}
+
+func (o GrantOwnershipOnAllOutput) ToGrantOwnershipOnAllPtrOutputWithContext(ctx context.Context) GrantOwnershipOnAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantOwnershipOnAll) *GrantOwnershipOnAll {
+		return &v
+	}).(GrantOwnershipOnAllPtrOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantOwnershipOnAllOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOnAll) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantOwnershipOnAllOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOnAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+func (o GrantOwnershipOnAllOutput) ObjectTypePlural() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantOwnershipOnAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
+}
+
+type GrantOwnershipOnAllPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOnAll)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnAllPtrOutput) ToGrantOwnershipOnAllPtrOutput() GrantOwnershipOnAllPtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnAllPtrOutput) ToGrantOwnershipOnAllPtrOutputWithContext(ctx context.Context) GrantOwnershipOnAllPtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnAllPtrOutput) Elem() GrantOwnershipOnAllOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnAll) GrantOwnershipOnAll {
+		if v != nil {
+			return *v
+		}
+		var ret GrantOwnershipOnAll
+		return ret
+	}).(GrantOwnershipOnAllOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantOwnershipOnAllPtrOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantOwnershipOnAllPtrOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+func (o GrantOwnershipOnAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectTypePlural
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantOwnershipOnFuture struct {
+	// The fully qualified name of the database.
+	InDatabase *string `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	ObjectTypePlural string `pulumi:"objectTypePlural"`
+}
+
+// GrantOwnershipOnFutureInput is an input type that accepts GrantOwnershipOnFutureArgs and GrantOwnershipOnFutureOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnFutureInput` via:
+//
+//	GrantOwnershipOnFutureArgs{...}
+type GrantOwnershipOnFutureInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnFutureOutput() GrantOwnershipOnFutureOutput
+	ToGrantOwnershipOnFutureOutputWithContext(context.Context) GrantOwnershipOnFutureOutput
+}
+
+type GrantOwnershipOnFutureArgs struct {
+	// The fully qualified name of the database.
+	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
+}
+
+func (GrantOwnershipOnFutureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOnFuture)(nil)).Elem()
+}
+
+func (i GrantOwnershipOnFutureArgs) ToGrantOwnershipOnFutureOutput() GrantOwnershipOnFutureOutput {
+	return i.ToGrantOwnershipOnFutureOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnFutureArgs) ToGrantOwnershipOnFutureOutputWithContext(ctx context.Context) GrantOwnershipOnFutureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnFutureOutput)
+}
+
+func (i GrantOwnershipOnFutureArgs) ToGrantOwnershipOnFuturePtrOutput() GrantOwnershipOnFuturePtrOutput {
+	return i.ToGrantOwnershipOnFuturePtrOutputWithContext(context.Background())
+}
+
+func (i GrantOwnershipOnFutureArgs) ToGrantOwnershipOnFuturePtrOutputWithContext(ctx context.Context) GrantOwnershipOnFuturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnFutureOutput).ToGrantOwnershipOnFuturePtrOutputWithContext(ctx)
+}
+
+// GrantOwnershipOnFuturePtrInput is an input type that accepts GrantOwnershipOnFutureArgs, GrantOwnershipOnFuturePtr and GrantOwnershipOnFuturePtrOutput values.
+// You can construct a concrete instance of `GrantOwnershipOnFuturePtrInput` via:
+//
+//	        GrantOwnershipOnFutureArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrantOwnershipOnFuturePtrInput interface {
+	pulumi.Input
+
+	ToGrantOwnershipOnFuturePtrOutput() GrantOwnershipOnFuturePtrOutput
+	ToGrantOwnershipOnFuturePtrOutputWithContext(context.Context) GrantOwnershipOnFuturePtrOutput
+}
+
+type grantOwnershipOnFuturePtrType GrantOwnershipOnFutureArgs
+
+func GrantOwnershipOnFuturePtr(v *GrantOwnershipOnFutureArgs) GrantOwnershipOnFuturePtrInput {
+	return (*grantOwnershipOnFuturePtrType)(v)
+}
+
+func (*grantOwnershipOnFuturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOnFuture)(nil)).Elem()
+}
+
+func (i *grantOwnershipOnFuturePtrType) ToGrantOwnershipOnFuturePtrOutput() GrantOwnershipOnFuturePtrOutput {
+	return i.ToGrantOwnershipOnFuturePtrOutputWithContext(context.Background())
+}
+
+func (i *grantOwnershipOnFuturePtrType) ToGrantOwnershipOnFuturePtrOutputWithContext(ctx context.Context) GrantOwnershipOnFuturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrantOwnershipOnFuturePtrOutput)
+}
+
+type GrantOwnershipOnFutureOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnFutureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantOwnershipOnFuture)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnFutureOutput) ToGrantOwnershipOnFutureOutput() GrantOwnershipOnFutureOutput {
+	return o
+}
+
+func (o GrantOwnershipOnFutureOutput) ToGrantOwnershipOnFutureOutputWithContext(ctx context.Context) GrantOwnershipOnFutureOutput {
+	return o
+}
+
+func (o GrantOwnershipOnFutureOutput) ToGrantOwnershipOnFuturePtrOutput() GrantOwnershipOnFuturePtrOutput {
+	return o.ToGrantOwnershipOnFuturePtrOutputWithContext(context.Background())
+}
+
+func (o GrantOwnershipOnFutureOutput) ToGrantOwnershipOnFuturePtrOutputWithContext(ctx context.Context) GrantOwnershipOnFuturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantOwnershipOnFuture) *GrantOwnershipOnFuture {
+		return &v
+	}).(GrantOwnershipOnFuturePtrOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantOwnershipOnFutureOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOnFuture) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantOwnershipOnFutureOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrantOwnershipOnFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+func (o GrantOwnershipOnFutureOutput) ObjectTypePlural() pulumi.StringOutput {
+	return o.ApplyT(func(v GrantOwnershipOnFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
+}
+
+type GrantOwnershipOnFuturePtrOutput struct{ *pulumi.OutputState }
+
+func (GrantOwnershipOnFuturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantOwnershipOnFuture)(nil)).Elem()
+}
+
+func (o GrantOwnershipOnFuturePtrOutput) ToGrantOwnershipOnFuturePtrOutput() GrantOwnershipOnFuturePtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnFuturePtrOutput) ToGrantOwnershipOnFuturePtrOutputWithContext(ctx context.Context) GrantOwnershipOnFuturePtrOutput {
+	return o
+}
+
+func (o GrantOwnershipOnFuturePtrOutput) Elem() GrantOwnershipOnFutureOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnFuture) GrantOwnershipOnFuture {
+		if v != nil {
+			return *v
+		}
+		var ret GrantOwnershipOnFuture
+		return ret
+	}).(GrantOwnershipOnFutureOutput)
+}
+
+// The fully qualified name of the database.
+func (o GrantOwnershipOnFuturePtrOutput) InDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InDatabase
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the schema.
+func (o GrantOwnershipOnFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InSchema
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectTypePlural
+	}).(pulumi.StringPtrOutput)
+}
+
 type GrantPrivilegesToAccountRoleOnAccountObject struct {
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName string `pulumi:"objectName"`
@@ -2007,11 +2551,11 @@ func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) SchemaName() pulumi.Strin
 type GrantPrivilegesToAccountRoleOnSchemaObject struct {
 	// Configures the privilege to be granted on all objects in either a database or schema.
 	All *GrantPrivilegesToAccountRoleOnSchemaObjectAll `pulumi:"all"`
-	// Configures the privilege to be granted on all objects in either a database or schema.
+	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future *GrantPrivilegesToAccountRoleOnSchemaObjectFuture `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -2029,11 +2573,11 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectArgs struct {
 	// Configures the privilege to be granted on all objects in either a database or schema.
 	All GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
-	// Configures the privilege to be granted on all objects in either a database or schema.
+	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -2121,7 +2665,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) All() GrantPrivilegesT
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
 }
 
-// Configures the privilege to be granted on all objects in either a database or schema.
+// Configures the privilege to be granted on future objects in either a database or schema.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Future() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
 		return v.Future
@@ -2133,7 +2677,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectName() pulumi.St
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -2172,7 +2716,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) All() GrantPrivileg
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput)
 }
 
-// Configures the privilege to be granted on all objects in either a database or schema.
+// Configures the privilege to be granted on future objects in either a database or schema.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Future() GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
 		if v == nil {
@@ -2192,7 +2736,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *string {
 		if v == nil {
@@ -2205,7 +2749,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi
 type GrantPrivilegesToAccountRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -2223,7 +2767,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectAllInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -2312,7 +2856,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) InSchema() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -2359,7 +2903,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) InSchema() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -2372,7 +2916,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural
 type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -2390,7 +2934,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -2479,7 +3023,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulum
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -2526,7 +3070,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -2718,7 +3262,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObject struct {
 	Future *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -2740,7 +3284,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs struct {
 	Future GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -2840,7 +3384,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) ObjectName() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -2899,7 +3443,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) ObjectName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObject) *string {
 		if v == nil {
@@ -2910,9 +3454,11 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) ObjectType() pulum
 }
 
 type GrantPrivilegesToDatabaseRoleOnSchemaObjectAll struct {
+	// The fully qualified name of the database.
 	InDatabase *string `pulumi:"inDatabase"`
-	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -2928,9 +3474,11 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectAllInput interface {
 }
 
 type GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs struct {
+	// The fully qualified name of the database.
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
-	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -3011,15 +3559,17 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) ToGrantPrivilegesT
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -3048,6 +3598,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) Elem() GrantPri
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -3057,6 +3608,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InDatabase() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -3066,7 +3618,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InSchema() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -3077,9 +3629,11 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) ObjectTypePlura
 }
 
 type GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture struct {
+	// The fully qualified name of the database.
 	InDatabase *string `pulumi:"inDatabase"`
-	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The fully qualified name of the schema.
+	InSchema *string `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -3095,9 +3649,11 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureInput interface {
 }
 
 type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs struct {
+	// The fully qualified name of the database.
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
-	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+	// The fully qualified name of the schema.
+	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -3178,15 +3734,17 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ToGrantPrivileg
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InDatabase }).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -3215,6 +3773,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) Elem() Grant
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput)
 }
 
+// The fully qualified name of the database.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -3224,6 +3783,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InDatabase()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the schema.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -3233,7 +3793,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -3581,7 +4141,7 @@ type GrantPrivilegesToRoleOnSchemaObject struct {
 	Future *GrantPrivilegesToRoleOnSchemaObjectFuture `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -3603,7 +4163,7 @@ type GrantPrivilegesToRoleOnSchemaObjectArgs struct {
 	Future GrantPrivilegesToRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+	// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -3701,7 +4261,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectOutput) ObjectName() pulumi.StringPtr
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -3760,7 +4320,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectPtrOutput) ObjectName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
 func (o GrantPrivilegesToRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObject) *string {
 		if v == nil {
@@ -3775,7 +4335,7 @@ type GrantPrivilegesToRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -3795,7 +4355,7 @@ type GrantPrivilegesToRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -3886,7 +4446,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) InSchema() pulumi.StringPt
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 func (o GrantPrivilegesToRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -3935,7 +4495,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) InSchema() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 func (o GrantPrivilegesToRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -3950,7 +4510,7 @@ type GrantPrivilegesToRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -3970,7 +4530,7 @@ type GrantPrivilegesToRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -4061,7 +4621,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) InSchema() pulumi.Strin
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 func (o GrantPrivilegesToRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -4110,7 +4670,7 @@ func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) InSchema() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
 func (o GrantPrivilegesToRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -8851,8 +9411,8 @@ func (o GetFunctionsFunctionArrayOutput) Index(i pulumi.IntInput) GetFunctionsFu
 type GetGrantsFutureGrantsIn struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
 	Database *string `pulumi:"database"`
-	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
-	Schema *GetGrantsFutureGrantsInSchema `pulumi:"schema"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+	Schema *string `pulumi:"schema"`
 }
 
 // GetGrantsFutureGrantsInInput is an input type that accepts GetGrantsFutureGrantsInArgs and GetGrantsFutureGrantsInOutput values.
@@ -8869,8 +9429,8 @@ type GetGrantsFutureGrantsInInput interface {
 type GetGrantsFutureGrantsInArgs struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
-	Schema GetGrantsFutureGrantsInSchemaPtrInput `pulumi:"schema"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
 }
 
 func (GetGrantsFutureGrantsInArgs) ElementType() reflect.Type {
@@ -8955,9 +9515,9 @@ func (o GetGrantsFutureGrantsInOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
-func (o GetGrantsFutureGrantsInOutput) Schema() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *GetGrantsFutureGrantsInSchema { return v.Schema }).(GetGrantsFutureGrantsInSchemaPtrOutput)
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+func (o GetGrantsFutureGrantsInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
 
 type GetGrantsFutureGrantsInPtrOutput struct{ *pulumi.OutputState }
@@ -8994,175 +9554,21 @@ func (o GetGrantsFutureGrantsInPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
-func (o GetGrantsFutureGrantsInPtrOutput) Schema() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) *GetGrantsFutureGrantsInSchema {
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+func (o GetGrantsFutureGrantsInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Schema
-	}).(GetGrantsFutureGrantsInSchemaPtrOutput)
-}
-
-type GetGrantsFutureGrantsInSchema struct {
-	// The database in which the scehma resides. Optional when querying a schema in the current database.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The name of the schema to list all privileges of new (ie. future) objects granted to
-	SchemaName string `pulumi:"schemaName"`
-}
-
-// GetGrantsFutureGrantsInSchemaInput is an input type that accepts GetGrantsFutureGrantsInSchemaArgs and GetGrantsFutureGrantsInSchemaOutput values.
-// You can construct a concrete instance of `GetGrantsFutureGrantsInSchemaInput` via:
-//
-//	GetGrantsFutureGrantsInSchemaArgs{...}
-type GetGrantsFutureGrantsInSchemaInput interface {
-	pulumi.Input
-
-	ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput
-	ToGetGrantsFutureGrantsInSchemaOutputWithContext(context.Context) GetGrantsFutureGrantsInSchemaOutput
-}
-
-type GetGrantsFutureGrantsInSchemaArgs struct {
-	// The database in which the scehma resides. Optional when querying a schema in the current database.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// The name of the schema to list all privileges of new (ie. future) objects granted to
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-}
-
-func (GetGrantsFutureGrantsInSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGrantsFutureGrantsInSchema)(nil)).Elem()
-}
-
-func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput {
-	return i.ToGetGrantsFutureGrantsInSchemaOutputWithContext(context.Background())
-}
-
-func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaOutput)
-}
-
-func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return i.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i GetGrantsFutureGrantsInSchemaArgs) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaOutput).ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx)
-}
-
-// GetGrantsFutureGrantsInSchemaPtrInput is an input type that accepts GetGrantsFutureGrantsInSchemaArgs, GetGrantsFutureGrantsInSchemaPtr and GetGrantsFutureGrantsInSchemaPtrOutput values.
-// You can construct a concrete instance of `GetGrantsFutureGrantsInSchemaPtrInput` via:
-//
-//	        GetGrantsFutureGrantsInSchemaArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetGrantsFutureGrantsInSchemaPtrInput interface {
-	pulumi.Input
-
-	ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput
-	ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Context) GetGrantsFutureGrantsInSchemaPtrOutput
-}
-
-type getGrantsFutureGrantsInSchemaPtrType GetGrantsFutureGrantsInSchemaArgs
-
-func GetGrantsFutureGrantsInSchemaPtr(v *GetGrantsFutureGrantsInSchemaArgs) GetGrantsFutureGrantsInSchemaPtrInput {
-	return (*getGrantsFutureGrantsInSchemaPtrType)(v)
-}
-
-func (*getGrantsFutureGrantsInSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetGrantsFutureGrantsInSchema)(nil)).Elem()
-}
-
-func (i *getGrantsFutureGrantsInSchemaPtrType) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return i.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *getGrantsFutureGrantsInSchemaPtrType) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsFutureGrantsInSchemaPtrOutput)
-}
-
-type GetGrantsFutureGrantsInSchemaOutput struct{ *pulumi.OutputState }
-
-func (GetGrantsFutureGrantsInSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGrantsFutureGrantsInSchema)(nil)).Elem()
-}
-
-func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaOutput() GetGrantsFutureGrantsInSchemaOutput {
-	return o
-}
-
-func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaOutput {
-	return o
-}
-
-func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o.ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o GetGrantsFutureGrantsInSchemaOutput) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsFutureGrantsInSchema) *GetGrantsFutureGrantsInSchema {
-		return &v
-	}).(GetGrantsFutureGrantsInSchemaPtrOutput)
-}
-
-// The database in which the scehma resides. Optional when querying a schema in the current database.
-func (o GetGrantsFutureGrantsInSchemaOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// The name of the schema to list all privileges of new (ie. future) objects granted to
-func (o GetGrantsFutureGrantsInSchemaOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGrantsFutureGrantsInSchema) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-type GetGrantsFutureGrantsInSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (GetGrantsFutureGrantsInSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetGrantsFutureGrantsInSchema)(nil)).Elem()
-}
-
-func (o GetGrantsFutureGrantsInSchemaPtrOutput) ToGetGrantsFutureGrantsInSchemaPtrOutput() GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o
-}
-
-func (o GetGrantsFutureGrantsInSchemaPtrOutput) ToGetGrantsFutureGrantsInSchemaPtrOutputWithContext(ctx context.Context) GetGrantsFutureGrantsInSchemaPtrOutput {
-	return o
-}
-
-func (o GetGrantsFutureGrantsInSchemaPtrOutput) Elem() GetGrantsFutureGrantsInSchemaOutput {
-	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) GetGrantsFutureGrantsInSchema {
-		if v != nil {
-			return *v
-		}
-		var ret GetGrantsFutureGrantsInSchema
-		return ret
-	}).(GetGrantsFutureGrantsInSchemaOutput)
-}
-
-// The database in which the scehma resides. Optional when querying a schema in the current database.
-func (o GetGrantsFutureGrantsInSchemaPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the schema to list all privileges of new (ie. future) objects granted to
-func (o GetGrantsFutureGrantsInSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetGrantsFutureGrantsInSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SchemaName
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetGrantsFutureGrantsTo struct {
-	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
-	Role string `pulumi:"role"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+	AccountRole *string `pulumi:"accountRole"`
+	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole *string `pulumi:"databaseRole"`
 }
 
 // GetGrantsFutureGrantsToInput is an input type that accepts GetGrantsFutureGrantsToArgs and GetGrantsFutureGrantsToOutput values.
@@ -9177,8 +9583,10 @@ type GetGrantsFutureGrantsToInput interface {
 }
 
 type GetGrantsFutureGrantsToArgs struct {
-	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
-	Role pulumi.StringInput `pulumi:"role"`
+	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
+	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
 }
 
 func (GetGrantsFutureGrantsToArgs) ElementType() reflect.Type {
@@ -9258,9 +9666,14 @@ func (o GetGrantsFutureGrantsToOutput) ToGetGrantsFutureGrantsToPtrOutputWithCon
 	}).(GetGrantsFutureGrantsToPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
-func (o GetGrantsFutureGrantsToOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGrantsFutureGrantsTo) string { return v.Role }).(pulumi.StringOutput)
+// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+func (o GetGrantsFutureGrantsToOutput) AccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsTo) *string { return v.AccountRole }).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsFutureGrantsToOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsFutureGrantsTo) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
 }
 
 type GetGrantsFutureGrantsToPtrOutput struct{ *pulumi.OutputState }
@@ -9287,32 +9700,42 @@ func (o GetGrantsFutureGrantsToPtrOutput) Elem() GetGrantsFutureGrantsToOutput {
 	}).(GetGrantsFutureGrantsToOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
-func (o GetGrantsFutureGrantsToPtrOutput) Role() pulumi.StringPtrOutput {
+// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+func (o GetGrantsFutureGrantsToPtrOutput) AccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsFutureGrantsTo) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Role
+		return v.AccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsFutureGrantsToPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsFutureGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseRole
 	}).(pulumi.StringPtrOutput)
 }
 
 type GetGrantsGrant struct {
-	// The date and time the grant was created
+	// The date and time the grant was created.
 	CreatedOn string `pulumi:"createdOn"`
-	// Whether the grantee can grant the privilege to others
+	// Whether the grantee can grant the privilege to others.
 	GrantOption bool `pulumi:"grantOption"`
-	// The role that granted the privilege
+	// The role that granted the privilege.
 	GrantedBy string `pulumi:"grantedBy"`
-	// The object on which the privilege was granted
+	// The object on which the privilege was granted.
 	GrantedOn string `pulumi:"grantedOn"`
-	// The role to which the privilege was granted
+	// The role to which the privilege was granted.
 	GrantedTo string `pulumi:"grantedTo"`
-	// The name of the role to which the privilege was granted
+	// The name of the role to which the privilege was granted.
 	GranteeName string `pulumi:"granteeName"`
-	// The name of the object on which the privilege was granted
+	// The name of the object on which the privilege was granted.
 	Name string `pulumi:"name"`
-	// The privilege granted
+	// The privilege granted.
 	Privilege string `pulumi:"privilege"`
 }
 
@@ -9328,21 +9751,21 @@ type GetGrantsGrantInput interface {
 }
 
 type GetGrantsGrantArgs struct {
-	// The date and time the grant was created
+	// The date and time the grant was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// Whether the grantee can grant the privilege to others
+	// Whether the grantee can grant the privilege to others.
 	GrantOption pulumi.BoolInput `pulumi:"grantOption"`
-	// The role that granted the privilege
+	// The role that granted the privilege.
 	GrantedBy pulumi.StringInput `pulumi:"grantedBy"`
-	// The object on which the privilege was granted
+	// The object on which the privilege was granted.
 	GrantedOn pulumi.StringInput `pulumi:"grantedOn"`
-	// The role to which the privilege was granted
+	// The role to which the privilege was granted.
 	GrantedTo pulumi.StringInput `pulumi:"grantedTo"`
-	// The name of the role to which the privilege was granted
+	// The name of the role to which the privilege was granted.
 	GranteeName pulumi.StringInput `pulumi:"granteeName"`
-	// The name of the object on which the privilege was granted
+	// The name of the object on which the privilege was granted.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The privilege granted
+	// The privilege granted.
 	Privilege pulumi.StringInput `pulumi:"privilege"`
 }
 
@@ -9397,42 +9820,42 @@ func (o GetGrantsGrantOutput) ToGetGrantsGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The date and time the grant was created
+// The date and time the grant was created.
 func (o GetGrantsGrantOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Whether the grantee can grant the privilege to others
+// Whether the grantee can grant the privilege to others.
 func (o GetGrantsGrantOutput) GrantOption() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGrantsGrant) bool { return v.GrantOption }).(pulumi.BoolOutput)
 }
 
-// The role that granted the privilege
+// The role that granted the privilege.
 func (o GetGrantsGrantOutput) GrantedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedBy }).(pulumi.StringOutput)
 }
 
-// The object on which the privilege was granted
+// The object on which the privilege was granted.
 func (o GetGrantsGrantOutput) GrantedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedOn }).(pulumi.StringOutput)
 }
 
-// The role to which the privilege was granted
+// The role to which the privilege was granted.
 func (o GetGrantsGrantOutput) GrantedTo() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GrantedTo }).(pulumi.StringOutput)
 }
 
-// The name of the role to which the privilege was granted
+// The name of the role to which the privilege was granted.
 func (o GetGrantsGrantOutput) GranteeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.GranteeName }).(pulumi.StringOutput)
 }
 
-// The name of the object on which the privilege was granted
+// The name of the object on which the privilege was granted.
 func (o GetGrantsGrantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The privilege granted
+// The privilege granted.
 func (o GetGrantsGrantOutput) Privilege() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsGrant) string { return v.Privilege }).(pulumi.StringOutput)
 }
@@ -9458,8 +9881,12 @@ func (o GetGrantsGrantArrayOutput) Index(i pulumi.IntInput) GetGrantsGrantOutput
 }
 
 type GetGrantsGrantsOf struct {
-	// Lists all users and roles to which the role has been granted
-	Role *string `pulumi:"role"`
+	// Lists all users and roles to which the account role has been granted.
+	AccountRole *string `pulumi:"accountRole"`
+	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	ApplicationRole *string `pulumi:"applicationRole"`
+	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole *string `pulumi:"databaseRole"`
 	// Lists all the accounts for the share and indicates the accounts that are using the share.
 	Share *string `pulumi:"share"`
 }
@@ -9476,8 +9903,12 @@ type GetGrantsGrantsOfInput interface {
 }
 
 type GetGrantsGrantsOfArgs struct {
-	// Lists all users and roles to which the role has been granted
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Lists all users and roles to which the account role has been granted.
+	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
+	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	ApplicationRole pulumi.StringPtrInput `pulumi:"applicationRole"`
+	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
 	// Lists all the accounts for the share and indicates the accounts that are using the share.
 	Share pulumi.StringPtrInput `pulumi:"share"`
 }
@@ -9559,9 +9990,19 @@ func (o GetGrantsGrantsOfOutput) ToGetGrantsGrantsOfPtrOutputWithContext(ctx con
 	}).(GetGrantsGrantsOfPtrOutput)
 }
 
-// Lists all users and roles to which the role has been granted
-func (o GetGrantsGrantsOfOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.Role }).(pulumi.StringPtrOutput)
+// Lists all users and roles to which the account role has been granted.
+func (o GetGrantsGrantsOfOutput) AccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.AccountRole }).(pulumi.StringPtrOutput)
+}
+
+// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsOfOutput) ApplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.ApplicationRole }).(pulumi.StringPtrOutput)
+}
+
+// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsOfOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
 }
 
 // Lists all the accounts for the share and indicates the accounts that are using the share.
@@ -9593,13 +10034,33 @@ func (o GetGrantsGrantsOfPtrOutput) Elem() GetGrantsGrantsOfOutput {
 	}).(GetGrantsGrantsOfOutput)
 }
 
-// Lists all users and roles to which the role has been granted
-func (o GetGrantsGrantsOfPtrOutput) Role() pulumi.StringPtrOutput {
+// Lists all users and roles to which the account role has been granted.
+func (o GetGrantsGrantsOfPtrOutput) AccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Role
+		return v.AccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsOfPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsOfPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9616,7 +10077,7 @@ func (o GetGrantsGrantsOfPtrOutput) Share() pulumi.StringPtrOutput {
 type GetGrantsGrantsOn struct {
 	// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
 	Account *bool `pulumi:"account"`
-	// Name of object to list privileges on
+	// Name of object to list privileges on.
 	ObjectName *string `pulumi:"objectName"`
 	// Type of object to list privileges on.
 	ObjectType *string `pulumi:"objectType"`
@@ -9636,7 +10097,7 @@ type GetGrantsGrantsOnInput interface {
 type GetGrantsGrantsOnArgs struct {
 	// Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
 	Account pulumi.BoolPtrInput `pulumi:"account"`
-	// Name of object to list privileges on
+	// Name of object to list privileges on.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
 	// Type of object to list privileges on.
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
@@ -9724,7 +10185,7 @@ func (o GetGrantsGrantsOnOutput) Account() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsOn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
 }
 
-// Name of object to list privileges on
+// Name of object to list privileges on.
 func (o GetGrantsGrantsOnOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsOn) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
@@ -9768,7 +10229,7 @@ func (o GetGrantsGrantsOnPtrOutput) Account() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of object to list privileges on
+// Name of object to list privileges on.
 func (o GetGrantsGrantsOnPtrOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsOn) *string {
 		if v == nil {
@@ -9789,11 +10250,17 @@ func (o GetGrantsGrantsOnPtrOutput) ObjectType() pulumi.StringPtrOutput {
 }
 
 type GetGrantsGrantsTo struct {
-	// Lists all privileges and roles granted to the role
-	Role *string `pulumi:"role"`
-	// Lists all the privileges granted to the share
-	Share *string `pulumi:"share"`
-	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+	// Lists all privileges and roles granted to the role.
+	AccountRole *string `pulumi:"accountRole"`
+	// Lists all the privileges and roles granted to the application.
+	Application *string `pulumi:"application"`
+	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+	ApplicationRole *string `pulumi:"applicationRole"`
+	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole *string `pulumi:"databaseRole"`
+	// Lists all the privileges granted to the share.
+	Share *GetGrantsGrantsToShare `pulumi:"share"`
+	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
 	User *string `pulumi:"user"`
 }
 
@@ -9809,11 +10276,17 @@ type GetGrantsGrantsToInput interface {
 }
 
 type GetGrantsGrantsToArgs struct {
-	// Lists all privileges and roles granted to the role
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// Lists all the privileges granted to the share
-	Share pulumi.StringPtrInput `pulumi:"share"`
-	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+	// Lists all privileges and roles granted to the role.
+	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
+	// Lists all the privileges and roles granted to the application.
+	Application pulumi.StringPtrInput `pulumi:"application"`
+	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+	ApplicationRole pulumi.StringPtrInput `pulumi:"applicationRole"`
+	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
+	// Lists all the privileges granted to the share.
+	Share GetGrantsGrantsToSharePtrInput `pulumi:"share"`
+	// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
 
@@ -9894,17 +10367,32 @@ func (o GetGrantsGrantsToOutput) ToGetGrantsGrantsToPtrOutputWithContext(ctx con
 	}).(GetGrantsGrantsToPtrOutput)
 }
 
-// Lists all privileges and roles granted to the role
-func (o GetGrantsGrantsToOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Role }).(pulumi.StringPtrOutput)
+// Lists all privileges and roles granted to the role.
+func (o GetGrantsGrantsToOutput) AccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.AccountRole }).(pulumi.StringPtrOutput)
 }
 
-// Lists all the privileges granted to the share
-func (o GetGrantsGrantsToOutput) Share() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Share }).(pulumi.StringPtrOutput)
+// Lists all the privileges and roles granted to the application.
+func (o GetGrantsGrantsToOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Application }).(pulumi.StringPtrOutput)
 }
 
-// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+func (o GetGrantsGrantsToOutput) ApplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.ApplicationRole }).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsToOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
+}
+
+// Lists all the privileges granted to the share.
+func (o GetGrantsGrantsToOutput) Share() GetGrantsGrantsToSharePtrOutput {
+	return o.ApplyT(func(v GetGrantsGrantsTo) *GetGrantsGrantsToShare { return v.Share }).(GetGrantsGrantsToSharePtrOutput)
+}
+
+// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
 func (o GetGrantsGrantsToOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.User }).(pulumi.StringPtrOutput)
 }
@@ -9933,33 +10421,200 @@ func (o GetGrantsGrantsToPtrOutput) Elem() GetGrantsGrantsToOutput {
 	}).(GetGrantsGrantsToOutput)
 }
 
-// Lists all privileges and roles granted to the role
-func (o GetGrantsGrantsToPtrOutput) Role() pulumi.StringPtrOutput {
+// Lists all privileges and roles granted to the role.
+func (o GetGrantsGrantsToPtrOutput) AccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Role
+		return v.AccountRole
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all the privileges granted to the share
-func (o GetGrantsGrantsToPtrOutput) Share() pulumi.StringPtrOutput {
+// Lists all the privileges and roles granted to the application.
+func (o GetGrantsGrantsToPtrOutput) Application() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Application
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+func (o GetGrantsGrantsToPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+func (o GetGrantsGrantsToPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lists all the privileges granted to the share.
+func (o GetGrantsGrantsToPtrOutput) Share() GetGrantsGrantsToSharePtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsTo) *GetGrantsGrantsToShare {
 		if v == nil {
 			return nil
 		}
 		return v.Share
-	}).(pulumi.StringPtrOutput)
+	}).(GetGrantsGrantsToSharePtrOutput)
 }
 
-// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
 func (o GetGrantsGrantsToPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
 		if v == nil {
 			return nil
 		}
 		return v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGrantsGrantsToShare struct {
+	// Lists all of the privileges and roles granted to the specified share.
+	ShareName string `pulumi:"shareName"`
+}
+
+// GetGrantsGrantsToShareInput is an input type that accepts GetGrantsGrantsToShareArgs and GetGrantsGrantsToShareOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsToShareInput` via:
+//
+//	GetGrantsGrantsToShareArgs{...}
+type GetGrantsGrantsToShareInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsToShareOutput() GetGrantsGrantsToShareOutput
+	ToGetGrantsGrantsToShareOutputWithContext(context.Context) GetGrantsGrantsToShareOutput
+}
+
+type GetGrantsGrantsToShareArgs struct {
+	// Lists all of the privileges and roles granted to the specified share.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+}
+
+func (GetGrantsGrantsToShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsToShare)(nil)).Elem()
+}
+
+func (i GetGrantsGrantsToShareArgs) ToGetGrantsGrantsToShareOutput() GetGrantsGrantsToShareOutput {
+	return i.ToGetGrantsGrantsToShareOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsToShareArgs) ToGetGrantsGrantsToShareOutputWithContext(ctx context.Context) GetGrantsGrantsToShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToShareOutput)
+}
+
+func (i GetGrantsGrantsToShareArgs) ToGetGrantsGrantsToSharePtrOutput() GetGrantsGrantsToSharePtrOutput {
+	return i.ToGetGrantsGrantsToSharePtrOutputWithContext(context.Background())
+}
+
+func (i GetGrantsGrantsToShareArgs) ToGetGrantsGrantsToSharePtrOutputWithContext(ctx context.Context) GetGrantsGrantsToSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToShareOutput).ToGetGrantsGrantsToSharePtrOutputWithContext(ctx)
+}
+
+// GetGrantsGrantsToSharePtrInput is an input type that accepts GetGrantsGrantsToShareArgs, GetGrantsGrantsToSharePtr and GetGrantsGrantsToSharePtrOutput values.
+// You can construct a concrete instance of `GetGrantsGrantsToSharePtrInput` via:
+//
+//	        GetGrantsGrantsToShareArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrantsGrantsToSharePtrInput interface {
+	pulumi.Input
+
+	ToGetGrantsGrantsToSharePtrOutput() GetGrantsGrantsToSharePtrOutput
+	ToGetGrantsGrantsToSharePtrOutputWithContext(context.Context) GetGrantsGrantsToSharePtrOutput
+}
+
+type getGrantsGrantsToSharePtrType GetGrantsGrantsToShareArgs
+
+func GetGrantsGrantsToSharePtr(v *GetGrantsGrantsToShareArgs) GetGrantsGrantsToSharePtrInput {
+	return (*getGrantsGrantsToSharePtrType)(v)
+}
+
+func (*getGrantsGrantsToSharePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsToShare)(nil)).Elem()
+}
+
+func (i *getGrantsGrantsToSharePtrType) ToGetGrantsGrantsToSharePtrOutput() GetGrantsGrantsToSharePtrOutput {
+	return i.ToGetGrantsGrantsToSharePtrOutputWithContext(context.Background())
+}
+
+func (i *getGrantsGrantsToSharePtrType) ToGetGrantsGrantsToSharePtrOutputWithContext(ctx context.Context) GetGrantsGrantsToSharePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrantsGrantsToSharePtrOutput)
+}
+
+type GetGrantsGrantsToShareOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsToShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrantsGrantsToShare)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsToShareOutput) ToGetGrantsGrantsToShareOutput() GetGrantsGrantsToShareOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToShareOutput) ToGetGrantsGrantsToShareOutputWithContext(ctx context.Context) GetGrantsGrantsToShareOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToShareOutput) ToGetGrantsGrantsToSharePtrOutput() GetGrantsGrantsToSharePtrOutput {
+	return o.ToGetGrantsGrantsToSharePtrOutputWithContext(context.Background())
+}
+
+func (o GetGrantsGrantsToShareOutput) ToGetGrantsGrantsToSharePtrOutputWithContext(ctx context.Context) GetGrantsGrantsToSharePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrantsGrantsToShare) *GetGrantsGrantsToShare {
+		return &v
+	}).(GetGrantsGrantsToSharePtrOutput)
+}
+
+// Lists all of the privileges and roles granted to the specified share.
+func (o GetGrantsGrantsToShareOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrantsGrantsToShare) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+type GetGrantsGrantsToSharePtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrantsGrantsToSharePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrantsGrantsToShare)(nil)).Elem()
+}
+
+func (o GetGrantsGrantsToSharePtrOutput) ToGetGrantsGrantsToSharePtrOutput() GetGrantsGrantsToSharePtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToSharePtrOutput) ToGetGrantsGrantsToSharePtrOutputWithContext(ctx context.Context) GetGrantsGrantsToSharePtrOutput {
+	return o
+}
+
+func (o GetGrantsGrantsToSharePtrOutput) Elem() GetGrantsGrantsToShareOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsToShare) GetGrantsGrantsToShare {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrantsGrantsToShare
+		return ret
+	}).(GetGrantsGrantsToShareOutput)
+}
+
+// Lists all of the privileges and roles granted to the specified share.
+func (o GetGrantsGrantsToSharePtrOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrantsGrantsToShare) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ShareName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12263,6 +12918,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReplicationScheduleCronPtrInput)(nil)).Elem(), FailoverGroupReplicationScheduleCronArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentInput)(nil)).Elem(), FunctionArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArgumentArrayInput)(nil)).Elem(), FunctionArgumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnInput)(nil)).Elem(), GrantOwnershipOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnPtrInput)(nil)).Elem(), GrantOwnershipOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnAllInput)(nil)).Elem(), GrantOwnershipOnAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnAllPtrInput)(nil)).Elem(), GrantOwnershipOnAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnFutureInput)(nil)).Elem(), GrantOwnershipOnFutureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnFuturePtrInput)(nil)).Elem(), GrantOwnershipOnFutureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObjectInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnAccountObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnAccountObjectPtrInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnAccountObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToAccountRoleOnSchemaInput)(nil)).Elem(), GrantPrivilegesToAccountRoleOnSchemaArgs{})
@@ -12357,8 +13018,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionsFunctionArrayInput)(nil)).Elem(), GetFunctionsFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInInput)(nil)).Elem(), GetGrantsFutureGrantsInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInPtrInput)(nil)).Elem(), GetGrantsFutureGrantsInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInSchemaInput)(nil)).Elem(), GetGrantsFutureGrantsInSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsInSchemaPtrInput)(nil)).Elem(), GetGrantsFutureGrantsInSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsToInput)(nil)).Elem(), GetGrantsFutureGrantsToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsFutureGrantsToPtrInput)(nil)).Elem(), GetGrantsFutureGrantsToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantInput)(nil)).Elem(), GetGrantsGrantArgs{})
@@ -12369,6 +13028,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsOnPtrInput)(nil)).Elem(), GetGrantsGrantsOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToInput)(nil)).Elem(), GetGrantsGrantsToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToPtrInput)(nil)).Elem(), GetGrantsGrantsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToShareInput)(nil)).Elem(), GetGrantsGrantsToShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToSharePtrInput)(nil)).Elem(), GetGrantsGrantsToShareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaskingPoliciesMaskingPolicyInput)(nil)).Elem(), GetMaskingPoliciesMaskingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaskingPoliciesMaskingPolicyArrayInput)(nil)).Elem(), GetMaskingPoliciesMaskingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaterializedViewsMaterializedViewInput)(nil)).Elem(), GetMaterializedViewsMaterializedViewArgs{})
@@ -12431,6 +13092,12 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReplicationScheduleCronPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentOutput{})
 	pulumi.RegisterOutputType(FunctionArgumentArrayOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnPtrOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnAllOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnAllPtrOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnFutureOutput{})
+	pulumi.RegisterOutputType(GrantOwnershipOnFuturePtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnAccountObjectOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToAccountRoleOnSchemaOutput{})
@@ -12525,8 +13192,6 @@ func init() {
 	pulumi.RegisterOutputType(GetFunctionsFunctionArrayOutput{})
 	pulumi.RegisterOutputType(GetGrantsFutureGrantsInOutput{})
 	pulumi.RegisterOutputType(GetGrantsFutureGrantsInPtrOutput{})
-	pulumi.RegisterOutputType(GetGrantsFutureGrantsInSchemaOutput{})
-	pulumi.RegisterOutputType(GetGrantsFutureGrantsInSchemaPtrOutput{})
 	pulumi.RegisterOutputType(GetGrantsFutureGrantsToOutput{})
 	pulumi.RegisterOutputType(GetGrantsFutureGrantsToPtrOutput{})
 	pulumi.RegisterOutputType(GetGrantsGrantOutput{})
@@ -12537,6 +13202,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGrantsGrantsOnPtrOutput{})
 	pulumi.RegisterOutputType(GetGrantsGrantsToOutput{})
 	pulumi.RegisterOutputType(GetGrantsGrantsToPtrOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsToShareOutput{})
+	pulumi.RegisterOutputType(GetGrantsGrantsToSharePtrOutput{})
 	pulumi.RegisterOutputType(GetMaskingPoliciesMaskingPolicyOutput{})
 	pulumi.RegisterOutputType(GetMaskingPoliciesMaskingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetMaterializedViewsMaterializedViewOutput{})

@@ -64,14 +64,14 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     @Import(name="executeAs")
     private @Nullable Output<String> executeAs;
 
     /**
-     * @return Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * @return Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     public Optional<Output<String>> executeAs() {
@@ -379,7 +379,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAs Sets execute context - see caller&#39;s rights and owner&#39;s rights
+         * @param executeAs Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAs Sets execute context - see caller&#39;s rights and owner&#39;s rights
+         * @param executeAs Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
          * 
          * @return builder
          * 

@@ -5,7 +5,6 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,17 +31,17 @@ public final class GetGrantsFutureGrantsInArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
     @Import(name="schema")
-    private @Nullable Output<GetGrantsFutureGrantsInSchemaArgs> schema;
+    private @Nullable Output<String> schema;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
-    public Optional<Output<GetGrantsFutureGrantsInSchemaArgs>> schema() {
+    public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
 
@@ -93,23 +92,23 @@ public final class GetGrantsFutureGrantsInArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
          * 
          * @return builder
          * 
          */
-        public Builder schema(@Nullable Output<GetGrantsFutureGrantsInSchemaArgs> schema) {
+        public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
         /**
-         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
          * 
          * @return builder
          * 
          */
-        public Builder schema(GetGrantsFutureGrantsInSchemaArgs schema) {
+        public Builder schema(String schema) {
             return schema(Output.of(schema));
         }
 

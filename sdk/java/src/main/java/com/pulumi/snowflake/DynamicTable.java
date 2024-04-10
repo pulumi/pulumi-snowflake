@@ -322,14 +322,14 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.rows;
     }
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     @Export(name="schedulingState", refs={String.class}, tree="[0]")
     private Output<String> schedulingState;
 
     /**
-     * @return Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * @return Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     public Output<String> schedulingState() {

@@ -4,7 +4,6 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.snowflake.outputs.GetGrantsFutureGrantsInSchema;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,10 +17,10 @@ public final class GetGrantsFutureGrantsIn {
      */
     private @Nullable String database;
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
-    private @Nullable GetGrantsFutureGrantsInSchema schema;
+    private @Nullable String schema;
 
     private GetGrantsFutureGrantsIn() {}
     /**
@@ -32,10 +31,10 @@ public final class GetGrantsFutureGrantsIn {
         return Optional.ofNullable(this.database);
     }
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
-    public Optional<GetGrantsFutureGrantsInSchema> schema() {
+    public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }
 
@@ -49,7 +48,7 @@ public final class GetGrantsFutureGrantsIn {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String database;
-        private @Nullable GetGrantsFutureGrantsInSchema schema;
+        private @Nullable String schema;
         public Builder() {}
         public Builder(GetGrantsFutureGrantsIn defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,7 +63,7 @@ public final class GetGrantsFutureGrantsIn {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(@Nullable GetGrantsFutureGrantsInSchema schema) {
+        public Builder schema(@Nullable String schema) {
 
             this.schema = schema;
             return this;

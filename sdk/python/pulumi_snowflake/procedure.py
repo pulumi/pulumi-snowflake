@@ -40,7 +40,7 @@ class ProcedureArgs:
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -159,7 +159,7 @@ class ProcedureArgs:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 
@@ -303,7 +303,7 @@ class _ProcedureState:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -393,7 +393,7 @@ class _ProcedureState:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 
@@ -587,7 +587,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -718,7 +718,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -782,7 +782,7 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> pulumi.Output[Optional[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 

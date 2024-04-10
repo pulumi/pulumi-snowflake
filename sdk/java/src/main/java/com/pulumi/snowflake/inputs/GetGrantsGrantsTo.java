@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.GetGrantsGrantsToShare;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,44 +16,89 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
     public static final GetGrantsGrantsTo Empty = new GetGrantsGrantsTo();
 
     /**
-     * Lists all privileges and roles granted to the role
+     * Lists all privileges and roles granted to the role.
      * 
      */
-    @Import(name="role")
-    private @Nullable String role;
+    @Import(name="accountRole")
+    private @Nullable String accountRole;
 
     /**
-     * @return Lists all privileges and roles granted to the role
+     * @return Lists all privileges and roles granted to the role.
      * 
      */
-    public Optional<String> role() {
-        return Optional.ofNullable(this.role);
+    public Optional<String> accountRole() {
+        return Optional.ofNullable(this.accountRole);
     }
 
     /**
-     * Lists all the privileges granted to the share
+     * Lists all the privileges and roles granted to the application.
+     * 
+     */
+    @Import(name="application")
+    private @Nullable String application;
+
+    /**
+     * @return Lists all the privileges and roles granted to the application.
+     * 
+     */
+    public Optional<String> application() {
+        return Optional.ofNullable(this.application);
+    }
+
+    /**
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="applicationRole")
+    private @Nullable String applicationRole;
+
+    /**
+     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> applicationRole() {
+        return Optional.ofNullable(this.applicationRole);
+    }
+
+    /**
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="databaseRole")
+    private @Nullable String databaseRole;
+
+    /**
+     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
+    }
+
+    /**
+     * Lists all the privileges granted to the share.
      * 
      */
     @Import(name="share")
-    private @Nullable String share;
+    private @Nullable GetGrantsGrantsToShare share;
 
     /**
-     * @return Lists all the privileges granted to the share
+     * @return Lists all the privileges granted to the share.
      * 
      */
-    public Optional<String> share() {
+    public Optional<GetGrantsGrantsToShare> share() {
         return Optional.ofNullable(this.share);
     }
 
     /**
-     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
      * 
      */
     @Import(name="user")
     private @Nullable String user;
 
     /**
-     * @return Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     * @return Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
      * 
      */
     public Optional<String> user() {
@@ -62,7 +108,10 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
     private GetGrantsGrantsTo() {}
 
     private GetGrantsGrantsTo(GetGrantsGrantsTo $) {
-        this.role = $.role;
+        this.accountRole = $.accountRole;
+        this.application = $.application;
+        this.applicationRole = $.applicationRole;
+        this.databaseRole = $.databaseRole;
         this.share = $.share;
         this.user = $.user;
     }
@@ -86,29 +135,62 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param role Lists all privileges and roles granted to the role
+         * @param accountRole Lists all privileges and roles granted to the role.
          * 
          * @return builder
          * 
          */
-        public Builder role(@Nullable String role) {
-            $.role = role;
+        public Builder accountRole(@Nullable String accountRole) {
+            $.accountRole = accountRole;
             return this;
         }
 
         /**
-         * @param share Lists all the privileges granted to the share
+         * @param application Lists all the privileges and roles granted to the application.
          * 
          * @return builder
          * 
          */
-        public Builder share(@Nullable String share) {
+        public Builder application(@Nullable String application) {
+            $.application = application;
+            return this;
+        }
+
+        /**
+         * @param applicationRole Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationRole(@Nullable String applicationRole) {
+            $.applicationRole = applicationRole;
+            return this;
+        }
+
+        /**
+         * @param databaseRole Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRole(@Nullable String databaseRole) {
+            $.databaseRole = databaseRole;
+            return this;
+        }
+
+        /**
+         * @param share Lists all the privileges granted to the share.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder share(@Nullable GetGrantsGrantsToShare share) {
             $.share = share;
             return this;
         }
 
         /**
-         * @param user Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+         * @param user Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
          * 
          * @return builder
          * 

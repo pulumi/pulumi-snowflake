@@ -15,17 +15,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const exampleStage = new snowflake.Stage("exampleStage", {
- *     url: "s3://com.example.bucket/prefix",
+ *     credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,
  *     database: "EXAMPLE_DB",
  *     schema: "EXAMPLE_SCHEMA",
- *     credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,
- * });
- * const grantExampleStage = new snowflake.StageGrant("grantExampleStage", {
- *     databaseName: exampleStage.database,
- *     schemaName: exampleStage.schema,
- *     roles: ["LOADER"],
- *     privilege: "OWNERSHIP",
- *     stageName: exampleStage.name,
+ *     url: "s3://com.example.bucket/prefix",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

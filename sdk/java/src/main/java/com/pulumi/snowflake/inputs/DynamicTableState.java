@@ -289,14 +289,14 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     @Import(name="schedulingState")
     private @Nullable Output<String> schedulingState;
 
     /**
-     * @return Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * @return Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     public Optional<Output<String>> schedulingState() {
@@ -772,7 +772,7 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedulingState Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+         * @param schedulingState Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class DynamicTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedulingState Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+         * @param schedulingState Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
          * 
          * @return builder
          * 

@@ -19,10 +19,10 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        /// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;schema*name&amp;gt;").
         /// </summary>
         [Input("schema")]
-        public Input<Inputs.GetGrantsFutureGrantsInSchemaInputArgs>? Schema { get; set; }
+        public Input<string>? Schema { get; set; }
 
         public GetGrantsFutureGrantsInInputArgs()
         {

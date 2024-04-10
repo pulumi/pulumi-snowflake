@@ -14,9 +14,17 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetGrantsGrantsOfResult
     {
         /// <summary>
-        /// Lists all users and roles to which the role has been granted
+        /// Lists all users and roles to which the account role has been granted.
         /// </summary>
-        public readonly string? Role;
+        public readonly string? AccountRole;
+        /// <summary>
+        /// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        public readonly string? ApplicationRole;
+        /// <summary>
+        /// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        public readonly string? DatabaseRole;
         /// <summary>
         /// Lists all the accounts for the share and indicates the accounts that are using the share.
         /// </summary>
@@ -24,11 +32,17 @@ namespace Pulumi.Snowflake.Outputs
 
         [OutputConstructor]
         private GetGrantsGrantsOfResult(
-            string? role,
+            string? accountRole,
+
+            string? applicationRole,
+
+            string? databaseRole,
 
             string? share)
         {
-            Role = role;
+            AccountRole = accountRole;
+            ApplicationRole = applicationRole;
+            DatabaseRole = databaseRole;
             Share = share;
         }
     }

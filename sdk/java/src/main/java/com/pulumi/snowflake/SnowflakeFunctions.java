@@ -1906,9 +1906,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1923,49 +1923,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
@@ -1992,9 +2059,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2009,49 +2076,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2078,9 +2212,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2095,49 +2229,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2164,9 +2365,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2181,49 +2382,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2250,9 +2518,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2267,49 +2535,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
@@ -2336,9 +2671,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2353,49 +2688,116 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
+     *                 .objectName(&#34;some_database&#34;)
      *                 .objectType(&#34;DATABASE&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .objectType(&#34;SCHEMA&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;.\&#34;some_table\&#34;&#34;)
+     *                 .objectType(&#34;TABLE&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application(&#34;some_application&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName(&#34;some_share&#34;)
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user(&#34;some_user&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole(&#34;\&#34;some_application\&#34;.\&#34;some_application_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share(&#34;some_share&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database(&#34;some_database&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema(&#34;\&#34;some_database\&#34;.\&#34;some_schema\&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole(&#34;some_role&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole(&#34;\&#34;some_database\&#34;.\&#34;some_database_role\&#34;&#34;)
      *                 .build())
      *             .build());
      * 

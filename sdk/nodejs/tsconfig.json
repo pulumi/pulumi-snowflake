@@ -76,6 +76,7 @@
         "getWarehouses.ts",
         "grantAccountRole.ts",
         "grantDatabaseRole.ts",
+        "grantOwnership.ts",
         "grantPrivilegesToAccountRole.ts",
         "grantPrivilegesToDatabaseRole.ts",
         "grantPrivilegesToRole.ts",

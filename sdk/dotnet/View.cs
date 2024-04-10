@@ -72,7 +72,9 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that the view is secure.
+        /// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+        /// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+        /// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
         /// </summary>
         [Output("isSecure")]
         public Output<bool?> IsSecure { get; private set; } = null!;
@@ -172,7 +174,9 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies that the view is secure.
+        /// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+        /// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+        /// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }
@@ -247,7 +251,9 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Specifies that the view is secure.
+        /// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+        /// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+        /// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }

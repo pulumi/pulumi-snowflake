@@ -1295,8 +1295,8 @@ github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578/go.mod h1:uGdko
 github.com/Shopify/logrus-bugsnag v0.0.0-20171204204709-577dee27f20d/go.mod h1:HI8ITrYtUY+O+ZhtlqUnD8+KwNPOyugEhfP9fdUIaEQ=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
-github.com/Snowflake-Labs/terraform-provider-snowflake v0.87.2 h1:yg88SQ9BTH89Cpf3nxOLEcXe4sCfLwifIpRfqhbdgrs=
-github.com/Snowflake-Labs/terraform-provider-snowflake v0.87.2/go.mod h1:OEvng6beNve4Bljjw0nPKqR0/WVobp9tAg0Xqc8uXSM=
+github.com/Snowflake-Labs/terraform-provider-snowflake v0.88.0 h1:IuaE7Bgjjf1eK3CerDQrOZkXjEc/+qXRc2REcr0aZXo=
+github.com/Snowflake-Labs/terraform-provider-snowflake v0.88.0/go.mod h1:Ny/GjZo7Oq2mcvimYdpRfI13PV6u4k3/DjQBu0AkHGc=
 github.com/VividCortex/gohistogram v1.0.0/go.mod h1:Pf5mBqqDxYaXu3hDrrU+w6nw50o/4+TcAqDqk/vUH7g=
 github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da h1:KjTM2ks9d14ZYCvmHS9iAKVt9AyzRSqNU1qabPih5BY=
 github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da/go.mod h1:eHEWzANqSiWQsof+nXEI9bUVUyV6F53Fp89EuCh2EAA=

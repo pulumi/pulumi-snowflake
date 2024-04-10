@@ -15,18 +15,48 @@ public final class GetGrantsGrantsOf extends com.pulumi.resources.InvokeArgs {
     public static final GetGrantsGrantsOf Empty = new GetGrantsGrantsOf();
 
     /**
-     * Lists all users and roles to which the role has been granted
+     * Lists all users and roles to which the account role has been granted.
      * 
      */
-    @Import(name="role")
-    private @Nullable String role;
+    @Import(name="accountRole")
+    private @Nullable String accountRole;
 
     /**
-     * @return Lists all users and roles to which the role has been granted
+     * @return Lists all users and roles to which the account role has been granted.
      * 
      */
-    public Optional<String> role() {
-        return Optional.ofNullable(this.role);
+    public Optional<String> accountRole() {
+        return Optional.ofNullable(this.accountRole);
+    }
+
+    /**
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="applicationRole")
+    private @Nullable String applicationRole;
+
+    /**
+     * @return Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> applicationRole() {
+        return Optional.ofNullable(this.applicationRole);
+    }
+
+    /**
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="databaseRole")
+    private @Nullable String databaseRole;
+
+    /**
+     * @return Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
     }
 
     /**
@@ -47,7 +77,9 @@ public final class GetGrantsGrantsOf extends com.pulumi.resources.InvokeArgs {
     private GetGrantsGrantsOf() {}
 
     private GetGrantsGrantsOf(GetGrantsGrantsOf $) {
-        this.role = $.role;
+        this.accountRole = $.accountRole;
+        this.applicationRole = $.applicationRole;
+        this.databaseRole = $.databaseRole;
         this.share = $.share;
     }
 
@@ -70,13 +102,35 @@ public final class GetGrantsGrantsOf extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param role Lists all users and roles to which the role has been granted
+         * @param accountRole Lists all users and roles to which the account role has been granted.
          * 
          * @return builder
          * 
          */
-        public Builder role(@Nullable String role) {
-            $.role = role;
+        public Builder accountRole(@Nullable String accountRole) {
+            $.accountRole = accountRole;
+            return this;
+        }
+
+        /**
+         * @param applicationRole Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationRole(@Nullable String applicationRole) {
+            $.applicationRole = applicationRole;
+            return this;
+        }
+
+        /**
+         * @param databaseRole Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRole(@Nullable String databaseRole) {
+            $.databaseRole = databaseRole;
             return this;
         }
 

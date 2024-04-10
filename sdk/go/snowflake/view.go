@@ -63,7 +63,9 @@ type View struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Name of the database that the tag was created in.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies that the view is secure.
+	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// Tag name, e.g. department.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -126,7 +128,9 @@ type viewState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Name of the database that the tag was created in.
 	Database *string `pulumi:"database"`
-	// Specifies that the view is secure.
+	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure *bool `pulumi:"isSecure"`
 	// Tag name, e.g. department.
 	Name *string `pulumi:"name"`
@@ -151,7 +155,9 @@ type ViewState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringPtrInput
-	// Specifies that the view is secure.
+	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
 	// Tag name, e.g. department.
 	Name pulumi.StringPtrInput
@@ -178,7 +184,9 @@ type viewArgs struct {
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// Name of the database that the tag was created in.
 	Database string `pulumi:"database"`
-	// Specifies that the view is secure.
+	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure *bool `pulumi:"isSecure"`
 	// Tag name, e.g. department.
 	Name *string `pulumi:"name"`
@@ -202,7 +210,9 @@ type ViewArgs struct {
 	CopyGrants pulumi.BoolPtrInput
 	// Name of the database that the tag was created in.
 	Database pulumi.StringInput
-	// Specifies that the view is secure.
+	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
 	// Tag name, e.g. department.
 	Name pulumi.StringPtrInput
@@ -325,7 +335,9 @@ func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies that the view is secure.
+// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
+// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }

@@ -30,7 +30,7 @@ type Procedure struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
@@ -108,7 +108,7 @@ type procedureState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database *string `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs *string `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler *string `pulumi:"handler"`
@@ -145,7 +145,7 @@ type ProcedureState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringPtrInput
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrInput
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type procedureArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database string `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs *string `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler *string `pulumi:"handler"`
@@ -224,7 +224,7 @@ type ProcedureArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringInput
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrInput
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o ProcedureOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Sets execute context - see caller's rights and owner's rights
+// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
 }

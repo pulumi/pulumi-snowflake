@@ -18,7 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly bool? Account;
         /// <summary>
-        /// Name of object to list privileges on
+        /// Name of object to list privileges on.
         /// </summary>
         public readonly string? ObjectName;
         /// <summary>

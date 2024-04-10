@@ -33,14 +33,14 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
     }
 
     /**
-     * Configures the privilege to be granted on all objects in either a database or schema.
+     * Configures the privilege to be granted on future objects in either a database or schema.
      * 
      */
     @Import(name="future")
     private @Nullable Output<GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs> future;
 
     /**
-     * @return Configures the privilege to be granted on all objects in either a database or schema.
+     * @return Configures the privilege to be granted on future objects in either a database or schema.
      * 
      */
     public Optional<Output<GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs>> future() {
@@ -63,14 +63,14 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
     }
 
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      * 
      */
     @Import(name="objectType")
     private @Nullable Output<String> objectType;
 
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      * 
      */
     public Optional<Output<String>> objectType() {
@@ -126,7 +126,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
         }
 
         /**
-         * @param future Configures the privilege to be granted on all objects in either a database or schema.
+         * @param future Configures the privilege to be granted on future objects in either a database or schema.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
         }
 
         /**
-         * @param future Configures the privilege to be granted on all objects in either a database or schema.
+         * @param future Configures the privilege to be granted on future objects in either a database or schema.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
         }
 
         /**
-         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObjectArgs extends com.pu
         }
 
         /**
-         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
          * 
          * @return builder
          * 

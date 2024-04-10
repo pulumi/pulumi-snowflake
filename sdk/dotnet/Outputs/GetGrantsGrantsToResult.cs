@@ -14,27 +14,48 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetGrantsGrantsToResult
     {
         /// <summary>
-        /// Lists all privileges and roles granted to the role
+        /// Lists all privileges and roles granted to the role.
         /// </summary>
-        public readonly string? Role;
+        public readonly string? AccountRole;
         /// <summary>
-        /// Lists all the privileges granted to the share
+        /// Lists all the privileges and roles granted to the application.
         /// </summary>
-        public readonly string? Share;
+        public readonly string? Application;
         /// <summary>
-        /// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        /// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&amp;lt;app*name&amp;gt;"."&amp;lt;app*role_name&amp;gt;").
+        /// </summary>
+        public readonly string? ApplicationRole;
+        /// <summary>
+        /// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        public readonly string? DatabaseRole;
+        /// <summary>
+        /// Lists all the privileges granted to the share.
+        /// </summary>
+        public readonly Outputs.GetGrantsGrantsToShareResult? Share;
+        /// <summary>
+        /// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         /// </summary>
         public readonly string? User;
 
         [OutputConstructor]
         private GetGrantsGrantsToResult(
-            string? role,
+            string? accountRole,
 
-            string? share,
+            string? application,
+
+            string? applicationRole,
+
+            string? databaseRole,
+
+            Outputs.GetGrantsGrantsToShareResult? share,
 
             string? user)
         {
-            Role = role;
+            AccountRole = accountRole;
+            Application = application;
+            ApplicationRole = applicationRole;
+            DatabaseRole = databaseRole;
             Share = share;
             User = user;
         }

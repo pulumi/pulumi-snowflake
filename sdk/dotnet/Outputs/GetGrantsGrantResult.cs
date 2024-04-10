@@ -14,35 +14,35 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetGrantsGrantResult
     {
         /// <summary>
-        /// The date and time the grant was created
+        /// The date and time the grant was created.
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
-        /// Whether the grantee can grant the privilege to others
+        /// Whether the grantee can grant the privilege to others.
         /// </summary>
         public readonly bool GrantOption;
         /// <summary>
-        /// The role that granted the privilege
+        /// The role that granted the privilege.
         /// </summary>
         public readonly string GrantedBy;
         /// <summary>
-        /// The object on which the privilege was granted
+        /// The object on which the privilege was granted.
         /// </summary>
         public readonly string GrantedOn;
         /// <summary>
-        /// The role to which the privilege was granted
+        /// The role to which the privilege was granted.
         /// </summary>
         public readonly string GrantedTo;
         /// <summary>
-        /// The name of the role to which the privilege was granted
+        /// The name of the role to which the privilege was granted.
         /// </summary>
         public readonly string GranteeName;
         /// <summary>
-        /// The name of the object on which the privilege was granted
+        /// The name of the object on which the privilege was granted.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The privilege granted
+        /// The privilege granted.
         /// </summary>
         public readonly string Privilege;
 

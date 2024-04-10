@@ -79,18 +79,20 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
+	// Specifies a comment for the database.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapOutput `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
-	Name        pulumi.StringOutput  `pulumi:"name"`
+	// Specifies the identifier for the database; must be unique for your account.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 }
@@ -125,35 +127,39 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
+	// Specifies a comment for the database.
 	Comment *string `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-	IsTransient *bool   `pulumi:"isTransient"`
-	Name        *string `pulumi:"name"`
+	IsTransient *bool `pulumi:"isTransient"`
+	// Specifies the identifier for the database; must be unique for your account.
+	Name *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
 type DatabaseState struct {
+	// Specifies a comment for the database.
 	Comment pulumi.StringPtrInput
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
+	// Specifies the identifier for the database; must be unique for your account.
+	Name pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 }
@@ -163,36 +169,40 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
+	// Specifies a comment for the database.
 	Comment *string `pulumi:"comment"`
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specify a database to create a clone from.
 	FromDatabase *string `pulumi:"fromDatabase"`
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica *string `pulumi:"fromReplica"`
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare map[string]string `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-	IsTransient *bool   `pulumi:"isTransient"`
-	Name        *string `pulumi:"name"`
+	IsTransient *bool `pulumi:"isTransient"`
+	// Specifies the identifier for the database; must be unique for your account.
+	Name *string `pulumi:"name"`
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration *DatabaseReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
+	// Specifies a comment for the database.
 	Comment pulumi.StringPtrInput
-	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+	// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specify a database to create a clone from.
 	FromDatabase pulumi.StringPtrInput
-	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrInput
 	// Specify a provider and a share in this map to create a database from a share.
 	FromShare pulumi.StringMapInput
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
+	// Specifies the identifier for the database; must be unique for your account.
+	Name pulumi.StringPtrInput
 	// When set, specifies the configurations for database replication.
 	ReplicationConfiguration DatabaseReplicationConfigurationPtrInput
 }
@@ -284,11 +294,12 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// Specifies a comment for the database.
 func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 func (o DatabaseOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }
@@ -298,7 +309,7 @@ func (o DatabaseOutput) FromDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 func (o DatabaseOutput) FromReplica() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromReplica }).(pulumi.StringPtrOutput)
 }
@@ -313,6 +324,7 @@ func (o DatabaseOutput) IsTransient() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.IsTransient }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the identifier for the database; must be unique for your account.
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
