@@ -32,14 +32,14 @@ public final class GetGrantsGrantsOnArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of object to list privileges on
+     * Name of object to list privileges on.
      * 
      */
     @Import(name="objectName")
     private @Nullable Output<String> objectName;
 
     /**
-     * @return Name of object to list privileges on
+     * @return Name of object to list privileges on.
      * 
      */
     public Optional<Output<String>> objectName() {
@@ -109,7 +109,7 @@ public final class GetGrantsGrantsOnArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param objectName Name of object to list privileges on
+         * @param objectName Name of object to list privileges on.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetGrantsGrantsOnArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param objectName Name of object to list privileges on
+         * @param objectName Name of object to list privileges on.
          * 
          * @return builder
          * 

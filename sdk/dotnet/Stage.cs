@@ -23,22 +23,10 @@ namespace Pulumi.Snowflake
     /// {
     ///     var exampleStage = new Snowflake.Stage("exampleStage", new()
     ///     {
-    ///         Url = "s3://com.example.bucket/prefix",
+    ///         Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
     ///         Database = "EXAMPLE_DB",
     ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
-    ///     });
-    /// 
-    ///     var grantExampleStage = new Snowflake.StageGrant("grantExampleStage", new()
-    ///     {
-    ///         DatabaseName = exampleStage.Database,
-    ///         SchemaName = exampleStage.Schema,
-    ///         Roles = new[]
-    ///         {
-    ///             "LOADER",
-    ///         },
-    ///         Privilege = "OWNERSHIP",
-    ///         StageName = exampleStage.Name,
+    ///         Url = "s3://com.example.bucket/prefix",
     ///     });
     /// 
     /// });

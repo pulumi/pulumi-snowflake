@@ -31,14 +31,14 @@ public final class GetGrantsGrantsOn extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of object to list privileges on
+     * Name of object to list privileges on.
      * 
      */
     @Import(name="objectName")
     private @Nullable String objectName;
 
     /**
-     * @return Name of object to list privileges on
+     * @return Name of object to list privileges on.
      * 
      */
     public Optional<String> objectName() {
@@ -98,7 +98,7 @@ public final class GetGrantsGrantsOn extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param objectName Name of object to list privileges on
+         * @param objectName Name of object to list privileges on.
          * 
          * @return builder
          * 

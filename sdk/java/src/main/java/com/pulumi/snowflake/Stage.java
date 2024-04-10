@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Stage;
  * import com.pulumi.snowflake.StageArgs;
- * import com.pulumi.snowflake.StageGrant;
- * import com.pulumi.snowflake.StageGrantArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,18 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .url(&#34;s3://com.example.bucket/prefix&#34;)
+ *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, var_.example_aws_key_id(),var_.example_aws_secret_key()))
  *             .database(&#34;EXAMPLE_DB&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, var_.example_aws_key_id(),var_.example_aws_secret_key()))
- *             .build());
- * 
- *         var grantExampleStage = new StageGrant(&#34;grantExampleStage&#34;, StageGrantArgs.builder()        
- *             .databaseName(exampleStage.database())
- *             .schemaName(exampleStage.schema())
- *             .roles(&#34;LOADER&#34;)
- *             .privilege(&#34;OWNERSHIP&#34;)
- *             .stageName(exampleStage.name())
+ *             .url(&#34;s3://com.example.bucket/prefix&#34;)
  *             .build());
  * 
  *     }

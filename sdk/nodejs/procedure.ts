@@ -58,7 +58,7 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface ProcedureState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     executeAs?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface ProcedureArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     executeAs?: pulumi.Input<string>;
     /**

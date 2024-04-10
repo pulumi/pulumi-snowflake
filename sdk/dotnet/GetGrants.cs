@@ -23,7 +23,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var grants = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -31,56 +31,145 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var grants2 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
-        ///             ObjectName = "\"tst\"",
+        ///             ObjectName = "some_database",
         ///             ObjectType = "DATABASE",
         ///         },
         ///     });
         /// 
-        ///     var grants3 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\"",
+        ///             ObjectType = "SCHEMA",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\".\"some_table\"",
+        ///             ObjectType = "TABLE",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             Application = "some_application",
         ///         },
         ///     });
         /// 
-        ///     var grants4 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
         ///         },
         ///     });
         /// 
-        ///     var grants5 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Database = "\"tst\"",
+        ///             AccountRole = "some_role",
         ///         },
         ///     });
         /// 
-        ///     var grants6 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Schema = new Snowflake.Inputs.GetGrantsFutureGrantsInSchemaInputArgs
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             Share = new Snowflake.Inputs.GetGrantsGrantsToShareInputArgs
         ///             {
-        ///                 DatabaseName = "\"mydatabase\"",
-        ///                 SchemaName = "\"myschema\"",
+        ///                 ShareName = "some_share",
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var grants7 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             User = "some_user",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             Share = "some_share",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
         ///         },
         ///     });
         /// 
@@ -103,7 +192,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var grants = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -111,56 +200,145 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var grants2 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
-        ///             ObjectName = "\"tst\"",
+        ///             ObjectName = "some_database",
         ///             ObjectType = "DATABASE",
         ///         },
         ///     });
         /// 
-        ///     var grants3 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\"",
+        ///             ObjectType = "SCHEMA",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\".\"some_table\"",
+        ///             ObjectType = "TABLE",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             Application = "some_application",
         ///         },
         ///     });
         /// 
-        ///     var grants4 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
         ///         },
         ///     });
         /// 
-        ///     var grants5 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Database = "\"tst\"",
+        ///             AccountRole = "some_role",
         ///         },
         ///     });
         /// 
-        ///     var grants6 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
         ///     {
-        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
-        ///             Schema = new Snowflake.Inputs.GetGrantsFutureGrantsInSchemaInputArgs
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             Share = new Snowflake.Inputs.GetGrantsGrantsToShareInputArgs
         ///             {
-        ///                 DatabaseName = "\"mydatabase\"",
-        ///                 SchemaName = "\"myschema\"",
+        ///                 ShareName = "some_share",
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var grants7 = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             User = "some_user",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             Share = "some_share",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
-        ///             Role = "ACCOUNTADMIN",
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
         ///         },
         ///     });
         /// 
@@ -176,31 +354,31 @@ namespace Pulumi.Snowflake
     public sealed class GetGrantsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects
+        /// Lists all privileges on new (i.e. future) objects.
         /// </summary>
         [Input("futureGrantsIn")]
         public Inputs.GetGrantsFutureGrantsInArgs? FutureGrantsIn { get; set; }
 
         /// <summary>
-        /// Lists all privileges granted to the object on new (i.e. future) objects
+        /// Lists all privileges granted to the object on new (i.e. future) objects.
         /// </summary>
         [Input("futureGrantsTo")]
         public Inputs.GetGrantsFutureGrantsToArgs? FutureGrantsTo { get; set; }
 
         /// <summary>
-        /// Lists all objects to which the given object has been granted
+        /// Lists all objects to which the given object has been granted.
         /// </summary>
         [Input("grantsOf")]
         public Inputs.GetGrantsGrantsOfArgs? GrantsOf { get; set; }
 
         /// <summary>
-        /// Lists all privileges that have been granted on an object or account
+        /// Lists all privileges that have been granted on an object or on an account.
         /// </summary>
         [Input("grantsOn")]
         public Inputs.GetGrantsGrantsOnArgs? GrantsOn { get; set; }
 
         /// <summary>
-        /// Lists all privileges granted to the object
+        /// Lists all privileges granted to the object.
         /// </summary>
         [Input("grantsTo")]
         public Inputs.GetGrantsGrantsToArgs? GrantsTo { get; set; }
@@ -214,31 +392,31 @@ namespace Pulumi.Snowflake
     public sealed class GetGrantsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects
+        /// Lists all privileges on new (i.e. future) objects.
         /// </summary>
         [Input("futureGrantsIn")]
         public Input<Inputs.GetGrantsFutureGrantsInInputArgs>? FutureGrantsIn { get; set; }
 
         /// <summary>
-        /// Lists all privileges granted to the object on new (i.e. future) objects
+        /// Lists all privileges granted to the object on new (i.e. future) objects.
         /// </summary>
         [Input("futureGrantsTo")]
         public Input<Inputs.GetGrantsFutureGrantsToInputArgs>? FutureGrantsTo { get; set; }
 
         /// <summary>
-        /// Lists all objects to which the given object has been granted
+        /// Lists all objects to which the given object has been granted.
         /// </summary>
         [Input("grantsOf")]
         public Input<Inputs.GetGrantsGrantsOfInputArgs>? GrantsOf { get; set; }
 
         /// <summary>
-        /// Lists all privileges that have been granted on an object or account
+        /// Lists all privileges that have been granted on an object or on an account.
         /// </summary>
         [Input("grantsOn")]
         public Input<Inputs.GetGrantsGrantsOnInputArgs>? GrantsOn { get; set; }
 
         /// <summary>
-        /// Lists all privileges granted to the object
+        /// Lists all privileges granted to the object.
         /// </summary>
         [Input("grantsTo")]
         public Input<Inputs.GetGrantsGrantsToInputArgs>? GrantsTo { get; set; }
@@ -254,11 +432,11 @@ namespace Pulumi.Snowflake
     public sealed class GetGrantsResult
     {
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects
+        /// Lists all privileges on new (i.e. future) objects.
         /// </summary>
         public readonly Outputs.GetGrantsFutureGrantsInResult? FutureGrantsIn;
         /// <summary>
-        /// Lists all privileges granted to the object on new (i.e. future) objects
+        /// Lists all privileges granted to the object on new (i.e. future) objects.
         /// </summary>
         public readonly Outputs.GetGrantsFutureGrantsToResult? FutureGrantsTo;
         /// <summary>
@@ -266,15 +444,15 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGrantsGrantResult> Grants;
         /// <summary>
-        /// Lists all objects to which the given object has been granted
+        /// Lists all objects to which the given object has been granted.
         /// </summary>
         public readonly Outputs.GetGrantsGrantsOfResult? GrantsOf;
         /// <summary>
-        /// Lists all privileges that have been granted on an object or account
+        /// Lists all privileges that have been granted on an object or on an account.
         /// </summary>
         public readonly Outputs.GetGrantsGrantsOnResult? GrantsOn;
         /// <summary>
-        /// Lists all privileges granted to the object
+        /// Lists all privileges granted to the object.
         /// </summary>
         public readonly Outputs.GetGrantsGrantsToResult? GrantsTo;
         /// <summary>

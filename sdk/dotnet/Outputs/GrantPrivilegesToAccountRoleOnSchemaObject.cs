@@ -18,7 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll? All;
         /// <summary>
-        /// Configures the privilege to be granted on all objects in either a database or schema.
+        /// Configures the privilege to be granted on future objects in either a database or schema.
         /// </summary>
         public readonly Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture? Future;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? ObjectName;
         /// <summary>
-        /// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        /// The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
         /// </summary>
         public readonly string? ObjectType;
 

@@ -4,25 +4,38 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGrantsFutureGrantsTo {
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      * 
      */
-    private String role;
+    private @Nullable String accountRole;
+    /**
+     * @return Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    private @Nullable String databaseRole;
 
     private GetGrantsFutureGrantsTo() {}
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      * 
      */
-    public String role() {
-        return this.role;
+    public Optional<String> accountRole() {
+        return Optional.ofNullable(this.accountRole);
+    }
+    /**
+     * @return Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
     }
 
     public static Builder builder() {
@@ -34,24 +47,31 @@ public final class GetGrantsFutureGrantsTo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String role;
+        private @Nullable String accountRole;
+        private @Nullable String databaseRole;
         public Builder() {}
         public Builder(GetGrantsFutureGrantsTo defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.role = defaults.role;
+    	      this.accountRole = defaults.accountRole;
+    	      this.databaseRole = defaults.databaseRole;
         }
 
         @CustomType.Setter
-        public Builder role(String role) {
-            if (role == null) {
-              throw new MissingRequiredPropertyException("GetGrantsFutureGrantsTo", "role");
-            }
-            this.role = role;
+        public Builder accountRole(@Nullable String accountRole) {
+
+            this.accountRole = accountRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseRole(@Nullable String databaseRole) {
+
+            this.databaseRole = databaseRole;
             return this;
         }
         public GetGrantsFutureGrantsTo build() {
             final var _resultValue = new GetGrantsFutureGrantsTo();
-            _resultValue.role = role;
+            _resultValue.accountRole = accountRole;
+            _resultValue.databaseRole = databaseRole;
             return _resultValue;
         }
     }

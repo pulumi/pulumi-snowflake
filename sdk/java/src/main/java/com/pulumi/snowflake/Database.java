@@ -87,21 +87,29 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies a comment for the database.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return Specifies a comment for the database.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     public Output<Optional<Integer>> dataRetentionTimeInDays() {
@@ -122,14 +130,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fromDatabase);
     }
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     @Export(name="fromReplica", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fromReplica;
 
     /**
-     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     public Output<Optional<String>> fromReplica() {
@@ -163,9 +171,17 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> isTransient() {
         return Codegen.optional(this.isTransient);
     }
+    /**
+     * Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

@@ -126,14 +126,18 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Specifies that the view is secure.
+     * Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
+     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
      * 
      */
     @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
     /**
-     * @return Specifies that the view is secure.
+     * @return Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
+     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
+     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
      * 
      */
     public Output<Optional<Boolean>> isSecure() {

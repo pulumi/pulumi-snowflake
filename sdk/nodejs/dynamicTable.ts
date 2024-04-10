@@ -135,7 +135,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly rows!: pulumi.Output<number>;
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
     public /*out*/ readonly schedulingState!: pulumi.Output<string>;
     /**
@@ -308,7 +308,7 @@ export interface DynamicTableState {
      */
     rows?: pulumi.Input<number>;
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
     schedulingState?: pulumi.Input<string>;
     /**

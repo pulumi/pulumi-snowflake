@@ -503,69 +503,70 @@ export interface GetGrantsFutureGrantsIn {
      */
     database?: string;
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
      */
-    schema?: outputs.GetGrantsFutureGrantsInSchema;
-}
-
-export interface GetGrantsFutureGrantsInSchema {
-    /**
-     * The database in which the scehma resides. Optional when querying a schema in the current database.
-     */
-    databaseName?: string;
-    /**
-     * The name of the schema to list all privileges of new (ie. future) objects granted to
-     */
-    schemaName: string;
+    schema?: string;
 }
 
 export interface GetGrantsFutureGrantsTo {
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      */
-    role: string;
+    accountRole?: string;
+    /**
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     */
+    databaseRole?: string;
 }
 
 export interface GetGrantsGrant {
     /**
-     * The date and time the grant was created
+     * The date and time the grant was created.
      */
     createdOn: string;
     /**
-     * Whether the grantee can grant the privilege to others
+     * Whether the grantee can grant the privilege to others.
      */
     grantOption: boolean;
     /**
-     * The role that granted the privilege
+     * The role that granted the privilege.
      */
     grantedBy: string;
     /**
-     * The object on which the privilege was granted
+     * The object on which the privilege was granted.
      */
     grantedOn: string;
     /**
-     * The role to which the privilege was granted
+     * The role to which the privilege was granted.
      */
     grantedTo: string;
     /**
-     * The name of the role to which the privilege was granted
+     * The name of the role to which the privilege was granted.
      */
     granteeName: string;
     /**
-     * The name of the object on which the privilege was granted
+     * The name of the object on which the privilege was granted.
      */
     name: string;
     /**
-     * The privilege granted
+     * The privilege granted.
      */
     privilege: string;
 }
 
 export interface GetGrantsGrantsOf {
     /**
-     * Lists all users and roles to which the role has been granted
+     * Lists all users and roles to which the account role has been granted.
      */
-    role?: string;
+    accountRole?: string;
+    /**
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     */
+    applicationRole?: string;
+    /**
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     */
+    databaseRole?: string;
     /**
      * Lists all the accounts for the share and indicates the accounts that are using the share.
      */
@@ -578,7 +579,7 @@ export interface GetGrantsGrantsOn {
      */
     account?: boolean;
     /**
-     * Name of object to list privileges on
+     * Name of object to list privileges on.
      */
     objectName?: string;
     /**
@@ -589,17 +590,36 @@ export interface GetGrantsGrantsOn {
 
 export interface GetGrantsGrantsTo {
     /**
-     * Lists all privileges and roles granted to the role
+     * Lists all privileges and roles granted to the role.
      */
-    role?: string;
+    accountRole?: string;
     /**
-     * Lists all the privileges granted to the share
+     * Lists all the privileges and roles granted to the application.
      */
-    share?: string;
+    application?: string;
     /**
-     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+     */
+    applicationRole?: string;
+    /**
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     */
+    databaseRole?: string;
+    /**
+     * Lists all the privileges granted to the share.
+     */
+    share?: outputs.GetGrantsGrantsToShare;
+    /**
+     * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
      */
     user?: string;
+}
+
+export interface GetGrantsGrantsToShare {
+    /**
+     * Lists all of the privileges and roles granted to the specified share.
+     */
+    shareName: string;
 }
 
 export interface GetMaskingPoliciesMaskingPolicy {
@@ -792,6 +812,55 @@ export interface GetWarehousesWarehouse {
     type: string;
 }
 
+export interface GrantOwnershipOn {
+    /**
+     * Configures the privilege to be granted on all objects in either a database or schema.
+     */
+    all?: outputs.GrantOwnershipOnAll;
+    /**
+     * Configures the privilege to be granted on all objects in either a database or schema.
+     */
+    future?: outputs.GrantOwnershipOnFuture;
+    /**
+     * Specifies the identifier for the object on which you are transferring ownership.
+     */
+    objectName?: string;
+    /**
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     */
+    objectType?: string;
+}
+
+export interface GrantOwnershipOnAll {
+    /**
+     * The fully qualified name of the database.
+     */
+    inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
+    inSchema?: string;
+    /**
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     */
+    objectTypePlural: string;
+}
+
+export interface GrantOwnershipOnFuture {
+    /**
+     * The fully qualified name of the database.
+     */
+    inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
+    inSchema?: string;
+    /**
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     */
+    objectTypePlural: string;
+}
+
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
      * The fully qualified name of the object on which privileges will be granted.
@@ -824,7 +893,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     all?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll;
     /**
-     * Configures the privilege to be granted on all objects in either a database or schema.
+     * Configures the privilege to be granted on future objects in either a database or schema.
      */
     future?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture;
     /**
@@ -832,7 +901,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      */
     objectType?: string;
 }
@@ -841,7 +910,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
      */
     objectTypePlural: string;
 }
@@ -850,7 +919,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
      */
     objectTypePlural: string;
 }
@@ -884,25 +953,37 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      */
     objectType?: string;
 }
 
 export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
      */
     objectTypePlural: string;
 }
 
 export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
+    /**
+     * The fully qualified name of the database.
+     */
     inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.
      */
     objectTypePlural: string;
 }
@@ -947,7 +1028,7 @@ export interface GrantPrivilegesToRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+     * The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      */
     objectType?: string;
 }
@@ -962,7 +1043,7 @@ export interface GrantPrivilegesToRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
      */
     objectTypePlural: string;
 }
@@ -977,7 +1058,7 @@ export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES
      */
     objectTypePlural: string;
 }

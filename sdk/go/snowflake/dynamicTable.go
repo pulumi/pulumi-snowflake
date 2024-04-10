@@ -92,7 +92,7 @@ type DynamicTable struct {
 	RefreshModeReason pulumi.StringOutput `pulumi:"refreshModeReason"`
 	// Number of rows in the table.
 	Rows pulumi.IntOutput `pulumi:"rows"`
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState pulumi.StringOutput `pulumi:"schedulingState"`
 	// The schema in which to create the dynamic table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -183,7 +183,7 @@ type dynamicTableState struct {
 	RefreshModeReason *string `pulumi:"refreshModeReason"`
 	// Number of rows in the table.
 	Rows *int `pulumi:"rows"`
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState *string `pulumi:"schedulingState"`
 	// The schema in which to create the dynamic table.
 	Schema *string `pulumi:"schema"`
@@ -230,7 +230,7 @@ type DynamicTableState struct {
 	RefreshModeReason pulumi.StringPtrInput
 	// Number of rows in the table.
 	Rows pulumi.IntPtrInput
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState pulumi.StringPtrInput
 	// The schema in which to create the dynamic table.
 	Schema pulumi.StringPtrInput
@@ -468,7 +468,7 @@ func (o DynamicTableOutput) Rows() pulumi.IntOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.IntOutput { return v.Rows }).(pulumi.IntOutput)
 }
 
-// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 func (o DynamicTableOutput) SchedulingState() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.SchedulingState }).(pulumi.StringOutput)
 }

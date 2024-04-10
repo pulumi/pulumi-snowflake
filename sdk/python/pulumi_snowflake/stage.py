@@ -500,16 +500,10 @@ class Stage(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         example_stage = snowflake.Stage("exampleStage",
-            url="s3://com.example.bucket/prefix",
+            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'")
-        grant_example_stage = snowflake.StageGrant("grantExampleStage",
-            database_name=example_stage.database,
-            schema_name=example_stage.schema,
-            roles=["LOADER"],
-            privilege="OWNERSHIP",
-            stage_name=example_stage.name)
+            url="s3://com.example.bucket/prefix")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -551,16 +545,10 @@ class Stage(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         example_stage = snowflake.Stage("exampleStage",
-            url="s3://com.example.bucket/prefix",
+            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'")
-        grant_example_stage = snowflake.StageGrant("grantExampleStage",
-            database_name=example_stage.database,
-            schema_name=example_stage.schema,
-            roles=["LOADER"],
-            privilege="OWNERSHIP",
-            stage_name=example_stage.name)
+            url="s3://com.example.bucket/prefix")
         ```
         <!--End PulumiCodeChooser -->
 

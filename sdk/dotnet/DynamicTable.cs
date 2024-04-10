@@ -157,7 +157,7 @@ namespace Pulumi.Snowflake
         public Output<int> Rows { get; private set; } = null!;
 
         /// <summary>
-        /// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        /// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         /// </summary>
         [Output("schedulingState")]
         public Output<string> SchedulingState { get; private set; } = null!;
@@ -403,7 +403,7 @@ namespace Pulumi.Snowflake
         public Input<int>? Rows { get; set; }
 
         /// <summary>
-        /// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        /// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         /// </summary>
         [Input("schedulingState")]
         public Input<string>? SchedulingState { get; set; }

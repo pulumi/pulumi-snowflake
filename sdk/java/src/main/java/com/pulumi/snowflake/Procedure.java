@@ -139,14 +139,14 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     @Export(name="executeAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executeAs;
 
     /**
-     * @return Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * @return Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     public Output<Optional<String>> executeAs() {

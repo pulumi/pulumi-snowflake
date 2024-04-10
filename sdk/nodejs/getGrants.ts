@@ -14,43 +14,99 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grants = snowflake.getGrants({
+ * const exampleOnAccount = snowflake.getGrants({
  *     grantsOn: {
  *         account: true,
  *     },
  * });
- * const grants2 = snowflake.getGrants({
+ * const exampleOnAccountObject = snowflake.getGrants({
  *     grantsOn: {
- *         objectName: "\"tst\"",
+ *         objectName: "some_database",
  *         objectType: "DATABASE",
  *     },
  * });
- * const grants3 = snowflake.getGrants({
+ * const exampleOnDatabaseObject = snowflake.getGrants({
+ *     grantsOn: {
+ *         objectName: "\"some_database\".\"some_schema\"",
+ *         objectType: "SCHEMA",
+ *     },
+ * });
+ * const exampleOnSchemaObject = snowflake.getGrants({
+ *     grantsOn: {
+ *         objectName: "\"some_database\".\"some_schema\".\"some_table\"",
+ *         objectType: "TABLE",
+ *     },
+ * });
+ * const exampleToApplication = snowflake.getGrants({
  *     grantsTo: {
- *         role: "ACCOUNTADMIN",
+ *         application: "some_application",
  *     },
  * });
- * const grants4 = snowflake.getGrants({
- *     grantsOf: {
- *         role: "ACCOUNTADMIN",
+ * const exampleToApplicationRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
- * const grants5 = snowflake.getGrants({
- *     futureGrantsIn: {
- *         database: "\"tst\"",
+ * const exampleToRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         accountRole: "some_role",
  *     },
  * });
- * const grants6 = snowflake.getGrants({
- *     futureGrantsIn: {
- *         schema: {
- *             databaseName: "\"mydatabase\"",
- *             schemaName: "\"myschema\"",
+ * const exampleToDatabaseRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
+ *     },
+ * });
+ * const exampleToShare = snowflake.getGrants({
+ *     grantsTo: {
+ *         share: {
+ *             shareName: "some_share",
  *         },
  *     },
  * });
- * const grants7 = snowflake.getGrants({
+ * const exampleToUser = snowflake.getGrants({
+ *     grantsTo: {
+ *         user: "some_user",
+ *     },
+ * });
+ * const exampleOfApplicationRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         applicationRole: "\"some_application\".\"some_application_role\"",
+ *     },
+ * });
+ * const exampleOfDatabaseRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
+ *     },
+ * });
+ * const exampleOfRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         accountRole: "some_role",
+ *     },
+ * });
+ * const exampleOfShare = snowflake.getGrants({
+ *     grantsOf: {
+ *         share: "some_share",
+ *     },
+ * });
+ * const exampleFutureInDatabase = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         database: "some_database",
+ *     },
+ * });
+ * const exampleFutureInSchema = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         schema: "\"some_database\".\"some_schema\"",
+ *     },
+ * });
+ * const exampleFutureToRole = snowflake.getGrants({
  *     futureGrantsTo: {
- *         role: "ACCOUNTADMIN",
+ *         accountRole: "some_role",
+ *     },
+ * });
+ * const exampleFutureToDatabaseRole = snowflake.getGrants({
+ *     futureGrantsTo: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
  * ```
@@ -74,23 +130,23 @@ export function getGrants(args?: GetGrantsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetGrantsArgs {
     /**
-     * Lists all privileges on new (i.e. future) objects
+     * Lists all privileges on new (i.e. future) objects.
      */
     futureGrantsIn?: inputs.GetGrantsFutureGrantsIn;
     /**
-     * Lists all privileges granted to the object on new (i.e. future) objects
+     * Lists all privileges granted to the object on new (i.e. future) objects.
      */
     futureGrantsTo?: inputs.GetGrantsFutureGrantsTo;
     /**
-     * Lists all objects to which the given object has been granted
+     * Lists all objects to which the given object has been granted.
      */
     grantsOf?: inputs.GetGrantsGrantsOf;
     /**
-     * Lists all privileges that have been granted on an object or account
+     * Lists all privileges that have been granted on an object or on an account.
      */
     grantsOn?: inputs.GetGrantsGrantsOn;
     /**
-     * Lists all privileges granted to the object
+     * Lists all privileges granted to the object.
      */
     grantsTo?: inputs.GetGrantsGrantsTo;
 }
@@ -100,11 +156,11 @@ export interface GetGrantsArgs {
  */
 export interface GetGrantsResult {
     /**
-     * Lists all privileges on new (i.e. future) objects
+     * Lists all privileges on new (i.e. future) objects.
      */
     readonly futureGrantsIn?: outputs.GetGrantsFutureGrantsIn;
     /**
-     * Lists all privileges granted to the object on new (i.e. future) objects
+     * Lists all privileges granted to the object on new (i.e. future) objects.
      */
     readonly futureGrantsTo?: outputs.GetGrantsFutureGrantsTo;
     /**
@@ -112,15 +168,15 @@ export interface GetGrantsResult {
      */
     readonly grants: outputs.GetGrantsGrant[];
     /**
-     * Lists all objects to which the given object has been granted
+     * Lists all objects to which the given object has been granted.
      */
     readonly grantsOf?: outputs.GetGrantsGrantsOf;
     /**
-     * Lists all privileges that have been granted on an object or account
+     * Lists all privileges that have been granted on an object or on an account.
      */
     readonly grantsOn?: outputs.GetGrantsGrantsOn;
     /**
-     * Lists all privileges granted to the object
+     * Lists all privileges granted to the object.
      */
     readonly grantsTo?: outputs.GetGrantsGrantsTo;
     /**
@@ -136,43 +192,99 @@ export interface GetGrantsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grants = snowflake.getGrants({
+ * const exampleOnAccount = snowflake.getGrants({
  *     grantsOn: {
  *         account: true,
  *     },
  * });
- * const grants2 = snowflake.getGrants({
+ * const exampleOnAccountObject = snowflake.getGrants({
  *     grantsOn: {
- *         objectName: "\"tst\"",
+ *         objectName: "some_database",
  *         objectType: "DATABASE",
  *     },
  * });
- * const grants3 = snowflake.getGrants({
+ * const exampleOnDatabaseObject = snowflake.getGrants({
+ *     grantsOn: {
+ *         objectName: "\"some_database\".\"some_schema\"",
+ *         objectType: "SCHEMA",
+ *     },
+ * });
+ * const exampleOnSchemaObject = snowflake.getGrants({
+ *     grantsOn: {
+ *         objectName: "\"some_database\".\"some_schema\".\"some_table\"",
+ *         objectType: "TABLE",
+ *     },
+ * });
+ * const exampleToApplication = snowflake.getGrants({
  *     grantsTo: {
- *         role: "ACCOUNTADMIN",
+ *         application: "some_application",
  *     },
  * });
- * const grants4 = snowflake.getGrants({
- *     grantsOf: {
- *         role: "ACCOUNTADMIN",
+ * const exampleToApplicationRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
- * const grants5 = snowflake.getGrants({
- *     futureGrantsIn: {
- *         database: "\"tst\"",
+ * const exampleToRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         accountRole: "some_role",
  *     },
  * });
- * const grants6 = snowflake.getGrants({
- *     futureGrantsIn: {
- *         schema: {
- *             databaseName: "\"mydatabase\"",
- *             schemaName: "\"myschema\"",
+ * const exampleToDatabaseRole = snowflake.getGrants({
+ *     grantsTo: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
+ *     },
+ * });
+ * const exampleToShare = snowflake.getGrants({
+ *     grantsTo: {
+ *         share: {
+ *             shareName: "some_share",
  *         },
  *     },
  * });
- * const grants7 = snowflake.getGrants({
+ * const exampleToUser = snowflake.getGrants({
+ *     grantsTo: {
+ *         user: "some_user",
+ *     },
+ * });
+ * const exampleOfApplicationRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         applicationRole: "\"some_application\".\"some_application_role\"",
+ *     },
+ * });
+ * const exampleOfDatabaseRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
+ *     },
+ * });
+ * const exampleOfRole = snowflake.getGrants({
+ *     grantsOf: {
+ *         accountRole: "some_role",
+ *     },
+ * });
+ * const exampleOfShare = snowflake.getGrants({
+ *     grantsOf: {
+ *         share: "some_share",
+ *     },
+ * });
+ * const exampleFutureInDatabase = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         database: "some_database",
+ *     },
+ * });
+ * const exampleFutureInSchema = snowflake.getGrants({
+ *     futureGrantsIn: {
+ *         schema: "\"some_database\".\"some_schema\"",
+ *     },
+ * });
+ * const exampleFutureToRole = snowflake.getGrants({
  *     futureGrantsTo: {
- *         role: "ACCOUNTADMIN",
+ *         accountRole: "some_role",
+ *     },
+ * });
+ * const exampleFutureToDatabaseRole = snowflake.getGrants({
+ *     futureGrantsTo: {
+ *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
  * ```
@@ -187,23 +299,23 @@ export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetGrantsOutputArgs {
     /**
-     * Lists all privileges on new (i.e. future) objects
+     * Lists all privileges on new (i.e. future) objects.
      */
     futureGrantsIn?: pulumi.Input<inputs.GetGrantsFutureGrantsInArgs>;
     /**
-     * Lists all privileges granted to the object on new (i.e. future) objects
+     * Lists all privileges granted to the object on new (i.e. future) objects.
      */
     futureGrantsTo?: pulumi.Input<inputs.GetGrantsFutureGrantsToArgs>;
     /**
-     * Lists all objects to which the given object has been granted
+     * Lists all objects to which the given object has been granted.
      */
     grantsOf?: pulumi.Input<inputs.GetGrantsGrantsOfArgs>;
     /**
-     * Lists all privileges that have been granted on an object or account
+     * Lists all privileges that have been granted on an object or on an account.
      */
     grantsOn?: pulumi.Input<inputs.GetGrantsGrantsOnArgs>;
     /**
-     * Lists all privileges granted to the object
+     * Lists all privileges granted to the object.
      */
     grantsTo?: pulumi.Input<inputs.GetGrantsGrantsToArgs>;
 }

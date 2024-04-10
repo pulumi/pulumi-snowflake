@@ -50,7 +50,7 @@ class GetGrantsResult:
     @pulumi.getter(name="futureGrantsIn")
     def future_grants_in(self) -> Optional['outputs.GetGrantsFutureGrantsInResult']:
         """
-        Lists all privileges on new (i.e. future) objects
+        Lists all privileges on new (i.e. future) objects.
         """
         return pulumi.get(self, "future_grants_in")
 
@@ -58,7 +58,7 @@ class GetGrantsResult:
     @pulumi.getter(name="futureGrantsTo")
     def future_grants_to(self) -> Optional['outputs.GetGrantsFutureGrantsToResult']:
         """
-        Lists all privileges granted to the object on new (i.e. future) objects
+        Lists all privileges granted to the object on new (i.e. future) objects.
         """
         return pulumi.get(self, "future_grants_to")
 
@@ -74,7 +74,7 @@ class GetGrantsResult:
     @pulumi.getter(name="grantsOf")
     def grants_of(self) -> Optional['outputs.GetGrantsGrantsOfResult']:
         """
-        Lists all objects to which the given object has been granted
+        Lists all objects to which the given object has been granted.
         """
         return pulumi.get(self, "grants_of")
 
@@ -82,7 +82,7 @@ class GetGrantsResult:
     @pulumi.getter(name="grantsOn")
     def grants_on(self) -> Optional['outputs.GetGrantsGrantsOnResult']:
         """
-        Lists all privileges that have been granted on an object or account
+        Lists all privileges that have been granted on an object or on an account.
         """
         return pulumi.get(self, "grants_on")
 
@@ -90,7 +90,7 @@ class GetGrantsResult:
     @pulumi.getter(name="grantsTo")
     def grants_to(self) -> Optional['outputs.GetGrantsGrantsToResult']:
         """
-        Lists all privileges granted to the object
+        Lists all privileges granted to the object.
         """
         return pulumi.get(self, "grants_to")
 
@@ -132,40 +132,74 @@ def get_grants(future_grants_in: Optional[pulumi.InputType['GetGrantsFutureGrant
     import pulumi
     import pulumi_snowflake as snowflake
 
-    grants = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+    example_on_account = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
         account=True,
     ))
-    grants2 = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
-        object_name="\\"tst\\"",
+    example_on_account_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="some_database",
         object_type="DATABASE",
     ))
-    grants3 = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
-        role="ACCOUNTADMIN",
+    example_on_database_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="\\"some_database\\".\\"some_schema\\"",
+        object_type="SCHEMA",
     ))
-    grants4 = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
-        role="ACCOUNTADMIN",
+    example_on_schema_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="\\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+        object_type="TABLE",
     ))
-    grants5 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
-        database="\\"tst\\"",
+    example_to_application = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        application="some_application",
     ))
-    grants6 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
-        schema=snowflake.GetGrantsFutureGrantsInSchemaArgs(
-            database_name="\\"mydatabase\\"",
-            schema_name="\\"myschema\\"",
+    example_to_application_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        application_role="\\"some_application\\".\\"some_application_role\\"",
+    ))
+    example_to_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        account_role="some_role",
+    ))
+    example_to_database_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
+    ))
+    example_to_share = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        share=snowflake.GetGrantsGrantsToShareArgs(
+            share_name="some_share",
         ),
     ))
-    grants7 = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
-        role="ACCOUNTADMIN",
+    example_to_user = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        user="some_user",
+    ))
+    example_of_application_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        application_role="\\"some_application\\".\\"some_application_role\\"",
+    ))
+    example_of_database_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
+    ))
+    example_of_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        account_role="some_role",
+    ))
+    example_of_share = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        share="some_share",
+    ))
+    example_future_in_database = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
+        database="some_database",
+    ))
+    example_future_in_schema = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
+        schema="\\"some_database\\".\\"some_schema\\"",
+    ))
+    example_future_to_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
+        account_role="some_role",
+    ))
+    example_future_to_database_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
     ))
     ```
     <!--End PulumiCodeChooser -->
 
 
-    :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects
-    :param pulumi.InputType['GetGrantsFutureGrantsToArgs'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects
-    :param pulumi.InputType['GetGrantsGrantsOfArgs'] grants_of: Lists all objects to which the given object has been granted
-    :param pulumi.InputType['GetGrantsGrantsOnArgs'] grants_on: Lists all privileges that have been granted on an object or account
-    :param pulumi.InputType['GetGrantsGrantsToArgs'] grants_to: Lists all privileges granted to the object
+    :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects.
+    :param pulumi.InputType['GetGrantsFutureGrantsToArgs'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
+    :param pulumi.InputType['GetGrantsGrantsOfArgs'] grants_of: Lists all objects to which the given object has been granted.
+    :param pulumi.InputType['GetGrantsGrantsOnArgs'] grants_on: Lists all privileges that have been granted on an object or on an account.
+    :param pulumi.InputType['GetGrantsGrantsToArgs'] grants_to: Lists all privileges granted to the object.
     """
     __args__ = dict()
     __args__['futureGrantsIn'] = future_grants_in
@@ -201,39 +235,73 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[pulumi.In
     import pulumi
     import pulumi_snowflake as snowflake
 
-    grants = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+    example_on_account = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
         account=True,
     ))
-    grants2 = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
-        object_name="\\"tst\\"",
+    example_on_account_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="some_database",
         object_type="DATABASE",
     ))
-    grants3 = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
-        role="ACCOUNTADMIN",
+    example_on_database_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="\\"some_database\\".\\"some_schema\\"",
+        object_type="SCHEMA",
     ))
-    grants4 = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
-        role="ACCOUNTADMIN",
+    example_on_schema_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(
+        object_name="\\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+        object_type="TABLE",
     ))
-    grants5 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
-        database="\\"tst\\"",
+    example_to_application = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        application="some_application",
     ))
-    grants6 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
-        schema=snowflake.GetGrantsFutureGrantsInSchemaArgs(
-            database_name="\\"mydatabase\\"",
-            schema_name="\\"myschema\\"",
+    example_to_application_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        application_role="\\"some_application\\".\\"some_application_role\\"",
+    ))
+    example_to_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        account_role="some_role",
+    ))
+    example_to_database_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
+    ))
+    example_to_share = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        share=snowflake.GetGrantsGrantsToShareArgs(
+            share_name="some_share",
         ),
     ))
-    grants7 = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
-        role="ACCOUNTADMIN",
+    example_to_user = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(
+        user="some_user",
+    ))
+    example_of_application_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        application_role="\\"some_application\\".\\"some_application_role\\"",
+    ))
+    example_of_database_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
+    ))
+    example_of_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        account_role="some_role",
+    ))
+    example_of_share = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(
+        share="some_share",
+    ))
+    example_future_in_database = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
+        database="some_database",
+    ))
+    example_future_in_schema = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(
+        schema="\\"some_database\\".\\"some_schema\\"",
+    ))
+    example_future_to_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
+        account_role="some_role",
+    ))
+    example_future_to_database_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(
+        database_role="\\"some_database\\".\\"some_database_role\\"",
     ))
     ```
     <!--End PulumiCodeChooser -->
 
 
-    :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects
-    :param pulumi.InputType['GetGrantsFutureGrantsToArgs'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects
-    :param pulumi.InputType['GetGrantsGrantsOfArgs'] grants_of: Lists all objects to which the given object has been granted
-    :param pulumi.InputType['GetGrantsGrantsOnArgs'] grants_on: Lists all privileges that have been granted on an object or account
-    :param pulumi.InputType['GetGrantsGrantsToArgs'] grants_to: Lists all privileges granted to the object
+    :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects.
+    :param pulumi.InputType['GetGrantsFutureGrantsToArgs'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
+    :param pulumi.InputType['GetGrantsGrantsOfArgs'] grants_of: Lists all objects to which the given object has been granted.
+    :param pulumi.InputType['GetGrantsGrantsOnArgs'] grants_on: Lists all privileges that have been granted on an object or on an account.
+    :param pulumi.InputType['GetGrantsGrantsToArgs'] grants_to: Lists all privileges granted to the object.
     """
     ...

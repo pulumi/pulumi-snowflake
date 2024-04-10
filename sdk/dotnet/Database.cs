@@ -71,11 +71,14 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/database:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies a comment for the database.
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         /// </summary>
         [Output("dataRetentionTimeInDays")]
         public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
@@ -87,7 +90,7 @@ namespace Pulumi.Snowflake
         public Output<string?> FromDatabase { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;"`. An example would be: `"myorg1"."account1"."db1"`
         /// </summary>
         [Output("fromReplica")]
         public Output<string?> FromReplica { get; private set; } = null!;
@@ -104,6 +107,9 @@ namespace Pulumi.Snowflake
         [Output("isTransient")]
         public Output<bool?> IsTransient { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the identifier for the database; must be unique for your account.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -159,11 +165,14 @@ namespace Pulumi.Snowflake
 
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a comment for the database.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -175,7 +184,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;"`. An example would be: `"myorg1"."account1"."db1"`
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
@@ -198,6 +207,9 @@ namespace Pulumi.Snowflake
         [Input("isTransient")]
         public Input<bool>? IsTransient { get; set; }
 
+        /// <summary>
+        /// Specifies the identifier for the database; must be unique for your account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -215,11 +227,14 @@ namespace Pulumi.Snowflake
 
     public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a comment for the database.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+        /// Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -231,7 +246,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FromDatabase { get; set; }
 
         /// <summary>
-        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\n\n"."\n\n"."\n\n". An example would be: "myorg1"."account1"."db1"
+        /// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;db_name&gt;"`. An example would be: `"myorg1"."account1"."db1"`
         /// </summary>
         [Input("fromReplica")]
         public Input<string>? FromReplica { get; set; }
@@ -254,6 +269,9 @@ namespace Pulumi.Snowflake
         [Input("isTransient")]
         public Input<bool>? IsTransient { get; set; }
 
+        /// <summary>
+        /// Specifies the identifier for the database; must be unique for your account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -19,14 +19,14 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGrantsPlainArgs Empty = new GetGrantsPlainArgs();
 
     /**
-     * Lists all privileges on new (i.e. future) objects
+     * Lists all privileges on new (i.e. future) objects.
      * 
      */
     @Import(name="futureGrantsIn")
     private @Nullable GetGrantsFutureGrantsIn futureGrantsIn;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects
+     * @return Lists all privileges on new (i.e. future) objects.
      * 
      */
     public Optional<GetGrantsFutureGrantsIn> futureGrantsIn() {
@@ -34,14 +34,14 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all privileges granted to the object on new (i.e. future) objects
+     * Lists all privileges granted to the object on new (i.e. future) objects.
      * 
      */
     @Import(name="futureGrantsTo")
     private @Nullable GetGrantsFutureGrantsTo futureGrantsTo;
 
     /**
-     * @return Lists all privileges granted to the object on new (i.e. future) objects
+     * @return Lists all privileges granted to the object on new (i.e. future) objects.
      * 
      */
     public Optional<GetGrantsFutureGrantsTo> futureGrantsTo() {
@@ -49,14 +49,14 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all objects to which the given object has been granted
+     * Lists all objects to which the given object has been granted.
      * 
      */
     @Import(name="grantsOf")
     private @Nullable GetGrantsGrantsOf grantsOf;
 
     /**
-     * @return Lists all objects to which the given object has been granted
+     * @return Lists all objects to which the given object has been granted.
      * 
      */
     public Optional<GetGrantsGrantsOf> grantsOf() {
@@ -64,14 +64,14 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all privileges that have been granted on an object or account
+     * Lists all privileges that have been granted on an object or on an account.
      * 
      */
     @Import(name="grantsOn")
     private @Nullable GetGrantsGrantsOn grantsOn;
 
     /**
-     * @return Lists all privileges that have been granted on an object or account
+     * @return Lists all privileges that have been granted on an object or on an account.
      * 
      */
     public Optional<GetGrantsGrantsOn> grantsOn() {
@@ -79,14 +79,14 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all privileges granted to the object
+     * Lists all privileges granted to the object.
      * 
      */
     @Import(name="grantsTo")
     private @Nullable GetGrantsGrantsTo grantsTo;
 
     /**
-     * @return Lists all privileges granted to the object
+     * @return Lists all privileges granted to the object.
      * 
      */
     public Optional<GetGrantsGrantsTo> grantsTo() {
@@ -122,7 +122,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param futureGrantsIn Lists all privileges on new (i.e. future) objects
+         * @param futureGrantsIn Lists all privileges on new (i.e. future) objects.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param futureGrantsTo Lists all privileges granted to the object on new (i.e. future) objects
+         * @param futureGrantsTo Lists all privileges granted to the object on new (i.e. future) objects.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantsOf Lists all objects to which the given object has been granted
+         * @param grantsOf Lists all objects to which the given object has been granted.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantsOn Lists all privileges that have been granted on an object or account
+         * @param grantsOn Lists all privileges that have been granted on an object or on an account.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param grantsTo Lists all privileges granted to the object
+         * @param grantsTo Lists all privileges granted to the object.
          * 
          * @return builder
          * 

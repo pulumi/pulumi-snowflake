@@ -12,98 +12,98 @@ import java.util.Objects;
 @CustomType
 public final class GetGrantsGrant {
     /**
-     * @return The date and time the grant was created
+     * @return The date and time the grant was created.
      * 
      */
     private String createdOn;
     /**
-     * @return Whether the grantee can grant the privilege to others
+     * @return Whether the grantee can grant the privilege to others.
      * 
      */
     private Boolean grantOption;
     /**
-     * @return The role that granted the privilege
+     * @return The role that granted the privilege.
      * 
      */
     private String grantedBy;
     /**
-     * @return The object on which the privilege was granted
+     * @return The object on which the privilege was granted.
      * 
      */
     private String grantedOn;
     /**
-     * @return The role to which the privilege was granted
+     * @return The role to which the privilege was granted.
      * 
      */
     private String grantedTo;
     /**
-     * @return The name of the role to which the privilege was granted
+     * @return The name of the role to which the privilege was granted.
      * 
      */
     private String granteeName;
     /**
-     * @return The name of the object on which the privilege was granted
+     * @return The name of the object on which the privilege was granted.
      * 
      */
     private String name;
     /**
-     * @return The privilege granted
+     * @return The privilege granted.
      * 
      */
     private String privilege;
 
     private GetGrantsGrant() {}
     /**
-     * @return The date and time the grant was created
+     * @return The date and time the grant was created.
      * 
      */
     public String createdOn() {
         return this.createdOn;
     }
     /**
-     * @return Whether the grantee can grant the privilege to others
+     * @return Whether the grantee can grant the privilege to others.
      * 
      */
     public Boolean grantOption() {
         return this.grantOption;
     }
     /**
-     * @return The role that granted the privilege
+     * @return The role that granted the privilege.
      * 
      */
     public String grantedBy() {
         return this.grantedBy;
     }
     /**
-     * @return The object on which the privilege was granted
+     * @return The object on which the privilege was granted.
      * 
      */
     public String grantedOn() {
         return this.grantedOn;
     }
     /**
-     * @return The role to which the privilege was granted
+     * @return The role to which the privilege was granted.
      * 
      */
     public String grantedTo() {
         return this.grantedTo;
     }
     /**
-     * @return The name of the role to which the privilege was granted
+     * @return The name of the role to which the privilege was granted.
      * 
      */
     public String granteeName() {
         return this.granteeName;
     }
     /**
-     * @return The name of the object on which the privilege was granted
+     * @return The name of the object on which the privilege was granted.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The privilege granted
+     * @return The privilege granted.
      * 
      */
     public String privilege() {

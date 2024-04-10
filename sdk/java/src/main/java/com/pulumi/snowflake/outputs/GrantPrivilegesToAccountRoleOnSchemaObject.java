@@ -19,7 +19,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectAll all;
     /**
-     * @return Configures the privilege to be granted on all objects in either a database or schema.
+     * @return Configures the privilege to be granted on future objects in either a database or schema.
      * 
      */
     private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectFuture future;
@@ -29,7 +29,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     private @Nullable String objectName;
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      * 
      */
     private @Nullable String objectType;
@@ -43,7 +43,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
         return Optional.ofNullable(this.all);
     }
     /**
-     * @return Configures the privilege to be granted on all objects in either a database or schema.
+     * @return Configures the privilege to be granted on future objects in either a database or schema.
      * 
      */
     public Optional<GrantPrivilegesToAccountRoleOnSchemaObjectFuture> future() {
@@ -57,7 +57,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
         return Optional.ofNullable(this.objectName);
     }
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE
      * 
      */
     public Optional<String> objectType() {

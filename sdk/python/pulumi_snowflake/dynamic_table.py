@@ -221,7 +221,7 @@ class _DynamicTableState:
         :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[int] rows: Number of rows in the table.
-        :param pulumi.Input[str] scheduling_state: Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        :param pulumi.Input[str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         :param pulumi.Input[str] schema: The schema in which to create the dynamic table.
         :param pulumi.Input['DynamicTableTargetLagArgs'] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
@@ -491,7 +491,7 @@ class _DynamicTableState:
     @pulumi.getter(name="schedulingState")
     def scheduling_state(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         """
         return pulumi.get(self, "scheduling_state")
 
@@ -748,7 +748,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[int] rows: Number of rows in the table.
-        :param pulumi.Input[str] scheduling_state: Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        :param pulumi.Input[str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         :param pulumi.Input[str] schema: The schema in which to create the dynamic table.
         :param pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
@@ -929,7 +929,7 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter(name="schedulingState")
     def scheduling_state(self) -> pulumi.Output[str]:
         """
-        Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         """
         return pulumi.get(self, "scheduling_state")
 

@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Output("executeAs")]
         public Output<string?> ExecuteAs { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
