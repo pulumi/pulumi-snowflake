@@ -603,6 +603,77 @@
                 "type"
             ]
         },
+        "snowflake:index/GrantOwnershipOn:GrantOwnershipOn": {
+            "properties": {
+                "all": {
+                    "$ref": "#/types/snowflake:index/GrantOwnershipOnAll:GrantOwnershipOnAll",
+                    "description": "Configures the privilege to be granted on all objects in either a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "future": {
+                    "$ref": "#/types/snowflake:index/GrantOwnershipOnFuture:GrantOwnershipOnFuture",
+                    "description": "Configures the privilege to be granted on all objects in either a database or schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectName": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the object on which you are transferring ownership.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectType": {
+                    "type": "string",
+                    "description": "Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/GrantOwnershipOnAll:GrantOwnershipOnAll": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
+            ]
+        },
+        "snowflake:index/GrantOwnershipOnFuture:GrantOwnershipOnFuture": {
+            "properties": {
+                "inDatabase": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database.\n",
+                    "willReplaceOnChanges": true
+                },
+                "inSchema": {
+                    "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "objectTypePlural": {
+                    "type": "string",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectTypePlural"
+            ]
+        },
         "snowflake:index/GrantPrivilegesToAccountRoleOnAccountObject:GrantPrivilegesToAccountRoleOnAccountObject": {
             "properties": {
                 "objectName": {
@@ -651,7 +722,7 @@
                 },
                 "future": {
                     "$ref": "#/types/snowflake:index/GrantPrivilegesToAccountRoleOnSchemaObjectFuture:GrantPrivilegesToAccountRoleOnSchemaObjectFuture",
-                    "description": "Configures the privilege to be granted on all objects in either a database or schema.\n",
+                    "description": "Configures the privilege to be granted on future objects in either a database or schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "objectName": {
@@ -661,7 +732,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -679,7 +750,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -700,7 +771,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -748,7 +819,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -758,15 +829,17 @@
             "properties": {
                 "inDatabase": {
                     "type": "string",
+                    "description": "The fully qualified name of the database.\n",
                     "willReplaceOnChanges": true
                 },
                 "inSchema": {
                     "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -779,15 +852,17 @@
             "properties": {
                 "inDatabase": {
                     "type": "string",
+                    "description": "The fully qualified name of the database.\n",
                     "willReplaceOnChanges": true
                 },
                 "inSchema": {
                     "type": "string",
+                    "description": "The fully qualified name of the schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -852,7 +927,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | STREAMLIT | ICEBERG TABLE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -872,7 +947,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -895,7 +970,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | STREAMLITS | ICEBERG TABLES\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1968,73 +2043,58 @@
                     "description": "Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.\n"
                 },
                 "schema": {
-                    "$ref": "#/types/snowflake:index/getGrantsFutureGrantsInSchema:getGrantsFutureGrantsInSchema",
-                    "description": "Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.\n"
+                    "type": "string",
+                    "description": "Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (\"\u0026lt;db*name\u0026gt;\".\"\u0026lt;schema*name\u0026gt;\").\n"
                 }
             },
             "type": "object"
         },
-        "snowflake:index/getGrantsFutureGrantsInSchema:getGrantsFutureGrantsInSchema": {
-            "properties": {
-                "databaseName": {
-                    "type": "string",
-                    "description": "The database in which the scehma resides. Optional when querying a schema in the current database.\n"
-                },
-                "schemaName": {
-                    "type": "string",
-                    "description": "The name of the schema to list all privileges of new (ie. future) objects granted to\n"
-                }
-            },
-            "type": "object",
-            "required": [
-                "schemaName"
-            ]
-        },
         "snowflake:index/getGrantsFutureGrantsTo:getGrantsFutureGrantsTo": {
             "properties": {
-                "role": {
+                "accountRole": {
                     "type": "string",
-                    "description": "Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.\n"
+                    "description": "Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.\n"
+                },
+                "databaseRole": {
+                    "type": "string",
+                    "description": "Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (\"\u0026lt;db*name\u0026gt;\".\"\u0026lt;database*role_name\u0026gt;\").\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "role"
-            ]
+            "type": "object"
         },
         "snowflake:index/getGrantsGrant:getGrantsGrant": {
             "properties": {
                 "createdOn": {
                     "type": "string",
-                    "description": "The date and time the grant was created\n"
+                    "description": "The date and time the grant was created.\n"
                 },
                 "grantOption": {
                     "type": "boolean",
-                    "description": "Whether the grantee can grant the privilege to others\n"
+                    "description": "Whether the grantee can grant the privilege to others.\n"
                 },
                 "grantedBy": {
                     "type": "string",
-                    "description": "The role that granted the privilege\n"
+                    "description": "The role that granted the privilege.\n"
                 },
                 "grantedOn": {
                     "type": "string",
-                    "description": "The object on which the privilege was granted\n"
+                    "description": "The object on which the privilege was granted.\n"
                 },
                 "grantedTo": {
                     "type": "string",
-                    "description": "The role to which the privilege was granted\n"
+                    "description": "The role to which the privilege was granted.\n"
                 },
                 "granteeName": {
                     "type": "string",
-                    "description": "The name of the role to which the privilege was granted\n"
+                    "description": "The name of the role to which the privilege was granted.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the object on which the privilege was granted\n"
+                    "description": "The name of the object on which the privilege was granted.\n"
                 },
                 "privilege": {
                     "type": "string",
-                    "description": "The privilege granted\n"
+                    "description": "The privilege granted.\n"
                 }
             },
             "type": "object",
@@ -2056,9 +2116,17 @@
         },
         "snowflake:index/getGrantsGrantsOf:getGrantsGrantsOf": {
             "properties": {
-                "role": {
+                "accountRole": {
                     "type": "string",
-                    "description": "Lists all users and roles to which the role has been granted\n"
+                    "description": "Lists all users and roles to which the account role has been granted.\n"
+                },
+                "applicationRole": {
+                    "type": "string",
+                    "description": "Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (\"\u0026lt;db*name\u0026gt;\".\"\u0026lt;database*role_name\u0026gt;\").\n"
+                },
+                "databaseRole": {
+                    "type": "string",
+                    "description": "Lists all users and roles to which the database role has been granted. Must be a fully qualified name (\"\u0026lt;db*name\u0026gt;\".\"\u0026lt;database*role_name\u0026gt;\").\n"
                 },
                 "share": {
                     "type": "string",
@@ -2075,7 +2143,7 @@
                 },
                 "objectName": {
                     "type": "string",
-                    "description": "Name of object to list privileges on\n"
+                    "description": "Name of object to list privileges on.\n"
                 },
                 "objectType": {
                     "type": "string",
@@ -2086,20 +2154,44 @@
         },
         "snowflake:index/getGrantsGrantsTo:getGrantsGrantsTo": {
             "properties": {
-                "role": {
+                "accountRole": {
                     "type": "string",
-                    "description": "Lists all privileges and roles granted to the role\n"
+                    "description": "Lists all privileges and roles granted to the role.\n"
+                },
+                "application": {
+                    "type": "string",
+                    "description": "Lists all the privileges and roles granted to the application.\n"
+                },
+                "applicationRole": {
+                    "type": "string",
+                    "description": "Lists all the privileges and roles granted to the application role. Must be a fully qualified name (\"\u0026lt;app*name\u0026gt;\".\"\u0026lt;app*role_name\u0026gt;\").\n"
+                },
+                "databaseRole": {
+                    "type": "string",
+                    "description": "Lists all privileges and roles granted to the database role. Must be a fully qualified name (\"\u0026lt;db*name\u0026gt;\".\"\u0026lt;database*role_name\u0026gt;\").\n"
                 },
                 "share": {
-                    "type": "string",
-                    "description": "Lists all the privileges granted to the share\n"
+                    "$ref": "#/types/snowflake:index/getGrantsGrantsToShare:getGrantsGrantsToShare",
+                    "description": "Lists all the privileges granted to the share.\n"
                 },
                 "user": {
                     "type": "string",
-                    "description": "Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed\n"
+                    "description": "Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.\n"
                 }
             },
             "type": "object"
+        },
+        "snowflake:index/getGrantsGrantsToShare:getGrantsGrantsToShare": {
+            "properties": {
+                "shareName": {
+                    "type": "string",
+                    "description": "Lists all of the privileges and roles granted to the specified share.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "shareName"
+            ]
         },
         "snowflake:index/getMaskingPoliciesMaskingPolicy:getMaskingPoliciesMaskingPolicy": {
             "properties": {
@@ -3990,11 +4082,12 @@
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst simple = new snowflake.Database(\"simple\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n});\nconst withReplication = new snowflake.Database(\"withReplication\", {\n    comment: \"test comment 2\",\n    replicationConfiguration: {\n        accounts: [\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignoreEditionCheck: true,\n    },\n});\nconst fromReplica = new snowflake.Database(\"fromReplica\", {\n    comment: \"test comment\",\n    dataRetentionTimeInDays: 3,\n    fromReplica: \"\\\"org1\\\".\\\"account1\\\".\\\"primary_db_name\\\"\",\n});\nconst fromShare = new snowflake.Database(\"fromShare\", {\n    comment: \"test comment\",\n    fromShare: {\n        provider: \"org1.account1\",\n        share: \"share1\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsimple = snowflake.Database(\"simple\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3)\nwith_replication = snowflake.Database(\"withReplication\",\n    comment=\"test comment 2\",\n    replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(\n        accounts=[\n            \"test_account1\",\n            \"test_account_2\",\n        ],\n        ignore_edition_check=True,\n    ))\nfrom_replica = snowflake.Database(\"fromReplica\",\n    comment=\"test comment\",\n    data_retention_time_in_days=3,\n    from_replica=\"\\\"org1\\\".\\\"account1\\\".\\\"primary_db_name\\\"\")\nfrom_share = snowflake.Database(\"fromShare\",\n    comment=\"test comment\",\n    from_share={\n        \"provider\": \"org1.account1\",\n        \"share\": \"share1\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple = new Snowflake.Database(\"simple\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n    });\n\n    var withReplication = new Snowflake.Database(\"withReplication\", new()\n    {\n        Comment = \"test comment 2\",\n        ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs\n        {\n            Accounts = new[]\n            {\n                \"test_account1\",\n                \"test_account_2\",\n            },\n            IgnoreEditionCheck = true,\n        },\n    });\n\n    var fromReplica = new Snowflake.Database(\"fromReplica\", new()\n    {\n        Comment = \"test comment\",\n        DataRetentionTimeInDays = 3,\n        FromReplica = \"\\\"org1\\\".\\\"account1\\\".\\\"primary_db_name\\\"\",\n    });\n\n    var fromShare = new Snowflake.Database(\"fromShare\", new()\n    {\n        Comment = \"test comment\",\n        FromShare = \n        {\n            { \"provider\", \"org1.account1\" },\n            { \"share\", \"share1\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewDatabase(ctx, \"simple\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"withReplication\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment 2\"),\n\t\t\tReplicationConfiguration: \u0026snowflake.DatabaseReplicationConfigurationArgs{\n\t\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"test_account1\"),\n\t\t\t\t\tpulumi.String(\"test_account_2\"),\n\t\t\t\t},\n\t\t\t\tIgnoreEditionCheck: pulumi.Bool(true),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromReplica\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment:                 pulumi.String(\"test comment\"),\n\t\t\tDataRetentionTimeInDays: pulumi.Int(3),\n\t\t\tFromReplica:             pulumi.String(\"\\\"org1\\\".\\\"account1\\\".\\\"primary_db_name\\\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"fromShare\", \u0026snowflake.DatabaseArgs{\n\t\t\tComment: pulumi.String(\"test comment\"),\n\t\t\tFromShare: pulumi.StringMap{\n\t\t\t\t\"provider\": pulumi.String(\"org1.account1\"),\n\t\t\t\t\"share\":    pulumi.String(\"share1\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.inputs.DatabaseReplicationConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple = new Database(\"simple\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .build());\n\n        var withReplication = new Database(\"withReplication\", DatabaseArgs.builder()        \n            .comment(\"test comment 2\")\n            .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()\n                .accounts(                \n                    \"test_account1\",\n                    \"test_account_2\")\n                .ignoreEditionCheck(true)\n                .build())\n            .build());\n\n        var fromReplica = new Database(\"fromReplica\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .dataRetentionTimeInDays(3)\n            .fromReplica(\"\\\"org1\\\".\\\"account1\\\".\\\"primary_db_name\\\"\")\n            .build());\n\n        var fromShare = new Database(\"fromShare\", DatabaseArgs.builder()        \n            .comment(\"test comment\")\n            .fromShare(Map.ofEntries(\n                Map.entry(\"provider\", \"org1.account1\"),\n                Map.entry(\"share\", \"share1\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n  withReplication:\n    type: snowflake:Database\n    properties:\n      comment: test comment 2\n      replicationConfiguration:\n        accounts:\n          - test_account1\n          - test_account_2\n        ignoreEditionCheck: true\n  fromReplica:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      dataRetentionTimeInDays: 3\n      fromReplica: '\"org1\".\"account1\".\"primary_db_name\"'\n  fromShare:\n    type: snowflake:Database\n    properties:\n      comment: test comment\n      fromShare:\n        provider: org1.account1\n        share: share1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/database:Database example name\n```\n\n",
             "properties": {
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies a comment for the database.\n"
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
-                    "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding \u0026 Using Time Travel.\n"
+                    "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding \u0026 Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).\n"
                 },
                 "fromDatabase": {
                     "type": "string",
@@ -4002,7 +4095,7 @@
                 },
                 "fromReplica": {
                     "type": "string",
-                    "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of \"\\n\\n\".\"\\n\\n\".\"\\n\\n\". An example would be: \"myorg1\".\"account1\".\"db1\"\n"
+                    "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `\"\u003corganization_name\u003e\".\"\u003caccount_name\u003e\".\"\u003cdb_name\u003e\"`. An example would be: `\"myorg1\".\"account1\".\"db1\"`\n"
                 },
                 "fromShare": {
                     "type": "object",
@@ -4016,7 +4109,8 @@
                     "description": "Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the identifier for the database; must be unique for your account.\n"
                 },
                 "replicationConfiguration": {
                     "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
@@ -4028,11 +4122,12 @@
             ],
             "inputProperties": {
                 "comment": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies a comment for the database.\n"
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
-                    "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding \u0026 Using Time Travel.\n"
+                    "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding \u0026 Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).\n"
                 },
                 "fromDatabase": {
                     "type": "string",
@@ -4041,7 +4136,7 @@
                 },
                 "fromReplica": {
                     "type": "string",
-                    "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of \"\\n\\n\".\"\\n\\n\".\"\\n\\n\". An example would be: \"myorg1\".\"account1\".\"db1\"\n",
+                    "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `\"\u003corganization_name\u003e\".\"\u003caccount_name\u003e\".\"\u003cdb_name\u003e\"`. An example would be: `\"myorg1\".\"account1\".\"db1\"`\n",
                     "willReplaceOnChanges": true
                 },
                 "fromShare": {
@@ -4058,7 +4153,8 @@
                     "willReplaceOnChanges": true
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the identifier for the database; must be unique for your account.\n"
                 },
                 "replicationConfiguration": {
                     "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
@@ -4069,11 +4165,12 @@
                 "description": "Input properties used for looking up and filtering Database resources.\n",
                 "properties": {
                     "comment": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies a comment for the database.\n"
                     },
                     "dataRetentionTimeInDays": {
                         "type": "integer",
-                        "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding \u0026 Using Time Travel.\n"
+                        "description": "Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding \u0026 Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).\n"
                     },
                     "fromDatabase": {
                         "type": "string",
@@ -4082,7 +4179,7 @@
                     },
                     "fromReplica": {
                         "type": "string",
-                        "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of \"\\n\\n\".\"\\n\\n\".\"\\n\\n\". An example would be: \"myorg1\".\"account1\".\"db1\"\n",
+                        "description": "Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `\"\u003corganization_name\u003e\".\"\u003caccount_name\u003e\".\"\u003cdb_name\u003e\"`. An example would be: `\"myorg1\".\"account1\".\"db1\"`\n",
                         "willReplaceOnChanges": true
                     },
                     "fromShare": {
@@ -4099,7 +4196,8 @@
                         "willReplaceOnChanges": true
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies the identifier for the database; must be unique for your account.\n"
                     },
                     "replicationConfiguration": {
                         "$ref": "#/types/snowflake:index/DatabaseReplicationConfiguration:DatabaseReplicationConfiguration",
@@ -4373,7 +4471,7 @@
                 },
                 "schedulingState": {
                     "type": "string",
-                    "description": "Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
+                    "description": "Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -4542,7 +4640,7 @@
                     },
                     "schedulingState": {
                         "type": "string",
-                        "description": "Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
+                        "description": "Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -7214,6 +7312,81 @@
                     "shareName": {
                         "type": "string",
                         "description": "The fully qualified name of the share on which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/grantOwnership:GrantOwnership": {
+            "description": "\n\n## Import\n\n### Import examples\n\n#### OnObject on Schema ToAccountRole\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership \\\"schema_name\\\"\"`\n```\n\n#### OnObject on Schema ToDatabaseRole\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership \\\"schema_name\\\"\"`\n```\n\n#### OnObject on Table\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership \\\"table_name\\\"\"`\n```\n\n#### OnAll InDatabase\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership `\"ToAccountRole|\\\"account_role\\\"|REVOKE|OnAll|TABLES|InDatabase|\\\"database_name\\\"\"`\n```\n\n#### OnAll InSchema\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership \\\"schema_name\\\"\"`\n```\n\n#### OnFuture InDatabase\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership `\"ToAccountRole|\\\"account_role\\\"||OnFuture|TABLES|InDatabase|\\\"database_name\\\"\"`\n```\n\n#### OnFuture InSchema\n\n```sh\n$ pulumi import snowflake:index/grantOwnership:GrantOwnership \\\"schema_name\\\"\"`\n```\n\n",
+            "properties": {
+                "accountRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the account role to which privileges will be granted.\n"
+                },
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role to which privileges will be granted.\n"
+                },
+                "on": {
+                    "$ref": "#/types/snowflake:index/GrantOwnershipOn:GrantOwnershipOn",
+                    "description": "Configures which object(s) should transfer their ownership to the specified role.\n"
+                },
+                "outboundPrivileges": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).\n"
+                }
+            },
+            "required": [
+                "on"
+            ],
+            "inputProperties": {
+                "accountRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the account role to which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "databaseRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the database role to which privileges will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "on": {
+                    "$ref": "#/types/snowflake:index/GrantOwnershipOn:GrantOwnershipOn",
+                    "description": "Configures which object(s) should transfer their ownership to the specified role.\n",
+                    "willReplaceOnChanges": true
+                },
+                "outboundPrivileges": {
+                    "type": "string",
+                    "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "on"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantOwnership resources.\n",
+                "properties": {
+                    "accountRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the account role to which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "databaseRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the database role to which privileges will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "on": {
+                        "$ref": "#/types/snowflake:index/GrantOwnershipOn:GrantOwnershipOn",
+                        "description": "Configures which object(s) should transfer their ownership to the specified role.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "outboundPrivileges": {
+                        "type": "string",
+                        "description": "Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -9937,7 +10110,7 @@
                 },
                 "executeAs": {
                     "type": "string",
-                    "description": "Sets execute context - see caller's rights and owner's rights\n"
+                    "description": "Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).\n"
                 },
                 "handler": {
                     "type": "string",
@@ -10022,7 +10195,7 @@
                 },
                 "executeAs": {
                     "type": "string",
-                    "description": "Sets execute context - see caller's rights and owner's rights\n"
+                    "description": "Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).\n"
                 },
                 "handler": {
                     "type": "string",
@@ -10117,7 +10290,7 @@
                     },
                     "executeAs": {
                         "type": "string",
-                        "description": "Sets execute context - see caller's rights and owner's rights\n"
+                        "description": "Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).\n"
                     },
                     "handler": {
                         "type": "string",
@@ -12226,7 +12399,7 @@
             }
         },
         "snowflake:index/stage:Stage": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst exampleStage = new snowflake.Stage(\"exampleStage\", {\n    url: \"s3://com.example.bucket/prefix\",\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,\n});\nconst grantExampleStage = new snowflake.StageGrant(\"grantExampleStage\", {\n    databaseName: exampleStage.database,\n    schemaName: exampleStage.schema,\n    roles: [\"LOADER\"],\n    privilege: \"OWNERSHIP\",\n    stageName: exampleStage.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexample_stage = snowflake.Stage(\"exampleStage\",\n    url=\"s3://com.example.bucket/prefix\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    credentials=f\"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'\")\ngrant_example_stage = snowflake.StageGrant(\"grantExampleStage\",\n    database_name=example_stage.database,\n    schema_name=example_stage.schema,\n    roles=[\"LOADER\"],\n    privilege=\"OWNERSHIP\",\n    stage_name=example_stage.name)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleStage = new Snowflake.Stage(\"exampleStage\", new()\n    {\n        Url = \"s3://com.example.bucket/prefix\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Credentials = $\"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'\",\n    });\n\n    var grantExampleStage = new Snowflake.StageGrant(\"grantExampleStage\", new()\n    {\n        DatabaseName = exampleStage.Database,\n        SchemaName = exampleStage.Schema,\n        Roles = new[]\n        {\n            \"LOADER\",\n        },\n        Privilege = \"OWNERSHIP\",\n        StageName = exampleStage.Name,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleStage, err := snowflake.NewStage(ctx, \"exampleStage\", \u0026snowflake.StageArgs{\n\t\t\tUrl:         pulumi.String(\"s3://com.example.bucket/prefix\"),\n\t\t\tDatabase:    pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:      pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tCredentials: pulumi.String(fmt.Sprintf(\"AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'\", _var.Example_aws_key_id, _var.Example_aws_secret_key)),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewStageGrant(ctx, \"grantExampleStage\", \u0026snowflake.StageGrantArgs{\n\t\t\tDatabaseName: exampleStage.Database,\n\t\t\tSchemaName:   exampleStage.Schema,\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"LOADER\"),\n\t\t\t},\n\t\t\tPrivilege: pulumi.String(\"OWNERSHIP\"),\n\t\t\tStageName: exampleStage.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Stage;\nimport com.pulumi.snowflake.StageArgs;\nimport com.pulumi.snowflake.StageGrant;\nimport com.pulumi.snowflake.StageGrantArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleStage = new Stage(\"exampleStage\", StageArgs.builder()        \n            .url(\"s3://com.example.bucket/prefix\")\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .credentials(String.format(\"AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'\", var_.example_aws_key_id(),var_.example_aws_secret_key()))\n            .build());\n\n        var grantExampleStage = new StageGrant(\"grantExampleStage\", StageGrantArgs.builder()        \n            .databaseName(exampleStage.database())\n            .schemaName(exampleStage.schema())\n            .roles(\"LOADER\")\n            .privilege(\"OWNERSHIP\")\n            .stageName(exampleStage.name())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleStage:\n    type: snowflake:Stage\n    properties:\n      url: s3://com.example.bucket/prefix\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      credentials: AWS_KEY_ID='${var.example_aws_key_id}' AWS_SECRET_KEY='${var.example_aws_secret_key}'\n  grantExampleStage:\n    type: snowflake:StageGrant\n    properties:\n      databaseName: ${exampleStage.database}\n      schemaName: ${exampleStage.schema}\n      roles:\n        - LOADER\n      privilege: OWNERSHIP\n      stageName: ${exampleStage.name}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | stage name\n\n```sh\n$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst exampleStage = new snowflake.Stage(\"exampleStage\", {\n    credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    url: \"s3://com.example.bucket/prefix\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexample_stage = snowflake.Stage(\"exampleStage\",\n    credentials=f\"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    url=\"s3://com.example.bucket/prefix\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleStage = new Snowflake.Stage(\"exampleStage\", new()\n    {\n        Credentials = $\"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Url = \"s3://com.example.bucket/prefix\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewStage(ctx, \"exampleStage\", \u0026snowflake.StageArgs{\n\t\t\tCredentials: pulumi.String(fmt.Sprintf(\"AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'\", _var.Example_aws_key_id, _var.Example_aws_secret_key)),\n\t\t\tDatabase:    pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:      pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tUrl:         pulumi.String(\"s3://com.example.bucket/prefix\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Stage;\nimport com.pulumi.snowflake.StageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleStage = new Stage(\"exampleStage\", StageArgs.builder()        \n            .credentials(String.format(\"AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'\", var_.example_aws_key_id(),var_.example_aws_secret_key()))\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .url(\"s3://com.example.bucket/prefix\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleStage:\n    type: snowflake:Stage\n    properties:\n      credentials: AWS_KEY_ID='${var.example_aws_key_id}' AWS_SECRET_KEY='${var.example_aws_secret_key}'\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      url: s3://com.example.bucket/prefix\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | stage name\n\n```sh\n$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'\n```\n\n",
             "properties": {
                 "awsExternalId": {
                     "type": "string"
@@ -15199,7 +15372,7 @@
                 },
                 "isSecure": {
                     "type": "boolean",
-                    "description": "Specifies that the view is secure.\n"
+                    "description": "Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about\nsecure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which\nis essential to manage/import view with Terraform. Use the role owning the view while managing secure views.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15249,7 +15422,7 @@
                 },
                 "isSecure": {
                     "type": "boolean",
-                    "description": "Specifies that the view is secure.\n"
+                    "description": "Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about\nsecure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which\nis essential to manage/import view with Terraform. Use the role owning the view while managing secure views.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15304,7 +15477,7 @@
                     },
                     "isSecure": {
                         "type": "boolean",
-                        "description": "Specifies that the view is secure.\n"
+                        "description": "Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about\nsecure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which\nis essential to manage/import view with Terraform. Use the role owning the view while managing secure views.\n"
                     },
                     "name": {
                         "type": "string",
@@ -16460,29 +16633,29 @@
             }
         },
         "snowflake:index/getGrants:getGrants": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst grants = snowflake.getGrants({\n    grantsOn: {\n        account: true,\n    },\n});\nconst grants2 = snowflake.getGrants({\n    grantsOn: {\n        objectName: \"\\\"tst\\\"\",\n        objectType: \"DATABASE\",\n    },\n});\nconst grants3 = snowflake.getGrants({\n    grantsTo: {\n        role: \"ACCOUNTADMIN\",\n    },\n});\nconst grants4 = snowflake.getGrants({\n    grantsOf: {\n        role: \"ACCOUNTADMIN\",\n    },\n});\nconst grants5 = snowflake.getGrants({\n    futureGrantsIn: {\n        database: \"\\\"tst\\\"\",\n    },\n});\nconst grants6 = snowflake.getGrants({\n    futureGrantsIn: {\n        schema: {\n            databaseName: \"\\\"mydatabase\\\"\",\n            schemaName: \"\\\"myschema\\\"\",\n        },\n    },\n});\nconst grants7 = snowflake.getGrants({\n    futureGrantsTo: {\n        role: \"ACCOUNTADMIN\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ngrants = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    account=True,\n))\ngrants2 = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    object_name=\"\\\"tst\\\"\",\n    object_type=\"DATABASE\",\n))\ngrants3 = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    role=\"ACCOUNTADMIN\",\n))\ngrants4 = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(\n    role=\"ACCOUNTADMIN\",\n))\ngrants5 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(\n    database=\"\\\"tst\\\"\",\n))\ngrants6 = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(\n    schema=snowflake.GetGrantsFutureGrantsInSchemaArgs(\n        database_name=\"\\\"mydatabase\\\"\",\n        schema_name=\"\\\"myschema\\\"\",\n    ),\n))\ngrants7 = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(\n    role=\"ACCOUNTADMIN\",\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var grants = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            Account = true,\n        },\n    });\n\n    var grants2 = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            ObjectName = \"\\\"tst\\\"\",\n            ObjectType = \"DATABASE\",\n        },\n    });\n\n    var grants3 = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            Role = \"ACCOUNTADMIN\",\n        },\n    });\n\n    var grants4 = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs\n        {\n            Role = \"ACCOUNTADMIN\",\n        },\n    });\n\n    var grants5 = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs\n        {\n            Database = \"\\\"tst\\\"\",\n        },\n    });\n\n    var grants6 = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs\n        {\n            Schema = new Snowflake.Inputs.GetGrantsFutureGrantsInSchemaInputArgs\n            {\n                DatabaseName = \"\\\"mydatabase\\\"\",\n                SchemaName = \"\\\"myschema\\\"\",\n            },\n        },\n    });\n\n    var grants7 = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs\n        {\n            Role = \"ACCOUNTADMIN\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tAccount: pulumi.BoolRef(true),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tObjectName: pulumi.StringRef(\"\\\"tst\\\"\"),\n\t\t\t\tObjectType: pulumi.StringRef(\"DATABASE\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tRole: pulumi.StringRef(\"ACCOUNTADMIN\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOf: snowflake.GetGrantsGrantsOf{\n\t\t\t\tRole: pulumi.StringRef(\"ACCOUNTADMIN\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{\n\t\t\t\tDatabase: pulumi.StringRef(\"\\\"tst\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{\n\t\t\t\tSchema: snowflake.GetGrantsFutureGrantsInSchema{\n\t\t\t\t\tDatabaseName: pulumi.StringRef(\"\\\"mydatabase\\\"\"),\n\t\t\t\t\tSchemaName:   \"\\\"myschema\\\"\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{\n\t\t\t\tRole: \"ACCOUNTADMIN\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetGrantsArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .account(true)\n                .build())\n            .build());\n\n        final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .objectName(\"\\\"tst\\\"\")\n                .objectType(\"DATABASE\")\n                .build())\n            .build());\n\n        final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .role(\"ACCOUNTADMIN\")\n                .build())\n            .build());\n\n        final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOf(GetGrantsGrantsOfArgs.builder()\n                .role(\"ACCOUNTADMIN\")\n                .build())\n            .build());\n\n        final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()\n                .database(\"\\\"tst\\\"\")\n                .build())\n            .build());\n\n        final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()\n                .schema(GetGrantsFutureGrantsInSchemaArgs.builder()\n                    .databaseName(\"\\\"mydatabase\\\"\")\n                    .schemaName(\"\\\"myschema\\\"\")\n                    .build())\n                .build())\n            .build());\n\n        final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()\n                .role(\"ACCOUNTADMIN\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  grants:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          account: true\n  grants2:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          objectName: '\"tst\"'\n          objectType: DATABASE\n  grants3:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          role: ACCOUNTADMIN\n  grants4:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOf:\n          role: ACCOUNTADMIN\n  grants5:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsIn:\n          database: '\"tst\"'\n  grants6:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsIn:\n          schema:\n            databaseName: '\"mydatabase\"'\n            schemaName: '\"myschema\"'\n  grants7:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsTo:\n          role: ACCOUNTADMIN\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst exampleOnAccount = snowflake.getGrants({\n    grantsOn: {\n        account: true,\n    },\n});\nconst exampleOnAccountObject = snowflake.getGrants({\n    grantsOn: {\n        objectName: \"some_database\",\n        objectType: \"DATABASE\",\n    },\n});\nconst exampleOnDatabaseObject = snowflake.getGrants({\n    grantsOn: {\n        objectName: \"\\\"some_database\\\".\\\"some_schema\\\"\",\n        objectType: \"SCHEMA\",\n    },\n});\nconst exampleOnSchemaObject = snowflake.getGrants({\n    grantsOn: {\n        objectName: \"\\\"some_database\\\".\\\"some_schema\\\".\\\"some_table\\\"\",\n        objectType: \"TABLE\",\n    },\n});\nconst exampleToApplication = snowflake.getGrants({\n    grantsTo: {\n        application: \"some_application\",\n    },\n});\nconst exampleToApplicationRole = snowflake.getGrants({\n    grantsTo: {\n        applicationRole: \"\\\"some_application\\\".\\\"some_application_role\\\"\",\n    },\n});\nconst exampleToRole = snowflake.getGrants({\n    grantsTo: {\n        accountRole: \"some_role\",\n    },\n});\nconst exampleToDatabaseRole = snowflake.getGrants({\n    grantsTo: {\n        databaseRole: \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n    },\n});\nconst exampleToShare = snowflake.getGrants({\n    grantsTo: {\n        share: {\n            shareName: \"some_share\",\n        },\n    },\n});\nconst exampleToUser = snowflake.getGrants({\n    grantsTo: {\n        user: \"some_user\",\n    },\n});\nconst exampleOfApplicationRole = snowflake.getGrants({\n    grantsOf: {\n        applicationRole: \"\\\"some_application\\\".\\\"some_application_role\\\"\",\n    },\n});\nconst exampleOfDatabaseRole = snowflake.getGrants({\n    grantsOf: {\n        databaseRole: \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n    },\n});\nconst exampleOfRole = snowflake.getGrants({\n    grantsOf: {\n        accountRole: \"some_role\",\n    },\n});\nconst exampleOfShare = snowflake.getGrants({\n    grantsOf: {\n        share: \"some_share\",\n    },\n});\nconst exampleFutureInDatabase = snowflake.getGrants({\n    futureGrantsIn: {\n        database: \"some_database\",\n    },\n});\nconst exampleFutureInSchema = snowflake.getGrants({\n    futureGrantsIn: {\n        schema: \"\\\"some_database\\\".\\\"some_schema\\\"\",\n    },\n});\nconst exampleFutureToRole = snowflake.getGrants({\n    futureGrantsTo: {\n        accountRole: \"some_role\",\n    },\n});\nconst exampleFutureToDatabaseRole = snowflake.getGrants({\n    futureGrantsTo: {\n        databaseRole: \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexample_on_account = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    account=True,\n))\nexample_on_account_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    object_name=\"some_database\",\n    object_type=\"DATABASE\",\n))\nexample_on_database_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    object_name=\"\\\"some_database\\\".\\\"some_schema\\\"\",\n    object_type=\"SCHEMA\",\n))\nexample_on_schema_object = snowflake.get_grants(grants_on=snowflake.GetGrantsGrantsOnArgs(\n    object_name=\"\\\"some_database\\\".\\\"some_schema\\\".\\\"some_table\\\"\",\n    object_type=\"TABLE\",\n))\nexample_to_application = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    application=\"some_application\",\n))\nexample_to_application_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    application_role=\"\\\"some_application\\\".\\\"some_application_role\\\"\",\n))\nexample_to_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    account_role=\"some_role\",\n))\nexample_to_database_role = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    database_role=\"\\\"some_database\\\".\\\"some_database_role\\\"\",\n))\nexample_to_share = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    share=snowflake.GetGrantsGrantsToShareArgs(\n        share_name=\"some_share\",\n    ),\n))\nexample_to_user = snowflake.get_grants(grants_to=snowflake.GetGrantsGrantsToArgs(\n    user=\"some_user\",\n))\nexample_of_application_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(\n    application_role=\"\\\"some_application\\\".\\\"some_application_role\\\"\",\n))\nexample_of_database_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(\n    database_role=\"\\\"some_database\\\".\\\"some_database_role\\\"\",\n))\nexample_of_role = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(\n    account_role=\"some_role\",\n))\nexample_of_share = snowflake.get_grants(grants_of=snowflake.GetGrantsGrantsOfArgs(\n    share=\"some_share\",\n))\nexample_future_in_database = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(\n    database=\"some_database\",\n))\nexample_future_in_schema = snowflake.get_grants(future_grants_in=snowflake.GetGrantsFutureGrantsInArgs(\n    schema=\"\\\"some_database\\\".\\\"some_schema\\\"\",\n))\nexample_future_to_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(\n    account_role=\"some_role\",\n))\nexample_future_to_database_role = snowflake.get_grants(future_grants_to=snowflake.GetGrantsFutureGrantsToArgs(\n    database_role=\"\\\"some_database\\\".\\\"some_database_role\\\"\",\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleOnAccount = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            Account = true,\n        },\n    });\n\n    var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            ObjectName = \"some_database\",\n            ObjectType = \"DATABASE\",\n        },\n    });\n\n    var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            ObjectName = \"\\\"some_database\\\".\\\"some_schema\\\"\",\n            ObjectType = \"SCHEMA\",\n        },\n    });\n\n    var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs\n        {\n            ObjectName = \"\\\"some_database\\\".\\\"some_schema\\\".\\\"some_table\\\"\",\n            ObjectType = \"TABLE\",\n        },\n    });\n\n    var exampleToApplication = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            Application = \"some_application\",\n        },\n    });\n\n    var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            ApplicationRole = \"\\\"some_application\\\".\\\"some_application_role\\\"\",\n        },\n    });\n\n    var exampleToRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            AccountRole = \"some_role\",\n        },\n    });\n\n    var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            DatabaseRole = \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n        },\n    });\n\n    var exampleToShare = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            Share = new Snowflake.Inputs.GetGrantsGrantsToShareInputArgs\n            {\n                ShareName = \"some_share\",\n            },\n        },\n    });\n\n    var exampleToUser = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs\n        {\n            User = \"some_user\",\n        },\n    });\n\n    var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs\n        {\n            ApplicationRole = \"\\\"some_application\\\".\\\"some_application_role\\\"\",\n        },\n    });\n\n    var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs\n        {\n            DatabaseRole = \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n        },\n    });\n\n    var exampleOfRole = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs\n        {\n            AccountRole = \"some_role\",\n        },\n    });\n\n    var exampleOfShare = Snowflake.GetGrants.Invoke(new()\n    {\n        GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs\n        {\n            Share = \"some_share\",\n        },\n    });\n\n    var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs\n        {\n            Database = \"some_database\",\n        },\n    });\n\n    var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs\n        {\n            Schema = \"\\\"some_database\\\".\\\"some_schema\\\"\",\n        },\n    });\n\n    var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs\n        {\n            AccountRole = \"some_role\",\n        },\n    });\n\n    var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()\n    {\n        FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs\n        {\n            DatabaseRole = \"\\\"some_database\\\".\\\"some_database_role\\\"\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tAccount: pulumi.BoolRef(true),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tObjectName: pulumi.StringRef(\"some_database\"),\n\t\t\t\tObjectType: pulumi.StringRef(\"DATABASE\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tObjectName: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_schema\\\"\"),\n\t\t\t\tObjectType: pulumi.StringRef(\"SCHEMA\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOn: snowflake.GetGrantsGrantsOn{\n\t\t\t\tObjectName: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_schema\\\".\\\"some_table\\\"\"),\n\t\t\t\tObjectType: pulumi.StringRef(\"TABLE\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tApplication: pulumi.StringRef(\"some_application\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tApplicationRole: pulumi.StringRef(\"\\\"some_application\\\".\\\"some_application_role\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tAccountRole: pulumi.StringRef(\"some_role\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tDatabaseRole: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_database_role\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tShare: snowflake.GetGrantsGrantsToShare{\n\t\t\t\t\tShareName: \"some_share\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsTo: snowflake.GetGrantsGrantsTo{\n\t\t\t\tUser: pulumi.StringRef(\"some_user\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOf: snowflake.GetGrantsGrantsOf{\n\t\t\t\tApplicationRole: pulumi.StringRef(\"\\\"some_application\\\".\\\"some_application_role\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOf: snowflake.GetGrantsGrantsOf{\n\t\t\t\tDatabaseRole: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_database_role\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOf: snowflake.GetGrantsGrantsOf{\n\t\t\t\tAccountRole: pulumi.StringRef(\"some_role\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tGrantsOf: snowflake.GetGrantsGrantsOf{\n\t\t\t\tShare: pulumi.StringRef(\"some_share\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{\n\t\t\t\tDatabase: pulumi.StringRef(\"some_database\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{\n\t\t\t\tSchema: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_schema\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{\n\t\t\t\tAccountRole: pulumi.StringRef(\"some_role\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.GetGrants(ctx, \u0026snowflake.GetGrantsArgs{\n\t\t\tFutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{\n\t\t\t\tDatabaseRole: pulumi.StringRef(\"\\\"some_database\\\".\\\"some_database_role\\\"\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetGrantsArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;\nimport com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .account(true)\n                .build())\n            .build());\n\n        final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .objectName(\"some_database\")\n                .objectType(\"DATABASE\")\n                .build())\n            .build());\n\n        final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .objectName(\"\\\"some_database\\\".\\\"some_schema\\\"\")\n                .objectType(\"SCHEMA\")\n                .build())\n            .build());\n\n        final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOn(GetGrantsGrantsOnArgs.builder()\n                .objectName(\"\\\"some_database\\\".\\\"some_schema\\\".\\\"some_table\\\"\")\n                .objectType(\"TABLE\")\n                .build())\n            .build());\n\n        final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .application(\"some_application\")\n                .build())\n            .build());\n\n        final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .applicationRole(\"\\\"some_application\\\".\\\"some_application_role\\\"\")\n                .build())\n            .build());\n\n        final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .accountRole(\"some_role\")\n                .build())\n            .build());\n\n        final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .databaseRole(\"\\\"some_database\\\".\\\"some_database_role\\\"\")\n                .build())\n            .build());\n\n        final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .share(GetGrantsGrantsToShareArgs.builder()\n                    .shareName(\"some_share\")\n                    .build())\n                .build())\n            .build());\n\n        final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsTo(GetGrantsGrantsToArgs.builder()\n                .user(\"some_user\")\n                .build())\n            .build());\n\n        final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOf(GetGrantsGrantsOfArgs.builder()\n                .applicationRole(\"\\\"some_application\\\".\\\"some_application_role\\\"\")\n                .build())\n            .build());\n\n        final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOf(GetGrantsGrantsOfArgs.builder()\n                .databaseRole(\"\\\"some_database\\\".\\\"some_database_role\\\"\")\n                .build())\n            .build());\n\n        final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOf(GetGrantsGrantsOfArgs.builder()\n                .accountRole(\"some_role\")\n                .build())\n            .build());\n\n        final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .grantsOf(GetGrantsGrantsOfArgs.builder()\n                .share(\"some_share\")\n                .build())\n            .build());\n\n        final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()\n                .database(\"some_database\")\n                .build())\n            .build());\n\n        final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()\n                .schema(\"\\\"some_database\\\".\\\"some_schema\\\"\")\n                .build())\n            .build());\n\n        final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()\n                .accountRole(\"some_role\")\n                .build())\n            .build());\n\n        final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()\n            .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()\n                .databaseRole(\"\\\"some_database\\\".\\\"some_database_role\\\"\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  exampleOnAccount:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          account: true\n  exampleOnAccountObject:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          objectName: some_database\n          objectType: DATABASE\n  exampleOnDatabaseObject:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          objectName: '\"some_database\".\"some_schema\"'\n          objectType: SCHEMA\n  exampleOnSchemaObject:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOn:\n          objectName: '\"some_database\".\"some_schema\".\"some_table\"'\n          objectType: TABLE\n  exampleToApplication:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          application: some_application\n  exampleToApplicationRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          applicationRole: '\"some_application\".\"some_application_role\"'\n  exampleToRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          accountRole: some_role\n  exampleToDatabaseRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          databaseRole: '\"some_database\".\"some_database_role\"'\n  exampleToShare:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          share:\n            shareName: some_share\n  exampleToUser:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsTo:\n          user: some_user\n  exampleOfApplicationRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOf:\n          applicationRole: '\"some_application\".\"some_application_role\"'\n  exampleOfDatabaseRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOf:\n          databaseRole: '\"some_database\".\"some_database_role\"'\n  exampleOfRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOf:\n          accountRole: some_role\n  exampleOfShare:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        grantsOf:\n          share: some_share\n  exampleFutureInDatabase:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsIn:\n          database: some_database\n  exampleFutureInSchema:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsIn:\n          schema: '\"some_database\".\"some_schema\"'\n  exampleFutureToRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsTo:\n          accountRole: some_role\n  exampleFutureToDatabaseRole:\n    fn::invoke:\n      Function: snowflake:getGrants\n      Arguments:\n        futureGrantsTo:\n          databaseRole: '\"some_database\".\"some_database_role\"'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getGrants.\n",
                 "properties": {
                     "futureGrantsIn": {
                         "$ref": "#/types/snowflake:index/getGrantsFutureGrantsIn:getGrantsFutureGrantsIn",
-                        "description": "Lists all privileges on new (i.e. future) objects\n"
+                        "description": "Lists all privileges on new (i.e. future) objects.\n"
                     },
                     "futureGrantsTo": {
                         "$ref": "#/types/snowflake:index/getGrantsFutureGrantsTo:getGrantsFutureGrantsTo",
-                        "description": "Lists all privileges granted to the object on new (i.e. future) objects\n"
+                        "description": "Lists all privileges granted to the object on new (i.e. future) objects.\n"
                     },
                     "grantsOf": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsOf:getGrantsGrantsOf",
-                        "description": "Lists all objects to which the given object has been granted\n"
+                        "description": "Lists all objects to which the given object has been granted.\n"
                     },
                     "grantsOn": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsOn:getGrantsGrantsOn",
-                        "description": "Lists all privileges that have been granted on an object or account\n"
+                        "description": "Lists all privileges that have been granted on an object or on an account.\n"
                     },
                     "grantsTo": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsTo:getGrantsGrantsTo",
-                        "description": "Lists all privileges granted to the object\n"
+                        "description": "Lists all privileges granted to the object.\n"
                     }
                 },
                 "type": "object"
@@ -16492,11 +16665,11 @@
                 "properties": {
                     "futureGrantsIn": {
                         "$ref": "#/types/snowflake:index/getGrantsFutureGrantsIn:getGrantsFutureGrantsIn",
-                        "description": "Lists all privileges on new (i.e. future) objects\n"
+                        "description": "Lists all privileges on new (i.e. future) objects.\n"
                     },
                     "futureGrantsTo": {
                         "$ref": "#/types/snowflake:index/getGrantsFutureGrantsTo:getGrantsFutureGrantsTo",
-                        "description": "Lists all privileges granted to the object on new (i.e. future) objects\n"
+                        "description": "Lists all privileges granted to the object on new (i.e. future) objects.\n"
                     },
                     "grants": {
                         "type": "array",
@@ -16507,15 +16680,15 @@
                     },
                     "grantsOf": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsOf:getGrantsGrantsOf",
-                        "description": "Lists all objects to which the given object has been granted\n"
+                        "description": "Lists all objects to which the given object has been granted.\n"
                     },
                     "grantsOn": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsOn:getGrantsGrantsOn",
-                        "description": "Lists all privileges that have been granted on an object or account\n"
+                        "description": "Lists all privileges that have been granted on an object or on an account.\n"
                     },
                     "grantsTo": {
                         "$ref": "#/types/snowflake:index/getGrantsGrantsTo:getGrantsGrantsTo",
-                        "description": "Lists all privileges granted to the object\n"
+                        "description": "Lists all privileges granted to the object.\n"
                     },
                     "id": {
                         "type": "string",

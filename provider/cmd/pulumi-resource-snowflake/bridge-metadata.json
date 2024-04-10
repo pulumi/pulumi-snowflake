@@ -239,6 +239,24 @@
             "snowflake_grant_database_role": {
                 "current": "snowflake:index/grantDatabaseRole:GrantDatabaseRole"
             },
+            "snowflake_grant_ownership": {
+                "current": "snowflake:index/grantOwnership:GrantOwnership",
+                "fields": {
+                    "on": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "all": {
+                                    "maxItemsOne": true
+                                },
+                                "future": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_grant_privileges_to_account_role": {
                 "current": "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole",
                 "fields": {
@@ -921,14 +939,7 @@
                 "current": "snowflake:index/getGrants:getGrants",
                 "fields": {
                     "future_grants_in": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "schema": {
-                                    "maxItemsOne": true
-                                }
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "future_grants_to": {
                         "maxItemsOne": true
@@ -943,7 +954,14 @@
                         "maxItemsOne": true
                     },
                     "grants_to": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "share": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1145,7 +1163,15 @@
             }
         }
     },
-    "auto-settings": {},
+    "auto-settings": {
+        "datasources": {
+            "snowflake_grants": {
+                "maxItemsOneOverrides": {
+                    "future_grants_in.$.schema": true
+                }
+            }
+        }
+    },
     "renames": {
         "resources": {
             "snowflake:index/account:Account": "snowflake_account",
