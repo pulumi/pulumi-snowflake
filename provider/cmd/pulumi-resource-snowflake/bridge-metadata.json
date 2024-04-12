@@ -1163,15 +1163,7 @@
             }
         }
     },
-    "auto-settings": {
-        "datasources": {
-            "snowflake_grants": {
-                "maxItemsOneOverrides": {
-                    "future_grants_in.$.schema": true
-                }
-            }
-        }
-    },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "snowflake:index/account:Account": "snowflake_account",
