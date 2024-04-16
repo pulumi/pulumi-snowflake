@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Sequence;
@@ -43,15 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
+ *         var database = new Database(&#34;database&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;things&#34;)
+ *             .build());
  * 
  *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .database(snowflake_database.test_database().name())
+ *             .name(&#34;things&#34;)
+ *             .database(testDatabase.name())
  *             .build());
  * 
  *         var testSequence = new Sequence(&#34;testSequence&#34;, SequenceArgs.builder()        
- *             .database(snowflake_database.test_database().name())
+ *             .database(testDatabase.name())
  *             .schema(testSchema.name())
+ *             .name(&#34;thing_counter&#34;)
  *             .build());
  * 
  *     }

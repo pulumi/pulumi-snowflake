@@ -44,10 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new AccountGrant(&#34;grant&#34;, AccountGrantArgs.builder()        
- *             .privilege(&#34;CREATE ROLE&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
+ *             .privilege(&#34;CREATE ROLE&#34;)
  *             .withGrantOption(false)
  *             .build());
  * 

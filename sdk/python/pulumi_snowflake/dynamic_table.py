@@ -562,14 +562,15 @@ class DynamicTable(pulumi.CustomResource):
 
         # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
         dt = snowflake.DynamicTable("dt",
-            comment="example comment",
+            name="product",
             database="mydb",
-            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             schema="myschema",
             target_lag=snowflake.DynamicTableTargetLagArgs(
                 maximum_duration="20 minutes",
             ),
-            warehouse="mywh")
+            warehouse="mywh",
+            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
+            comment="example comment")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -608,14 +609,15 @@ class DynamicTable(pulumi.CustomResource):
 
         # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
         dt = snowflake.DynamicTable("dt",
-            comment="example comment",
+            name="product",
             database="mydb",
-            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             schema="myschema",
             target_lag=snowflake.DynamicTableTargetLagArgs(
                 maximum_duration="20 minutes",
             ),
-            warehouse="mywh")
+            warehouse="mywh",
+            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
+            comment="example comment")
         ```
         <!--End PulumiCodeChooser -->
 

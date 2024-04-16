@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var aad = new ScimIntegration(&#34;aad&#34;, ScimIntegrationArgs.builder()        
+ *             .name(&#34;AAD_PROVISIONING&#34;)
  *             .networkPolicy(&#34;AAD_NETWORK_POLICY&#34;)
  *             .provisionerRole(&#34;AAD_PROVISIONER&#34;)
  *             .scimClient(&#34;AZURE&#34;)

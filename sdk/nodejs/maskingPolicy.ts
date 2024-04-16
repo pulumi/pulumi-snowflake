@@ -15,18 +15,8 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const test = new snowflake.MaskingPolicy("test", {
+ *     name: "EXAMPLE_MASKING_POLICY",
  *     database: "EXAMPLE_DB",
- *     maskingExpression: `  case 
- *     when current_role() in ('ROLE_A') then 
- *       val 
- *     when is_role_in_session( 'ROLE_B' ) then 
- *       'ABC123'
- *     else
- *       '******'
- *   end
- *
- * `,
- *     returnDataType: "VARCHAR",
  *     schema: "EXAMPLE_SCHEMA",
  *     signature: {
  *         columns: [{
@@ -34,6 +24,16 @@ import * as utilities from "./utilities";
  *             type: "VARCHAR",
  *         }],
  *     },
+ *     maskingExpression: `case 
+ *   when current_role() in ('ROLE_A') then 
+ *     val 
+ *   when is_role_in_session( 'ROLE_B' ) then 
+ *     'ABC123'
+ *   else
+ *     '******'
+ * end
+ * `,
+ *     returnDataType: "VARCHAR",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

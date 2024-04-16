@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Table;
@@ -50,15 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
- * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(database.name())
+ *         var d = new Database(&#34;d&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;some_db&#34;)
  *             .build());
  * 
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
- *             .database(database.name())
- *             .schema(schema.name())
+ *         var s = new Schema(&#34;s&#34;, SchemaArgs.builder()        
+ *             .name(&#34;some_schema&#34;)
+ *             .database(d.name())
+ *             .build());
+ * 
+ *         var t = new Table(&#34;t&#34;, TableArgs.builder()        
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name(&#34;some_table&#34;)
  *             .columns(            
  *                 TableColumnArgs.builder()
  *                     .name(&#34;col1&#34;)
@@ -78,8 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fkT = new Table(&#34;fkT&#34;, TableArgs.builder()        
- *             .database(database.name())
- *             .schema(schema.name())
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name(&#34;fk_table&#34;)
  *             .columns(            
  *                 TableColumnArgs.builder()
  *                     .name(&#34;fk_col1&#34;)
@@ -94,15 +100,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var primaryKey = new TableConstraint(&#34;primaryKey&#34;, TableConstraintArgs.builder()        
+ *             .name(&#34;myconstraint&#34;)
  *             .type(&#34;PRIMARY KEY&#34;)
- *             .tableId(table.qualifiedName())
+ *             .tableId(t.qualifiedName())
  *             .columns(&#34;col1&#34;)
  *             .comment(&#34;hello world&#34;)
  *             .build());
  * 
  *         var foreignKey = new TableConstraint(&#34;foreignKey&#34;, TableConstraintArgs.builder()        
+ *             .name(&#34;myconstraintfk&#34;)
  *             .type(&#34;FOREIGN KEY&#34;)
- *             .tableId(table.qualifiedName())
+ *             .tableId(t.qualifiedName())
  *             .columns(&#34;col2&#34;)
  *             .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()
  *                 .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()
@@ -117,8 +125,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var unique = new TableConstraint(&#34;unique&#34;, TableConstraintArgs.builder()        
+ *             .name(&#34;unique&#34;)
  *             .type(&#34;UNIQUE&#34;)
- *             .tableId(table.qualifiedName())
+ *             .tableId(t.qualifiedName())
  *             .columns(&#34;col3&#34;)
  *             .comment(&#34;hello unique&#34;)
  *             .build());

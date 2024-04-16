@@ -12,15 +12,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const sessionParameter = new snowflake.SessionParameter("sessionParameter", {
+ * const s = new snowflake.SessionParameter("s", {
  *     key: "AUTOCOMMIT",
- *     user: "TEST_USER",
  *     value: "false",
+ *     user: "TEST_USER",
  * });
  * const s2 = new snowflake.SessionParameter("s2", {
  *     key: "BINARY_OUTPUT_FORMAT",
- *     onAccount: true,
  *     value: "BASE64",
+ *     onAccount: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

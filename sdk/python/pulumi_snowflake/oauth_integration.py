@@ -386,12 +386,13 @@ class OauthIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        tableau_desktop = snowflake.OauthIntegration("tableauDesktop",
-            blocked_roles_lists=["SYSADMIN"],
-            enabled=True,
+        tableau_desktop = snowflake.OauthIntegration("tableau_desktop",
+            name="TABLEAU_DESKTOP",
             oauth_client="TABLEAU_DESKTOP",
+            enabled=True,
             oauth_issue_refresh_tokens=True,
-            oauth_refresh_token_validity=3600)
+            oauth_refresh_token_validity=3600,
+            blocked_roles_lists=["SYSADMIN"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -428,12 +429,13 @@ class OauthIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        tableau_desktop = snowflake.OauthIntegration("tableauDesktop",
-            blocked_roles_lists=["SYSADMIN"],
-            enabled=True,
+        tableau_desktop = snowflake.OauthIntegration("tableau_desktop",
+            name="TABLEAU_DESKTOP",
             oauth_client="TABLEAU_DESKTOP",
+            enabled=True,
             oauth_issue_refresh_tokens=True,
-            oauth_refresh_token_validity=3600)
+            oauth_refresh_token_validity=3600,
+            blocked_roles_lists=["SYSADMIN"])
         ```
         <!--End PulumiCodeChooser -->
 

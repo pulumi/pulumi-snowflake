@@ -377,14 +377,14 @@ class StageGrant(pulumi.CustomResource):
 
         grant = snowflake.StageGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            stage_name="stage",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            stage_name="stage",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -429,14 +429,14 @@ class StageGrant(pulumi.CustomResource):
 
         grant = snowflake.StageGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            stage_name="stage",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            stage_name="stage",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

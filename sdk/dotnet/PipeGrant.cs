@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.PipeGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
-    ///         OnFuture = false,
+    ///         SchemaName = "schema",
     ///         PipeName = "pipe",
     ///         Privilege = "OPERATE",
     ///         Roles = new[]
@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 

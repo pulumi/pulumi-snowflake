@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *         var default_ = new PasswordPolicy(&#34;default&#34;, PasswordPolicyArgs.builder()        
  *             .database(&#34;prod&#34;)
  *             .schema(&#34;security&#34;)
+ *             .name(&#34;default_policy&#34;)
  *             .build());
  * 
  *         var attachment = new AccountPasswordPolicyAttachment(&#34;attachment&#34;, AccountPasswordPolicyAttachmentArgs.builder()        

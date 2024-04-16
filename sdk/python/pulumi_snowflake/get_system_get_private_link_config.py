@@ -155,6 +155,56 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
 def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetPrivateLinkConfigResult:
     """
     ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_snowflake as snowflake
+
+    snowflake_private_link = snowflake.get_system_get_private_link_config()
+    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
+        vpc_id=vpc_id,
+        ingress=[
+            {
+                fromPort: 80,
+                toPort: 80,
+                cidrBlocks: vpc_cidr,
+                protocol: tcp,
+            },
+            {
+                fromPort: 443,
+                toPort: 443,
+                cidrBlocks: vpc_cidr,
+                protocol: tcp,
+            },
+        ])
+    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
+        vpc_id=vpc_id,
+        service_name=snowflake_private_link.aws_vpce_id,
+        vpc_endpoint_type=Interface,
+        security_group_ids=[snowflake_private_link_security_group.id],
+        subnet_ids=subnet_ids,
+        private_dns_enabled=False)
+    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
+        name=privatelink.snowflakecomputing.com,
+        vpc=[{
+            vpcId: vpc_id,
+        }])
+    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
+        zone_id=snowflake_private_link_route53_zone.zone_id,
+        name=snowflake_private_link.account_url,
+        type=CNAME,
+        ttl=300,
+        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
+    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
+        zone_id=snowflake_private_link_route53_zone.zone_id,
+        name=snowflake_private_link.ocsp_url,
+        type=CNAME,
+        ttl=300,
+        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
+    ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -177,5 +227,55 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
 def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
     """
     ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_snowflake as snowflake
+
+    snowflake_private_link = snowflake.get_system_get_private_link_config()
+    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
+        vpc_id=vpc_id,
+        ingress=[
+            {
+                fromPort: 80,
+                toPort: 80,
+                cidrBlocks: vpc_cidr,
+                protocol: tcp,
+            },
+            {
+                fromPort: 443,
+                toPort: 443,
+                cidrBlocks: vpc_cidr,
+                protocol: tcp,
+            },
+        ])
+    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
+        vpc_id=vpc_id,
+        service_name=snowflake_private_link.aws_vpce_id,
+        vpc_endpoint_type=Interface,
+        security_group_ids=[snowflake_private_link_security_group.id],
+        subnet_ids=subnet_ids,
+        private_dns_enabled=False)
+    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
+        name=privatelink.snowflakecomputing.com,
+        vpc=[{
+            vpcId: vpc_id,
+        }])
+    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
+        zone_id=snowflake_private_link_route53_zone.zone_id,
+        name=snowflake_private_link.account_url,
+        type=CNAME,
+        ttl=300,
+        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
+    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
+        zone_id=snowflake_private_link_route53_zone.zone_id,
+        name=snowflake_private_link.ocsp_url,
+        type=CNAME,
+        ttl=300,
+        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
+    ```
+    <!--End PulumiCodeChooser -->
     """
     ...

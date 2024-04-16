@@ -25,20 +25,26 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "rking_test_role",
     ///         Comment = "for testing",
     ///     });
     /// 
     ///     var user = new Snowflake.User("user", new()
     ///     {
+    ///         Name = "rking_test_user",
     ///         Comment = "for testing",
     ///     });
     /// 
     ///     var user2 = new Snowflake.User("user2", new()
     ///     {
+    ///         Name = "rking_test_user2",
     ///         Comment = "for testing",
     ///     });
     /// 
-    ///     var otherRole = new Snowflake.Role("otherRole");
+    ///     var otherRole = new Snowflake.Role("other_role", new()
+    ///     {
+    ///         Name = "rking_test_role2",
+    ///     });
     /// 
     ///     var grants = new Snowflake.RoleGrants("grants", new()
     ///     {

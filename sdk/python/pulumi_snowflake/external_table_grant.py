@@ -410,18 +410,18 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         grant = snowflake.ExternalTableGrant("grant",
             database_name="database",
+            schema_name="schema",
             external_table_name="external_table",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -467,18 +467,18 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         grant = snowflake.ExternalTableGrant("grant",
             database_name="database",
+            schema_name="schema",
             external_table_name="external_table",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

@@ -14,7 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const role = new snowflake.Role("role", {comment: "A role."});
+ * const role = new snowflake.Role("role", {
+ *     name: "role1",
+ *     comment: "A role.",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

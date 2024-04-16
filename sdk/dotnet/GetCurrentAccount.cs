@@ -26,10 +26,11 @@ namespace Pulumi.Snowflake
         /// {
         ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
+        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
         ///     {
-        ///         Type = Aws.Ssm.ParameterType.String,
-        ///         Value = @this.Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
+        ///         Name = "/snowflake/account_url",
+        ///         Type = "String",
+        ///         Value = @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url),
         ///     });
         /// 
         /// });
@@ -54,10 +55,11 @@ namespace Pulumi.Snowflake
         /// {
         ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        ///     var snowflakeAccountUrl = new Aws.Ssm.Parameter("snowflakeAccountUrl", new()
+        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
         ///     {
-        ///         Type = Aws.Ssm.ParameterType.String,
-        ///         Value = @this.Apply(@this =&gt; @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url)),
+        ///         Name = "/snowflake/account_url",
+        ///         Type = "String",
+        ///         Value = @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url),
         ///     });
         /// 
         /// });

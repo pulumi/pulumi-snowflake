@@ -173,9 +173,10 @@ class NetworkPolicy(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         policy = snowflake.NetworkPolicy("policy",
+            name="policy",
+            comment="A policy.",
             allowed_ip_lists=["192.168.0.100/24"],
-            blocked_ip_lists=["192.168.0.101"],
-            comment="A policy.")
+            blocked_ip_lists=["192.168.0.101"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -207,9 +208,10 @@ class NetworkPolicy(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         policy = snowflake.NetworkPolicy("policy",
+            name="policy",
+            comment="A policy.",
             allowed_ip_lists=["192.168.0.100/24"],
-            blocked_ip_lists=["192.168.0.101"],
-            comment="A policy.")
+            blocked_ip_lists=["192.168.0.101"])
         ```
         <!--End PulumiCodeChooser -->
 

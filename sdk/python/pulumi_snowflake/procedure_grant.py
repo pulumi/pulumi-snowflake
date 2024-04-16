@@ -442,23 +442,23 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
+            database_name="database",
+            schema_name="schema",
+            procedure_name="procedure",
             argument_data_types=[
                 "array",
                 "string",
             ],
-            database_name="database",
-            on_future=False,
             privilege="USAGE",
-            procedure_name="procedure",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -504,23 +504,23 @@ class ProcedureGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ProcedureGrant("grant",
+            database_name="database",
+            schema_name="schema",
+            procedure_name="procedure",
             argument_data_types=[
                 "array",
                 "string",
             ],
-            database_name="database",
-            on_future=False,
             privilege="USAGE",
-            procedure_name="procedure",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

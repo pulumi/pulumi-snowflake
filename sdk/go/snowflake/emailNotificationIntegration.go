@@ -27,12 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewEmailNotificationIntegration(ctx, "emailInt", &snowflake.EmailNotificationIntegrationArgs{
+//			_, err := snowflake.NewEmailNotificationIntegration(ctx, "email_int", &snowflake.EmailNotificationIntegrationArgs{
+//				Name:    pulumi.String("notification"),
+//				Comment: pulumi.String("A notification integration."),
+//				Enabled: pulumi.Bool(true),
 //				AllowedRecipients: pulumi.StringArray{
 //					pulumi.String("john.doe@gmail.com"),
 //				},
-//				Comment: pulumi.String("A notification integration."),
-//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

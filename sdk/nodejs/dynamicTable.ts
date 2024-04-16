@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  *
  * // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
  * const dt = new snowflake.DynamicTable("dt", {
- *     comment: "example comment",
+ *     name: "product",
  *     database: "mydb",
- *     query: "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
  *     schema: "myschema",
  *     targetLag: {
  *         maximumDuration: "20 minutes",
  *     },
  *     warehouse: "mywh",
+ *     query: "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
+ *     comment: "example comment",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

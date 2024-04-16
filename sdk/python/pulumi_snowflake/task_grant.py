@@ -377,14 +377,14 @@ class TaskGrant(pulumi.CustomResource):
 
         grant = snowflake.TaskGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            task_name="task",
             privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            task_name="task",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -429,14 +429,14 @@ class TaskGrant(pulumi.CustomResource):
 
         grant = snowflake.TaskGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            task_name="task",
             privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            task_name="task",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

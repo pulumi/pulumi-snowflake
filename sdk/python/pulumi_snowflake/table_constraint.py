@@ -448,11 +448,14 @@ class TableConstraint(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
-        table = snowflake.Table("table",
-            database=database.name,
-            schema=schema.name,
+        d = snowflake.Database("d", name="some_db")
+        s = snowflake.Schema("s",
+            name="some_schema",
+            database=d.name)
+        t = snowflake.Table("t",
+            database=d.name,
+            schema=s.name,
+            name="some_table",
             columns=[
                 snowflake.TableColumnArgs(
                     name="col1",
@@ -470,9 +473,10 @@ class TableConstraint(pulumi.CustomResource):
                     nullable=False,
                 ),
             ])
-        fk_t = snowflake.Table("fkT",
-            database=database.name,
-            schema=schema.name,
+        fk_t = snowflake.Table("fk_t",
+            database=d.name,
+            schema=s.name,
+            name="fk_table",
             columns=[
                 snowflake.TableColumnArgs(
                     name="fk_col1",
@@ -485,14 +489,16 @@ class TableConstraint(pulumi.CustomResource):
                     nullable=False,
                 ),
             ])
-        primary_key = snowflake.TableConstraint("primaryKey",
+        primary_key = snowflake.TableConstraint("primary_key",
+            name="myconstraint",
             type="PRIMARY KEY",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col1"],
             comment="hello world")
-        foreign_key = snowflake.TableConstraint("foreignKey",
+        foreign_key = snowflake.TableConstraint("foreign_key",
+            name="myconstraintfk",
             type="FOREIGN KEY",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col2"],
             foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
                 references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
@@ -505,8 +511,9 @@ class TableConstraint(pulumi.CustomResource):
             initially="IMMEDIATE",
             comment="hello fk")
         unique = snowflake.TableConstraint("unique",
+            name="unique",
             type="UNIQUE",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col3"],
             comment="hello unique")
         ```
@@ -547,11 +554,14 @@ class TableConstraint(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
-        table = snowflake.Table("table",
-            database=database.name,
-            schema=schema.name,
+        d = snowflake.Database("d", name="some_db")
+        s = snowflake.Schema("s",
+            name="some_schema",
+            database=d.name)
+        t = snowflake.Table("t",
+            database=d.name,
+            schema=s.name,
+            name="some_table",
             columns=[
                 snowflake.TableColumnArgs(
                     name="col1",
@@ -569,9 +579,10 @@ class TableConstraint(pulumi.CustomResource):
                     nullable=False,
                 ),
             ])
-        fk_t = snowflake.Table("fkT",
-            database=database.name,
-            schema=schema.name,
+        fk_t = snowflake.Table("fk_t",
+            database=d.name,
+            schema=s.name,
+            name="fk_table",
             columns=[
                 snowflake.TableColumnArgs(
                     name="fk_col1",
@@ -584,14 +595,16 @@ class TableConstraint(pulumi.CustomResource):
                     nullable=False,
                 ),
             ])
-        primary_key = snowflake.TableConstraint("primaryKey",
+        primary_key = snowflake.TableConstraint("primary_key",
+            name="myconstraint",
             type="PRIMARY KEY",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col1"],
             comment="hello world")
-        foreign_key = snowflake.TableConstraint("foreignKey",
+        foreign_key = snowflake.TableConstraint("foreign_key",
+            name="myconstraintfk",
             type="FOREIGN KEY",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col2"],
             foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
                 references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
@@ -604,8 +617,9 @@ class TableConstraint(pulumi.CustomResource):
             initially="IMMEDIATE",
             comment="hello fk")
         unique = snowflake.TableConstraint("unique",
+            name="unique",
             type="UNIQUE",
-            table_id=table.qualified_name,
+            table_id=t.qualified_name,
             columns=["col3"],
             comment="hello unique")
         ```

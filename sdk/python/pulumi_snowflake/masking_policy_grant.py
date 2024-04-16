@@ -309,16 +309,16 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         example = snowflake.MaskingPolicyGrant("example",
-            database_name="EXAMPLE_DB_NAME",
-            enable_multiple_grants=True,
             masking_policy_name="EXAMPLE_MASKING_POLICY_NAME",
+            database_name="EXAMPLE_DB_NAME",
+            schema_name="EXAMPLE_SCHEMA_NAME",
             privilege="APPLY",
             roles=[
                 "ROLE1_NAME",
                 "ROLE2_NAME",
             ],
-            schema_name="EXAMPLE_SCHEMA_NAME",
-            with_grant_option=True)
+            with_grant_option=True,
+            enable_multiple_grants=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -359,16 +359,16 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         example = snowflake.MaskingPolicyGrant("example",
-            database_name="EXAMPLE_DB_NAME",
-            enable_multiple_grants=True,
             masking_policy_name="EXAMPLE_MASKING_POLICY_NAME",
+            database_name="EXAMPLE_DB_NAME",
+            schema_name="EXAMPLE_SCHEMA_NAME",
             privilege="APPLY",
             roles=[
                 "ROLE1_NAME",
                 "ROLE2_NAME",
             ],
-            schema_name="EXAMPLE_SCHEMA_NAME",
-            with_grant_option=True)
+            with_grant_option=True,
+            enable_multiple_grants=True)
         ```
         <!--End PulumiCodeChooser -->
 

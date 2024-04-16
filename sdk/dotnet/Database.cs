@@ -23,12 +23,14 @@ namespace Pulumi.Snowflake
     /// {
     ///     var simple = new Snowflake.Database("simple", new()
     ///     {
+    ///         Name = "testing",
     ///         Comment = "test comment",
     ///         DataRetentionTimeInDays = 3,
     ///     });
     /// 
-    ///     var withReplication = new Snowflake.Database("withReplication", new()
+    ///     var withReplication = new Snowflake.Database("with_replication", new()
     ///     {
+    ///         Name = "testing_2",
     ///         Comment = "test comment 2",
     ///         ReplicationConfiguration = new Snowflake.Inputs.DatabaseReplicationConfigurationArgs
     ///         {
@@ -41,15 +43,17 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var fromReplica = new Snowflake.Database("fromReplica", new()
+    ///     var fromReplica = new Snowflake.Database("from_replica", new()
     ///     {
+    ///         Name = "testing_3",
     ///         Comment = "test comment",
     ///         DataRetentionTimeInDays = 3,
     ///         FromReplica = "\"org1\".\"account1\".\"primary_db_name\"",
     ///     });
     /// 
-    ///     var fromShare = new Snowflake.Database("fromShare", new()
+    ///     var fromShare = new Snowflake.Database("from_share", new()
     ///     {
+    ///         Name = "testing_4",
     ///         Comment = "test comment",
     ///         FromShare = 
     ///         {

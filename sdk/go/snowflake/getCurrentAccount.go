@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 //	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -31,9 +31,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ssm.NewParameter(ctx, "snowflakeAccountUrl", &ssm.ParameterArgs{
-//				Type:  pulumi.String(ssm.ParameterTypeString),
-//				Value: pulumi.String(this.Url),
+//			_, err = aws.NewSsmParameter(ctx, "snowflake_account_url", &aws.SsmParameterArgs{
+//				Name:  "/snowflake/account_url",
+//				Type:  "String",
+//				Value: this.Url,
 //			})
 //			if err != nil {
 //				return err

@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var grant = new StageGrant(&#34;grant&#34;, StageGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
- *             .onFuture(false)
+ *             .schemaName(&#34;schema&#34;)
+ *             .stageName(&#34;stage&#34;)
  *             .privilege(&#34;USAGE&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
- *             .stageName(&#34;stage&#34;)
+ *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 

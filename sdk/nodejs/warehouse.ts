@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const warehouse = new snowflake.Warehouse("warehouse", {
+ *     name: "test",
  *     comment: "foo",
  *     warehouseSize: "small",
  * });

@@ -30,16 +30,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewMaskingPolicyGrant(ctx, "example", &snowflake.MaskingPolicyGrantArgs{
-//				DatabaseName:         pulumi.String("EXAMPLE_DB_NAME"),
-//				EnableMultipleGrants: pulumi.Bool(true),
-//				MaskingPolicyName:    pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
-//				Privilege:            pulumi.String("APPLY"),
+//				MaskingPolicyName: pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
+//				DatabaseName:      pulumi.String("EXAMPLE_DB_NAME"),
+//				SchemaName:        pulumi.String("EXAMPLE_SCHEMA_NAME"),
+//				Privilege:         pulumi.String("APPLY"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("ROLE1_NAME"),
 //					pulumi.String("ROLE2_NAME"),
 //				},
-//				SchemaName:      pulumi.String("EXAMPLE_SCHEMA_NAME"),
-//				WithGrantOption: pulumi.Bool(true),
+//				WithGrantOption:      pulumi.Bool(true),
+//				EnableMultipleGrants: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

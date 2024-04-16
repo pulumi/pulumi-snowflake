@@ -28,13 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewNetworkPolicy(ctx, "policy", &snowflake.NetworkPolicyArgs{
+//				Name:    pulumi.String("policy"),
+//				Comment: pulumi.String("A policy."),
 //				AllowedIpLists: pulumi.StringArray{
 //					pulumi.String("192.168.0.100/24"),
 //				},
 //				BlockedIpLists: pulumi.StringArray{
 //					pulumi.String("192.168.0.101"),
 //				},
-//				Comment: pulumi.String("A policy."),
 //			})
 //			if err != nil {
 //				return err

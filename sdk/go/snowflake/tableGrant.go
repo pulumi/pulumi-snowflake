@@ -31,16 +31,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewTableGrant(ctx, "grant", &snowflake.TableGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
+//				SchemaName:   pulumi.String("schema"),
+//				TableName:    pulumi.String("table"),
 //				Privilege:    pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //				},
-//				TableName:       pulumi.String("table"),
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

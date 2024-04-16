@@ -48,18 +48,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;rking_test_role&#34;)
  *             .comment(&#34;for testing&#34;)
  *             .build());
  * 
  *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .name(&#34;rking_test_user&#34;)
  *             .comment(&#34;for testing&#34;)
  *             .build());
  * 
  *         var user2 = new User(&#34;user2&#34;, UserArgs.builder()        
+ *             .name(&#34;rking_test_user2&#34;)
  *             .comment(&#34;for testing&#34;)
  *             .build());
  * 
- *         var otherRole = new Role(&#34;otherRole&#34;);
+ *         var otherRole = new Role(&#34;otherRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;rking_test_role2&#34;)
+ *             .build());
  * 
  *         var grants = new RoleGrants(&#34;grants&#34;, RoleGrantsArgs.builder()        
  *             .roleName(role.name())

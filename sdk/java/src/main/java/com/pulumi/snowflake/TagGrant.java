@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TagGrant(&#34;example&#34;, TagGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
- *             .privilege(&#34;OWNERSHIP&#34;)
- *             .roles(&#34;TEST_ROLE&#34;)
  *             .schemaName(&#34;schema&#34;)
  *             .tagName(&#34;tag&#34;)
+ *             .roles(&#34;TEST_ROLE&#34;)
+ *             .privilege(&#34;OWNERSHIP&#34;)
  *             .build());
  * 
  *     }

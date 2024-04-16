@@ -26,13 +26,13 @@ namespace Pulumi.Snowflake
     ///     var example = new Snowflake.TagGrant("example", new()
     ///     {
     ///         DatabaseName = "database",
-    ///         Privilege = "OWNERSHIP",
+    ///         SchemaName = "schema",
+    ///         TagName = "tag",
     ///         Roles = new[]
     ///         {
     ///             "TEST_ROLE",
     ///         },
-    ///         SchemaName = "schema",
-    ///         TagName = "tag",
+    ///         Privilege = "OWNERSHIP",
     ///     });
     /// 
     /// });

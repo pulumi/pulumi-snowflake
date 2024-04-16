@@ -249,16 +249,19 @@ class TagAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
+        database = snowflake.Database("database", name="database")
+        schema = snowflake.Schema("schema",
+            name="schema",
+            database=database.name)
         tag = snowflake.Tag("tag",
+            name="cost_center",
             database=database.name,
             schema=schema.name,
             allowed_values=[
                 "finance",
                 "engineering",
             ])
-        db_association = snowflake.TagAssociation("dbAssociation",
+        db_association = snowflake.TagAssociation("db_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=database.name,
             )],
@@ -266,8 +269,9 @@ class TagAssociation(pulumi.CustomResource):
             tag_id=tag.id,
             tag_value="finance")
         test = snowflake.Table("test",
-            database=snowflake_database["test"]["name"],
-            schema=snowflake_schema["test"]["name"],
+            database=test_snowflake_database["name"],
+            schema=test_snowflake_schema["name"],
+            name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
                 snowflake.TableColumnArgs(
@@ -279,23 +283,23 @@ class TagAssociation(pulumi.CustomResource):
                     type="VARCHAR(16)",
                 ),
             ])
-        table_association = snowflake.TagAssociation("tableAssociation",
+        table_association = snowflake.TagAssociation("table_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name,
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=test_snowflake_database["name"],
+                schema=test_snowflake_schema["name"],
             )],
             object_type="TABLE",
-            tag_id=snowflake_tag["test"]["id"],
+            tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
-        column_association = snowflake.TagAssociation("columnAssociation",
+        column_association = snowflake.TagAssociation("column_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name.apply(lambda name: f"{name}.column_name"),
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=test_snowflake_database["name"],
+                schema=test_snowflake_schema["name"],
             )],
             object_type="COLUMN",
-            tag_id=snowflake_tag["test"]["id"],
+            tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
         ```
         <!--End PulumiCodeChooser -->
@@ -331,16 +335,19 @@ class TagAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
+        database = snowflake.Database("database", name="database")
+        schema = snowflake.Schema("schema",
+            name="schema",
+            database=database.name)
         tag = snowflake.Tag("tag",
+            name="cost_center",
             database=database.name,
             schema=schema.name,
             allowed_values=[
                 "finance",
                 "engineering",
             ])
-        db_association = snowflake.TagAssociation("dbAssociation",
+        db_association = snowflake.TagAssociation("db_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=database.name,
             )],
@@ -348,8 +355,9 @@ class TagAssociation(pulumi.CustomResource):
             tag_id=tag.id,
             tag_value="finance")
         test = snowflake.Table("test",
-            database=snowflake_database["test"]["name"],
-            schema=snowflake_schema["test"]["name"],
+            database=test_snowflake_database["name"],
+            schema=test_snowflake_schema["name"],
+            name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
                 snowflake.TableColumnArgs(
@@ -361,23 +369,23 @@ class TagAssociation(pulumi.CustomResource):
                     type="VARCHAR(16)",
                 ),
             ])
-        table_association = snowflake.TagAssociation("tableAssociation",
+        table_association = snowflake.TagAssociation("table_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name,
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=test_snowflake_database["name"],
+                schema=test_snowflake_schema["name"],
             )],
             object_type="TABLE",
-            tag_id=snowflake_tag["test"]["id"],
+            tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
-        column_association = snowflake.TagAssociation("columnAssociation",
+        column_association = snowflake.TagAssociation("column_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
                 name=test.name.apply(lambda name: f"{name}.column_name"),
-                database=snowflake_database["test"]["name"],
-                schema=snowflake_schema["test"]["name"],
+                database=test_snowflake_database["name"],
+                schema=test_snowflake_schema["name"],
             )],
             object_type="COLUMN",
-            tag_id=snowflake_tag["test"]["id"],
+            tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
         ```
         <!--End PulumiCodeChooser -->

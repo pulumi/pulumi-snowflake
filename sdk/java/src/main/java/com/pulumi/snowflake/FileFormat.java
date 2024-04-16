@@ -43,9 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleFileFormat = new FileFormat(&#34;exampleFileFormat&#34;, FileFormatArgs.builder()        
+ *             .name(&#34;EXAMPLE_FILE_FORMAT&#34;)
  *             .database(&#34;EXAMPLE_DB&#34;)
- *             .formatType(&#34;CSV&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
+ *             .formatType(&#34;CSV&#34;)
  *             .build());
  * 
  *     }

@@ -23,36 +23,39 @@ namespace Pulumi.Snowflake
     /// {
     ///     var aws = new Snowflake.ApiIntegration("aws", new()
     ///     {
+    ///         Name = "aws_integration",
+    ///         ApiProvider = "aws_api_gateway",
+    ///         ApiAwsRoleArn = "arn:aws:iam::000000000001:/role/test",
     ///         ApiAllowedPrefixes = new[]
     ///         {
     ///             "https://123456.execute-api.us-west-2.amazonaws.com/prod/",
     ///         },
-    ///         ApiAwsRoleArn = "arn:aws:iam::000000000001:/role/test",
-    ///         ApiProvider = "aws_api_gateway",
     ///         Enabled = true,
     ///     });
     /// 
     ///     var azure = new Snowflake.ApiIntegration("azure", new()
     ///     {
+    ///         Name = "azure_integration",
+    ///         ApiProvider = "azure_api_management",
+    ///         AzureTenantId = "00000000-0000-0000-0000-000000000000",
+    ///         AzureAdApplicationId = "11111111-1111-1111-1111-111111111111",
     ///         ApiAllowedPrefixes = new[]
     ///         {
     ///             "https://apim-hello-world.azure-api.net/",
     ///         },
-    ///         ApiProvider = "azure_api_management",
-    ///         AzureAdApplicationId = "11111111-1111-1111-1111-111111111111",
-    ///         AzureTenantId = "00000000-0000-0000-0000-000000000000",
     ///         Enabled = true,
     ///     });
     /// 
     ///     var gcp = new Snowflake.ApiIntegration("gcp", new()
     ///     {
+    ///         Name = "gcp_integration",
+    ///         ApiProvider = "google_api_gateway",
+    ///         GoogleAudience = "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
     ///         ApiAllowedPrefixes = new[]
     ///         {
     ///             "https://gateway-id-123456.uc.gateway.dev/",
     ///         },
-    ///         ApiProvider = "google_api_gateway",
     ///         Enabled = true,
-    ///         GoogleAudience = "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
     ///     });
     /// 
     /// });

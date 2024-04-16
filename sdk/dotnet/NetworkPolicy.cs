@@ -23,6 +23,8 @@ namespace Pulumi.Snowflake
     /// {
     ///     var policy = new Snowflake.NetworkPolicy("policy", new()
     ///     {
+    ///         Name = "policy",
+    ///         Comment = "A policy.",
     ///         AllowedIpLists = new[]
     ///         {
     ///             "192.168.0.100/24",
@@ -31,7 +33,6 @@ namespace Pulumi.Snowflake
     ///         {
     ///             "192.168.0.101",
     ///         },
-    ///         Comment = "A policy.",
     ///     });
     /// 
     /// });

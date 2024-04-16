@@ -27,6 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
+//				Name:    pulumi.String("share_name"),
 //				Comment: pulumi.String("cool comment"),
 //				Accounts: pulumi.StringArray{
 //					pulumi.String("organizationName.accountName"),
@@ -35,7 +36,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "example", nil, pulumi.DependsOn([]pulumi.Resource{
+//			_, err = snowflake.NewDatabase(ctx, "example", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("test"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
 //				test,
 //			}))
 //			if err != nil {

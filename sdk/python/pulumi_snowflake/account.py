@@ -489,8 +489,8 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        orgadmin = snowflake.Provider("orgadmin", role="ORGADMIN")
         ac1 = snowflake.Account("ac1",
+            name="SNOWFLAKE_TEST_ACCOUNT",
             admin_name="John Doe",
             admin_password="Abcd1234!",
             email="john.doe@snowflake.com",
@@ -499,8 +499,7 @@ class Account(pulumi.CustomResource):
             must_change_password=True,
             edition="STANDARD",
             comment="Snowflake Test Account",
-            region="AWS_US_WEST_2",
-            opts=pulumi.ResourceOptions(provider=snowflake["orgadmin"]))
+            region="AWS_US_WEST_2")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -546,8 +545,8 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        orgadmin = snowflake.Provider("orgadmin", role="ORGADMIN")
         ac1 = snowflake.Account("ac1",
+            name="SNOWFLAKE_TEST_ACCOUNT",
             admin_name="John Doe",
             admin_password="Abcd1234!",
             email="john.doe@snowflake.com",
@@ -556,8 +555,7 @@ class Account(pulumi.CustomResource):
             must_change_password=True,
             edition="STANDARD",
             comment="Snowflake Test Account",
-            region="AWS_US_WEST_2",
-            opts=pulumi.ResourceOptions(provider=snowflake["orgadmin"]))
+            region="AWS_US_WEST_2")
         ```
         <!--End PulumiCodeChooser -->
 

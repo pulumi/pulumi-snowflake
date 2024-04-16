@@ -16,17 +16,17 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.SchemaGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

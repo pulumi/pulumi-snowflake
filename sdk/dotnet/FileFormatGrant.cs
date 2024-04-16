@@ -26,15 +26,15 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.FileFormatGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
+    ///         SchemaName = "schema",
     ///         FileFormatName = "file_format",
-    ///         OnFuture = false,
     ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 

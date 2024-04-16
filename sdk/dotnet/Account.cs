@@ -27,13 +27,9 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orgadmin = new Snowflake.Provider("orgadmin", new()
-    ///     {
-    ///         Role = "ORGADMIN",
-    ///     });
-    /// 
     ///     var ac1 = new Snowflake.Account("ac1", new()
     ///     {
+    ///         Name = "SNOWFLAKE_TEST_ACCOUNT",
     ///         AdminName = "John Doe",
     ///         AdminPassword = "Abcd1234!",
     ///         Email = "john.doe@snowflake.com",
@@ -43,9 +39,6 @@ namespace Pulumi.Snowflake
     ///         Edition = "STANDARD",
     ///         Comment = "Snowflake Test Account",
     ///         Region = "AWS_US_WEST_2",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = snowflake.Orgadmin,
     ///     });
     /// 
     /// });

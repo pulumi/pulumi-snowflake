@@ -45,14 +45,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
  *         var dt = new DynamicTable(&#34;dt&#34;, DynamicTableArgs.builder()        
- *             .comment(&#34;example comment&#34;)
+ *             .name(&#34;product&#34;)
  *             .database(&#34;mydb&#34;)
- *             .query(&#34;SELECT product_id, product_name FROM \&#34;mydb\&#34;.\&#34;myschema\&#34;.\&#34;staging_table\&#34;&#34;)
  *             .schema(&#34;myschema&#34;)
  *             .targetLag(DynamicTableTargetLagArgs.builder()
  *                 .maximumDuration(&#34;20 minutes&#34;)
  *                 .build())
  *             .warehouse(&#34;mywh&#34;)
+ *             .query(&#34;SELECT product_id, product_name FROM \&#34;mydb\&#34;.\&#34;myschema\&#34;.\&#34;staging_table\&#34;&#34;)
+ *             .comment(&#34;example comment&#34;)
  *             .build());
  * 
  *     }

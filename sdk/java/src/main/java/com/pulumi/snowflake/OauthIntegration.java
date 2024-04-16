@@ -43,11 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tableauDesktop = new OauthIntegration(&#34;tableauDesktop&#34;, OauthIntegrationArgs.builder()        
- *             .blockedRolesLists(&#34;SYSADMIN&#34;)
- *             .enabled(true)
+ *             .name(&#34;TABLEAU_DESKTOP&#34;)
  *             .oauthClient(&#34;TABLEAU_DESKTOP&#34;)
+ *             .enabled(true)
  *             .oauthIssueRefreshTokens(true)
  *             .oauthRefreshTokenValidity(3600)
+ *             .blockedRolesLists(&#34;SYSADMIN&#34;)
  *             .build());
  * 
  *     }

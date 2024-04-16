@@ -14,10 +14,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const role = new snowflake.Role("role", {comment: "for testing"});
- * const user = new snowflake.User("user", {comment: "for testing"});
- * const user2 = new snowflake.User("user2", {comment: "for testing"});
- * const otherRole = new snowflake.Role("otherRole", {});
+ * const role = new snowflake.Role("role", {
+ *     name: "rking_test_role",
+ *     comment: "for testing",
+ * });
+ * const user = new snowflake.User("user", {
+ *     name: "rking_test_user",
+ *     comment: "for testing",
+ * });
+ * const user2 = new snowflake.User("user2", {
+ *     name: "rking_test_user2",
+ *     comment: "for testing",
+ * });
+ * const otherRole = new snowflake.Role("other_role", {name: "rking_test_role2"});
  * const grants = new snowflake.RoleGrants("grants", {
  *     roleName: role.name,
  *     roles: [otherRole.name],

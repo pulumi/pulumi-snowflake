@@ -44,15 +44,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MaskingPolicyGrant(&#34;example&#34;, MaskingPolicyGrantArgs.builder()        
- *             .databaseName(&#34;EXAMPLE_DB_NAME&#34;)
- *             .enableMultipleGrants(true)
  *             .maskingPolicyName(&#34;EXAMPLE_MASKING_POLICY_NAME&#34;)
+ *             .databaseName(&#34;EXAMPLE_DB_NAME&#34;)
+ *             .schemaName(&#34;EXAMPLE_SCHEMA_NAME&#34;)
  *             .privilege(&#34;APPLY&#34;)
  *             .roles(            
  *                 &#34;ROLE1_NAME&#34;,
  *                 &#34;ROLE2_NAME&#34;)
- *             .schemaName(&#34;EXAMPLE_SCHEMA_NAME&#34;)
  *             .withGrantOption(true)
+ *             .enableMultipleGrants(true)
  *             .build());
  * 
  *     }

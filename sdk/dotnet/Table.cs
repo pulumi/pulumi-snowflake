@@ -12,6 +12,97 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     {
+    ///         Database = "database",
+    ///         Name = "schema",
+    ///         DataRetentionDays = 1,
+    ///     });
+    /// 
+    ///     var sequence = new Snowflake.Sequence("sequence", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "sequence",
+    ///     });
+    /// 
+    ///     var table = new Snowflake.Table("table", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "table",
+    ///         Comment = "A table.",
+    ///         ClusterBies = new[]
+    ///         {
+    ///             "to_date(DATE)",
+    ///         },
+    ///         DataRetentionTimeInDays = schema.DataRetentionTimeInDays,
+    ///         ChangeTracking = false,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///                 Nullable = true,
+    ///                 Default = new Snowflake.Inputs.TableColumnDefaultArgs
+    ///                 {
+    ///                     Sequence = sequence.FullyQualifiedName,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "identity",
+    ///                 Type = "NUMBER(38,0)",
+    ///                 Nullable = true,
+    ///                 Identity = new Snowflake.Inputs.TableColumnIdentityArgs
+    ///                 {
+    ///                     StartNum = 1,
+    ///                     StepNum = 3,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "data",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///                 Collate = "en-ci",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "DATE",
+    ///                 Type = "TIMESTAMP_NTZ(9)",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "extra",
+    ///                 Type = "VARIANT",
+    ///                 Comment = "extra data",
+    ///             },
+    ///         },
+    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
+    ///         {
+    ///             Name = "my_key",
+    ///             Keys = new[]
+    ///             {
+    ///                 "data",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | table name

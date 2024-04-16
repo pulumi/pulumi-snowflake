@@ -382,17 +382,17 @@ class SchemaGrant(pulumi.CustomResource):
 
         grant = snowflake.SchemaGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -438,17 +438,17 @@ class SchemaGrant(pulumi.CustomResource):
 
         grant = snowflake.SchemaGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

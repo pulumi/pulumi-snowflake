@@ -30,24 +30,29 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+//				Name:    pulumi.String("rking_test_role"),
 //				Comment: pulumi.String("for testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			user, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
+//				Name:    pulumi.String("rking_test_user"),
 //				Comment: pulumi.String("for testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			user2, err := snowflake.NewUser(ctx, "user2", &snowflake.UserArgs{
+//				Name:    pulumi.String("rking_test_user2"),
 //				Comment: pulumi.String("for testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
+//			otherRole, err := snowflake.NewRole(ctx, "other_role", &snowflake.RoleArgs{
+//				Name: pulumi.String("rking_test_role2"),
+//			})
 //			if err != nil {
 //				return err
 //			}

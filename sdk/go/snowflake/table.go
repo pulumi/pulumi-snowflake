@@ -14,6 +14,96 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Database:          pulumi.String("database"),
+//				Name:              pulumi.String("schema"),
+//				DataRetentionDays: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sequence, err := snowflake.NewSequence(ctx, "sequence", &snowflake.SequenceArgs{
+//				Database: schema.Database,
+//				Schema:   schema.Name,
+//				Name:     pulumi.String("sequence"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+//				Database: schema.Database,
+//				Schema:   schema.Name,
+//				Name:     pulumi.String("table"),
+//				Comment:  pulumi.String("A table."),
+//				ClusterBies: pulumi.StringArray{
+//					pulumi.String("to_date(DATE)"),
+//				},
+//				DataRetentionTimeInDays: schema.DataRetentionTimeInDays,
+//				ChangeTracking:          pulumi.Bool(false),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("id"),
+//						Type:     pulumi.String("int"),
+//						Nullable: pulumi.Bool(true),
+//						Default: &snowflake.TableColumnDefaultArgs{
+//							Sequence: sequence.FullyQualifiedName,
+//						},
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("identity"),
+//						Type:     pulumi.String("NUMBER(38,0)"),
+//						Nullable: pulumi.Bool(true),
+//						Identity: &snowflake.TableColumnIdentityArgs{
+//							StartNum: pulumi.Int(1),
+//							StepNum:  pulumi.Int(3),
+//						},
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("data"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//						Collate:  pulumi.String("en-ci"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("DATE"),
+//						Type: pulumi.String("TIMESTAMP_NTZ(9)"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:    pulumi.String("extra"),
+//						Type:    pulumi.String("VARIANT"),
+//						Comment: pulumi.String("extra data"),
+//					},
+//				},
+//				PrimaryKey: &snowflake.TablePrimaryKeyArgs{
+//					Name: pulumi.String("my_key"),
+//					Keys: pulumi.StringArray{
+//						pulumi.String("data"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // format is database name | schema name | table name

@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.WarehouseGrant("grant", {
+ *     warehouseName: "warehouse",
  *     privilege: "MODIFY",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     warehouseName: "warehouse",
  *     withGrantOption: false,
  * });
  * ```

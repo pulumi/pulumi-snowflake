@@ -42,20 +42,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .name(&#34;Snowflake User&#34;)
+ *             .loginName(&#34;snowflake_user&#34;)
  *             .comment(&#34;A user of snowflake.&#34;)
- *             .defaultRole(&#34;role1&#34;)
- *             .defaultSecondaryRoles(&#34;ALL&#34;)
- *             .defaultWarehouse(&#34;warehouse&#34;)
+ *             .password(&#34;secret&#34;)
  *             .disabled(false)
  *             .displayName(&#34;Snowflake User&#34;)
  *             .email(&#34;user@snowflake.example&#34;)
  *             .firstName(&#34;Snowflake&#34;)
  *             .lastName(&#34;User&#34;)
- *             .loginName(&#34;snowflake_user&#34;)
- *             .mustChangePassword(false)
- *             .password(&#34;secret&#34;)
+ *             .defaultWarehouse(&#34;warehouse&#34;)
+ *             .defaultSecondaryRoles(&#34;ALL&#34;)
+ *             .defaultRole(&#34;role1&#34;)
  *             .rsaPublicKey(&#34;...&#34;)
  *             .rsaPublicKey2(&#34;...&#34;)
+ *             .mustChangePassword(false)
  *             .build());
  * 
  *     }

@@ -13,23 +13,26 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const aws = new snowflake.ApiIntegration("aws", {
- *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
- *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
+ *     name: "aws_integration",
  *     apiProvider: "aws_api_gateway",
+ *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
+ *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
  *     enabled: true,
  * });
  * const azure = new snowflake.ApiIntegration("azure", {
- *     apiAllowedPrefixes: ["https://apim-hello-world.azure-api.net/"],
+ *     name: "azure_integration",
  *     apiProvider: "azure_api_management",
- *     azureAdApplicationId: "11111111-1111-1111-1111-111111111111",
  *     azureTenantId: "00000000-0000-0000-0000-000000000000",
+ *     azureAdApplicationId: "11111111-1111-1111-1111-111111111111",
+ *     apiAllowedPrefixes: ["https://apim-hello-world.azure-api.net/"],
  *     enabled: true,
  * });
  * const gcp = new snowflake.ApiIntegration("gcp", {
- *     apiAllowedPrefixes: ["https://gateway-id-123456.uc.gateway.dev/"],
+ *     name: "gcp_integration",
  *     apiProvider: "google_api_gateway",
- *     enabled: true,
  *     googleAudience: "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
+ *     apiAllowedPrefixes: ["https://gateway-id-123456.uc.gateway.dev/"],
+ *     enabled: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

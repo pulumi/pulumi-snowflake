@@ -308,9 +308,11 @@ class Database(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         simple = snowflake.Database("simple",
+            name="testing",
             comment="test comment",
             data_retention_time_in_days=3)
-        with_replication = snowflake.Database("withReplication",
+        with_replication = snowflake.Database("with_replication",
+            name="testing_2",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -319,11 +321,13 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        from_replica = snowflake.Database("fromReplica",
+        from_replica = snowflake.Database("from_replica",
+            name="testing_3",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.Database("fromShare",
+        from_share = snowflake.Database("from_share",
+            name="testing_4",
             comment="test comment",
             from_share={
                 "provider": "account1_locator",
@@ -364,9 +368,11 @@ class Database(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         simple = snowflake.Database("simple",
+            name="testing",
             comment="test comment",
             data_retention_time_in_days=3)
-        with_replication = snowflake.Database("withReplication",
+        with_replication = snowflake.Database("with_replication",
+            name="testing_2",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -375,11 +381,13 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        from_replica = snowflake.Database("fromReplica",
+        from_replica = snowflake.Database("from_replica",
+            name="testing_3",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.Database("fromShare",
+        from_share = snowflake.Database("from_share",
+            name="testing_4",
             comment="test comment",
             from_share={
                 "provider": "account1_locator",

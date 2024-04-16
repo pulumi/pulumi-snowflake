@@ -21,10 +21,14 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var db = new Snowflake.Database("db");
-    /// 
-    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("sourceFailoverGroup", new()
+    ///     var db = new Snowflake.Database("db", new()
     ///     {
+    ///         Name = "db1",
+    ///     });
+    /// 
+    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("source_failover_group", new()
+    ///     {
+    ///         Name = "FG1",
     ///         ObjectTypes = new[]
     ///         {
     ///             "WAREHOUSES",
@@ -55,19 +59,15 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var account2 = new Snowflake.Provider("account2");
-    /// 
-    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("targetFailoverGroup", new()
+    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("target_failover_group", new()
     ///     {
+    ///         Name = "FG1",
     ///         FromReplica = new Snowflake.Inputs.FailoverGroupFromReplicaArgs
     ///         {
     ///             OrganizationName = "...",
     ///             SourceAccountName = "...",
-    ///             Name = snowflake_failover_group.Fg.Name,
+    ///             Name = fg.Name,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = snowflake.Account2,
     ///     });
     /// 
     /// });

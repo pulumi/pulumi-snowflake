@@ -14,8 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const role = new snowflake.Role("role", {comment: "for testing"});
- * const otherRole = new snowflake.Role("otherRole", {});
+ * const role = new snowflake.Role("role", {
+ *     name: "rking_test_role",
+ *     comment: "for testing",
+ * });
+ * const otherRole = new snowflake.Role("other_role", {name: "rking_test_role2"});
  * // ensure the Terraform user inherits ownership privileges for the rking_test_role role
  * // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
  * const grants = new snowflake.RoleGrants("grants", {

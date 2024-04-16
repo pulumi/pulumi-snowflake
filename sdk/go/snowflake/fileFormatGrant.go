@@ -31,14 +31,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewFileFormatGrant(ctx, "grant", &snowflake.FileFormatGrantArgs{
 //				DatabaseName:   pulumi.String("database"),
+//				SchemaName:     pulumi.String("schema"),
 //				FileFormatName: pulumi.String("file_format"),
-//				OnFuture:       pulumi.Bool(false),
 //				Privilege:      pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName:      pulumi.String("schema"),
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

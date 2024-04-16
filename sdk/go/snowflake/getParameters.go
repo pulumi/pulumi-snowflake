@@ -26,15 +26,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("TEST_DB"),
+//			})
 //			if err != nil {
 //				return err
 //			}
+//			// read all object parameters in database TEST_DB
 //			_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{
 //				ParameterType: pulumi.String("OBJECT"),
 //				ObjectType:    pulumi.String("DATABASE"),
-//				ObjectName:    database.Name,
+//				ObjectName:    d.Name,
 //			}, nil)
+//			// read all account parameters with the pattern '%TIMESTAMP%'
 //			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
 //				ParameterType: pulumi.StringRef("ACCOUNT"),
 //				Pattern:       pulumi.StringRef("%TIMESTAMP%"),
@@ -42,6 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// read the exact session parameter ROWS_PER_RESULTSET
 //			_, err = snowflake.GetParameters(ctx, &snowflake.GetParametersArgs{
 //				ParameterType: pulumi.StringRef("SESSION"),
 //				Pattern:       pulumi.StringRef("ROWS_PER_RESULTSET"),

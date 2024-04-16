@@ -25,6 +25,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         Database = "database",
     ///         Schema = "schema",
+    ///         Name = "view",
     ///         Comment = "comment",
     ///         Statement = @"select * from foo;
     /// ",

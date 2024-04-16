@@ -643,13 +643,14 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
-            azure_storage_queue_primary_uri="...",
-            azure_tenant_id="...",
+            name="notification",
             comment="A notification integration.",
-            direction="OUTBOUND",
             enabled=True,
+            type="QUEUE",
+            direction="OUTBOUND",
             notification_provider="AZURE_STORAGE_QUEUE",
-            type="QUEUE")
+            azure_storage_queue_primary_uri="...",
+            azure_tenant_id="...")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -689,13 +690,14 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         integration = snowflake.NotificationIntegration("integration",
-            azure_storage_queue_primary_uri="...",
-            azure_tenant_id="...",
+            name="notification",
             comment="A notification integration.",
-            direction="OUTBOUND",
             enabled=True,
+            type="QUEUE",
+            direction="OUTBOUND",
             notification_provider="AZURE_STORAGE_QUEUE",
-            type="QUEUE")
+            azure_storage_queue_primary_uri="...",
+            azure_tenant_id="...")
         ```
         <!--End PulumiCodeChooser -->
 

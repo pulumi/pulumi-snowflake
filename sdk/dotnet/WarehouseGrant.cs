@@ -25,13 +25,13 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.WarehouseGrant("grant", new()
     ///     {
+    ///         WarehouseName = "warehouse",
     ///         Privilege = "MODIFY",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         WarehouseName = "warehouse",
     ///         WithGrantOption = false,
     ///     });
     /// 

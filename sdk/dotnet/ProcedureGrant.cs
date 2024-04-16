@@ -25,26 +25,26 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.ProcedureGrant("grant", new()
     ///     {
+    ///         DatabaseName = "database",
+    ///         SchemaName = "schema",
+    ///         ProcedureName = "procedure",
     ///         ArgumentDataTypes = new[]
     ///         {
     ///             "array",
     ///             "string",
     ///         },
-    ///         DatabaseName = "database",
-    ///         OnFuture = false,
     ///         Privilege = "USAGE",
-    ///         ProcedureName = "procedure",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
     ///         Shares = new[]
     ///         {
     ///             "share1",
     ///             "share2",
     ///         },
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 

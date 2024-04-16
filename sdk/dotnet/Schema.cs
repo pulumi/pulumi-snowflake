@@ -23,11 +23,12 @@ namespace Pulumi.Snowflake
     /// {
     ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
-    ///         Comment = "A schema.",
-    ///         DataRetentionDays = 1,
     ///         Database = "database",
-    ///         IsManaged = false,
+    ///         Name = "schema",
+    ///         Comment = "A schema.",
     ///         IsTransient = false,
+    ///         IsManaged = false,
+    ///         DataRetentionDays = 1,
     ///     });
     /// 
     /// });

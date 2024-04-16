@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "role1",
     ///         Comment = "A role.",
     ///     });
     /// 

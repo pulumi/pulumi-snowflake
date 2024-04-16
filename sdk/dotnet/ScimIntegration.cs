@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var aad = new Snowflake.ScimIntegration("aad", new()
     ///     {
+    ///         Name = "AAD_PROVISIONING",
     ///         NetworkPolicy = "AAD_NETWORK_POLICY",
     ///         ProvisionerRole = "AAD_PROVISIONER",
     ///         ScimClient = "AZURE",

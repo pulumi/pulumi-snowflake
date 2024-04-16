@@ -21,8 +21,13 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var externalTable = new Snowflake.ExternalTable("externalTable", new()
+    ///     var externalTable = new Snowflake.ExternalTable("external_table", new()
     ///     {
+    ///         Database = "db",
+    ///         Schema = "schema",
+    ///         Name = "external_table",
+    ///         Comment = "External table",
+    ///         FileFormat = "TYPE = CSV FIELD_DELIMITER = '|'",
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.ExternalTableColumnArgs
@@ -36,10 +41,6 @@ namespace Pulumi.Snowflake
     ///                 Type = "text",
     ///             },
     ///         },
-    ///         Comment = "External table",
-    ///         Database = "db",
-    ///         FileFormat = "TYPE = CSV FIELD_DELIMITER = '|'",
-    ///         Schema = "schema",
     ///     });
     /// 
     /// });

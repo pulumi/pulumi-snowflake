@@ -49,17 +49,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create database
  *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;MY_DB&#34;)
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         // Create schema
  *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
  *             .database(db.name())
+ *             .name(&#34;MY_SCHEMA&#34;)
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         // Example for Java language
  *         var testFunctJava = new Function(&#34;testFunctJava&#34;, FunctionArgs.builder()        
+ *             .name(&#34;my_java_func&#34;)
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)
  *             .arguments(FunctionArgumentArgs.builder()
@@ -75,6 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         // Example for Python language
  *         var pythonTest = new Function(&#34;pythonTest&#34;, FunctionArgs.builder()        
+ *             .name(&#34;MY_PYTHON_FUNC&#34;)
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)
  *             .arguments(FunctionArgumentArgs.builder()
@@ -93,6 +97,7 @@ import javax.annotation.Nullable;
  * 
  *         // Example SQL language
  *         var sqlTest = new Function(&#34;sqlTest&#34;, FunctionArgs.builder()        
+ *             .name(&#34;MY_SQL_FUNC&#34;)
  *             .database(&#34;MY_DB&#34;)
  *             .schema(&#34;MY_SCHEMA&#34;)
  *             .arguments(FunctionArgumentArgs.builder()

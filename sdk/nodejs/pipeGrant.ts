@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.PipeGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
  *     pipeName: "pipe",
  *     privilege: "OPERATE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

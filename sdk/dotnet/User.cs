@@ -23,23 +23,24 @@ namespace Pulumi.Snowflake
     /// {
     ///     var user = new Snowflake.User("user", new()
     ///     {
+    ///         Name = "Snowflake User",
+    ///         LoginName = "snowflake_user",
     ///         Comment = "A user of snowflake.",
-    ///         DefaultRole = "role1",
-    ///         DefaultSecondaryRoles = new[]
-    ///         {
-    ///             "ALL",
-    ///         },
-    ///         DefaultWarehouse = "warehouse",
+    ///         Password = "secret",
     ///         Disabled = false,
     ///         DisplayName = "Snowflake User",
     ///         Email = "user@snowflake.example",
     ///         FirstName = "Snowflake",
     ///         LastName = "User",
-    ///         LoginName = "snowflake_user",
-    ///         MustChangePassword = false,
-    ///         Password = "secret",
+    ///         DefaultWarehouse = "warehouse",
+    ///         DefaultSecondaryRoles = new[]
+    ///         {
+    ///             "ALL",
+    ///         },
+    ///         DefaultRole = "role1",
     ///         RsaPublicKey = "...",
     ///         RsaPublicKey2 = "...",
+    ///         MustChangePassword = false,
     ///     });
     /// 
     /// });

@@ -31,14 +31,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewPipeGrant(ctx, "grant", &snowflake.PipeGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
+//				SchemaName:   pulumi.String("schema"),
 //				PipeName:     pulumi.String("pipe"),
 //				Privilege:    pulumi.String("OPERATE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName:      pulumi.String("schema"),
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

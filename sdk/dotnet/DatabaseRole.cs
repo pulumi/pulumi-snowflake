@@ -21,10 +21,11 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dbRole = new Snowflake.DatabaseRole("dbRole", new()
+    ///     var dbRole = new Snowflake.DatabaseRole("db_role", new()
     ///     {
-    ///         Comment = "my db role",
     ///         Database = "database",
+    ///         Name = "role_1",
+    ///         Comment = "my db role",
     ///     });
     /// 
     /// });

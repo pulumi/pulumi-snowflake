@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var grant = new SequenceGrant(&#34;grant&#34;, SequenceGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
- *             .onFuture(false)
+ *             .schemaName(&#34;schema&#34;)
+ *             .sequenceName(&#34;sequence&#34;)
  *             .privilege(&#34;SELECT&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
- *             .sequenceName(&#34;sequence&#34;)
+ *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 

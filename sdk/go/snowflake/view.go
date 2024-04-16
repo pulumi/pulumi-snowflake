@@ -30,6 +30,7 @@ import (
 //			_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
 //				Database:  pulumi.String("database"),
 //				Schema:    pulumi.String("schema"),
+//				Name:      pulumi.String("view"),
 //				Comment:   pulumi.String("comment"),
 //				Statement: pulumi.String("select * from foo;\n"),
 //				OrReplace: pulumi.Bool(false),

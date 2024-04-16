@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var warehouse = new Snowflake.Warehouse("warehouse", new()
     ///     {
+    ///         Name = "test",
     ///         Comment = "foo",
     ///         WarehouseSize = "small",
     ///     });

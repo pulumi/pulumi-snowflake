@@ -269,11 +269,14 @@ class Sequence(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        test_schema = snowflake.Schema("testSchema", database=snowflake_database["test_database"]["name"])
-        test_sequence = snowflake.Sequence("testSequence",
-            database=snowflake_database["test_database"]["name"],
-            schema=test_schema.name)
+        database = snowflake.Database("database", name="things")
+        test_schema = snowflake.Schema("test_schema",
+            name="things",
+            database=test_database["name"])
+        test_sequence = snowflake.Sequence("test_sequence",
+            database=test_database["name"],
+            schema=test_schema.name,
+            name="thing_counter")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -308,11 +311,14 @@ class Sequence(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        test_schema = snowflake.Schema("testSchema", database=snowflake_database["test_database"]["name"])
-        test_sequence = snowflake.Sequence("testSequence",
-            database=snowflake_database["test_database"]["name"],
-            schema=test_schema.name)
+        database = snowflake.Database("database", name="things")
+        test_schema = snowflake.Schema("test_schema",
+            name="things",
+            database=test_database["name"])
+        test_sequence = snowflake.Sequence("test_sequence",
+            database=test_database["name"],
+            schema=test_schema.name,
+            name="thing_counter")
         ```
         <!--End PulumiCodeChooser -->
 

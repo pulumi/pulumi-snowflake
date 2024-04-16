@@ -45,11 +45,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Database(&#34;simple&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;testing&#34;)
  *             .comment(&#34;test comment&#34;)
  *             .dataRetentionTimeInDays(3)
  *             .build());
  * 
  *         var withReplication = new Database(&#34;withReplication&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;testing_2&#34;)
  *             .comment(&#34;test comment 2&#34;)
  *             .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()
  *                 .accounts(                
@@ -60,12 +62,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fromReplica = new Database(&#34;fromReplica&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;testing_3&#34;)
  *             .comment(&#34;test comment&#34;)
  *             .dataRetentionTimeInDays(3)
  *             .fromReplica(&#34;\&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name\&#34;&#34;)
  *             .build());
  * 
  *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;testing_4&#34;)
  *             .comment(&#34;test comment&#34;)
  *             .fromShare(Map.ofEntries(
  *                 Map.entry(&#34;provider&#34;, &#34;account1_locator&#34;),

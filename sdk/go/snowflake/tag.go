@@ -27,17 +27,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			database, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("database"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("schema"),
 //				Database: database.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+//				Name:     pulumi.String("cost_center"),
 //				Database: database.Name,
 //				Schema:   schema.Name,
 //				AllowedValues: pulumi.StringArray{

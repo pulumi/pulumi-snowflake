@@ -21,11 +21,12 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileFormat = new Snowflake.FileFormat("exampleFileFormat", new()
+    ///     var exampleFileFormat = new Snowflake.FileFormat("example_file_format", new()
     ///     {
+    ///         Name = "EXAMPLE_FILE_FORMAT",
     ///         Database = "EXAMPLE_DB",
-    ///         FormatType = "CSV",
     ///         Schema = "EXAMPLE_SCHEMA",
+    ///         FormatType = "CSV",
     ///     });
     /// 
     /// });

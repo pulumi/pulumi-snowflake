@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  * const view = new snowflake.MaterializedView("view", {
  *     database: "db",
  *     schema: "schema",
+ *     name: "view",
  *     warehouse: "warehouse",
  *     comment: "comment",
  *     statement: "select * from foo;\n",

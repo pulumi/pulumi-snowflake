@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.TaskGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     taskName: "task",
  *     privilege: "OPERATE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
- *     taskName: "task",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

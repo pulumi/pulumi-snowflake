@@ -30,15 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewRowAccessPolicyGrant(ctx, "grant", &snowflake.RowAccessPolicyGrantArgs{
-//				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("APPLY"),
+//				DatabaseName:        pulumi.String("database"),
+//				SchemaName:          pulumi.String("schema"),
+//				RowAccessPolicyName: pulumi.String("row_access_policy"),
+//				Privilege:           pulumi.String("APPLY"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				RowAccessPolicyName: pulumi.String("row_access_policy"),
-//				SchemaName:          pulumi.String("schema"),
-//				WithGrantOption:     pulumi.Bool(false),
+//				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

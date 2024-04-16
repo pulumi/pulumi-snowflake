@@ -146,7 +146,9 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="A role.")
+        role = snowflake.Role("role",
+            name="role1",
+            comment="A role.")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -175,7 +177,9 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="A role.")
+        role = snowflake.Role("role",
+            name="role1",
+            comment="A role.")
         ```
         <!--End PulumiCodeChooser -->
 

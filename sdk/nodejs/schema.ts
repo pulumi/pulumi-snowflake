@@ -15,11 +15,12 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const schema = new snowflake.Schema("schema", {
- *     comment: "A schema.",
- *     dataRetentionDays: 1,
  *     database: "database",
- *     isManaged: false,
+ *     name: "schema",
+ *     comment: "A schema.",
  *     isTransient: false,
+ *     isManaged: false,
+ *     dataRetentionDays: 1,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

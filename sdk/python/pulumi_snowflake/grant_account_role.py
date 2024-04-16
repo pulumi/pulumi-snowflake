@@ -134,30 +134,6 @@ class GrantAccountRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ##################################
-        ### grant account role to account role
-        ##################################
-        role_role = snowflake.Role("roleRole")
-        parent_role = snowflake.Role("parentRole")
-        grant_account_role = snowflake.GrantAccountRole("grantAccountRole",
-            role_name=role_role.name,
-            parent_role_name=parent_role.name)
-        ##################################
-        ### grant account role to user
-        ##################################
-        role_index_role_role = snowflake.Role("roleIndex/roleRole")
-        user = snowflake.User("user")
-        index_grant_account_role_grant_account_role = snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole",
-            role_name=role_role.name,
-            user_name=user.name)
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
@@ -180,30 +156,6 @@ class GrantAccountRole(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ##################################
-        ### grant account role to account role
-        ##################################
-        role_role = snowflake.Role("roleRole")
-        parent_role = snowflake.Role("parentRole")
-        grant_account_role = snowflake.GrantAccountRole("grantAccountRole",
-            role_name=role_role.name,
-            parent_role_name=parent_role.name)
-        ##################################
-        ### grant account role to user
-        ##################################
-        role_index_role_role = snowflake.Role("roleIndex/roleRole")
-        user = snowflake.User("user")
-        index_grant_account_role_grant_account_role = snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole",
-            role_name=role_role.name,
-            user_name=user.name)
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

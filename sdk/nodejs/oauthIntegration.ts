@@ -12,12 +12,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const tableauDesktop = new snowflake.OauthIntegration("tableauDesktop", {
- *     blockedRolesLists: ["SYSADMIN"],
- *     enabled: true,
+ * const tableauDesktop = new snowflake.OauthIntegration("tableau_desktop", {
+ *     name: "TABLEAU_DESKTOP",
  *     oauthClient: "TABLEAU_DESKTOP",
+ *     enabled: true,
  *     oauthIssueRefreshTokens: true,
  *     oauthRefreshTokenValidity: 3600,
+ *     blockedRolesLists: ["SYSADMIN"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

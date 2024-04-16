@@ -495,20 +495,21 @@ class ResourceMonitor(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         monitor = snowflake.ResourceMonitor("monitor",
+            name="monitor",
             credit_quota=100,
-            end_timestamp="2021-12-07 00:00",
             frequency="DAILY",
+            start_timestamp="2020-12-07 00:00",
+            end_timestamp="2021-12-07 00:00",
             notify_triggers=[
                 40,
                 50,
             ],
+            suspend_triggers=50,
+            suspend_immediate_triggers=90,
             notify_users=[
                 "USERONE",
                 "USERTWO",
-            ],
-            start_timestamp="2020-12-07 00:00",
-            suspend_immediate_triggers=90,
-            suspend_triggers=50)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -551,20 +552,21 @@ class ResourceMonitor(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         monitor = snowflake.ResourceMonitor("monitor",
+            name="monitor",
             credit_quota=100,
-            end_timestamp="2021-12-07 00:00",
             frequency="DAILY",
+            start_timestamp="2020-12-07 00:00",
+            end_timestamp="2021-12-07 00:00",
             notify_triggers=[
                 40,
                 50,
             ],
+            suspend_triggers=50,
+            suspend_immediate_triggers=90,
             notify_users=[
                 "USERONE",
                 "USERTWO",
-            ],
-            start_timestamp="2020-12-07 00:00",
-            suspend_immediate_triggers=90,
-            suspend_triggers=50)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

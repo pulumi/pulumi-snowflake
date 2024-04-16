@@ -23,6 +23,100 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Sequence;
+ * import com.pulumi.snowflake.SequenceArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
+ * import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *             .database(&#34;database&#34;)
+ *             .name(&#34;schema&#34;)
+ *             .dataRetentionDays(1)
+ *             .build());
+ * 
+ *         var sequence = new Sequence(&#34;sequence&#34;, SequenceArgs.builder()        
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name(&#34;sequence&#34;)
+ *             .build());
+ * 
+ *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name(&#34;table&#34;)
+ *             .comment(&#34;A table.&#34;)
+ *             .clusterBies(&#34;to_date(DATE)&#34;)
+ *             .dataRetentionTimeInDays(schema.dataRetentionTimeInDays())
+ *             .changeTracking(false)
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;id&#34;)
+ *                     .type(&#34;int&#34;)
+ *                     .nullable(true)
+ *                     .default_(TableColumnDefaultArgs.builder()
+ *                         .sequence(sequence.fullyQualifiedName())
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;identity&#34;)
+ *                     .type(&#34;NUMBER(38,0)&#34;)
+ *                     .nullable(true)
+ *                     .identity(TableColumnIdentityArgs.builder()
+ *                         .startNum(1)
+ *                         .stepNum(3)
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;data&#34;)
+ *                     .type(&#34;text&#34;)
+ *                     .nullable(false)
+ *                     .collate(&#34;en-ci&#34;)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;DATE&#34;)
+ *                     .type(&#34;TIMESTAMP_NTZ(9)&#34;)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name(&#34;extra&#34;)
+ *                     .type(&#34;VARIANT&#34;)
+ *                     .comment(&#34;extra data&#34;)
+ *                     .build())
+ *             .primaryKey(TablePrimaryKeyArgs.builder()
+ *                 .name(&#34;my_key&#34;)
+ *                 .keys(&#34;data&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * format is database name | schema name | table name

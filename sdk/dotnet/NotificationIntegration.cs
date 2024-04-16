@@ -23,13 +23,14 @@ namespace Pulumi.Snowflake
     /// {
     ///     var integration = new Snowflake.NotificationIntegration("integration", new()
     ///     {
+    ///         Name = "notification",
+    ///         Comment = "A notification integration.",
+    ///         Enabled = true,
+    ///         Type = "QUEUE",
+    ///         Direction = "OUTBOUND",
+    ///         NotificationProvider = "AZURE_STORAGE_QUEUE",
     ///         AzureStorageQueuePrimaryUri = "...",
     ///         AzureTenantId = "...",
-    ///         Comment = "A notification integration.",
-    ///         Direction = "OUTBOUND",
-    ///         Enabled = true,
-    ///         NotificationProvider = "AZURE_STORAGE_QUEUE",
-    ///         Type = "QUEUE",
     ///     });
     /// 
     /// });

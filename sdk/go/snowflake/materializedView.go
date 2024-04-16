@@ -30,6 +30,7 @@ import (
 //			_, err := snowflake.NewMaterializedView(ctx, "view", &snowflake.MaterializedViewArgs{
 //				Database:  pulumi.String("db"),
 //				Schema:    pulumi.String("schema"),
+//				Name:      pulumi.String("view"),
 //				Warehouse: pulumi.String("warehouse"),
 //				Comment:   pulumi.String("comment"),
 //				Statement: pulumi.String("select * from foo;\n"),

@@ -23,17 +23,18 @@ namespace Pulumi.Snowflake
     /// {
     ///     var alert = new Snowflake.Alert("alert", new()
     ///     {
-    ///         Action = "select 1 as c",
+    ///         Database = "database",
+    ///         Schema = "schema",
+    ///         Name = "alert",
+    ///         Warehouse = "warehouse",
     ///         AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs
     ///         {
     ///             Interval = 10,
     ///         },
-    ///         Comment = "my alert",
     ///         Condition = "select 1 as c",
-    ///         Database = "database",
+    ///         Action = "select 1 as c",
     ///         Enabled = true,
-    ///         Schema = "schema",
-    ///         Warehouse = "warehouse",
+    ///         Comment = "my alert",
     ///     });
     /// 
     /// });

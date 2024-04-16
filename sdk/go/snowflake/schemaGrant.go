@@ -31,17 +31,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
+//				SchemaName:   pulumi.String("schema"),
 //				Privilege:    pulumi.String("USAGE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

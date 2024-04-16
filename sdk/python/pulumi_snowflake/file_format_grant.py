@@ -377,14 +377,14 @@ class FileFormatGrant(pulumi.CustomResource):
 
         grant = snowflake.FileFormatGrant("grant",
             database_name="database",
+            schema_name="schema",
             file_format_name="file_format",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -429,14 +429,14 @@ class FileFormatGrant(pulumi.CustomResource):
 
         grant = snowflake.FileFormatGrant("grant",
             database_name="database",
+            schema_name="schema",
             file_format_name="file_format",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

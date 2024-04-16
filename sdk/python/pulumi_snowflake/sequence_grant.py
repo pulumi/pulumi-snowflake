@@ -377,14 +377,14 @@ class SequenceGrant(pulumi.CustomResource):
 
         grant = snowflake.SequenceGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            sequence_name="sequence",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            sequence_name="sequence",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -429,14 +429,14 @@ class SequenceGrant(pulumi.CustomResource):
 
         grant = snowflake.SequenceGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            sequence_name="sequence",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            sequence_name="sequence",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

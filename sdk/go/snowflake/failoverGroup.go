@@ -26,11 +26,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			db, err := snowflake.NewDatabase(ctx, "db", nil)
+//			db, err := snowflake.NewDatabase(ctx, "db", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("db1"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "sourceFailoverGroup", &snowflake.FailoverGroupArgs{
+//			_, err = snowflake.NewFailoverGroup(ctx, "source_failover_group", &snowflake.FailoverGroupArgs{
+//				Name: pulumi.String("FG1"),
 //				ObjectTypes: pulumi.StringArray{
 //					pulumi.String("WAREHOUSES"),
 //					pulumi.String("DATABASES"),
@@ -57,17 +60,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewProvider(ctx, "account2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "targetFailoverGroup", &snowflake.FailoverGroupArgs{
+//			_, err = snowflake.NewFailoverGroup(ctx, "target_failover_group", &snowflake.FailoverGroupArgs{
+//				Name: pulumi.String("FG1"),
 //				FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
 //					OrganizationName:  pulumi.String("..."),
 //					SourceAccountName: pulumi.String("..."),
-//					Name:              pulumi.Any(snowflake_failover_group.Fg.Name),
+//					Name:              pulumi.Any(fg.Name),
 //				},
-//			}, pulumi.Provider(snowflake.Account2))
+//			})
 //			if err != nil {
 //				return err
 //			}

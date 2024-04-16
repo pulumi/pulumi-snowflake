@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;role1&#34;)
  *             .comment(&#34;A role.&#34;)
  *             .build());
  * 

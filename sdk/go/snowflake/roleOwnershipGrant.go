@@ -30,12 +30,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+//				Name:    pulumi.String("rking_test_role"),
 //				Comment: pulumi.String("for testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
+//			otherRole, err := snowflake.NewRole(ctx, "other_role", &snowflake.RoleArgs{
+//				Name: pulumi.String("rking_test_role2"),
+//			})
 //			if err != nil {
 //				return err
 //			}

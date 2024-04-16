@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.User;
+ * import com.pulumi.snowflake.UserArgs;
  * import com.pulumi.snowflake.PasswordPolicy;
  * import com.pulumi.snowflake.PasswordPolicyArgs;
  * import com.pulumi.snowflake.UserPasswordPolicyAttachment;
@@ -43,11 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;);
+ *         var user = new User(&#34;user&#34;, UserArgs.builder()        
+ *             .name(&#34;USER_NAME&#34;)
+ *             .build());
  * 
  *         var pp = new PasswordPolicy(&#34;pp&#34;, PasswordPolicyArgs.builder()        
  *             .database(&#34;prod&#34;)
  *             .schema(&#34;security&#34;)
+ *             .name(&#34;default_policy&#34;)
  *             .build());
  * 
  *         var ppa = new UserPasswordPolicyAttachment(&#34;ppa&#34;, UserPasswordPolicyAttachmentArgs.builder()        

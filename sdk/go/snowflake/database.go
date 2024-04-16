@@ -27,13 +27,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewDatabase(ctx, "simple", &snowflake.DatabaseArgs{
+//				Name:                    pulumi.String("testing"),
 //				Comment:                 pulumi.String("test comment"),
 //				DataRetentionTimeInDays: pulumi.Int(3),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "withReplication", &snowflake.DatabaseArgs{
+//			_, err = snowflake.NewDatabase(ctx, "with_replication", &snowflake.DatabaseArgs{
+//				Name:    pulumi.String("testing_2"),
 //				Comment: pulumi.String("test comment 2"),
 //				ReplicationConfiguration: &snowflake.DatabaseReplicationConfigurationArgs{
 //					Accounts: pulumi.StringArray{
@@ -46,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "fromReplica", &snowflake.DatabaseArgs{
+//			_, err = snowflake.NewDatabase(ctx, "from_replica", &snowflake.DatabaseArgs{
+//				Name:                    pulumi.String("testing_3"),
 //				Comment:                 pulumi.String("test comment"),
 //				DataRetentionTimeInDays: pulumi.Int(3),
 //				FromReplica:             pulumi.String("\"org1\".\"account1\".\"primary_db_name\""),
@@ -54,7 +57,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
+//			_, err = snowflake.NewDatabase(ctx, "from_share", &snowflake.DatabaseArgs{
+//				Name:    pulumi.String("testing_4"),
 //				Comment: pulumi.String("test comment"),
 //				FromShare: pulumi.StringMap{
 //					"provider": pulumi.String("account1_locator"),

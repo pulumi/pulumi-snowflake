@@ -27,8 +27,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalFunction(ctx, "testExtFunc", &snowflake.ExternalFunctionArgs{
-//				ApiIntegration: pulumi.String("api_integration_name"),
+//			_, err := snowflake.NewExternalFunction(ctx, "test_ext_func", &snowflake.ExternalFunctionArgs{
+//				Name:     pulumi.String("my_function"),
+//				Database: pulumi.String("my_test_db"),
+//				Schema:   pulumi.String("my_test_schema"),
 //				Args: snowflake.ExternalFunctionArgArray{
 //					&snowflake.ExternalFunctionArgArgs{
 //						Name: pulumi.String("arg1"),
@@ -39,10 +41,9 @@ import (
 //						Type: pulumi.String("varchar"),
 //					},
 //				},
-//				Database:              pulumi.String("my_test_db"),
-//				ReturnBehavior:        pulumi.String("IMMUTABLE"),
 //				ReturnType:            pulumi.String("variant"),
-//				Schema:                pulumi.String("my_test_schema"),
+//				ReturnBehavior:        pulumi.String("IMMUTABLE"),
+//				ApiIntegration:        pulumi.String("api_integration_name"),
 //				UrlOfProxyAndResource: pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func"),
 //			})
 //			if err != nil {

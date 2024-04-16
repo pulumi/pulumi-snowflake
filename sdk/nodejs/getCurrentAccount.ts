@@ -14,9 +14,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const this = snowflake.getCurrentAccount({});
- * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: aws.ssm.ParameterType.String,
- *     value: _this.then(_this => _this.url),
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -59,9 +60,10 @@ export interface GetCurrentAccountResult {
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const this = snowflake.getCurrentAccount({});
- * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: aws.ssm.ParameterType.String,
- *     value: _this.then(_this => _this.url),
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

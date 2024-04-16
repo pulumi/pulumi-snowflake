@@ -12,6 +12,99 @@ import (
 )
 
 // ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			snowflakePrivateLink, err := snowflake.GetSystemGetPrivateLinkConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			snowflakePrivateLinkSecurityGroup, err := aws.NewSecurityGroup(ctx, "snowflake_private_link", &aws.SecurityGroupArgs{
+//				VpcId: vpcId,
+//				Ingress: []interface{}{
+//					map[string]interface{}{
+//						"fromPort":   80,
+//						"toPort":     80,
+//						"cidrBlocks": vpcCidr,
+//						"protocol":   "tcp",
+//					},
+//					map[string]interface{}{
+//						"fromPort":   443,
+//						"toPort":     443,
+//						"cidrBlocks": vpcCidr,
+//						"protocol":   "tcp",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			snowflakePrivateLinkVpcEndpoint, err := aws.NewVpcEndpoint(ctx, "snowflake_private_link", &aws.VpcEndpointArgs{
+//				VpcId:           vpcId,
+//				ServiceName:     snowflakePrivateLink.AwsVpceId,
+//				VpcEndpointType: "Interface",
+//				SecurityGroupIds: []interface{}{
+//					snowflakePrivateLinkSecurityGroup.Id,
+//				},
+//				SubnetIds:         subnetIds,
+//				PrivateDnsEnabled: false,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			snowflakePrivateLinkRoute53Zone, err := aws.NewRoute53Zone(ctx, "snowflake_private_link", &aws.Route53ZoneArgs{
+//				Name: "privatelink.snowflakecomputing.com",
+//				Vpc: []map[string]interface{}{
+//					map[string]interface{}{
+//						"vpcId": vpcId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewRoute53Record(ctx, "snowflake_private_link_url", &aws.Route53RecordArgs{
+//				ZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,
+//				Name:   snowflakePrivateLink.AccountUrl,
+//				Type:   "CNAME",
+//				Ttl:    "300",
+//				Records: []interface{}{
+//					snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewRoute53Record(ctx, "snowflake_private_link_ocsp_url", &aws.Route53RecordArgs{
+//				ZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,
+//				Name:   snowflakePrivateLink.OcspUrl,
+//				Type:   "CNAME",
+//				Ttl:    "300",
+//				Records: []interface{}{
+//					snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func GetSystemGetPrivateLinkConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetPrivateLinkConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetPrivateLinkConfigResult

@@ -44,13 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var azure = new ExternalOauthIntegration(&#34;azure&#34;, ExternalOauthIntegrationArgs.builder()        
- *             .audienceUrls(&#34;https://analysis.windows.net/powerbi/connector/Snowflake&#34;)
+ *             .name(&#34;AZURE_POWERBI&#34;)
+ *             .type(&#34;AZURE&#34;)
  *             .enabled(true)
  *             .issuer(&#34;https://sts.windows.net/00000000-0000-0000-0000-000000000000&#34;)
- *             .jwsKeysUrls(&#34;https://login.windows.net/common/discovery/keys&#34;)
  *             .snowflakeUserMappingAttribute(&#34;LOGIN_NAME&#34;)
+ *             .jwsKeysUrls(&#34;https://login.windows.net/common/discovery/keys&#34;)
+ *             .audienceUrls(&#34;https://analysis.windows.net/powerbi/connector/Snowflake&#34;)
  *             .tokenUserMappingClaims(&#34;upn&#34;)
- *             .type(&#34;AZURE&#34;)
  *             .build());
  * 
  *     }

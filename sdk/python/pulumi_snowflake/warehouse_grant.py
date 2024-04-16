@@ -245,12 +245,12 @@ class WarehouseGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.WarehouseGrant("grant",
+            warehouse_name="warehouse",
             privilege="MODIFY",
             roles=[
                 "role1",
                 "role2",
             ],
-            warehouse_name="warehouse",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -290,12 +290,12 @@ class WarehouseGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.WarehouseGrant("grant",
+            warehouse_name="warehouse",
             privilege="MODIFY",
             roles=[
                 "role1",
                 "role2",
             ],
-            warehouse_name="warehouse",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *         var view = new MaterializedView(&#34;view&#34;, MaterializedViewArgs.builder()        
  *             .database(&#34;db&#34;)
  *             .schema(&#34;schema&#34;)
+ *             .name(&#34;view&#34;)
  *             .warehouse(&#34;warehouse&#34;)
  *             .comment(&#34;comment&#34;)
  *             .statement(&#34;&#34;&#34;

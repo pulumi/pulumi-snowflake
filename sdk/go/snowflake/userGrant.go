@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewUserGrant(ctx, "grant", &snowflake.UserGrantArgs{
+//				UserName:  pulumi.String("user"),
 //				Privilege: pulumi.String("MONITOR"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				UserName:        pulumi.String("user"),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

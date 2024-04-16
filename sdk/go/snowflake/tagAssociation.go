@@ -29,17 +29,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			database, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("database"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("schema"),
 //				Database: database.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tag, err := snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+//				Name:     pulumi.String("cost_center"),
 //				Database: database.Name,
 //				Schema:   schema.Name,
 //				AllowedValues: pulumi.StringArray{
@@ -50,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "dbAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "db_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name: database.Name,
@@ -64,8 +68,9 @@ import (
 //				return err
 //			}
 //			test, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
-//				Database: pulumi.Any(snowflake_database.Test.Name),
-//				Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//				Database: pulumi.Any(testSnowflakeDatabase.Name),
+//				Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//				Name:     pulumi.String("TABLE_NAME"),
 //				Comment:  pulumi.String("Terraform example table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
@@ -81,33 +86,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "tableAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "table_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name:     test.Name,
-//						Database: pulumi.Any(snowflake_database.Test.Name),
-//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//						Database: pulumi.Any(testSnowflakeDatabase.Name),
+//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
 //					},
 //				},
 //				ObjectType: pulumi.String("TABLE"),
-//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
+//				TagId:      pulumi.Any(testSnowflakeTag.Id),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "columnAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "column_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name: test.Name.ApplyT(func(name string) (string, error) {
 //							return fmt.Sprintf("%v.column_name", name), nil
 //						}).(pulumi.StringOutput),
-//						Database: pulumi.Any(snowflake_database.Test.Name),
-//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//						Database: pulumi.Any(testSnowflakeDatabase.Name),
+//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
 //					},
 //				},
 //				ObjectType: pulumi.String("COLUMN"),
-//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
+//				TagId:      pulumi.Any(testSnowflakeTag.Id),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {

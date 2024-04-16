@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.FileFormatGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
  *     fileFormatName: "file_format",
- *     onFuture: false,
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

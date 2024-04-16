@@ -31,12 +31,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewTagGrant(ctx, "example", &snowflake.TagGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("OWNERSHIP"),
+//				SchemaName:   pulumi.String("schema"),
+//				TagName:      pulumi.String("tag"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("TEST_ROLE"),
 //				},
-//				SchemaName: pulumi.String("schema"),
-//				TagName:    pulumi.String("tag"),
+//				Privilege: pulumi.String("OWNERSHIP"),
 //			})
 //			if err != nil {
 //				return err

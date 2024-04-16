@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.SequenceGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     sequenceName: "sequence",
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
- *     sequenceName: "sequence",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

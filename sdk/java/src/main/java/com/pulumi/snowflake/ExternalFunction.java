@@ -46,7 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testExtFunc = new ExternalFunction(&#34;testExtFunc&#34;, ExternalFunctionArgs.builder()        
- *             .apiIntegration(&#34;api_integration_name&#34;)
+ *             .name(&#34;my_function&#34;)
+ *             .database(&#34;my_test_db&#34;)
+ *             .schema(&#34;my_test_schema&#34;)
  *             .args(            
  *                 ExternalFunctionArgArgs.builder()
  *                     .name(&#34;arg1&#34;)
@@ -56,10 +58,9 @@ import javax.annotation.Nullable;
  *                     .name(&#34;arg2&#34;)
  *                     .type(&#34;varchar&#34;)
  *                     .build())
- *             .database(&#34;my_test_db&#34;)
- *             .returnBehavior(&#34;IMMUTABLE&#34;)
  *             .returnType(&#34;variant&#34;)
- *             .schema(&#34;my_test_schema&#34;)
+ *             .returnBehavior(&#34;IMMUTABLE&#34;)
+ *             .apiIntegration(&#34;api_integration_name&#34;)
  *             .urlOfProxyAndResource(&#34;https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func&#34;)
  *             .build());
  * 

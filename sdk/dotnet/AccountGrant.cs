@@ -25,12 +25,12 @@ namespace Pulumi.Snowflake
     /// {
     ///     var grant = new Snowflake.AccountGrant("grant", new()
     ///     {
-    ///         Privilege = "CREATE ROLE",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
+    ///         Privilege = "CREATE ROLE",
     ///         WithGrantOption = false,
     ///     });
     /// 

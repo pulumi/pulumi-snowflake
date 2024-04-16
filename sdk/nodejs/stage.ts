@@ -14,11 +14,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleStage = new snowflake.Stage("exampleStage", {
- *     credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,
+ * const exampleStage = new snowflake.Stage("example_stage", {
+ *     name: "EXAMPLE_STAGE",
+ *     url: "s3://com.example.bucket/prefix",
  *     database: "EXAMPLE_DB",
  *     schema: "EXAMPLE_SCHEMA",
- *     url: "s3://com.example.bucket/prefix",
+ *     credentials: `AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'`,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

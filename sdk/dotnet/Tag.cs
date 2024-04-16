@@ -21,15 +21,20 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database");
+    ///     var database = new Snowflake.Database("database", new()
+    ///     {
+    ///         Name = "database",
+    ///     });
     /// 
     ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
+    ///         Name = "schema",
     ///         Database = database.Name,
     ///     });
     /// 
     ///     var tag = new Snowflake.Tag("tag", new()
     ///     {
+    ///         Name = "cost_center",
     ///         Database = database.Name,
     ///         Schema = schema.Name,
     ///         AllowedValues = new[]

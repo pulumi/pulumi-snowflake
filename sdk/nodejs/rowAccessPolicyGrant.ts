@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.RowAccessPolicyGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
+ *     rowAccessPolicyName: "row_access_policy",
  *     privilege: "APPLY",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     rowAccessPolicyName: "row_access_policy",
- *     schemaName: "schema",
  *     withGrantOption: false,
  * });
  * ```

@@ -27,6 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+//				Name:    pulumi.String("role1"),
 //				Comment: pulumi.String("A role."),
 //			})
 //			if err != nil {
