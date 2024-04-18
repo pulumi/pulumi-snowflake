@@ -53,7 +53,7 @@ namespace Pulumi.Snowflake
     ///         Comment = "test comment",
     ///         FromShare = 
     ///         {
-    ///             { "provider", "org1.account1" },
+    ///             { "provider", "account1_locator" },
     ///             { "share", "share1" },
     ///         },
     ///     });
@@ -96,7 +96,7 @@ namespace Pulumi.Snowflake
         public Output<string?> FromReplica { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a provider and a share in this map to create a database from a share.
+        /// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         /// </summary>
         [Output("fromShare")]
         public Output<ImmutableDictionary<string, string>?> FromShare { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Snowflake
         private InputMap<string>? _fromShare;
 
         /// <summary>
-        /// Specify a provider and a share in this map to create a database from a share.
+        /// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         /// </summary>
         public InputMap<string> FromShare
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Snowflake
         private InputMap<string>? _fromShare;
 
         /// <summary>
-        /// Specify a provider and a share in this map to create a database from a share.
+        /// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         /// </summary>
         public InputMap<string> FromShare
         {

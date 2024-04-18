@@ -164,6 +164,8 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -205,6 +207,8 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  args: RoleOwnershipGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->

@@ -14,10 +14,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | function name | &lt;list of arg types, separated with '-'&gt;
+    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;function_name&gt;(&lt;arg types, separated with ','&gt;)
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+    /// $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/function:Function")]

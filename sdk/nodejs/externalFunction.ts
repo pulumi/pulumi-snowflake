@@ -37,10 +37,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | external function name | <list of function arg types, separated with '-'>
+ * format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
  *
  * ```sh
- * $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
+ * $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
  * ```
  */
 export class ExternalFunction extends pulumi.CustomResource {

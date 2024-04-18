@@ -25,7 +25,7 @@ class TagAssociationArgs:
         """
         The set of arguments for constructing a TagAssociation resource.
         :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
@@ -59,7 +59,7 @@ class TagAssociationArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         """
         return pulumi.get(self, "object_type")
 
@@ -132,7 +132,7 @@ class _TagAssociationState:
         Input properties used for looking up and filtering TagAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
@@ -184,7 +184,7 @@ class _TagAssociationState:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         """
         return pulumi.get(self, "object_type")
 
@@ -312,7 +312,7 @@ class TagAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
@@ -459,7 +459,7 @@ class TagAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
@@ -499,7 +499,7 @@ class TagAssociation(pulumi.CustomResource):
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+        Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         """
         return pulumi.get(self, "object_type")
 

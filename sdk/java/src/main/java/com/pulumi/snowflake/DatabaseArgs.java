@@ -80,14 +80,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     @Import(name="fromShare")
     private @Nullable Output<Map<String,String>> fromShare;
 
     /**
-     * @return Specify a provider and a share in this map to create a database from a share.
+     * @return Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     public Optional<Output<Map<String,String>>> fromShare() {
@@ -255,7 +255,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromShare Specify a provider and a share in this map to create a database from a share.
+         * @param fromShare Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromShare Specify a provider and a share in this map to create a database from a share.
+         * @param fromShare Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
          * 
          * @return builder
          * 

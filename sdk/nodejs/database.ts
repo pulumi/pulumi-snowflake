@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * const fromShare = new snowflake.Database("fromShare", {
  *     comment: "test comment",
  *     fromShare: {
- *         provider: "org1.account1",
+ *         provider: "account1_locator",
  *         share: "share1",
  *     },
  * });
@@ -94,7 +94,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly fromReplica!: pulumi.Output<string | undefined>;
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      */
     public readonly fromShare!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface DatabaseState {
      */
     fromReplica?: pulumi.Input<string>;
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      */
     fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -206,7 +206,7 @@ export interface DatabaseArgs {
      */
     fromReplica?: pulumi.Input<string>;
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      */
     fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

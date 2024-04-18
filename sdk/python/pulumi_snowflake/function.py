@@ -564,10 +564,10 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | function name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -600,10 +600,10 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | function name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.

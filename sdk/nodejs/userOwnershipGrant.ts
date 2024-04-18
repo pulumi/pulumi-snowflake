@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. <deprecation>
+ */
 export class UserOwnershipGrant extends pulumi.CustomResource {
     /**
      * Get an existing UserOwnershipGrant resource's state with the given name, ID, and optional extra
