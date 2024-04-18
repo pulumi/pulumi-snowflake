@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
  *             .comment(&#34;test comment&#34;)
  *             .fromShare(Map.ofEntries(
- *                 Map.entry(&#34;provider&#34;, &#34;org1.account1&#34;),
+ *                 Map.entry(&#34;provider&#34;, &#34;account1_locator&#34;),
  *                 Map.entry(&#34;share&#34;, &#34;share1&#34;)
  *             ))
  *             .build());
@@ -144,14 +144,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fromReplica);
     }
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     @Export(name="fromShare", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fromShare;
 
     /**
-     * @return Specify a provider and a share in this map to create a database from a share.
+     * @return Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     public Output<Optional<Map<String,String>>> fromShare() {

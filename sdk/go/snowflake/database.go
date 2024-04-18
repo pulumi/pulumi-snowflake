@@ -57,7 +57,7 @@ import (
 //			_, err = snowflake.NewDatabase(ctx, "fromShare", &snowflake.DatabaseArgs{
 //				Comment: pulumi.String("test comment"),
 //				FromShare: pulumi.StringMap{
-//					"provider": pulumi.String("org1.account1"),
+//					"provider": pulumi.String("account1_locator"),
 //					"share":    pulumi.String("share1"),
 //				},
 //			})
@@ -87,7 +87,7 @@ type Database struct {
 	FromDatabase pulumi.StringPtrOutput `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrOutput `pulumi:"fromReplica"`
-	// Specify a provider and a share in this map to create a database from a share.
+	// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 	FromShare pulumi.StringMapOutput `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
@@ -135,7 +135,7 @@ type databaseState struct {
 	FromDatabase *string `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica *string `pulumi:"fromReplica"`
-	// Specify a provider and a share in this map to create a database from a share.
+	// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 	FromShare map[string]string `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
@@ -154,7 +154,7 @@ type DatabaseState struct {
 	FromDatabase pulumi.StringPtrInput
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrInput
-	// Specify a provider and a share in this map to create a database from a share.
+	// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 	FromShare pulumi.StringMapInput
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
@@ -177,7 +177,7 @@ type databaseArgs struct {
 	FromDatabase *string `pulumi:"fromDatabase"`
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica *string `pulumi:"fromReplica"`
-	// Specify a provider and a share in this map to create a database from a share.
+	// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 	FromShare map[string]string `pulumi:"fromShare"`
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
@@ -197,7 +197,7 @@ type DatabaseArgs struct {
 	FromDatabase pulumi.StringPtrInput
 	// Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
 	FromReplica pulumi.StringPtrInput
-	// Specify a provider and a share in this map to create a database from a share.
+	// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 	FromShare pulumi.StringMapInput
 	// Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
@@ -314,7 +314,7 @@ func (o DatabaseOutput) FromReplica() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.FromReplica }).(pulumi.StringPtrOutput)
 }
 
-// Specify a provider and a share in this map to create a database from a share.
+// Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
 func (o DatabaseOutput) FromShare() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.FromShare }).(pulumi.StringMapOutput)
 }

@@ -14,10 +14,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | stored procedure name | &lt;list of arg types, separated with '-'&gt;
+    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;procedure_name&gt;(&lt;arg types, separated with ','&gt;)
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+    /// $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedure:Procedure")]

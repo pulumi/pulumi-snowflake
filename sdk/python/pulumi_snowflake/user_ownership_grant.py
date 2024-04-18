@@ -164,7 +164,8 @@ class UserOwnershipGrant(pulumi.CustomResource):
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a UserOwnershipGrant resource with the given unique name, props, and options.
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
@@ -179,7 +180,8 @@ class UserOwnershipGrant(pulumi.CustomResource):
                  args: UserOwnershipGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserOwnershipGrant resource with the given unique name, props, and options.
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         :param str resource_name: The name of the resource.
         :param UserOwnershipGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

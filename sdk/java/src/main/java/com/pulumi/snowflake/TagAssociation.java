@@ -160,14 +160,14 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectName);
     }
     /**
-     * Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      * 
      */
     @Export(name="objectType", refs={String.class}, tree="[0]")
     private Output<String> objectType;
 
     /**
-     * @return Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * @return Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      * 
      */
     public Output<String> objectType() {

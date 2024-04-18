@@ -576,10 +576,10 @@ class Procedure(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -612,10 +612,10 @@ class Procedure(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.

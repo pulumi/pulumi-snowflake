@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. &lt;deprecation&gt;
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/userOwnershipGrant:UserOwnershipGrant")]
     public partial class UserOwnershipGrant : global::Pulumi.CustomResource
     {

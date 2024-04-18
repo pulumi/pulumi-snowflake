@@ -14,6 +14,10 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. &lt;deprecation&gt;
+ * 
+ */
 @ResourceType(type="snowflake:index/userOwnershipGrant:UserOwnershipGrant")
 public class UserOwnershipGrant extends com.pulumi.resources.CustomResource {
     /**

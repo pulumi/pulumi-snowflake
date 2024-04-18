@@ -70,10 +70,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * format is database name | schema name | external function name | &lt;list of function arg types, separated with &#39;-&#39;&gt;
+ * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
  * 
  * ```sh
- * $ pulumi import snowflake:index/externalFunction:ExternalFunction example &#39;dbName|schemaName|externalFunctionName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/externalFunction:ExternalFunction example &#39;dbName.schemaName.externalFunctionName(varchar, varchar, varchar)&#39;
  * ```
  * 
  */

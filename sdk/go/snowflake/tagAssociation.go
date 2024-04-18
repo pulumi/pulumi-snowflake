@@ -136,7 +136,7 @@ type TagAssociation struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrOutput `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringOutput `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrOutput `pulumi:"skipValidation"`
@@ -194,7 +194,7 @@ type tagAssociationState struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType *string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
@@ -211,7 +211,7 @@ type TagAssociationState struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringPtrInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
@@ -232,7 +232,7 @@ type tagAssociationArgs struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
@@ -250,7 +250,7 @@ type TagAssociationArgs struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
@@ -359,7 +359,7 @@ func (o TagAssociationOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringPtrOutput { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 func (o TagAssociationOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringOutput { return v.ObjectType }).(pulumi.StringOutput)
 }

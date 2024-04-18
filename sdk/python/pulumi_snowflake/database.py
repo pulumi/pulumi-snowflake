@@ -30,7 +30,7 @@ class DatabaseArgs:
         :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
@@ -104,7 +104,7 @@ class DatabaseArgs:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
@@ -166,7 +166,7 @@ class _DatabaseState:
         :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
@@ -240,7 +240,7 @@ class _DatabaseState:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
@@ -326,7 +326,7 @@ class Database(pulumi.CustomResource):
         from_share = snowflake.Database("fromShare",
             comment="test comment",
             from_share={
-                "provider": "org1.account1",
+                "provider": "account1_locator",
                 "share": "share1",
             })
         ```
@@ -344,7 +344,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
@@ -382,7 +382,7 @@ class Database(pulumi.CustomResource):
         from_share = snowflake.Database("fromShare",
             comment="test comment",
             from_share={
-                "provider": "org1.account1",
+                "provider": "account1_locator",
                 "share": "share1",
             })
         ```
@@ -463,7 +463,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
         :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
@@ -518,7 +518,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="fromShare")
     def from_share(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
