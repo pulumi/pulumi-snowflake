@@ -45,6 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var externalTable = new ExternalTable(&#34;externalTable&#34;, ExternalTableArgs.builder()        
+ *             .database(&#34;db&#34;)
+ *             .schema(&#34;schema&#34;)
+ *             .name(&#34;external_table&#34;)
+ *             .comment(&#34;External table&#34;)
+ *             .fileFormat(&#34;TYPE = CSV FIELD_DELIMITER = &#39;|&#39;&#34;)
  *             .columns(            
  *                 ExternalTableColumnArgs.builder()
  *                     .name(&#34;id&#34;)
@@ -54,10 +59,6 @@ import javax.annotation.Nullable;
  *                     .name(&#34;data&#34;)
  *                     .type(&#34;text&#34;)
  *                     .build())
- *             .comment(&#34;External table&#34;)
- *             .database(&#34;db&#34;)
- *             .fileFormat(&#34;TYPE = CSV FIELD_DELIMITER = &#39;|&#39;&#34;)
- *             .schema(&#34;schema&#34;)
  *             .build());
  * 
  *     }

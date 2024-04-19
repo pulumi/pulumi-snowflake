@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var accountParameter = new AccountParameter(&#34;accountParameter&#34;, AccountParameterArgs.builder()        
+ *         var p = new AccountParameter(&#34;p&#34;, AccountParameterArgs.builder()        
  *             .key(&#34;ALLOW_ID_TOKEN&#34;)
  *             .value(&#34;true&#34;)
  *             .build());

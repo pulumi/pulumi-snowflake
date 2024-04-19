@@ -14,8 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const testExtFunc = new snowflake.ExternalFunction("testExtFunc", {
- *     apiIntegration: "api_integration_name",
+ * const testExtFunc = new snowflake.ExternalFunction("test_ext_func", {
+ *     name: "my_function",
+ *     database: "my_test_db",
+ *     schema: "my_test_schema",
  *     args: [
  *         {
  *             name: "arg1",
@@ -26,10 +28,9 @@ import * as utilities from "./utilities";
  *             type: "varchar",
  *         },
  *     ],
- *     database: "my_test_db",
- *     returnBehavior: "IMMUTABLE",
  *     returnType: "variant",
- *     schema: "my_test_schema",
+ *     returnBehavior: "IMMUTABLE",
+ *     apiIntegration: "api_integration_name",
  *     urlOfProxyAndResource: "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
  * });
  * ```

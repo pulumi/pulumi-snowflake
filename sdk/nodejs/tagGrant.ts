@@ -16,10 +16,10 @@ import * as utilities from "./utilities";
  *
  * const example = new snowflake.TagGrant("example", {
  *     databaseName: "database",
- *     privilege: "OWNERSHIP",
- *     roles: ["TEST_ROLE"],
  *     schemaName: "schema",
  *     tagName: "tag",
+ *     roles: ["TEST_ROLE"],
+ *     privilege: "OWNERSHIP",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

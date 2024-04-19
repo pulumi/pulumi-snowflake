@@ -421,6 +421,68 @@ class Table(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        schema = snowflake.Schema("schema",
+            database="database",
+            name="schema",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name,
+            name="sequence")
+        table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            name="table",
+            comment="A table.",
+            cluster_bies=["to_date(DATE)"],
+            data_retention_time_in_days=schema.data_retention_time_in_days,
+            change_tracking=False,
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="id",
+                    type="int",
+                    nullable=True,
+                    default=snowflake.TableColumnDefaultArgs(
+                        sequence=sequence.fully_qualified_name,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="identity",
+                    type="NUMBER(38,0)",
+                    nullable=True,
+                    identity=snowflake.TableColumnIdentityArgs(
+                        start_num=1,
+                        step_num=3,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="data",
+                    type="text",
+                    nullable=False,
+                    collate="en-ci",
+                ),
+                snowflake.TableColumnArgs(
+                    name="DATE",
+                    type="TIMESTAMP_NTZ(9)",
+                ),
+                snowflake.TableColumnArgs(
+                    name="extra",
+                    type="VARIANT",
+                    comment="extra data",
+                ),
+            ],
+            primary_key=snowflake.TablePrimaryKeyArgs(
+                name="my_key",
+                keys=["data"],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         format is database name | schema name | table name
@@ -450,6 +512,68 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        schema = snowflake.Schema("schema",
+            database="database",
+            name="schema",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name,
+            name="sequence")
+        table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            name="table",
+            comment="A table.",
+            cluster_bies=["to_date(DATE)"],
+            data_retention_time_in_days=schema.data_retention_time_in_days,
+            change_tracking=False,
+            columns=[
+                snowflake.TableColumnArgs(
+                    name="id",
+                    type="int",
+                    nullable=True,
+                    default=snowflake.TableColumnDefaultArgs(
+                        sequence=sequence.fully_qualified_name,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="identity",
+                    type="NUMBER(38,0)",
+                    nullable=True,
+                    identity=snowflake.TableColumnIdentityArgs(
+                        start_num=1,
+                        step_num=3,
+                    ),
+                ),
+                snowflake.TableColumnArgs(
+                    name="data",
+                    type="text",
+                    nullable=False,
+                    collate="en-ci",
+                ),
+                snowflake.TableColumnArgs(
+                    name="DATE",
+                    type="TIMESTAMP_NTZ(9)",
+                ),
+                snowflake.TableColumnArgs(
+                    name="extra",
+                    type="VARIANT",
+                    comment="extra data",
+                ),
+            ],
+            primary_key=snowflake.TablePrimaryKeyArgs(
+                name="my_key",
+                keys=["data"],
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

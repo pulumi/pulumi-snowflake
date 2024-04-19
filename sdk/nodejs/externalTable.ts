@@ -14,7 +14,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const externalTable = new snowflake.ExternalTable("externalTable", {
+ * const externalTable = new snowflake.ExternalTable("external_table", {
+ *     database: "db",
+ *     schema: "schema",
+ *     name: "external_table",
+ *     comment: "External table",
+ *     fileFormat: "TYPE = CSV FIELD_DELIMITER = '|'",
  *     columns: [
  *         {
  *             name: "id",
@@ -25,10 +30,6 @@ import * as utilities from "./utilities";
  *             type: "text",
  *         },
  *     ],
- *     comment: "External table",
- *     database: "db",
- *     fileFormat: "TYPE = CSV FIELD_DELIMITER = '|'",
- *     schema: "schema",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

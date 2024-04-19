@@ -180,11 +180,11 @@ class AccountGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.AccountGrant("grant",
-            privilege="CREATE ROLE",
             roles=[
                 "role1",
                 "role2",
             ],
+            privilege="CREATE ROLE",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -222,11 +222,11 @@ class AccountGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.AccountGrant("grant",
-            privilege="CREATE ROLE",
             roles=[
                 "role1",
                 "role2",
             ],
+            privilege="CREATE ROLE",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

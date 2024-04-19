@@ -42,13 +42,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var integration = new StorageIntegration(&#34;integration&#34;, StorageIntegrationArgs.builder()        
+ *             .name(&#34;storage&#34;)
  *             .comment(&#34;A storage integration.&#34;)
+ *             .type(&#34;EXTERNAL_STAGE&#34;)
  *             .enabled(true)
+ *             .storageProvider(&#34;S3&#34;)
  *             .storageAwsExternalId(&#34;...&#34;)
  *             .storageAwsIamUserArn(&#34;...&#34;)
  *             .storageAwsRoleArn(&#34;...&#34;)
- *             .storageProvider(&#34;S3&#34;)
- *             .type(&#34;EXTERNAL_STAGE&#34;)
  *             .build());
  * 
  *     }

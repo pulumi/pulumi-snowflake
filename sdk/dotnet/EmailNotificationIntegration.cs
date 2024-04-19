@@ -21,14 +21,15 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var emailInt = new Snowflake.EmailNotificationIntegration("emailInt", new()
+    ///     var emailInt = new Snowflake.EmailNotificationIntegration("email_int", new()
     ///     {
+    ///         Name = "notification",
+    ///         Comment = "A notification integration.",
+    ///         Enabled = true,
     ///         AllowedRecipients = new[]
     ///         {
     ///             "john.doe@gmail.com",
     ///         },
-    ///         Comment = "A notification integration.",
-    ///         Enabled = true,
     ///     });
     /// 
     /// });

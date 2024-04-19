@@ -561,7 +561,12 @@ class ExternalTable(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        external_table = snowflake.ExternalTable("externalTable",
+        external_table = snowflake.ExternalTable("external_table",
+            database="db",
+            schema="schema",
+            name="external_table",
+            comment="External table",
+            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
             columns=[
                 snowflake.ExternalTableColumnArgs(
                     name="id",
@@ -571,11 +576,7 @@ class ExternalTable(pulumi.CustomResource):
                     name="data",
                     type="text",
                 ),
-            ],
-            comment="External table",
-            database="db",
-            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
-            schema="schema")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -619,7 +620,12 @@ class ExternalTable(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        external_table = snowflake.ExternalTable("externalTable",
+        external_table = snowflake.ExternalTable("external_table",
+            database="db",
+            schema="schema",
+            name="external_table",
+            comment="External table",
+            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
             columns=[
                 snowflake.ExternalTableColumnArgs(
                     name="id",
@@ -629,11 +635,7 @@ class ExternalTable(pulumi.CustomResource):
                     name="data",
                     type="text",
                 ),
-            ],
-            comment="External table",
-            database="db",
-            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
-            schema="schema")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

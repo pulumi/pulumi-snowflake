@@ -310,13 +310,13 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
 
         grant = snowflake.RowAccessPolicyGrant("grant",
             database_name="database",
+            schema_name="schema",
+            row_access_policy_name="row_access_policy",
             privilege="APPLY",
             roles=[
                 "role1",
                 "role2",
             ],
-            row_access_policy_name="row_access_policy",
-            schema_name="schema",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -359,13 +359,13 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
 
         grant = snowflake.RowAccessPolicyGrant("grant",
             database_name="database",
+            schema_name="schema",
+            row_access_policy_name="row_access_policy",
             privilege="APPLY",
             roles=[
                 "role1",
                 "role2",
             ],
-            row_access_policy_name="row_access_policy",
-            schema_name="schema",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

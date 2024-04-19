@@ -16,6 +16,88 @@ import javax.annotation.Nullable;
 /**
  * Attach a masking policy to a tag. Requires a current warehouse to be set. Either with SNOWFLAKE_WAREHOUSE env variable or in current session. If no warehouse is provided, a temporary warehouse will be created.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Tag;
+ * import com.pulumi.snowflake.TagArgs;
+ * import com.pulumi.snowflake.MaskingPolicy;
+ * import com.pulumi.snowflake.MaskingPolicyArgs;
+ * import com.pulumi.snowflake.TagMaskingPolicyAssociation;
+ * import com.pulumi.snowflake.TagMaskingPolicyAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)
+ *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;TEST_DB1&#34;)
+ *             .dataRetentionTimeInDays(1)
+ *             .build());
+ * 
+ *         var test2 = new Database(&#34;test2&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;TEST_DB2&#34;)
+ *             .dataRetentionTimeInDays(1)
+ *             .build());
+ * 
+ *         var test2Schema = new Schema(&#34;test2Schema&#34;, SchemaArgs.builder()        
+ *             .database(test2.name())
+ *             .name(&#34;FOOBAR2&#34;)
+ *             .dataRetentionDays(test2.dataRetentionTimeInDays())
+ *             .build());
+ * 
+ *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
+ *             .database(test.name())
+ *             .name(&#34;FOOBAR&#34;)
+ *             .dataRetentionDays(test.dataRetentionTimeInDays())
+ *             .build());
+ * 
+ *         var this_ = new Tag(&#34;this&#34;, TagArgs.builder()        
+ *             .name(StdFunctions.upper(UpperArgs.builder()
+ *                 .input(&#34;test_tag&#34;)
+ *                 .build()).result())
+ *             .database(test2.name())
+ *             .schema(test2Schema.name())
+ *             .build());
+ * 
+ *         var exampleMaskingPolicy = new MaskingPolicy(&#34;exampleMaskingPolicy&#34;, MaskingPolicyArgs.builder()        
+ *             .name(&#34;EXAMPLE_MASKING_POLICY&#34;)
+ *             .database(test.name())
+ *             .schema(testSchema.name())
+ *             .valueDataType(&#34;string&#34;)
+ *             .maskingExpression(&#34;case when current_role() in (&#39;ACCOUNTADMIN&#39;) then val else sha2(val, 512) end&#34;)
+ *             .returnDataType(&#34;string&#34;)
+ *             .build());
+ * 
+ *         var name = new TagMaskingPolicyAssociation(&#34;name&#34;, TagMaskingPolicyAssociationArgs.builder()        
+ *             .tagId(this_.id())
+ *             .maskingPolicyId(exampleMaskingPolicy.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * format is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name

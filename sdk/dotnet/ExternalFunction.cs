@@ -21,9 +21,11 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testExtFunc = new Snowflake.ExternalFunction("testExtFunc", new()
+    ///     var testExtFunc = new Snowflake.ExternalFunction("test_ext_func", new()
     ///     {
-    ///         ApiIntegration = "api_integration_name",
+    ///         Name = "my_function",
+    ///         Database = "my_test_db",
+    ///         Schema = "my_test_schema",
     ///         Args = new[]
     ///         {
     ///             new Snowflake.Inputs.ExternalFunctionArgArgs
@@ -37,10 +39,9 @@ namespace Pulumi.Snowflake
     ///                 Type = "varchar",
     ///             },
     ///         },
-    ///         Database = "my_test_db",
-    ///         ReturnBehavior = "IMMUTABLE",
     ///         ReturnType = "variant",
-    ///         Schema = "my_test_schema",
+    ///         ReturnBehavior = "IMMUTABLE",
+    ///         ApiIntegration = "api_integration_name",
     ///         UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
     ///     });
     /// 

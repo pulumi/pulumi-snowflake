@@ -21,9 +21,12 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database");
+    ///     var d = new Snowflake.Database("d", new()
+    ///     {
+    ///         Name = "TEST_DB",
+    ///     });
     /// 
-    ///     var objectParameter = new Snowflake.ObjectParameter("objectParameter", new()
+    ///     var o = new Snowflake.ObjectParameter("o", new()
     ///     {
     ///         Key = "SUSPEND_TASK_AFTER_NUM_FAILURES",
     ///         Value = "33",
@@ -32,14 +35,15 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
     ///             {
-    ///                 Name = database.Name,
+    ///                 Name = d.Name,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     var s = new Snowflake.Schema("s", new()
     ///     {
-    ///         Database = database.Name,
+    ///         Name = "TEST_SCHEMA",
+    ///         Database = d.Name,
     ///     });
     /// 
     ///     var o2 = new Snowflake.ObjectParameter("o2", new()
@@ -51,16 +55,17 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
     ///             {
-    ///                 Database = database.Name,
-    ///                 Name = schema.Name,
+    ///                 Database = d.Name,
+    ///                 Name = s.Name,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var table = new Snowflake.Table("table", new()
+    ///     var t = new Snowflake.Table("t", new()
     ///     {
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Name = "TEST_TABLE",
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.TableColumnArgs
@@ -80,9 +85,9 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
     ///             {
-    ///                 Database = database.Name,
-    ///                 Schema = schema.Name,
-    ///                 Name = table.Name,
+    ///                 Database = d.Name,
+    ///                 Schema = s.Name,
+    ///                 Name = t.Name,
     ///             },
     ///         },
     ///     });

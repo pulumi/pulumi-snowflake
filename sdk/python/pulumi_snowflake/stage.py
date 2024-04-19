@@ -499,11 +499,12 @@ class Stage(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_stage = snowflake.Stage("exampleStage",
-            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'",
+        example_stage = snowflake.Stage("example_stage",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            url="s3://com.example.bucket/prefix")
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -544,11 +545,12 @@ class Stage(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_stage = snowflake.Stage("exampleStage",
-            credentials=f"AWS_KEY_ID='{var['example_aws_key_id']}' AWS_SECRET_KEY='{var['example_aws_secret_key']}'",
+        example_stage = snowflake.Stage("example_stage",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            url="s3://com.example.bucket/prefix")
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
         ```
         <!--End PulumiCodeChooser -->
 

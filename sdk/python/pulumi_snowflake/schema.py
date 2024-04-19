@@ -286,11 +286,12 @@ class Schema(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         schema = snowflake.Schema("schema",
-            comment="A schema.",
-            data_retention_days=1,
             database="database",
+            name="schema",
+            comment="A schema.",
+            is_transient=False,
             is_managed=False,
-            is_transient=False)
+            data_retention_days=1)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -327,11 +328,12 @@ class Schema(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         schema = snowflake.Schema("schema",
-            comment="A schema.",
-            data_retention_days=1,
             database="database",
+            name="schema",
+            comment="A schema.",
+            is_transient=False,
             is_managed=False,
-            is_transient=False)
+            data_retention_days=1)
         ```
         <!--End PulumiCodeChooser -->
 

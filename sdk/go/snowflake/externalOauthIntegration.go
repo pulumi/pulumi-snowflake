@@ -30,19 +30,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewExternalOauthIntegration(ctx, "azure", &snowflake.ExternalOauthIntegrationArgs{
-//				AudienceUrls: pulumi.StringArray{
-//					pulumi.String("https://analysis.windows.net/powerbi/connector/Snowflake"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//				Issuer:  pulumi.String("https://sts.windows.net/00000000-0000-0000-0000-000000000000"),
+//				Name:                          pulumi.String("AZURE_POWERBI"),
+//				Type:                          pulumi.String("AZURE"),
+//				Enabled:                       pulumi.Bool(true),
+//				Issuer:                        pulumi.String("https://sts.windows.net/00000000-0000-0000-0000-000000000000"),
+//				SnowflakeUserMappingAttribute: pulumi.String("LOGIN_NAME"),
 //				JwsKeysUrls: pulumi.StringArray{
 //					pulumi.String("https://login.windows.net/common/discovery/keys"),
 //				},
-//				SnowflakeUserMappingAttribute: pulumi.String("LOGIN_NAME"),
+//				AudienceUrls: pulumi.StringArray{
+//					pulumi.String("https://analysis.windows.net/powerbi/connector/Snowflake"),
+//				},
 //				TokenUserMappingClaims: pulumi.StringArray{
 //					pulumi.String("upn"),
 //				},
-//				Type: pulumi.String("AZURE"),
 //			})
 //			if err != nil {
 //				return err

@@ -28,13 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+//				Name:                        pulumi.String("notification"),
+//				Comment:                     pulumi.String("A notification integration."),
+//				Enabled:                     pulumi.Bool(true),
+//				Type:                        pulumi.String("QUEUE"),
+//				Direction:                   pulumi.String("OUTBOUND"),
+//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
 //				AzureStorageQueuePrimaryUri: pulumi.String("..."),
 //				AzureTenantId:               pulumi.String("..."),
-//				Comment:                     pulumi.String("A notification integration."),
-//				Direction:                   pulumi.String("OUTBOUND"),
-//				Enabled:                     pulumi.Bool(true),
-//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
-//				Type:                        pulumi.String("QUEUE"),
 //			})
 //			if err != nil {
 //				return err

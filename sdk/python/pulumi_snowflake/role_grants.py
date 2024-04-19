@@ -178,10 +178,16 @@ class RoleGrants(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        user = snowflake.User("user", comment="for testing")
-        user2 = snowflake.User("user2", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        user = snowflake.User("user",
+            name="rking_test_user",
+            comment="for testing")
+        user2 = snowflake.User("user2",
+            name="rking_test_user2",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         grants = snowflake.RoleGrants("grants",
             role_name=role.name,
             roles=[other_role.name],
@@ -224,10 +230,16 @@ class RoleGrants(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        user = snowflake.User("user", comment="for testing")
-        user2 = snowflake.User("user2", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        user = snowflake.User("user",
+            name="rking_test_user",
+            comment="for testing")
+        user2 = snowflake.User("user2",
+            name="rking_test_user2",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         grants = snowflake.RoleGrants("grants",
             role_name=role.name,
             roles=[other_role.name],

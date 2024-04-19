@@ -27,19 +27,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("some_db"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//			s, err := snowflake.NewSchema(ctx, "s", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("some_schema"),
+//				Database: d.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			t, err := snowflake.NewTable(ctx, "t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("some_table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("col1"),
@@ -61,9 +65,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fkT, err := snowflake.NewTable(ctx, "fkT", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//			fkT, err := snowflake.NewTable(ctx, "fk_t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("fk_table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("fk_col1"),
@@ -80,9 +85,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTableConstraint(ctx, "primaryKey", &snowflake.TableConstraintArgs{
+//			_, err = snowflake.NewTableConstraint(ctx, "primary_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraint"),
 //				Type:    pulumi.String("PRIMARY KEY"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col1"),
 //				},
@@ -91,9 +97,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTableConstraint(ctx, "foreignKey", &snowflake.TableConstraintArgs{
+//			_, err = snowflake.NewTableConstraint(ctx, "foreign_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraintfk"),
 //				Type:    pulumi.String("FOREIGN KEY"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col2"),
 //				},
@@ -114,8 +121,9 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("unique"),
 //				Type:    pulumi.String("UNIQUE"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col3"),
 //				},

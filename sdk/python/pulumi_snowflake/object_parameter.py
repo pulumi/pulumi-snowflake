@@ -206,26 +206,29 @@ class ObjectParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        object_parameter = snowflake.ObjectParameter("objectParameter",
+        d = snowflake.Database("d", name="TEST_DB")
+        o = snowflake.ObjectParameter("o",
             key="SUSPEND_TASK_AFTER_NUM_FAILURES",
             value="33",
             object_type="DATABASE",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                name=database.name,
+                name=d.name,
             )])
-        schema = snowflake.Schema("schema", database=database.name)
+        s = snowflake.Schema("s",
+            name="TEST_SCHEMA",
+            database=d.name)
         o2 = snowflake.ObjectParameter("o2",
             key="USER_TASK_TIMEOUT_MS",
             value="500",
             object_type="SCHEMA",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=database.name,
-                name=schema.name,
+                database=d.name,
+                name=s.name,
             )])
-        table = snowflake.Table("table",
-            database=database.name,
-            schema=schema.name,
+        t = snowflake.Table("t",
+            name="TEST_TABLE",
+            database=d.name,
+            schema=s.name,
             columns=[snowflake.TableColumnArgs(
                 name="id",
                 type="NUMBER",
@@ -235,9 +238,9 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             object_type="TABLE",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=database.name,
-                schema=schema.name,
-                name=table.name,
+                database=d.name,
+                schema=s.name,
+                name=t.name,
             )])
         # Setting object parameter at account level
         o4 = snowflake.ObjectParameter("o4",
@@ -275,26 +278,29 @@ class ObjectParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        object_parameter = snowflake.ObjectParameter("objectParameter",
+        d = snowflake.Database("d", name="TEST_DB")
+        o = snowflake.ObjectParameter("o",
             key="SUSPEND_TASK_AFTER_NUM_FAILURES",
             value="33",
             object_type="DATABASE",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                name=database.name,
+                name=d.name,
             )])
-        schema = snowflake.Schema("schema", database=database.name)
+        s = snowflake.Schema("s",
+            name="TEST_SCHEMA",
+            database=d.name)
         o2 = snowflake.ObjectParameter("o2",
             key="USER_TASK_TIMEOUT_MS",
             value="500",
             object_type="SCHEMA",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=database.name,
-                name=schema.name,
+                database=d.name,
+                name=s.name,
             )])
-        table = snowflake.Table("table",
-            database=database.name,
-            schema=schema.name,
+        t = snowflake.Table("t",
+            name="TEST_TABLE",
+            database=d.name,
+            schema=s.name,
             columns=[snowflake.TableColumnArgs(
                 name="id",
                 type="NUMBER",
@@ -304,9 +310,9 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             object_type="TABLE",
             object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=database.name,
-                schema=schema.name,
-                name=table.name,
+                database=d.name,
+                schema=s.name,
+                name=t.name,
             )])
         # Setting object parameter at account level
         o4 = snowflake.ObjectParameter("o4",

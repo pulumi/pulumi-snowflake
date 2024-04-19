@@ -59,13 +59,13 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
  *                 &#34;USAGE&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onAccount(true)
  *             .build());
  * 
  *         // all privileges + grant option
  *         var g2 = new GrantPrivilegesToRole(&#34;g2&#34;, GrantPrivilegesToRoleArgs.builder()        
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onAccount(true)
  *             .allPrivileges(true)
  *             .withGrantOption(true)
@@ -79,19 +79,19 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;CREATE&#34;,
  *                 &#34;MONITOR&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
  *                 .objectType(&#34;DATABASE&#34;)
- *                 .objectName(snowflake_database.d().name())
+ *                 .objectName(d.name())
  *                 .build())
  *             .build());
  * 
  *         // all privileges + grant option
  *         var g4 = new GrantPrivilegesToRole(&#34;g4&#34;, GrantPrivilegesToRoleArgs.builder()        
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
  *                 .objectType(&#34;DATABASE&#34;)
- *                 .objectName(snowflake_database.d().name())
+ *                 .objectName(d.name())
  *                 .build())
  *             .allPrivileges(true)
  *             .withGrantOption(true)
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
  *                 &#34;CREATE TABLE&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
  *                 .schemaName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
  *                 .build())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  *         // all privileges + grant option
  *         var g6 = new GrantPrivilegesToRole(&#34;g6&#34;, GrantPrivilegesToRoleArgs.builder()        
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
  *                 .schemaName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;&#34;)
  *                 .build())
@@ -126,9 +126,9 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
  *                 &#34;CREATE TABLE&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
- *                 .allSchemasInDatabase(snowflake_database.d().name())
+ *                 .allSchemasInDatabase(d.name())
  *                 .build())
  *             .build());
  * 
@@ -137,9 +137,9 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;MODIFY&#34;,
  *                 &#34;CREATE TABLE&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
- *                 .futureSchemasInDatabase(snowflake_database.d().name())
+ *                 .futureSchemasInDatabase(d.name())
  *                 .build())
  *             .build());
  * 
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;SELECT&#34;,
  *                 &#34;REFERENCES&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .objectType(&#34;VIEW&#34;)
  *                 .objectName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;.\&#34;my_view\&#34;&#34;)
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  * 
  *         // all privileges + grant option
  *         var g10 = new GrantPrivilegesToRole(&#34;g10&#34;, GrantPrivilegesToRoleArgs.builder()        
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .objectType(&#34;VIEW&#34;)
  *                 .objectName(&#34;\&#34;my_db\&#34;.\&#34;my_schema\&#34;.\&#34;my_view\&#34;&#34;)
@@ -174,11 +174,11 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;SELECT&#34;,
  *                 &#34;INSERT&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .all(GrantPrivilegesToRoleOnSchemaObjectAllArgs.builder()
  *                     .objectTypePlural(&#34;TABLES&#34;)
- *                     .inDatabase(snowflake_database.d().name())
+ *                     .inDatabase(d.name())
  *                     .build())
  *                 .build())
  *             .build());
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;SELECT&#34;,
  *                 &#34;INSERT&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .all(GrantPrivilegesToRoleOnSchemaObjectAllArgs.builder()
  *                     .objectTypePlural(&#34;TABLES&#34;)
@@ -202,11 +202,11 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;SELECT&#34;,
  *                 &#34;INSERT&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .future(GrantPrivilegesToRoleOnSchemaObjectFutureArgs.builder()
  *                     .objectTypePlural(&#34;TABLES&#34;)
- *                     .inDatabase(snowflake_database.d().name())
+ *                     .inDatabase(d.name())
  *                     .build())
  *                 .build())
  *             .build());
@@ -216,7 +216,7 @@ import javax.annotation.Nullable;
  *             .privileges(            
  *                 &#34;SELECT&#34;,
  *                 &#34;INSERT&#34;)
- *             .roleName(snowflake_role.r().name())
+ *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .future(GrantPrivilegesToRoleOnSchemaObjectFutureArgs.builder()
  *                     .objectTypePlural(&#34;TABLES&#34;)

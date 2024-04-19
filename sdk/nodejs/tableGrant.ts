@@ -16,12 +16,12 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.TableGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     tableName: "table",
  *     privilege: "SELECT",
  *     roles: ["role1"],
- *     schemaName: "schema",
  *     shares: ["share1"],
- *     tableName: "table",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.UserGrant("grant", {
+ *     userName: "user",
  *     privilege: "MONITOR",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     userName: "user",
  *     withGrantOption: false,
  * });
  * ```

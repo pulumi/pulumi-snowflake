@@ -33,11 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Provider;
- * import com.pulumi.snowflake.ProviderArgs;
  * import com.pulumi.snowflake.Account;
  * import com.pulumi.snowflake.AccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,11 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orgadmin = new Provider(&#34;orgadmin&#34;, ProviderArgs.builder()        
- *             .role(&#34;ORGADMIN&#34;)
- *             .build());
- * 
  *         var ac1 = new Account(&#34;ac1&#34;, AccountArgs.builder()        
+ *             .name(&#34;SNOWFLAKE_TEST_ACCOUNT&#34;)
  *             .adminName(&#34;John Doe&#34;)
  *             .adminPassword(&#34;Abcd1234!&#34;)
  *             .email(&#34;john.doe@snowflake.com&#34;)
@@ -65,9 +59,7 @@ import javax.annotation.Nullable;
  *             .edition(&#34;STANDARD&#34;)
  *             .comment(&#34;Snowflake Test Account&#34;)
  *             .region(&#34;AWS_US_WEST_2&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(snowflake.orgadmin())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

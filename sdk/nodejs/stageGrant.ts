@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.StageGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     stageName: "stage",
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
- *     stageName: "stage",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

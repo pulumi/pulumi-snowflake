@@ -25,10 +25,14 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "rking_test_role",
     ///         Comment = "for testing",
     ///     });
     /// 
-    ///     var otherRole = new Snowflake.Role("otherRole");
+    ///     var otherRole = new Snowflake.Role("other_role", new()
+    ///     {
+    ///         Name = "rking_test_role2",
+    ///     });
     /// 
     ///     // ensure the Terraform user inherits ownership privileges for the rking_test_role role
     ///     // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges

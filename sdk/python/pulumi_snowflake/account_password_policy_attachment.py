@@ -77,7 +77,8 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
 
         default = snowflake.PasswordPolicy("default",
             database="prod",
-            schema="security")
+            schema="security",
+            name="default_policy")
         attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
         ```
         <!--End PulumiCodeChooser -->
@@ -104,7 +105,8 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
 
         default = snowflake.PasswordPolicy("default",
             database="prod",
-            schema="security")
+            schema="security",
+            name="default_policy")
         attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
         ```
         <!--End PulumiCodeChooser -->

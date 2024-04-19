@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var grant = new MaterializedViewGrant(&#34;grant&#34;, MaterializedViewGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
+ *             .schemaName(&#34;schema&#34;)
  *             .materializedViewName(&#34;materialized_view&#34;)
- *             .onFuture(false)
  *             .privilege(&#34;SELECT&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
  *             .shares(            
  *                 &#34;share1&#34;,
  *                 &#34;share2&#34;)
+ *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 

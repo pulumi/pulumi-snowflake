@@ -377,14 +377,14 @@ class StreamGrant(pulumi.CustomResource):
 
         grant = snowflake.StreamGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            stream_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            stream_name="view",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -429,14 +429,14 @@ class StreamGrant(pulumi.CustomResource):
 
         grant = snowflake.StreamGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            stream_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
-            stream_name="view",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

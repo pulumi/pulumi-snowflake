@@ -16,18 +16,18 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.ExternalTableGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
  *     externalTableName: "external_table",
- *     onFuture: false,
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

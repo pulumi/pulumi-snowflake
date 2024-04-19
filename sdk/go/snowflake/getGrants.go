@@ -26,6 +26,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// #################################
+//			// ## SHOW GRANTS ON ...
+//			// #################################
+//			// account
 //			_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					Account: pulumi.BoolRef(true),
@@ -34,6 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// account object (e.g. database)
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					ObjectName: pulumi.StringRef("some_database"),
@@ -43,6 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// database object (e.g. schema)
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					ObjectName: pulumi.StringRef("\"some_database\".\"some_schema\""),
@@ -52,6 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// schema object (e.g. table)
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOn: snowflake.GetGrantsGrantsOn{
 //					ObjectName: pulumi.StringRef("\"some_database\".\"some_schema\".\"some_table\""),
@@ -61,6 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// application
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					Application: pulumi.StringRef("some_application"),
@@ -69,6 +77,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// application role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					ApplicationRole: pulumi.StringRef("\"some_application\".\"some_application_role\""),
@@ -77,6 +86,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// account role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					AccountRole: pulumi.StringRef("some_role"),
@@ -85,6 +95,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// database role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),
@@ -93,6 +104,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// share
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					Share: snowflake.GetGrantsGrantsToShare{
@@ -103,6 +115,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// user
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsTo: snowflake.GetGrantsGrantsTo{
 //					User: pulumi.StringRef("some_user"),
@@ -111,6 +124,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// application role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOf: snowflake.GetGrantsGrantsOf{
 //					ApplicationRole: pulumi.StringRef("\"some_application\".\"some_application_role\""),
@@ -119,6 +133,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// database role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOf: snowflake.GetGrantsGrantsOf{
 //					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),
@@ -127,6 +142,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// account role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOf: snowflake.GetGrantsGrantsOf{
 //					AccountRole: pulumi.StringRef("some_role"),
@@ -135,6 +151,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// share
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				GrantsOf: snowflake.GetGrantsGrantsOf{
 //					Share: pulumi.StringRef("some_share"),
@@ -143,6 +160,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// database
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
 //					Database: pulumi.StringRef("some_database"),
@@ -151,6 +169,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// schema
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
 //					Schema: pulumi.StringRef("\"some_database\".\"some_schema\""),
@@ -159,6 +178,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// account role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
 //					AccountRole: pulumi.StringRef("some_role"),
@@ -167,6 +187,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// database role
 //			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
 //				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
 //					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),

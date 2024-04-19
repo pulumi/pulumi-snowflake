@@ -26,15 +26,15 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.StageGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
-    ///         OnFuture = false,
+    ///         SchemaName = "schema",
+    ///         StageName = "stage",
     ///         Privilege = "USAGE",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
-    ///         StageName = "stage",
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 

@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const orgadmin = new snowflake.Provider("orgadmin", {role: "ORGADMIN"});
  * const ac1 = new snowflake.Account("ac1", {
+ *     name: "SNOWFLAKE_TEST_ACCOUNT",
  *     adminName: "John Doe",
  *     adminPassword: "Abcd1234!",
  *     email: "john.doe@snowflake.com",
@@ -29,8 +29,6 @@ import * as utilities from "./utilities";
  *     edition: "STANDARD",
  *     comment: "Snowflake Test Account",
  *     region: "AWS_US_WEST_2",
- * }, {
- *     provider: snowflake.orgadmin,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

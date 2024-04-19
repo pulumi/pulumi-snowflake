@@ -44,11 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .comment(&#34;A schema.&#34;)
- *             .dataRetentionDays(1)
  *             .database(&#34;database&#34;)
- *             .isManaged(false)
+ *             .name(&#34;schema&#34;)
+ *             .comment(&#34;A schema.&#34;)
  *             .isTransient(false)
+ *             .isManaged(false)
+ *             .dataRetentionDays(1)
  *             .build());
  * 
  *     }

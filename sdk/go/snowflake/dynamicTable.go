@@ -29,14 +29,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
 //			_, err := snowflake.NewDynamicTable(ctx, "dt", &snowflake.DynamicTableArgs{
-//				Comment:  pulumi.String("example comment"),
+//				Name:     pulumi.String("product"),
 //				Database: pulumi.String("mydb"),
-//				Query:    pulumi.String("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\""),
 //				Schema:   pulumi.String("myschema"),
 //				TargetLag: &snowflake.DynamicTableTargetLagArgs{
 //					MaximumDuration: pulumi.String("20 minutes"),
 //				},
 //				Warehouse: pulumi.String("mywh"),
+//				Query:     pulumi.String("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\""),
+//				Comment:   pulumi.String("example comment"),
 //			})
 //			if err != nil {
 //				return err

@@ -607,6 +607,7 @@ class Warehouse(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         warehouse = snowflake.Warehouse("warehouse",
+            name="test",
             comment="foo",
             warehouse_size="small")
         ```
@@ -652,6 +653,7 @@ class Warehouse(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         warehouse = snowflake.Warehouse("warehouse",
+            name="test",
             comment="foo",
             warehouse_size="small")
         ```

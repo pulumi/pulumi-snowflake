@@ -29,11 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewStage(ctx, "exampleStage", &snowflake.StageArgs{
-//				Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", _var.Example_aws_key_id, _var.Example_aws_secret_key)),
+//			_, err := snowflake.NewStage(ctx, "example_stage", &snowflake.StageArgs{
+//				Name:        pulumi.String("EXAMPLE_STAGE"),
+//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
 //				Database:    pulumi.String("EXAMPLE_DB"),
 //				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
-//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
+//				Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey)),
 //			})
 //			if err != nil {
 //				return err

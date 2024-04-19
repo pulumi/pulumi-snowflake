@@ -345,14 +345,14 @@ class PipeGrant(pulumi.CustomResource):
 
         grant = snowflake.PipeGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             pipe_name="pipe",
             privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -396,14 +396,14 @@ class PipeGrant(pulumi.CustomResource):
 
         grant = snowflake.PipeGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             pipe_name="pipe",
             privilege="OPERATE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

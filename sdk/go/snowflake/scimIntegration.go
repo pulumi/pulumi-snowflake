@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewScimIntegration(ctx, "aad", &snowflake.ScimIntegrationArgs{
+//				Name:            pulumi.String("AAD_PROVISIONING"),
 //				NetworkPolicy:   pulumi.String("AAD_NETWORK_POLICY"),
 //				ProvisionerRole: pulumi.String("AAD_PROVISIONER"),
 //				ScimClient:      pulumi.String("AZURE"),

@@ -32,6 +32,7 @@ import (
 //			_, err := snowflake.NewPasswordPolicy(ctx, "default", &snowflake.PasswordPolicyArgs{
 //				Database: pulumi.String("prod"),
 //				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("default_policy"),
 //			})
 //			if err != nil {
 //				return err

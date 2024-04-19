@@ -336,16 +336,17 @@ class Alert(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         alert = snowflake.Alert("alert",
-            action="select 1 as c",
+            database="database",
+            schema="schema",
+            name="alert",
+            warehouse="warehouse",
             alert_schedule=snowflake.AlertAlertScheduleArgs(
                 interval=10,
             ),
-            comment="my alert",
             condition="select 1 as c",
-            database="database",
+            action="select 1 as c",
             enabled=True,
-            schema="schema",
-            warehouse="warehouse")
+            comment="my alert")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -384,16 +385,17 @@ class Alert(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         alert = snowflake.Alert("alert",
-            action="select 1 as c",
+            database="database",
+            schema="schema",
+            name="alert",
+            warehouse="warehouse",
             alert_schedule=snowflake.AlertAlertScheduleArgs(
                 interval=10,
             ),
-            comment="my alert",
             condition="select 1 as c",
-            database="database",
+            action="select 1 as c",
             enabled=True,
-            schema="schema",
-            warehouse="warehouse")
+            comment="my alert")
         ```
         <!--End PulumiCodeChooser -->
 

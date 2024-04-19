@@ -15,16 +15,17 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const alert = new snowflake.Alert("alert", {
- *     action: "select 1 as c",
+ *     database: "database",
+ *     schema: "schema",
+ *     name: "alert",
+ *     warehouse: "warehouse",
  *     alertSchedule: {
  *         interval: 10,
  *     },
- *     comment: "my alert",
  *     condition: "select 1 as c",
- *     database: "database",
+ *     action: "select 1 as c",
  *     enabled: true,
- *     schema: "schema",
- *     warehouse: "warehouse",
+ *     comment: "my alert",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

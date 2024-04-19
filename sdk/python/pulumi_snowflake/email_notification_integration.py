@@ -156,10 +156,11 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        email_int = snowflake.EmailNotificationIntegration("emailInt",
-            allowed_recipients=["john.doe@gmail.com"],
+        email_int = snowflake.EmailNotificationIntegration("email_int",
+            name="notification",
             comment="A notification integration.",
-            enabled=True)
+            enabled=True,
+            allowed_recipients=["john.doe@gmail.com"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -188,10 +189,11 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        email_int = snowflake.EmailNotificationIntegration("emailInt",
-            allowed_recipients=["john.doe@gmail.com"],
+        email_int = snowflake.EmailNotificationIntegration("email_int",
+            name="notification",
             comment="A notification integration.",
-            enabled=True)
+            enabled=True,
+            allowed_recipients=["john.doe@gmail.com"])
         ```
         <!--End PulumiCodeChooser -->
 

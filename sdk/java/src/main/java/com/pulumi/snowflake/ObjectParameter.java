@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.ObjectParameter;
  * import com.pulumi.snowflake.ObjectParameterArgs;
  * import com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;
@@ -49,19 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
+ *         var d = new Database(&#34;d&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;TEST_DB&#34;)
+ *             .build());
  * 
- *         var objectParameter = new ObjectParameter(&#34;objectParameter&#34;, ObjectParameterArgs.builder()        
+ *         var o = new ObjectParameter(&#34;o&#34;, ObjectParameterArgs.builder()        
  *             .key(&#34;SUSPEND_TASK_AFTER_NUM_FAILURES&#34;)
  *             .value(&#34;33&#34;)
  *             .objectType(&#34;DATABASE&#34;)
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
- *                 .name(database.name())
+ *                 .name(d.name())
  *                 .build())
  *             .build());
  * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(database.name())
+ *         var s = new Schema(&#34;s&#34;, SchemaArgs.builder()        
+ *             .name(&#34;TEST_SCHEMA&#34;)
+ *             .database(d.name())
  *             .build());
  * 
  *         var o2 = new ObjectParameter(&#34;o2&#34;, ObjectParameterArgs.builder()        
@@ -69,14 +73,15 @@ import javax.annotation.Nullable;
  *             .value(&#34;500&#34;)
  *             .objectType(&#34;SCHEMA&#34;)
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
- *                 .database(database.name())
- *                 .name(schema.name())
+ *                 .database(d.name())
+ *                 .name(s.name())
  *                 .build())
  *             .build());
  * 
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
- *             .database(database.name())
- *             .schema(schema.name())
+ *         var t = new Table(&#34;t&#34;, TableArgs.builder()        
+ *             .name(&#34;TEST_TABLE&#34;)
+ *             .database(d.name())
+ *             .schema(s.name())
  *             .columns(TableColumnArgs.builder()
  *                 .name(&#34;id&#34;)
  *                 .type(&#34;NUMBER&#34;)
@@ -88,9 +93,9 @@ import javax.annotation.Nullable;
  *             .value(&#34;89&#34;)
  *             .objectType(&#34;TABLE&#34;)
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
- *                 .database(database.name())
- *                 .schema(schema.name())
- *                 .name(table.name())
+ *                 .database(d.name())
+ *                 .schema(s.name())
+ *                 .name(t.name())
  *                 .build())
  *             .build());
  * 

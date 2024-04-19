@@ -21,15 +21,20 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database");
+    ///     var database = new Snowflake.Database("database", new()
+    ///     {
+    ///         Name = "database",
+    ///     });
     /// 
     ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
+    ///         Name = "schema",
     ///         Database = database.Name,
     ///     });
     /// 
     ///     var tag = new Snowflake.Tag("tag", new()
     ///     {
+    ///         Name = "cost_center",
     ///         Database = database.Name,
     ///         Schema = schema.Name,
     ///         AllowedValues = new[]
@@ -39,7 +44,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var dbAssociation = new Snowflake.TagAssociation("dbAssociation", new()
+    ///     var dbAssociation = new Snowflake.TagAssociation("db_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
@@ -55,8 +60,9 @@ namespace Pulumi.Snowflake
     /// 
     ///     var test = new Snowflake.Table("test", new()
     ///     {
-    ///         Database = snowflake_database.Test.Name,
-    ///         Schema = snowflake_schema.Test.Name,
+    ///         Database = testSnowflakeDatabase.Name,
+    ///         Schema = testSnowflakeSchema.Name,
+    ///         Name = "TABLE_NAME",
     ///         Comment = "Terraform example table",
     ///         Columns = new[]
     ///         {
@@ -73,35 +79,35 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var tableAssociation = new Snowflake.TagAssociation("tableAssociation", new()
+    ///     var tableAssociation = new Snowflake.TagAssociation("table_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
     ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
     ///             {
     ///                 Name = test.Name,
-    ///                 Database = snowflake_database.Test.Name,
-    ///                 Schema = snowflake_schema.Test.Name,
+    ///                 Database = testSnowflakeDatabase.Name,
+    ///                 Schema = testSnowflakeSchema.Name,
     ///             },
     ///         },
     ///         ObjectType = "TABLE",
-    ///         TagId = snowflake_tag.Test.Id,
+    ///         TagId = testSnowflakeTag.Id,
     ///         TagValue = "engineering",
     ///     });
     /// 
-    ///     var columnAssociation = new Snowflake.TagAssociation("columnAssociation", new()
+    ///     var columnAssociation = new Snowflake.TagAssociation("column_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
     ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
     ///             {
     ///                 Name = test.Name.Apply(name =&gt; $"{name}.column_name"),
-    ///                 Database = snowflake_database.Test.Name,
-    ///                 Schema = snowflake_schema.Test.Name,
+    ///                 Database = testSnowflakeDatabase.Name,
+    ///                 Schema = testSnowflakeSchema.Name,
     ///             },
     ///         },
     ///         ObjectType = "COLUMN",
-    ///         TagId = snowflake_tag.Test.Id,
+    ///         TagId = testSnowflakeTag.Id,
     ///         TagValue = "engineering",
     ///     });
     /// 

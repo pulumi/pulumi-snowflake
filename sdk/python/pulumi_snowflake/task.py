@@ -571,6 +571,7 @@ class Task(pulumi.CustomResource):
             database="database",
             schema="schema",
             warehouse="warehouse",
+            name="task",
             schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
@@ -580,10 +581,11 @@ class Task(pulumi.CustomResource):
             afters="preceding_task",
             when="foo AND bar",
             enabled=True)
-        serverless_task = snowflake.Task("serverlessTask",
+        serverless_task = snowflake.Task("serverless_task",
             comment="my serverless task",
             database="db",
             schema="schema",
+            name="serverless_task",
             schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
@@ -594,10 +596,11 @@ class Task(pulumi.CustomResource):
             afters=[task.name],
             when="foo AND bar",
             enabled=True)
-        test_task = snowflake.Task("testTask",
+        test_task = snowflake.Task("test_task",
             comment="task with allow_overlapping_execution",
             database="database",
             schema="schema",
+            name="test_task",
             sql_statement="select 1 as c;",
             allow_overlapping_execution=True,
             enabled=True)
@@ -650,6 +653,7 @@ class Task(pulumi.CustomResource):
             database="database",
             schema="schema",
             warehouse="warehouse",
+            name="task",
             schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
@@ -659,10 +663,11 @@ class Task(pulumi.CustomResource):
             afters="preceding_task",
             when="foo AND bar",
             enabled=True)
-        serverless_task = snowflake.Task("serverlessTask",
+        serverless_task = snowflake.Task("serverless_task",
             comment="my serverless task",
             database="db",
             schema="schema",
+            name="serverless_task",
             schedule="10 MINUTE",
             sql_statement="select * from foo;",
             session_parameters={
@@ -673,10 +678,11 @@ class Task(pulumi.CustomResource):
             afters=[task.name],
             when="foo AND bar",
             enabled=True)
-        test_task = snowflake.Task("testTask",
+        test_task = snowflake.Task("test_task",
             comment="task with allow_overlapping_execution",
             database="database",
             schema="schema",
+            name="test_task",
             sql_statement="select 1 as c;",
             allow_overlapping_execution=True,
             enabled=True)

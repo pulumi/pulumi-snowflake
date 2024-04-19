@@ -48,15 +48,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;MYDB&#34;)
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
  *             .database(db.name())
+ *             .name(&#34;MYSCHEMA&#34;)
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         var proc = new Procedure(&#34;proc&#34;, ProcedureArgs.builder()        
+ *             .name(&#34;SAMPLEPROC&#34;)
  *             .database(db.name())
  *             .schema(schema.name())
  *             .language(&#34;JAVASCRIPT&#34;)

@@ -31,18 +31,18 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewExternalTableGrant(ctx, "grant", &snowflake.ExternalTableGrantArgs{
 //				DatabaseName:      pulumi.String("database"),
+//				SchemaName:        pulumi.String("schema"),
 //				ExternalTableName: pulumi.String("external_table"),
-//				OnFuture:          pulumi.Bool(false),
 //				Privilege:         pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

@@ -29,11 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewAccountGrant(ctx, "grant", &snowflake.AccountGrantArgs{
-//				Privilege: pulumi.String("CREATE ROLE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
+//				Privilege:       pulumi.String("CREATE ROLE"),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

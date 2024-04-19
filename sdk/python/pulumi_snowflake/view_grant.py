@@ -409,29 +409,31 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
+        grant = snowflake.ViewGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            view_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
-            view_name="view",
+            on_future=False,
             with_grant_option=False)
-        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+        #Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+        #grants, use the `snowflake_schema_grant` resource
+        grant_schema_grant = snowflake.SchemaGrant("grant",
             database_name="database",
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
-            ],
-            schema_name="schema")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -474,29 +476,31 @@ class ViewGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
+        grant = snowflake.ViewGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            view_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
-            view_name="view",
+            on_future=False,
             with_grant_option=False)
-        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+        #Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+        #grants, use the `snowflake_schema_grant` resource
+        grant_schema_grant = snowflake.SchemaGrant("grant",
             database_name="database",
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
-            ],
-            schema_name="schema")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

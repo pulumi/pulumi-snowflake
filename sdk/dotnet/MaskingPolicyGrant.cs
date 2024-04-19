@@ -25,17 +25,17 @@ namespace Pulumi.Snowflake
     /// {
     ///     var example = new Snowflake.MaskingPolicyGrant("example", new()
     ///     {
-    ///         DatabaseName = "EXAMPLE_DB_NAME",
-    ///         EnableMultipleGrants = true,
     ///         MaskingPolicyName = "EXAMPLE_MASKING_POLICY_NAME",
+    ///         DatabaseName = "EXAMPLE_DB_NAME",
+    ///         SchemaName = "EXAMPLE_SCHEMA_NAME",
     ///         Privilege = "APPLY",
     ///         Roles = new[]
     ///         {
     ///             "ROLE1_NAME",
     ///             "ROLE2_NAME",
     ///         },
-    ///         SchemaName = "EXAMPLE_SCHEMA_NAME",
     ///         WithGrantOption = true,
+    ///         EnableMultipleGrants = true,
     ///     });
     /// 
     /// });

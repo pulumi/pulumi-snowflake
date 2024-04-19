@@ -26,20 +26,20 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.ExternalTableGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
+    ///         SchemaName = "schema",
     ///         ExternalTableName = "external_table",
-    ///         OnFuture = false,
     ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
     ///         Shares = new[]
     ///         {
     ///             "share1",
     ///             "share2",
     ///         },
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 

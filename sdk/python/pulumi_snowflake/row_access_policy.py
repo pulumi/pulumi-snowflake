@@ -235,14 +235,15 @@ class RowAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_row_access_policy = snowflake.RowAccessPolicy("exampleRowAccessPolicy",
+        example_row_access_policy = snowflake.RowAccessPolicy("example_row_access_policy",
+            name="EXAMPLE_ROW_ACCESS_POLICY",
             database="EXAMPLE_DB",
-            row_access_expression="case when current_role() in ('ANALYST') then true else false end",
             schema="EXAMPLE_SCHEMA",
             signature={
                 "A": "VARCHAR",
                 "B": "VARCHAR",
-            })
+            },
+            row_access_expression="case when current_role() in ('ANALYST') then true else false end")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -277,14 +278,15 @@ class RowAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_row_access_policy = snowflake.RowAccessPolicy("exampleRowAccessPolicy",
+        example_row_access_policy = snowflake.RowAccessPolicy("example_row_access_policy",
+            name="EXAMPLE_ROW_ACCESS_POLICY",
             database="EXAMPLE_DB",
-            row_access_expression="case when current_role() in ('ANALYST') then true else false end",
             schema="EXAMPLE_SCHEMA",
             signature={
                 "A": "VARCHAR",
                 "B": "VARCHAR",
-            })
+            },
+            row_access_expression="case when current_role() in ('ANALYST') then true else false end")
         ```
         <!--End PulumiCodeChooser -->
 

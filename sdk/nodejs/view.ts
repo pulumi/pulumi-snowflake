@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  * const view = new snowflake.View("view", {
  *     database: "database",
  *     schema: "schema",
+ *     name: "view",
  *     comment: "comment",
  *     statement: "select * from foo;\n",
  *     orReplace: false,

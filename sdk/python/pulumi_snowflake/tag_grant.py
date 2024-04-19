@@ -310,10 +310,10 @@ class TagGrant(pulumi.CustomResource):
 
         example = snowflake.TagGrant("example",
             database_name="database",
-            privilege="OWNERSHIP",
-            roles=["TEST_ROLE"],
             schema_name="schema",
-            tag_name="tag")
+            tag_name="tag",
+            roles=["TEST_ROLE"],
+            privilege="OWNERSHIP")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -355,10 +355,10 @@ class TagGrant(pulumi.CustomResource):
 
         example = snowflake.TagGrant("example",
             database_name="database",
-            privilege="OWNERSHIP",
-            roles=["TEST_ROLE"],
             schema_name="schema",
-            tag_name="tag")
+            tag_name="tag",
+            roles=["TEST_ROLE"],
+            privilege="OWNERSHIP")
         ```
         <!--End PulumiCodeChooser -->
 

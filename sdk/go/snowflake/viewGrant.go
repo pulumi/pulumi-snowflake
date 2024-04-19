@@ -29,33 +29,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewViewGrant(ctx, "grantViewGrant", &snowflake.ViewGrantArgs{
+//			_, err := snowflake.NewViewGrant(ctx, "grant", &snowflake.ViewGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
+//				SchemaName:   pulumi.String("schema"),
+//				ViewName:     pulumi.String("view"),
 //				Privilege:    pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
-//				ViewName:        pulumi.String("view"),
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewSchemaGrant(ctx, "grantSchemaGrant", &snowflake.SchemaGrantArgs{
+//			_, err = snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
 //				DatabaseName: pulumi.String("database"),
+//				SchemaName:   pulumi.String("schema"),
 //				Privilege:    pulumi.String("USAGE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //			})
 //			if err != nil {
 //				return err

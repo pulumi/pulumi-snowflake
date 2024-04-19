@@ -15,23 +15,23 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.FunctionGrant("grant", {
+ *     databaseName: "database",
+ *     schemaName: "schema",
+ *     functionName: "function",
  *     argumentDataTypes: [
  *         "array",
  *         "string",
  *     ],
- *     databaseName: "database",
- *     functionName: "function",
- *     onFuture: false,
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

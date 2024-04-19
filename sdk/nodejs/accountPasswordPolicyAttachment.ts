@@ -17,6 +17,7 @@ import * as utilities from "./utilities";
  * const _default = new snowflake.PasswordPolicy("default", {
  *     database: "prod",
  *     schema: "security",
+ *     name: "default_policy",
  * });
  * const attachment = new snowflake.AccountPasswordPolicyAttachment("attachment", {passwordPolicy: _default.qualifiedName});
  * ```

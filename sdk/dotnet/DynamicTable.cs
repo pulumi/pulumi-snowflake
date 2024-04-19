@@ -24,15 +24,16 @@ namespace Pulumi.Snowflake
     ///     // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
     ///     var dt = new Snowflake.DynamicTable("dt", new()
     ///     {
-    ///         Comment = "example comment",
+    ///         Name = "product",
     ///         Database = "mydb",
-    ///         Query = "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
     ///         Schema = "myschema",
     ///         TargetLag = new Snowflake.Inputs.DynamicTableTargetLagArgs
     ///         {
     ///             MaximumDuration = "20 minutes",
     ///         },
     ///         Warehouse = "mywh",
+    ///         Query = "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
+    ///         Comment = "example comment",
     ///     });
     /// 
     /// });

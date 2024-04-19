@@ -204,9 +204,12 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
+        database = snowflake.Database("database", name="database")
+        schema = snowflake.Schema("schema",
+            name="schema",
+            database=database.name)
         tag = snowflake.Tag("tag",
+            name="cost_center",
             database=database.name,
             schema=schema.name,
             allowed_values=[
@@ -246,9 +249,12 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database")
-        schema = snowflake.Schema("schema", database=database.name)
+        database = snowflake.Database("database", name="database")
+        schema = snowflake.Schema("schema",
+            name="schema",
+            database=database.name)
         tag = snowflake.Tag("tag",
+            name="cost_center",
             database=database.name,
             schema=schema.name,
             allowed_values=[

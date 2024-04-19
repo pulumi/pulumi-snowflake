@@ -442,23 +442,23 @@ class FunctionGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FunctionGrant("grant",
+            database_name="database",
+            schema_name="schema",
+            function_name="function",
             argument_data_types=[
                 "array",
                 "string",
             ],
-            database_name="database",
-            function_name="function",
-            on_future=False,
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -504,23 +504,23 @@ class FunctionGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.FunctionGrant("grant",
+            database_name="database",
+            schema_name="schema",
+            function_name="function",
             argument_data_types=[
                 "array",
                 "string",
             ],
-            database_name="database",
-            function_name="function",
-            on_future=False,
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

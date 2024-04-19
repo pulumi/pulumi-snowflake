@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewWarehouseGrant(ctx, "grant", &snowflake.WarehouseGrantArgs{
-//				Privilege: pulumi.String("MODIFY"),
+//				WarehouseName: pulumi.String("warehouse"),
+//				Privilege:     pulumi.String("MODIFY"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				WarehouseName:   pulumi.String("warehouse"),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {

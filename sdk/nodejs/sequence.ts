@@ -12,11 +12,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const testSchema = new snowflake.Schema("testSchema", {database: snowflake_database.test_database.name});
- * const testSequence = new snowflake.Sequence("testSequence", {
- *     database: snowflake_database.test_database.name,
+ * const database = new snowflake.Database("database", {name: "things"});
+ * const testSchema = new snowflake.Schema("test_schema", {
+ *     name: "things",
+ *     database: testDatabase.name,
+ * });
+ * const testSequence = new snowflake.Sequence("test_sequence", {
+ *     database: testDatabase.name,
  *     schema: testSchema.name,
+ *     name: "thing_counter",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

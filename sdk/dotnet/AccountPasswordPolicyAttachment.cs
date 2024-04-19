@@ -27,6 +27,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         Database = "prod",
     ///         Schema = "security",
+    ///         Name = "default_policy",
     ///     });
     /// 
     ///     var attachment = new Snowflake.AccountPasswordPolicyAttachment("attachment", new()

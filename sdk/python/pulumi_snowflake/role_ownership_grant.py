@@ -173,8 +173,10 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         # ensure the Terraform user inherits ownership privileges for the rking_test_role role
         # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
         grants = snowflake.RoleGrants("grants",
@@ -216,8 +218,10 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         # ensure the Terraform user inherits ownership privileges for the rking_test_role role
         # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
         grants = snowflake.RoleGrants("grants",

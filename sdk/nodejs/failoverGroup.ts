@@ -14,8 +14,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const db = new snowflake.Database("db", {});
- * const sourceFailoverGroup = new snowflake.FailoverGroup("sourceFailoverGroup", {
+ * const db = new snowflake.Database("db", {name: "db1"});
+ * const sourceFailoverGroup = new snowflake.FailoverGroup("source_failover_group", {
+ *     name: "FG1",
  *     objectTypes: [
  *         "WAREHOUSES",
  *         "DATABASES",
@@ -35,13 +36,13 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
- * const account2 = new snowflake.Provider("account2", {});
- * const targetFailoverGroup = new snowflake.FailoverGroup("targetFailoverGroup", {fromReplica: {
- *     organizationName: "...",
- *     sourceAccountName: "...",
- *     name: snowflake_failover_group.fg.name,
- * }}, {
- *     provider: snowflake.account2,
+ * const targetFailoverGroup = new snowflake.FailoverGroup("target_failover_group", {
+ *     name: "FG1",
+ *     fromReplica: {
+ *         organizationName: "...",
+ *         sourceAccountName: "...",
+ *         name: fg.name,
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->

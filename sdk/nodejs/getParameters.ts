@@ -14,16 +14,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const parameters = snowflake.getParametersOutput({
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * // read all object parameters in database TEST_DB
+ * const p = snowflake.getParametersOutput({
  *     parameterType: "OBJECT",
  *     objectType: "DATABASE",
- *     objectName: database.name,
+ *     objectName: d.name,
  * });
+ * // read all account parameters with the pattern '%TIMESTAMP%'
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
  *     pattern: "%TIMESTAMP%",
  * });
+ * // read the exact session parameter ROWS_PER_RESULTSET
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",
@@ -112,16 +115,19 @@ export interface GetParametersResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const parameters = snowflake.getParametersOutput({
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * // read all object parameters in database TEST_DB
+ * const p = snowflake.getParametersOutput({
  *     parameterType: "OBJECT",
  *     objectType: "DATABASE",
- *     objectName: database.name,
+ *     objectName: d.name,
  * });
+ * // read all account parameters with the pattern '%TIMESTAMP%'
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
  *     pattern: "%TIMESTAMP%",
  * });
+ * // read the exact session parameter ROWS_PER_RESULTSET
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",

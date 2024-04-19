@@ -14,30 +14,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grantViewGrant = new snowflake.ViewGrant("grantViewGrant", {
+ * const grant = new snowflake.ViewGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     viewName: "view",
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
- *     viewName: "view",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
- * const grantSchemaGrant = new snowflake.SchemaGrant("grantSchemaGrant", {
+ * //Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+ * //grants, use the `snowflake_schema_grant` resource
+ * const grantSchemaGrant = new snowflake.SchemaGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

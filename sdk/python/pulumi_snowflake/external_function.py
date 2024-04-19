@@ -614,8 +614,10 @@ class ExternalFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test_ext_func = snowflake.ExternalFunction("testExtFunc",
-            api_integration="api_integration_name",
+        test_ext_func = snowflake.ExternalFunction("test_ext_func",
+            name="my_function",
+            database="my_test_db",
+            schema="my_test_schema",
             args=[
                 snowflake.ExternalFunctionArgArgs(
                     name="arg1",
@@ -626,10 +628,9 @@ class ExternalFunction(pulumi.CustomResource):
                     type="varchar",
                 ),
             ],
-            database="my_test_db",
-            return_behavior="IMMUTABLE",
             return_type="variant",
-            schema="my_test_schema",
+            return_behavior="IMMUTABLE",
+            api_integration="api_integration_name",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
         <!--End PulumiCodeChooser -->
@@ -676,8 +677,10 @@ class ExternalFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        test_ext_func = snowflake.ExternalFunction("testExtFunc",
-            api_integration="api_integration_name",
+        test_ext_func = snowflake.ExternalFunction("test_ext_func",
+            name="my_function",
+            database="my_test_db",
+            schema="my_test_schema",
             args=[
                 snowflake.ExternalFunctionArgArgs(
                     name="arg1",
@@ -688,10 +691,9 @@ class ExternalFunction(pulumi.CustomResource):
                     type="varchar",
                 ),
             ],
-            database="my_test_db",
-            return_behavior="IMMUTABLE",
             return_type="variant",
-            schema="my_test_schema",
+            return_behavior="IMMUTABLE",
+            api_integration="api_integration_name",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
         <!--End PulumiCodeChooser -->

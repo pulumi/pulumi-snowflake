@@ -27,22 +27,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-//				Comment:     pulumi.String("A user of snowflake."),
-//				DefaultRole: pulumi.String("role1"),
+//				Name:             pulumi.String("Snowflake User"),
+//				LoginName:        pulumi.String("snowflake_user"),
+//				Comment:          pulumi.String("A user of snowflake."),
+//				Password:         pulumi.String("secret"),
+//				Disabled:         pulumi.Bool(false),
+//				DisplayName:      pulumi.String("Snowflake User"),
+//				Email:            pulumi.String("user@snowflake.example"),
+//				FirstName:        pulumi.String("Snowflake"),
+//				LastName:         pulumi.String("User"),
+//				DefaultWarehouse: pulumi.String("warehouse"),
 //				DefaultSecondaryRoles: pulumi.StringArray{
 //					pulumi.String("ALL"),
 //				},
-//				DefaultWarehouse:   pulumi.String("warehouse"),
-//				Disabled:           pulumi.Bool(false),
-//				DisplayName:        pulumi.String("Snowflake User"),
-//				Email:              pulumi.String("user@snowflake.example"),
-//				FirstName:          pulumi.String("Snowflake"),
-//				LastName:           pulumi.String("User"),
-//				LoginName:          pulumi.String("snowflake_user"),
-//				MustChangePassword: pulumi.Bool(false),
-//				Password:           pulumi.String("secret"),
+//				DefaultRole:        pulumi.String("role1"),
 //				RsaPublicKey:       pulumi.String("..."),
 //				RsaPublicKey2:      pulumi.String("..."),
+//				MustChangePassword: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

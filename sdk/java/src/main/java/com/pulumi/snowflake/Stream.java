@@ -41,13 +41,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var stream = new Stream(&#34;stream&#34;, StreamArgs.builder()        
- *             .appendOnly(false)
  *             .comment(&#34;A stream.&#34;)
  *             .database(&#34;database&#34;)
- *             .insertOnly(false)
- *             .onTable(&#34;table&#34;)
- *             .owner(&#34;role1&#34;)
  *             .schema(&#34;schema&#34;)
+ *             .name(&#34;stream&#34;)
+ *             .onTable(&#34;table&#34;)
+ *             .appendOnly(false)
+ *             .insertOnly(false)
+ *             .owner(&#34;role1&#34;)
  *             .build());
  * 
  *     }

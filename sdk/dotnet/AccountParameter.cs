@@ -21,7 +21,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accountParameter = new Snowflake.AccountParameter("accountParameter", new()
+    ///     var p = new Snowflake.AccountParameter("p", new()
     ///     {
     ///         Key = "ALLOW_ID_TOKEN",
     ///         Value = "true",

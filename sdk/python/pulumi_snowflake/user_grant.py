@@ -211,12 +211,12 @@ class UserGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.UserGrant("grant",
+            user_name="user",
             privilege="MONITOR",
             roles=[
                 "role1",
                 "role2",
             ],
-            user_name="user",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->
@@ -255,12 +255,12 @@ class UserGrant(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         grant = snowflake.UserGrant("grant",
+            user_name="user",
             privilege="MONITOR",
             roles=[
                 "role1",
                 "role2",
             ],
-            user_name="user",
             with_grant_option=False)
         ```
         <!--End PulumiCodeChooser -->

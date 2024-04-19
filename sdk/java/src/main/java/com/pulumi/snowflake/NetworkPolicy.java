@@ -41,9 +41,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var policy = new NetworkPolicy(&#34;policy&#34;, NetworkPolicyArgs.builder()        
+ *             .name(&#34;policy&#34;)
+ *             .comment(&#34;A policy.&#34;)
  *             .allowedIpLists(&#34;192.168.0.100/24&#34;)
  *             .blockedIpLists(&#34;192.168.0.101&#34;)
- *             .comment(&#34;A policy.&#34;)
  *             .build());
  * 
  *     }

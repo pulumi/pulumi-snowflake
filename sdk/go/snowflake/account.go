@@ -33,13 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewProvider(ctx, "orgadmin", &snowflake.ProviderArgs{
-//				Role: pulumi.String("ORGADMIN"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewAccount(ctx, "ac1", &snowflake.AccountArgs{
+//			_, err := snowflake.NewAccount(ctx, "ac1", &snowflake.AccountArgs{
+//				Name:               pulumi.String("SNOWFLAKE_TEST_ACCOUNT"),
 //				AdminName:          pulumi.String("John Doe"),
 //				AdminPassword:      pulumi.String("Abcd1234!"),
 //				Email:              pulumi.String("john.doe@snowflake.com"),
@@ -49,7 +44,7 @@ import (
 //				Edition:            pulumi.String("STANDARD"),
 //				Comment:            pulumi.String("Snowflake Test Account"),
 //				Region:             pulumi.String("AWS_US_WEST_2"),
-//			}, pulumi.Provider(snowflake.Orgadmin))
+//			})
 //			if err != nil {
 //				return err
 //			}

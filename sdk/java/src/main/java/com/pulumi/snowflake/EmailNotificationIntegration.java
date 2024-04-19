@@ -42,9 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var emailInt = new EmailNotificationIntegration(&#34;emailInt&#34;, EmailNotificationIntegrationArgs.builder()        
- *             .allowedRecipients(&#34;john.doe@gmail.com&#34;)
+ *             .name(&#34;notification&#34;)
  *             .comment(&#34;A notification integration.&#34;)
  *             .enabled(true)
+ *             .allowedRecipients(&#34;john.doe@gmail.com&#34;)
  *             .build());
  * 
  *     }

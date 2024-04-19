@@ -570,20 +570,21 @@ class User(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         user = snowflake.User("user",
+            name="Snowflake User",
+            login_name="snowflake_user",
             comment="A user of snowflake.",
-            default_role="role1",
-            default_secondary_roles=["ALL"],
-            default_warehouse="warehouse",
+            password="secret",
             disabled=False,
             display_name="Snowflake User",
             email="user@snowflake.example",
             first_name="Snowflake",
             last_name="User",
-            login_name="snowflake_user",
-            must_change_password=False,
-            password="secret",
+            default_warehouse="warehouse",
+            default_secondary_roles=["ALL"],
+            default_role="role1",
             rsa_public_key="...",
-            rsa_public_key2="...")
+            rsa_public_key2="...",
+            must_change_password=False)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -625,20 +626,21 @@ class User(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         user = snowflake.User("user",
+            name="Snowflake User",
+            login_name="snowflake_user",
             comment="A user of snowflake.",
-            default_role="role1",
-            default_secondary_roles=["ALL"],
-            default_warehouse="warehouse",
+            password="secret",
             disabled=False,
             display_name="Snowflake User",
             email="user@snowflake.example",
             first_name="Snowflake",
             last_name="User",
-            login_name="snowflake_user",
-            must_change_password=False,
-            password="secret",
+            default_warehouse="warehouse",
+            default_secondary_roles=["ALL"],
+            default_role="role1",
             rsa_public_key="...",
-            rsa_public_key2="...")
+            rsa_public_key2="...",
+            must_change_password=False)
         ```
         <!--End PulumiCodeChooser -->
 

@@ -29,13 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.FailoverGroup;
  * import com.pulumi.snowflake.FailoverGroupArgs;
  * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleArgs;
  * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleCronArgs;
- * import com.pulumi.snowflake.Provider;
  * import com.pulumi.snowflake.inputs.FailoverGroupFromReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,9 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new Database(&#34;db&#34;);
+ *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;db1&#34;)
+ *             .build());
  * 
  *         var sourceFailoverGroup = new FailoverGroup(&#34;sourceFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *             .name(&#34;FG1&#34;)
  *             .objectTypes(            
  *                 &#34;WAREHOUSES&#34;,
  *                 &#34;DATABASES&#34;,
@@ -70,17 +72,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var account2 = new Provider(&#34;account2&#34;);
- * 
  *         var targetFailoverGroup = new FailoverGroup(&#34;targetFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *             .name(&#34;FG1&#34;)
  *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
  *                 .organizationName(&#34;...&#34;)
  *                 .sourceAccountName(&#34;...&#34;)
- *                 .name(snowflake_failover_group.fg().name())
+ *                 .name(fg.name())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(snowflake.account2())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

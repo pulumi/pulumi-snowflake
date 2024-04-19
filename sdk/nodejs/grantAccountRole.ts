@@ -7,32 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * //#################################
- * //## grant account role to account role
- * //#################################
- * const roleRole = new snowflake.Role("roleRole", {});
- * const parentRole = new snowflake.Role("parentRole", {});
- * const grantAccountRole = new snowflake.GrantAccountRole("grantAccountRole", {
- *     roleName: roleRole.name,
- *     parentRoleName: parentRole.name,
- * });
- * //#################################
- * //## grant account role to user
- * //#################################
- * const roleIndex_roleRole = new snowflake.Role("roleIndex/roleRole", {});
- * const user = new snowflake.User("user", {});
- * const index_grantAccountRoleGrantAccountRole = new snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole", {
- *     roleName: roleRole.name,
- *     userName: user.name,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

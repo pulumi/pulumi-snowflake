@@ -43,19 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new MaskingPolicy(&#34;test&#34;, MaskingPolicyArgs.builder()        
+ *             .name(&#34;EXAMPLE_MASKING_POLICY&#34;)
  *             .database(&#34;EXAMPLE_DB&#34;)
- *             .maskingExpression(&#34;&#34;&#34;
- *   case 
- *     when current_role() in (&#39;ROLE_A&#39;) then 
- *       val 
- *     when is_role_in_session( &#39;ROLE_B&#39; ) then 
- *       &#39;ABC123&#39;
- *     else
- *       &#39;******&#39;
- *   end
- * 
- *             &#34;&#34;&#34;)
- *             .returnDataType(&#34;VARCHAR&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
  *             .signature(MaskingPolicySignatureArgs.builder()
  *                 .columns(MaskingPolicySignatureColumnArgs.builder()
@@ -63,6 +52,17 @@ import javax.annotation.Nullable;
  *                     .type(&#34;VARCHAR&#34;)
  *                     .build())
  *                 .build())
+ *             .maskingExpression(&#34;&#34;&#34;
+ * case 
+ *   when current_role() in (&#39;ROLE_A&#39;) then 
+ *     val 
+ *   when is_role_in_session( &#39;ROLE_B&#39; ) then 
+ *     &#39;ABC123&#39;
+ *   else
+ *     &#39;******&#39;
+ * end
+ *             &#34;&#34;&#34;)
+ *             .returnDataType(&#34;VARCHAR&#34;)
  *             .build());
  * 
  *     }

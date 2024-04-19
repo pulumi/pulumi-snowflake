@@ -43,18 +43,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new ResourceMonitor(&#34;monitor&#34;, ResourceMonitorArgs.builder()        
+ *             .name(&#34;monitor&#34;)
  *             .creditQuota(100)
- *             .endTimestamp(&#34;2021-12-07 00:00&#34;)
  *             .frequency(&#34;DAILY&#34;)
+ *             .startTimestamp(&#34;2020-12-07 00:00&#34;)
+ *             .endTimestamp(&#34;2021-12-07 00:00&#34;)
  *             .notifyTriggers(            
  *                 40,
  *                 50)
+ *             .suspendTriggers(50)
+ *             .suspendImmediateTriggers(90)
  *             .notifyUsers(            
  *                 &#34;USERONE&#34;,
  *                 &#34;USERTWO&#34;)
- *             .startTimestamp(&#34;2020-12-07 00:00&#34;)
- *             .suspendImmediateTriggers(90)
- *             .suspendTriggers(50)
  *             .build());
  * 
  *     }

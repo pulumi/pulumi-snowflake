@@ -340,8 +340,9 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        db = snowflake.Database("db")
-        source_failover_group = snowflake.FailoverGroup("sourceFailoverGroup",
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
             object_types=[
                 "WAREHOUSES",
                 "DATABASES",
@@ -360,13 +361,13 @@ class FailoverGroup(pulumi.CustomResource):
                     time_zone="UTC",
                 ),
             ))
-        account2 = snowflake.Provider("account2")
-        target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
-            organization_name="...",
-            source_account_name="...",
-            name=snowflake_failover_group["fg"]["name"],
-        ),
-        opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica=snowflake.FailoverGroupFromReplicaArgs(
+                organization_name="...",
+                source_account_name="...",
+                name=fg["name"],
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -402,8 +403,9 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        db = snowflake.Database("db")
-        source_failover_group = snowflake.FailoverGroup("sourceFailoverGroup",
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
             object_types=[
                 "WAREHOUSES",
                 "DATABASES",
@@ -422,13 +424,13 @@ class FailoverGroup(pulumi.CustomResource):
                     time_zone="UTC",
                 ),
             ))
-        account2 = snowflake.Provider("account2")
-        target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
-            organization_name="...",
-            source_account_name="...",
-            name=snowflake_failover_group["fg"]["name"],
-        ),
-        opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica=snowflake.FailoverGroupFromReplicaArgs(
+                organization_name="...",
+                source_account_name="...",
+                name=fg["name"],
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

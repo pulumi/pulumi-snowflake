@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const aad = new snowflake.ScimIntegration("aad", {
+ *     name: "AAD_PROVISIONING",
  *     networkPolicy: "AAD_NETWORK_POLICY",
  *     provisionerRole: "AAD_PROVISIONER",
  *     scimClient: "AZURE",

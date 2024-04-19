@@ -13,20 +13,21 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const user = new snowflake.User("user", {
+ *     name: "Snowflake User",
+ *     loginName: "snowflake_user",
  *     comment: "A user of snowflake.",
- *     defaultRole: "role1",
- *     defaultSecondaryRoles: ["ALL"],
- *     defaultWarehouse: "warehouse",
+ *     password: "secret",
  *     disabled: false,
  *     displayName: "Snowflake User",
  *     email: "user@snowflake.example",
  *     firstName: "Snowflake",
  *     lastName: "User",
- *     loginName: "snowflake_user",
- *     mustChangePassword: false,
- *     password: "secret",
+ *     defaultWarehouse: "warehouse",
+ *     defaultSecondaryRoles: ["ALL"],
+ *     defaultRole: "role1",
  *     rsaPublicKey: "...",
  *     rsaPublicKey2: "...",
+ *     mustChangePassword: false,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

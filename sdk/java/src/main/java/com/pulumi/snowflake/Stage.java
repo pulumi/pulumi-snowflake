@@ -42,10 +42,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, var_.example_aws_key_id(),var_.example_aws_secret_key()))
+ *             .name(&#34;EXAMPLE_STAGE&#34;)
+ *             .url(&#34;s3://com.example.bucket/prefix&#34;)
  *             .database(&#34;EXAMPLE_DB&#34;)
  *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .url(&#34;s3://com.example.bucket/prefix&#34;)
+ *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, exampleAwsKeyId,exampleAwsSecretKey))
  *             .build());
  * 
  *     }

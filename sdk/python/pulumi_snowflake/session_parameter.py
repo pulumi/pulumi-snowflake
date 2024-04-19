@@ -171,14 +171,14 @@ class SessionParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        session_parameter = snowflake.SessionParameter("sessionParameter",
+        s = snowflake.SessionParameter("s",
             key="AUTOCOMMIT",
-            user="TEST_USER",
-            value="false")
+            value="false",
+            user="TEST_USER")
         s2 = snowflake.SessionParameter("s2",
             key="BINARY_OUTPUT_FORMAT",
-            on_account=True,
-            value="BASE64")
+            value="BASE64",
+            on_account=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -209,14 +209,14 @@ class SessionParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        session_parameter = snowflake.SessionParameter("sessionParameter",
+        s = snowflake.SessionParameter("s",
             key="AUTOCOMMIT",
-            user="TEST_USER",
-            value="false")
+            value="false",
+            user="TEST_USER")
         s2 = snowflake.SessionParameter("s2",
             key="BINARY_OUTPUT_FORMAT",
-            on_account=True,
-            value="BASE64")
+            value="BASE64",
+            on_account=True)
         ```
         <!--End PulumiCodeChooser -->
 

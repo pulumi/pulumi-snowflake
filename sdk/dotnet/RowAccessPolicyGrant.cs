@@ -26,14 +26,14 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.RowAccessPolicyGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
+    ///         SchemaName = "schema",
+    ///         RowAccessPolicyName = "row_access_policy",
     ///         Privilege = "APPLY",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         RowAccessPolicyName = "row_access_policy",
-    ///         SchemaName = "schema",
     ///         WithGrantOption = false,
     ///     });
     /// 

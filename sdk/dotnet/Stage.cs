@@ -21,12 +21,13 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStage = new Snowflake.Stage("exampleStage", new()
+    ///     var exampleStage = new Snowflake.Stage("example_stage", new()
     ///     {
-    ///         Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
+    ///         Name = "EXAMPLE_STAGE",
+    ///         Url = "s3://com.example.bucket/prefix",
     ///         Database = "EXAMPLE_DB",
     ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Url = "s3://com.example.bucket/prefix",
+    ///         Credentials = $"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'",
     ///     });
     /// 
     /// });

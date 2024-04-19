@@ -14,49 +14,61 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
+ * //#################################
+ * //## SHOW GRANTS ON ...
+ * //#################################
+ * // account
  * const exampleOnAccount = snowflake.getGrants({
  *     grantsOn: {
  *         account: true,
  *     },
  * });
+ * // account object (e.g. database)
  * const exampleOnAccountObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "some_database",
  *         objectType: "DATABASE",
  *     },
  * });
+ * // database object (e.g. schema)
  * const exampleOnDatabaseObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "\"some_database\".\"some_schema\"",
  *         objectType: "SCHEMA",
  *     },
  * });
+ * // schema object (e.g. table)
  * const exampleOnSchemaObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "\"some_database\".\"some_schema\".\"some_table\"",
  *         objectType: "TABLE",
  *     },
  * });
+ * // application
  * const exampleToApplication = snowflake.getGrants({
  *     grantsTo: {
  *         application: "some_application",
  *     },
  * });
+ * // application role
  * const exampleToApplicationRole = snowflake.getGrants({
  *     grantsTo: {
  *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
+ * // account role
  * const exampleToRole = snowflake.getGrants({
  *     grantsTo: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // database role
  * const exampleToDatabaseRole = snowflake.getGrants({
  *     grantsTo: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // share
  * const exampleToShare = snowflake.getGrants({
  *     grantsTo: {
  *         share: {
@@ -64,46 +76,55 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
+ * // user
  * const exampleToUser = snowflake.getGrants({
  *     grantsTo: {
  *         user: "some_user",
  *     },
  * });
+ * // application role
  * const exampleOfApplicationRole = snowflake.getGrants({
  *     grantsOf: {
  *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
+ * // database role
  * const exampleOfDatabaseRole = snowflake.getGrants({
  *     grantsOf: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // account role
  * const exampleOfRole = snowflake.getGrants({
  *     grantsOf: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // share
  * const exampleOfShare = snowflake.getGrants({
  *     grantsOf: {
  *         share: "some_share",
  *     },
  * });
+ * // database
  * const exampleFutureInDatabase = snowflake.getGrants({
  *     futureGrantsIn: {
  *         database: "some_database",
  *     },
  * });
+ * // schema
  * const exampleFutureInSchema = snowflake.getGrants({
  *     futureGrantsIn: {
  *         schema: "\"some_database\".\"some_schema\"",
  *     },
  * });
+ * // account role
  * const exampleFutureToRole = snowflake.getGrants({
  *     futureGrantsTo: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // database role
  * const exampleFutureToDatabaseRole = snowflake.getGrants({
  *     futureGrantsTo: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
@@ -192,49 +213,61 @@ export interface GetGrantsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
+ * //#################################
+ * //## SHOW GRANTS ON ...
+ * //#################################
+ * // account
  * const exampleOnAccount = snowflake.getGrants({
  *     grantsOn: {
  *         account: true,
  *     },
  * });
+ * // account object (e.g. database)
  * const exampleOnAccountObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "some_database",
  *         objectType: "DATABASE",
  *     },
  * });
+ * // database object (e.g. schema)
  * const exampleOnDatabaseObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "\"some_database\".\"some_schema\"",
  *         objectType: "SCHEMA",
  *     },
  * });
+ * // schema object (e.g. table)
  * const exampleOnSchemaObject = snowflake.getGrants({
  *     grantsOn: {
  *         objectName: "\"some_database\".\"some_schema\".\"some_table\"",
  *         objectType: "TABLE",
  *     },
  * });
+ * // application
  * const exampleToApplication = snowflake.getGrants({
  *     grantsTo: {
  *         application: "some_application",
  *     },
  * });
+ * // application role
  * const exampleToApplicationRole = snowflake.getGrants({
  *     grantsTo: {
  *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
+ * // account role
  * const exampleToRole = snowflake.getGrants({
  *     grantsTo: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // database role
  * const exampleToDatabaseRole = snowflake.getGrants({
  *     grantsTo: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // share
  * const exampleToShare = snowflake.getGrants({
  *     grantsTo: {
  *         share: {
@@ -242,46 +275,55 @@ export interface GetGrantsResult {
  *         },
  *     },
  * });
+ * // user
  * const exampleToUser = snowflake.getGrants({
  *     grantsTo: {
  *         user: "some_user",
  *     },
  * });
+ * // application role
  * const exampleOfApplicationRole = snowflake.getGrants({
  *     grantsOf: {
  *         applicationRole: "\"some_application\".\"some_application_role\"",
  *     },
  * });
+ * // database role
  * const exampleOfDatabaseRole = snowflake.getGrants({
  *     grantsOf: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // account role
  * const exampleOfRole = snowflake.getGrants({
  *     grantsOf: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // share
  * const exampleOfShare = snowflake.getGrants({
  *     grantsOf: {
  *         share: "some_share",
  *     },
  * });
+ * // database
  * const exampleFutureInDatabase = snowflake.getGrants({
  *     futureGrantsIn: {
  *         database: "some_database",
  *     },
  * });
+ * // schema
  * const exampleFutureInSchema = snowflake.getGrants({
  *     futureGrantsIn: {
  *         schema: "\"some_database\".\"some_schema\"",
  *     },
  * });
+ * // account role
  * const exampleFutureToRole = snowflake.getGrants({
  *     futureGrantsTo: {
  *         accountRole: "some_role",
  *     },
  * });
+ * // database role
  * const exampleFutureToDatabaseRole = snowflake.getGrants({
  *     futureGrantsTo: {
  *         databaseRole: "\"some_database\".\"some_database_role\"",

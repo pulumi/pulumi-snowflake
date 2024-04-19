@@ -46,10 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;rking_test_role&#34;)
  *             .comment(&#34;for testing&#34;)
  *             .build());
  * 
- *         var otherRole = new Role(&#34;otherRole&#34;);
+ *         var otherRole = new Role(&#34;otherRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;rking_test_role2&#34;)
+ *             .build());
  * 
  *         // ensure the Terraform user inherits ownership privileges for the rking_test_role role
  *         // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges

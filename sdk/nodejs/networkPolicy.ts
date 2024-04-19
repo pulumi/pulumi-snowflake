@@ -13,9 +13,10 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const policy = new snowflake.NetworkPolicy("policy", {
+ *     name: "policy",
+ *     comment: "A policy.",
  *     allowedIpLists: ["192.168.0.100/24"],
  *     blockedIpLists: ["192.168.0.101"],
- *     comment: "A policy.",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

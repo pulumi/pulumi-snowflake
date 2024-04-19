@@ -23,36 +23,38 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var grantViewGrant = new Snowflake.ViewGrant("grantViewGrant", new()
+    ///     var grant = new Snowflake.ViewGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
-    ///         OnFuture = false,
+    ///         SchemaName = "schema",
+    ///         ViewName = "view",
     ///         Privilege = "SELECT",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
     ///         Shares = new[]
     ///         {
     ///             "share1",
     ///             "share2",
     ///         },
-    ///         ViewName = "view",
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 
-    ///     var grantSchemaGrant = new Snowflake.SchemaGrant("grantSchemaGrant", new()
+    ///     //Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+    ///     //grants, use the `snowflake_schema_grant` resource
+    ///     var grantSchemaGrant = new Snowflake.SchemaGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
+    ///         SchemaName = "schema",
     ///         Privilege = "USAGE",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
     ///     });
     /// 
     /// });

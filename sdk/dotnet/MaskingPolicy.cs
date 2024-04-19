@@ -23,18 +23,8 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.MaskingPolicy("test", new()
     ///     {
+    ///         Name = "EXAMPLE_MASKING_POLICY",
     ///         Database = "EXAMPLE_DB",
-    ///         MaskingExpression = @"  case 
-    ///     when current_role() in ('ROLE_A') then 
-    ///       val 
-    ///     when is_role_in_session( 'ROLE_B' ) then 
-    ///       'ABC123'
-    ///     else
-    ///       '******'
-    ///   end
-    /// 
-    /// ",
-    ///         ReturnDataType = "VARCHAR",
     ///         Schema = "EXAMPLE_SCHEMA",
     ///         Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs
     ///         {
@@ -47,6 +37,16 @@ namespace Pulumi.Snowflake
     ///                 },
     ///             },
     ///         },
+    ///         MaskingExpression = @"case 
+    ///   when current_role() in ('ROLE_A') then 
+    ///     val 
+    ///   when is_role_in_session( 'ROLE_B' ) then 
+    ///     'ABC123'
+    ///   else
+    ///     '******'
+    /// end
+    /// ",
+    ///         ReturnDataType = "VARCHAR",
     ///     });
     /// 
     /// });

@@ -27,7 +27,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalTable(ctx, "externalTable", &snowflake.ExternalTableArgs{
+//			_, err := snowflake.NewExternalTable(ctx, "external_table", &snowflake.ExternalTableArgs{
+//				Database:   pulumi.String("db"),
+//				Schema:     pulumi.String("schema"),
+//				Name:       pulumi.String("external_table"),
+//				Comment:    pulumi.String("External table"),
+//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
 //				Columns: snowflake.ExternalTableColumnArray{
 //					&snowflake.ExternalTableColumnArgs{
 //						Name: pulumi.String("id"),
@@ -38,10 +43,6 @@ import (
 //						Type: pulumi.String("text"),
 //					},
 //				},
-//				Comment:    pulumi.String("External table"),
-//				Database:   pulumi.String("db"),
-//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
-//				Schema:     pulumi.String("schema"),
 //			})
 //			if err != nil {
 //				return err

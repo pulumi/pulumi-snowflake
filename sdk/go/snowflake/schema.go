@@ -28,11 +28,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Comment:           pulumi.String("A schema."),
-//				DataRetentionDays: pulumi.Int(1),
 //				Database:          pulumi.String("database"),
-//				IsManaged:         pulumi.Bool(false),
+//				Name:              pulumi.String("schema"),
+//				Comment:           pulumi.String("A schema."),
 //				IsTransient:       pulumi.Bool(false),
+//				IsManaged:         pulumi.Bool(false),
+//				DataRetentionDays: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

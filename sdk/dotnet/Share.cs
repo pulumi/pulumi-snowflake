@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.Share("test", new()
     ///     {
+    ///         Name = "share_name",
     ///         Comment = "cool comment",
     ///         Accounts = new[]
     ///         {
@@ -32,6 +33,7 @@ namespace Pulumi.Snowflake
     /// 
     ///     var example = new Snowflake.Database("example", new()
     ///     {
+    ///         Name = "test",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

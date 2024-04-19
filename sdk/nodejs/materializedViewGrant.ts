@@ -16,18 +16,18 @@ import * as utilities from "./utilities";
  *
  * const grant = new snowflake.MaterializedViewGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
  *     materializedViewName: "materialized_view",
- *     onFuture: false,
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```

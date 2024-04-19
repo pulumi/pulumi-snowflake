@@ -15,16 +15,16 @@ import * as utilities from "./utilities";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const example = new snowflake.MaskingPolicyGrant("example", {
- *     databaseName: "EXAMPLE_DB_NAME",
- *     enableMultipleGrants: true,
  *     maskingPolicyName: "EXAMPLE_MASKING_POLICY_NAME",
+ *     databaseName: "EXAMPLE_DB_NAME",
+ *     schemaName: "EXAMPLE_SCHEMA_NAME",
  *     privilege: "APPLY",
  *     roles: [
  *         "ROLE1_NAME",
  *         "ROLE2_NAME",
  *     ],
- *     schemaName: "EXAMPLE_SCHEMA_NAME",
  *     withGrantOption: true,
+ *     enableMultipleGrants: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

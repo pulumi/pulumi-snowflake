@@ -385,25 +385,25 @@ class MaskingPolicy(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         test = snowflake.MaskingPolicy("test",
+            name="EXAMPLE_MASKING_POLICY",
             database="EXAMPLE_DB",
-            masking_expression=\"\"\"  case 
-            when current_role() in ('ROLE_A') then 
-              val 
-            when is_role_in_session( 'ROLE_B' ) then 
-              'ABC123'
-            else
-              '******'
-          end
-
-        \"\"\",
-            return_data_type="VARCHAR",
             schema="EXAMPLE_SCHEMA",
             signature=snowflake.MaskingPolicySignatureArgs(
                 columns=[snowflake.MaskingPolicySignatureColumnArgs(
                     name="val",
                     type="VARCHAR",
                 )],
-            ))
+            ),
+            masking_expression=\"\"\"case 
+          when current_role() in ('ROLE_A') then 
+            val 
+          when is_role_in_session( 'ROLE_B' ) then 
+            'ABC123'
+          else
+            '******'
+        end
+        \"\"\",
+            return_data_type="VARCHAR")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -443,25 +443,25 @@ class MaskingPolicy(pulumi.CustomResource):
         import pulumi_snowflake as snowflake
 
         test = snowflake.MaskingPolicy("test",
+            name="EXAMPLE_MASKING_POLICY",
             database="EXAMPLE_DB",
-            masking_expression=\"\"\"  case 
-            when current_role() in ('ROLE_A') then 
-              val 
-            when is_role_in_session( 'ROLE_B' ) then 
-              'ABC123'
-            else
-              '******'
-          end
-
-        \"\"\",
-            return_data_type="VARCHAR",
             schema="EXAMPLE_SCHEMA",
             signature=snowflake.MaskingPolicySignatureArgs(
                 columns=[snowflake.MaskingPolicySignatureColumnArgs(
                     name="val",
                     type="VARCHAR",
                 )],
-            ))
+            ),
+            masking_expression=\"\"\"case 
+          when current_role() in ('ROLE_A') then 
+            val 
+          when is_role_in_session( 'ROLE_B' ) then 
+            'ABC123'
+          else
+            '******'
+        end
+        \"\"\",
+            return_data_type="VARCHAR")
         ```
         <!--End PulumiCodeChooser -->
 

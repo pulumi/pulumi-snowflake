@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var grant = new RowAccessPolicyGrant(&#34;grant&#34;, RowAccessPolicyGrantArgs.builder()        
  *             .databaseName(&#34;database&#34;)
+ *             .schemaName(&#34;schema&#34;)
+ *             .rowAccessPolicyName(&#34;row_access_policy&#34;)
  *             .privilege(&#34;APPLY&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
- *             .rowAccessPolicyName(&#34;row_access_policy&#34;)
- *             .schemaName(&#34;schema&#34;)
  *             .withGrantOption(false)
  *             .build());
  * 

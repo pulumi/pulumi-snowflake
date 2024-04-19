@@ -21,17 +21,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database");
-    /// 
-    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     var d = new Snowflake.Database("d", new()
     ///     {
-    ///         Database = database.Name,
+    ///         Name = "some_db",
     ///     });
     /// 
-    ///     var table = new Snowflake.Table("table", new()
+    ///     var s = new Snowflake.Schema("s", new()
     ///     {
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Name = "some_schema",
+    ///         Database = d.Name,
+    ///     });
+    /// 
+    ///     var t = new Snowflake.Table("t", new()
+    ///     {
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "some_table",
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.TableColumnArgs
@@ -55,10 +60,11 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var fkT = new Snowflake.Table("fkT", new()
+    ///     var fkT = new Snowflake.Table("fk_t", new()
     ///     {
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "fk_table",
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.TableColumnArgs
@@ -76,10 +82,11 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var primaryKey = new Snowflake.TableConstraint("primaryKey", new()
+    ///     var primaryKey = new Snowflake.TableConstraint("primary_key", new()
     ///     {
+    ///         Name = "myconstraint",
     ///         Type = "PRIMARY KEY",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col1",
@@ -87,10 +94,11 @@ namespace Pulumi.Snowflake
     ///         Comment = "hello world",
     ///     });
     /// 
-    ///     var foreignKey = new Snowflake.TableConstraint("foreignKey", new()
+    ///     var foreignKey = new Snowflake.TableConstraint("foreign_key", new()
     ///     {
+    ///         Name = "myconstraintfk",
     ///         Type = "FOREIGN KEY",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col2",
@@ -114,8 +122,9 @@ namespace Pulumi.Snowflake
     /// 
     ///     var unique = new Snowflake.TableConstraint("unique", new()
     ///     {
+    ///         Name = "unique",
     ///         Type = "UNIQUE",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col3",

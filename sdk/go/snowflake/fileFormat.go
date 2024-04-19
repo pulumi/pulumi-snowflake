@@ -27,10 +27,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewFileFormat(ctx, "exampleFileFormat", &snowflake.FileFormatArgs{
+//			_, err := snowflake.NewFileFormat(ctx, "example_file_format", &snowflake.FileFormatArgs{
+//				Name:       pulumi.String("EXAMPLE_FILE_FORMAT"),
 //				Database:   pulumi.String("EXAMPLE_DB"),
-//				FormatType: pulumi.String("CSV"),
 //				Schema:     pulumi.String("EXAMPLE_SCHEMA"),
+//				FormatType: pulumi.String("CSV"),
 //			})
 //			if err != nil {
 //				return err

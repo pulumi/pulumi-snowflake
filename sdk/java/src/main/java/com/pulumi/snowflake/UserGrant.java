@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var grant = new UserGrant(&#34;grant&#34;, UserGrantArgs.builder()        
+ *             .userName(&#34;user&#34;)
  *             .privilege(&#34;MONITOR&#34;)
  *             .roles(            
  *                 &#34;role1&#34;,
  *                 &#34;role2&#34;)
- *             .userName(&#34;user&#34;)
  *             .withGrantOption(false)
  *             .build());
  * 

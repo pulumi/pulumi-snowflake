@@ -43,16 +43,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var alert = new Alert(&#34;alert&#34;, AlertArgs.builder()        
- *             .action(&#34;select 1 as c&#34;)
+ *             .database(&#34;database&#34;)
+ *             .schema(&#34;schema&#34;)
+ *             .name(&#34;alert&#34;)
+ *             .warehouse(&#34;warehouse&#34;)
  *             .alertSchedule(AlertAlertScheduleArgs.builder()
  *                 .interval(10)
  *                 .build())
- *             .comment(&#34;my alert&#34;)
  *             .condition(&#34;select 1 as c&#34;)
- *             .database(&#34;database&#34;)
+ *             .action(&#34;select 1 as c&#34;)
  *             .enabled(true)
- *             .schema(&#34;schema&#34;)
- *             .warehouse(&#34;warehouse&#34;)
+ *             .comment(&#34;my alert&#34;)
  *             .build());
  * 
  *     }

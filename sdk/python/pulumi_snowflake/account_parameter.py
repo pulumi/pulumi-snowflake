@@ -105,7 +105,7 @@ class AccountParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        account_parameter = snowflake.AccountParameter("accountParameter",
+        p = snowflake.AccountParameter("p",
             key="ALLOW_ID_TOKEN",
             value="true")
         p2 = snowflake.AccountParameter("p2",
@@ -139,7 +139,7 @@ class AccountParameter(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        account_parameter = snowflake.AccountParameter("accountParameter",
+        p = snowflake.AccountParameter("p",
             key="ALLOW_ID_TOKEN",
             value="true")
         p2 = snowflake.AccountParameter("p2",
