@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -29,7 +28,6 @@ import * as utilities from "./utilities";
  *     suspendTriggers: 50,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

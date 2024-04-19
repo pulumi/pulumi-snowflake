@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     scimClient: "AZURE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +34,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetWarehouses(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetWarehousesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWarehousesResult

@@ -167,7 +167,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -195,7 +194,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
             database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
             share_name=snowflake_share["share"]["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,7 +219,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -249,7 +246,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
             database_role_name=database_role_database_role.name.apply(lambda name: f"\\"{var['database']}\\".\\"{name}\\""),
             share_name=snowflake_share["share"]["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

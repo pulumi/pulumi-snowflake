@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const role = new snowflake.Role("role", {comment: "A role."});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

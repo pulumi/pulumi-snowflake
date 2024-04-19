@@ -561,7 +561,6 @@ class Task(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -602,7 +601,6 @@ class Task(pulumi.CustomResource):
             allow_overlapping_execution=True,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -640,7 +638,6 @@ class Task(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -681,7 +678,6 @@ class Task(pulumi.CustomResource):
             allow_overlapping_execution=True,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  * });
  * const attachment = new snowflake.AccountPasswordPolicyAttachment("attachment", {passwordPolicy: _default.qualifiedName});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class AccountPasswordPolicyAttachment extends pulumi.CustomResource {
     /**

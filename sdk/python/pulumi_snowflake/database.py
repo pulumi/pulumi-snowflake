@@ -302,7 +302,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -330,7 +329,6 @@ class Database(pulumi.CustomResource):
                 "share": "share1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -358,7 +356,6 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -386,7 +383,6 @@ class Database(pulumi.CustomResource):
                 "share": "share1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

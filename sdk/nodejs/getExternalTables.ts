@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExternalTables(args: GetExternalTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalTablesResult> {
 
@@ -62,7 +60,6 @@ export interface GetExternalTablesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +69,6 @@ export interface GetExternalTablesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalTablesResult> {
     return pulumi.output(args).apply((a: any) => getExternalTables(a, opts))

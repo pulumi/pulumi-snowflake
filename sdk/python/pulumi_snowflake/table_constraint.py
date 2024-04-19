@@ -443,7 +443,6 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -510,7 +509,6 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -542,7 +540,6 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -609,7 +606,6 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

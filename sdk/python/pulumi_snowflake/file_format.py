@@ -1221,7 +1221,6 @@ class FileFormat(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -1231,7 +1230,6 @@ class FileFormat(pulumi.CustomResource):
             format_type="CSV",
             schema="EXAMPLE_SCHEMA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1289,7 +1287,6 @@ class FileFormat(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -1299,7 +1296,6 @@ class FileFormat(pulumi.CustomResource):
             format_type="CSV",
             schema="EXAMPLE_SCHEMA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

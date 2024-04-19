@@ -168,7 +168,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -185,7 +184,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -211,7 +209,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -228,7 +225,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

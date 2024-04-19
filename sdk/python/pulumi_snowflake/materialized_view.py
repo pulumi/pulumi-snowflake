@@ -343,7 +343,6 @@ class MaterializedView(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -357,7 +356,6 @@ class MaterializedView(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -388,7 +386,6 @@ class MaterializedView(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -402,7 +399,6 @@ class MaterializedView(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

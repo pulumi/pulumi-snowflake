@@ -134,7 +134,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -147,7 +146,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                 "user2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -170,7 +168,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -183,7 +180,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                 "user2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

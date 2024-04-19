@@ -134,7 +134,6 @@ class GrantAccountRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -156,7 +155,6 @@ class GrantAccountRole(pulumi.CustomResource):
             role_name=role_role.name,
             user_name=user.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -181,7 +179,6 @@ class GrantAccountRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -203,7 +200,6 @@ class GrantAccountRole(pulumi.CustomResource):
             role_name=role_role.name,
             user_name=user.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

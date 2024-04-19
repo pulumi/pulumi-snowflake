@@ -609,7 +609,6 @@ class ExternalFunction(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -632,7 +631,6 @@ class ExternalFunction(pulumi.CustomResource):
             schema="my_test_schema",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -671,7 +669,6 @@ class ExternalFunction(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -694,7 +691,6 @@ class ExternalFunction(pulumi.CustomResource):
             schema="my_test_schema",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

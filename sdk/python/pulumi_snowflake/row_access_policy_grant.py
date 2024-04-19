@@ -303,7 +303,6 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -319,7 +318,6 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
             schema_name="schema",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -352,7 +350,6 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -368,7 +365,6 @@ class RowAccessPolicyGrant(pulumi.CustomResource):
             schema_name="schema",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

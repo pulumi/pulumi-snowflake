@@ -100,7 +100,6 @@ class AccountParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -112,7 +111,6 @@ class AccountParameter(pulumi.CustomResource):
             key="CLIENT_ENCRYPTION_KEY_SIZE",
             value="256")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -134,7 +132,6 @@ class AccountParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -146,7 +143,6 @@ class AccountParameter(pulumi.CustomResource):
             key="CLIENT_ENCRYPTION_KEY_SIZE",
             value="256")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

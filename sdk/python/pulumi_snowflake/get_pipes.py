@@ -87,7 +87,6 @@ def get_pipes(database: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -95,7 +94,6 @@ def get_pipes(database: Optional[str] = None,
     current = snowflake.get_pipes(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['database'] = database
@@ -117,7 +115,6 @@ def get_pipes_output(database: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -125,6 +122,5 @@ def get_pipes_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_pipes(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

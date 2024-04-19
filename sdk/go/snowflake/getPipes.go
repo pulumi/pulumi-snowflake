@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPipes(ctx *pulumi.Context, args *GetPipesArgs, opts ...pulumi.InvokeOption) (*GetPipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPipesResult

@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSystemGenerateScimAccessTokenResult> InvokeAsync(GetSystemGenerateScimAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenArgs(), options.WithDefaults());
@@ -38,7 +36,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSystemGenerateScimAccessTokenResult> Invoke(GetSystemGenerateScimAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithDefaults());

@@ -70,7 +70,6 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -80,7 +79,6 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
             schema="security")
         attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +95,6 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -107,7 +104,6 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
             schema="security")
         attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AccountPasswordPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

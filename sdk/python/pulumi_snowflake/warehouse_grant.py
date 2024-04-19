@@ -239,7 +239,6 @@ class WarehouseGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -253,7 +252,6 @@ class WarehouseGrant(pulumi.CustomResource):
             warehouse_name="warehouse",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class WarehouseGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -298,7 +295,6 @@ class WarehouseGrant(pulumi.CustomResource):
             warehouse_name="warehouse",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

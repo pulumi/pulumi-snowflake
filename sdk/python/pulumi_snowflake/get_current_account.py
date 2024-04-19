@@ -84,7 +84,6 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,7 +94,6 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         type=aws.ssm.ParameterType.STRING,
         value=this.url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -113,7 +111,6 @@ def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,6 +121,5 @@ def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
         type=aws.ssm.ParameterType.STRING,
         value=this.url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

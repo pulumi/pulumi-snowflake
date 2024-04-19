@@ -354,7 +354,6 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -501,7 +500,6 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -560,7 +558,6 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -707,7 +704,6 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

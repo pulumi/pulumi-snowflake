@@ -494,7 +494,6 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -505,7 +504,6 @@ class Stage(pulumi.CustomResource):
             schema="EXAMPLE_SCHEMA",
             url="s3://com.example.bucket/prefix")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -539,7 +537,6 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -550,7 +547,6 @@ class Stage(pulumi.CustomResource):
             schema="EXAMPLE_SCHEMA",
             url="s3://com.example.bucket/prefix")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

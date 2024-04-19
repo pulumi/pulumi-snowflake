@@ -134,7 +134,6 @@ class DatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -143,7 +142,6 @@ class DatabaseRole(pulumi.CustomResource):
             comment="my db role",
             database="database")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -166,7 +164,6 @@ class DatabaseRole(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -175,7 +172,6 @@ class DatabaseRole(pulumi.CustomResource):
             comment="my db role",
             database="database")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
