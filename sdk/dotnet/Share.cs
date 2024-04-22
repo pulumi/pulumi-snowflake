@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
