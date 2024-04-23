@@ -771,7 +771,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -862,7 +862,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -970,7 +970,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4781,7 +4781,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Argument name\n"
+                    "description": "Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -4877,7 +4877,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Argument name\n",
+                    "description": "Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "nullInputBehavior": {
@@ -4986,7 +4986,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Argument name\n",
+                        "description": "Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.\n",
                         "willReplaceOnChanges": true
                     },
                     "nullInputBehavior": {
@@ -5337,7 +5337,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the external table.\n"
                 },
                 "fileFormat": {
                     "type": "string",
@@ -5349,7 +5349,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Column name\n"
+                    "description": "Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.\n"
                 },
                 "owner": {
                     "type": "string",
@@ -5372,7 +5372,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                    "description": "The schema in which to create the external table.\n"
                 },
                 "tableFormat": {
                     "type": "string",
@@ -5427,7 +5427,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the external table.\n",
                     "willReplaceOnChanges": true
                 },
                 "fileFormat": {
@@ -5442,7 +5442,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Column name\n",
+                    "description": "Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.\n",
                     "willReplaceOnChanges": true
                 },
                 "partitionBies": {
@@ -5465,7 +5465,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n",
+                    "description": "The schema in which to create the external table.\n",
                     "willReplaceOnChanges": true
                 },
                 "tableFormat": {
@@ -5522,7 +5522,7 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the external table.\n",
                         "willReplaceOnChanges": true
                     },
                     "fileFormat": {
@@ -5537,7 +5537,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Column name\n",
+                        "description": "Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.\n",
                         "willReplaceOnChanges": true
                     },
                     "owner": {
@@ -5564,7 +5564,7 @@
                     },
                     "schema": {
                         "type": "string",
-                        "description": "Name of the schema that the tag was created in.\n",
+                        "description": "The schema in which to create the external table.\n",
                         "willReplaceOnChanges": true
                     },
                     "tableFormat": {
@@ -5812,7 +5812,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Identifier for the primary failover group in the source account.\n"
+                    "description": "Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. \"My object\"). Identifiers enclosed in double quotes are also case-sensitive.\n"
                 },
                 "objectTypes": {
                     "type": "array",
@@ -5869,7 +5869,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Identifier for the primary failover group in the source account.\n",
+                    "description": "Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. \"My object\"). Identifiers enclosed in double quotes are also case-sensitive.\n",
                     "willReplaceOnChanges": true
                 },
                 "objectTypes": {
@@ -5926,7 +5926,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Identifier for the primary failover group in the source account.\n",
+                        "description": "Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. \"My object\"). Identifiers enclosed in double quotes are also case-sensitive.\n",
                         "willReplaceOnChanges": true
                     },
                     "objectTypes": {
@@ -6740,7 +6740,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The argument name\n"
+                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -6826,7 +6826,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The argument name\n"
+                    "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -6921,7 +6921,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The argument name\n"
+                        "description": "Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.\n"
                     },
                     "nullInputBehavior": {
                         "type": "string",
@@ -8246,7 +8246,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the column name to mask.\n"
+                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -8302,7 +8302,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the column name to mask.\n"
+                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -8356,7 +8356,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the column name to mask.\n"
+                        "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
                     },
                     "orReplace": {
                         "type": "boolean",
@@ -8533,7 +8533,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the view. Don't use the | character.\n"
                 },
                 "isSecure": {
                     "type": "boolean",
@@ -8541,7 +8541,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -8549,7 +8549,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                    "description": "The schema in which to create the view. Don't use the | character.\n"
                 },
                 "statement": {
                     "type": "string",
@@ -8582,7 +8582,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the view. Don't use the | character.\n",
                     "willReplaceOnChanges": true
                 },
                 "isSecure": {
@@ -8591,7 +8591,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -8599,7 +8599,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n",
+                    "description": "The schema in which to create the view. Don't use the | character.\n",
                     "willReplaceOnChanges": true
                 },
                 "statement": {
@@ -8636,7 +8636,7 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the view. Don't use the | character.\n",
                         "willReplaceOnChanges": true
                     },
                     "isSecure": {
@@ -8645,7 +8645,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Tag name, e.g. department.\n"
+                        "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created.\n"
                     },
                     "orReplace": {
                         "type": "boolean",
@@ -8653,7 +8653,7 @@
                     },
                     "schema": {
                         "type": "string",
-                        "description": "Name of the schema that the tag was created in.\n",
+                        "description": "The schema in which to create the view. Don't use the | character.\n",
                         "willReplaceOnChanges": true
                     },
                     "statement": {
@@ -10125,7 +10125,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The argument name\n"
+                    "description": "Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -10212,7 +10212,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The argument name\n"
+                    "description": "Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.\n"
                 },
                 "nullInputBehavior": {
                     "type": "string",
@@ -10307,7 +10307,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The argument name\n"
+                        "description": "Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.\n"
                     },
                     "nullInputBehavior": {
                         "type": "string",
@@ -10897,8 +10897,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
@@ -10917,8 +10916,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
@@ -10936,8 +10934,7 @@
                         "type": "string"
                     },
                     "name": {
-                        "type": "string",
-                        "description": "Tag name, e.g. department.\n"
+                        "type": "string"
                     },
                     "tags": {
                         "type": "array",
@@ -11618,7 +11615,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the schema.\n"
                 },
                 "isManaged": {
                     "type": "boolean",
@@ -11630,7 +11627,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -11656,7 +11653,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "isManaged": {
@@ -11670,7 +11667,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -11697,7 +11694,7 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the schema.\n",
                         "willReplaceOnChanges": true
                     },
                     "isManaged": {
@@ -11711,7 +11708,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Tag name, e.g. department.\n"
+                        "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -12332,7 +12329,7 @@
             }
         },
         "snowflake:index/share:Share": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    name: \"share_name\",\n    comment: \"cool comment\",\n    accounts: [\"organizationName.accountName\"],\n});\nconst example = new snowflake.Database(\"example\", {name: \"test\"}, {\n    dependsOn: [test],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    name=\"share_name\",\n    comment=\"cool comment\",\n    accounts=[\"organizationName.accountName\"])\nexample = snowflake.Database(\"example\", name=\"test\",\nopts=pulumi.ResourceOptions(depends_on=[test]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Name = \"share_name\",\n        Comment = \"cool comment\",\n        Accounts = new[]\n        {\n            \"organizationName.accountName\",\n        },\n    });\n\n    var example = new Snowflake.Database(\"example\", new()\n    {\n        Name = \"test\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            test, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tName:    pulumi.String(\"share_name\"),\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"organizationName.accountName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"example\", \u0026snowflake.DatabaseArgs{\n\t\t\tName: pulumi.String(\"test\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\ttest,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .name(\"share_name\")\n            .comment(\"cool comment\")\n            .accounts(\"organizationName.accountName\")\n            .build());\n\n        var example = new Database(\"example\", DatabaseArgs.builder()        \n            .name(\"test\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(test)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      name: share_name\n      comment: cool comment\n      accounts:\n        - organizationName.accountName\n  example:\n    type: snowflake:Database\n    properties:\n      name: test\n    options:\n      dependson:\n        - ${test}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/share:Share example name\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.Share(\"test\", {\n    name: \"share_name\",\n    comment: \"cool comment\",\n    accounts: [\"organizationName.accountName\"],\n});\nconst example = new snowflake.Database(\"example\", {name: \"test\"}, {\n    dependsOn: [test],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.Share(\"test\",\n    name=\"share_name\",\n    comment=\"cool comment\",\n    accounts=[\"organizationName.accountName\"])\nexample = snowflake.Database(\"example\", name=\"test\",\nopts=pulumi.ResourceOptions(depends_on=[test]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.Share(\"test\", new()\n    {\n        Name = \"share_name\",\n        Comment = \"cool comment\",\n        Accounts = new[]\n        {\n            \"organizationName.accountName\",\n        },\n    });\n\n    var example = new Snowflake.Database(\"example\", new()\n    {\n        Name = \"test\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            test,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := snowflake.NewShare(ctx, \"test\", \u0026snowflake.ShareArgs{\n\t\t\tName:    pulumi.String(\"share_name\"),\n\t\t\tComment: pulumi.String(\"cool comment\"),\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"organizationName.accountName\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = snowflake.NewDatabase(ctx, \"example\", \u0026snowflake.DatabaseArgs{\n\t\t\tName: pulumi.String(\"test\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\ttest,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Share;\nimport com.pulumi.snowflake.ShareArgs;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Share(\"test\", ShareArgs.builder()        \n            .name(\"share_name\")\n            .comment(\"cool comment\")\n            .accounts(\"organizationName.accountName\")\n            .build());\n\n        var example = new Database(\"example\", DatabaseArgs.builder()        \n            .name(\"test\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(test)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:Share\n    properties:\n      name: share_name\n      comment: cool comment\n      accounts:\n        - organizationName.accountName\n  example:\n    type: snowflake:Database\n    properties:\n      name: test\n    options:\n      dependson:\n        - ${test}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/share:Share example name\n```\n\n",
             "properties": {
                 "accounts": {
                     "type": "array",
@@ -12415,7 +12412,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the stage.\n"
                 },
                 "directory": {
                     "type": "string",
@@ -12431,11 +12428,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.\n"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                    "description": "The schema in which to create the stage.\n"
                 },
                 "snowflakeIamUser": {
                     "type": "string"
@@ -12483,7 +12480,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the stage.\n",
                     "willReplaceOnChanges": true
                 },
                 "directory": {
@@ -12501,12 +12498,12 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n",
+                    "description": "Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.\n",
                     "willReplaceOnChanges": true
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n",
+                    "description": "The schema in which to create the stage.\n",
                     "willReplaceOnChanges": true
                 },
                 "snowflakeIamUser": {
@@ -12554,7 +12551,7 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the stage.\n",
                         "willReplaceOnChanges": true
                     },
                     "directory": {
@@ -12572,12 +12569,12 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Tag name, e.g. department.\n",
+                        "description": "Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.\n",
                         "willReplaceOnChanges": true
                     },
                     "schema": {
                         "type": "string",
-                        "description": "Name of the schema that the tag was created in.\n",
+                        "description": "The schema in which to create the stage.\n",
                         "willReplaceOnChanges": true
                     },
                     "snowflakeIamUser": {
@@ -13326,7 +13323,7 @@
                 },
                 "comment": {
                     "type": "string",
-                    "description": "Column comment\n"
+                    "description": "Specifies a comment for the table.\n"
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
@@ -13334,11 +13331,11 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the table.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Column name\n"
+                    "description": "Specifies the identifier for the table; must be unique for the database and schema in which the table is created.\n"
                 },
                 "owner": {
                     "type": "string",
@@ -13355,7 +13352,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                    "description": "The schema in which to create the table.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -13395,7 +13392,7 @@
                 },
                 "comment": {
                     "type": "string",
-                    "description": "Column comment\n"
+                    "description": "Specifies a comment for the table.\n"
                 },
                 "dataRetentionTimeInDays": {
                     "type": "integer",
@@ -13403,12 +13400,12 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the table.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "Column name\n"
+                    "description": "Specifies the identifier for the table; must be unique for the database and schema in which the table is created.\n"
                 },
                 "primaryKey": {
                     "$ref": "#/types/snowflake:index/TablePrimaryKey:TablePrimaryKey",
@@ -13417,7 +13414,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n",
+                    "description": "The schema in which to create the table.\n",
                     "willReplaceOnChanges": true
                 },
                 "tags": {
@@ -13457,7 +13454,7 @@
                     },
                     "comment": {
                         "type": "string",
-                        "description": "Column comment\n"
+                        "description": "Specifies a comment for the table.\n"
                     },
                     "dataRetentionTimeInDays": {
                         "type": "integer",
@@ -13465,12 +13462,12 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the table.\n",
                         "willReplaceOnChanges": true
                     },
                     "name": {
                         "type": "string",
-                        "description": "Column name\n"
+                        "description": "Specifies the identifier for the table; must be unique for the database and schema in which the table is created.\n"
                     },
                     "owner": {
                         "type": "string",
@@ -13487,7 +13484,7 @@
                     },
                     "schema": {
                         "type": "string",
-                        "description": "Name of the schema that the tag was created in.\n",
+                        "description": "The schema in which to create the table.\n",
                         "willReplaceOnChanges": true
                     },
                     "tags": {
@@ -13575,7 +13572,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Columns to use in foreign key reference\n"
+                    "description": "Columns to use in constraint key\n"
                 },
                 "comment": {
                     "type": "string",
@@ -13612,7 +13609,7 @@
                 },
                 "tableId": {
                     "type": "string",
-                    "description": "Name of constraint\n"
+                    "description": "Identifier for table to create constraint on. Format must follow: \"\\\"\u0026lt;db*name\u0026gt;\\\".\\\"\u0026lt;schema*name\u0026gt;\\\".\\\"\u0026lt;table*name\u0026gt;\\\"\" or \"\u0026lt;db*name\u0026gt;.\u0026lt;schema*name\u0026gt;.\u0026lt;table*name\u0026gt;\" (snowflake*table.my*table.id)\n"
                 },
                 "type": {
                     "type": "string",
@@ -13635,7 +13632,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Columns to use in foreign key reference\n",
+                    "description": "Columns to use in constraint key\n",
                     "willReplaceOnChanges": true
                 },
                 "comment": {
@@ -13679,7 +13676,7 @@
                 },
                 "tableId": {
                     "type": "string",
-                    "description": "Name of constraint\n",
+                    "description": "Identifier for table to create constraint on. Format must follow: \"\\\"\u0026lt;db*name\u0026gt;\\\".\\\"\u0026lt;schema*name\u0026gt;\\\".\\\"\u0026lt;table*name\u0026gt;\\\"\" or \"\u0026lt;db*name\u0026gt;.\u0026lt;schema*name\u0026gt;.\u0026lt;table*name\u0026gt;\" (snowflake*table.my*table.id)\n",
                     "willReplaceOnChanges": true
                 },
                 "type": {
@@ -13706,7 +13703,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Columns to use in foreign key reference\n",
+                        "description": "Columns to use in constraint key\n",
                         "willReplaceOnChanges": true
                     },
                     "comment": {
@@ -13750,7 +13747,7 @@
                     },
                     "tableId": {
                         "type": "string",
-                        "description": "Name of constraint\n",
+                        "description": "Identifier for table to create constraint on. Format must follow: \"\\\"\u0026lt;db*name\u0026gt;\\\".\\\"\u0026lt;schema*name\u0026gt;\\\".\\\"\u0026lt;table*name\u0026gt;\\\"\" or \"\u0026lt;db*name\u0026gt;.\u0026lt;schema*name\u0026gt;.\u0026lt;table*name\u0026gt;\" (snowflake*table.my*table.id)\n",
                         "willReplaceOnChanges": true
                     },
                     "type": {
@@ -15365,7 +15362,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n"
+                    "description": "The database in which to create the view. Don't use the | character.\n"
                 },
                 "isSecure": {
                     "type": "boolean",
@@ -15373,7 +15370,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -15381,7 +15378,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n"
+                    "description": "The schema in which to create the view. Don't use the | character.\n"
                 },
                 "statement": {
                     "type": "string",
@@ -15414,7 +15411,7 @@
                 },
                 "database": {
                     "type": "string",
-                    "description": "Name of the database that the tag was created in.\n",
+                    "description": "The database in which to create the view. Don't use the | character.\n",
                     "willReplaceOnChanges": true
                 },
                 "isSecure": {
@@ -15423,7 +15420,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Tag name, e.g. department.\n"
+                    "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.\n"
                 },
                 "orReplace": {
                     "type": "boolean",
@@ -15431,7 +15428,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "Name of the schema that the tag was created in.\n",
+                    "description": "The schema in which to create the view. Don't use the | character.\n",
                     "willReplaceOnChanges": true
                 },
                 "statement": {
@@ -15469,7 +15466,7 @@
                     },
                     "database": {
                         "type": "string",
-                        "description": "Name of the database that the tag was created in.\n",
+                        "description": "The database in which to create the view. Don't use the | character.\n",
                         "willReplaceOnChanges": true
                     },
                     "isSecure": {
@@ -15478,7 +15475,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Tag name, e.g. department.\n"
+                        "description": "Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.\n"
                     },
                     "orReplace": {
                         "type": "boolean",
@@ -15486,7 +15483,7 @@
                     },
                     "schema": {
                         "type": "string",
-                        "description": "Name of the schema that the tag was created in.\n",
+                        "description": "The schema in which to create the view. Don't use the | character.\n",
                         "willReplaceOnChanges": true
                     },
                     "statement": {
@@ -16404,10 +16401,12 @@
                 "description": "A collection of arguments for invoking getExternalFunctions.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the external functions from.\n"
                     }
                 },
                 "type": "object"
@@ -16448,10 +16447,12 @@
                 "description": "A collection of arguments for invoking getExternalTables.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the external tables from.\n"
                     }
                 },
                 "type": "object",
@@ -16535,10 +16536,12 @@
                 "description": "A collection of arguments for invoking getFileFormats.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the file formats from.\n"
                     }
                 },
                 "type": "object",
@@ -16585,10 +16588,12 @@
                 "description": "A collection of arguments for invoking getFunctions.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the functions from.\n"
                     }
                 },
                 "type": "object",
@@ -16705,10 +16710,12 @@
                 "description": "A collection of arguments for invoking getMaskingPolicies.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the maskingPolicies from.\n"
                     }
                 },
                 "type": "object",
@@ -16755,10 +16762,12 @@
                 "description": "A collection of arguments for invoking getMaterializedViews.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the views from.\n"
                     }
                 },
                 "type": "object",
@@ -16875,10 +16884,12 @@
                 "description": "A collection of arguments for invoking getPipes.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the pipes from.\n"
                     }
                 },
                 "type": "object",
@@ -16925,10 +16936,12 @@
                 "description": "A collection of arguments for invoking getProcedures.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the procedures from.\n"
                     }
                 },
                 "type": "object",
@@ -17076,10 +17089,12 @@
                 "description": "A collection of arguments for invoking getRowAccessPolicies.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the row access policy from.\n"
                     }
                 },
                 "type": "object",
@@ -17126,7 +17141,8 @@
                 "description": "A collection of arguments for invoking getSchemas.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     }
                 },
                 "type": "object",
@@ -17167,10 +17183,12 @@
                 "description": "A collection of arguments for invoking getSequences.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the sequences from.\n"
                     }
                 },
                 "type": "object",
@@ -17255,10 +17273,12 @@
                 "description": "A collection of arguments for invoking getStages.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the stages from.\n"
                     }
                 },
                 "type": "object",
@@ -17329,10 +17349,12 @@
                 "description": "A collection of arguments for invoking getStreams.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the streams from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the streams from.\n"
                     }
                 },
                 "type": "object",
@@ -17548,10 +17570,12 @@
                 "description": "A collection of arguments for invoking getTables.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the tables from.\n"
                     }
                 },
                 "type": "object",
@@ -17598,10 +17622,12 @@
                 "description": "A collection of arguments for invoking getTasks.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the tasks from.\n"
                     }
                 },
                 "type": "object",
@@ -17690,10 +17716,12 @@
                 "description": "A collection of arguments for invoking getViews.\n",
                 "properties": {
                     "database": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The database from which to return the schemas from.\n"
                     },
                     "schema": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The schema from which to return the views from.\n"
                     }
                 },
                 "type": "object",
