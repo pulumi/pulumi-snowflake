@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExternalFunctionsResult> InvokeAsync(GetExternalFunctionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExternalFunctionsResult> Invoke(GetExternalFunctionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalFunctionsResult>("snowflake:index/getExternalFunctions:getExternalFunctions", args ?? new GetExternalFunctionsInvokeArgs(), options.WithDefaults());
@@ -65,9 +61,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetExternalFunctionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database")]
         public string? Database { get; set; }
 
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
         [Input("schema")]
         public string? Schema { get; set; }
 
@@ -79,9 +81,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetExternalFunctionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
+        /// <summary>
+        /// The schema from which to return the external functions from.
+        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

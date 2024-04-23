@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts ...pulumi.InvokeOption) (*GetMaskingPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaskingPoliciesResult
@@ -51,8 +49,10 @@ func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts 
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getMaskingPolicies.
@@ -82,8 +82,10 @@ func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutput
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the maskingPolicies from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaskingPoliciesOutputArgs) ElementType() reflect.Type {

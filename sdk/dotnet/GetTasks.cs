@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTasksResult> InvokeAsync(GetTasksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTasksResult> Invoke(GetTasksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksInvokeArgs(), options.WithDefaults());
@@ -65,9 +61,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the tasks from.
+        /// </summary>
         [Input("schema", required: true)]
         public string Schema { get; set; } = null!;
 
@@ -79,9 +81,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// The schema from which to return the tasks from.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 

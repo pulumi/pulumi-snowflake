@@ -637,7 +637,6 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -652,7 +651,6 @@ class NotificationIntegration(pulumi.CustomResource):
             azure_storage_queue_primary_uri="...",
             azure_tenant_id="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -684,7 +682,6 @@ class NotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -699,7 +696,6 @@ class NotificationIntegration(pulumi.CustomResource):
             azure_storage_queue_primary_uri="...",
             azure_tenant_id="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

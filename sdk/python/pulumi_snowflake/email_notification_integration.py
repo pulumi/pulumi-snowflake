@@ -151,7 +151,6 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -162,7 +161,6 @@ class EmailNotificationIntegration(pulumi.CustomResource):
             enabled=True,
             allowed_recipients=["john.doe@gmail.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -195,7 +192,6 @@ class EmailNotificationIntegration(pulumi.CustomResource):
             enabled=True,
             allowed_recipients=["john.doe@gmail.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

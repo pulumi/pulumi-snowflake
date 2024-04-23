@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +71,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -123,7 +121,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly columns!: pulumi.Output<outputs.TableColumn[]>;
     /**
-     * Column comment
+     * Specifies a comment for the table.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -131,11 +129,11 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,7 +151,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -234,7 +232,7 @@ export interface TableState {
      */
     columns?: pulumi.Input<pulumi.Input<inputs.TableColumn>[]>;
     /**
-     * Column comment
+     * Specifies a comment for the table.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -242,11 +240,11 @@ export interface TableState {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      */
     database?: pulumi.Input<string>;
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -264,7 +262,7 @@ export interface TableState {
      */
     qualifiedName?: pulumi.Input<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -292,7 +290,7 @@ export interface TableArgs {
      */
     columns: pulumi.Input<pulumi.Input<inputs.TableColumn>[]>;
     /**
-     * Column comment
+     * Specifies a comment for the table.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -300,11 +298,11 @@ export interface TableArgs {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      */
     database: pulumi.Input<string>;
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,7 +312,7 @@ export interface TableArgs {
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      */
     schema: pulumi.Input<string>;
     /**

@@ -30,8 +30,8 @@ class TableConstraintArgs:
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TableConstraint resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
-        :param pulumi.Input[str] table_id: Name of constraint
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in constraint key
+        :param pulumi.Input[str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[str] comment: Comment for the table constraint
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
@@ -72,7 +72,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Columns to use in foreign key reference
+        Columns to use in constraint key
         """
         return pulumi.get(self, "columns")
 
@@ -84,7 +84,7 @@ class TableConstraintArgs:
     @pulumi.getter(name="tableId")
     def table_id(self) -> pulumi.Input[str]:
         """
-        Name of constraint
+        Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         """
         return pulumi.get(self, "table_id")
 
@@ -233,7 +233,7 @@ class _TableConstraintState:
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering TableConstraint resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in constraint key
         :param pulumi.Input[str] comment: Comment for the table constraint
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
@@ -242,7 +242,7 @@ class _TableConstraintState:
         :param pulumi.Input[str] initially: Whether the constraint is initially deferred or immediate
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
-        :param pulumi.Input[str] table_id: Name of constraint
+        :param pulumi.Input[str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
@@ -278,7 +278,7 @@ class _TableConstraintState:
     @pulumi.getter
     def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Columns to use in foreign key reference
+        Columns to use in constraint key
         """
         return pulumi.get(self, "columns")
 
@@ -389,7 +389,7 @@ class _TableConstraintState:
     @pulumi.getter(name="tableId")
     def table_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of constraint
+        Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         """
         return pulumi.get(self, "table_id")
 
@@ -443,7 +443,6 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -517,7 +516,6 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -527,7 +525,7 @@ class TableConstraint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in constraint key
         :param pulumi.Input[str] comment: Comment for the table constraint
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
@@ -536,7 +534,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[str] initially: Whether the constraint is initially deferred or immediate
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
-        :param pulumi.Input[str] table_id: Name of constraint
+        :param pulumi.Input[str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
@@ -549,7 +547,6 @@ class TableConstraint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -623,7 +620,6 @@ class TableConstraint(pulumi.CustomResource):
             columns=["col3"],
             comment="hello unique")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -714,7 +710,7 @@ class TableConstraint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in foreign key reference
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Columns to use in constraint key
         :param pulumi.Input[str] comment: Comment for the table constraint
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
@@ -723,7 +719,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[str] initially: Whether the constraint is initially deferred or immediate
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
-        :param pulumi.Input[str] table_id: Name of constraint
+        :param pulumi.Input[str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
@@ -749,7 +745,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def columns(self) -> pulumi.Output[Sequence[str]]:
         """
-        Columns to use in foreign key reference
+        Columns to use in constraint key
         """
         return pulumi.get(self, "columns")
 
@@ -824,7 +820,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter(name="tableId")
     def table_id(self) -> pulumi.Output[str]:
         """
-        Name of constraint
+        Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         """
         return pulumi.get(self, "table_id")
 

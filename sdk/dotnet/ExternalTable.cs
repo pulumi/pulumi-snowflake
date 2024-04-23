@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -89,7 +87,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> CopyGrants { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the external table.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -107,7 +105,7 @@ namespace Pulumi.Snowflake
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -137,7 +135,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> RefreshOnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the external table.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -237,7 +235,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the external table.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -255,7 +253,7 @@ namespace Pulumi.Snowflake
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -285,7 +283,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? RefreshOnCreate { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the external table.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -354,7 +352,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the external table.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -372,7 +370,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -408,7 +406,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? RefreshOnCreate { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the external table.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

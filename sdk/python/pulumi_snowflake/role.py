@@ -21,7 +21,6 @@ class RoleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
         """
         The set of arguments for constructing a Role resource.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
@@ -46,9 +45,6 @@ class RoleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,7 +75,6 @@ class _RoleState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Role resources.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
@@ -104,9 +99,6 @@ class _RoleState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -141,7 +133,6 @@ class Role(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -150,7 +141,6 @@ class Role(pulumi.CustomResource):
             name="role1",
             comment="A role.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -160,7 +150,6 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -172,7 +161,6 @@ class Role(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -181,7 +169,6 @@ class Role(pulumi.CustomResource):
             name="role1",
             comment="A role.")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -239,7 +226,6 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -259,9 +245,6 @@ class Role(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Tag name, e.g. department.
-        """
         return pulumi.get(self, "name")
 
     @property

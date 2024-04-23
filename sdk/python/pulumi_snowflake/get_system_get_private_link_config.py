@@ -156,7 +156,6 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,7 +203,6 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         ttl=300,
         records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -228,7 +226,6 @@ def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOption
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,6 +273,5 @@ def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOption
         ttl=300,
         records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

@@ -36,7 +36,7 @@ class MaskingPolicyArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the masking policy.
         :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
-        :param pulumi.Input[str] name: Specifies the column name to mask.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         """
         pulumi.set(__self__, "database", database)
@@ -155,7 +155,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the column name to mask.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         """
         return pulumi.get(self, "name")
 
@@ -197,7 +197,7 @@ class _MaskingPolicyState:
         :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the column name to mask.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
@@ -291,7 +291,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the column name to mask.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         """
         return pulumi.get(self, "name")
 
@@ -379,7 +379,6 @@ class MaskingPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -405,7 +404,6 @@ class MaskingPolicy(pulumi.CustomResource):
         \"\"\",
             return_data_type="VARCHAR")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -422,7 +420,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the column name to mask.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
@@ -437,7 +435,6 @@ class MaskingPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -463,7 +460,6 @@ class MaskingPolicy(pulumi.CustomResource):
         \"\"\",
             return_data_type="VARCHAR")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -561,7 +557,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous masking policy with the same name.
         :param pulumi.Input[str] masking_expression: Specifies the SQL expression that transforms the data.
-        :param pulumi.Input[str] name: Specifies the column name to mask.
+        :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
@@ -629,7 +625,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the column name to mask.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         """
         return pulumi.get(self, "name")
 

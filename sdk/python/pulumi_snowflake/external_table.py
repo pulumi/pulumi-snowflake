@@ -34,15 +34,15 @@ class ExternalTableArgs:
         """
         The set of arguments for constructing a ExternalTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the external table.
         :param pulumi.Input[bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
@@ -94,7 +94,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the external table.
         """
         return pulumi.get(self, "database")
 
@@ -130,7 +130,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the external table.
         """
         return pulumi.get(self, "schema")
 
@@ -190,7 +190,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Column name
+        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         """
         return pulumi.get(self, "name")
 
@@ -288,15 +288,15 @@ class _ExternalTableState:
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the external table.
         :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -400,7 +400,7 @@ class _ExternalTableState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the external table.
         """
         return pulumi.get(self, "database")
 
@@ -436,7 +436,7 @@ class _ExternalTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Column name
+        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         """
         return pulumi.get(self, "name")
 
@@ -496,7 +496,7 @@ class _ExternalTableState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the external table.
         """
         return pulumi.get(self, "schema")
 
@@ -556,7 +556,6 @@ class ExternalTable(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -578,7 +577,6 @@ class ExternalTable(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -595,14 +593,14 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableColumnArgs']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the external table.
         :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -615,7 +613,6 @@ class ExternalTable(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -637,7 +634,6 @@ class ExternalTable(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -750,15 +746,15 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableColumnArgs']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the external table.
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] location: Specifies a location for the external table.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
         :param pulumi.Input[bool] refresh_on_create: Specifies weather to refresh when an external table is created.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the external table.
         :param pulumi.Input[str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalTableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -828,7 +824,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the external table.
         """
         return pulumi.get(self, "database")
 
@@ -852,7 +848,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Column name
+        Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         """
         return pulumi.get(self, "name")
 
@@ -892,7 +888,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the external table.
         """
         return pulumi.get(self, "schema")
 

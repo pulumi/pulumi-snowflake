@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
 
@@ -34,7 +32,13 @@ export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the tables from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetTablesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetTablesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTablesResult> {
     return pulumi.output(args).apply((a: any) => getTables(a, opts))
@@ -82,6 +84,12 @@ export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getTables.
  */
 export interface GetTablesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the tables from.
+     */
     schema: pulumi.Input<string>;
 }

@@ -33,7 +33,7 @@ class FailoverGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -132,7 +132,7 @@ class FailoverGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +185,7 @@ class _FailoverGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -284,7 +284,7 @@ class _FailoverGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -335,7 +335,6 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -369,7 +368,6 @@ class FailoverGroup(pulumi.CustomResource):
                 name=fg["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -385,7 +383,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -398,7 +396,6 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -432,7 +429,6 @@ class FailoverGroup(pulumi.CustomResource):
                 name=fg["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -514,7 +510,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -585,7 +581,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 

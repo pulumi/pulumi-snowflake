@@ -171,14 +171,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.columns;
     }
     /**
-     * Column comment
+     * Specifies a comment for the table.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Column comment
+     * @return Specifies a comment for the table.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -199,28 +199,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the table.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     public Output<String> name() {
@@ -273,14 +273,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.qualifiedName;
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the table.
      * 
      */
     public Output<String> schema() {

@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,7 +133,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -146,7 +144,7 @@ namespace Pulumi.Snowflake
     public partial class TableConstraint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         [Output("columns")]
         public Output<ImmutableArray<string>> Columns { get; private set; } = null!;
@@ -200,7 +198,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> Rely { get; private set; } = null!;
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Output("tableId")]
         public Output<string> TableId { get; private set; } = null!;
@@ -267,7 +265,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         public InputList<string> Columns
         {
@@ -324,7 +322,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Input("tableId", required: true)]
         public Input<string> TableId { get; set; } = null!;
@@ -353,7 +351,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         public InputList<string> Columns
         {
@@ -410,7 +408,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Input("tableId")]
         public Input<string>? TableId { get; set; }

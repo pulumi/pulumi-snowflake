@@ -61,14 +61,12 @@ def get_resource_monitors(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_resource_monitors()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -84,13 +82,11 @@ def get_resource_monitors_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_resource_monitors()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

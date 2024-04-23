@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -63,7 +61,7 @@ type Stage struct {
 	CopyOptions pulumi.StringPtrOutput `pulumi:"copyOptions"`
 	// Specifies the credentials for the stage.
 	Credentials pulumi.StringPtrOutput `pulumi:"credentials"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the stage.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the directory settings for the stage.
 	Directory pulumi.StringPtrOutput `pulumi:"directory"`
@@ -71,9 +69,9 @@ type Stage struct {
 	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
 	// Specifies the file format for the stage.
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the stage.
 	Schema           pulumi.StringOutput `pulumi:"schema"`
 	SnowflakeIamUser pulumi.StringOutput `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -136,7 +134,7 @@ type stageState struct {
 	CopyOptions *string `pulumi:"copyOptions"`
 	// Specifies the credentials for the stage.
 	Credentials *string `pulumi:"credentials"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the stage.
 	Database *string `pulumi:"database"`
 	// Specifies the directory settings for the stage.
 	Directory *string `pulumi:"directory"`
@@ -144,9 +142,9 @@ type stageState struct {
 	Encryption *string `pulumi:"encryption"`
 	// Specifies the file format for the stage.
 	FileFormat *string `pulumi:"fileFormat"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the stage.
 	Schema           *string `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -167,7 +165,7 @@ type StageState struct {
 	CopyOptions pulumi.StringPtrInput
 	// Specifies the credentials for the stage.
 	Credentials pulumi.StringPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the stage.
 	Database pulumi.StringPtrInput
 	// Specifies the directory settings for the stage.
 	Directory pulumi.StringPtrInput
@@ -175,9 +173,9 @@ type StageState struct {
 	Encryption pulumi.StringPtrInput
 	// Specifies the file format for the stage.
 	FileFormat pulumi.StringPtrInput
-	// Tag name, e.g. department.
+	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the stage.
 	Schema           pulumi.StringPtrInput
 	SnowflakeIamUser pulumi.StringPtrInput
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -202,7 +200,7 @@ type stageArgs struct {
 	CopyOptions *string `pulumi:"copyOptions"`
 	// Specifies the credentials for the stage.
 	Credentials *string `pulumi:"credentials"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the stage.
 	Database string `pulumi:"database"`
 	// Specifies the directory settings for the stage.
 	Directory *string `pulumi:"directory"`
@@ -210,9 +208,9 @@ type stageArgs struct {
 	Encryption *string `pulumi:"encryption"`
 	// Specifies the file format for the stage.
 	FileFormat *string `pulumi:"fileFormat"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the stage.
 	Schema           string  `pulumi:"schema"`
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -234,7 +232,7 @@ type StageArgs struct {
 	CopyOptions pulumi.StringPtrInput
 	// Specifies the credentials for the stage.
 	Credentials pulumi.StringPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the stage.
 	Database pulumi.StringInput
 	// Specifies the directory settings for the stage.
 	Directory pulumi.StringPtrInput
@@ -242,9 +240,9 @@ type StageArgs struct {
 	Encryption pulumi.StringPtrInput
 	// Specifies the file format for the stage.
 	FileFormat pulumi.StringPtrInput
-	// Tag name, e.g. department.
+	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the stage.
 	Schema           pulumi.StringInput
 	SnowflakeIamUser pulumi.StringPtrInput
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -363,7 +361,7 @@ func (o StageOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
-// Name of the database that the tag was created in.
+// The database in which to create the stage.
 func (o StageOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -383,12 +381,12 @@ func (o StageOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
 
-// Tag name, e.g. department.
+// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 func (o StageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the schema that the tag was created in.
+// The schema in which to create the stage.
 func (o StageOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

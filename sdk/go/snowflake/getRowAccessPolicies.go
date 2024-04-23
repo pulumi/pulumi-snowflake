@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRowAccessPoliciesResult
@@ -51,8 +49,10 @@ func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, o
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the row access policy from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getRowAccessPolicies.
@@ -82,8 +82,10 @@ func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOu
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the row access policy from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetRowAccessPoliciesOutputArgs) ElementType() reflect.Type {

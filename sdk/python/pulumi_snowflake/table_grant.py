@@ -404,7 +404,6 @@ class TableGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -419,7 +418,6 @@ class TableGrant(pulumi.CustomResource):
             on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,7 +453,6 @@ class TableGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -470,7 +467,6 @@ class TableGrant(pulumi.CustomResource):
             on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

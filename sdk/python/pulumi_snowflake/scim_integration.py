@@ -182,7 +182,6 @@ class ScimIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -193,7 +192,6 @@ class ScimIntegration(pulumi.CustomResource):
             provisioner_role="AAD_PROVISIONER",
             scim_client="AZURE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class ScimIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -228,7 +225,6 @@ class ScimIntegration(pulumi.CustomResource):
             provisioner_role="AAD_PROVISIONER",
             scim_client="AZURE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
