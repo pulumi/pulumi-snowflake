@@ -13,16 +13,32 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetMaskingPoliciesPlainArgs Empty = new GetMaskingPoliciesPlainArgs();
 
+    /**
+     * The database from which to return the schemas from.
+     * 
+     */
     @Import(name="database", required=true)
     private String database;
 
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public String database() {
         return this.database;
     }
 
+    /**
+     * The schema from which to return the maskingPolicies from.
+     * 
+     */
     @Import(name="schema", required=true)
     private String schema;
 
+    /**
+     * @return The schema from which to return the maskingPolicies from.
+     * 
+     */
     public String schema() {
         return this.schema;
     }
@@ -52,11 +68,23 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
             $ = new GetMaskingPoliciesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param database The database from which to return the schemas from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(String database) {
             $.database = database;
             return this;
         }
 
+        /**
+         * @param schema The schema from which to return the maskingPolicies from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(String schema) {
             $.schema = schema;
             return this;

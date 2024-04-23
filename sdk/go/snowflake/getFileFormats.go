@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulumi.InvokeOption) (*GetFileFormatsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFileFormatsResult
@@ -51,8 +49,10 @@ func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulum
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFileFormats.
@@ -82,8 +82,10 @@ func GetFileFormatsOutput(ctx *pulumi.Context, args GetFileFormatsOutputArgs, op
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFileFormatsOutputArgs) ElementType() reflect.Type {

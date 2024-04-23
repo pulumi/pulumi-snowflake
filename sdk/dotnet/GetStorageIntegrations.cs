@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,7 +26,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetStorageIntegrationsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
@@ -35,7 +33,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,7 +45,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetStorageIntegrationsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());

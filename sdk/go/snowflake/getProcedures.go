@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetProcedures(ctx *pulumi.Context, args *GetProceduresArgs, opts ...pulumi.InvokeOption) (*GetProceduresResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProceduresResult
@@ -51,8 +49,10 @@ func GetProcedures(ctx *pulumi.Context, args *GetProceduresArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProcedures.
 type GetProceduresArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the procedures from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getProcedures.
@@ -82,8 +82,10 @@ func GetProceduresOutput(ctx *pulumi.Context, args GetProceduresOutputArgs, opts
 
 // A collection of arguments for invoking getProcedures.
 type GetProceduresOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the procedures from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetProceduresOutputArgs) ElementType() reflect.Type {

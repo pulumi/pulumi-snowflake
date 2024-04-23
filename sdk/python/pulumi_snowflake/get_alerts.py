@@ -100,7 +100,6 @@ def get_alerts(database: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -108,7 +107,6 @@ def get_alerts(database: Optional[str] = None,
     current = snowflake.get_alerts(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str database: The database from which to return the alerts from.
@@ -138,7 +136,6 @@ def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -146,7 +143,6 @@ def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
     current = snowflake.get_alerts(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str database: The database from which to return the alerts from.

@@ -19,14 +19,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     public static final TableConstraintState Empty = new TableConstraintState();
 
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
     /**
-     * @return Columns to use in foreign key reference
+     * @return Columns to use in constraint key
      * 
      */
     public Optional<Output<List<String>>> columns() {
@@ -162,14 +162,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Import(name="tableId")
     private @Nullable Output<String> tableId;
 
     /**
-     * @return Name of constraint
+     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Optional<Output<String>> tableId() {
@@ -242,7 +242,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tableId Name of constraint
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tableId Name of constraint
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 

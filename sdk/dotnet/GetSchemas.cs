@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSchemasResult> InvokeAsync(GetSchemasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasArgs(), options.WithDefaults());
@@ -38,7 +36,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasInvokeArgs(), options.WithDefaults());
@@ -63,6 +59,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSchemasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public string Database { get; set; } = null!;
 
@@ -74,6 +73,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSchemasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the schemas from.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 

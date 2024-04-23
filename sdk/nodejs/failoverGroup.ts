@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -45,7 +44,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -106,7 +104,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -186,7 +184,7 @@ export interface FailoverGroupState {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**
@@ -228,7 +226,7 @@ export interface FailoverGroupArgs {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**

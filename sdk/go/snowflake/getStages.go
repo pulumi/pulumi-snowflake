@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetStages(ctx *pulumi.Context, args *GetStagesArgs, opts ...pulumi.InvokeOption) (*GetStagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStagesResult
@@ -51,8 +49,10 @@ func GetStages(ctx *pulumi.Context, args *GetStagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getStages.
 type GetStagesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the stages from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getStages.
@@ -82,8 +82,10 @@ func GetStagesOutput(ctx *pulumi.Context, args GetStagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getStages.
 type GetStagesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the stages from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetStagesOutputArgs) ElementType() reflect.Type {

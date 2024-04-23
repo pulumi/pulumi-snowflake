@@ -484,7 +484,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -501,7 +500,6 @@ class Account(pulumi.CustomResource):
             comment="Snowflake Test Account",
             region="AWS_US_WEST_2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -540,7 +538,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -557,7 +554,6 @@ class Account(pulumi.CustomResource):
             comment="Snowflake Test Account",
             region="AWS_US_WEST_2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -87,7 +87,6 @@ def get_row_access_policies(database: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -95,7 +94,10 @@ def get_row_access_policies(database: Optional[str] = None,
     current = snowflake.get_row_access_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the row access policy from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -117,7 +119,6 @@ def get_row_access_policies_output(database: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -125,6 +126,9 @@ def get_row_access_policies_output(database: Optional[pulumi.Input[str]] = None,
     current = snowflake.get_row_access_policies(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the row access policy from.
     """
     ...

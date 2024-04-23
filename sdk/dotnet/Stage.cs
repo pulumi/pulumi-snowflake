@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -67,7 +65,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -91,13 +89,13 @@ namespace Pulumi.Snowflake
         public Output<string?> FileFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -205,7 +203,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -229,13 +227,13 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -308,7 +306,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -332,13 +330,13 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

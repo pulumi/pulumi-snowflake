@@ -564,7 +564,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -586,7 +585,6 @@ class User(pulumi.CustomResource):
             rsa_public_key2="...",
             must_change_password=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -620,7 +618,6 @@ class User(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -642,7 +639,6 @@ class User(pulumi.CustomResource):
             rsa_public_key2="...",
             must_change_password=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

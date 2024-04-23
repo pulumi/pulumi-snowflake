@@ -180,14 +180,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ignoreEditionCheck);
     }
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the primary failover group in the source account.
+     * @return Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     public Output<String> name() {

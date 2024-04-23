@@ -244,7 +244,6 @@ class TagAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -302,7 +301,6 @@ class TagAssociation(pulumi.CustomResource):
             tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -330,7 +328,6 @@ class TagAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -388,7 +385,6 @@ class TagAssociation(pulumi.CustomResource):
             tag_id=test_snowflake_tag["id"],
             tag_value="engineering")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

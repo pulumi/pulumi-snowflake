@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     database: "MYDB",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
 
@@ -32,6 +30,9 @@ export function getSchemas(args: GetSchemasArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getSchemas.
  */
 export interface GetSchemasArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
 }
 
@@ -55,7 +56,6 @@ export interface GetSchemasResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -64,7 +64,6 @@ export interface GetSchemasResult {
  *     database: "MYDB",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemasOutput(args: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
     return pulumi.output(args).apply((a: any) => getSchemas(a, opts))
@@ -74,5 +73,8 @@ export function getSchemasOutput(args: GetSchemasOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSchemas.
  */
 export interface GetSchemasOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
 }

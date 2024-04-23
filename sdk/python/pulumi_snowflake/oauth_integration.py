@@ -381,7 +381,6 @@ class OauthIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -394,7 +393,6 @@ class OauthIntegration(pulumi.CustomResource):
             oauth_refresh_token_validity=3600,
             blocked_roles_lists=["SYSADMIN"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -424,7 +422,6 @@ class OauthIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -437,7 +434,6 @@ class OauthIntegration(pulumi.CustomResource):
             oauth_refresh_token_validity=3600,
             blocked_roles_lists=["SYSADMIN"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

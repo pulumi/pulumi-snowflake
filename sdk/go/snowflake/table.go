@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,7 +101,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -120,13 +118,13 @@ type Table struct {
 	ClusterBies pulumi.StringArrayOutput `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayOutput `pulumi:"columns"`
-	// Column comment
+	// Specifies a comment for the table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Column name
+	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -136,7 +134,7 @@ type Table struct {
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
 	// Qualified name of the table.
 	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -189,13 +187,13 @@ type tableState struct {
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
-	// Column comment
+	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the table.
 	Database *string `pulumi:"database"`
-	// Column name
+	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the table.
 	Owner *string `pulumi:"owner"`
@@ -205,7 +203,7 @@ type tableState struct {
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
 	// Qualified name of the table.
 	QualifiedName *string `pulumi:"qualifiedName"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -220,13 +218,13 @@ type TableState struct {
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
-	// Column comment
+	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the table.
 	Database pulumi.StringPtrInput
-	// Column name
+	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the table.
 	Owner pulumi.StringPtrInput
@@ -236,7 +234,7 @@ type TableState struct {
 	PrimaryKey TablePrimaryKeyPtrInput
 	// Qualified name of the table.
 	QualifiedName pulumi.StringPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -255,19 +253,19 @@ type tableArgs struct {
 	ClusterBies []string `pulumi:"clusterBies"`
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns []TableColumn `pulumi:"columns"`
-	// Column comment
+	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the table.
 	Database string `pulumi:"database"`
-	// Column name
+	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name *string `pulumi:"name"`
 	// Definitions of primary key constraint to create on table
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the table.
 	Schema string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -283,19 +281,19 @@ type TableArgs struct {
 	ClusterBies pulumi.StringArrayInput
 	// Definitions of a column to create in the table. Minimum one required.
 	Columns TableColumnArrayInput
-	// Column comment
+	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
 	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the table.
 	Database pulumi.StringInput
-	// Column name
+	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringPtrInput
 	// Definitions of primary key constraint to create on table
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the table.
 	Schema pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -405,7 +403,7 @@ func (o TableOutput) Columns() TableColumnArrayOutput {
 	return o.ApplyT(func(v *Table) TableColumnArrayOutput { return v.Columns }).(TableColumnArrayOutput)
 }
 
-// Column comment
+// Specifies a comment for the table.
 func (o TableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -415,12 +413,12 @@ func (o TableOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }
 
-// Name of the database that the tag was created in.
+// The database in which to create the table.
 func (o TableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Column name
+// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -442,7 +440,7 @@ func (o TableOutput) QualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
-// Name of the schema that the tag was created in.
+// The schema in which to create the table.
 func (o TableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

@@ -198,14 +198,14 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.language);
     }
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The argument name
+     * @return Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     public Output<String> name() {

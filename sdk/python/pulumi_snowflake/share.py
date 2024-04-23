@@ -135,7 +135,6 @@ class Share(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -147,7 +146,6 @@ class Share(pulumi.CustomResource):
         example = snowflake.Database("example", name="test",
         opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -170,7 +168,6 @@ class Share(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -182,7 +179,6 @@ class Share(pulumi.CustomResource):
         example = snowflake.Database("example", name="test",
         opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -114,14 +114,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the stage.
      * 
      */
     public Output<String> database() {
@@ -170,28 +170,28 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileFormat);
     }
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the stage.
      * 
      */
     public Output<String> schema() {

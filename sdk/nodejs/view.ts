@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     isSecure: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -75,7 +73,7 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the view. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -85,7 +83,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -93,7 +91,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the view. Don't use the | character.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -174,7 +172,7 @@ export interface ViewState {
      */
     createdOn?: pulumi.Input<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the view. Don't use the | character.
      */
     database?: pulumi.Input<string>;
     /**
@@ -184,7 +182,7 @@ export interface ViewState {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,7 +190,7 @@ export interface ViewState {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the view. Don't use the | character.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -220,7 +218,7 @@ export interface ViewArgs {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the view. Don't use the | character.
      */
     database: pulumi.Input<string>;
     /**
@@ -230,7 +228,7 @@ export interface ViewArgs {
      */
     isSecure?: pulumi.Input<boolean>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -238,7 +236,7 @@ export interface ViewArgs {
      */
     orReplace?: pulumi.Input<boolean>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the view. Don't use the | character.
      */
     schema: pulumi.Input<string>;
     /**

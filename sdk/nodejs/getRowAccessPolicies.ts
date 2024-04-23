@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRowAccessPoliciesResult> {
 
@@ -34,7 +32,13 @@ export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulu
  * A collection of arguments for invoking getRowAccessPolicies.
  */
 export interface GetRowAccessPoliciesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the row access policy from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetRowAccessPoliciesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetRowAccessPoliciesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRowAccessPoliciesResult> {
     return pulumi.output(args).apply((a: any) => getRowAccessPolicies(a, opts))
@@ -82,6 +84,12 @@ export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs,
  * A collection of arguments for invoking getRowAccessPolicies.
  */
 export interface GetRowAccessPoliciesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the row access policy from.
+     */
     schema: pulumi.Input<string>;
 }

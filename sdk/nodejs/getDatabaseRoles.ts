@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     database: "MYDB",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDatabaseRoles(args: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
 
@@ -58,7 +56,6 @@ export interface GetDatabaseRolesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -67,7 +64,6 @@ export interface GetDatabaseRolesResult {
  *     database: "MYDB",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDatabaseRolesOutput(args: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseRoles(a, opts))

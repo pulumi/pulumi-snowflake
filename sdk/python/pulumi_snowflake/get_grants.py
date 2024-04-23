@@ -127,7 +127,6 @@ def get_grants(future_grants_in: Optional[pulumi.InputType['GetGrantsFutureGrant
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -213,7 +212,6 @@ def get_grants(future_grants_in: Optional[pulumi.InputType['GetGrantsFutureGrant
         database_role="\\"some_database\\".\\"some_database_role\\"",
     ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects.
@@ -251,7 +249,6 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[pulumi.In
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -337,7 +334,6 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[pulumi.In
         database_role="\\"some_database\\".\\"some_database_role\\"",
     ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetGrantsFutureGrantsInArgs'] future_grants_in: Lists all privileges on new (i.e. future) objects.

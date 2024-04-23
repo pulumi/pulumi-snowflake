@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreams(args: GetStreamsArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamsResult> {
 
@@ -34,7 +32,13 @@ export function getStreams(args: GetStreamsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsArgs {
+    /**
+     * The database from which to return the streams from.
+     */
     database: string;
+    /**
+     * The schema from which to return the streams from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetStreamsResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetStreamsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStreamsOutput(args: GetStreamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamsResult> {
     return pulumi.output(args).apply((a: any) => getStreams(a, opts))
@@ -82,6 +84,12 @@ export function getStreamsOutput(args: GetStreamsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsOutputArgs {
+    /**
+     * The database from which to return the streams from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the streams from.
+     */
     schema: pulumi.Input<string>;
 }

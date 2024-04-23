@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStages(args: GetStagesArgs, opts?: pulumi.InvokeOptions): Promise<GetStagesResult> {
 
@@ -34,7 +32,13 @@ export function getStages(args: GetStagesArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getStages.
  */
 export interface GetStagesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the stages from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetStagesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetStagesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStagesResult> {
     return pulumi.output(args).apply((a: any) => getStages(a, opts))
@@ -82,6 +84,12 @@ export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getStages.
  */
 export interface GetStagesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the stages from.
+     */
     schema: pulumi.Input<string>;
 }

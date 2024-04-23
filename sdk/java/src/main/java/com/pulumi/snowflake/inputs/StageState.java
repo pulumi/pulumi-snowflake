@@ -70,14 +70,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the stage.
      * 
      */
     public Optional<Output<String>> database() {
@@ -130,14 +130,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -145,14 +145,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the stage.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -329,7 +329,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the stage.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the stage.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the stage.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the stage.
          * 
          * @return builder
          * 

@@ -156,14 +156,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Argument name
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Argument name
+     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     public Optional<Output<String>> name() {
@@ -551,7 +551,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Argument name
+         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Argument name
+         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
          * 
          * @return builder
          * 

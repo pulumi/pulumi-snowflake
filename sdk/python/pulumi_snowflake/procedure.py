@@ -44,7 +44,7 @@ class ProcedureArgs:
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -207,7 +207,7 @@ class ProcedureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +307,7 @@ class _ProcedureState:
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -441,7 +441,7 @@ class _ProcedureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -591,7 +591,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -722,7 +722,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -814,7 +814,7 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 

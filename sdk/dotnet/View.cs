@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -67,7 +65,7 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -81,7 +79,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsSecure { get; private set; } = null!;
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -93,7 +91,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> OrReplace { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the view. Don't use the | character.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -169,7 +167,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -183,7 +181,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -195,7 +193,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the view. Don't use the | character.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -246,7 +244,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the view. Don't use the | character.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -260,7 +258,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsSecure { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -272,7 +270,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the view. Don't use the | character.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

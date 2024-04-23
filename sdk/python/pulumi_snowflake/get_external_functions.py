@@ -87,7 +87,6 @@ def get_external_functions(database: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -95,7 +94,10 @@ def get_external_functions(database: Optional[str] = None,
     current = snowflake.get_external_functions(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the external functions from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -117,7 +119,6 @@ def get_external_functions_output(database: Optional[pulumi.Input[Optional[str]]
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -125,6 +126,9 @@ def get_external_functions_output(database: Optional[pulumi.Input[Optional[str]]
     current = snowflake.get_external_functions(database="MYDB",
         schema="MYSCHEMA")
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str database: The database from which to return the schemas from.
+    :param str schema: The schema from which to return the external functions from.
     """
     ...

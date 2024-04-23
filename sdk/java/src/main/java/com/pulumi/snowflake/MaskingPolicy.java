@@ -152,14 +152,14 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.maskingExpression;
     }
     /**
-     * Specifies the column name to mask.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the column name to mask.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      * 
      */
     public Output<String> name() {

@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +59,6 @@ import * as utilities from "./utilities";
  *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Promise<GetSystemGetPrivateLinkConfigResult> {
 
@@ -117,7 +115,6 @@ export interface GetSystemGetPrivateLinkConfigResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -170,7 +167,6 @@ export interface GetSystemGetPrivateLinkConfigResult {
  *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
     return pulumi.output(getSystemGetPrivateLinkConfig(opts))

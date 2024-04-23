@@ -201,7 +201,6 @@ class ObjectParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -248,7 +247,6 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             on_account=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class ObjectParameter(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -320,7 +317,6 @@ class ObjectParameter(pulumi.CustomResource):
             value="89",
             on_account=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
