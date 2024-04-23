@@ -96,14 +96,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the external table.
      * 
      */
     public Output<String> database() {
@@ -141,14 +141,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -201,14 +201,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the external table.
      * 
      */
     public Output<String> schema() {
@@ -407,7 +407,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the external table.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the external table.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Column name
+         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Column name
+         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the external table.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the external table.
          * 
          * @return builder
          * 

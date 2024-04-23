@@ -74,7 +74,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface FunctionState {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface FunctionArgs {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

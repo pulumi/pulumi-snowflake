@@ -32,15 +32,15 @@ class StageArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Stage resource.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the stage.
+        :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -79,7 +79,7 @@ class StageArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the stage.
         """
         return pulumi.get(self, "database")
 
@@ -91,7 +91,7 @@ class StageArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the stage.
         """
         return pulumi.get(self, "schema")
 
@@ -184,7 +184,7 @@ class StageArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         """
         return pulumi.get(self, "name")
 
@@ -263,12 +263,12 @@ class _StageState:
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+        :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -354,7 +354,7 @@ class _StageState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the stage.
         """
         return pulumi.get(self, "database")
 
@@ -402,7 +402,7 @@ class _StageState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         """
         return pulumi.get(self, "name")
 
@@ -414,7 +414,7 @@ class _StageState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the stage.
         """
         return pulumi.get(self, "schema")
 
@@ -494,7 +494,6 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -506,7 +505,6 @@ class Stage(pulumi.CustomResource):
             schema="EXAMPLE_SCHEMA",
             credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -521,12 +519,12 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+        :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -540,7 +538,6 @@ class Stage(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -552,7 +549,6 @@ class Stage(pulumi.CustomResource):
             schema="EXAMPLE_SCHEMA",
             credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -654,12 +650,12 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+        :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -717,7 +713,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the stage.
         """
         return pulumi.get(self, "database")
 
@@ -749,7 +745,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         """
         return pulumi.get(self, "name")
 
@@ -757,7 +753,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the stage.
         """
         return pulumi.get(self, "schema")
 

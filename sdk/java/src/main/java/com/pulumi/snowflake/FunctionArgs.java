@@ -125,14 +125,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The argument name
+     * @return Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -466,7 +466,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The argument name
+         * @param name Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The argument name
+         * @param name Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 

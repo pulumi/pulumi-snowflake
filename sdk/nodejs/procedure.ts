@@ -74,7 +74,7 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export interface ProcedureState {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface ProcedureArgs {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

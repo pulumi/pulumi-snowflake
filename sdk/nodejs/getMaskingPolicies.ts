@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetMaskingPoliciesResult> {
 
@@ -34,7 +32,13 @@ export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.I
  * A collection of arguments for invoking getMaskingPolicies.
  */
 export interface GetMaskingPoliciesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetMaskingPoliciesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetMaskingPoliciesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
     return pulumi.output(args).apply((a: any) => getMaskingPolicies(a, opts))
@@ -82,6 +84,12 @@ export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opt
  * A collection of arguments for invoking getMaskingPolicies.
  */
 export interface GetMaskingPoliciesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the maskingPolicies from.
+     */
     schema: pulumi.Input<string>;
 }

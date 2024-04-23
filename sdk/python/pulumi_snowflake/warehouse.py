@@ -601,7 +601,6 @@ class Warehouse(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -611,7 +610,6 @@ class Warehouse(pulumi.CustomResource):
             comment="foo",
             warehouse_size="small")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -647,7 +645,6 @@ class Warehouse(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -657,7 +654,6 @@ class Warehouse(pulumi.CustomResource):
             comment="foo",
             warehouse_size="small")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

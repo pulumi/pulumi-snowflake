@@ -68,14 +68,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Column comment
+     * Specifies a comment for the table.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Column comment
+     * @return Specifies a comment for the table.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -98,14 +98,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the table.
      * 
      */
     public Output<String> database() {
@@ -113,14 +113,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -151,14 +151,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the table.
      * 
      */
     public Output<String> schema() {
@@ -305,7 +305,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Column comment
+         * @param comment Specifies a comment for the table.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Column comment
+         * @param comment Specifies a comment for the table.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the table.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the table.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Column name
+         * @param name Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Column name
+         * @param name Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the table.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the table.
          * 
          * @return builder
          * 

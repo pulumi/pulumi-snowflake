@@ -29,13 +29,13 @@ class TableArgs:
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
-        :param pulumi.Input[str] comment: Column comment
+        :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -79,7 +79,7 @@ class TableArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the table.
         """
         return pulumi.get(self, "database")
 
@@ -91,7 +91,7 @@ class TableArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the table.
         """
         return pulumi.get(self, "schema")
 
@@ -127,7 +127,7 @@ class TableArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        Column comment
+        Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
 
@@ -151,7 +151,7 @@ class TableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Column name
+        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         """
         return pulumi.get(self, "name")
 
@@ -210,14 +210,14 @@ class _TableState:
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
-        :param pulumi.Input[str] comment: Column comment
+        :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] qualified_name: Qualified name of the table.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if change_tracking is not None:
@@ -291,7 +291,7 @@ class _TableState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        Column comment
+        Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
 
@@ -315,7 +315,7 @@ class _TableState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the table.
         """
         return pulumi.get(self, "database")
 
@@ -327,7 +327,7 @@ class _TableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Column name
+        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         """
         return pulumi.get(self, "name")
 
@@ -378,7 +378,7 @@ class _TableState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the table.
         """
         return pulumi.get(self, "schema")
 
@@ -421,7 +421,6 @@ class Table(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -481,7 +480,6 @@ class Table(pulumi.CustomResource):
                 keys=["data"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -496,12 +494,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
-        :param pulumi.Input[str] comment: Column comment
+        :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -513,7 +511,6 @@ class Table(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -573,7 +570,6 @@ class Table(pulumi.CustomResource):
                 keys=["data"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -667,14 +663,14 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
-        :param pulumi.Input[str] comment: Column comment
+        :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] name: Column name
+        :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] qualified_name: Qualified name of the table.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -723,7 +719,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
         """
-        Column comment
+        Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
 
@@ -739,7 +735,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the table.
         """
         return pulumi.get(self, "database")
 
@@ -747,7 +743,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Column name
+        Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         """
         return pulumi.get(self, "name")
 
@@ -782,7 +778,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the table.
         """
         return pulumi.get(self, "schema")
 

@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -62,17 +60,17 @@ type View struct {
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The timestamp at which the view was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
 	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
 	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -127,17 +125,17 @@ type viewState struct {
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The timestamp at which the view was created.
 	CreatedOn *string `pulumi:"createdOn"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the view. Don't use the | character.
 	Database *string `pulumi:"database"`
 	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
 	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
 	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the view. Don't use the | character.
 	Schema *string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
@@ -154,17 +152,17 @@ type ViewState struct {
 	CopyGrants pulumi.BoolPtrInput
 	// The timestamp at which the view was created.
 	CreatedOn pulumi.StringPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringPtrInput
 	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
 	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
 	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
-	// Tag name, e.g. department.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringPtrInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
@@ -183,17 +181,17 @@ type viewArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// Name of the database that the tag was created in.
+	// The database in which to create the view. Don't use the | character.
 	Database string `pulumi:"database"`
 	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
 	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
 	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure *bool `pulumi:"isSecure"`
-	// Tag name, e.g. department.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the view. Don't use the | character.
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
@@ -209,17 +207,17 @@ type ViewArgs struct {
 	Comment pulumi.StringPtrInput
 	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
 	CopyGrants pulumi.BoolPtrInput
-	// Name of the database that the tag was created in.
+	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringInput
 	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
 	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
 	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
-	// Tag name, e.g. department.
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
-	// Name of the schema that the tag was created in.
+	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
@@ -331,7 +329,7 @@ func (o ViewOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Name of the database that the tag was created in.
+// The database in which to create the view. Don't use the | character.
 func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -343,7 +341,7 @@ func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
 
-// Tag name, e.g. department.
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -353,7 +351,7 @@ func (o ViewOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the schema that the tag was created in.
+// The schema in which to create the view. Don't use the | character.
 func (o ViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

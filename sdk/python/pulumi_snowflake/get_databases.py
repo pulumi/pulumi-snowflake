@@ -113,14 +113,12 @@ def get_databases(history: Optional[bool] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_databases()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool history: Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
@@ -154,14 +152,12 @@ def get_databases_output(history: Optional[pulumi.Input[Optional[bool]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_databases()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool history: Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     credentials: `AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -74,7 +72,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<string | undefined>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -90,11 +88,11 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly snowflakeIamUser!: pulumi.Output<string>;
@@ -188,7 +186,7 @@ export interface StageState {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     database?: pulumi.Input<string>;
     /**
@@ -204,11 +202,11 @@ export interface StageState {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     schema?: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;
@@ -246,7 +244,7 @@ export interface StageArgs {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     database: pulumi.Input<string>;
     /**
@@ -262,11 +260,11 @@ export interface StageArgs {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     schema: pulumi.Input<string>;
     snowflakeIamUser?: pulumi.Input<string>;

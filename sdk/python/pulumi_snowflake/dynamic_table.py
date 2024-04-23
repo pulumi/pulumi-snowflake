@@ -555,7 +555,6 @@ class DynamicTable(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -572,7 +571,6 @@ class DynamicTable(pulumi.CustomResource):
             query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             comment="example comment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -602,7 +600,6 @@ class DynamicTable(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -619,7 +616,6 @@ class DynamicTable(pulumi.CustomResource):
             query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             comment="example comment")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

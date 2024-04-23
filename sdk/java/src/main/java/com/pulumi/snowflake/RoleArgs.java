@@ -24,17 +24,9 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Tag name, e.g. department.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Tag name, e.g. department.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -97,23 +89,11 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param name Tag name, e.g. department.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Tag name, e.g. department.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

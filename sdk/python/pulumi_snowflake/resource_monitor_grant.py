@@ -206,7 +206,6 @@ class ResourceMonitorGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -217,7 +216,6 @@ class ResourceMonitorGrant(pulumi.CustomResource):
             roles=["role1"],
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,7 +245,6 @@ class ResourceMonitorGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -258,7 +255,6 @@ class ResourceMonitorGrant(pulumi.CustomResource):
             roles=["role1"],
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

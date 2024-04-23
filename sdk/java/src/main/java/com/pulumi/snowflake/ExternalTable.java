@@ -148,14 +148,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyGrants);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the external table.
      * 
      */
     public Output<String> database() {
@@ -190,14 +190,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     public Output<String> name() {
@@ -260,14 +260,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshOnCreate);
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the external table.
      * 
      */
     public Output<String> schema() {

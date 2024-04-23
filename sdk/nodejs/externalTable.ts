@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -32,7 +31,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -91,7 +89,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -103,7 +101,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -123,7 +121,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly refreshOnCreate!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -230,7 +228,7 @@ export interface ExternalTableState {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      */
     database?: pulumi.Input<string>;
     /**
@@ -242,7 +240,7 @@ export interface ExternalTableState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -262,7 +260,7 @@ export interface ExternalTableState {
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -302,7 +300,7 @@ export interface ExternalTableArgs {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      */
     database: pulumi.Input<string>;
     /**
@@ -314,7 +312,7 @@ export interface ExternalTableArgs {
      */
     location: pulumi.Input<string>;
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -330,7 +328,7 @@ export interface ExternalTableArgs {
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      */
     schema: pulumi.Input<string>;
     /**

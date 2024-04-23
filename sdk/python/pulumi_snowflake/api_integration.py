@@ -494,7 +494,6 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -519,7 +518,6 @@ class ApiIntegration(pulumi.CustomResource):
             api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -550,7 +548,6 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -575,7 +572,6 @@ class ApiIntegration(pulumi.CustomResource):
             api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

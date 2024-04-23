@@ -27,15 +27,15 @@ class ViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a View resource.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
                secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
                is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -62,7 +62,7 @@ class ViewArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -74,7 +74,7 @@ class ViewArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 
@@ -136,7 +136,7 @@ class ViewArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -190,13 +190,13 @@ class _ViewState:
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
                secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
                is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -264,7 +264,7 @@ class _ViewState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -290,7 +290,7 @@ class _ViewState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -314,7 +314,7 @@ class _ViewState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 
@@ -368,7 +368,6 @@ class View(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -382,7 +381,6 @@ class View(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -396,13 +394,13 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
                secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
                is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -415,7 +413,6 @@ class View(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -429,7 +426,6 @@ class View(pulumi.CustomResource):
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -518,13 +514,13 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
         :param pulumi.Input[str] created_on: The timestamp at which the view was created.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
                secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
                is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -572,7 +568,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -590,7 +586,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -606,7 +602,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 

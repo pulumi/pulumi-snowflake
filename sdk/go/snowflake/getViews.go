@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOption) (*GetViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetViewsResult
@@ -51,8 +49,10 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getViews.
@@ -82,8 +82,10 @@ func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getViews.
 type GetViewsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetViewsOutputArgs) ElementType() reflect.Type {

@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.InvokeOption) (*GetSequencesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSequencesResult
@@ -51,8 +49,10 @@ func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the sequences from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getSequences.
@@ -82,8 +82,10 @@ func GetSequencesOutput(ctx *pulumi.Context, args GetSequencesOutputArgs, opts .
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the sequences from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesOutputArgs) ElementType() reflect.Type {

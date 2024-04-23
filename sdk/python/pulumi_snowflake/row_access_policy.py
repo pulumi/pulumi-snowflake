@@ -230,7 +230,6 @@ class RowAccessPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -245,7 +244,6 @@ class RowAccessPolicy(pulumi.CustomResource):
             },
             row_access_expression="case when current_role() in ('ANALYST') then true else false end")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class RowAccessPolicy(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -288,7 +285,6 @@ class RowAccessPolicy(pulumi.CustomResource):
             },
             row_access_expression="case when current_role() in ('ANALYST') then true else false end")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     comment: "A role.",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -56,9 +54,6 @@ export class Role extends pulumi.CustomResource {
     }
 
     public readonly comment!: pulumi.Output<string | undefined>;
-    /**
-     * Tag name, e.g. department.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
@@ -99,9 +94,6 @@ export class Role extends pulumi.CustomResource {
  */
 export interface RoleState {
     comment?: pulumi.Input<string>;
-    /**
-     * Tag name, e.g. department.
-     */
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.
@@ -116,9 +108,6 @@ export interface RoleState {
  */
 export interface RoleArgs {
     comment?: pulumi.Input<string>;
-    /**
-     * Tag name, e.g. department.
-     */
     name?: pulumi.Input<string>;
     /**
      * Definitions of a tag to associate with the resource.

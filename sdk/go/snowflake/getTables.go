@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTablesResult
@@ -51,8 +49,10 @@ func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getTables.
 type GetTablesArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getTables.
@@ -82,8 +82,10 @@ func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getTables.
 type GetTablesOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the tables from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetTablesOutputArgs) ElementType() reflect.Type {

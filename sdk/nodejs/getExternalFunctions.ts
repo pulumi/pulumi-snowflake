@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalFunctionsResult> {
     args = args || {};
@@ -35,7 +33,13 @@ export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pul
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database?: string;
+    /**
+     * The schema from which to return the external functions from.
+     */
     schema?: string;
 }
 
@@ -63,7 +67,6 @@ export interface GetExternalFunctionsResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -73,7 +76,6 @@ export interface GetExternalFunctionsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
     return pulumi.output(args).apply((a: any) => getExternalFunctions(a, opts))
@@ -83,6 +85,12 @@ export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database?: pulumi.Input<string>;
+    /**
+     * The schema from which to return the external functions from.
+     */
     schema?: pulumi.Input<string>;
 }

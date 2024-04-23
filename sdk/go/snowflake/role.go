@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -49,8 +47,7 @@ type Role struct {
 	pulumi.CustomResourceState
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Tag name, e.g. department.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name    pulumi.StringOutput    `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -88,8 +85,7 @@ func GetRole(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
 	Comment *string `pulumi:"comment"`
-	// Tag name, e.g. department.
-	Name *string `pulumi:"name"`
+	Name    *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -98,8 +94,7 @@ type roleState struct {
 
 type RoleState struct {
 	Comment pulumi.StringPtrInput
-	// Tag name, e.g. department.
-	Name pulumi.StringPtrInput
+	Name    pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -112,8 +107,7 @@ func (RoleState) ElementType() reflect.Type {
 
 type roleArgs struct {
 	Comment *string `pulumi:"comment"`
-	// Tag name, e.g. department.
-	Name *string `pulumi:"name"`
+	Name    *string `pulumi:"name"`
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -123,8 +117,7 @@ type roleArgs struct {
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	Comment pulumi.StringPtrInput
-	// Tag name, e.g. department.
-	Name pulumi.StringPtrInput
+	Name    pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
 	// Deprecated: Use the 'snowflake_tag_association' resource instead.
@@ -222,7 +215,6 @@ func (o RoleOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Tag name, e.g. department.
 func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

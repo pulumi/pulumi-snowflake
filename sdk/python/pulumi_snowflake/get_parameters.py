@@ -126,7 +126,6 @@ def get_parameters(object_name: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -144,7 +143,6 @@ def get_parameters(object_name: Optional[str] = None,
         pattern="ROWS_PER_RESULTSET",
         user="TEST_USER")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
@@ -182,7 +180,6 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -200,7 +197,6 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
         pattern="ROWS_PER_RESULTSET",
         user="TEST_USER")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.

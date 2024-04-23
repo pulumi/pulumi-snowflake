@@ -577,7 +577,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -592,7 +591,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
             token_user_mapping_claims=["upn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -630,7 +628,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -645,7 +642,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
             token_user_mapping_claims=["upn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

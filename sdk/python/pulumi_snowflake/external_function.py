@@ -47,7 +47,7 @@ class ExternalFunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -230,7 +230,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Argument name
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
@@ -319,7 +319,7 @@ class _ExternalFunctionState:
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -478,7 +478,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Argument name
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
@@ -609,7 +609,6 @@ class ExternalFunction(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -633,7 +632,6 @@ class ExternalFunction(pulumi.CustomResource):
             api_integration="api_integration_name",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -653,7 +651,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -672,7 +670,6 @@ class ExternalFunction(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -696,7 +693,6 @@ class ExternalFunction(pulumi.CustomResource):
             api_integration="api_integration_name",
             url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -821,7 +817,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[str] name: Argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[str] response_translator: This specifies the name of the response translator function.
@@ -931,7 +927,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Argument name
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 

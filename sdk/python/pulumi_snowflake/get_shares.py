@@ -74,7 +74,6 @@ def get_shares(pattern: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -82,7 +81,6 @@ def get_shares(pattern: Optional[str] = None,
     this = snowflake.get_shares()
     ad = snowflake.get_shares(pattern="usage")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Filters the command output by object name.
@@ -104,7 +102,6 @@ def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -112,7 +109,6 @@ def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     this = snowflake.get_shares()
     ad = snowflake.get_shares(pattern="usage")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Filters the command output by object name.

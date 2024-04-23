@@ -61,14 +61,12 @@ def get_warehouses(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetW
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_warehouses()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -84,13 +82,11 @@ def get_warehouses_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
     current = snowflake.get_warehouses()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

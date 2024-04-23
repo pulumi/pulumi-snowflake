@@ -14,16 +14,32 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
 
     public static final GetRowAccessPoliciesArgs Empty = new GetRowAccessPoliciesArgs();
 
+    /**
+     * The database from which to return the schemas from.
+     * 
+     */
     @Import(name="database", required=true)
     private Output<String> database;
 
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public Output<String> database() {
         return this.database;
     }
 
+    /**
+     * The schema from which to return the row access policy from.
+     * 
+     */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
+    /**
+     * @return The schema from which to return the row access policy from.
+     * 
+     */
     public Output<String> schema() {
         return this.schema;
     }
@@ -53,20 +69,44 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
             $ = new GetRowAccessPoliciesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param database The database from which to return the schemas from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
 
+        /**
+         * @param database The database from which to return the schemas from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
+        /**
+         * @param schema The schema from which to return the row access policy from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
+        /**
+         * @param schema The schema from which to return the row access policy from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }
