@@ -114,9 +114,6 @@ export class User extends pulumi.CustomResource {
      * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * **WARNING:** this will put the password in the terraform state file. Use carefully.
-     */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
@@ -238,9 +235,6 @@ export interface UserState {
      * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     name?: pulumi.Input<string>;
-    /**
-     * **WARNING:** this will put the password in the terraform state file. Use carefully.
-     */
     password?: pulumi.Input<string>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
@@ -302,9 +296,6 @@ export interface UserArgs {
      * Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
      */
     name?: pulumi.Input<string>;
-    /**
-     * **WARNING:** this will put the password in the terraform state file. Use carefully.
-     */
     password?: pulumi.Input<string>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.

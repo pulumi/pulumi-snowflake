@@ -72,10 +72,6 @@ export class RoleGrants extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleGrants.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the role we are granting.
@@ -126,10 +122,6 @@ export class RoleGrants extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleGrants resources.
  */
 export interface RoleGrantsState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the role we are granting.
@@ -149,10 +141,6 @@ export interface RoleGrantsState {
  * The set of arguments for constructing a RoleGrants resource.
  */
 export interface RoleGrantsArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the role we are granting.

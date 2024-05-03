@@ -35,10 +35,6 @@ export class FailoverGroupGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === FailoverGroupGrant.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the failover group on which to grant privileges.
@@ -101,10 +97,6 @@ export class FailoverGroupGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FailoverGroupGrant resources.
  */
 export interface FailoverGroupGrantState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the failover group on which to grant privileges.
@@ -132,10 +124,6 @@ export interface FailoverGroupGrantState {
  * The set of arguments for constructing a FailoverGroupGrant resource.
  */
 export interface FailoverGroupGrantArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the failover group on which to grant privileges.

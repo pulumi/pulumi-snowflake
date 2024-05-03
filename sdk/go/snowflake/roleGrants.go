@@ -84,8 +84,6 @@ import (
 type RoleGrants struct {
 	pulumi.CustomResourceState
 
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the role we are granting.
 	RoleName pulumi.StringOutput `pulumi:"roleName"`
@@ -128,8 +126,6 @@ func GetRoleGrants(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleGrants resources.
 type roleGrantsState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the role we are granting.
 	RoleName *string `pulumi:"roleName"`
@@ -140,8 +136,6 @@ type roleGrantsState struct {
 }
 
 type RoleGrantsState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the role we are granting.
 	RoleName pulumi.StringPtrInput
@@ -156,8 +150,6 @@ func (RoleGrantsState) ElementType() reflect.Type {
 }
 
 type roleGrantsArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the role we are granting.
 	RoleName string `pulumi:"roleName"`
@@ -169,8 +161,6 @@ type roleGrantsArgs struct {
 
 // The set of arguments for constructing a RoleGrants resource.
 type RoleGrantsArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the role we are granting.
 	RoleName pulumi.StringInput
@@ -267,8 +257,6 @@ func (o RoleGrantsOutput) ToRoleGrantsOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o RoleGrantsOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RoleGrants) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

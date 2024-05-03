@@ -132,9 +132,6 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// **WARNING:** this will put the password in the terraform state file. Use carefully.
-        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
@@ -335,10 +332,6 @@ namespace Pulumi.Snowflake
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// **WARNING:** this will put the password in the terraform state file. Use carefully.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -505,10 +498,6 @@ namespace Pulumi.Snowflake
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// **WARNING:** this will put the password in the terraform state file. Use carefully.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
