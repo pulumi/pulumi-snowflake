@@ -67,13 +67,6 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      * Grant all privileges on the database role.
      */
     public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
@@ -154,13 +147,6 @@ export interface GrantPrivilegesToDatabaseRoleState {
      * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     alwaysApply?: pulumi.Input<boolean>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
@@ -200,13 +186,6 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     alwaysApply?: pulumi.Input<boolean>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.

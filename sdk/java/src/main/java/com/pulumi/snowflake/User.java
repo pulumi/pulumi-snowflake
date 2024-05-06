@@ -253,17 +253,9 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * **WARNING:** this will put the password in the terraform state file. Use carefully.
-     * 
-     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
-    /**
-     * @return **WARNING:** this will put the password in the terraform state file. Use carefully.
-     * 
-     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }

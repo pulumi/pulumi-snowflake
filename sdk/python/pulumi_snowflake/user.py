@@ -43,7 +43,6 @@ class UserArgs:
         :param pulumi.Input[str] login_name: The name users use to log in. If not supplied, snowflake will use name instead.
         :param pulumi.Input[bool] must_change_password: Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
         :param pulumi.Input[str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-        :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
@@ -233,9 +232,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        **WARNING:** this will put the password in the terraform state file. Use carefully.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -301,7 +297,6 @@ class _UserState:
         :param pulumi.Input[str] login_name: The name users use to log in. If not supplied, snowflake will use name instead.
         :param pulumi.Input[bool] must_change_password: Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
         :param pulumi.Input[str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-        :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
@@ -505,9 +500,6 @@ class _UserState:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        **WARNING:** this will put the password in the terraform state file. Use carefully.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -605,7 +597,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] login_name: The name users use to log in. If not supplied, snowflake will use name instead.
         :param pulumi.Input[bool] must_change_password: Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
         :param pulumi.Input[str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-        :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
@@ -751,7 +742,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] login_name: The name users use to log in. If not supplied, snowflake will use name instead.
         :param pulumi.Input[bool] must_change_password: Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
         :param pulumi.Input[str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-        :param pulumi.Input[str] password: **WARNING:** this will put the password in the terraform state file. Use carefully.
         :param pulumi.Input[str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
@@ -887,9 +877,6 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
-        """
-        **WARNING:** this will put the password in the terraform state file. Use carefully.
-        """
         return pulumi.get(self, "password")
 
     @property

@@ -27,8 +27,6 @@ class MaskingPolicyGrantArgs:
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] schema_name: The name of the schema containing the masking policy on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
@@ -87,10 +85,6 @@ class MaskingPolicyGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -160,8 +154,6 @@ class _MaskingPolicyGrantState:
         """
         Input properties used for looking up and filtering MaskingPolicyGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -201,10 +193,6 @@ class _MaskingPolicyGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -331,8 +319,6 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -448,8 +434,6 @@ class MaskingPolicyGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the masking policy on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] masking_policy_name: The name of the masking policy on which to grant privileges immediately.
         :param pulumi.Input[str] privilege: The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -482,10 +466,6 @@ class MaskingPolicyGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property
