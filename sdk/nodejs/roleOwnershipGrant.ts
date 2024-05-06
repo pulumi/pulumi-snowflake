@@ -77,9 +77,6 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
      * The name of the role to revert ownership to on destroy.
      */
     public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     public readonly toRoleName!: pulumi.Output<string>;
 
     /**
@@ -133,9 +130,6 @@ export interface RoleOwnershipGrantState {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName?: pulumi.Input<string>;
 }
 
@@ -155,8 +149,5 @@ export interface RoleOwnershipGrantArgs {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName: pulumi.Input<string>;
 }

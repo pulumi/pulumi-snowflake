@@ -33,19 +33,9 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
         return this.databaseName;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Import(name="enableMultipleGrants")
     private @Nullable Output<Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Optional<Output<Boolean>> enableMultipleGrants() {
         return Optional.ofNullable(this.enableMultipleGrants);
     }
@@ -80,19 +70,9 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.onFuture);
     }
 
-    /**
-     * The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-     * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-     * 
-     */
     @Import(name="privilege")
     private @Nullable Output<String> privilege;
 
-    /**
-     * @return The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-     * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-     * 
-     */
     public Optional<Output<String>> privilege() {
         return Optional.ofNullable(this.privilege);
     }
@@ -226,25 +206,11 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-         * grants applied to roles and objects outside Terraform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMultipleGrants(@Nullable Output<Boolean> enableMultipleGrants) {
             $.enableMultipleGrants = enableMultipleGrants;
             return this;
         }
 
-        /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-         * grants applied to roles and objects outside Terraform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMultipleGrants(Boolean enableMultipleGrants) {
             return enableMultipleGrants(Output.of(enableMultipleGrants));
         }
@@ -291,25 +257,11 @@ public final class SchemaGrantArgs extends com.pulumi.resources.ResourceArgs {
             return onFuture(Output.of(onFuture));
         }
 
-        /**
-         * @param privilege The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-         * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-         * 
-         * @return builder
-         * 
-         */
         public Builder privilege(@Nullable Output<String> privilege) {
             $.privilege = privilege;
             return this;
         }
 
-        /**
-         * @param privilege The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-         * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-         * 
-         * @return builder
-         * 
-         */
         public Builder privilege(String privilege) {
             return privilege(Output.of(privilege));
         }

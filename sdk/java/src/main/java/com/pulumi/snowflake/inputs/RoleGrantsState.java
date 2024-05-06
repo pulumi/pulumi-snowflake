@@ -17,19 +17,9 @@ public final class RoleGrantsState extends com.pulumi.resources.ResourceArgs {
 
     public static final RoleGrantsState Empty = new RoleGrantsState();
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Import(name="enableMultipleGrants")
     private @Nullable Output<Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Optional<Output<Boolean>> enableMultipleGrants() {
         return Optional.ofNullable(this.enableMultipleGrants);
     }
@@ -106,25 +96,11 @@ public final class RoleGrantsState extends com.pulumi.resources.ResourceArgs {
             $ = new RoleGrantsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-         * grants applied to roles and objects outside Terraform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMultipleGrants(@Nullable Output<Boolean> enableMultipleGrants) {
             $.enableMultipleGrants = enableMultipleGrants;
             return this;
         }
 
-        /**
-         * @param enableMultipleGrants When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-         * grants applied to roles and objects outside Terraform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMultipleGrants(Boolean enableMultipleGrants) {
             return enableMultipleGrants(Output.of(enableMultipleGrants));
         }
