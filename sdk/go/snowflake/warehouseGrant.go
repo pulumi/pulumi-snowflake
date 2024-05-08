@@ -56,8 +56,6 @@ import (
 type WarehouseGrant struct {
 	pulumi.CustomResourceState
 
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -104,8 +102,6 @@ func GetWarehouseGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WarehouseGrant resources.
 type warehouseGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
@@ -120,8 +116,6 @@ type warehouseGrantState struct {
 }
 
 type WarehouseGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -140,8 +134,6 @@ func (WarehouseGrantState) ElementType() reflect.Type {
 }
 
 type warehouseGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
@@ -157,8 +149,6 @@ type warehouseGrantArgs struct {
 
 // The set of arguments for constructing a WarehouseGrant resource.
 type WarehouseGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -259,8 +249,6 @@ func (o WarehouseGrantOutput) ToWarehouseGrantOutputWithContext(ctx context.Cont
 	return o
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o WarehouseGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WarehouseGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

@@ -64,25 +64,9 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
     public Output<Optional<Boolean>> allPrivileges() {
         return Codegen.optional(this.allPrivileges);
     }
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     * 
-     */
     @Export(name="alwaysApply", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alwaysApply;
 
-    /**
-     * @return If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     * 
-     */
     public Output<Optional<Boolean>> alwaysApply() {
         return Codegen.optional(this.alwaysApply);
     }

@@ -78,21 +78,9 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     * 
-     */
     @Import(name="isSecure")
     private @Nullable Output<Boolean> isSecure;
 
-    /**
-     * @return Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     * 
-     */
     public Optional<Output<Boolean>> isSecure() {
         return Optional.ofNullable(this.isSecure);
     }
@@ -297,27 +285,11 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
             return database(Output.of(database));
         }
 
-        /**
-         * @param isSecure Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-         * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-         * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSecure(@Nullable Output<Boolean> isSecure) {
             $.isSecure = isSecure;
             return this;
         }
 
-        /**
-         * @param isSecure Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-         * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-         * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSecure(Boolean isSecure) {
             return isSecure(Output.of(isSecure));
         }

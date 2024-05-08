@@ -85,19 +85,9 @@ public class StreamGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }
