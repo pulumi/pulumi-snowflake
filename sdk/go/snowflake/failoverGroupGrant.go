@@ -16,8 +16,6 @@ import (
 type FailoverGroupGrant struct {
 	pulumi.CustomResourceState
 
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the failover group on which to grant privileges.
 	FailoverGroupName pulumi.StringPtrOutput `pulumi:"failoverGroupName"`
@@ -64,8 +62,6 @@ func GetFailoverGroupGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FailoverGroupGrant resources.
 type failoverGroupGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the failover group on which to grant privileges.
 	FailoverGroupName *string `pulumi:"failoverGroupName"`
@@ -80,8 +76,6 @@ type failoverGroupGrantState struct {
 }
 
 type FailoverGroupGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the failover group on which to grant privileges.
 	FailoverGroupName pulumi.StringPtrInput
@@ -100,8 +94,6 @@ func (FailoverGroupGrantState) ElementType() reflect.Type {
 }
 
 type failoverGroupGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// The name of the failover group on which to grant privileges.
 	FailoverGroupName *string `pulumi:"failoverGroupName"`
@@ -117,8 +109,6 @@ type failoverGroupGrantArgs struct {
 
 // The set of arguments for constructing a FailoverGroupGrant resource.
 type FailoverGroupGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the failover group on which to grant privileges.
 	FailoverGroupName pulumi.StringPtrInput
@@ -219,8 +209,6 @@ func (o FailoverGroupGrantOutput) ToFailoverGroupGrantOutputWithContext(ctx cont
 	return o
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o FailoverGroupGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FailoverGroupGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

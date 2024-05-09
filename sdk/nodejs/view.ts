@@ -76,11 +76,6 @@ export class View extends pulumi.CustomResource {
      * The database in which to create the view. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
-    /**
-     * Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
@@ -175,11 +170,6 @@ export interface ViewState {
      * The database in which to create the view. Don't use the | character.
      */
     database?: pulumi.Input<string>;
-    /**
-     * Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     */
     isSecure?: pulumi.Input<boolean>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
@@ -221,11 +211,6 @@ export interface ViewArgs {
      * The database in which to create the view. Don't use the | character.
      */
     database: pulumi.Input<string>;
-    /**
-     * Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     */
     isSecure?: pulumi.Input<boolean>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.

@@ -28,8 +28,6 @@ class TaskGrantArgs:
         The set of arguments for constructing a TaskGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -84,10 +82,6 @@ class TaskGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -195,8 +189,6 @@ class _TaskGrantState:
         """
         Input properties used for looking up and filtering TaskGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -242,10 +234,6 @@ class _TaskGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -398,8 +386,6 @@ class TaskGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -521,8 +507,6 @@ class TaskGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future tasks on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future task. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -559,10 +543,6 @@ class TaskGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property
