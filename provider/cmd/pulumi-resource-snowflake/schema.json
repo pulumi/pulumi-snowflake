@@ -1223,6 +1223,10 @@
                     "type": "boolean",
                     "description": "Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.\n"
                 },
+                "schemaEvolutionRecord": {
+                    "type": "string",
+                    "description": "Record of schema evolution.\n"
+                },
                 "type": {
                     "type": "string",
                     "description": "Column type, e.g. VARIANT\n"
@@ -1232,7 +1236,16 @@
             "required": [
                 "name",
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "schemaEvolutionRecord",
+                        "type"
+                    ]
+                }
+            }
         },
         "snowflake:index/TableColumnDefault:TableColumnDefault": {
             "properties": {
@@ -1283,11 +1296,14 @@
                 },
                 "references": {
                     "$ref": "#/types/snowflake:index/TableConstraintForeignKeyPropertiesReferences:TableConstraintForeignKeyPropertiesReferences",
-                    "description": "The table and columns that the foreign key references. Not applicable for primary/unique keys\n",
+                    "description": "The table and columns that the foreign key references.\n",
                     "willReplaceOnChanges": true
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "references"
+            ]
         },
         "snowflake:index/TableConstraintForeignKeyPropertiesReferences:TableConstraintForeignKeyPropertiesReferences": {
             "properties": {
@@ -5793,7 +5809,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\"\n"
+                    "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\", \"STORAGE INTEGRATIONS\", \"EXTERNAL ACCESS INTEGRATIONS\", \"NOTIFICATION INTEGRATIONS\"\n"
                 },
                 "allowedShares": {
                     "type": "array",
@@ -5849,7 +5865,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\"\n"
+                    "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\", \"STORAGE INTEGRATIONS\", \"EXTERNAL ACCESS INTEGRATIONS\", \"NOTIFICATION INTEGRATIONS\"\n"
                 },
                 "allowedShares": {
                     "type": "array",
@@ -5906,7 +5922,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\"\n"
+                        "description": "Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: \"SECURITY INTEGRATIONS\", \"API INTEGRATIONS\", \"STORAGE INTEGRATIONS\", \"EXTERNAL ACCESS INTEGRATIONS\", \"NOTIFICATION INTEGRATIONS\"\n"
                     },
                     "allowedShares": {
                         "type": "array",
@@ -12395,7 +12411,8 @@
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst exampleStage = new snowflake.Stage(\"example_stage\", {\n    name: \"EXAMPLE_STAGE\",\n    url: \"s3://com.example.bucket/prefix\",\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    credentials: `AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'`,\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nexample_stage = snowflake.Stage(\"example_stage\",\n    name=\"EXAMPLE_STAGE\",\n    url=\"s3://com.example.bucket/prefix\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    credentials=f\"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleStage = new Snowflake.Stage(\"example_stage\", new()\n    {\n        Name = \"EXAMPLE_STAGE\",\n        Url = \"s3://com.example.bucket/prefix\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Credentials = $\"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewStage(ctx, \"example_stage\", \u0026snowflake.StageArgs{\n\t\t\tName:        pulumi.String(\"EXAMPLE_STAGE\"),\n\t\t\tUrl:         pulumi.String(\"s3://com.example.bucket/prefix\"),\n\t\t\tDatabase:    pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:      pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tCredentials: pulumi.String(fmt.Sprintf(\"AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'\", exampleAwsKeyId, exampleAwsSecretKey)),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Stage;\nimport com.pulumi.snowflake.StageArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleStage = new Stage(\"exampleStage\", StageArgs.builder()        \n            .name(\"EXAMPLE_STAGE\")\n            .url(\"s3://com.example.bucket/prefix\")\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .credentials(String.format(\"AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'\", exampleAwsKeyId,exampleAwsSecretKey))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleStage:\n    type: snowflake:Stage\n    name: example_stage\n    properties:\n      name: EXAMPLE_STAGE\n      url: s3://com.example.bucket/prefix\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      credentials: AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | stage name\n\n```sh\n$ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'\n```\n\n",
             "properties": {
                 "awsExternalId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A unique ID assigned to the specific stage. The ID has the following format: \u0026lt;snowflakeAccount\u0026gt;*SFCRole=\u0026lt;snowflakeRoleId\u0026gt;*\u0026lt;randomId\u0026gt;\n"
                 },
                 "comment": {
                     "type": "string",
@@ -12435,7 +12452,8 @@
                     "description": "The schema in which to create the stage.\n"
                 },
                 "snowflakeIamUser": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.\n"
                 },
                 "storageIntegration": {
                     "type": "string",
@@ -12463,7 +12481,8 @@
             ],
             "inputProperties": {
                 "awsExternalId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A unique ID assigned to the specific stage. The ID has the following format: \u0026lt;snowflakeAccount\u0026gt;*SFCRole=\u0026lt;snowflakeRoleId\u0026gt;*\u0026lt;randomId\u0026gt;\n"
                 },
                 "comment": {
                     "type": "string",
@@ -12507,7 +12526,8 @@
                     "willReplaceOnChanges": true
                 },
                 "snowflakeIamUser": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.\n"
                 },
                 "storageIntegration": {
                     "type": "string",
@@ -12534,7 +12554,8 @@
                 "description": "Input properties used for looking up and filtering Stage resources.\n",
                 "properties": {
                     "awsExternalId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A unique ID assigned to the specific stage. The ID has the following format: \u0026lt;snowflakeAccount\u0026gt;*SFCRole=\u0026lt;snowflakeRoleId\u0026gt;*\u0026lt;randomId\u0026gt;\n"
                     },
                     "comment": {
                         "type": "string",
@@ -12578,7 +12599,8 @@
                         "willReplaceOnChanges": true
                     },
                     "snowflakeIamUser": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.\n"
                     },
                     "storageIntegration": {
                         "type": "string",
@@ -12966,7 +12988,7 @@
             }
         },
         "snowflake:index/stream:Stream": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Stream;\nimport com.pulumi.snowflake.StreamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var stream = new Stream(\"stream\", StreamArgs.builder()        \n            .comment(\"A stream.\")\n            .database(\"database\")\n            .schema(\"schema\")\n            .name(\"stream\")\n            .onTable(\"table\")\n            .appendOnly(false)\n            .insertOnly(false)\n            .owner(\"role1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  stream:\n    type: snowflake:Stream\n    properties:\n      comment: A stream.\n      database: database\n      schema: schema\n      name: stream\n      onTable: table\n      appendOnly: false\n      insertOnly: false\n      owner: role1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | stream name\n\n```sh\n$ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Table;\nimport com.pulumi.snowflake.TableArgs;\nimport com.pulumi.snowflake.inputs.TableColumnArgs;\nimport com.pulumi.snowflake.Stream;\nimport com.pulumi.snowflake.StreamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var table = new Table(\"table\", TableArgs.builder()        \n            .database(\"database\")\n            .schema(\"schema\")\n            .name(\"name\")\n            .columns(TableColumnArgs.builder()\n                .type(\"NUMBER(38,0)\")\n                .name(\"id\")\n                .build())\n            .build());\n\n        var stream = new Stream(\"stream\", StreamArgs.builder()        \n            .comment(\"A stream.\")\n            .database(\"database\")\n            .schema(\"schema\")\n            .name(\"stream\")\n            .onTable(table.qualifiedName())\n            .appendOnly(false)\n            .insertOnly(false)\n            .owner(\"role1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  table:\n    type: snowflake:Table\n    properties:\n      database: database\n      schema: schema\n      name: name\n      columns:\n        - type: NUMBER(38,0)\n          name: id\n  stream:\n    type: snowflake:Stream\n    properties:\n      comment: A stream.\n      database: database\n      schema: schema\n      name: stream\n      onTable: ${table.qualifiedName}\n      appendOnly: false\n      insertOnly: false\n      owner: role1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | stream name\n\n```sh\n$ pulumi import snowflake:index/stream:Stream example 'dbName|schemaName|streamName'\n```\n\n",
             "properties": {
                 "appendOnly": {
                     "type": "boolean",
@@ -14302,7 +14324,7 @@
             }
         },
         "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": {
-            "description": "Attach a masking policy to a tag. Requires a current warehouse to be set. Either with SNOWFLAKE_WAREHOUSE env variable or in current session. If no warehouse is provided, a temporary warehouse will be created.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Tag;\nimport com.pulumi.snowflake.TagArgs;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.TagMaskingPolicyAssociation;\nimport com.pulumi.snowflake.TagMaskingPolicyAssociationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)\n        var test = new Database(\"test\", DatabaseArgs.builder()        \n            .name(\"TEST_DB1\")\n            .dataRetentionTimeInDays(1)\n            .build());\n\n        var test2 = new Database(\"test2\", DatabaseArgs.builder()        \n            .name(\"TEST_DB2\")\n            .dataRetentionTimeInDays(1)\n            .build());\n\n        var test2Schema = new Schema(\"test2Schema\", SchemaArgs.builder()        \n            .database(test2.name())\n            .name(\"FOOBAR2\")\n            .dataRetentionDays(test2.dataRetentionTimeInDays())\n            .build());\n\n        var testSchema = new Schema(\"testSchema\", SchemaArgs.builder()        \n            .database(test.name())\n            .name(\"FOOBAR\")\n            .dataRetentionDays(test.dataRetentionTimeInDays())\n            .build());\n\n        var this_ = new Tag(\"this\", TagArgs.builder()        \n            .name(StdFunctions.upper(UpperArgs.builder()\n                .input(\"test_tag\")\n                .build()).result())\n            .database(test2.name())\n            .schema(test2Schema.name())\n            .build());\n\n        var exampleMaskingPolicy = new MaskingPolicy(\"exampleMaskingPolicy\", MaskingPolicyArgs.builder()        \n            .name(\"EXAMPLE_MASKING_POLICY\")\n            .database(test.name())\n            .schema(testSchema.name())\n            .valueDataType(\"string\")\n            .maskingExpression(\"case when current_role() in ('ACCOUNTADMIN') then val else sha2(val, 512) end\")\n            .returnDataType(\"string\")\n            .build());\n\n        var name = new TagMaskingPolicyAssociation(\"name\", TagMaskingPolicyAssociationArgs.builder()        \n            .tagId(this_.id())\n            .maskingPolicyId(exampleMaskingPolicy.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)\n  test:\n    type: snowflake:Database\n    properties:\n      name: TEST_DB1\n      dataRetentionTimeInDays: 1\n  test2:\n    type: snowflake:Database\n    properties:\n      name: TEST_DB2\n      dataRetentionTimeInDays: 1\n  test2Schema:\n    type: snowflake:Schema\n    name: test2\n    properties:\n      database: ${test2.name}\n      name: FOOBAR2\n      dataRetentionDays: ${test2.dataRetentionTimeInDays}\n  testSchema:\n    type: snowflake:Schema\n    name: test\n    properties:\n      database: ${test.name}\n      name: FOOBAR\n      dataRetentionDays: ${test.dataRetentionTimeInDays}\n  this:\n    type: snowflake:Tag\n    properties:\n      name:\n        fn::invoke:\n          Function: std:upper\n          Arguments:\n            input: test_tag\n          Return: result\n      database: ${test2.name}\n      schema: ${test2Schema.name}\n  exampleMaskingPolicy:\n    type: snowflake:MaskingPolicy\n    name: example_masking_policy\n    properties:\n      name: EXAMPLE_MASKING_POLICY\n      database: ${test.name}\n      schema: ${testSchema.name}\n      valueDataType: string\n      maskingExpression: case when current_role() in ('ACCOUNTADMIN') then val else sha2(val, 512) end\n      returnDataType: string\n  name:\n    type: snowflake:TagMaskingPolicyAssociation\n    properties:\n      tagId: ${this.id}\n      maskingPolicyId: ${exampleMaskingPolicy.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name\n\n```sh\n$ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'\n```\n\n",
+            "description": "Attach a masking policy to a tag. Requires a current warehouse to be set. Either with SNOWFLAKE_WAREHOUSE env variable or in current session. If no warehouse is provided, a temporary warehouse will be created.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.Schema;\nimport com.pulumi.snowflake.SchemaArgs;\nimport com.pulumi.snowflake.Tag;\nimport com.pulumi.snowflake.TagArgs;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.TagMaskingPolicyAssociation;\nimport com.pulumi.snowflake.TagMaskingPolicyAssociationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)\n        var test = new Database(\"test\", DatabaseArgs.builder()        \n            .name(\"TEST_DB1\")\n            .dataRetentionTimeInDays(1)\n            .build());\n\n        var test2 = new Database(\"test2\", DatabaseArgs.builder()        \n            .name(\"TEST_DB2\")\n            .dataRetentionTimeInDays(1)\n            .build());\n\n        var test2Schema = new Schema(\"test2Schema\", SchemaArgs.builder()        \n            .database(test2.name())\n            .name(\"FOOBAR2\")\n            .dataRetentionDays(test2.dataRetentionTimeInDays())\n            .build());\n\n        var testSchema = new Schema(\"testSchema\", SchemaArgs.builder()        \n            .database(test.name())\n            .name(\"FOOBAR\")\n            .dataRetentionDays(test.dataRetentionTimeInDays())\n            .build());\n\n        var this_ = new Tag(\"this\", TagArgs.builder()        \n            .name(StdFunctions.upper(UpperArgs.builder()\n                .input(\"test_tag\")\n                .build()).result())\n            .database(test2.name())\n            .schema(test2Schema.name())\n            .build());\n\n        var exampleMaskingPolicy = new MaskingPolicy(\"exampleMaskingPolicy\", MaskingPolicyArgs.builder()        \n            .name(\"EXAMPLE_MASKING_POLICY\")\n            .database(test.name())\n            .schema(testSchema.name())\n            .valueDataType(\"string\")\n            .maskingExpression(\"case when current_role() in ('ACCOUNTADMIN') then val else sha2(val, 512) end\")\n            .returnDataType(\"string\")\n            .build());\n\n        var name = new TagMaskingPolicyAssociation(\"name\", TagMaskingPolicyAssociationArgs.builder()        \n            .tagId(Output.tuple(this_.database(), this_.schema(), this_.name()).applyValue(values -\u003e {\n                var database = values.t1;\n                var schema = values.t2;\n                var name = values.t3;\n                return String.format(\"\\\"%s\\\".\\\"%s\\\".\\\"%s\\\"\", database,schema,name);\n            }))\n            .maskingPolicyId(Output.tuple(exampleMaskingPolicy.database(), exampleMaskingPolicy.schema(), exampleMaskingPolicy.name()).applyValue(values -\u003e {\n                var database = values.t1;\n                var schema = values.t2;\n                var name = values.t3;\n                return String.format(\"\\\"%s\\\".\\\"%s\\\".\\\"%s\\\"\", database,schema,name);\n            }))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)\n  test:\n    type: snowflake:Database\n    properties:\n      name: TEST_DB1\n      dataRetentionTimeInDays: 1\n  test2:\n    type: snowflake:Database\n    properties:\n      name: TEST_DB2\n      dataRetentionTimeInDays: 1\n  test2Schema:\n    type: snowflake:Schema\n    name: test2\n    properties:\n      database: ${test2.name}\n      name: FOOBAR2\n      dataRetentionDays: ${test2.dataRetentionTimeInDays}\n  testSchema:\n    type: snowflake:Schema\n    name: test\n    properties:\n      database: ${test.name}\n      name: FOOBAR\n      dataRetentionDays: ${test.dataRetentionTimeInDays}\n  this:\n    type: snowflake:Tag\n    properties:\n      name:\n        fn::invoke:\n          Function: std:upper\n          Arguments:\n            input: test_tag\n          Return: result\n      database: ${test2.name}\n      schema: ${test2Schema.name}\n  exampleMaskingPolicy:\n    type: snowflake:MaskingPolicy\n    name: example_masking_policy\n    properties:\n      name: EXAMPLE_MASKING_POLICY\n      database: ${test.name}\n      schema: ${testSchema.name}\n      valueDataType: string\n      maskingExpression: case when current_role() in ('ACCOUNTADMIN') then val else sha2(val, 512) end\n      returnDataType: string\n  name:\n    type: snowflake:TagMaskingPolicyAssociation\n    properties:\n      tagId: '\"${this.database}\".\"${this.schema}\".\"${this.name}\"'\n      maskingPolicyId: '\"${exampleMaskingPolicy.database}\".\"${exampleMaskingPolicy.schema}\".\"${exampleMaskingPolicy.name}\"'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is tag database name | tag schema name | tag name | masking policy database | masking policy schema | masking policy name\n\n```sh\n$ pulumi import snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation example 'tag_db|tag_schema|tag_name|mp_db|mp_schema|mp_name'\n```\n\n",
             "properties": {
                 "maskingPolicyId": {
                     "type": "string",
@@ -17435,6 +17457,7 @@
             }
         },
         "snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst snowflakePolicy = snowflake.getSystemGetAwsSnsIamPolicy({\n    awsSnsTopicArn: \"\u003caws_sns_topic_arn\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nsnowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn=\"\u003caws_sns_topic_arn\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()\n    {\n        AwsSnsTopicArn = \"\u003caws_sns_topic_arn\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetSystemGetAwsSnsIamPolicy(ctx, \u0026snowflake.GetSystemGetAwsSnsIamPolicyArgs{\n\t\t\tAwsSnsTopicArn: \"\u003caws_sns_topic_arn\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()\n            .awsSnsTopicArn(\"\u003caws_sns_topic_arn\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  snowflakePolicy:\n    fn::invoke:\n      Function: snowflake:getSystemGetAwsSnsIamPolicy\n      Arguments:\n        awsSnsTopicArn: \u003caws_sns_topic_arn\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.\n",
                 "properties": {
