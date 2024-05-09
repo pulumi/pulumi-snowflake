@@ -89,8 +89,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var name = new TagMaskingPolicyAssociation(&#34;name&#34;, TagMaskingPolicyAssociationArgs.builder()        
- *             .tagId(this_.id())
- *             .maskingPolicyId(exampleMaskingPolicy.id())
+ *             .tagId(Output.tuple(this_.database(), this_.schema(), this_.name()).applyValue(values -&gt; {
+ *                 var database = values.t1;
+ *                 var schema = values.t2;
+ *                 var name = values.t3;
+ *                 return String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, database,schema,name);
+ *             }))
+ *             .maskingPolicyId(Output.tuple(exampleMaskingPolicy.database(), exampleMaskingPolicy.schema(), exampleMaskingPolicy.name()).applyValue(values -&gt; {
+ *                 var database = values.t1;
+ *                 var schema = values.t2;
+ *                 var name = values.t3;
+ *                 return String.format(&#34;\&#34;%s\&#34;.\&#34;%s\&#34;.\&#34;%s\&#34;&#34;, database,schema,name);
+ *             }))
  *             .build());
  * 
  *     }

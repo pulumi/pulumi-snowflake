@@ -94,7 +94,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedDatabases { get; private set; } = null!;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         [Output("allowedIntegrationTypes")]
         public Output<ImmutableArray<string>> AllowedIntegrationTypes { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {

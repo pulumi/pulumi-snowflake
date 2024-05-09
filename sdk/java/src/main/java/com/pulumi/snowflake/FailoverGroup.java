@@ -124,14 +124,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedDatabases);
     }
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     @Export(name="allowedIntegrationTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedIntegrationTypes;
 
     /**
-     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;
+     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     public Output<Optional<List<String>>> allowedIntegrationTypes() {

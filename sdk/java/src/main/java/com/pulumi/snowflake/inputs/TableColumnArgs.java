@@ -125,6 +125,21 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Record of schema evolution.
+     * 
+     */
+    @Import(name="schemaEvolutionRecord")
+    private @Nullable Output<String> schemaEvolutionRecord;
+
+    /**
+     * @return Record of schema evolution.
+     * 
+     */
+    public Optional<Output<String>> schemaEvolutionRecord() {
+        return Optional.ofNullable(this.schemaEvolutionRecord);
+    }
+
+    /**
      * Column type, e.g. VARIANT
      * 
      */
@@ -149,6 +164,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         this.maskingPolicy = $.maskingPolicy;
         this.name = $.name;
         this.nullable = $.nullable;
+        this.schemaEvolutionRecord = $.schemaEvolutionRecord;
         this.type = $.type;
     }
 
@@ -315,6 +331,27 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nullable(Boolean nullable) {
             return nullable(Output.of(nullable));
+        }
+
+        /**
+         * @param schemaEvolutionRecord Record of schema evolution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaEvolutionRecord(@Nullable Output<String> schemaEvolutionRecord) {
+            $.schemaEvolutionRecord = schemaEvolutionRecord;
+            return this;
+        }
+
+        /**
+         * @param schemaEvolutionRecord Record of schema evolution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaEvolutionRecord(String schemaEvolutionRecord) {
+            return schemaEvolutionRecord(Output.of(schemaEvolutionRecord));
         }
 
         /**

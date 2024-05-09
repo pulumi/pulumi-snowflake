@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const snowflakePolicy = snowflake.getSystemGetAwsSnsIamPolicy({
+ *     awsSnsTopicArn: "<aws_sns_topic_arn>",
+ * });
+ * ```
+ */
 export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGetAwsSnsIamPolicyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +51,18 @@ export interface GetSystemGetAwsSnsIamPolicyResult {
      */
     readonly id: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const snowflakePolicy = snowflake.getSystemGetAwsSnsIamPolicy({
+ *     awsSnsTopicArn: "<aws_sns_topic_arn>",
+ * });
+ * ```
+ */
 export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSystemGetAwsSnsIamPolicy(a, opts))
 }

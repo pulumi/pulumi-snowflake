@@ -54,6 +54,7 @@ import (
 type Stage struct {
 	pulumi.CustomResourceState
 
+	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 	AwsExternalId pulumi.StringOutput `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -72,7 +73,8 @@ type Stage struct {
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the stage.
-	Schema           pulumi.StringOutput `pulumi:"schema"`
+	Schema pulumi.StringOutput `pulumi:"schema"`
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 	SnowflakeIamUser pulumi.StringOutput `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrOutput `pulumi:"storageIntegration"`
@@ -127,6 +129,7 @@ func GetStage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stage resources.
 type stageState struct {
+	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 	AwsExternalId *string `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`
@@ -145,7 +148,8 @@ type stageState struct {
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the stage.
-	Schema           *string `pulumi:"schema"`
+	Schema *string `pulumi:"schema"`
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
@@ -158,6 +162,7 @@ type stageState struct {
 }
 
 type StageState struct {
+	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 	AwsExternalId pulumi.StringPtrInput
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrInput
@@ -176,7 +181,8 @@ type StageState struct {
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the stage.
-	Schema           pulumi.StringPtrInput
+	Schema pulumi.StringPtrInput
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 	SnowflakeIamUser pulumi.StringPtrInput
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
@@ -193,6 +199,7 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
+	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 	AwsExternalId *string `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`
@@ -211,7 +218,8 @@ type stageArgs struct {
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the stage.
-	Schema           string  `pulumi:"schema"`
+	Schema string `pulumi:"schema"`
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
@@ -225,6 +233,7 @@ type stageArgs struct {
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
+	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 	AwsExternalId pulumi.StringPtrInput
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrInput
@@ -243,7 +252,8 @@ type StageArgs struct {
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the stage.
-	Schema           pulumi.StringInput
+	Schema pulumi.StringInput
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 	SnowflakeIamUser pulumi.StringPtrInput
 	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
@@ -342,6 +352,7 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
+// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
 func (o StageOutput) AwsExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.AwsExternalId }).(pulumi.StringOutput)
 }
@@ -391,6 +402,7 @@ func (o StageOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
+// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
 func (o StageOutput) SnowflakeIamUser() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.SnowflakeIamUser }).(pulumi.StringOutput)
 }

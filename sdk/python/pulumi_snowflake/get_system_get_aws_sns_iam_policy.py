@@ -71,7 +71,15 @@ class AwaitableGetSystemGetAwsSnsIamPolicyResult(GetSystemGetAwsSnsIamPolicyResu
 def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetAwsSnsIamPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
+    ```
+
 
     :param str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """
@@ -90,7 +98,15 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
 def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
+    ```
+
 
     :param str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """

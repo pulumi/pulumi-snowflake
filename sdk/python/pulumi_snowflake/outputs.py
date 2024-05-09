@@ -1997,6 +1997,8 @@ class TableColumn(dict):
         suggest = None
         if key == "maskingPolicy":
             suggest = "masking_policy"
+        elif key == "schemaEvolutionRecord":
+            suggest = "schema_evolution_record"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableColumn. Access the value via the '{suggest}' property getter instead.")
@@ -2017,7 +2019,8 @@ class TableColumn(dict):
                  default: Optional['outputs.TableColumnDefault'] = None,
                  identity: Optional['outputs.TableColumnIdentity'] = None,
                  masking_policy: Optional[str] = None,
-                 nullable: Optional[bool] = None):
+                 nullable: Optional[bool] = None,
+                 schema_evolution_record: Optional[str] = None):
         """
         :param str name: Column name
         :param str type: Column type, e.g. VARIANT
@@ -2027,6 +2030,7 @@ class TableColumn(dict):
         :param 'TableColumnIdentityArgs' identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
         :param str masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
         :param bool nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        :param str schema_evolution_record: Record of schema evolution.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -2042,6 +2046,8 @@ class TableColumn(dict):
             pulumi.set(__self__, "masking_policy", masking_policy)
         if nullable is not None:
             pulumi.set(__self__, "nullable", nullable)
+        if schema_evolution_record is not None:
+            pulumi.set(__self__, "schema_evolution_record", schema_evolution_record)
 
     @property
     @pulumi.getter
@@ -2106,6 +2112,14 @@ class TableColumn(dict):
         Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         return pulumi.get(self, "nullable")
+
+    @property
+    @pulumi.getter(name="schemaEvolutionRecord")
+    def schema_evolution_record(self) -> Optional[str]:
+        """
+        Record of schema evolution.
+        """
+        return pulumi.get(self, "schema_evolution_record")
 
 
 @pulumi.output_type
@@ -2223,24 +2237,31 @@ class TableConstraintForeignKeyProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 references: 'outputs.TableConstraintForeignKeyPropertiesReferences',
                  match: Optional[str] = None,
                  on_delete: Optional[str] = None,
-                 on_update: Optional[str] = None,
-                 references: Optional['outputs.TableConstraintForeignKeyPropertiesReferences'] = None):
+                 on_update: Optional[str] = None):
         """
+        :param 'TableConstraintForeignKeyPropertiesReferencesArgs' references: The table and columns that the foreign key references.
         :param str match: The match type for the foreign key. Not applicable for primary/unique keys
         :param str on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         :param str on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
-        :param 'TableConstraintForeignKeyPropertiesReferencesArgs' references: The table and columns that the foreign key references. Not applicable for primary/unique keys
         """
+        pulumi.set(__self__, "references", references)
         if match is not None:
             pulumi.set(__self__, "match", match)
         if on_delete is not None:
             pulumi.set(__self__, "on_delete", on_delete)
         if on_update is not None:
             pulumi.set(__self__, "on_update", on_update)
-        if references is not None:
-            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> 'outputs.TableConstraintForeignKeyPropertiesReferences':
+        """
+        The table and columns that the foreign key references.
+        """
+        return pulumi.get(self, "references")
 
     @property
     @pulumi.getter
@@ -2265,14 +2286,6 @@ class TableConstraintForeignKeyProperties(dict):
         Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_update")
-
-    @property
-    @pulumi.getter
-    def references(self) -> Optional['outputs.TableConstraintForeignKeyPropertiesReferences']:
-        """
-        The table and columns that the foreign key references. Not applicable for primary/unique keys
-        """
-        return pulumi.get(self, "references")
 
 
 @pulumi.output_type

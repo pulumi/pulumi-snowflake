@@ -31,10 +31,10 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? OnUpdate { get; set; }
 
         /// <summary>
-        /// The table and columns that the foreign key references. Not applicable for primary/unique keys
+        /// The table and columns that the foreign key references.
         /// </summary>
-        [Input("references")]
-        public Input<Inputs.TableConstraintForeignKeyPropertiesReferencesGetArgs>? References { get; set; }
+        [Input("references", required: true)]
+        public Input<Inputs.TableConstraintForeignKeyPropertiesReferencesGetArgs> References { get; set; } = null!;
 
         public TableConstraintForeignKeyPropertiesGetArgs()
         {
