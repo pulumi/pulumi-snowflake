@@ -17,9 +17,17 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
 
     public static final StageState Empty = new StageState();
 
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     @Import(name="awsExternalId")
     private @Nullable Output<String> awsExternalId;
 
+    /**
+     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     public Optional<Output<String>> awsExternalId() {
         return Optional.ofNullable(this.awsExternalId);
     }
@@ -159,9 +167,17 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.schema);
     }
 
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     @Import(name="snowflakeIamUser")
     private @Nullable Output<String> snowflakeIamUser;
 
+    /**
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     public Optional<Output<String>> snowflakeIamUser() {
         return Optional.ofNullable(this.snowflakeIamUser);
     }
@@ -256,11 +272,23 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
             $ = new StageState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsExternalId(@Nullable Output<String> awsExternalId) {
             $.awsExternalId = awsExternalId;
             return this;
         }
 
+        /**
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsExternalId(String awsExternalId) {
             return awsExternalId(Output.of(awsExternalId));
         }
@@ -454,11 +482,23 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
             return schema(Output.of(schema));
         }
 
+        /**
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snowflakeIamUser(@Nullable Output<String> snowflakeIamUser) {
             $.snowflakeIamUser = snowflakeIamUser;
             return this;
         }
 
+        /**
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snowflakeIamUser(String snowflakeIamUser) {
             return snowflakeIamUser(Output.of(snowflakeIamUser));
         }

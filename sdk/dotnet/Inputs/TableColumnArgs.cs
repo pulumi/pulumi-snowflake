@@ -55,6 +55,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<bool>? Nullable { get; set; }
 
         /// <summary>
+        /// Record of schema evolution.
+        /// </summary>
+        [Input("schemaEvolutionRecord")]
+        public Input<string>? SchemaEvolutionRecord { get; set; }
+
+        /// <summary>
         /// Column type, e.g. VARIANT
         /// </summary>
         [Input("type", required: true)]

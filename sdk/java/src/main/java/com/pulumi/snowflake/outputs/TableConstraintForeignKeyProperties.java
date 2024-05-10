@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.TableConstraintForeignKeyPropertiesReferences;
 import java.lang.String;
 import java.util.Objects;
@@ -28,10 +29,10 @@ public final class TableConstraintForeignKeyProperties {
      */
     private @Nullable String onUpdate;
     /**
-     * @return The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * @return The table and columns that the foreign key references.
      * 
      */
-    private @Nullable TableConstraintForeignKeyPropertiesReferences references;
+    private TableConstraintForeignKeyPropertiesReferences references;
 
     private TableConstraintForeignKeyProperties() {}
     /**
@@ -56,11 +57,11 @@ public final class TableConstraintForeignKeyProperties {
         return Optional.ofNullable(this.onUpdate);
     }
     /**
-     * @return The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * @return The table and columns that the foreign key references.
      * 
      */
-    public Optional<TableConstraintForeignKeyPropertiesReferences> references() {
-        return Optional.ofNullable(this.references);
+    public TableConstraintForeignKeyPropertiesReferences references() {
+        return this.references;
     }
 
     public static Builder builder() {
@@ -75,7 +76,7 @@ public final class TableConstraintForeignKeyProperties {
         private @Nullable String match;
         private @Nullable String onDelete;
         private @Nullable String onUpdate;
-        private @Nullable TableConstraintForeignKeyPropertiesReferences references;
+        private TableConstraintForeignKeyPropertiesReferences references;
         public Builder() {}
         public Builder(TableConstraintForeignKeyProperties defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,8 +105,10 @@ public final class TableConstraintForeignKeyProperties {
             return this;
         }
         @CustomType.Setter
-        public Builder references(@Nullable TableConstraintForeignKeyPropertiesReferences references) {
-
+        public Builder references(TableConstraintForeignKeyPropertiesReferences references) {
+            if (references == null) {
+              throw new MissingRequiredPropertyException("TableConstraintForeignKeyProperties", "references");
+            }
             this.references = references;
             return this;
         }

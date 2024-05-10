@@ -42,6 +42,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly bool? Nullable;
         /// <summary>
+        /// Record of schema evolution.
+        /// </summary>
+        public readonly string? SchemaEvolutionRecord;
+        /// <summary>
         /// Column type, e.g. VARIANT
         /// </summary>
         public readonly string Type;
@@ -62,6 +66,8 @@ namespace Pulumi.Snowflake.Outputs
 
             bool? nullable,
 
+            string? schemaEvolutionRecord,
+
             string type)
         {
             Collate = collate;
@@ -71,6 +77,7 @@ namespace Pulumi.Snowflake.Outputs
             MaskingPolicy = maskingPolicy;
             Name = name;
             Nullable = nullable;
+            SchemaEvolutionRecord = schemaEvolutionRecord;
             Type = type;
         }
     }

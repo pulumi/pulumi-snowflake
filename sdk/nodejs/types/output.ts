@@ -1210,6 +1210,10 @@ export interface TableColumn {
      */
     nullable?: boolean;
     /**
+     * Record of schema evolution.
+     */
+    schemaEvolutionRecord: string;
+    /**
      * Column type, e.g. VARIANT
      */
     type: string;
@@ -1255,9 +1259,9 @@ export interface TableConstraintForeignKeyProperties {
      */
     onUpdate?: string;
     /**
-     * The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * The table and columns that the foreign key references.
      */
-    references?: outputs.TableConstraintForeignKeyPropertiesReferences;
+    references: outputs.TableConstraintForeignKeyPropertiesReferences;
 }
 
 export interface TableConstraintForeignKeyPropertiesReferences {

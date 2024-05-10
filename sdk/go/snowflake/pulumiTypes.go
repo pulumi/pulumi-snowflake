@@ -5864,6 +5864,8 @@ type TableColumn struct {
 	Name string `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable *bool `pulumi:"nullable"`
+	// Record of schema evolution.
+	SchemaEvolutionRecord *string `pulumi:"schemaEvolutionRecord"`
 	// Column type, e.g. VARIANT
 	Type string `pulumi:"type"`
 }
@@ -5894,6 +5896,8 @@ type TableColumnArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
+	// Record of schema evolution.
+	SchemaEvolutionRecord pulumi.StringPtrInput `pulumi:"schemaEvolutionRecord"`
 	// Column type, e.g. VARIANT
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -5982,6 +5986,11 @@ func (o TableColumnOutput) Name() pulumi.StringOutput {
 // Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
+}
+
+// Record of schema evolution.
+func (o TableColumnOutput) SchemaEvolutionRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.SchemaEvolutionRecord }).(pulumi.StringPtrOutput)
 }
 
 // Column type, e.g. VARIANT
@@ -6347,8 +6356,8 @@ type TableConstraintForeignKeyProperties struct {
 	OnDelete *string `pulumi:"onDelete"`
 	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate *string `pulumi:"onUpdate"`
-	// The table and columns that the foreign key references. Not applicable for primary/unique keys
-	References *TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
+	// The table and columns that the foreign key references.
+	References TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
 }
 
 // TableConstraintForeignKeyPropertiesInput is an input type that accepts TableConstraintForeignKeyPropertiesArgs and TableConstraintForeignKeyPropertiesOutput values.
@@ -6369,8 +6378,8 @@ type TableConstraintForeignKeyPropertiesArgs struct {
 	OnDelete pulumi.StringPtrInput `pulumi:"onDelete"`
 	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate pulumi.StringPtrInput `pulumi:"onUpdate"`
-	// The table and columns that the foreign key references. Not applicable for primary/unique keys
-	References TableConstraintForeignKeyPropertiesReferencesPtrInput `pulumi:"references"`
+	// The table and columns that the foreign key references.
+	References TableConstraintForeignKeyPropertiesReferencesInput `pulumi:"references"`
 }
 
 func (TableConstraintForeignKeyPropertiesArgs) ElementType() reflect.Type {
@@ -6465,11 +6474,11 @@ func (o TableConstraintForeignKeyPropertiesOutput) OnUpdate() pulumi.StringPtrOu
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnUpdate }).(pulumi.StringPtrOutput)
 }
 
-// The table and columns that the foreign key references. Not applicable for primary/unique keys
-func (o TableConstraintForeignKeyPropertiesOutput) References() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
-	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *TableConstraintForeignKeyPropertiesReferences {
+// The table and columns that the foreign key references.
+func (o TableConstraintForeignKeyPropertiesOutput) References() TableConstraintForeignKeyPropertiesReferencesOutput {
+	return o.ApplyT(func(v TableConstraintForeignKeyProperties) TableConstraintForeignKeyPropertiesReferences {
 		return v.References
-	}).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
+	}).(TableConstraintForeignKeyPropertiesReferencesOutput)
 }
 
 type TableConstraintForeignKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -6526,13 +6535,13 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) OnUpdate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The table and columns that the foreign key references. Not applicable for primary/unique keys
+// The table and columns that the foreign key references.
 func (o TableConstraintForeignKeyPropertiesPtrOutput) References() TableConstraintForeignKeyPropertiesReferencesPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *TableConstraintForeignKeyPropertiesReferences {
 		if v == nil {
 			return nil
 		}
-		return v.References
+		return &v.References
 	}).(TableConstraintForeignKeyPropertiesReferencesPtrOutput)
 }
 

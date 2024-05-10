@@ -34,6 +34,7 @@ class StageArgs:
         The set of arguments for constructing a Stage resource.
         :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
+        :param pulumi.Input[str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
@@ -41,6 +42,7 @@ class StageArgs:
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
+        :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -102,6 +104,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+        """
         return pulumi.get(self, "aws_external_id")
 
     @aws_external_id.setter
@@ -195,6 +200,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        """
         return pulumi.get(self, "snowflake_iam_user")
 
     @snowflake_iam_user.setter
@@ -260,6 +268,7 @@ class _StageState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
+        :param pulumi.Input[str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
@@ -269,6 +278,7 @@ class _StageState:
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
+        :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -308,6 +318,9 @@ class _StageState:
     @property
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+        """
         return pulumi.get(self, "aws_external_id")
 
     @aws_external_id.setter
@@ -425,6 +438,9 @@ class _StageState:
     @property
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        """
         return pulumi.get(self, "snowflake_iam_user")
 
     @snowflake_iam_user.setter
@@ -516,6 +532,7 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
@@ -525,6 +542,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
+        :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -647,6 +665,7 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[str] comment: Specifies a comment for the stage.
         :param pulumi.Input[str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
@@ -656,6 +675,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
+        :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] url: Specifies the URL for the stage.
@@ -683,6 +703,9 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> pulumi.Output[str]:
+        """
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+        """
         return pulumi.get(self, "aws_external_id")
 
     @property
@@ -760,6 +783,9 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> pulumi.Output[str]:
+        """
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        """
         return pulumi.get(self, "snowflake_iam_user")
 
     @property
