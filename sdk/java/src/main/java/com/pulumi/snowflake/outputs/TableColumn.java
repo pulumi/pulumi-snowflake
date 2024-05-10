@@ -51,6 +51,11 @@ public final class TableColumn {
      */
     private @Nullable Boolean nullable;
     /**
+     * @return Record of schema evolution.
+     * 
+     */
+    private @Nullable String schemaEvolutionRecord;
+    /**
      * @return Column type, e.g. VARIANT
      * 
      */
@@ -107,6 +112,13 @@ public final class TableColumn {
         return Optional.ofNullable(this.nullable);
     }
     /**
+     * @return Record of schema evolution.
+     * 
+     */
+    public Optional<String> schemaEvolutionRecord() {
+        return Optional.ofNullable(this.schemaEvolutionRecord);
+    }
+    /**
      * @return Column type, e.g. VARIANT
      * 
      */
@@ -130,6 +142,7 @@ public final class TableColumn {
         private @Nullable String maskingPolicy;
         private String name;
         private @Nullable Boolean nullable;
+        private @Nullable String schemaEvolutionRecord;
         private String type;
         public Builder() {}
         public Builder(TableColumn defaults) {
@@ -141,6 +154,7 @@ public final class TableColumn {
     	      this.maskingPolicy = defaults.maskingPolicy;
     	      this.name = defaults.name;
     	      this.nullable = defaults.nullable;
+    	      this.schemaEvolutionRecord = defaults.schemaEvolutionRecord;
     	      this.type = defaults.type;
         }
 
@@ -189,6 +203,12 @@ public final class TableColumn {
             return this;
         }
         @CustomType.Setter
+        public Builder schemaEvolutionRecord(@Nullable String schemaEvolutionRecord) {
+
+            this.schemaEvolutionRecord = schemaEvolutionRecord;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("TableColumn", "type");
@@ -205,6 +225,7 @@ public final class TableColumn {
             _resultValue.maskingPolicy = maskingPolicy;
             _resultValue.name = name;
             _resultValue.nullable = nullable;
+            _resultValue.schemaEvolutionRecord = schemaEvolutionRecord;
             _resultValue.type = type;
             return _resultValue;
         }

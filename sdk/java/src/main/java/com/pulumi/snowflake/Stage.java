@@ -67,9 +67,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     @Export(name="awsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsExternalId;
 
+    /**
+     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     public Output<String> awsExternalId() {
         return this.awsExternalId;
     }
@@ -199,9 +207,17 @@ public class Stage extends com.pulumi.resources.CustomResource {
     public Output<String> schema() {
         return this.schema;
     }
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     @Export(name="snowflakeIamUser", refs={String.class}, tree="[0]")
     private Output<String> snowflakeIamUser;
 
+    /**
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     public Output<String> snowflakeIamUser() {
         return this.snowflakeIamUser;
     }

@@ -6162,15 +6162,163 @@ public final class SnowflakeFunctions {
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args) {
         return getSystemGetAwsSnsIamPolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args) {
         return getSystemGetAwsSnsIamPolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }

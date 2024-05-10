@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesReferencesArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -62,18 +63,18 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
     }
 
     /**
-     * The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * The table and columns that the foreign key references.
      * 
      */
-    @Import(name="references")
-    private @Nullable Output<TableConstraintForeignKeyPropertiesReferencesArgs> references;
+    @Import(name="references", required=true)
+    private Output<TableConstraintForeignKeyPropertiesReferencesArgs> references;
 
     /**
-     * @return The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * @return The table and columns that the foreign key references.
      * 
      */
-    public Optional<Output<TableConstraintForeignKeyPropertiesReferencesArgs>> references() {
-        return Optional.ofNullable(this.references);
+    public Output<TableConstraintForeignKeyPropertiesReferencesArgs> references() {
+        return this.references;
     }
 
     private TableConstraintForeignKeyPropertiesArgs() {}
@@ -167,18 +168,18 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param references The table and columns that the foreign key references. Not applicable for primary/unique keys
+         * @param references The table and columns that the foreign key references.
          * 
          * @return builder
          * 
          */
-        public Builder references(@Nullable Output<TableConstraintForeignKeyPropertiesReferencesArgs> references) {
+        public Builder references(Output<TableConstraintForeignKeyPropertiesReferencesArgs> references) {
             $.references = references;
             return this;
         }
 
         /**
-         * @param references The table and columns that the foreign key references. Not applicable for primary/unique keys
+         * @param references The table and columns that the foreign key references.
          * 
          * @return builder
          * 
@@ -188,6 +189,9 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         public TableConstraintForeignKeyPropertiesArgs build() {
+            if ($.references == null) {
+                throw new MissingRequiredPropertyException("TableConstraintForeignKeyPropertiesArgs", "references");
+            }
             return $;
         }
     }

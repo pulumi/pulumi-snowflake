@@ -26,6 +26,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
  * import com.pulumi.snowflake.Stream;
  * import com.pulumi.snowflake.StreamArgs;
  * import java.util.List;
@@ -41,12 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var table = new Table("table", TableArgs.builder()        
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("name")
+ *             .columns(TableColumnArgs.builder()
+ *                 .type("NUMBER(38,0)")
+ *                 .name("id")
+ *                 .build())
+ *             .build());
+ * 
  *         var stream = new Stream("stream", StreamArgs.builder()        
  *             .comment("A stream.")
  *             .database("database")
  *             .schema("schema")
  *             .name("stream")
- *             .onTable("table")
+ *             .onTable(table.qualifiedName())
  *             .appendOnly(false)
  *             .insertOnly(false)
  *             .owner("role1")

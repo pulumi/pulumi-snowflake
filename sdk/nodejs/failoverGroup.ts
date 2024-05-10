@@ -88,7 +88,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly allowedDatabases!: pulumi.Output<string[] | undefined>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     public readonly allowedIntegrationTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface FailoverGroupState {
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -210,7 +210,7 @@ export interface FailoverGroupArgs {
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

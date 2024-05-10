@@ -43,6 +43,9 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Output("awsExternalId")]
         public Output<string> AwsExternalId { get; private set; } = null!;
 
@@ -100,6 +103,9 @@ namespace Pulumi.Snowflake
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Output("snowflakeIamUser")]
         public Output<string> SnowflakeIamUser { get; private set; } = null!;
 
@@ -171,6 +177,9 @@ namespace Pulumi.Snowflake
 
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
 
@@ -238,6 +247,9 @@ namespace Pulumi.Snowflake
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 
@@ -274,6 +286,9 @@ namespace Pulumi.Snowflake
 
     public sealed class StageState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
 
@@ -341,6 +356,9 @@ namespace Pulumi.Snowflake
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 

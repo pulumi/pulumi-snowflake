@@ -814,6 +814,10 @@ export interface TableColumn {
      */
     nullable?: pulumi.Input<boolean>;
     /**
+     * Record of schema evolution.
+     */
+    schemaEvolutionRecord?: pulumi.Input<string>;
+    /**
      * Column type, e.g. VARIANT
      */
     type: pulumi.Input<string>;
@@ -859,9 +863,9 @@ export interface TableConstraintForeignKeyProperties {
      */
     onUpdate?: pulumi.Input<string>;
     /**
-     * The table and columns that the foreign key references. Not applicable for primary/unique keys
+     * The table and columns that the foreign key references.
      */
-    references?: pulumi.Input<inputs.TableConstraintForeignKeyPropertiesReferences>;
+    references: pulumi.Input<inputs.TableConstraintForeignKeyPropertiesReferences>;
 }
 
 export interface TableConstraintForeignKeyPropertiesReferences {

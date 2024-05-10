@@ -26,9 +26,9 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? OnUpdate;
         /// <summary>
-        /// The table and columns that the foreign key references. Not applicable for primary/unique keys
+        /// The table and columns that the foreign key references.
         /// </summary>
-        public readonly Outputs.TableConstraintForeignKeyPropertiesReferences? References;
+        public readonly Outputs.TableConstraintForeignKeyPropertiesReferences References;
 
         [OutputConstructor]
         private TableConstraintForeignKeyProperties(
@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake.Outputs
 
             string? onUpdate,
 
-            Outputs.TableConstraintForeignKeyPropertiesReferences? references)
+            Outputs.TableConstraintForeignKeyPropertiesReferences references)
         {
             Match = match;
             OnDelete = onDelete;
