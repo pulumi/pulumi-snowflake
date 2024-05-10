@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ac1 = new Account(&#34;ac1&#34;, AccountArgs.builder()        
- *             .name(&#34;SNOWFLAKE_TEST_ACCOUNT&#34;)
- *             .adminName(&#34;John Doe&#34;)
- *             .adminPassword(&#34;Abcd1234!&#34;)
- *             .email(&#34;john.doe@snowflake.com&#34;)
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Doe&#34;)
+ *         var ac1 = new Account("ac1", AccountArgs.builder()        
+ *             .name("SNOWFLAKE_TEST_ACCOUNT")
+ *             .adminName("John Doe")
+ *             .adminPassword("Abcd1234!")
+ *             .email("john.doe{@literal @}snowflake.com")
+ *             .firstName("John")
+ *             .lastName("Doe")
  *             .mustChangePassword(true)
- *             .edition(&#34;STANDARD&#34;)
- *             .comment(&#34;Snowflake Test Account&#34;)
- *             .region(&#34;AWS_US_WEST_2&#34;)
+ *             .edition("STANDARD")
+ *             .comment("Snowflake Test Account")
+ *             .region("AWS_US_WEST_2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

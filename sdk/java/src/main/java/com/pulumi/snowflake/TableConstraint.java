@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,90 +52,91 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var d = new Database(&#34;d&#34;, DatabaseArgs.builder()        
- *             .name(&#34;some_db&#34;)
+ *         var d = new Database("d", DatabaseArgs.builder()        
+ *             .name("some_db")
  *             .build());
  * 
- *         var s = new Schema(&#34;s&#34;, SchemaArgs.builder()        
- *             .name(&#34;some_schema&#34;)
+ *         var s = new Schema("s", SchemaArgs.builder()        
+ *             .name("some_schema")
  *             .database(d.name())
  *             .build());
  * 
- *         var t = new Table(&#34;t&#34;, TableArgs.builder()        
+ *         var t = new Table("t", TableArgs.builder()        
  *             .database(d.name())
  *             .schema(s.name())
- *             .name(&#34;some_table&#34;)
+ *             .name("some_table")
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col1&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col1")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col2&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col2")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col3&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col3")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build())
  *             .build());
  * 
- *         var fkT = new Table(&#34;fkT&#34;, TableArgs.builder()        
+ *         var fkT = new Table("fkT", TableArgs.builder()        
  *             .database(d.name())
  *             .schema(s.name())
- *             .name(&#34;fk_table&#34;)
+ *             .name("fk_table")
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;fk_col1&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("fk_col1")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;fk_col2&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("fk_col2")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build())
  *             .build());
  * 
- *         var primaryKey = new TableConstraint(&#34;primaryKey&#34;, TableConstraintArgs.builder()        
- *             .name(&#34;myconstraint&#34;)
- *             .type(&#34;PRIMARY KEY&#34;)
+ *         var primaryKey = new TableConstraint("primaryKey", TableConstraintArgs.builder()        
+ *             .name("myconstraint")
+ *             .type("PRIMARY KEY")
  *             .tableId(t.qualifiedName())
- *             .columns(&#34;col1&#34;)
- *             .comment(&#34;hello world&#34;)
+ *             .columns("col1")
+ *             .comment("hello world")
  *             .build());
  * 
- *         var foreignKey = new TableConstraint(&#34;foreignKey&#34;, TableConstraintArgs.builder()        
- *             .name(&#34;myconstraintfk&#34;)
- *             .type(&#34;FOREIGN KEY&#34;)
+ *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()        
+ *             .name("myconstraintfk")
+ *             .type("FOREIGN KEY")
  *             .tableId(t.qualifiedName())
- *             .columns(&#34;col2&#34;)
+ *             .columns("col2")
  *             .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()
  *                 .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()
  *                     .tableId(fkT.qualifiedName())
- *                     .columns(&#34;fk_col1&#34;)
+ *                     .columns("fk_col1")
  *                     .build())
  *                 .build())
  *             .enforced(false)
  *             .deferrable(false)
- *             .initially(&#34;IMMEDIATE&#34;)
- *             .comment(&#34;hello fk&#34;)
+ *             .initially("IMMEDIATE")
+ *             .comment("hello fk")
  *             .build());
  * 
- *         var unique = new TableConstraint(&#34;unique&#34;, TableConstraintArgs.builder()        
- *             .name(&#34;unique&#34;)
- *             .type(&#34;UNIQUE&#34;)
+ *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()        
+ *             .name("unique")
+ *             .type("UNIQUE")
  *             .tableId(t.qualifiedName())
- *             .columns(&#34;col3&#34;)
- *             .comment(&#34;hello unique&#34;)
+ *             .columns("col3")
+ *             .comment("hello unique")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

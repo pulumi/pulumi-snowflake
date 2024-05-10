@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,20 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pipe = new Pipe(&#34;pipe&#34;, PipeArgs.builder()        
- *             .database(&#34;db&#34;)
- *             .schema(&#34;schema&#34;)
- *             .name(&#34;pipe&#34;)
- *             .comment(&#34;A pipe.&#34;)
- *             .copyStatement(&#34;copy into mytable from @mystage&#34;)
+ *         var pipe = new Pipe("pipe", PipeArgs.builder()        
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("pipe")
+ *             .comment("A pipe.")
+ *             .copyStatement("copy into mytable from{@literal @}mystage")
  *             .autoIngest(false)
- *             .awsSnsTopicArn(&#34;...&#34;)
- *             .notificationChannel(&#34;...&#34;)
+ *             .awsSnsTopicArn("...")
+ *             .notificationChannel("...")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

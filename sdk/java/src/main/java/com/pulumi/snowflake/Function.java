@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,72 +49,73 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create database
- *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
- *             .name(&#34;MY_DB&#34;)
+ *         var db = new Database("db", DatabaseArgs.builder()        
+ *             .name("MY_DB")
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         // Create schema
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()        
  *             .database(db.name())
- *             .name(&#34;MY_SCHEMA&#34;)
+ *             .name("MY_SCHEMA")
  *             .dataRetentionDays(1)
  *             .build());
  * 
  *         // Example for Java language
- *         var testFunctJava = new Function(&#34;testFunctJava&#34;, FunctionArgs.builder()        
- *             .name(&#34;my_java_func&#34;)
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
+ *         var testFunctJava = new Function("testFunctJava", FunctionArgs.builder()        
+ *             .name("my_java_func")
+ *             .database("MY_DB")
+ *             .schema("MY_SCHEMA")
  *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
+ *                 .name("arg1")
+ *                 .type("number")
  *                 .build())
- *             .comment(&#34;Example for java language&#34;)
- *             .returnType(&#34;varchar&#34;)
- *             .language(&#34;java&#34;)
- *             .handler(&#34;CoolFunc.test&#34;)
- *             .statement(&#34;class CoolFunc {public static String test(int n) {return \&#34;hello!\&#34;;}}&#34;)
+ *             .comment("Example for java language")
+ *             .returnType("varchar")
+ *             .language("java")
+ *             .handler("CoolFunc.test")
+ *             .statement("class CoolFunc {public static String test(int n) {return \"hello!\";}}")
  *             .build());
  * 
  *         // Example for Python language
- *         var pythonTest = new Function(&#34;pythonTest&#34;, FunctionArgs.builder()        
- *             .name(&#34;MY_PYTHON_FUNC&#34;)
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
+ *         var pythonTest = new Function("pythonTest", FunctionArgs.builder()        
+ *             .name("MY_PYTHON_FUNC")
+ *             .database("MY_DB")
+ *             .schema("MY_SCHEMA")
  *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
+ *                 .name("arg1")
+ *                 .type("number")
  *                 .build())
- *             .comment(&#34;Example for Python language&#34;)
- *             .returnType(&#34;NUMBER(38,0)&#34;)
- *             .nullInputBehavior(&#34;CALLED ON NULL INPUT&#34;)
- *             .returnBehavior(&#34;VOLATILE&#34;)
- *             .language(&#34;python&#34;)
- *             .runtimeVersion(&#34;3.8&#34;)
- *             .handler(&#34;add_py&#34;)
- *             .statement(&#34;def add_py(i): return i+1&#34;)
+ *             .comment("Example for Python language")
+ *             .returnType("NUMBER(38,0)")
+ *             .nullInputBehavior("CALLED ON NULL INPUT")
+ *             .returnBehavior("VOLATILE")
+ *             .language("python")
+ *             .runtimeVersion("3.8")
+ *             .handler("add_py")
+ *             .statement("def add_py(i): return i+1")
  *             .build());
  * 
  *         // Example SQL language
- *         var sqlTest = new Function(&#34;sqlTest&#34;, FunctionArgs.builder()        
- *             .name(&#34;MY_SQL_FUNC&#34;)
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
+ *         var sqlTest = new Function("sqlTest", FunctionArgs.builder()        
+ *             .name("MY_SQL_FUNC")
+ *             .database("MY_DB")
+ *             .schema("MY_SCHEMA")
  *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
+ *                 .name("arg1")
+ *                 .type("number")
  *                 .build())
- *             .comment(&#34;Example for SQL language&#34;)
- *             .returnType(&#34;NUMBER(38,0)&#34;)
- *             .nullInputBehavior(&#34;CALLED ON NULL INPUT&#34;)
- *             .returnBehavior(&#34;VOLATILE&#34;)
- *             .statement(&#34;select arg1 + 1&#34;)
+ *             .comment("Example for SQL language")
+ *             .returnType("NUMBER(38,0)")
+ *             .nullInputBehavior("CALLED ON NULL INPUT")
+ *             .returnBehavior("VOLATILE")
+ *             .statement("select arg1 + 1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

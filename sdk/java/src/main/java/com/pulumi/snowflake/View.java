@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,21 +43,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var view = new View(&#34;view&#34;, ViewArgs.builder()        
- *             .database(&#34;database&#34;)
- *             .schema(&#34;schema&#34;)
- *             .name(&#34;view&#34;)
- *             .comment(&#34;comment&#34;)
- *             .statement(&#34;&#34;&#34;
+ *         var view = new View("view", ViewArgs.builder()        
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("view")
+ *             .comment("comment")
+ *             .statement("""
  * select * from foo;
- *             &#34;&#34;&#34;)
+ *             """)
  *             .orReplace(false)
  *             .isSecure(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -126,21 +128,9 @@ public class View extends com.pulumi.resources.CustomResource {
     public Output<String> database() {
         return this.database;
     }
-    /**
-     * Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     * 
-     */
     @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
-    /**
-     * @return Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about
-     * secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-     * is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-     * 
-     */
     public Output<Optional<Boolean>> isSecure() {
         return Codegen.optional(this.isSecure);
     }

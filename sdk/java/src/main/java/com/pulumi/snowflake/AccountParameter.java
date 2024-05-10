@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -38,19 +39,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var p = new AccountParameter(&#34;p&#34;, AccountParameterArgs.builder()        
- *             .key(&#34;ALLOW_ID_TOKEN&#34;)
- *             .value(&#34;true&#34;)
+ *         var p = new AccountParameter("p", AccountParameterArgs.builder()        
+ *             .key("ALLOW_ID_TOKEN")
+ *             .value("true")
  *             .build());
  * 
- *         var p2 = new AccountParameter(&#34;p2&#34;, AccountParameterArgs.builder()        
- *             .key(&#34;CLIENT_ENCRYPTION_KEY_SIZE&#34;)
- *             .value(&#34;256&#34;)
+ *         var p2 = new AccountParameter("p2", AccountParameterArgs.builder()        
+ *             .key("CLIENT_ENCRYPTION_KEY_SIZE")
+ *             .value("256")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

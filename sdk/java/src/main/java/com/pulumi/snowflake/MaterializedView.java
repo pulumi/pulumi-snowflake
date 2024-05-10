@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,22 +43,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var view = new MaterializedView(&#34;view&#34;, MaterializedViewArgs.builder()        
- *             .database(&#34;db&#34;)
- *             .schema(&#34;schema&#34;)
- *             .name(&#34;view&#34;)
- *             .warehouse(&#34;warehouse&#34;)
- *             .comment(&#34;comment&#34;)
- *             .statement(&#34;&#34;&#34;
+ *         var view = new MaterializedView("view", MaterializedViewArgs.builder()        
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("view")
+ *             .warehouse("warehouse")
+ *             .comment("comment")
+ *             .statement("""
  * select * from foo;
- *             &#34;&#34;&#34;)
+ *             """)
  *             .orReplace(false)
  *             .isSecure(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,20 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRowAccessPolicy = new RowAccessPolicy(&#34;exampleRowAccessPolicy&#34;, RowAccessPolicyArgs.builder()        
- *             .name(&#34;EXAMPLE_ROW_ACCESS_POLICY&#34;)
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
+ *         var exampleRowAccessPolicy = new RowAccessPolicy("exampleRowAccessPolicy", RowAccessPolicyArgs.builder()        
+ *             .name("EXAMPLE_ROW_ACCESS_POLICY")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
  *             .signature(Map.ofEntries(
- *                 Map.entry(&#34;A&#34;, &#34;VARCHAR&#34;),
- *                 Map.entry(&#34;B&#34;, &#34;VARCHAR&#34;)
+ *                 Map.entry("A", "VARCHAR"),
+ *                 Map.entry("B", "VARCHAR")
  *             ))
- *             .rowAccessExpression(&#34;case when current_role() in (&#39;ANALYST&#39;) then true else false end&#34;)
+ *             .rowAccessExpression("case when current_role() in ('ANALYST') then true else false end")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

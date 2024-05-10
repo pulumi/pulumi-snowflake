@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,53 +50,54 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Note: Currently this feature is only available to accounts that are Enterprise Edition (or higher)
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
- *             .name(&#34;TEST_DB1&#34;)
+ *         var test = new Database("test", DatabaseArgs.builder()        
+ *             .name("TEST_DB1")
  *             .dataRetentionTimeInDays(1)
  *             .build());
  * 
- *         var test2 = new Database(&#34;test2&#34;, DatabaseArgs.builder()        
- *             .name(&#34;TEST_DB2&#34;)
+ *         var test2 = new Database("test2", DatabaseArgs.builder()        
+ *             .name("TEST_DB2")
  *             .dataRetentionTimeInDays(1)
  *             .build());
  * 
- *         var test2Schema = new Schema(&#34;test2Schema&#34;, SchemaArgs.builder()        
+ *         var test2Schema = new Schema("test2Schema", SchemaArgs.builder()        
  *             .database(test2.name())
- *             .name(&#34;FOOBAR2&#34;)
+ *             .name("FOOBAR2")
  *             .dataRetentionDays(test2.dataRetentionTimeInDays())
  *             .build());
  * 
- *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()        
  *             .database(test.name())
- *             .name(&#34;FOOBAR&#34;)
+ *             .name("FOOBAR")
  *             .dataRetentionDays(test.dataRetentionTimeInDays())
  *             .build());
  * 
- *         var this_ = new Tag(&#34;this&#34;, TagArgs.builder()        
+ *         var this_ = new Tag("this", TagArgs.builder()        
  *             .name(StdFunctions.upper(UpperArgs.builder()
- *                 .input(&#34;test_tag&#34;)
+ *                 .input("test_tag")
  *                 .build()).result())
  *             .database(test2.name())
  *             .schema(test2Schema.name())
  *             .build());
  * 
- *         var exampleMaskingPolicy = new MaskingPolicy(&#34;exampleMaskingPolicy&#34;, MaskingPolicyArgs.builder()        
- *             .name(&#34;EXAMPLE_MASKING_POLICY&#34;)
+ *         var exampleMaskingPolicy = new MaskingPolicy("exampleMaskingPolicy", MaskingPolicyArgs.builder()        
+ *             .name("EXAMPLE_MASKING_POLICY")
  *             .database(test.name())
  *             .schema(testSchema.name())
- *             .valueDataType(&#34;string&#34;)
- *             .maskingExpression(&#34;case when current_role() in (&#39;ACCOUNTADMIN&#39;) then val else sha2(val, 512) end&#34;)
- *             .returnDataType(&#34;string&#34;)
+ *             .valueDataType("string")
+ *             .maskingExpression("case when current_role() in ('ACCOUNTADMIN') then val else sha2(val, 512) end")
+ *             .returnDataType("string")
  *             .build());
  * 
- *         var name = new TagMaskingPolicyAssociation(&#34;name&#34;, TagMaskingPolicyAssociationArgs.builder()        
+ *         var name = new TagMaskingPolicyAssociation("name", TagMaskingPolicyAssociationArgs.builder()        
  *             .tagId(this_.id())
  *             .maskingPolicyId(exampleMaskingPolicy.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

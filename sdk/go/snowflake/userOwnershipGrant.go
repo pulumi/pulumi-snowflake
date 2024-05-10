@@ -22,8 +22,7 @@ type UserOwnershipGrant struct {
 	OnUserName pulumi.StringOutput `pulumi:"onUserName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringOutput `pulumi:"toRoleName"`
+	ToRoleName                pulumi.StringOutput    `pulumi:"toRoleName"`
 }
 
 // NewUserOwnershipGrant registers a new resource with the given unique name, arguments, and options.
@@ -68,8 +67,7 @@ type userOwnershipGrantState struct {
 	OnUserName *string `pulumi:"onUserName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName *string `pulumi:"toRoleName"`
+	ToRoleName                *string `pulumi:"toRoleName"`
 }
 
 type UserOwnershipGrantState struct {
@@ -79,8 +77,7 @@ type UserOwnershipGrantState struct {
 	OnUserName pulumi.StringPtrInput
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrInput
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringPtrInput
+	ToRoleName                pulumi.StringPtrInput
 }
 
 func (UserOwnershipGrantState) ElementType() reflect.Type {
@@ -94,8 +91,7 @@ type userOwnershipGrantArgs struct {
 	OnUserName string `pulumi:"onUserName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName string `pulumi:"toRoleName"`
+	ToRoleName                string  `pulumi:"toRoleName"`
 }
 
 // The set of arguments for constructing a UserOwnershipGrant resource.
@@ -106,8 +102,7 @@ type UserOwnershipGrantArgs struct {
 	OnUserName pulumi.StringInput
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrInput
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringInput
+	ToRoleName                pulumi.StringInput
 }
 
 func (UserOwnershipGrantArgs) ElementType() reflect.Type {
@@ -212,7 +207,6 @@ func (o UserOwnershipGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOu
 	return o.ApplyT(func(v *UserOwnershipGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 func (o UserOwnershipGrantOutput) ToRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserOwnershipGrant) pulumi.StringOutput { return v.ToRoleName }).(pulumi.StringOutput)
 }

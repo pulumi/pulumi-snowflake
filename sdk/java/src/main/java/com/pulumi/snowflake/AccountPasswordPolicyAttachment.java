@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new PasswordPolicy(&#34;default&#34;, PasswordPolicyArgs.builder()        
- *             .database(&#34;prod&#34;)
- *             .schema(&#34;security&#34;)
- *             .name(&#34;default_policy&#34;)
+ *         var default_ = new PasswordPolicy("default", PasswordPolicyArgs.builder()        
+ *             .database("prod")
+ *             .schema("security")
+ *             .name("default_policy")
  *             .build());
  * 
- *         var attachment = new AccountPasswordPolicyAttachment(&#34;attachment&#34;, AccountPasswordPolicyAttachmentArgs.builder()        
+ *         var attachment = new AccountPasswordPolicyAttachment("attachment", AccountPasswordPolicyAttachmentArgs.builder()        
  *             .passwordPolicy(default_.qualifiedName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

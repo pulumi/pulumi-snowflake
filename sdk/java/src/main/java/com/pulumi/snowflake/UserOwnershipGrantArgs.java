@@ -61,17 +61,9 @@ public final class UserOwnershipGrantArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.revertOwnershipToRoleName);
     }
 
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     @Import(name="toRoleName", required=true)
     private Output<String> toRoleName;
 
-    /**
-     * @return The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     public Output<String> toRoleName() {
         return this.toRoleName;
     }
@@ -166,23 +158,11 @@ public final class UserOwnershipGrantArgs extends com.pulumi.resources.ResourceA
             return revertOwnershipToRoleName(Output.of(revertOwnershipToRoleName));
         }
 
-        /**
-         * @param toRoleName The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toRoleName(Output<String> toRoleName) {
             $.toRoleName = toRoleName;
             return this;
         }
 
-        /**
-         * @param toRoleName The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toRoleName(String toRoleName) {
             return toRoleName(Output.of(toRoleName));
         }

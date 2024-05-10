@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,48 +51,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var d = new Database(&#34;d&#34;, DatabaseArgs.builder()        
- *             .name(&#34;TEST_DB&#34;)
+ *         var d = new Database("d", DatabaseArgs.builder()        
+ *             .name("TEST_DB")
  *             .build());
  * 
- *         var o = new ObjectParameter(&#34;o&#34;, ObjectParameterArgs.builder()        
- *             .key(&#34;SUSPEND_TASK_AFTER_NUM_FAILURES&#34;)
- *             .value(&#34;33&#34;)
- *             .objectType(&#34;DATABASE&#34;)
+ *         var o = new ObjectParameter("o", ObjectParameterArgs.builder()        
+ *             .key("SUSPEND_TASK_AFTER_NUM_FAILURES")
+ *             .value("33")
+ *             .objectType("DATABASE")
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
  *                 .name(d.name())
  *                 .build())
  *             .build());
  * 
- *         var s = new Schema(&#34;s&#34;, SchemaArgs.builder()        
- *             .name(&#34;TEST_SCHEMA&#34;)
+ *         var s = new Schema("s", SchemaArgs.builder()        
+ *             .name("TEST_SCHEMA")
  *             .database(d.name())
  *             .build());
  * 
- *         var o2 = new ObjectParameter(&#34;o2&#34;, ObjectParameterArgs.builder()        
- *             .key(&#34;USER_TASK_TIMEOUT_MS&#34;)
- *             .value(&#34;500&#34;)
- *             .objectType(&#34;SCHEMA&#34;)
+ *         var o2 = new ObjectParameter("o2", ObjectParameterArgs.builder()        
+ *             .key("USER_TASK_TIMEOUT_MS")
+ *             .value("500")
+ *             .objectType("SCHEMA")
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
  *                 .database(d.name())
  *                 .name(s.name())
  *                 .build())
  *             .build());
  * 
- *         var t = new Table(&#34;t&#34;, TableArgs.builder()        
- *             .name(&#34;TEST_TABLE&#34;)
+ *         var t = new Table("t", TableArgs.builder()        
+ *             .name("TEST_TABLE")
  *             .database(d.name())
  *             .schema(s.name())
  *             .columns(TableColumnArgs.builder()
- *                 .name(&#34;id&#34;)
- *                 .type(&#34;NUMBER&#34;)
+ *                 .name("id")
+ *                 .type("NUMBER")
  *                 .build())
  *             .build());
  * 
- *         var o3 = new ObjectParameter(&#34;o3&#34;, ObjectParameterArgs.builder()        
- *             .key(&#34;DATA_RETENTION_TIME_IN_DAYS&#34;)
- *             .value(&#34;89&#34;)
- *             .objectType(&#34;TABLE&#34;)
+ *         var o3 = new ObjectParameter("o3", ObjectParameterArgs.builder()        
+ *             .key("DATA_RETENTION_TIME_IN_DAYS")
+ *             .value("89")
+ *             .objectType("TABLE")
  *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
  *                 .database(d.name())
  *                 .schema(s.name())
@@ -100,15 +101,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Setting object parameter at account level
- *         var o4 = new ObjectParameter(&#34;o4&#34;, ObjectParameterArgs.builder()        
- *             .key(&#34;DATA_RETENTION_TIME_IN_DAYS&#34;)
- *             .value(&#34;89&#34;)
+ *         var o4 = new ObjectParameter("o4", ObjectParameterArgs.builder()        
+ *             .key("DATA_RETENTION_TIME_IN_DAYS")
+ *             .value("89")
  *             .onAccount(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
