@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaskingPolicyGrant(&#34;example&#34;, MaskingPolicyGrantArgs.builder()        
- *             .maskingPolicyName(&#34;EXAMPLE_MASKING_POLICY_NAME&#34;)
- *             .databaseName(&#34;EXAMPLE_DB_NAME&#34;)
- *             .schemaName(&#34;EXAMPLE_SCHEMA_NAME&#34;)
- *             .privilege(&#34;APPLY&#34;)
+ *         var example = new MaskingPolicyGrant("example", MaskingPolicyGrantArgs.builder()        
+ *             .maskingPolicyName("EXAMPLE_MASKING_POLICY_NAME")
+ *             .databaseName("EXAMPLE_DB_NAME")
+ *             .schemaName("EXAMPLE_SCHEMA_NAME")
+ *             .privilege("APPLY")
  *             .roles(            
- *                 &#34;ROLE1_NAME&#34;,
- *                 &#34;ROLE2_NAME&#34;)
+ *                 "ROLE1_NAME",
+ *                 "ROLE2_NAME")
  *             .withGrantOption(true)
  *             .enableMultipleGrants(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -85,19 +87,9 @@ public class MaskingPolicyGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }

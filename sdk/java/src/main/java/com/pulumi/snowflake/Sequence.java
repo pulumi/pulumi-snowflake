@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;, DatabaseArgs.builder()        
- *             .name(&#34;things&#34;)
+ *         var database = new Database("database", DatabaseArgs.builder()        
+ *             .name("things")
  *             .build());
  * 
- *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .name(&#34;things&#34;)
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()        
+ *             .name("things")
  *             .database(testDatabase.name())
  *             .build());
  * 
- *         var testSequence = new Sequence(&#34;testSequence&#34;, SequenceArgs.builder()        
+ *         var testSequence = new Sequence("testSequence", SequenceArgs.builder()        
  *             .database(testDatabase.name())
  *             .schema(testSchema.name())
- *             .name(&#34;thing_counter&#34;)
+ *             .name("thing_counter")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

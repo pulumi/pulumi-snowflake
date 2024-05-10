@@ -26,8 +26,6 @@ class PipeGrantArgs:
         """
         The set of arguments for constructing a PipeGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -69,10 +67,6 @@ class PipeGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -179,8 +173,6 @@ class _PipeGrantState:
         """
         Input properties used for looking up and filtering PipeGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -223,10 +215,6 @@ class _PipeGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -366,8 +354,6 @@ class PipeGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -483,8 +469,6 @@ class PipeGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future pipes on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future pipes in the given schema. When this is true and no schema*name is provided apply this grant on all future pipes in the given database. The pipe*name field must be unset in order to use on*future.
         :param pulumi.Input[str] pipe_name: The name of the pipe on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future pipe. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -519,10 +503,6 @@ class PipeGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property

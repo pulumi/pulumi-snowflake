@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new TableGrant(&#34;grant&#34;, TableGrantArgs.builder()        
- *             .databaseName(&#34;database&#34;)
- *             .schemaName(&#34;schema&#34;)
- *             .tableName(&#34;table&#34;)
- *             .privilege(&#34;SELECT&#34;)
- *             .roles(&#34;role1&#34;)
- *             .shares(&#34;share1&#34;)
+ *         var grant = new TableGrant("grant", TableGrantArgs.builder()        
+ *             .databaseName("database")
+ *             .schemaName("schema")
+ *             .tableName("table")
+ *             .privilege("SELECT")
+ *             .roles("role1")
+ *             .shares("share1")
  *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -84,19 +86,9 @@ public class TableGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }

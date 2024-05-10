@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,20 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var stream = new Stream(&#34;stream&#34;, StreamArgs.builder()        
- *             .comment(&#34;A stream.&#34;)
- *             .database(&#34;database&#34;)
- *             .schema(&#34;schema&#34;)
- *             .name(&#34;stream&#34;)
- *             .onTable(&#34;table&#34;)
+ *         var stream = new Stream("stream", StreamArgs.builder()        
+ *             .comment("A stream.")
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("stream")
+ *             .onTable("table")
  *             .appendOnly(false)
  *             .insertOnly(false)
- *             .owner(&#34;role1&#34;)
+ *             .owner("role1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

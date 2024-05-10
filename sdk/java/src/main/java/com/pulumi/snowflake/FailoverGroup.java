@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,42 +49,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
- *             .name(&#34;db1&#34;)
+ *         var db = new Database("db", DatabaseArgs.builder()        
+ *             .name("db1")
  *             .build());
  * 
- *         var sourceFailoverGroup = new FailoverGroup(&#34;sourceFailoverGroup&#34;, FailoverGroupArgs.builder()        
- *             .name(&#34;FG1&#34;)
+ *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()        
+ *             .name("FG1")
  *             .objectTypes(            
- *                 &#34;WAREHOUSES&#34;,
- *                 &#34;DATABASES&#34;,
- *                 &#34;INTEGRATIONS&#34;,
- *                 &#34;ROLES&#34;)
+ *                 "WAREHOUSES",
+ *                 "DATABASES",
+ *                 "INTEGRATIONS",
+ *                 "ROLES")
  *             .allowedAccounts(            
- *                 &#34;&lt;org_name&gt;.&lt;target_account_name1&gt;&#34;,
- *                 &#34;&lt;org_name&gt;.&lt;target_account_name2&gt;&#34;)
+ *                 "<org_name>.<target_account_name1>",
+ *                 "<org_name>.<target_account_name2>")
  *             .allowedDatabases(db.name())
- *             .allowedIntegrationTypes(&#34;SECURITY INTEGRATIONS&#34;)
+ *             .allowedIntegrationTypes("SECURITY INTEGRATIONS")
  *             .replicationSchedule(FailoverGroupReplicationScheduleArgs.builder()
  *                 .cron(FailoverGroupReplicationScheduleCronArgs.builder()
- *                     .expression(&#34;0 0 10-20 * TUE,THU&#34;)
- *                     .timeZone(&#34;UTC&#34;)
+ *                     .expression("0 0 10-20 * TUE,THU")
+ *                     .timeZone("UTC")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var targetFailoverGroup = new FailoverGroup(&#34;targetFailoverGroup&#34;, FailoverGroupArgs.builder()        
- *             .name(&#34;FG1&#34;)
+ *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()        
+ *             .name("FG1")
  *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
- *                 .organizationName(&#34;...&#34;)
- *                 .sourceAccountName(&#34;...&#34;)
+ *                 .organizationName("...")
+ *                 .sourceAccountName("...")
  *                 .name(fg.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

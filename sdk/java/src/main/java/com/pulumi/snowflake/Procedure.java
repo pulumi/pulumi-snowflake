@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,45 +48,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
- *             .name(&#34;MYDB&#34;)
+ *         var db = new Database("db", DatabaseArgs.builder()        
+ *             .name("MYDB")
  *             .dataRetentionDays(1)
  *             .build());
  * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()        
  *             .database(db.name())
- *             .name(&#34;MYSCHEMA&#34;)
+ *             .name("MYSCHEMA")
  *             .dataRetentionDays(1)
  *             .build());
  * 
- *         var proc = new Procedure(&#34;proc&#34;, ProcedureArgs.builder()        
- *             .name(&#34;SAMPLEPROC&#34;)
+ *         var proc = new Procedure("proc", ProcedureArgs.builder()        
+ *             .name("SAMPLEPROC")
  *             .database(db.name())
  *             .schema(schema.name())
- *             .language(&#34;JAVASCRIPT&#34;)
+ *             .language("JAVASCRIPT")
  *             .arguments(            
  *                 ProcedureArgumentArgs.builder()
- *                     .name(&#34;arg1&#34;)
- *                     .type(&#34;varchar&#34;)
+ *                     .name("arg1")
+ *                     .type("varchar")
  *                     .build(),
  *                 ProcedureArgumentArgs.builder()
- *                     .name(&#34;arg2&#34;)
- *                     .type(&#34;DATE&#34;)
+ *                     .name("arg2")
+ *                     .type("DATE")
  *                     .build())
- *             .comment(&#34;Procedure with 2 arguments&#34;)
- *             .returnType(&#34;VARCHAR&#34;)
- *             .executeAs(&#34;CALLER&#34;)
- *             .returnBehavior(&#34;IMMUTABLE&#34;)
- *             .nullInputBehavior(&#34;RETURNS NULL ON NULL INPUT&#34;)
- *             .statement(&#34;&#34;&#34;
+ *             .comment("Procedure with 2 arguments")
+ *             .returnType("VARCHAR")
+ *             .executeAs("CALLER")
+ *             .returnBehavior("IMMUTABLE")
+ *             .nullInputBehavior("RETURNS NULL ON NULL INPUT")
+ *             .statement("""
  * var X=1
  * return X
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

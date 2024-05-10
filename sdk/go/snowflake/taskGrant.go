@@ -60,9 +60,7 @@ type TaskGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the current or future tasks on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
@@ -119,10 +117,8 @@ func GetTaskGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TaskGrant resources.
 type taskGrantState struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
@@ -143,9 +139,7 @@ type taskGrantState struct {
 
 type TaskGrantState struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
@@ -171,10 +165,8 @@ func (TaskGrantState) ElementType() reflect.Type {
 
 type taskGrantArgs struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future tasks in the given schema. When this is true and no schema*name is provided apply this grant on all future tasks in the given database. The task*name field must be unset in order to use on*future. Cannot be used together with on_all.
@@ -196,9 +188,7 @@ type taskGrantArgs struct {
 // The set of arguments for constructing a TaskGrant resource.
 type TaskGrantArgs struct {
 	// The name of the database containing the current or future tasks on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all tasks in the given schema. When this is true and no schema*name is provided apply this grant on all tasks in the given database. The task*name field must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
@@ -310,8 +300,6 @@ func (o TaskGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o TaskGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

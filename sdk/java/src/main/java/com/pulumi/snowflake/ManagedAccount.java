@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,20 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var account = new ManagedAccount(&#34;account&#34;, ManagedAccountArgs.builder()        
- *             .name(&#34;managed account&#34;)
- *             .adminName(&#34;admin&#34;)
- *             .adminPassword(&#34;secret&#34;)
- *             .type(&#34;READER&#34;)
- *             .comment(&#34;A managed account.&#34;)
- *             .cloud(&#34;aws&#34;)
- *             .region(&#34;us-west-2&#34;)
- *             .locator(&#34;managed-account&#34;)
+ *         var account = new ManagedAccount("account", ManagedAccountArgs.builder()        
+ *             .name("managed account")
+ *             .adminName("admin")
+ *             .adminPassword("secret")
+ *             .type("READER")
+ *             .comment("A managed account.")
+ *             .cloud("aws")
+ *             .region("us-west-2")
+ *             .locator("managed-account")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

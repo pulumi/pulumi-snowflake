@@ -61,10 +61,7 @@ type View struct {
 	// The timestamp at which the view was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the view. Don't use the | character.
-	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
+	Database pulumi.StringOutput  `pulumi:"database"`
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -127,10 +124,7 @@ type viewState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the view. Don't use the | character.
 	Database *string `pulumi:"database"`
-	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-	IsSecure *bool `pulumi:"isSecure"`
+	IsSecure *bool   `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
@@ -154,9 +148,6 @@ type ViewState struct {
 	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringPtrInput
-	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
@@ -183,10 +174,7 @@ type viewArgs struct {
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the view. Don't use the | character.
 	Database string `pulumi:"database"`
-	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
-	IsSecure *bool `pulumi:"isSecure"`
+	IsSecure *bool  `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Overwrites the View if it exists.
@@ -209,9 +197,6 @@ type ViewArgs struct {
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringInput
-	// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-	// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-	// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
 	Name pulumi.StringPtrInput
@@ -334,9 +319,6 @@ func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about
-// secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which
-// is essential to manage/import view with Terraform. Use the role owning the view while managing secure views.
 func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }

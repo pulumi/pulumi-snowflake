@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Share(&#34;test&#34;, ShareArgs.builder()        
- *             .name(&#34;share_name&#34;)
- *             .comment(&#34;cool comment&#34;)
- *             .accounts(&#34;organizationName.accountName&#34;)
+ *         var test = new Share("test", ShareArgs.builder()        
+ *             .name("share_name")
+ *             .comment("cool comment")
+ *             .accounts("organizationName.accountName")
  *             .build());
  * 
- *         var example = new Database(&#34;example&#34;, DatabaseArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var example = new Database("example", DatabaseArgs.builder()        
+ *             .name("test")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

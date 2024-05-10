@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,28 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testExtFunc = new ExternalFunction(&#34;testExtFunc&#34;, ExternalFunctionArgs.builder()        
- *             .name(&#34;my_function&#34;)
- *             .database(&#34;my_test_db&#34;)
- *             .schema(&#34;my_test_schema&#34;)
+ *         var testExtFunc = new ExternalFunction("testExtFunc", ExternalFunctionArgs.builder()        
+ *             .name("my_function")
+ *             .database("my_test_db")
+ *             .schema("my_test_schema")
  *             .args(            
  *                 ExternalFunctionArgArgs.builder()
- *                     .name(&#34;arg1&#34;)
- *                     .type(&#34;varchar&#34;)
+ *                     .name("arg1")
+ *                     .type("varchar")
  *                     .build(),
  *                 ExternalFunctionArgArgs.builder()
- *                     .name(&#34;arg2&#34;)
- *                     .type(&#34;varchar&#34;)
+ *                     .name("arg2")
+ *                     .type("varchar")
  *                     .build())
- *             .returnType(&#34;variant&#34;)
- *             .returnBehavior(&#34;IMMUTABLE&#34;)
- *             .apiIntegration(&#34;api_integration_name&#34;)
- *             .urlOfProxyAndResource(&#34;https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func&#34;)
+ *             .returnType("variant")
+ *             .returnBehavior("IMMUTABLE")
+ *             .apiIntegration("api_integration_name")
+ *             .urlOfProxyAndResource("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

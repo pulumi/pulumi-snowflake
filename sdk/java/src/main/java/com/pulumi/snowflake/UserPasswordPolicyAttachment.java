@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;, UserArgs.builder()        
- *             .name(&#34;USER_NAME&#34;)
+ *         var user = new User("user", UserArgs.builder()        
+ *             .name("USER_NAME")
  *             .build());
  * 
- *         var pp = new PasswordPolicy(&#34;pp&#34;, PasswordPolicyArgs.builder()        
- *             .database(&#34;prod&#34;)
- *             .schema(&#34;security&#34;)
- *             .name(&#34;default_policy&#34;)
+ *         var pp = new PasswordPolicy("pp", PasswordPolicyArgs.builder()        
+ *             .database("prod")
+ *             .schema("security")
+ *             .name("default_policy")
  *             .build());
  * 
- *         var ppa = new UserPasswordPolicyAttachment(&#34;ppa&#34;, UserPasswordPolicyAttachmentArgs.builder()        
+ *         var ppa = new UserPasswordPolicyAttachment("ppa", UserPasswordPolicyAttachmentArgs.builder()        
  *             .passwordPolicyDatabase(pp.database())
  *             .passwordPolicySchema(pp.schema())
  *             .passwordPolicyName(pp.name())
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

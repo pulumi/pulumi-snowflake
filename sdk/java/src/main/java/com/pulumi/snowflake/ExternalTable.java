@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,26 +45,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var externalTable = new ExternalTable(&#34;externalTable&#34;, ExternalTableArgs.builder()        
- *             .database(&#34;db&#34;)
- *             .schema(&#34;schema&#34;)
- *             .name(&#34;external_table&#34;)
- *             .comment(&#34;External table&#34;)
- *             .fileFormat(&#34;TYPE = CSV FIELD_DELIMITER = &#39;|&#39;&#34;)
+ *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()        
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("external_table")
+ *             .comment("External table")
+ *             .fileFormat("TYPE = CSV FIELD_DELIMITER = '|'")
  *             .columns(            
  *                 ExternalTableColumnArgs.builder()
- *                     .name(&#34;id&#34;)
- *                     .type(&#34;int&#34;)
+ *                     .name("id")
+ *                     .type("int")
  *                     .build(),
  *                 ExternalTableColumnArgs.builder()
- *                     .name(&#34;data&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("data")
+ *                     .type("text")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

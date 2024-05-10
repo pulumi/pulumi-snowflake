@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,27 +44,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new ProcedureGrant(&#34;grant&#34;, ProcedureGrantArgs.builder()        
- *             .databaseName(&#34;database&#34;)
- *             .schemaName(&#34;schema&#34;)
- *             .procedureName(&#34;procedure&#34;)
+ *         var grant = new ProcedureGrant("grant", ProcedureGrantArgs.builder()        
+ *             .databaseName("database")
+ *             .schemaName("schema")
+ *             .procedureName("procedure")
  *             .argumentDataTypes(            
- *                 &#34;array&#34;,
- *                 &#34;string&#34;)
- *             .privilege(&#34;USAGE&#34;)
+ *                 "array",
+ *                 "string")
+ *             .privilege("USAGE")
  *             .roles(            
- *                 &#34;role1&#34;,
- *                 &#34;role2&#34;)
+ *                 "role1",
+ *                 "role2")
  *             .shares(            
- *                 &#34;share1&#34;,
- *                 &#34;share2&#34;)
+ *                 "share1",
+ *                 "share2")
  *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -105,19 +107,9 @@ public class ProcedureGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }

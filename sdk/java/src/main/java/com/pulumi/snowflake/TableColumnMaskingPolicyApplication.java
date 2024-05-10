@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,35 +51,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new MaskingPolicy(&#34;policy&#34;, MaskingPolicyArgs.builder()        
- *             .name(&#34;EXAMPLE_MASKING_POLICY&#34;)
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .valueDataType(&#34;VARCHAR&#34;)
- *             .maskingExpression(&#34;case when current_role() in (&#39;ANALYST&#39;) then val else sha2(val, 512) end&#34;)
- *             .returnDataType(&#34;VARCHAR&#34;)
+ *         var policy = new MaskingPolicy("policy", MaskingPolicyArgs.builder()        
+ *             .name("EXAMPLE_MASKING_POLICY")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .valueDataType("VARCHAR")
+ *             .maskingExpression("case when current_role() in ('ANALYST') then val else sha2(val, 512) end")
+ *             .returnDataType("VARCHAR")
  *             .build());
  * 
  *         // Table is created by the default provider
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .name(&#34;table&#34;)
+ *         var table = new Table("table", TableArgs.builder()        
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .name("table")
  *             .columns(TableColumnArgs.builder()
- *                 .name(&#34;secret&#34;)
- *                 .type(&#34;VARCHAR(16777216)&#34;)
+ *                 .name("secret")
+ *                 .type("VARCHAR(16777216)")
  *                 .build())
  *             .build());
  * 
- *         var application = new TableColumnMaskingPolicyApplication(&#34;application&#34;, TableColumnMaskingPolicyApplicationArgs.builder()        
+ *         var application = new TableColumnMaskingPolicyApplication("application", TableColumnMaskingPolicyApplicationArgs.builder()        
  *             .table(table.qualifiedName())
- *             .column(&#34;secret&#34;)
+ *             .column("secret")
  *             .maskingPolicy(policy.qualifiedName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

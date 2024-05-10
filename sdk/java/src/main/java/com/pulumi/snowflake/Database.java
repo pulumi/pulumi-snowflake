@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,42 +45,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Database(&#34;simple&#34;, DatabaseArgs.builder()        
- *             .name(&#34;testing&#34;)
- *             .comment(&#34;test comment&#34;)
+ *         var simple = new Database("simple", DatabaseArgs.builder()        
+ *             .name("testing")
+ *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
  *             .build());
  * 
- *         var withReplication = new Database(&#34;withReplication&#34;, DatabaseArgs.builder()        
- *             .name(&#34;testing_2&#34;)
- *             .comment(&#34;test comment 2&#34;)
+ *         var withReplication = new Database("withReplication", DatabaseArgs.builder()        
+ *             .name("testing_2")
+ *             .comment("test comment 2")
  *             .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()
  *                 .accounts(                
- *                     &#34;test_account1&#34;,
- *                     &#34;test_account_2&#34;)
+ *                     "test_account1",
+ *                     "test_account_2")
  *                 .ignoreEditionCheck(true)
  *                 .build())
  *             .build());
  * 
- *         var fromReplica = new Database(&#34;fromReplica&#34;, DatabaseArgs.builder()        
- *             .name(&#34;testing_3&#34;)
- *             .comment(&#34;test comment&#34;)
+ *         var fromReplica = new Database("fromReplica", DatabaseArgs.builder()        
+ *             .name("testing_3")
+ *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
- *             .fromReplica(&#34;\&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name\&#34;&#34;)
+ *             .fromReplica("\"org1\".\"account1\".\"primary_db_name\"")
  *             .build());
  * 
- *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
- *             .name(&#34;testing_4&#34;)
- *             .comment(&#34;test comment&#34;)
+ *         var fromShare = new Database("fromShare", DatabaseArgs.builder()        
+ *             .name("testing_4")
+ *             .comment("test comment")
  *             .fromShare(Map.ofEntries(
- *                 Map.entry(&#34;provider&#34;, &#34;account1_locator&#34;),
- *                 Map.entry(&#34;share&#34;, &#34;share1&#34;)
+ *                 Map.entry("provider", "account1_locator"),
+ *                 Map.entry("share", "share1")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

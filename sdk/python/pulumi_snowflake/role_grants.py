@@ -21,8 +21,6 @@ class RoleGrantsArgs:
         """
         The set of arguments for constructing a RoleGrants resource.
         :param pulumi.Input[str] role_name: The name of the role we are granting.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
         """
@@ -49,10 +47,6 @@ class RoleGrantsArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -93,8 +87,6 @@ class _RoleGrantsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RoleGrants resources.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] role_name: The name of the role we are granting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
@@ -111,10 +103,6 @@ class _RoleGrantsState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -206,8 +194,6 @@ class RoleGrants(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] role_name: The name of the role we are granting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
@@ -309,8 +295,6 @@ class RoleGrants(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] role_name: The name of the role we are granting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants role to this specified role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Grants role to this specified user.
@@ -328,10 +312,6 @@ class RoleGrants(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property

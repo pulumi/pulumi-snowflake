@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,38 +54,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(&#34;database&#34;)
- *             .name(&#34;schema&#34;)
+ *         var schema = new Schema("schema", SchemaArgs.builder()        
+ *             .database("database")
+ *             .name("schema")
  *             .dataRetentionDays(1)
  *             .build());
  * 
- *         var sequence = new Sequence(&#34;sequence&#34;, SequenceArgs.builder()        
+ *         var sequence = new Sequence("sequence", SequenceArgs.builder()        
  *             .database(schema.database())
  *             .schema(schema.name())
- *             .name(&#34;sequence&#34;)
+ *             .name("sequence")
  *             .build());
  * 
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
+ *         var table = new Table("table", TableArgs.builder()        
  *             .database(schema.database())
  *             .schema(schema.name())
- *             .name(&#34;table&#34;)
- *             .comment(&#34;A table.&#34;)
- *             .clusterBies(&#34;to_date(DATE)&#34;)
+ *             .name("table")
+ *             .comment("A table.")
+ *             .clusterBies("to_date(DATE)")
  *             .dataRetentionTimeInDays(schema.dataRetentionTimeInDays())
  *             .changeTracking(false)
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;id&#34;)
- *                     .type(&#34;int&#34;)
+ *                     .name("id")
+ *                     .type("int")
  *                     .nullable(true)
  *                     .default_(TableColumnDefaultArgs.builder()
  *                         .sequence(sequence.fullyQualifiedName())
  *                         .build())
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;identity&#34;)
- *                     .type(&#34;NUMBER(38,0)&#34;)
+ *                     .name("identity")
+ *                     .type("NUMBER(38,0)")
  *                     .nullable(true)
  *                     .identity(TableColumnIdentityArgs.builder()
  *                         .startNum(1)
@@ -92,29 +93,30 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;data&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("data")
+ *                     .type("text")
  *                     .nullable(false)
- *                     .collate(&#34;en-ci&#34;)
+ *                     .collate("en-ci")
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;DATE&#34;)
- *                     .type(&#34;TIMESTAMP_NTZ(9)&#34;)
+ *                     .name("DATE")
+ *                     .type("TIMESTAMP_NTZ(9)")
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;extra&#34;)
- *                     .type(&#34;VARIANT&#34;)
- *                     .comment(&#34;extra data&#34;)
+ *                     .name("extra")
+ *                     .type("VARIANT")
+ *                     .comment("extra data")
  *                     .build())
  *             .primaryKey(TablePrimaryKeyArgs.builder()
- *                 .name(&#34;my_key&#34;)
- *                 .keys(&#34;data&#34;)
+ *                 .name("my_key")
+ *                 .keys("data")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

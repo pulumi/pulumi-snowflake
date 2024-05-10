@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,25 +43,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new ResourceMonitor(&#34;monitor&#34;, ResourceMonitorArgs.builder()        
- *             .name(&#34;monitor&#34;)
+ *         var monitor = new ResourceMonitor("monitor", ResourceMonitorArgs.builder()        
+ *             .name("monitor")
  *             .creditQuota(100)
- *             .frequency(&#34;DAILY&#34;)
- *             .startTimestamp(&#34;2020-12-07 00:00&#34;)
- *             .endTimestamp(&#34;2021-12-07 00:00&#34;)
+ *             .frequency("DAILY")
+ *             .startTimestamp("2020-12-07 00:00")
+ *             .endTimestamp("2021-12-07 00:00")
  *             .notifyTriggers(            
  *                 40,
  *                 50)
  *             .suspendTriggers(50)
  *             .suspendImmediateTriggers(90)
  *             .notifyUsers(            
- *                 &#34;USERONE&#34;,
- *                 &#34;USERTWO&#34;)
+ *                 "USERONE",
+ *                 "USERTWO")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .name(&#34;EXAMPLE_STAGE&#34;)
- *             .url(&#34;s3://com.example.bucket/prefix&#34;)
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, exampleAwsKeyId,exampleAwsSecretKey))
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()        
+ *             .name("EXAMPLE_STAGE")
+ *             .url("s3://com.example.bucket/prefix")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .credentials(String.format("AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'", exampleAwsKeyId,exampleAwsSecretKey))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

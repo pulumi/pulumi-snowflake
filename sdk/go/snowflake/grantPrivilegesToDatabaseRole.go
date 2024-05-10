@@ -44,12 +44,7 @@ type GrantPrivilegesToDatabaseRole struct {
 
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
+	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -101,12 +96,7 @@ func GetGrantPrivilegesToDatabaseRole(ctx *pulumi.Context,
 type grantPrivilegesToDatabaseRoleState struct {
 	// Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply *bool `pulumi:"alwaysApply"`
+	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -126,12 +116,7 @@ type grantPrivilegesToDatabaseRoleState struct {
 type GrantPrivilegesToDatabaseRoleState struct {
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrInput
+	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -155,12 +140,7 @@ func (GrantPrivilegesToDatabaseRoleState) ElementType() reflect.Type {
 type grantPrivilegesToDatabaseRoleArgs struct {
 	// Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply *bool `pulumi:"alwaysApply"`
+	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -181,12 +161,7 @@ type grantPrivilegesToDatabaseRoleArgs struct {
 type GrantPrivilegesToDatabaseRoleArgs struct {
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrInput
+	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -295,11 +270,6 @@ func (o GrantPrivilegesToDatabaseRoleOutput) AllPrivileges() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AllPrivileges }).(pulumi.BoolPtrOutput)
 }
 
-// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-// of the config being eventually convergent (producing an empty plan).
 func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }
