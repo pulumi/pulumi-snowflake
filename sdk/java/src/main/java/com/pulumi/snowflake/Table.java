@@ -54,19 +54,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var schema = new Schema("schema", SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
  *             .database("database")
  *             .name("schema")
  *             .dataRetentionDays(1)
  *             .build());
  * 
- *         var sequence = new Sequence("sequence", SequenceArgs.builder()        
+ *         var sequence = new Sequence("sequence", SequenceArgs.builder()
  *             .database(schema.database())
  *             .schema(schema.name())
  *             .name("sequence")
  *             .build());
  * 
- *         var table = new Table("table", TableArgs.builder()        
+ *         var table = new Table("table", TableArgs.builder()
  *             .database(schema.database())
  *             .schema(schema.name())
  *             .name("table")

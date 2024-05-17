@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database("database", DatabaseArgs.builder()        
+ *         var database = new Database("database", DatabaseArgs.builder()
  *             .name("database")
  *             .build());
  * 
- *         var schema = new Schema("schema", SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
  *             .name("schema")
  *             .database(database.name())
  *             .build());
  * 
- *         var tag = new Tag("tag", TagArgs.builder()        
+ *         var tag = new Tag("tag", TagArgs.builder()
  *             .name("cost_center")
  *             .database(database.name())
  *             .schema(schema.name())

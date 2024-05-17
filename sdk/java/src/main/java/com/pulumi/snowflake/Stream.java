@@ -19,56 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Table;
- * import com.pulumi.snowflake.TableArgs;
- * import com.pulumi.snowflake.inputs.TableColumnArgs;
- * import com.pulumi.snowflake.Stream;
- * import com.pulumi.snowflake.StreamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var table = new Table("table", TableArgs.builder()        
- *             .database("database")
- *             .schema("schema")
- *             .name("name")
- *             .columns(TableColumnArgs.builder()
- *                 .type("NUMBER(38,0)")
- *                 .name("id")
- *                 .build())
- *             .build());
- * 
- *         var stream = new Stream("stream", StreamArgs.builder()        
- *             .comment("A stream.")
- *             .database("database")
- *             .schema("schema")
- *             .name("stream")
- *             .onTable(table.qualifiedName())
- *             .appendOnly(false)
- *             .insertOnly(false)
- *             .owner("role1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

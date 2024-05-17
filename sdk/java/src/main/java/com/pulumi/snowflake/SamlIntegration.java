@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var samlIntegration = new SamlIntegration("samlIntegration", SamlIntegrationArgs.builder()        
+ *         var samlIntegration = new SamlIntegration("samlIntegration", SamlIntegrationArgs.builder()
  *             .name("saml_integration")
  *             .saml2Provider("CUSTOM")
  *             .saml2Issuer("test_issuer")

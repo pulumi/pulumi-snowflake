@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tableauDesktop = new OauthIntegration("tableauDesktop", OauthIntegrationArgs.builder()        
+ *         var tableauDesktop = new OauthIntegration("tableauDesktop", OauthIntegrationArgs.builder()
  *             .name("TABLEAU_DESKTOP")
  *             .oauthClient("TABLEAU_DESKTOP")
  *             .enabled(true)

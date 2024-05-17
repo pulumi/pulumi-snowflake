@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ac1 = new Account("ac1", AccountArgs.builder()        
+ *         var ac1 = new Account("ac1", AccountArgs.builder()
  *             .name("SNOWFLAKE_TEST_ACCOUNT")
  *             .adminName("John Doe")
  *             .adminPassword("Abcd1234!")

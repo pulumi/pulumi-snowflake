@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alert = new Alert("alert", AlertArgs.builder()        
+ *         var alert = new Alert("alert", AlertArgs.builder()
  *             .database("database")
  *             .schema("schema")
  *             .name("alert")

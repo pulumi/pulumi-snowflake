@@ -19,53 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.User;
- * import com.pulumi.snowflake.UserArgs;
- * import com.pulumi.snowflake.PasswordPolicy;
- * import com.pulumi.snowflake.PasswordPolicyArgs;
- * import com.pulumi.snowflake.UserPasswordPolicyAttachment;
- * import com.pulumi.snowflake.UserPasswordPolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var user = new User("user", UserArgs.builder()        
- *             .name("USER_NAME")
- *             .build());
- * 
- *         var pp = new PasswordPolicy("pp", PasswordPolicyArgs.builder()        
- *             .database("prod")
- *             .schema("security")
- *             .name("default_policy")
- *             .build());
- * 
- *         var ppa = new UserPasswordPolicyAttachment("ppa", UserPasswordPolicyAttachmentArgs.builder()        
- *             .passwordPolicyDatabase(pp.database())
- *             .passwordPolicySchema(pp.schema())
- *             .passwordPolicyName(pp.name())
- *             .userName(user.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

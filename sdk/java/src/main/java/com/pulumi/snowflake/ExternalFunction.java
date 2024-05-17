@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testExtFunc = new ExternalFunction("testExtFunc", ExternalFunctionArgs.builder()        
+ *         var testExtFunc = new ExternalFunction("testExtFunc", ExternalFunctionArgs.builder()
  *             .name("my_function")
  *             .database("my_test_db")
  *             .schema("my_test_schema")

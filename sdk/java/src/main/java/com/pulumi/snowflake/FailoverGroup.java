@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new Database("db", DatabaseArgs.builder()        
+ *         var db = new Database("db", DatabaseArgs.builder()
  *             .name("db1")
  *             .build());
  * 
- *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()        
+ *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()
  *             .name("FG1")
  *             .objectTypes(            
  *                 "WAREHOUSES",
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()        
+ *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()
  *             .name("FG1")
  *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
  *                 .organizationName("...")
