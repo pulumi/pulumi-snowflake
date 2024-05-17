@@ -20,9 +20,9 @@ import javax.annotation.Nullable;
 /**
  * The account resource allows you to create and manage Snowflake accounts.
  * 
- *     **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
- *     
- *     **NOTE** ORGADMIN priviliges are required for this resource
+ * !&gt; **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
+ * 
+ * &gt; **Note** ORGADMIN priviliges are required for this resource
  * 
  * ## Example Usage
  * 

@@ -3345,7 +3345,7 @@
     },
     "resources": {
         "snowflake:index/account:Account": {
-            "description": "The account resource allows you to create and manage Snowflake accounts.\n\n    **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)\n\n    **NOTE** ORGADMIN priviliges are required for this resource\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst ac1 = new snowflake.Account(\"ac1\", {\n    name: \"SNOWFLAKE_TEST_ACCOUNT\",\n    adminName: \"John Doe\",\n    adminPassword: \"Abcd1234!\",\n    email: \"john.doe@snowflake.com\",\n    firstName: \"John\",\n    lastName: \"Doe\",\n    mustChangePassword: true,\n    edition: \"STANDARD\",\n    comment: \"Snowflake Test Account\",\n    region: \"AWS_US_WEST_2\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nac1 = snowflake.Account(\"ac1\",\n    name=\"SNOWFLAKE_TEST_ACCOUNT\",\n    admin_name=\"John Doe\",\n    admin_password=\"Abcd1234!\",\n    email=\"john.doe@snowflake.com\",\n    first_name=\"John\",\n    last_name=\"Doe\",\n    must_change_password=True,\n    edition=\"STANDARD\",\n    comment=\"Snowflake Test Account\",\n    region=\"AWS_US_WEST_2\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var ac1 = new Snowflake.Account(\"ac1\", new()\n    {\n        Name = \"SNOWFLAKE_TEST_ACCOUNT\",\n        AdminName = \"John Doe\",\n        AdminPassword = \"Abcd1234!\",\n        Email = \"john.doe@snowflake.com\",\n        FirstName = \"John\",\n        LastName = \"Doe\",\n        MustChangePassword = true,\n        Edition = \"STANDARD\",\n        Comment = \"Snowflake Test Account\",\n        Region = \"AWS_US_WEST_2\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAccount(ctx, \"ac1\", \u0026snowflake.AccountArgs{\n\t\t\tName:               pulumi.String(\"SNOWFLAKE_TEST_ACCOUNT\"),\n\t\t\tAdminName:          pulumi.String(\"John Doe\"),\n\t\t\tAdminPassword:      pulumi.String(\"Abcd1234!\"),\n\t\t\tEmail:              pulumi.String(\"john.doe@snowflake.com\"),\n\t\t\tFirstName:          pulumi.String(\"John\"),\n\t\t\tLastName:           pulumi.String(\"Doe\"),\n\t\t\tMustChangePassword: pulumi.Bool(true),\n\t\t\tEdition:            pulumi.String(\"STANDARD\"),\n\t\t\tComment:            pulumi.String(\"Snowflake Test Account\"),\n\t\t\tRegion:             pulumi.String(\"AWS_US_WEST_2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Account;\nimport com.pulumi.snowflake.AccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ac1 = new Account(\"ac1\", AccountArgs.builder()        \n            .name(\"SNOWFLAKE_TEST_ACCOUNT\")\n            .adminName(\"John Doe\")\n            .adminPassword(\"Abcd1234!\")\n            .email(\"john.doe@snowflake.com\")\n            .firstName(\"John\")\n            .lastName(\"Doe\")\n            .mustChangePassword(true)\n            .edition(\"STANDARD\")\n            .comment(\"Snowflake Test Account\")\n            .region(\"AWS_US_WEST_2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  ac1:\n    type: snowflake:Account\n    properties:\n      name: SNOWFLAKE_TEST_ACCOUNT\n      adminName: John Doe\n      adminPassword: Abcd1234!\n      email: john.doe@snowflake.com\n      firstName: John\n      lastName: Doe\n      mustChangePassword: true\n      edition: STANDARD\n      comment: Snowflake Test Account\n      region: AWS_US_WEST_2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/account:Account account \u003caccount_locator\u003e\n```\n\n",
+            "description": "The account resource allows you to create and manage Snowflake accounts.\n\n!\u003e **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)\n\n\u003e **Note** ORGADMIN priviliges are required for this resource\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst ac1 = new snowflake.Account(\"ac1\", {\n    name: \"SNOWFLAKE_TEST_ACCOUNT\",\n    adminName: \"John Doe\",\n    adminPassword: \"Abcd1234!\",\n    email: \"john.doe@snowflake.com\",\n    firstName: \"John\",\n    lastName: \"Doe\",\n    mustChangePassword: true,\n    edition: \"STANDARD\",\n    comment: \"Snowflake Test Account\",\n    region: \"AWS_US_WEST_2\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nac1 = snowflake.Account(\"ac1\",\n    name=\"SNOWFLAKE_TEST_ACCOUNT\",\n    admin_name=\"John Doe\",\n    admin_password=\"Abcd1234!\",\n    email=\"john.doe@snowflake.com\",\n    first_name=\"John\",\n    last_name=\"Doe\",\n    must_change_password=True,\n    edition=\"STANDARD\",\n    comment=\"Snowflake Test Account\",\n    region=\"AWS_US_WEST_2\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var ac1 = new Snowflake.Account(\"ac1\", new()\n    {\n        Name = \"SNOWFLAKE_TEST_ACCOUNT\",\n        AdminName = \"John Doe\",\n        AdminPassword = \"Abcd1234!\",\n        Email = \"john.doe@snowflake.com\",\n        FirstName = \"John\",\n        LastName = \"Doe\",\n        MustChangePassword = true,\n        Edition = \"STANDARD\",\n        Comment = \"Snowflake Test Account\",\n        Region = \"AWS_US_WEST_2\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewAccount(ctx, \"ac1\", \u0026snowflake.AccountArgs{\n\t\t\tName:               pulumi.String(\"SNOWFLAKE_TEST_ACCOUNT\"),\n\t\t\tAdminName:          pulumi.String(\"John Doe\"),\n\t\t\tAdminPassword:      pulumi.String(\"Abcd1234!\"),\n\t\t\tEmail:              pulumi.String(\"john.doe@snowflake.com\"),\n\t\t\tFirstName:          pulumi.String(\"John\"),\n\t\t\tLastName:           pulumi.String(\"Doe\"),\n\t\t\tMustChangePassword: pulumi.Bool(true),\n\t\t\tEdition:            pulumi.String(\"STANDARD\"),\n\t\t\tComment:            pulumi.String(\"Snowflake Test Account\"),\n\t\t\tRegion:             pulumi.String(\"AWS_US_WEST_2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Account;\nimport com.pulumi.snowflake.AccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var ac1 = new Account(\"ac1\", AccountArgs.builder()        \n            .name(\"SNOWFLAKE_TEST_ACCOUNT\")\n            .adminName(\"John Doe\")\n            .adminPassword(\"Abcd1234!\")\n            .email(\"john.doe@snowflake.com\")\n            .firstName(\"John\")\n            .lastName(\"Doe\")\n            .mustChangePassword(true)\n            .edition(\"STANDARD\")\n            .comment(\"Snowflake Test Account\")\n            .region(\"AWS_US_WEST_2\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  ac1:\n    type: snowflake:Account\n    properties:\n      name: SNOWFLAKE_TEST_ACCOUNT\n      adminName: John Doe\n      adminPassword: Abcd1234!\n      email: john.doe@snowflake.com\n      firstName: John\n      lastName: Doe\n      mustChangePassword: true\n      edition: STANDARD\n      comment: Snowflake Test Account\n      region: AWS_US_WEST_2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/account:Account account \u003caccount_locator\u003e\n```\n\n",
             "properties": {
                 "adminName": {
                     "type": "string",
@@ -7243,6 +7243,67 @@
                 "type": "object"
             }
         },
+        "snowflake:index/grantApplicationRole:GrantApplicationRole": {
+            "description": "## Example Usage\n\n## Import\n\nformat is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)\n\n```sh\n$ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole \\\"app_role_1\\\"|ACCOUNT_ROLE|\\\"my_role\\\"\"\n```\n\n",
+            "properties": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the application on which application role will be granted.\n"
+                },
+                "applicationRoleName": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the application role to grant.\n"
+                },
+                "parentAccountRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the account role on which application role will be granted.\n"
+                }
+            },
+            "required": [
+                "applicationRoleName"
+            ],
+            "inputProperties": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the application on which application role will be granted.\n",
+                    "willReplaceOnChanges": true
+                },
+                "applicationRoleName": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the application role to grant.\n",
+                    "willReplaceOnChanges": true
+                },
+                "parentAccountRoleName": {
+                    "type": "string",
+                    "description": "The fully qualified name of the account role on which application role will be granted.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "applicationRoleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GrantApplicationRole resources.\n",
+                "properties": {
+                    "applicationName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the application on which application role will be granted.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "applicationRoleName": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the application role to grant.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "parentAccountRoleName": {
+                        "type": "string",
+                        "description": "The fully qualified name of the account role on which application role will be granted.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/grantDatabaseRole:GrantDatabaseRole": {
             "description": "## Example Usage\n\n## Import\n\nformat is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)\n\n```sh\n$ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \\\"test_db_role\\\"|ROLE|\\\"test_parent_role\\\"\"\n```\n\n",
             "properties": {
@@ -9764,7 +9825,7 @@
             }
         },
         "snowflake:index/pipe:Pipe": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Pipe;\nimport com.pulumi.snowflake.PipeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var pipe = new Pipe(\"pipe\", PipeArgs.builder()        \n            .database(\"db\")\n            .schema(\"schema\")\n            .name(\"pipe\")\n            .comment(\"A pipe.\")\n            .copyStatement(\"copy into mytable from @mystage\")\n            .autoIngest(false)\n            .awsSnsTopicArn(\"...\")\n            .notificationChannel(\"...\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  pipe:\n    type: snowflake:Pipe\n    properties:\n      database: db\n      schema: schema\n      name: pipe\n      comment: A pipe.\n      copyStatement: copy into mytable from @mystage\n      autoIngest: false\n      awsSnsTopicArn: '...'\n      notificationChannel: '...'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | pipe name\n\n```sh\n$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'\n```\n\n",
+            "description": "\u003e **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.\n\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Pipe;\nimport com.pulumi.snowflake.PipeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var pipe = new Pipe(\"pipe\", PipeArgs.builder()        \n            .database(\"db\")\n            .schema(\"schema\")\n            .name(\"pipe\")\n            .comment(\"A pipe.\")\n            .copyStatement(\"copy into mytable from @mystage\")\n            .autoIngest(false)\n            .awsSnsTopicArn(\"...\")\n            .notificationChannel(\"...\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  pipe:\n    type: snowflake:Pipe\n    properties:\n      database: db\n      schema: schema\n      name: pipe\n      comment: A pipe.\n      copyStatement: copy into mytable from @mystage\n      autoIngest: false\n      awsSnsTopicArn: '...'\n      notificationChannel: '...'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | pipe name\n\n```sh\n$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'\n```\n\n",
             "properties": {
                 "autoIngest": {
                     "type": "boolean",
@@ -16158,6 +16219,60 @@
                     "origin",
                     "owner",
                     "retentionTime",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "snowflake:index/getDatabaseRole:getDatabaseRole": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst dbRole = snowflake.getDatabaseRole({\n    database: \"MYDB\",\n    name: \"DBROLE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ndb_role = snowflake.get_database_role(database=\"MYDB\",\n    name=\"DBROLE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var dbRole = Snowflake.GetDatabaseRole.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Name = \"DBROLE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.LookupDatabaseRole(ctx, \u0026snowflake.LookupDatabaseRoleArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tName:     \"DBROLE\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()\n            .database(\"MYDB\")\n            .name(\"DBROLE\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  dbRole:\n    fn::invoke:\n      Function: snowflake:getDatabaseRole\n      Arguments:\n        database: MYDB\n        name: DBROLE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDatabaseRole.\n",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "The database from which to return the database role from.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Database role name.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "database",
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDatabaseRole.\n",
+                "properties": {
+                    "comment": {
+                        "description": "The comment on the role\n",
+                        "type": "string"
+                    },
+                    "database": {
+                        "description": "The database from which to return the database role from.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Database role name.\n",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "The owner of the role\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "comment",
+                    "database",
+                    "name",
+                    "owner",
                     "id"
                 ],
                 "type": "object"

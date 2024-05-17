@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
 //
 // ## Import
 //

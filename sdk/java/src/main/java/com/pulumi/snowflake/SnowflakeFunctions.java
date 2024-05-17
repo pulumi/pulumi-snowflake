@@ -15,6 +15,8 @@ import com.pulumi.snowflake.inputs.GetAlertsArgs;
 import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseArgs;
 import com.pulumi.snowflake.inputs.GetDatabasePlainArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRolePlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabasesArgs;
@@ -76,6 +78,7 @@ import com.pulumi.snowflake.outputs.GetAlertsResult;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
 import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
+import com.pulumi.snowflake.outputs.GetDatabaseRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetDynamicTablesResult;
@@ -823,6 +826,170 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args) {
+        return getDatabaseRole(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args) {
+        return getDatabaseRolePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

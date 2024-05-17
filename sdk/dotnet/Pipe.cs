@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
+    /// &gt; **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
     /// 
     /// ## Import
     /// 

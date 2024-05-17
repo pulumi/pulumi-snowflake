@@ -236,6 +236,9 @@
             "snowflake_grant_account_role": {
                 "current": "snowflake:index/grantAccountRole:GrantAccountRole"
             },
+            "snowflake_grant_application_role": {
+                "current": "snowflake:index/grantApplicationRole:GrantApplicationRole"
+            },
             "snowflake_grant_database_role": {
                 "current": "snowflake:index/grantDatabaseRole:GrantDatabaseRole"
             },
@@ -827,6 +830,9 @@
             },
             "snowflake_database": {
                 "current": "snowflake:index/getDatabase:getDatabase"
+            },
+            "snowflake_database_role": {
+                "current": "snowflake:index/getDatabaseRole:getDatabaseRole"
             },
             "snowflake_database_roles": {
                 "current": "snowflake:index/getDatabaseRoles:getDatabaseRoles",
