@@ -135,6 +135,11 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetDatabaseRoleArgs, GetDatabaseRoleResult, GetDatabaseRoleOutputArgs } from "./getDatabaseRole";
+export const getDatabaseRole: typeof import("./getDatabaseRole").getDatabaseRole = null as any;
+export const getDatabaseRoleOutput: typeof import("./getDatabaseRole").getDatabaseRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseRole","getDatabaseRoleOutput"], () => require("./getDatabaseRole"));
+
 export { GetDatabaseRolesArgs, GetDatabaseRolesResult, GetDatabaseRolesOutputArgs } from "./getDatabaseRoles";
 export const getDatabaseRoles: typeof import("./getDatabaseRoles").getDatabaseRoles = null as any;
 export const getDatabaseRolesOutput: typeof import("./getDatabaseRoles").getDatabaseRolesOutput = null as any;
@@ -304,6 +309,11 @@ export { GrantAccountRoleArgs, GrantAccountRoleState } from "./grantAccountRole"
 export type GrantAccountRole = import("./grantAccountRole").GrantAccountRole;
 export const GrantAccountRole: typeof import("./grantAccountRole").GrantAccountRole = null as any;
 utilities.lazyLoad(exports, ["GrantAccountRole"], () => require("./grantAccountRole"));
+
+export { GrantApplicationRoleArgs, GrantApplicationRoleState } from "./grantApplicationRole";
+export type GrantApplicationRole = import("./grantApplicationRole").GrantApplicationRole;
+export const GrantApplicationRole: typeof import("./grantApplicationRole").GrantApplicationRole = null as any;
+utilities.lazyLoad(exports, ["GrantApplicationRole"], () => require("./grantApplicationRole"));
 
 export { GrantDatabaseRoleArgs, GrantDatabaseRoleState } from "./grantDatabaseRole";
 export type GrantDatabaseRole = import("./grantDatabaseRole").GrantDatabaseRole;
@@ -678,6 +688,8 @@ const _module = {
                 return new FunctionGrant(name, <any>undefined, { urn })
             case "snowflake:index/grantAccountRole:GrantAccountRole":
                 return new GrantAccountRole(name, <any>undefined, { urn })
+            case "snowflake:index/grantApplicationRole:GrantApplicationRole":
+                return new GrantApplicationRole(name, <any>undefined, { urn })
             case "snowflake:index/grantDatabaseRole:GrantDatabaseRole":
                 return new GrantDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantOwnership:GrantOwnership":
@@ -829,6 +841,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _mod
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantApplicationRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)

@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FunctionGrant{}
 	case "snowflake:index/grantAccountRole:GrantAccountRole":
 		r = &GrantAccountRole{}
+	case "snowflake:index/grantApplicationRole:GrantApplicationRole":
+		r = &GrantApplicationRole{}
 	case "snowflake:index/grantDatabaseRole:GrantDatabaseRole":
 		r = &GrantDatabaseRole{}
 	case "snowflake:index/grantOwnership:GrantOwnership":
@@ -328,6 +330,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/grantAccountRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/grantApplicationRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
