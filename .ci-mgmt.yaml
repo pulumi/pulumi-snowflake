@@ -24,4 +24,9 @@ plugins:
   - name: azure 
     version: "4.7.0"
 team: ecosystem
+license:
+  ignore:
+  # These projects don't have a LICENSE file, but do say mention (in README.md) that
+  # they are under Apache-2.0.
+  - github.com/apache/arrow
 pulumiConvert: 1

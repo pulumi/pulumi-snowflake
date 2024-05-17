@@ -60,6 +60,7 @@ jobs:
       with:
         module-path: provider
         ignore-modules: >-
+          github.com/apache/arrow,
           github.com/aead/chacha20,
           github.com/apache/arrow/go/v12,
           github.com/apache/thrift/lib/go/thrift,
