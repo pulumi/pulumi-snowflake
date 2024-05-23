@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MaskingPolicy("test", MaskingPolicyArgs.builder()        
+ *         var test = new MaskingPolicy("test", MaskingPolicyArgs.builder()
  *             .name("EXAMPLE_MASKING_POLICY")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")

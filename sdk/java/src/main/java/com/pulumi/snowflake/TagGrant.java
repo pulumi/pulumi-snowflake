@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TagGrant("example", TagGrantArgs.builder()        
+ *         var example = new TagGrant("example", TagGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .tagName("tag")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new DatabaseGrant("grant", DatabaseGrantArgs.builder()        
+ *         var grant = new DatabaseGrant("grant", DatabaseGrantArgs.builder()
  *             .databaseName("database")
  *             .privilege("USAGE")
  *             .roles(            

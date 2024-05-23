@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaskingPolicyGrant("example", MaskingPolicyGrantArgs.builder()        
+ *         var example = new MaskingPolicyGrant("example", MaskingPolicyGrantArgs.builder()
  *             .maskingPolicyName("EXAMPLE_MASKING_POLICY_NAME")
  *             .databaseName("EXAMPLE_DB_NAME")
  *             .schemaName("EXAMPLE_SCHEMA_NAME")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var schema = new Schema("schema", SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
  *             .database("database")
  *             .name("schema")
  *             .comment("A schema.")

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleStage = new Stage("exampleStage", StageArgs.builder()        
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
  *             .name("EXAMPLE_STAGE")
  *             .url("s3://com.example.bucket/prefix")
  *             .database("EXAMPLE_DB")

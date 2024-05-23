@@ -53,16 +53,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database("database", DatabaseArgs.builder()        
+ *         var database = new Database("database", DatabaseArgs.builder()
  *             .name("database")
  *             .build());
  * 
- *         var schema = new Schema("schema", SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
  *             .name("schema")
  *             .database(database.name())
  *             .build());
  * 
- *         var tag = new Tag("tag", TagArgs.builder()        
+ *         var tag = new Tag("tag", TagArgs.builder()
  *             .name("cost_center")
  *             .database(database.name())
  *             .schema(schema.name())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 "engineering")
  *             .build());
  * 
- *         var dbAssociation = new TagAssociation("dbAssociation", TagAssociationArgs.builder()        
+ *         var dbAssociation = new TagAssociation("dbAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
  *                 .name(database.name())
  *                 .build())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .tagValue("finance")
  *             .build());
  * 
- *         var test = new Table("test", TableArgs.builder()        
+ *         var test = new Table("test", TableArgs.builder()
  *             .database(testSnowflakeDatabase.name())
  *             .schema(testSnowflakeSchema.name())
  *             .name("TABLE_NAME")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var tableAssociation = new TagAssociation("tableAssociation", TagAssociationArgs.builder()        
+ *         var tableAssociation = new TagAssociation("tableAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
  *                 .name(test.name())
  *                 .database(testSnowflakeDatabase.name())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .tagValue("engineering")
  *             .build());
  * 
- *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()        
+ *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
  *                 .name(test.name().applyValue(name -> String.format("%s.column_name", name)))
  *                 .database(testSnowflakeDatabase.name())

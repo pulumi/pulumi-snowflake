@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dbRole = new DatabaseRole("dbRole", DatabaseRoleArgs.builder()        
+ *         var dbRole = new DatabaseRole("dbRole", DatabaseRoleArgs.builder()
  *             .database("database")
  *             .name("role_1")
  *             .comment("my db role")

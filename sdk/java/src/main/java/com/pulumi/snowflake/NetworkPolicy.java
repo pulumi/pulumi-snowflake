@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var policy = new NetworkPolicy("policy", NetworkPolicyArgs.builder()        
+ *         var policy = new NetworkPolicy("policy", NetworkPolicyArgs.builder()
  *             .name("policy")
  *             .comment("A policy.")
  *             .allowedIpLists("192.168.0.100/24")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new AccountGrant("grant", AccountGrantArgs.builder()        
+ *         var grant = new AccountGrant("grant", AccountGrantArgs.builder()
  *             .roles(            
  *                 "role1",
  *                 "role2")
