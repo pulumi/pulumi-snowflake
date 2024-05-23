@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
- *         var dt = new DynamicTable("dt", DynamicTableArgs.builder()        
+ *         var dt = new DynamicTable("dt", DynamicTableArgs.builder()
  *             .name("product")
  *             .database("mydb")
  *             .schema("myschema")

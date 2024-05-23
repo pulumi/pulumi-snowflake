@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new TaskGrant("grant", TaskGrantArgs.builder()        
+ *         var grant = new TaskGrant("grant", TaskGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .taskName("task")

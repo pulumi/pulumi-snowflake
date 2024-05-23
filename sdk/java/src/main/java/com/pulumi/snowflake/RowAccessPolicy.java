@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRowAccessPolicy = new RowAccessPolicy("exampleRowAccessPolicy", RowAccessPolicyArgs.builder()        
+ *         var exampleRowAccessPolicy = new RowAccessPolicy("exampleRowAccessPolicy", RowAccessPolicyArgs.builder()
  *             .name("EXAMPLE_ROW_ACCESS_POLICY")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")

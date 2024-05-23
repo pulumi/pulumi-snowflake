@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new ViewGrant("grant", ViewGrantArgs.builder()        
+ *         var grant = new ViewGrant("grant", ViewGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .viewName("view")
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         //Snowflake view grant is an object level grant, not a schema level grant. To add schema level
  *         //grants, use the `snowflake_schema_grant` resource
- *         var grantSchemaGrant = new SchemaGrant("grantSchemaGrant", SchemaGrantArgs.builder()        
+ *         var grantSchemaGrant = new SchemaGrant("grantSchemaGrant", SchemaGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .privilege("USAGE")

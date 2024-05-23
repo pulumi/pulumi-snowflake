@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var aws = new ApiIntegration("aws", ApiIntegrationArgs.builder()        
+ *         var aws = new ApiIntegration("aws", ApiIntegrationArgs.builder()
  *             .name("aws_integration")
  *             .apiProvider("aws_api_gateway")
  *             .apiAwsRoleArn("arn:aws:iam::000000000001:/role/test")
@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .build());
  * 
- *         var azure = new ApiIntegration("azure", ApiIntegrationArgs.builder()        
+ *         var azure = new ApiIntegration("azure", ApiIntegrationArgs.builder()
  *             .name("azure_integration")
  *             .apiProvider("azure_api_management")
  *             .azureTenantId("00000000-0000-0000-0000-000000000000")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .build());
  * 
- *         var gcp = new ApiIntegration("gcp", ApiIntegrationArgs.builder()        
+ *         var gcp = new ApiIntegration("gcp", ApiIntegrationArgs.builder()
  *             .name("gcp_integration")
  *             .apiProvider("google_api_gateway")
  *             .googleAudience("api-gateway-id-123456.apigateway.gcp-project.cloud.goog")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new Task("task", TaskArgs.builder()        
+ *         var task = new Task("task", TaskArgs.builder()
  *             .comment("my task")
  *             .database("database")
  *             .schema("schema")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .build());
  * 
- *         var serverlessTask = new Task("serverlessTask", TaskArgs.builder()        
+ *         var serverlessTask = new Task("serverlessTask", TaskArgs.builder()
  *             .comment("my serverless task")
  *             .database("db")
  *             .schema("schema")
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .build());
  * 
- *         var testTask = new Task("testTask", TaskArgs.builder()        
+ *         var testTask = new Task("testTask", TaskArgs.builder()
  *             .comment("task with allow_overlapping_execution")
  *             .database("database")
  *             .schema("schema")

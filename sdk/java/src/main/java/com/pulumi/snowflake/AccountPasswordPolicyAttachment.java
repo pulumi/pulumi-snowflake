@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new PasswordPolicy("default", PasswordPolicyArgs.builder()        
+ *         var default_ = new PasswordPolicy("default", PasswordPolicyArgs.builder()
  *             .database("prod")
  *             .schema("security")
  *             .name("default_policy")
  *             .build());
  * 
- *         var attachment = new AccountPasswordPolicyAttachment("attachment", AccountPasswordPolicyAttachmentArgs.builder()        
+ *         var attachment = new AccountPasswordPolicyAttachment("attachment", AccountPasswordPolicyAttachmentArgs.builder()
  *             .passwordPolicy(default_.qualifiedName())
  *             .build());
  * 

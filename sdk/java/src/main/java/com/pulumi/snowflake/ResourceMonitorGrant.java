@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new ResourceMonitorGrant("grant", ResourceMonitorGrantArgs.builder()        
+ *         var grant = new ResourceMonitorGrant("grant", ResourceMonitorGrantArgs.builder()
  *             .monitorName("monitor")
  *             .privilege("MODIFY")
  *             .roles("role1")

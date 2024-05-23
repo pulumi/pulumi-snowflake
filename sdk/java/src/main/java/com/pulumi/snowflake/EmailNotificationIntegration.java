@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var emailInt = new EmailNotificationIntegration("emailInt", EmailNotificationIntegrationArgs.builder()        
+ *         var emailInt = new EmailNotificationIntegration("emailInt", EmailNotificationIntegrationArgs.builder()
  *             .name("notification")
  *             .comment("A notification integration.")
  *             .enabled(true)

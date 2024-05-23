@@ -408,7 +408,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -453,7 +453,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -498,7 +498,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -543,7 +543,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -588,7 +588,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -633,7 +633,7 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()        
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
      *             .type("String")
      *             .value(this_.url())
@@ -3565,7 +3565,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -3627,7 +3627,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -3689,7 +3689,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -3751,7 +3751,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -3813,7 +3813,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -3875,7 +3875,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()        
+     *         var d = new Database("d", DatabaseArgs.builder()
      *             .name("TEST_DB")
      *             .build());
      * 
@@ -6524,14 +6524,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6540,12 +6540,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6553,7 +6553,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")
@@ -6606,14 +6606,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6622,12 +6622,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6635,7 +6635,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")
@@ -6688,14 +6688,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6704,12 +6704,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6717,7 +6717,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")
@@ -6770,14 +6770,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6786,12 +6786,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6799,7 +6799,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")
@@ -6852,14 +6852,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6868,12 +6868,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6881,7 +6881,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")
@@ -6934,14 +6934,14 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
      * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()        
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
      *             .ingress(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()        
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
      *             .vpcEndpointType("Interface")
@@ -6950,12 +6950,12 @@ public final class SnowflakeFunctions {
      *             .privateDnsEnabled(false)
      *             .build());
      * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()        
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
      *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
      *             .type("CNAME")
@@ -6963,7 +6963,7 @@ public final class SnowflakeFunctions {
      *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
      *             .build());
      * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()        
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
      *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
      *             .type("CNAME")

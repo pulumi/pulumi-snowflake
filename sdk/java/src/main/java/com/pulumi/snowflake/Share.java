@@ -44,13 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Share("test", ShareArgs.builder()        
+ *         var test = new Share("test", ShareArgs.builder()
  *             .name("share_name")
  *             .comment("cool comment")
  *             .accounts("organizationName.accountName")
  *             .build());
  * 
- *         var example = new Database("example", DatabaseArgs.builder()        
+ *         var example = new Database("example", DatabaseArgs.builder()
  *             .name("test")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)

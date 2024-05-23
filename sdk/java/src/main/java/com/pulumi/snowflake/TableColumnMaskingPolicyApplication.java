@@ -24,63 +24,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.MaskingPolicy;
- * import com.pulumi.snowflake.MaskingPolicyArgs;
- * import com.pulumi.snowflake.Table;
- * import com.pulumi.snowflake.TableArgs;
- * import com.pulumi.snowflake.inputs.TableColumnArgs;
- * import com.pulumi.snowflake.TableColumnMaskingPolicyApplication;
- * import com.pulumi.snowflake.TableColumnMaskingPolicyApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var policy = new MaskingPolicy("policy", MaskingPolicyArgs.builder()        
- *             .name("EXAMPLE_MASKING_POLICY")
- *             .database("EXAMPLE_DB")
- *             .schema("EXAMPLE_SCHEMA")
- *             .valueDataType("VARCHAR")
- *             .maskingExpression("case when current_role() in ('ANALYST') then val else sha2(val, 512) end")
- *             .returnDataType("VARCHAR")
- *             .build());
- * 
- *         // Table is created by the default provider
- *         var table = new Table("table", TableArgs.builder()        
- *             .database("EXAMPLE_DB")
- *             .schema("EXAMPLE_SCHEMA")
- *             .name("table")
- *             .columns(TableColumnArgs.builder()
- *                 .name("secret")
- *                 .type("VARCHAR(16777216)")
- *                 .build())
- *             .build());
- * 
- *         var application = new TableColumnMaskingPolicyApplication("application", TableColumnMaskingPolicyApplicationArgs.builder()        
- *             .table(table.qualifiedName())
- *             .column("secret")
- *             .maskingPolicy(policy.qualifiedName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var d = new Database("d", DatabaseArgs.builder()        
+ *         var d = new Database("d", DatabaseArgs.builder()
  *             .name("TEST_DB")
  *             .build());
  * 
- *         var o = new ObjectParameter("o", ObjectParameterArgs.builder()        
+ *         var o = new ObjectParameter("o", ObjectParameterArgs.builder()
  *             .key("SUSPEND_TASK_AFTER_NUM_FAILURES")
  *             .value("33")
  *             .objectType("DATABASE")
@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var s = new Schema("s", SchemaArgs.builder()        
+ *         var s = new Schema("s", SchemaArgs.builder()
  *             .name("TEST_SCHEMA")
  *             .database(d.name())
  *             .build());
  * 
- *         var o2 = new ObjectParameter("o2", ObjectParameterArgs.builder()        
+ *         var o2 = new ObjectParameter("o2", ObjectParameterArgs.builder()
  *             .key("USER_TASK_TIMEOUT_MS")
  *             .value("500")
  *             .objectType("SCHEMA")
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var t = new Table("t", TableArgs.builder()        
+ *         var t = new Table("t", TableArgs.builder()
  *             .name("TEST_TABLE")
  *             .database(d.name())
  *             .schema(s.name())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var o3 = new ObjectParameter("o3", ObjectParameterArgs.builder()        
+ *         var o3 = new ObjectParameter("o3", ObjectParameterArgs.builder()
  *             .key("DATA_RETENTION_TIME_IN_DAYS")
  *             .value("89")
  *             .objectType("TABLE")
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Setting object parameter at account level
- *         var o4 = new ObjectParameter("o4", ObjectParameterArgs.builder()        
+ *         var o4 = new ObjectParameter("o4", ObjectParameterArgs.builder()
  *             .key("DATA_RETENTION_TIME_IN_DAYS")
  *             .value("89")
  *             .onAccount(true)
