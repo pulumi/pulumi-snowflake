@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var d = new Database("d", DatabaseArgs.builder()        
+ *         var d = new Database("d", DatabaseArgs.builder()
  *             .name("some_db")
  *             .build());
  * 
- *         var s = new Schema("s", SchemaArgs.builder()        
+ *         var s = new Schema("s", SchemaArgs.builder()
  *             .name("some_schema")
  *             .database(d.name())
  *             .build());
  * 
- *         var t = new Table("t", TableArgs.builder()        
+ *         var t = new Table("t", TableArgs.builder()
  *             .database(d.name())
  *             .schema(s.name())
  *             .name("some_table")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var fkT = new Table("fkT", TableArgs.builder()        
+ *         var fkT = new Table("fkT", TableArgs.builder()
  *             .database(d.name())
  *             .schema(s.name())
  *             .name("fk_table")
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var primaryKey = new TableConstraint("primaryKey", TableConstraintArgs.builder()        
+ *         var primaryKey = new TableConstraint("primaryKey", TableConstraintArgs.builder()
  *             .name("myconstraint")
  *             .type("PRIMARY KEY")
  *             .tableId(t.qualifiedName())
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .comment("hello world")
  *             .build());
  * 
- *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()        
+ *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()
  *             .name("myconstraintfk")
  *             .type("FOREIGN KEY")
  *             .tableId(t.qualifiedName())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .comment("hello fk")
  *             .build());
  * 
- *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()        
+ *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()
  *             .name("unique")
  *             .type("UNIQUE")
  *             .tableId(t.qualifiedName())

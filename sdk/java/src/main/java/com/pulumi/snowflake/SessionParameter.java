@@ -41,13 +41,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s = new SessionParameter("s", SessionParameterArgs.builder()        
+ *         var s = new SessionParameter("s", SessionParameterArgs.builder()
  *             .key("AUTOCOMMIT")
  *             .value("false")
  *             .user("TEST_USER")
  *             .build());
  * 
- *         var s2 = new SessionParameter("s2", SessionParameterArgs.builder()        
+ *         var s2 = new SessionParameter("s2", SessionParameterArgs.builder()
  *             .key("BINARY_OUTPUT_FORMAT")
  *             .value("BASE64")
  *             .onAccount(true)

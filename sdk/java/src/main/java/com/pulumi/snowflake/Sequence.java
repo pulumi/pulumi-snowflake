@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database("database", DatabaseArgs.builder()        
+ *         var database = new Database("database", DatabaseArgs.builder()
  *             .name("things")
  *             .build());
  * 
- *         var testSchema = new Schema("testSchema", SchemaArgs.builder()        
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
  *             .name("things")
  *             .database(testDatabase.name())
  *             .build());
  * 
- *         var testSequence = new Sequence("testSequence", SequenceArgs.builder()        
+ *         var testSequence = new Sequence("testSequence", SequenceArgs.builder()
  *             .database(testDatabase.name())
  *             .schema(testSchema.name())
  *             .name("thing_counter")

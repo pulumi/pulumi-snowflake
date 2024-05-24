@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleFileFormat = new FileFormat("exampleFileFormat", FileFormatArgs.builder()        
+ *         var exampleFileFormat = new FileFormat("exampleFileFormat", FileFormatArgs.builder()
  *             .name("EXAMPLE_FILE_FORMAT")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")

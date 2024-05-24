@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azure = new ExternalOauthIntegration("azure", ExternalOauthIntegrationArgs.builder()        
+ *         var azure = new ExternalOauthIntegration("azure", ExternalOauthIntegrationArgs.builder()
  *             .name("AZURE_POWERBI")
  *             .type("AZURE")
  *             .enabled(true)

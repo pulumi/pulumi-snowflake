@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new StageGrant("grant", StageGrantArgs.builder()        
+ *         var grant = new StageGrant("grant", StageGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .stageName("stage")

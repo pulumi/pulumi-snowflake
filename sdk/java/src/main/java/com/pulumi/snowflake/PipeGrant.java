@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new PipeGrant("grant", PipeGrantArgs.builder()        
+ *         var grant = new PipeGrant("grant", PipeGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .pipeName("pipe")

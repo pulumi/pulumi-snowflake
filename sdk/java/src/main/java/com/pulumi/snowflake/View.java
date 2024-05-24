@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var view = new View("view", ViewArgs.builder()        
+ *         var view = new View("view", ViewArgs.builder()
  *             .database("database")
  *             .schema("schema")
  *             .name("view")

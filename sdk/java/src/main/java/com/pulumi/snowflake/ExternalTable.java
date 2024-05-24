@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()        
+ *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()
  *             .database("db")
  *             .schema("schema")
  *             .name("external_table")

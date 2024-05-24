@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Database("simple", DatabaseArgs.builder()        
+ *         var simple = new Database("simple", DatabaseArgs.builder()
  *             .name("testing")
  *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
  *             .build());
  * 
- *         var withReplication = new Database("withReplication", DatabaseArgs.builder()        
+ *         var withReplication = new Database("withReplication", DatabaseArgs.builder()
  *             .name("testing_2")
  *             .comment("test comment 2")
  *             .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()
@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fromReplica = new Database("fromReplica", DatabaseArgs.builder()        
+ *         var fromReplica = new Database("fromReplica", DatabaseArgs.builder()
  *             .name("testing_3")
  *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
  *             .fromReplica("\"org1\".\"account1\".\"primary_db_name\"")
  *             .build());
  * 
- *         var fromShare = new Database("fromShare", DatabaseArgs.builder()        
+ *         var fromShare = new Database("fromShare", DatabaseArgs.builder()
  *             .name("testing_4")
  *             .comment("test comment")
  *             .fromShare(Map.ofEntries(

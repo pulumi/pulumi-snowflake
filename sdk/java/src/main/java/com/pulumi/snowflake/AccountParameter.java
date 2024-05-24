@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var p = new AccountParameter("p", AccountParameterArgs.builder()        
+ *         var p = new AccountParameter("p", AccountParameterArgs.builder()
  *             .key("ALLOW_ID_TOKEN")
  *             .value("true")
  *             .build());
  * 
- *         var p2 = new AccountParameter("p2", AccountParameterArgs.builder()        
+ *         var p2 = new AccountParameter("p2", AccountParameterArgs.builder()
  *             .key("CLIENT_ENCRYPTION_KEY_SIZE")
  *             .value("256")
  *             .build());

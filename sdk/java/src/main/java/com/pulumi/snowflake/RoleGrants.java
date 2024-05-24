@@ -48,26 +48,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("rking_test_role")
  *             .comment("for testing")
  *             .build());
  * 
- *         var user = new User("user", UserArgs.builder()        
+ *         var user = new User("user", UserArgs.builder()
  *             .name("rking_test_user")
  *             .comment("for testing")
  *             .build());
  * 
- *         var user2 = new User("user2", UserArgs.builder()        
+ *         var user2 = new User("user2", UserArgs.builder()
  *             .name("rking_test_user2")
  *             .comment("for testing")
  *             .build());
  * 
- *         var otherRole = new Role("otherRole", RoleArgs.builder()        
+ *         var otherRole = new Role("otherRole", RoleArgs.builder()
  *             .name("rking_test_role2")
  *             .build());
  * 
- *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()        
+ *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()
  *             .roleName(role.name())
  *             .roles(otherRole.name())
  *             .users(            

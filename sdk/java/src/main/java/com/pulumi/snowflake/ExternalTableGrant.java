@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new ExternalTableGrant("grant", ExternalTableGrantArgs.builder()        
+ *         var grant = new ExternalTableGrant("grant", ExternalTableGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .externalTableName("external_table")
