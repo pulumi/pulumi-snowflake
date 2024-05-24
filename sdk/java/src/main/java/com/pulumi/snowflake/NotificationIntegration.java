@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var integration = new NotificationIntegration("integration", NotificationIntegrationArgs.builder()        
+ *         var integration = new NotificationIntegration("integration", NotificationIntegrationArgs.builder()
  *             .name("notification")
  *             .comment("A notification integration.")
  *             .enabled(true)

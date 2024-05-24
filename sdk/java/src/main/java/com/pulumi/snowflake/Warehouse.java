@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var warehouse = new Warehouse("warehouse", WarehouseArgs.builder()        
+ *         var warehouse = new Warehouse("warehouse", WarehouseArgs.builder()
  *             .name("test")
  *             .comment("foo")
  *             .warehouseSize("small")

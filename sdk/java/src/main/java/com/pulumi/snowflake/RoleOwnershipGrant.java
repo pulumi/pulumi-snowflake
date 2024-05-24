@@ -46,23 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("rking_test_role")
  *             .comment("for testing")
  *             .build());
  * 
- *         var otherRole = new Role("otherRole", RoleArgs.builder()        
+ *         var otherRole = new Role("otherRole", RoleArgs.builder()
  *             .name("rking_test_role2")
  *             .build());
  * 
  *         // ensure the Terraform user inherits ownership privileges for the rking_test_role role
  *         // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
- *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()        
+ *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()
  *             .roleName(role.name())
  *             .roles("ACCOUNTADMIN")
  *             .build());
  * 
- *         var grant = new RoleOwnershipGrant("grant", RoleOwnershipGrantArgs.builder()        
+ *         var grant = new RoleOwnershipGrant("grant", RoleOwnershipGrantArgs.builder()
  *             .onRoleName(role.name())
  *             .toRoleName(otherRole.name())
  *             .currentGrants("COPY")

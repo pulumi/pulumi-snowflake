@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new SchemaGrant("grant", SchemaGrantArgs.builder()        
+ *         var grant = new SchemaGrant("grant", SchemaGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .privilege("USAGE")

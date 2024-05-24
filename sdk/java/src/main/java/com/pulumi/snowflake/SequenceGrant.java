@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new SequenceGrant("grant", SequenceGrantArgs.builder()        
+ *         var grant = new SequenceGrant("grant", SequenceGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .sequenceName("sequence")

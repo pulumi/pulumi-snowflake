@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new StreamGrant("grant", StreamGrantArgs.builder()        
+ *         var grant = new StreamGrant("grant", StreamGrantArgs.builder()
  *             .databaseName("database")
  *             .schemaName("schema")
  *             .streamName("view")

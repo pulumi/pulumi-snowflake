@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         //## global privileges
  *         //#################################
  *         // list of privileges
- *         var g1 = new GrantPrivilegesToRole("g1", GrantPrivilegesToRoleArgs.builder()        
+ *         var g1 = new GrantPrivilegesToRole("g1", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "MODIFY",
  *                 "USAGE")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all privileges + grant option
- *         var g2 = new GrantPrivilegesToRole("g2", GrantPrivilegesToRoleArgs.builder()        
+ *         var g2 = new GrantPrivilegesToRole("g2", GrantPrivilegesToRoleArgs.builder()
  *             .roleName(r.name())
  *             .onAccount(true)
  *             .allPrivileges(true)
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *         //## account object privileges
  *         //#################################
  *         // list of privileges
- *         var g3 = new GrantPrivilegesToRole("g3", GrantPrivilegesToRoleArgs.builder()        
+ *         var g3 = new GrantPrivilegesToRole("g3", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "CREATE",
  *                 "MONITOR")
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all privileges + grant option
- *         var g4 = new GrantPrivilegesToRole("g4", GrantPrivilegesToRoleArgs.builder()        
+ *         var g4 = new GrantPrivilegesToRole("g4", GrantPrivilegesToRoleArgs.builder()
  *             .roleName(r.name())
  *             .onAccountObject(GrantPrivilegesToRoleOnAccountObjectArgs.builder()
  *                 .objectType("DATABASE")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *         //## schema privileges
  *         //#################################
  *         // list of privileges
- *         var g5 = new GrantPrivilegesToRole("g5", GrantPrivilegesToRoleArgs.builder()        
+ *         var g5 = new GrantPrivilegesToRole("g5", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "MODIFY",
  *                 "CREATE TABLE")
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all privileges + grant option
- *         var g6 = new GrantPrivilegesToRole("g6", GrantPrivilegesToRoleArgs.builder()        
+ *         var g6 = new GrantPrivilegesToRole("g6", GrantPrivilegesToRoleArgs.builder()
  *             .roleName(r.name())
  *             .onSchema(GrantPrivilegesToRoleOnSchemaArgs.builder()
  *                 .schemaName("\"my_db\".\"my_schema\"")
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all schemas in database
- *         var g7 = new GrantPrivilegesToRole("g7", GrantPrivilegesToRoleArgs.builder()        
+ *         var g7 = new GrantPrivilegesToRole("g7", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "MODIFY",
  *                 "CREATE TABLE")
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // future schemas in database
- *         var g8 = new GrantPrivilegesToRole("g8", GrantPrivilegesToRoleArgs.builder()        
+ *         var g8 = new GrantPrivilegesToRole("g8", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "MODIFY",
  *                 "CREATE TABLE")
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *         //## schema object privileges
  *         //#################################
  *         // list of privileges
- *         var g9 = new GrantPrivilegesToRole("g9", GrantPrivilegesToRoleArgs.builder()        
+ *         var g9 = new GrantPrivilegesToRole("g9", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "SELECT",
  *                 "REFERENCES")
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all privileges + grant option
- *         var g10 = new GrantPrivilegesToRole("g10", GrantPrivilegesToRoleArgs.builder()        
+ *         var g10 = new GrantPrivilegesToRole("g10", GrantPrivilegesToRoleArgs.builder()
  *             .roleName(r.name())
  *             .onSchemaObject(GrantPrivilegesToRoleOnSchemaObjectArgs.builder()
  *                 .objectType("VIEW")
@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all in database
- *         var g11 = new GrantPrivilegesToRole("g11", GrantPrivilegesToRoleArgs.builder()        
+ *         var g11 = new GrantPrivilegesToRole("g11", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "SELECT",
  *                 "INSERT")
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // all in schema
- *         var g12 = new GrantPrivilegesToRole("g12", GrantPrivilegesToRoleArgs.builder()        
+ *         var g12 = new GrantPrivilegesToRole("g12", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "SELECT",
  *                 "INSERT")
@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // future in database
- *         var g13 = new GrantPrivilegesToRole("g13", GrantPrivilegesToRoleArgs.builder()        
+ *         var g13 = new GrantPrivilegesToRole("g13", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "SELECT",
  *                 "INSERT")
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // future in schema
- *         var g14 = new GrantPrivilegesToRole("g14", GrantPrivilegesToRoleArgs.builder()        
+ *         var g14 = new GrantPrivilegesToRole("g14", GrantPrivilegesToRoleArgs.builder()
  *             .privileges(            
  *                 "SELECT",
  *                 "INSERT")

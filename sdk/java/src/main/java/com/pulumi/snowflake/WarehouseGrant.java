@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new WarehouseGrant("grant", WarehouseGrantArgs.builder()        
+ *         var grant = new WarehouseGrant("grant", WarehouseGrantArgs.builder()
  *             .warehouseName("warehouse")
  *             .privilege("MODIFY")
  *             .roles(            
