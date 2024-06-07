@@ -8912,21 +8912,35 @@
             }
         },
         "snowflake:index/networkPolicy:NetworkPolicy": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst policy = new snowflake.NetworkPolicy(\"policy\", {\n    name: \"policy\",\n    comment: \"A policy.\",\n    allowedIpLists: [\"192.168.0.100/24\"],\n    blockedIpLists: [\"192.168.0.101\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\npolicy = snowflake.NetworkPolicy(\"policy\",\n    name=\"policy\",\n    comment=\"A policy.\",\n    allowed_ip_lists=[\"192.168.0.100/24\"],\n    blocked_ip_lists=[\"192.168.0.101\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var policy = new Snowflake.NetworkPolicy(\"policy\", new()\n    {\n        Name = \"policy\",\n        Comment = \"A policy.\",\n        AllowedIpLists = new[]\n        {\n            \"192.168.0.100/24\",\n        },\n        BlockedIpLists = new[]\n        {\n            \"192.168.0.101\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNetworkPolicy(ctx, \"policy\", \u0026snowflake.NetworkPolicyArgs{\n\t\t\tName:    pulumi.String(\"policy\"),\n\t\t\tComment: pulumi.String(\"A policy.\"),\n\t\t\tAllowedIpLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"192.168.0.100/24\"),\n\t\t\t},\n\t\t\tBlockedIpLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"192.168.0.101\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.NetworkPolicy;\nimport com.pulumi.snowflake.NetworkPolicyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var policy = new NetworkPolicy(\"policy\", NetworkPolicyArgs.builder()\n            .name(\"policy\")\n            .comment(\"A policy.\")\n            .allowedIpLists(\"192.168.0.100/24\")\n            .blockedIpLists(\"192.168.0.101\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  policy:\n    type: snowflake:NetworkPolicy\n    properties:\n      name: policy\n      comment: A policy.\n      allowedIpLists:\n        - 192.168.0.100/24\n      blockedIpLists:\n        - 192.168.0.101\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname\n```\n\n",
+            "description": "## Example Usage\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname\n```\n\n",
             "properties": {
                 "allowedIpLists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account\n"
+                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.\n"
+                },
+                "allowedNetworkRuleLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.\n"
                 },
                 "blockedIpLists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`\n"
+                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.\n"
+                },
+                "blockedNetworkRuleLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -8938,7 +8952,6 @@
                 }
             },
             "required": [
-                "allowedIpLists",
                 "name"
             ],
             "inputProperties": {
@@ -8947,14 +8960,28 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account\n"
+                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.\n"
+                },
+                "allowedNetworkRuleLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.\n"
                 },
                 "blockedIpLists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`\n"
+                    "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.\n"
+                },
+                "blockedNetworkRuleLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -8966,9 +8993,6 @@
                     "willReplaceOnChanges": true
                 }
             },
-            "requiredInputs": [
-                "allowedIpLists"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering NetworkPolicy resources.\n",
                 "properties": {
@@ -8977,14 +9001,28 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account\n"
+                        "description": "Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.\n"
+                    },
+                    "allowedNetworkRuleLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.\n"
                     },
                     "blockedIpLists": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`\n"
+                        "description": "Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\\n\\n\\n\\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.\n"
+                    },
+                    "blockedNetworkRuleLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.\n"
                     },
                     "comment": {
                         "type": "string",
@@ -9060,6 +9098,146 @@
                             "type": "string"
                         },
                         "description": "Specifies which users the network policy should be attached to\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "snowflake:index/networkRule:NetworkRule": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst rule = new snowflake.NetworkRule(\"rule\", {\n    name: \"rule\",\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    comment: \"A rule.\",\n    type: \"IPV4\",\n    mode: \"INGRESS\",\n    valueLists: [\n        \"192.168.0.100/24\",\n        \"29.254.123.20\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nrule = snowflake.NetworkRule(\"rule\",\n    name=\"rule\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    comment=\"A rule.\",\n    type=\"IPV4\",\n    mode=\"INGRESS\",\n    value_lists=[\n        \"192.168.0.100/24\",\n        \"29.254.123.20\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var rule = new Snowflake.NetworkRule(\"rule\", new()\n    {\n        Name = \"rule\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Comment = \"A rule.\",\n        Type = \"IPV4\",\n        Mode = \"INGRESS\",\n        ValueLists = new[]\n        {\n            \"192.168.0.100/24\",\n            \"29.254.123.20\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewNetworkRule(ctx, \"rule\", \u0026snowflake.NetworkRuleArgs{\n\t\t\tName:     pulumi.String(\"rule\"),\n\t\t\tDatabase: pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:   pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tComment:  pulumi.String(\"A rule.\"),\n\t\t\tType:     pulumi.String(\"IPV4\"),\n\t\t\tMode:     pulumi.String(\"INGRESS\"),\n\t\t\tValueLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"192.168.0.100/24\"),\n\t\t\t\tpulumi.String(\"29.254.123.20\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.NetworkRule;\nimport com.pulumi.snowflake.NetworkRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var rule = new NetworkRule(\"rule\", NetworkRuleArgs.builder()\n            .name(\"rule\")\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .comment(\"A rule.\")\n            .type(\"IPV4\")\n            .mode(\"INGRESS\")\n            .valueLists(            \n                \"192.168.0.100/24\",\n                \"29.254.123.20\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  rule:\n    type: snowflake:NetworkRule\n    properties:\n      name: rule\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      comment: A rule.\n      type: IPV4\n      mode: INGRESS\n      valueLists:\n        - 192.168.0.100/24\n        - 29.254.123.20\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/networkRule:NetworkRule example 'databaseName|schemaName|networkRuleName'\n```\n\n",
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the network rule.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the network rule.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.\n"
+                },
+                "qualifiedName": {
+                    "type": "string",
+                    "description": "Qualified name of the network rule.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the network rule.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                },
+                "valueLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                }
+            },
+            "required": [
+                "database",
+                "mode",
+                "name",
+                "qualifiedName",
+                "schema",
+                "type",
+                "valueLists"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the network rule.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the network rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the network rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                    "willReplaceOnChanges": true
+                },
+                "valueLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "database",
+                "mode",
+                "schema",
+                "type",
+                "valueLists"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkRule resources.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the network rule.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database in which to create the network rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "qualifiedName": {
+                        "type": "string",
+                        "description": "Qualified name of the network rule.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema in which to create the network rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "valueLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
                     }
                 },
                 "type": "object"
@@ -9226,8 +9404,7 @@
                 "type": {
                     "type": "string",
                     "description": "A type of integration\n",
-                    "deprecationMessage": "Will be removed - it is added automatically on the SDK level.",
-                    "willReplaceOnChanges": true
+                    "deprecationMessage": "Will be removed - it is added automatically on the SDK level."
                 }
             },
             "requiredInputs": [
@@ -9324,8 +9501,7 @@
                     "type": {
                         "type": "string",
                         "description": "A type of integration\n",
-                        "deprecationMessage": "Will be removed - it is added automatically on the SDK level.",
-                        "willReplaceOnChanges": true
+                        "deprecationMessage": "Will be removed - it is added automatically on the SDK level."
                     }
                 },
                 "type": "object"
