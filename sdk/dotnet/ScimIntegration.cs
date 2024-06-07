@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,6 +22,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var aad = new Snowflake.ScimIntegration("aad", new()
     ///     {
+    ///         Name = "AAD_PROVISIONING",
     ///         NetworkPolicy = "AAD_NETWORK_POLICY",
     ///         ProvisionerRole = "AAD_PROVISIONER",
     ///         ScimClient = "AZURE",
@@ -30,7 +30,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

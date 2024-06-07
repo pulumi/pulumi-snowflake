@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .comment(&#34;for testing&#34;)
+ *         var role = new Role("role", RoleArgs.builder()
+ *             .name("rking_test_role")
+ *             .comment("for testing")
  *             .build());
  * 
- *         var user = new User(&#34;user&#34;, UserArgs.builder()        
- *             .comment(&#34;for testing&#34;)
+ *         var user = new User("user", UserArgs.builder()
+ *             .name("rking_test_user")
+ *             .comment("for testing")
  *             .build());
  * 
- *         var user2 = new User(&#34;user2&#34;, UserArgs.builder()        
- *             .comment(&#34;for testing&#34;)
+ *         var user2 = new User("user2", UserArgs.builder()
+ *             .name("rking_test_user2")
+ *             .comment("for testing")
  *             .build());
  * 
- *         var otherRole = new Role(&#34;otherRole&#34;);
+ *         var otherRole = new Role("otherRole", RoleArgs.builder()
+ *             .name("rking_test_role2")
+ *             .build());
  * 
- *         var grants = new RoleGrants(&#34;grants&#34;, RoleGrantsArgs.builder()        
+ *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()
  *             .roleName(role.name())
  *             .roles(otherRole.name())
  *             .users(            
@@ -71,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -85,19 +92,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/roleGrants:RoleGrants")
 public class RoleGrants extends com.pulumi.resources.CustomResource {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }

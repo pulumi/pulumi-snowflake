@@ -330,24 +330,23 @@ class Alert(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         alert = snowflake.Alert("alert",
-            action="select 1 as c",
+            database="database",
+            schema="schema",
+            name="alert",
+            warehouse="warehouse",
             alert_schedule=snowflake.AlertAlertScheduleArgs(
                 interval=10,
             ),
-            comment="my alert",
             condition="select 1 as c",
-            database="database",
+            action="select 1 as c",
             enabled=True,
-            schema="schema",
-            warehouse="warehouse")
+            comment="my alert")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -378,24 +377,23 @@ class Alert(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         alert = snowflake.Alert("alert",
-            action="select 1 as c",
+            database="database",
+            schema="schema",
+            name="alert",
+            warehouse="warehouse",
             alert_schedule=snowflake.AlertAlertScheduleArgs(
                 interval=10,
             ),
-            comment="my alert",
             condition="select 1 as c",
-            database="database",
+            action="select 1 as c",
             enabled=True,
-            schema="schema",
-            warehouse="warehouse")
+            comment="my alert")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

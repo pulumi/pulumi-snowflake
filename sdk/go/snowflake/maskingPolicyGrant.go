@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,16 +29,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewMaskingPolicyGrant(ctx, "example", &snowflake.MaskingPolicyGrantArgs{
-//				DatabaseName:         pulumi.String("EXAMPLE_DB_NAME"),
-//				EnableMultipleGrants: pulumi.Bool(true),
-//				MaskingPolicyName:    pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
-//				Privilege:            pulumi.String("APPLY"),
+//				MaskingPolicyName: pulumi.String("EXAMPLE_MASKING_POLICY_NAME"),
+//				DatabaseName:      pulumi.String("EXAMPLE_DB_NAME"),
+//				SchemaName:        pulumi.String("EXAMPLE_SCHEMA_NAME"),
+//				Privilege:         pulumi.String("APPLY"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("ROLE1_NAME"),
 //					pulumi.String("ROLE2_NAME"),
 //				},
-//				SchemaName:      pulumi.String("EXAMPLE_SCHEMA_NAME"),
-//				WithGrantOption: pulumi.Bool(true),
+//				WithGrantOption:      pulumi.Bool(true),
+//				EnableMultipleGrants: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -62,9 +60,7 @@ type MaskingPolicyGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the masking policy on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringOutput `pulumi:"maskingPolicyName"`
@@ -120,10 +116,8 @@ func GetMaskingPolicyGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MaskingPolicyGrant resources.
 type maskingPolicyGrantState struct {
 	// The name of the database containing the masking policy on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName *string `pulumi:"maskingPolicyName"`
 	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -140,9 +134,7 @@ type maskingPolicyGrantState struct {
 
 type MaskingPolicyGrantState struct {
 	// The name of the database containing the masking policy on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringPtrInput
@@ -164,10 +156,8 @@ func (MaskingPolicyGrantState) ElementType() reflect.Type {
 
 type maskingPolicyGrantArgs struct {
 	// The name of the database containing the masking policy on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName string `pulumi:"maskingPolicyName"`
 	// The privilege to grant on the masking policy. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -185,9 +175,7 @@ type maskingPolicyGrantArgs struct {
 // The set of arguments for constructing a MaskingPolicyGrant resource.
 type MaskingPolicyGrantArgs struct {
 	// The name of the database containing the masking policy on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the masking policy on which to grant privileges immediately.
 	MaskingPolicyName pulumi.StringInput
@@ -295,8 +283,6 @@ func (o MaskingPolicyGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o MaskingPolicyGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaskingPolicyGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

@@ -15,10 +15,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. &lt;deprecation&gt;
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,28 +46,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .comment(&#34;for testing&#34;)
+ *         var role = new Role("role", RoleArgs.builder()
+ *             .name("rking_test_role")
+ *             .comment("for testing")
  *             .build());
  * 
- *         var otherRole = new Role(&#34;otherRole&#34;);
+ *         var otherRole = new Role("otherRole", RoleArgs.builder()
+ *             .name("rking_test_role2")
+ *             .build());
  * 
  *         // ensure the Terraform user inherits ownership privileges for the rking_test_role role
  *         // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
- *         var grants = new RoleGrants(&#34;grants&#34;, RoleGrantsArgs.builder()        
+ *         var grants = new RoleGrants("grants", RoleGrantsArgs.builder()
  *             .roleName(role.name())
- *             .roles(&#34;ACCOUNTADMIN&#34;)
+ *             .roles("ACCOUNTADMIN")
  *             .build());
  * 
- *         var grant = new RoleOwnershipGrant(&#34;grant&#34;, RoleOwnershipGrantArgs.builder()        
+ *         var grant = new RoleOwnershipGrant("grant", RoleOwnershipGrantArgs.builder()
  *             .onRoleName(role.name())
  *             .toRoleName(otherRole.name())
- *             .currentGrants(&#34;COPY&#34;)
+ *             .currentGrants("COPY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -118,17 +125,9 @@ public class RoleOwnershipGrant extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> revertOwnershipToRoleName() {
         return Codegen.optional(this.revertOwnershipToRoleName);
     }
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     @Export(name="toRoleName", refs={String.class}, tree="[0]")
     private Output<String> toRoleName;
 
-    /**
-     * @return The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     public Output<String> toRoleName() {
         return this.toRoleName;
     }

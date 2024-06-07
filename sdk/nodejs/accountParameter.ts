@@ -7,12 +7,11 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const accountParameter = new snowflake.AccountParameter("accountParameter", {
+ * const p = new snowflake.AccountParameter("p", {
  *     key: "ALLOW_ID_TOKEN",
  *     value: "true",
  * });
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     value: "256",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

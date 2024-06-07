@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,23 +44,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grant = new SchemaGrant(&#34;grant&#34;, SchemaGrantArgs.builder()        
- *             .databaseName(&#34;database&#34;)
- *             .onFuture(false)
- *             .privilege(&#34;USAGE&#34;)
+ *         var grant = new SchemaGrant("grant", SchemaGrantArgs.builder()
+ *             .databaseName("database")
+ *             .schemaName("schema")
+ *             .privilege("USAGE")
  *             .roles(            
- *                 &#34;role1&#34;,
- *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
+ *                 "role1",
+ *                 "role2")
  *             .shares(            
- *                 &#34;share1&#34;,
- *                 &#34;share2&#34;)
+ *                 "share1",
+ *                 "share2")
+ *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -87,19 +89,9 @@ public class SchemaGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }
@@ -131,19 +123,9 @@ public class SchemaGrant extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> onFuture() {
         return Codegen.optional(this.onFuture);
     }
-    /**
-     * The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-     * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-     * 
-     */
     @Export(name="privilege", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privilege;
 
-    /**
-     * @return The privilege to grant on the current or future schema. Note that if &#34;OWNERSHIP&#34; is specified, ensure that the role that
-     * terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-     * 
-     */
     public Output<Optional<String>> privilege() {
         return Codegen.optional(this.privilege);
     }

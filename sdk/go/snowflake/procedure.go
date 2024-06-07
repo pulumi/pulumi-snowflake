@@ -16,10 +16,10 @@ import (
 //
 // ## Import
 //
-// format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+// format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
 //
 // ```sh
-// $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+// $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
 // ```
 type Procedure struct {
 	pulumi.CustomResourceState
@@ -30,7 +30,7 @@ type Procedure struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
@@ -38,7 +38,7 @@ type Procedure struct {
 	Imports pulumi.StringArrayOutput `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrOutput `pulumi:"language"`
-	// The argument name
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
@@ -108,7 +108,7 @@ type procedureState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database *string `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs *string `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler *string `pulumi:"handler"`
@@ -116,7 +116,7 @@ type procedureState struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// The argument name
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -145,7 +145,7 @@ type ProcedureState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringPtrInput
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrInput
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type ProcedureState struct {
 	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// The argument name
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type procedureArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the procedure. Don't use the | character.
 	Database string `pulumi:"database"`
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs *string `pulumi:"executeAs"`
 	// The handler method for Java / Python procedures.
 	Handler *string `pulumi:"handler"`
@@ -194,7 +194,7 @@ type procedureArgs struct {
 	Imports []string `pulumi:"imports"`
 	// Specifies the language of the stored procedure code.
 	Language *string `pulumi:"language"`
-	// The argument name
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name *string `pulumi:"name"`
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
@@ -224,7 +224,7 @@ type ProcedureArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the procedure. Don't use the | character.
 	Database pulumi.StringInput
-	// Sets execute context - see caller's rights and owner's rights
+	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrInput
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrInput
@@ -232,7 +232,7 @@ type ProcedureArgs struct {
 	Imports pulumi.StringArrayInput
 	// Specifies the language of the stored procedure code.
 	Language pulumi.StringPtrInput
-	// The argument name
+	// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 	Name pulumi.StringPtrInput
 	// Specifies the behavior of the procedure when called with null inputs.
 	NullInputBehavior pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o ProcedureOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Sets execute context - see caller's rights and owner's rights
+// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
 }
@@ -376,7 +376,7 @@ func (o ProcedureOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// The argument name
+// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
 func (o ProcedureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

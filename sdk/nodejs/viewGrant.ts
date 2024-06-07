@@ -9,38 +9,38 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const grantViewGrant = new snowflake.ViewGrant("grantViewGrant", {
+ * const grant = new snowflake.ViewGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     viewName: "view",
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  *     shares: [
  *         "share1",
  *         "share2",
  *     ],
- *     viewName: "view",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
- * const grantSchemaGrant = new snowflake.SchemaGrant("grantSchemaGrant", {
+ * //Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+ * //grants, use the `snowflake_schema_grant` resource
+ * const grantSchemaGrant = new snowflake.SchemaGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
  *     privilege: "USAGE",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -82,10 +82,6 @@ export class ViewGrant extends pulumi.CustomResource {
      * The name of the database containing the current or future views on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
@@ -178,10 +174,6 @@ export interface ViewGrantState {
      * The name of the database containing the current or future views on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
@@ -229,10 +221,6 @@ export interface ViewGrantArgs {
      * The name of the database containing the current or future views on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.

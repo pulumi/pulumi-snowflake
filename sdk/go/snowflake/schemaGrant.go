@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,17 +30,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewSchemaGrant(ctx, "grant", &snowflake.SchemaGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				OnFuture:     pulumi.Bool(false),
+//				SchemaName:   pulumi.String("schema"),
 //				Privilege:    pulumi.String("USAGE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -52,7 +51,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -65,16 +63,12 @@ type SchemaGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the schema on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-	OnFuture pulumi.BoolPtrOutput `pulumi:"onFuture"`
-	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-	// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+	OnFuture  pulumi.BoolPtrOutput   `pulumi:"onFuture"`
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
 	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
@@ -122,16 +116,12 @@ func GetSchemaGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SchemaGrant resources.
 type schemaGrantState struct {
 	// The name of the database containing the schema on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-	// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+	OnFuture  *bool   `pulumi:"onFuture"`
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
@@ -147,16 +137,12 @@ type schemaGrantState struct {
 
 type SchemaGrantState struct {
 	// The name of the database containing the schema on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-	// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+	OnFuture  pulumi.BoolPtrInput
 	Privilege pulumi.StringPtrInput
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
 	RevertOwnershipToRoleName pulumi.StringPtrInput
@@ -176,16 +162,12 @@ func (SchemaGrantState) ElementType() reflect.Type {
 
 type schemaGrantArgs struct {
 	// The name of the database containing the schema on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-	OnFuture *bool `pulumi:"onFuture"`
-	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-	// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+	OnFuture  *bool   `pulumi:"onFuture"`
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
@@ -202,16 +184,12 @@ type schemaGrantArgs struct {
 // The set of arguments for constructing a SchemaGrant resource.
 type SchemaGrantArgs struct {
 	// The name of the database containing the schema on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
 	// When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-	OnFuture pulumi.BoolPtrInput
-	// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-	// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
+	OnFuture  pulumi.BoolPtrInput
 	Privilege pulumi.StringPtrInput
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
 	RevertOwnershipToRoleName pulumi.StringPtrInput
@@ -317,8 +295,6 @@ func (o SchemaGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o SchemaGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }
@@ -333,8 +309,6 @@ func (o SchemaGrantOutput) OnFuture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.BoolPtrOutput { return v.OnFuture }).(pulumi.BoolPtrOutput)
 }
 
-// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
 func (o SchemaGrantOutput) Privilege() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaGrant) pulumi.StringPtrOutput { return v.Privilege }).(pulumi.StringPtrOutput)
 }

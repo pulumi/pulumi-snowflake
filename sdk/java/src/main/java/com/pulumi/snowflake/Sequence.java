@@ -19,13 +19,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Sequence;
@@ -43,20 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
- * 
- *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .database(snowflake_database.test_database().name())
+ *         var database = new Database("database", DatabaseArgs.builder()
+ *             .name("things")
  *             .build());
  * 
- *         var testSequence = new Sequence(&#34;testSequence&#34;, SequenceArgs.builder()        
- *             .database(snowflake_database.test_database().name())
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
+ *             .name("things")
+ *             .database(testDatabase.name())
+ *             .build());
+ * 
+ *         var testSequence = new Sequence("testSequence", SequenceArgs.builder()
+ *             .database(testDatabase.name())
  *             .schema(testSchema.name())
+ *             .name("thing_counter")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

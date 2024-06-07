@@ -18,9 +18,17 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StageArgs Empty = new StageArgs();
 
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     @Import(name="awsExternalId")
     private @Nullable Output<String> awsExternalId;
 
+    /**
+     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     public Optional<Output<String>> awsExternalId() {
         return Optional.ofNullable(this.awsExternalId);
     }
@@ -71,14 +79,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the stage.
      * 
      */
     public Output<String> database() {
@@ -131,14 +139,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -146,23 +154,31 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the stage.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
 
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     @Import(name="snowflakeIamUser")
     private @Nullable Output<String> snowflakeIamUser;
 
+    /**
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     public Optional<Output<String>> snowflakeIamUser() {
         return Optional.ofNullable(this.snowflakeIamUser);
     }
@@ -257,11 +273,23 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
             $ = new StageArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsExternalId(@Nullable Output<String> awsExternalId) {
             $.awsExternalId = awsExternalId;
             return this;
         }
 
+        /**
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsExternalId(String awsExternalId) {
             return awsExternalId(Output.of(awsExternalId));
         }
@@ -330,7 +358,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the stage.
          * 
          * @return builder
          * 
@@ -341,7 +369,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the stage.
          * 
          * @return builder
          * 
@@ -414,7 +442,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
          * 
          * @return builder
          * 
@@ -425,7 +453,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
          * 
          * @return builder
          * 
@@ -435,7 +463,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the stage.
          * 
          * @return builder
          * 
@@ -446,7 +474,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the stage.
          * 
          * @return builder
          * 
@@ -455,11 +483,23 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
             return schema(Output.of(schema));
         }
 
+        /**
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snowflakeIamUser(@Nullable Output<String> snowflakeIamUser) {
             $.snowflakeIamUser = snowflakeIamUser;
             return this;
         }
 
+        /**
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snowflakeIamUser(String snowflakeIamUser) {
             return snowflakeIamUser(Output.of(snowflakeIamUser));
         }

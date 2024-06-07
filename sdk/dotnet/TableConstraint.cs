@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,17 +20,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database");
-    /// 
-    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     var d = new Snowflake.Database("d", new()
     ///     {
-    ///         Database = database.Name,
+    ///         Name = "some_db",
     ///     });
     /// 
-    ///     var table = new Snowflake.Table("table", new()
+    ///     var s = new Snowflake.Schema("s", new()
     ///     {
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Name = "some_schema",
+    ///         Database = d.Name,
+    ///     });
+    /// 
+    ///     var t = new Snowflake.Table("t", new()
+    ///     {
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "some_table",
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.TableColumnArgs
@@ -55,10 +59,11 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var fkT = new Snowflake.Table("fkT", new()
+    ///     var fkT = new Snowflake.Table("fk_t", new()
     ///     {
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "fk_table",
     ///         Columns = new[]
     ///         {
     ///             new Snowflake.Inputs.TableColumnArgs
@@ -76,10 +81,11 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var primaryKey = new Snowflake.TableConstraint("primaryKey", new()
+    ///     var primaryKey = new Snowflake.TableConstraint("primary_key", new()
     ///     {
+    ///         Name = "myconstraint",
     ///         Type = "PRIMARY KEY",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col1",
@@ -87,10 +93,11 @@ namespace Pulumi.Snowflake
     ///         Comment = "hello world",
     ///     });
     /// 
-    ///     var foreignKey = new Snowflake.TableConstraint("foreignKey", new()
+    ///     var foreignKey = new Snowflake.TableConstraint("foreign_key", new()
     ///     {
+    ///         Name = "myconstraintfk",
     ///         Type = "FOREIGN KEY",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col2",
@@ -114,8 +121,9 @@ namespace Pulumi.Snowflake
     /// 
     ///     var unique = new Snowflake.TableConstraint("unique", new()
     ///     {
+    ///         Name = "unique",
     ///         Type = "UNIQUE",
-    ///         TableId = table.QualifiedName,
+    ///         TableId = t.QualifiedName,
     ///         Columns = new[]
     ///         {
     ///             "col3",
@@ -125,7 +133,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -137,7 +144,7 @@ namespace Pulumi.Snowflake
     public partial class TableConstraint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         [Output("columns")]
         public Output<ImmutableArray<string>> Columns { get; private set; } = null!;
@@ -191,7 +198,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> Rely { get; private set; } = null!;
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Output("tableId")]
         public Output<string> TableId { get; private set; } = null!;
@@ -258,7 +265,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         public InputList<string> Columns
         {
@@ -315,7 +322,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Input("tableId", required: true)]
         public Input<string> TableId { get; set; } = null!;
@@ -344,7 +351,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Columns to use in foreign key reference
+        /// Columns to use in constraint key
         /// </summary>
         public InputList<string> Columns
         {
@@ -401,7 +408,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Name of constraint
+        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
         /// </summary>
         [Input("tableId")]
         public Input<string>? TableId { get; set; }

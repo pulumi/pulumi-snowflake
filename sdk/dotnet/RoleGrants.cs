@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,20 +24,26 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "rking_test_role",
     ///         Comment = "for testing",
     ///     });
     /// 
     ///     var user = new Snowflake.User("user", new()
     ///     {
+    ///         Name = "rking_test_user",
     ///         Comment = "for testing",
     ///     });
     /// 
     ///     var user2 = new Snowflake.User("user2", new()
     ///     {
+    ///         Name = "rking_test_user2",
     ///         Comment = "for testing",
     ///     });
     /// 
-    ///     var otherRole = new Snowflake.Role("otherRole");
+    ///     var otherRole = new Snowflake.Role("other_role", new()
+    ///     {
+    ///         Name = "rking_test_role2",
+    ///     });
     /// 
     ///     var grants = new Snowflake.RoleGrants("grants", new()
     ///     {
@@ -56,7 +61,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -69,10 +73,6 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/roleGrants:RoleGrants")]
     public partial class RoleGrants : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Output("enableMultipleGrants")]
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
@@ -140,10 +140,6 @@ namespace Pulumi.Snowflake
 
     public sealed class RoleGrantsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 
@@ -185,10 +181,6 @@ namespace Pulumi.Snowflake
 
     public sealed class RoleGrantsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 

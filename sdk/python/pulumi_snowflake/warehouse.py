@@ -601,16 +601,15 @@ class Warehouse(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         warehouse = snowflake.Warehouse("warehouse",
+            name="test",
             comment="foo",
             warehouse_size="small")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -646,16 +645,15 @@ class Warehouse(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         warehouse = snowflake.Warehouse("warehouse",
+            name="test",
             comment="foo",
             warehouse_size="small")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

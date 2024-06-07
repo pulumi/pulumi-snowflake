@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -23,21 +22,27 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var database = new Snowflake.Database("database");
+        ///     var d = new Snowflake.Database("d", new()
+        ///     {
+        ///         Name = "TEST_DB",
+        ///     });
         /// 
-        ///     var parameters = Snowflake.GetParameters.Invoke(new()
+        ///     // read all object parameters in database TEST_DB
+        ///     var p = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "OBJECT",
         ///         ObjectType = "DATABASE",
-        ///         ObjectName = database.Name,
+        ///         ObjectName = d.Name,
         ///     });
         /// 
+        ///     // read all account parameters with the pattern '%TIMESTAMP%'
         ///     var p2 = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "ACCOUNT",
         ///         Pattern = "%TIMESTAMP%",
         ///     });
         /// 
+        ///     // read the exact session parameter ROWS_PER_RESULTSET
         ///     var p3 = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "SESSION",
@@ -47,7 +52,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetParametersResult> InvokeAsync(GetParametersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersArgs(), options.WithDefaults());
@@ -55,7 +59,6 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,21 +67,27 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var database = new Snowflake.Database("database");
+        ///     var d = new Snowflake.Database("d", new()
+        ///     {
+        ///         Name = "TEST_DB",
+        ///     });
         /// 
-        ///     var parameters = Snowflake.GetParameters.Invoke(new()
+        ///     // read all object parameters in database TEST_DB
+        ///     var p = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "OBJECT",
         ///         ObjectType = "DATABASE",
-        ///         ObjectName = database.Name,
+        ///         ObjectName = d.Name,
         ///     });
         /// 
+        ///     // read all account parameters with the pattern '%TIMESTAMP%'
         ///     var p2 = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "ACCOUNT",
         ///         Pattern = "%TIMESTAMP%",
         ///     });
         /// 
+        ///     // read the exact session parameter ROWS_PER_RESULTSET
         ///     var p3 = Snowflake.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "SESSION",
@@ -88,7 +97,6 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetParametersResult> Invoke(GetParametersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersInvokeArgs(), options.WithDefaults());

@@ -74,7 +74,6 @@ def get_roles(pattern: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -82,7 +81,6 @@ def get_roles(pattern: Optional[str] = None,
     this = snowflake.get_roles()
     ad = snowflake.get_roles(pattern="SYSADMIN")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Filters the command output by object name.
@@ -104,7 +102,6 @@ def get_roles_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
@@ -112,7 +109,6 @@ def get_roles_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     this = snowflake.get_roles()
     ad = snowflake.get_roles(pattern="SYSADMIN")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str pattern: Filters the command output by object name.

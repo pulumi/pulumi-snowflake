@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -17,6 +16,7 @@ import * as utilities from "./utilities";
  *     database: "database",
  *     schema: "schema",
  *     warehouse: "warehouse",
+ *     name: "task",
  *     schedule: "10 MINUTE",
  *     sqlStatement: "select * from foo;",
  *     sessionParameters: {
@@ -27,10 +27,11 @@ import * as utilities from "./utilities";
  *     when: "foo AND bar",
  *     enabled: true,
  * });
- * const serverlessTask = new snowflake.Task("serverlessTask", {
+ * const serverlessTask = new snowflake.Task("serverless_task", {
  *     comment: "my serverless task",
  *     database: "db",
  *     schema: "schema",
+ *     name: "serverless_task",
  *     schedule: "10 MINUTE",
  *     sqlStatement: "select * from foo;",
  *     sessionParameters: {
@@ -42,16 +43,16 @@ import * as utilities from "./utilities";
  *     when: "foo AND bar",
  *     enabled: true,
  * });
- * const testTask = new snowflake.Task("testTask", {
+ * const testTask = new snowflake.Task("test_task", {
  *     comment: "task with allow_overlapping_execution",
  *     database: "database",
  *     schema: "schema",
+ *     name: "test_task",
  *     sqlStatement: "select 1 as c;",
  *     allowOverlappingExecution: true,
  *     enabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

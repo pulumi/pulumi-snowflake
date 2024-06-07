@@ -50,44 +50,36 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the view. Don&#39;t use the | character.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the view. Don&#39;t use the | character.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
 
-    /**
-     * Specifies that the view is secure.
-     * 
-     */
     @Import(name="isSecure")
     private @Nullable Output<Boolean> isSecure;
 
-    /**
-     * @return Specifies that the view is secure.
-     * 
-     */
     public Optional<Output<Boolean>> isSecure() {
         return Optional.ofNullable(this.isSecure);
     }
 
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -110,14 +102,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the view. Don&#39;t use the | character.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the view. Don&#39;t use the | character.
      * 
      */
     public Output<String> schema() {
@@ -237,7 +229,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the view. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -248,7 +240,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database Name of the database that the tag was created in.
+         * @param database The database in which to create the view. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -257,29 +249,17 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             return database(Output.of(database));
         }
 
-        /**
-         * @param isSecure Specifies that the view is secure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSecure(@Nullable Output<Boolean> isSecure) {
             $.isSecure = isSecure;
             return this;
         }
 
-        /**
-         * @param isSecure Specifies that the view is secure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isSecure(Boolean isSecure) {
             return isSecure(Output.of(isSecure));
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -290,7 +270,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Tag name, e.g. department.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -321,7 +301,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the view. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -332,7 +312,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema Name of the schema that the tag was created in.
+         * @param schema The schema in which to create the view. Don&#39;t use the | character.
          * 
          * @return builder
          * 

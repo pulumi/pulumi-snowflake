@@ -18,39 +18,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.NetworkPolicy;
- * import com.pulumi.snowflake.NetworkPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var policy = new NetworkPolicy(&#34;policy&#34;, NetworkPolicyArgs.builder()        
- *             .allowedIpLists(&#34;192.168.0.100/24&#34;)
- *             .blockedIpLists(&#34;192.168.0.101&#34;)
- *             .comment(&#34;A policy.&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -61,32 +28,60 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/networkPolicy:NetworkPolicy")
 public class NetworkPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+     * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      * 
      */
     @Export(name="allowedIpLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> allowedIpLists;
+    private Output</* @Nullable */ List<String>> allowedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      * 
      */
-    public Output<List<String>> allowedIpLists() {
-        return this.allowedIpLists;
+    public Output<Optional<List<String>>> allowedIpLists() {
+        return Codegen.optional(this.allowedIpLists);
     }
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * 
+     */
+    @Export(name="allowedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> allowedNetworkRuleLists;
+
+    /**
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedNetworkRuleLists() {
+        return Codegen.optional(this.allowedNetworkRuleLists);
+    }
+    /**
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
      * 
      */
     @Export(name="blockedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
      * 
      */
     public Output<Optional<List<String>>> blockedIpLists() {
         return Codegen.optional(this.blockedIpLists);
+    }
+    /**
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * 
+     */
+    @Export(name="blockedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> blockedNetworkRuleLists;
+
+    /**
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * 
+     */
+    public Output<Optional<List<String>>> blockedNetworkRuleLists() {
+        return Codegen.optional(this.blockedNetworkRuleLists);
     }
     /**
      * Specifies a comment for the network policy.
@@ -129,7 +124,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkPolicy(String name, NetworkPolicyArgs args) {
+    public NetworkPolicy(String name, @Nullable NetworkPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -138,7 +133,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkPolicy(String name, NetworkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public NetworkPolicy(String name, @Nullable NetworkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/networkPolicy:NetworkPolicy", name, args == null ? NetworkPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

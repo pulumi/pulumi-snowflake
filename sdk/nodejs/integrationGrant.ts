@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -62,10 +60,6 @@ export class IntegrationGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationGrant.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier for the integration; must be unique for your account.
@@ -128,10 +122,6 @@ export class IntegrationGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationGrant resources.
  */
 export interface IntegrationGrantState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the integration; must be unique for your account.
@@ -159,10 +149,6 @@ export interface IntegrationGrantState {
  * The set of arguments for constructing a IntegrationGrant resource.
  */
 export interface IntegrationGrantArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the integration; must be unique for your account.

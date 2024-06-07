@@ -27,12 +27,8 @@ class SchemaGrantArgs:
         """
         The set of arguments for constructing a SchemaGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the schema on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
@@ -74,10 +70,6 @@ class SchemaGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -111,10 +103,6 @@ class SchemaGrantArgs:
     @property
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
-        """
-        The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
@@ -198,12 +186,8 @@ class _SchemaGrantState:
         """
         Input properties used for looking up and filtering SchemaGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the schema on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
@@ -246,10 +230,6 @@ class _SchemaGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -283,10 +263,6 @@ class _SchemaGrantState:
     @property
     @pulumi.getter
     def privilege(self) -> Optional[pulumi.Input[str]]:
-        """
-        The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        """
         return pulumi.get(self, "privilege")
 
     @privilege.setter
@@ -375,27 +351,25 @@ class SchemaGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SchemaGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -408,12 +382,8 @@ class SchemaGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the schema on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
@@ -431,27 +401,25 @@ class SchemaGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.SchemaGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -535,12 +503,8 @@ class SchemaGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the schema on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true, apply this grant on all schemas in the given database. The schema*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true, apply this grant on all future schemas in the given database. The schema*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
-        :param pulumi.Input[str] privilege: The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-               terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[str] schema_name: The name of the schema on which to grant privileges.
@@ -574,10 +538,6 @@ class SchemaGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property
@@ -599,10 +559,6 @@ class SchemaGrant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def privilege(self) -> pulumi.Output[Optional[str]]:
-        """
-        The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        """
         return pulumi.get(self, "privilege")
 
     @property

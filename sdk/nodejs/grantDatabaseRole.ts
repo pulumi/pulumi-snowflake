@@ -7,39 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * //#################################
- * //## grant database role to account role
- * //#################################
- * const databaseRoleDatabaseRole = new snowflake.DatabaseRole("databaseRoleDatabaseRole", {database: _var.database});
- * const parentRole = new snowflake.Role("parentRole", {});
- * const grantDatabaseRole = new snowflake.GrantDatabaseRole("grantDatabaseRole", {
- *     databaseRoleName: pulumi.interpolate`"${_var.database}"."${databaseRoleDatabaseRole.name}"`,
- *     parentRoleName: parentRole.name,
- * });
- * //#################################
- * //## grant database role to database role
- * //#################################
- * const databaseRoleIndex_databaseRoleDatabaseRole = new snowflake.DatabaseRole("databaseRoleIndex/databaseRoleDatabaseRole", {database: _var.database});
- * const parentDatabaseRole = new snowflake.DatabaseRole("parentDatabaseRole", {database: _var.database});
- * const index_grantDatabaseRoleGrantDatabaseRole = new snowflake.GrantDatabaseRole("index/grantDatabaseRoleGrantDatabaseRole", {
- *     databaseRoleName: pulumi.interpolate`"${_var.database}"."${databaseRoleDatabaseRole.name}"`,
- *     parentDatabaseRoleName: pulumi.interpolate`"${_var.database}"."${parentDatabaseRole.name}"`,
- * });
- * //#################################
- * //## grant database role to share
- * //#################################
- * const snowflakeIndex_grantDatabaseRoleGrantDatabaseRole = new snowflake.GrantDatabaseRole("snowflakeIndex/grantDatabaseRoleGrantDatabaseRole", {
- *     databaseRoleName: pulumi.interpolate`"${_var.database}"."${databaseRoleDatabaseRole.name}"`,
- *     shareName: snowflake_share.share.name,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)

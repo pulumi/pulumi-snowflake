@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,23 +29,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewProcedureGrant(ctx, "grant", &snowflake.ProcedureGrantArgs{
+//				DatabaseName:  pulumi.String("database"),
+//				SchemaName:    pulumi.String("schema"),
+//				ProcedureName: pulumi.String("procedure"),
 //				ArgumentDataTypes: pulumi.StringArray{
 //					pulumi.String("array"),
 //					pulumi.String("string"),
 //				},
-//				DatabaseName:  pulumi.String("database"),
-//				OnFuture:      pulumi.Bool(false),
-//				Privilege:     pulumi.String("USAGE"),
-//				ProcedureName: pulumi.String("procedure"),
+//				Privilege: pulumi.String("USAGE"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -72,9 +70,7 @@ type ProcedureGrant struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayOutput `pulumi:"argumentDataTypes"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrOutput `pulumi:"onAll"`
@@ -135,10 +131,8 @@ type procedureGrantState struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
@@ -163,9 +157,7 @@ type ProcedureGrantState struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
@@ -195,10 +187,8 @@ type procedureGrantArgs struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes []string `pulumi:"argumentDataTypes"`
 	// The name of the database containing the current or future procedures on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll *bool `pulumi:"onAll"`
 	// When this is set to true and a schema*name is provided, apply this grant on all future procedures in the given schema. When this is true and no schema*name is provided apply this grant on all future procedures in the given database. The procedure*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
@@ -224,9 +214,7 @@ type ProcedureGrantArgs struct {
 	// List of the argument data types for the procedure (must be present if procedure has arguments and procedureName is present)
 	ArgumentDataTypes pulumi.StringArrayInput
 	// The name of the database containing the current or future procedures on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// When this is set to true and a schema*name is provided, apply this grant on all procedures in the given schema. When this is true and no schema*name is provided apply this grant on all procedures in the given database. The procedure*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
 	OnAll pulumi.BoolPtrInput
@@ -345,8 +333,6 @@ func (o ProcedureGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o ProcedureGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProcedureGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

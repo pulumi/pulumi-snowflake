@@ -4,9 +4,10 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetGrantsFutureGrantsTo extends com.pulumi.resources.InvokeArgs {
@@ -14,24 +15,40 @@ public final class GetGrantsFutureGrantsTo extends com.pulumi.resources.InvokeAr
     public static final GetGrantsFutureGrantsTo Empty = new GetGrantsFutureGrantsTo();
 
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      * 
      */
-    @Import(name="role", required=true)
-    private String role;
+    @Import(name="accountRole")
+    private @Nullable String accountRole;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      * 
      */
-    public String role() {
-        return this.role;
+    public Optional<String> accountRole() {
+        return Optional.ofNullable(this.accountRole);
+    }
+
+    /**
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="databaseRole")
+    private @Nullable String databaseRole;
+
+    /**
+     * @return Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
     }
 
     private GetGrantsFutureGrantsTo() {}
 
     private GetGrantsFutureGrantsTo(GetGrantsFutureGrantsTo $) {
-        this.role = $.role;
+        this.accountRole = $.accountRole;
+        this.databaseRole = $.databaseRole;
     }
 
     public static Builder builder() {
@@ -53,20 +70,28 @@ public final class GetGrantsFutureGrantsTo extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param role Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+         * @param accountRole Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
          * 
          * @return builder
          * 
          */
-        public Builder role(String role) {
-            $.role = role;
+        public Builder accountRole(@Nullable String accountRole) {
+            $.accountRole = accountRole;
+            return this;
+        }
+
+        /**
+         * @param databaseRole Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRole(@Nullable String databaseRole) {
+            $.databaseRole = databaseRole;
             return this;
         }
 
         public GetGrantsFutureGrantsTo build() {
-            if ($.role == null) {
-                throw new MissingRequiredPropertyException("GetGrantsFutureGrantsTo", "role");
-            }
             return $;
         }
     }

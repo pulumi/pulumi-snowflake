@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,21 +20,21 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var tableauDesktop = new Snowflake.OauthIntegration("tableauDesktop", new()
+    ///     var tableauDesktop = new Snowflake.OauthIntegration("tableau_desktop", new()
     ///     {
+    ///         Name = "TABLEAU_DESKTOP",
+    ///         OauthClient = "TABLEAU_DESKTOP",
+    ///         Enabled = true,
+    ///         OauthIssueRefreshTokens = true,
+    ///         OauthRefreshTokenValidity = 3600,
     ///         BlockedRolesLists = new[]
     ///         {
     ///             "SYSADMIN",
     ///         },
-    ///         Enabled = true,
-    ///         OauthClient = "TABLEAU_DESKTOP",
-    ///         OauthIssueRefreshTokens = true,
-    ///         OauthRefreshTokenValidity = 3600,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

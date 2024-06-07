@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewAccountParameter(ctx, "accountParameter", &snowflake.AccountParameterArgs{
+//			_, err := snowflake.NewAccountParameter(ctx, "p", &snowflake.AccountParameterArgs{
 //				Key:   pulumi.String("ALLOW_ID_TOKEN"),
 //				Value: pulumi.String("true"),
 //			})
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

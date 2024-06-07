@@ -65,14 +65,14 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     @Import(name="executeAs")
     private @Nullable Output<String> executeAs;
 
     /**
-     * @return Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * @return Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     public Optional<Output<String>> executeAs() {
@@ -125,14 +125,14 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The argument name
+     * @return Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -380,7 +380,7 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAs Sets execute context - see caller&#39;s rights and owner&#39;s rights
+         * @param executeAs Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAs Sets execute context - see caller&#39;s rights and owner&#39;s rights
+         * @param executeAs Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The argument name
+         * @param name Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ProcedureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The argument name
+         * @param name Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
          * 
          * @return builder
          * 

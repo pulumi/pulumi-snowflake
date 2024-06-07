@@ -7,22 +7,21 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleRowAccessPolicy = new snowflake.RowAccessPolicy("exampleRowAccessPolicy", {
+ * const exampleRowAccessPolicy = new snowflake.RowAccessPolicy("example_row_access_policy", {
+ *     name: "EXAMPLE_ROW_ACCESS_POLICY",
  *     database: "EXAMPLE_DB",
- *     rowAccessExpression: "case when current_role() in ('ANALYST') then true else false end",
  *     schema: "EXAMPLE_SCHEMA",
  *     signature: {
  *         A: "VARCHAR",
  *         B: "VARCHAR",
  *     },
+ *     rowAccessExpression: "case when current_role() in ('ANALYST') then true else false end",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

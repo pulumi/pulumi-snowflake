@@ -9,28 +9,29 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const parameters = snowflake.getParametersOutput({
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * // read all object parameters in database TEST_DB
+ * const p = snowflake.getParametersOutput({
  *     parameterType: "OBJECT",
  *     objectType: "DATABASE",
- *     objectName: database.name,
+ *     objectName: d.name,
  * });
+ * // read all account parameters with the pattern '%TIMESTAMP%'
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
  *     pattern: "%TIMESTAMP%",
  * });
+ * // read the exact session parameter ROWS_PER_RESULTSET
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",
  *     user: "TEST_USER",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getParameters(args?: GetParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersResult> {
     args = args || {};
@@ -107,28 +108,29 @@ export interface GetParametersResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const parameters = snowflake.getParametersOutput({
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * // read all object parameters in database TEST_DB
+ * const p = snowflake.getParametersOutput({
  *     parameterType: "OBJECT",
  *     objectType: "DATABASE",
- *     objectName: database.name,
+ *     objectName: d.name,
  * });
+ * // read all account parameters with the pattern '%TIMESTAMP%'
  * const p2 = snowflake.getParameters({
  *     parameterType: "ACCOUNT",
  *     pattern: "%TIMESTAMP%",
  * });
+ * // read the exact session parameter ROWS_PER_RESULTSET
  * const p3 = snowflake.getParameters({
  *     parameterType: "SESSION",
  *     pattern: "ROWS_PER_RESULTSET",
  *     user: "TEST_USER",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getParametersOutput(args?: GetParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersResult> {
     return pulumi.output(args).apply((a: any) => getParameters(a, opts))

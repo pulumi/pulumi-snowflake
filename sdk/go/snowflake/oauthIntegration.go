@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,14 +26,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewOauthIntegration(ctx, "tableauDesktop", &snowflake.OauthIntegrationArgs{
+//			_, err := snowflake.NewOauthIntegration(ctx, "tableau_desktop", &snowflake.OauthIntegrationArgs{
+//				Name:                      pulumi.String("TABLEAU_DESKTOP"),
+//				OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
+//				Enabled:                   pulumi.Bool(true),
+//				OauthIssueRefreshTokens:   pulumi.Bool(true),
+//				OauthRefreshTokenValidity: pulumi.Int(3600),
 //				BlockedRolesLists: pulumi.StringArray{
 //					pulumi.String("SYSADMIN"),
 //				},
-//				Enabled:                   pulumi.Bool(true),
-//				OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
-//				OauthIssueRefreshTokens:   pulumi.Bool(true),
-//				OauthRefreshTokenValidity: pulumi.Int(3600),
 //			})
 //			if err != nil {
 //				return err
@@ -44,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

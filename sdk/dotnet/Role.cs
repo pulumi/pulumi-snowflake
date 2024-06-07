@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,12 +22,12 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "role1",
     ///         Comment = "A role.",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -42,9 +41,6 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag name, e.g. department.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -103,9 +99,6 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Tag name, e.g. department.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -133,9 +126,6 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Tag name, e.g. department.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

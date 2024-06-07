@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, opts ...pulumi.InvokeOption) (*GetExternalFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalFunctionsResult
@@ -51,8 +49,10 @@ func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, o
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsArgs struct {
+	// The database from which to return the schemas from.
 	Database *string `pulumi:"database"`
-	Schema   *string `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema *string `pulumi:"schema"`
 }
 
 // A collection of values returned by getExternalFunctions.
@@ -82,8 +82,10 @@ func GetExternalFunctionsOutput(ctx *pulumi.Context, args GetExternalFunctionsOu
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
 }
 
 func (GetExternalFunctionsOutputArgs) ElementType() reflect.Type {

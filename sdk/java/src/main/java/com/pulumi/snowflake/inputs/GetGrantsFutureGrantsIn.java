@@ -4,7 +4,6 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchema;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,17 +30,17 @@ public final class GetGrantsFutureGrantsIn extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
     @Import(name="schema")
-    private @Nullable GetGrantsFutureGrantsInSchema schema;
+    private @Nullable String schema;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
      * 
      */
-    public Optional<GetGrantsFutureGrantsInSchema> schema() {
+    public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }
 
@@ -82,12 +81,12 @@ public final class GetGrantsFutureGrantsIn extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
          * 
          * @return builder
          * 
          */
-        public Builder schema(@Nullable GetGrantsFutureGrantsInSchema schema) {
+        public Builder schema(@Nullable String schema) {
             $.schema = schema;
             return this;
         }

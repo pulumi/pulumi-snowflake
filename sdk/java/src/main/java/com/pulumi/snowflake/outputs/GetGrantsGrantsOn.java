@@ -18,7 +18,7 @@ public final class GetGrantsGrantsOn {
      */
     private @Nullable Boolean account;
     /**
-     * @return Name of object to list privileges on
+     * @return Name of object to list privileges on.
      * 
      */
     private @Nullable String objectName;
@@ -37,7 +37,7 @@ public final class GetGrantsGrantsOn {
         return Optional.ofNullable(this.account);
     }
     /**
-     * @return Name of object to list privileges on
+     * @return Name of object to list privileges on.
      * 
      */
     public Optional<String> objectName() {

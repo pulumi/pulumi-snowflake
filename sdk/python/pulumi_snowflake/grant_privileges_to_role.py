@@ -303,7 +303,6 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -317,11 +316,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "USAGE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account=True)
         # all privileges + grant option
         g2 = snowflake.GrantPrivilegesToRole("g2",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account=True,
             all_privileges=True,
             with_grant_option=True)
@@ -334,17 +333,17 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "CREATE",
                 "MONITOR",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
                 object_type="DATABASE",
-                object_name=snowflake_database["d"]["name"],
+                object_name=d["name"],
             ))
         # all privileges + grant option
         g4 = snowflake.GrantPrivilegesToRole("g4",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
                 object_type="DATABASE",
-                object_name=snowflake_database["d"]["name"],
+                object_name=d["name"],
             ),
             all_privileges=True,
             with_grant_option=True)
@@ -357,13 +356,13 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
                 schema_name="\\"my_db\\".\\"my_schema\\"",
             ))
         # all privileges + grant option
         g6 = snowflake.GrantPrivilegesToRole("g6",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
                 schema_name="\\"my_db\\".\\"my_schema\\"",
             ),
@@ -375,9 +374,9 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
-                all_schemas_in_database=snowflake_database["d"]["name"],
+                all_schemas_in_database=d["name"],
             ))
         # future schemas in database
         g8 = snowflake.GrantPrivilegesToRole("g8",
@@ -385,9 +384,9 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
-                future_schemas_in_database=snowflake_database["d"]["name"],
+                future_schemas_in_database=d["name"],
             ))
         ##################################
         ### schema object privileges
@@ -398,14 +397,14 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "REFERENCES",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 object_type="VIEW",
                 object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
             ))
         # all privileges + grant option
         g10 = snowflake.GrantPrivilegesToRole("g10",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 object_type="VIEW",
                 object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
@@ -418,11 +417,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
                     object_type_plural="TABLES",
-                    in_database=snowflake_database["d"]["name"],
+                    in_database=d["name"],
                 ),
             ))
         # all in schema
@@ -431,7 +430,7 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
                     object_type_plural="TABLES",
@@ -444,11 +443,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
                     object_type_plural="TABLES",
-                    in_database=snowflake_database["d"]["name"],
+                    in_database=d["name"],
                 ),
             ))
         # future in schema
@@ -457,7 +456,7 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
                     object_type_plural="TABLES",
@@ -465,7 +464,6 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -497,7 +495,6 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -511,11 +508,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "USAGE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account=True)
         # all privileges + grant option
         g2 = snowflake.GrantPrivilegesToRole("g2",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account=True,
             all_privileges=True,
             with_grant_option=True)
@@ -528,17 +525,17 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "CREATE",
                 "MONITOR",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
                 object_type="DATABASE",
-                object_name=snowflake_database["d"]["name"],
+                object_name=d["name"],
             ))
         # all privileges + grant option
         g4 = snowflake.GrantPrivilegesToRole("g4",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_account_object=snowflake.GrantPrivilegesToRoleOnAccountObjectArgs(
                 object_type="DATABASE",
-                object_name=snowflake_database["d"]["name"],
+                object_name=d["name"],
             ),
             all_privileges=True,
             with_grant_option=True)
@@ -551,13 +548,13 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
                 schema_name="\\"my_db\\".\\"my_schema\\"",
             ))
         # all privileges + grant option
         g6 = snowflake.GrantPrivilegesToRole("g6",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
                 schema_name="\\"my_db\\".\\"my_schema\\"",
             ),
@@ -569,9 +566,9 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
-                all_schemas_in_database=snowflake_database["d"]["name"],
+                all_schemas_in_database=d["name"],
             ))
         # future schemas in database
         g8 = snowflake.GrantPrivilegesToRole("g8",
@@ -579,9 +576,9 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "MODIFY",
                 "CREATE TABLE",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema=snowflake.GrantPrivilegesToRoleOnSchemaArgs(
-                future_schemas_in_database=snowflake_database["d"]["name"],
+                future_schemas_in_database=d["name"],
             ))
         ##################################
         ### schema object privileges
@@ -592,14 +589,14 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "REFERENCES",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 object_type="VIEW",
                 object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
             ))
         # all privileges + grant option
         g10 = snowflake.GrantPrivilegesToRole("g10",
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 object_type="VIEW",
                 object_name="\\"my_db\\".\\"my_schema\\".\\"my_view\\"",
@@ -612,11 +609,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
                     object_type_plural="TABLES",
-                    in_database=snowflake_database["d"]["name"],
+                    in_database=d["name"],
                 ),
             ))
         # all in schema
@@ -625,7 +622,7 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 all=snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs(
                     object_type_plural="TABLES",
@@ -638,11 +635,11 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
                     object_type_plural="TABLES",
-                    in_database=snowflake_database["d"]["name"],
+                    in_database=d["name"],
                 ),
             ))
         # future in schema
@@ -651,7 +648,7 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 "SELECT",
                 "INSERT",
             ],
-            role_name=snowflake_role["r"]["name"],
+            role_name=r["name"],
             on_schema_object=snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs(
                 future=snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs(
                     object_type_plural="TABLES",
@@ -659,7 +656,6 @@ class GrantPrivilegesToRole(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

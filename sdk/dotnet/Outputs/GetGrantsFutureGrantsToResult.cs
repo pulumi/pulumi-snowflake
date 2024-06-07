@@ -14,14 +14,22 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetGrantsFutureGrantsToResult
     {
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        /// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
         /// </summary>
-        public readonly string Role;
+        public readonly string? AccountRole;
+        /// <summary>
+        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        public readonly string? DatabaseRole;
 
         [OutputConstructor]
-        private GetGrantsFutureGrantsToResult(string role)
+        private GetGrantsFutureGrantsToResult(
+            string? accountRole,
+
+            string? databaseRole)
         {
-            Role = role;
+            AccountRole = accountRole;
+            DatabaseRole = databaseRole;
         }
     }
 }

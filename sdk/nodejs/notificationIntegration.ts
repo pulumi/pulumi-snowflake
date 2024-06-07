@@ -7,22 +7,21 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const integration = new snowflake.NotificationIntegration("integration", {
+ *     name: "notification",
+ *     comment: "A notification integration.",
+ *     enabled: true,
+ *     type: "QUEUE",
+ *     direction: "OUTBOUND",
+ *     notificationProvider: "AZURE_STORAGE_QUEUE",
  *     azureStorageQueuePrimaryUri: "...",
  *     azureTenantId: "...",
- *     comment: "A notification integration.",
- *     direction: "OUTBOUND",
- *     enabled: true,
- *     notificationProvider: "AZURE_STORAGE_QUEUE",
- *     type: "QUEUE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,35 +27,38 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewApiIntegration(ctx, "aws", &snowflake.ApiIntegrationArgs{
+//				Name:          pulumi.String("aws_integration"),
+//				ApiProvider:   pulumi.String("aws_api_gateway"),
+//				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
 //				ApiAllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
 //				},
-//				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
-//				ApiProvider:   pulumi.String("aws_api_gateway"),
-//				Enabled:       pulumi.Bool(true),
+//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = snowflake.NewApiIntegration(ctx, "azure", &snowflake.ApiIntegrationArgs{
+//				Name:                 pulumi.String("azure_integration"),
+//				ApiProvider:          pulumi.String("azure_api_management"),
+//				AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
 //				ApiAllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("https://apim-hello-world.azure-api.net/"),
 //				},
-//				ApiProvider:          pulumi.String("azure_api_management"),
-//				AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
-//				AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Enabled:              pulumi.Bool(true),
+//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = snowflake.NewApiIntegration(ctx, "gcp", &snowflake.ApiIntegrationArgs{
+//				Name:           pulumi.String("gcp_integration"),
+//				ApiProvider:    pulumi.String("google_api_gateway"),
+//				GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
 //				ApiAllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("https://gateway-id-123456.uc.gateway.dev/"),
 //				},
-//				ApiProvider:    pulumi.String("google_api_gateway"),
-//				Enabled:        pulumi.Bool(true),
-//				GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
+//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

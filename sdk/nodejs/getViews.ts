@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
 
@@ -34,7 +32,13 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetViewsResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetViewsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewsResult> {
     return pulumi.output(args).apply((a: any) => getViews(a, opts))
@@ -82,6 +84,12 @@ export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: pulumi.Input<string>;
 }

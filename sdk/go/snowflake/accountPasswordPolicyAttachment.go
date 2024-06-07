@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,6 +31,7 @@ import (
 //			_, err := snowflake.NewPasswordPolicy(ctx, "default", &snowflake.PasswordPolicyArgs{
 //				Database: pulumi.String("prod"),
 //				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("default_policy"),
 //			})
 //			if err != nil {
 //				return err
@@ -47,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type AccountPasswordPolicyAttachment struct {
 	pulumi.CustomResourceState
 

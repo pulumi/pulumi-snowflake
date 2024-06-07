@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +26,7 @@ namespace Pulumi.Snowflake
     ///         Database = "database",
     ///         Schema = "schema",
     ///         Warehouse = "warehouse",
+    ///         Name = "task",
     ///         Schedule = "10 MINUTE",
     ///         SqlStatement = "select * from foo;",
     ///         SessionParameters = 
@@ -39,11 +39,12 @@ namespace Pulumi.Snowflake
     ///         Enabled = true,
     ///     });
     /// 
-    ///     var serverlessTask = new Snowflake.Task("serverlessTask", new()
+    ///     var serverlessTask = new Snowflake.Task("serverless_task", new()
     ///     {
     ///         Comment = "my serverless task",
     ///         Database = "db",
     ///         Schema = "schema",
+    ///         Name = "serverless_task",
     ///         Schedule = "10 MINUTE",
     ///         SqlStatement = "select * from foo;",
     ///         SessionParameters = 
@@ -60,11 +61,12 @@ namespace Pulumi.Snowflake
     ///         Enabled = true,
     ///     });
     /// 
-    ///     var testTask = new Snowflake.Task("testTask", new()
+    ///     var testTask = new Snowflake.Task("test_task", new()
     ///     {
     ///         Comment = "task with allow_overlapping_execution",
     ///         Database = "database",
     ///         Schema = "schema",
+    ///         Name = "test_task",
     ///         SqlStatement = "select 1 as c;",
     ///         AllowOverlappingExecution = true,
     ///         Enabled = true,
@@ -72,7 +74,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

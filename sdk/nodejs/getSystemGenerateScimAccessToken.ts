@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -16,7 +15,6 @@ import * as utilities from "./utilities";
  *     integrationName: "AAD_PROVISIONING",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGenerateScimAccessTokenResult> {
 
@@ -56,7 +54,6 @@ export interface GetSystemGenerateScimAccessTokenResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -65,7 +62,6 @@ export interface GetSystemGenerateScimAccessTokenResult {
  *     integrationName: "AAD_PROVISIONING",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateScimAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGenerateScimAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getSystemGenerateScimAccessToken(a, opts))

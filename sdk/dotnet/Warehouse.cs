@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,13 +22,13 @@ namespace Pulumi.Snowflake
     /// {
     ///     var warehouse = new Snowflake.Warehouse("warehouse", new()
     ///     {
+    ///         Name = "test",
     ///         Comment = "foo",
     ///         WarehouseSize = "small",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

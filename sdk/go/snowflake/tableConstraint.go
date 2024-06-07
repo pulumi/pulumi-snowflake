@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +26,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("some_db"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//			s, err := snowflake.NewSchema(ctx, "s", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("some_schema"),
+//				Database: d.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			t, err := snowflake.NewTable(ctx, "t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("some_table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("col1"),
@@ -61,9 +64,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fkT, err := snowflake.NewTable(ctx, "fkT", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//			fkT, err := snowflake.NewTable(ctx, "fk_t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("fk_table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
 //						Name:     pulumi.String("fk_col1"),
@@ -80,9 +84,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTableConstraint(ctx, "primaryKey", &snowflake.TableConstraintArgs{
+//			_, err = snowflake.NewTableConstraint(ctx, "primary_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraint"),
 //				Type:    pulumi.String("PRIMARY KEY"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col1"),
 //				},
@@ -91,9 +96,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTableConstraint(ctx, "foreignKey", &snowflake.TableConstraintArgs{
+//			_, err = snowflake.NewTableConstraint(ctx, "foreign_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraintfk"),
 //				Type:    pulumi.String("FOREIGN KEY"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col2"),
 //				},
@@ -114,8 +120,9 @@ import (
 //				return err
 //			}
 //			_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("unique"),
 //				Type:    pulumi.String("UNIQUE"),
-//				TableId: table.QualifiedName,
+//				TableId: t.QualifiedName,
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col3"),
 //				},
@@ -129,7 +136,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -139,7 +145,7 @@ import (
 type TableConstraint struct {
 	pulumi.CustomResourceState
 
-	// Columns to use in foreign key reference
+	// Columns to use in constraint key
 	Columns pulumi.StringArrayOutput `pulumi:"columns"`
 	// Comment for the table constraint
 	//
@@ -159,7 +165,7 @@ type TableConstraint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrOutput `pulumi:"rely"`
-	// Name of constraint
+	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringOutput `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -206,7 +212,7 @@ func GetTableConstraint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableConstraint resources.
 type tableConstraintState struct {
-	// Columns to use in foreign key reference
+	// Columns to use in constraint key
 	Columns []string `pulumi:"columns"`
 	// Comment for the table constraint
 	//
@@ -226,7 +232,7 @@ type tableConstraintState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely *bool `pulumi:"rely"`
-	// Name of constraint
+	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId *string `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type *string `pulumi:"type"`
@@ -235,7 +241,7 @@ type tableConstraintState struct {
 }
 
 type TableConstraintState struct {
-	// Columns to use in foreign key reference
+	// Columns to use in constraint key
 	Columns pulumi.StringArrayInput
 	// Comment for the table constraint
 	//
@@ -255,7 +261,7 @@ type TableConstraintState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrInput
-	// Name of constraint
+	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringPtrInput
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringPtrInput
@@ -268,7 +274,7 @@ func (TableConstraintState) ElementType() reflect.Type {
 }
 
 type tableConstraintArgs struct {
-	// Columns to use in foreign key reference
+	// Columns to use in constraint key
 	Columns []string `pulumi:"columns"`
 	// Comment for the table constraint
 	//
@@ -288,7 +294,7 @@ type tableConstraintArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely *bool `pulumi:"rely"`
-	// Name of constraint
+	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId string `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type string `pulumi:"type"`
@@ -298,7 +304,7 @@ type tableConstraintArgs struct {
 
 // The set of arguments for constructing a TableConstraint resource.
 type TableConstraintArgs struct {
-	// Columns to use in foreign key reference
+	// Columns to use in constraint key
 	Columns pulumi.StringArrayInput
 	// Comment for the table constraint
 	//
@@ -318,7 +324,7 @@ type TableConstraintArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrInput
-	// Name of constraint
+	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringInput
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringInput
@@ -413,7 +419,7 @@ func (o TableConstraintOutput) ToTableConstraintOutputWithContext(ctx context.Co
 	return o
 }
 
-// Columns to use in foreign key reference
+// Columns to use in constraint key
 func (o TableConstraintOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringArrayOutput { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -460,7 +466,7 @@ func (o TableConstraintOutput) Rely() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Rely }).(pulumi.BoolPtrOutput)
 }
 
-// Name of constraint
+// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 func (o TableConstraintOutput) TableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringOutput { return v.TableId }).(pulumi.StringOutput)
 }

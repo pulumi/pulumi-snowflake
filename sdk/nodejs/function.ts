@@ -11,10 +11,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | function name | <list of arg types, separated with '-'>
+ * format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
  *
  * ```sh
- * $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+ * $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
  * ```
  */
 export class Function extends pulumi.CustomResource {
@@ -74,7 +74,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface FunctionState {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface FunctionArgs {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

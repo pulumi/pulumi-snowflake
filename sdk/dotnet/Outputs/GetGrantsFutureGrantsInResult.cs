@@ -18,15 +18,15 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? Database;
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        /// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;schema*name&amp;gt;").
         /// </summary>
-        public readonly Outputs.GetGrantsFutureGrantsInSchemaResult? Schema;
+        public readonly string? Schema;
 
         [OutputConstructor]
         private GetGrantsFutureGrantsInResult(
             string? database,
 
-            Outputs.GetGrantsFutureGrantsInSchemaResult? schema)
+            string? schema)
         {
             Database = database;
             Schema = schema;

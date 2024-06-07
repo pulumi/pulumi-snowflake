@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,18 +26,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSessionParameter(ctx, "sessionParameter", &snowflake.SessionParameterArgs{
+//			_, err := snowflake.NewSessionParameter(ctx, "s", &snowflake.SessionParameterArgs{
 //				Key:   pulumi.String("AUTOCOMMIT"),
-//				User:  pulumi.String("TEST_USER"),
 //				Value: pulumi.String("false"),
+//				User:  pulumi.String("TEST_USER"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = snowflake.NewSessionParameter(ctx, "s2", &snowflake.SessionParameterArgs{
 //				Key:       pulumi.String("BINARY_OUTPUT_FORMAT"),
-//				OnAccount: pulumi.Bool(true),
 //				Value:     pulumi.String("BASE64"),
+//				OnAccount: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

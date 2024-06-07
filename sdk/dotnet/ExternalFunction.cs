@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,9 +20,11 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testExtFunc = new Snowflake.ExternalFunction("testExtFunc", new()
+    ///     var testExtFunc = new Snowflake.ExternalFunction("test_ext_func", new()
     ///     {
-    ///         ApiIntegration = "api_integration_name",
+    ///         Name = "my_function",
+    ///         Database = "my_test_db",
+    ///         Schema = "my_test_schema",
     ///         Args = new[]
     ///         {
     ///             new Snowflake.Inputs.ExternalFunctionArgArgs
@@ -37,23 +38,21 @@ namespace Pulumi.Snowflake
     ///                 Type = "varchar",
     ///             },
     ///         },
-    ///         Database = "my_test_db",
-    ///         ReturnBehavior = "IMMUTABLE",
     ///         ReturnType = "variant",
-    ///         Schema = "my_test_schema",
+    ///         ReturnBehavior = "IMMUTABLE",
+    ///         ApiIntegration = "api_integration_name",
     ///         UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | external function name | &lt;list of function arg types, separated with '-'&gt;
+    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with ','&gt;)
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
+    /// $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalFunction:ExternalFunction")]
@@ -114,7 +113,7 @@ namespace Pulumi.Snowflake
         public Output<int?> MaxBatchRows { get; private set; } = null!;
 
         /// <summary>
-        /// Argument name
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -280,7 +279,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Argument name
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -414,7 +413,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Argument name
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

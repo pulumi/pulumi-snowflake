@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -39,14 +40,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dbRole = new DatabaseRole(&#34;dbRole&#34;, DatabaseRoleArgs.builder()        
- *             .comment(&#34;my db role&#34;)
- *             .database(&#34;database&#34;)
+ *         var dbRole = new DatabaseRole("dbRole", DatabaseRoleArgs.builder()
+ *             .database("database")
+ *             .name("role_1")
+ *             .comment("my db role")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

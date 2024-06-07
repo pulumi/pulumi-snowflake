@@ -65,8 +65,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FunctionGrant{}
 	case "snowflake:index/grantAccountRole:GrantAccountRole":
 		r = &GrantAccountRole{}
+	case "snowflake:index/grantApplicationRole:GrantApplicationRole":
+		r = &GrantApplicationRole{}
 	case "snowflake:index/grantDatabaseRole:GrantDatabaseRole":
 		r = &GrantDatabaseRole{}
+	case "snowflake:index/grantOwnership:GrantOwnership":
+		r = &GrantOwnership{}
 	case "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole":
 		r = &GrantPrivilegesToAccountRole{}
 	case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
@@ -91,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPolicy{}
 	case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
 		r = &NetworkPolicyAttachment{}
+	case "snowflake:index/networkRule:NetworkRule":
+		r = &NetworkRule{}
 	case "snowflake:index/notificationIntegration:NotificationIntegration":
 		r = &NotificationIntegration{}
 	case "snowflake:index/oauthIntegration:OauthIntegration":
@@ -330,7 +336,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/grantApplicationRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/grantDatabaseRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/grantOwnership",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -391,6 +407,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/networkPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/networkRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

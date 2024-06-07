@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,23 +20,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sessionParameter = new Snowflake.SessionParameter("sessionParameter", new()
+    ///     var s = new Snowflake.SessionParameter("s", new()
     ///     {
     ///         Key = "AUTOCOMMIT",
-    ///         User = "TEST_USER",
     ///         Value = "false",
+    ///         User = "TEST_USER",
     ///     });
     /// 
     ///     var s2 = new Snowflake.SessionParameter("s2", new()
     ///     {
     ///         Key = "BINARY_OUTPUT_FORMAT",
-    ///         OnAccount = true,
     ///         Value = "BASE64",
+    ///         OnAccount = true,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

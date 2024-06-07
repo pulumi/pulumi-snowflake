@@ -9,22 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const azure = new snowflake.ExternalOauthIntegration("azure", {
- *     audienceUrls: ["https://analysis.windows.net/powerbi/connector/Snowflake"],
+ *     name: "AZURE_POWERBI",
+ *     type: "AZURE",
  *     enabled: true,
  *     issuer: "https://sts.windows.net/00000000-0000-0000-0000-000000000000",
- *     jwsKeysUrls: ["https://login.windows.net/common/discovery/keys"],
  *     snowflakeUserMappingAttribute: "LOGIN_NAME",
+ *     jwsKeysUrls: ["https://login.windows.net/common/discovery/keys"],
+ *     audienceUrls: ["https://analysis.windows.net/powerbi/connector/Snowflake"],
  *     tokenUserMappingClaims: ["upn"],
- *     type: "AZURE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

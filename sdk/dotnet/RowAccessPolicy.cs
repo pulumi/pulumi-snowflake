@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,21 +20,21 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRowAccessPolicy = new Snowflake.RowAccessPolicy("exampleRowAccessPolicy", new()
+    ///     var exampleRowAccessPolicy = new Snowflake.RowAccessPolicy("example_row_access_policy", new()
     ///     {
+    ///         Name = "EXAMPLE_ROW_ACCESS_POLICY",
     ///         Database = "EXAMPLE_DB",
-    ///         RowAccessExpression = "case when current_role() in ('ANALYST') then true else false end",
     ///         Schema = "EXAMPLE_SCHEMA",
     ///         Signature = 
     ///         {
     ///             { "A", "VARCHAR" },
     ///             { "B", "VARCHAR" },
     ///         },
+    ///         RowAccessExpression = "case when current_role() in ('ANALYST') then true else false end",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -31,6 +31,7 @@ from .get_alerts import *
 from .get_current_account import *
 from .get_current_role import *
 from .get_database import *
+from .get_database_role import *
 from .get_database_roles import *
 from .get_databases import *
 from .get_dynamic_tables import *
@@ -65,7 +66,9 @@ from .get_users import *
 from .get_views import *
 from .get_warehouses import *
 from .grant_account_role import *
+from .grant_application_role import *
 from .grant_database_role import *
+from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_role import *
@@ -78,6 +81,7 @@ from .materialized_view import *
 from .materialized_view_grant import *
 from .network_policy import *
 from .network_policy_attachment import *
+from .network_rule import *
 from .notification_integration import *
 from .oauth_integration import *
 from .object_parameter import *
@@ -318,10 +322,26 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/grantApplicationRole",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/grantApplicationRole:GrantApplicationRole": "GrantApplicationRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/grantDatabaseRole",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/grantDatabaseRole:GrantDatabaseRole": "GrantDatabaseRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/grantOwnership",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/grantOwnership:GrantOwnership": "GrantOwnership"
   }
  },
  {
@@ -418,6 +438,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment": "NetworkPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/networkRule",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/networkRule:NetworkRule": "NetworkRule"
   }
  },
  {

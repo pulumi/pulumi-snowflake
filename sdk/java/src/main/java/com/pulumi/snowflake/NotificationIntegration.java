@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,19 +41,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var integration = new NotificationIntegration(&#34;integration&#34;, NotificationIntegrationArgs.builder()        
- *             .azureStorageQueuePrimaryUri(&#34;...&#34;)
- *             .azureTenantId(&#34;...&#34;)
- *             .comment(&#34;A notification integration.&#34;)
- *             .direction(&#34;OUTBOUND&#34;)
+ *         var integration = new NotificationIntegration("integration", NotificationIntegrationArgs.builder()
+ *             .name("notification")
+ *             .comment("A notification integration.")
  *             .enabled(true)
- *             .notificationProvider(&#34;AZURE_STORAGE_QUEUE&#34;)
- *             .type(&#34;QUEUE&#34;)
+ *             .type("QUEUE")
+ *             .direction("OUTBOUND")
+ *             .notificationProvider("AZURE_STORAGE_QUEUE")
+ *             .azureStorageQueuePrimaryUri("...")
+ *             .azureTenantId("...")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

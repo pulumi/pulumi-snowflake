@@ -29,11 +29,11 @@ class FailoverGroupArgs:
         The set of arguments for constructing a FailoverGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_accounts: Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -84,7 +84,7 @@ class FailoverGroupArgs:
     @pulumi.getter(name="allowedIntegrationTypes")
     def allowed_integration_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         """
         return pulumi.get(self, "allowed_integration_types")
 
@@ -132,7 +132,7 @@ class FailoverGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -181,11 +181,11 @@ class _FailoverGroupState:
         Input properties used for looking up and filtering FailoverGroup resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_accounts: Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -236,7 +236,7 @@ class _FailoverGroupState:
     @pulumi.getter(name="allowedIntegrationTypes")
     def allowed_integration_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         """
         return pulumi.get(self, "allowed_integration_types")
 
@@ -284,7 +284,7 @@ class _FailoverGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -335,13 +335,13 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        db = snowflake.Database("db")
-        source_failover_group = snowflake.FailoverGroup("sourceFailoverGroup",
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
             object_types=[
                 "WAREHOUSES",
                 "DATABASES",
@@ -360,15 +360,14 @@ class FailoverGroup(pulumi.CustomResource):
                     time_zone="UTC",
                 ),
             ))
-        account2 = snowflake.Provider("account2")
-        target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
-            organization_name="...",
-            source_account_name="...",
-            name=snowflake_failover_group["fg"]["name"],
-        ),
-        opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica=snowflake.FailoverGroupFromReplicaArgs(
+                organization_name="...",
+                source_account_name="...",
+                name=fg["name"],
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -380,11 +379,11 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_accounts: Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -397,13 +396,13 @@ class FailoverGroup(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        db = snowflake.Database("db")
-        source_failover_group = snowflake.FailoverGroup("sourceFailoverGroup",
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
             object_types=[
                 "WAREHOUSES",
                 "DATABASES",
@@ -422,15 +421,14 @@ class FailoverGroup(pulumi.CustomResource):
                     time_zone="UTC",
                 ),
             ))
-        account2 = snowflake.Provider("account2")
-        target_failover_group = snowflake.FailoverGroup("targetFailoverGroup", from_replica=snowflake.FailoverGroupFromReplicaArgs(
-            organization_name="...",
-            source_account_name="...",
-            name=snowflake_failover_group["fg"]["name"],
-        ),
-        opts=pulumi.ResourceOptions(provider=snowflake["account2"]))
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica=snowflake.FailoverGroupFromReplicaArgs(
+                organization_name="...",
+                source_account_name="...",
+                name=fg["name"],
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -508,11 +506,11 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_accounts: Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
-        :param pulumi.Input[str] name: Identifier for the primary failover group in the source account.
+        :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
@@ -551,7 +549,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter(name="allowedIntegrationTypes")
     def allowed_integration_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         """
         return pulumi.get(self, "allowed_integration_types")
 
@@ -583,7 +581,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the primary failover group in the source account.
+        Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         """
         return pulumi.get(self, "name")
 

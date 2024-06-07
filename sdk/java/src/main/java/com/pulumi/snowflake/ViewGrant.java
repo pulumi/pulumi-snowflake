@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,33 +46,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var grantViewGrant = new ViewGrant(&#34;grantViewGrant&#34;, ViewGrantArgs.builder()        
- *             .databaseName(&#34;database&#34;)
- *             .onFuture(false)
- *             .privilege(&#34;SELECT&#34;)
+ *         var grant = new ViewGrant("grant", ViewGrantArgs.builder()
+ *             .databaseName("database")
+ *             .schemaName("schema")
+ *             .viewName("view")
+ *             .privilege("SELECT")
  *             .roles(            
- *                 &#34;role1&#34;,
- *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
+ *                 "role1",
+ *                 "role2")
  *             .shares(            
- *                 &#34;share1&#34;,
- *                 &#34;share2&#34;)
- *             .viewName(&#34;view&#34;)
+ *                 "share1",
+ *                 "share2")
+ *             .onFuture(false)
  *             .withGrantOption(false)
  *             .build());
  * 
- *         var grantSchemaGrant = new SchemaGrant(&#34;grantSchemaGrant&#34;, SchemaGrantArgs.builder()        
- *             .databaseName(&#34;database&#34;)
- *             .privilege(&#34;USAGE&#34;)
+ *         //Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+ *         //grants, use the `snowflake_schema_grant` resource
+ *         var grantSchemaGrant = new SchemaGrant("grantSchemaGrant", SchemaGrantArgs.builder()
+ *             .databaseName("database")
+ *             .schemaName("schema")
+ *             .privilege("USAGE")
  *             .roles(            
- *                 &#34;role1&#34;,
- *                 &#34;role2&#34;)
- *             .schemaName(&#34;schema&#34;)
+ *                 "role1",
+ *                 "role2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -99,19 +103,9 @@ public class ViewGrant extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     @Export(name="enableMultipleGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMultipleGrants;
 
-    /**
-     * @return When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     * 
-     */
     public Output<Optional<Boolean>> enableMultipleGrants() {
         return Codegen.optional(this.enableMultipleGrants);
     }

@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, opts ...pulumi.InvokeOption) (*GetMaterializedViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaterializedViewsResult
@@ -51,8 +49,10 @@ func GetMaterializedViews(ctx *pulumi.Context, args *GetMaterializedViewsArgs, o
 
 // A collection of arguments for invoking getMaterializedViews.
 type GetMaterializedViewsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getMaterializedViews.
@@ -82,8 +82,10 @@ func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOu
 
 // A collection of arguments for invoking getMaterializedViews.
 type GetMaterializedViewsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the views from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetMaterializedViewsOutputArgs) ElementType() reflect.Type {

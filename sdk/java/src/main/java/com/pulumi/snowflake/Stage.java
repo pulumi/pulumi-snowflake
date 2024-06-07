@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -28,8 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Stage;
  * import com.pulumi.snowflake.StageArgs;
- * import com.pulumi.snowflake.StageGrant;
- * import com.pulumi.snowflake.StageGrantArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,24 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .url(&#34;s3://com.example.bucket/prefix&#34;)
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
- *             .credentials(String.format(&#34;AWS_KEY_ID=&#39;%s&#39; AWS_SECRET_KEY=&#39;%s&#39;&#34;, var_.example_aws_key_id(),var_.example_aws_secret_key()))
- *             .build());
- * 
- *         var grantExampleStage = new StageGrant(&#34;grantExampleStage&#34;, StageGrantArgs.builder()        
- *             .databaseName(exampleStage.database())
- *             .schemaName(exampleStage.schema())
- *             .roles(&#34;LOADER&#34;)
- *             .privilege(&#34;OWNERSHIP&#34;)
- *             .stageName(exampleStage.name())
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
+ *             .name("EXAMPLE_STAGE")
+ *             .url("s3://com.example.bucket/prefix")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .credentials(String.format("AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'", exampleAwsKeyId,exampleAwsSecretKey))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -74,9 +67,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     @Export(name="awsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsExternalId;
 
+    /**
+     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * 
+     */
     public Output<String> awsExternalId() {
         return this.awsExternalId;
     }
@@ -123,14 +124,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the stage.
      * 
      */
     public Output<String> database() {
@@ -179,36 +180,44 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileFormat);
     }
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the stage.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     @Export(name="snowflakeIamUser", refs={String.class}, tree="[0]")
     private Output<String> snowflakeIamUser;
 
+    /**
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * 
+     */
     public Output<String> snowflakeIamUser() {
         return this.snowflakeIamUser;
     }

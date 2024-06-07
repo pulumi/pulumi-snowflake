@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProcedures(args: GetProceduresArgs, opts?: pulumi.InvokeOptions): Promise<GetProceduresResult> {
 
@@ -34,7 +32,13 @@ export function getProcedures(args: GetProceduresArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the procedures from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetProceduresResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetProceduresResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProceduresResult> {
     return pulumi.output(args).apply((a: any) => getProcedures(a, opts))
@@ -82,6 +84,12 @@ export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getProcedures.
  */
 export interface GetProceduresOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the procedures from.
+     */
     schema: pulumi.Input<string>;
 }

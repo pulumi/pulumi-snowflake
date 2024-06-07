@@ -21,13 +21,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Table;
@@ -50,82 +52,91 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
- * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(database.name())
+ *         var d = new Database("d", DatabaseArgs.builder()
+ *             .name("some_db")
  *             .build());
  * 
- *         var table = new Table(&#34;table&#34;, TableArgs.builder()        
- *             .database(database.name())
- *             .schema(schema.name())
+ *         var s = new Schema("s", SchemaArgs.builder()
+ *             .name("some_schema")
+ *             .database(d.name())
+ *             .build());
+ * 
+ *         var t = new Table("t", TableArgs.builder()
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name("some_table")
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col1&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col1")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col2&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col2")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;col3&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("col3")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build())
  *             .build());
  * 
- *         var fkT = new Table(&#34;fkT&#34;, TableArgs.builder()        
- *             .database(database.name())
- *             .schema(schema.name())
+ *         var fkT = new Table("fkT", TableArgs.builder()
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name("fk_table")
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;fk_col1&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("fk_col1")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;fk_col2&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("fk_col2")
+ *                     .type("text")
  *                     .nullable(false)
  *                     .build())
  *             .build());
  * 
- *         var primaryKey = new TableConstraint(&#34;primaryKey&#34;, TableConstraintArgs.builder()        
- *             .type(&#34;PRIMARY KEY&#34;)
- *             .tableId(table.qualifiedName())
- *             .columns(&#34;col1&#34;)
- *             .comment(&#34;hello world&#34;)
+ *         var primaryKey = new TableConstraint("primaryKey", TableConstraintArgs.builder()
+ *             .name("myconstraint")
+ *             .type("PRIMARY KEY")
+ *             .tableId(t.qualifiedName())
+ *             .columns("col1")
+ *             .comment("hello world")
  *             .build());
  * 
- *         var foreignKey = new TableConstraint(&#34;foreignKey&#34;, TableConstraintArgs.builder()        
- *             .type(&#34;FOREIGN KEY&#34;)
- *             .tableId(table.qualifiedName())
- *             .columns(&#34;col2&#34;)
+ *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()
+ *             .name("myconstraintfk")
+ *             .type("FOREIGN KEY")
+ *             .tableId(t.qualifiedName())
+ *             .columns("col2")
  *             .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()
  *                 .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()
  *                     .tableId(fkT.qualifiedName())
- *                     .columns(&#34;fk_col1&#34;)
+ *                     .columns("fk_col1")
  *                     .build())
  *                 .build())
  *             .enforced(false)
  *             .deferrable(false)
- *             .initially(&#34;IMMEDIATE&#34;)
- *             .comment(&#34;hello fk&#34;)
+ *             .initially("IMMEDIATE")
+ *             .comment("hello fk")
  *             .build());
  * 
- *         var unique = new TableConstraint(&#34;unique&#34;, TableConstraintArgs.builder()        
- *             .type(&#34;UNIQUE&#34;)
- *             .tableId(table.qualifiedName())
- *             .columns(&#34;col3&#34;)
- *             .comment(&#34;hello unique&#34;)
+ *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()
+ *             .name("unique")
+ *             .type("UNIQUE")
+ *             .tableId(t.qualifiedName())
+ *             .columns("col3")
+ *             .comment("hello unique")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -138,14 +149,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/tableConstraint:TableConstraint")
 public class TableConstraint extends com.pulumi.resources.CustomResource {
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      * 
      */
     @Export(name="columns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> columns;
 
     /**
-     * @return Columns to use in foreign key reference
+     * @return Columns to use in constraint key
      * 
      */
     public Output<List<String>> columns() {
@@ -268,14 +279,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rely);
     }
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Export(name="tableId", refs={String.class}, tree="[0]")
     private Output<String> tableId;
 
     /**
-     * @return Name of constraint
+     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Output<String> tableId() {

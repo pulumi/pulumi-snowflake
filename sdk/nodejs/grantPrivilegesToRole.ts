@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -25,12 +24,12 @@ import * as utilities from "./utilities";
  *         "MODIFY",
  *         "USAGE",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onAccount: true,
  * });
  * // all privileges + grant option
  * const g2 = new snowflake.GrantPrivilegesToRole("g2", {
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onAccount: true,
  *     allPrivileges: true,
  *     withGrantOption: true,
@@ -44,18 +43,18 @@ import * as utilities from "./utilities";
  *         "CREATE",
  *         "MONITOR",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onAccountObject: {
  *         objectType: "DATABASE",
- *         objectName: snowflake_database.d.name,
+ *         objectName: d.name,
  *     },
  * });
  * // all privileges + grant option
  * const g4 = new snowflake.GrantPrivilegesToRole("g4", {
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onAccountObject: {
  *         objectType: "DATABASE",
- *         objectName: snowflake_database.d.name,
+ *         objectName: d.name,
  *     },
  *     allPrivileges: true,
  *     withGrantOption: true,
@@ -69,14 +68,14 @@ import * as utilities from "./utilities";
  *         "MODIFY",
  *         "CREATE TABLE",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchema: {
  *         schemaName: "\"my_db\".\"my_schema\"",
  *     },
  * });
  * // all privileges + grant option
  * const g6 = new snowflake.GrantPrivilegesToRole("g6", {
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchema: {
  *         schemaName: "\"my_db\".\"my_schema\"",
  *     },
@@ -89,9 +88,9 @@ import * as utilities from "./utilities";
  *         "MODIFY",
  *         "CREATE TABLE",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchema: {
- *         allSchemasInDatabase: snowflake_database.d.name,
+ *         allSchemasInDatabase: d.name,
  *     },
  * });
  * // future schemas in database
@@ -100,9 +99,9 @@ import * as utilities from "./utilities";
  *         "MODIFY",
  *         "CREATE TABLE",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchema: {
- *         futureSchemasInDatabase: snowflake_database.d.name,
+ *         futureSchemasInDatabase: d.name,
  *     },
  * });
  * //#################################
@@ -114,7 +113,7 @@ import * as utilities from "./utilities";
  *         "SELECT",
  *         "REFERENCES",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         objectType: "VIEW",
  *         objectName: "\"my_db\".\"my_schema\".\"my_view\"",
@@ -122,7 +121,7 @@ import * as utilities from "./utilities";
  * });
  * // all privileges + grant option
  * const g10 = new snowflake.GrantPrivilegesToRole("g10", {
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         objectType: "VIEW",
  *         objectName: "\"my_db\".\"my_schema\".\"my_view\"",
@@ -136,11 +135,11 @@ import * as utilities from "./utilities";
  *         "SELECT",
  *         "INSERT",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         all: {
  *             objectTypePlural: "TABLES",
- *             inDatabase: snowflake_database.d.name,
+ *             inDatabase: d.name,
  *         },
  *     },
  * });
@@ -150,7 +149,7 @@ import * as utilities from "./utilities";
  *         "SELECT",
  *         "INSERT",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         all: {
  *             objectTypePlural: "TABLES",
@@ -164,11 +163,11 @@ import * as utilities from "./utilities";
  *         "SELECT",
  *         "INSERT",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         future: {
  *             objectTypePlural: "TABLES",
- *             inDatabase: snowflake_database.d.name,
+ *             inDatabase: d.name,
  *         },
  *     },
  * });
@@ -178,7 +177,7 @@ import * as utilities from "./utilities";
  *         "SELECT",
  *         "INSERT",
  *     ],
- *     roleName: snowflake_role.r.name,
+ *     roleName: r.name,
  *     onSchemaObject: {
  *         future: {
  *             objectTypePlural: "TABLES",
@@ -187,7 +186,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

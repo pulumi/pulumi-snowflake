@@ -9,14 +9,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const schema = new snowflake.Schema("schema", {database: database.name});
+ * const database = new snowflake.Database("database", {name: "database"});
+ * const schema = new snowflake.Schema("schema", {
+ *     name: "schema",
+ *     database: database.name,
+ * });
  * const tag = new snowflake.Tag("tag", {
+ *     name: "cost_center",
  *     database: database.name,
  *     schema: schema.name,
  *     allowedValues: [
@@ -24,7 +27,7 @@ import * as utilities from "./utilities";
  *         "engineering",
  *     ],
  * });
- * const dbAssociation = new snowflake.TagAssociation("dbAssociation", {
+ * const dbAssociation = new snowflake.TagAssociation("db_association", {
  *     objectIdentifiers: [{
  *         name: database.name,
  *     }],
@@ -33,8 +36,9 @@ import * as utilities from "./utilities";
  *     tagValue: "finance",
  * });
  * const test = new snowflake.Table("test", {
- *     database: snowflake_database.test.name,
- *     schema: snowflake_schema.test.name,
+ *     database: testSnowflakeDatabase.name,
+ *     schema: testSnowflakeSchema.name,
+ *     name: "TABLE_NAME",
  *     comment: "Terraform example table",
  *     columns: [
  *         {
@@ -47,28 +51,27 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * const tableAssociation = new snowflake.TagAssociation("tableAssociation", {
+ * const tableAssociation = new snowflake.TagAssociation("table_association", {
  *     objectIdentifiers: [{
  *         name: test.name,
- *         database: snowflake_database.test.name,
- *         schema: snowflake_schema.test.name,
+ *         database: testSnowflakeDatabase.name,
+ *         schema: testSnowflakeSchema.name,
  *     }],
  *     objectType: "TABLE",
- *     tagId: snowflake_tag.test.id,
+ *     tagId: testSnowflakeTag.id,
  *     tagValue: "engineering",
  * });
- * const columnAssociation = new snowflake.TagAssociation("columnAssociation", {
+ * const columnAssociation = new snowflake.TagAssociation("column_association", {
  *     objectIdentifiers: [{
  *         name: pulumi.interpolate`${test.name}.column_name`,
- *         database: snowflake_database.test.name,
- *         schema: snowflake_schema.test.name,
+ *         database: testSnowflakeDatabase.name,
+ *         schema: testSnowflakeSchema.name,
  *     }],
  *     objectType: "COLUMN",
- *     tagId: snowflake_tag.test.id,
+ *     tagId: testSnowflakeTag.id,
  *     tagValue: "engineering",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -117,7 +120,7 @@ export class TagAssociation extends pulumi.CustomResource {
      */
     public readonly objectName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     public readonly objectType!: pulumi.Output<string>;
     /**
@@ -193,7 +196,7 @@ export interface TagAssociationState {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     objectType?: pulumi.Input<string>;
     /**
@@ -225,7 +228,7 @@ export interface TagAssociationArgs {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     objectType: pulumi.Input<string>;
     /**

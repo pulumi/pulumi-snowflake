@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,19 +26,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabase(ctx, "database", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testSchema, err := snowflake.NewSchema(ctx, "testSchema", &snowflake.SchemaArgs{
-//				Database: pulumi.Any(snowflake_database.Test_database.Name),
+//			_, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("things"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewSequence(ctx, "testSequence", &snowflake.SequenceArgs{
-//				Database: pulumi.Any(snowflake_database.Test_database.Name),
+//			testSchema, err := snowflake.NewSchema(ctx, "test_schema", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("things"),
+//				Database: pulumi.Any(testDatabase.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewSequence(ctx, "test_sequence", &snowflake.SequenceArgs{
+//				Database: pulumi.Any(testDatabase.Name),
 //				Schema:   testSchema.Name,
+//				Name:     pulumi.String("thing_counter"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -21,7 +21,6 @@ class RoleOwnershipGrantArgs:
         """
         The set of arguments for constructing a RoleOwnershipGrant resource.
         :param pulumi.Input[str] on_role_name: The name of the role ownership is granted on.
-        :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
         """
@@ -47,9 +46,6 @@ class RoleOwnershipGrantArgs:
     @property
     @pulumi.getter(name="toRoleName")
     def to_role_name(self) -> pulumi.Input[str]:
-        """
-        The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        """
         return pulumi.get(self, "to_role_name")
 
     @to_role_name.setter
@@ -93,7 +89,6 @@ class _RoleOwnershipGrantState:
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_role_name: The name of the role ownership is granted on.
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
-        :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         if current_grants is not None:
             pulumi.set(__self__, "current_grants", current_grants)
@@ -143,9 +138,6 @@ class _RoleOwnershipGrantState:
     @property
     @pulumi.getter(name="toRoleName")
     def to_role_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        """
         return pulumi.get(self, "to_role_name")
 
     @to_role_name.setter
@@ -164,15 +156,18 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  to_role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         # ensure the Terraform user inherits ownership privileges for the rking_test_role role
         # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
         grants = snowflake.RoleGrants("grants",
@@ -183,7 +178,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -196,7 +190,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_role_name: The name of the role ownership is granted on.
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
-        :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         ...
     @overload
@@ -205,15 +198,18 @@ class RoleOwnershipGrant(pulumi.CustomResource):
                  args: RoleOwnershipGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        role = snowflake.Role("role", comment="for testing")
-        other_role = snowflake.Role("otherRole")
+        role = snowflake.Role("role",
+            name="rking_test_role",
+            comment="for testing")
+        other_role = snowflake.Role("other_role", name="rking_test_role2")
         # ensure the Terraform user inherits ownership privileges for the rking_test_role role
         # otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
         grants = snowflake.RoleGrants("grants",
@@ -224,7 +220,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
             to_role_name=other_role.name,
             current_grants="COPY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,7 +287,6 @@ class RoleOwnershipGrant(pulumi.CustomResource):
         :param pulumi.Input[str] current_grants: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role.
         :param pulumi.Input[str] on_role_name: The name of the role ownership is granted on.
         :param pulumi.Input[str] revert_ownership_to_role_name: The name of the role to revert ownership to on destroy.
-        :param pulumi.Input[str] to_role_name: The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,8 +325,5 @@ class RoleOwnershipGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="toRoleName")
     def to_role_name(self) -> pulumi.Output[str]:
-        """
-        The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        """
         return pulumi.get(self, "to_role_name")
 

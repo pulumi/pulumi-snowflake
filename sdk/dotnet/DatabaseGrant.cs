@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -61,10 +59,6 @@ namespace Pulumi.Snowflake
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Output("enableMultipleGrants")]
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
@@ -150,10 +144,6 @@ namespace Pulumi.Snowflake
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 
@@ -213,10 +203,6 @@ namespace Pulumi.Snowflake
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 

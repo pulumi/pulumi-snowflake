@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,18 +30,18 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewMaterializedViewGrant(ctx, "grant", &snowflake.MaterializedViewGrantArgs{
 //				DatabaseName:         pulumi.String("database"),
+//				SchemaName:           pulumi.String("schema"),
 //				MaterializedViewName: pulumi.String("materialized_view"),
-//				OnFuture:             pulumi.Bool(false),
 //				Privilege:            pulumi.String("SELECT"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("role1"),
 //					pulumi.String("role2"),
 //				},
-//				SchemaName: pulumi.String("schema"),
 //				Shares: pulumi.StringArray{
 //					pulumi.String("share1"),
 //					pulumi.String("share2"),
 //				},
+//				OnFuture:        pulumi.Bool(false),
 //				WithGrantOption: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -53,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -66,9 +64,7 @@ type MaterializedViewGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the current or future materialized views on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrOutput `pulumi:"materializedViewName"`
@@ -124,10 +120,8 @@ func GetMaterializedViewGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MaterializedViewGrant resources.
 type materializedViewGrantState struct {
 	// The name of the database containing the current or future materialized views on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
@@ -150,9 +144,7 @@ type materializedViewGrantState struct {
 
 type MaterializedViewGrantState struct {
 	// The name of the database containing the current or future materialized views on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrInput
@@ -180,10 +172,8 @@ func (MaterializedViewGrantState) ElementType() reflect.Type {
 
 type materializedViewGrantArgs struct {
 	// The name of the database containing the current or future materialized views on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName *string `pulumi:"materializedViewName"`
 	// When this is set to true and a schema*name is provided, apply this grant on all materialized views in the given schema. When this is true and no schema*name is provided apply this grant on all materialized views in the given database. The materialized*view*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
@@ -207,9 +197,7 @@ type materializedViewGrantArgs struct {
 // The set of arguments for constructing a MaterializedViewGrant resource.
 type MaterializedViewGrantArgs struct {
 	// The name of the database containing the current or future materialized views on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The name of the materialized view on which to grant privileges immediately (only valid if on*future and on*all are false).
 	MaterializedViewName pulumi.StringPtrInput
@@ -323,8 +311,6 @@ func (o MaterializedViewGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o MaterializedViewGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedViewGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

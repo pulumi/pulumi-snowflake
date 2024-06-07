@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,25 +25,24 @@ namespace Pulumi.Snowflake
     ///     var grant = new Snowflake.SchemaGrant("grant", new()
     ///     {
     ///         DatabaseName = "database",
-    ///         OnFuture = false,
+    ///         SchemaName = "schema",
     ///         Privilege = "USAGE",
     ///         Roles = new[]
     ///         {
     ///             "role1",
     ///             "role2",
     ///         },
-    ///         SchemaName = "schema",
     ///         Shares = new[]
     ///         {
     ///             "share1",
     ///             "share2",
     ///         },
+    ///         OnFuture = false,
     ///         WithGrantOption = false,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -63,10 +61,6 @@ namespace Pulumi.Snowflake
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Output("enableMultipleGrants")]
         public Output<bool?> EnableMultipleGrants { get; private set; } = null!;
 
@@ -82,10 +76,6 @@ namespace Pulumi.Snowflake
         [Output("onFuture")]
         public Output<bool?> OnFuture { get; private set; } = null!;
 
-        /// <summary>
-        /// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        /// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        /// </summary>
         [Output("privilege")]
         public Output<string?> Privilege { get; private set; } = null!;
 
@@ -171,10 +161,6 @@ namespace Pulumi.Snowflake
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 
@@ -190,10 +176,6 @@ namespace Pulumi.Snowflake
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
 
-        /// <summary>
-        /// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        /// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
 
@@ -253,10 +235,6 @@ namespace Pulumi.Snowflake
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        /// grants applied to roles and objects outside Terraform.
-        /// </summary>
         [Input("enableMultipleGrants")]
         public Input<bool>? EnableMultipleGrants { get; set; }
 
@@ -272,10 +250,6 @@ namespace Pulumi.Snowflake
         [Input("onFuture")]
         public Input<bool>? OnFuture { get; set; }
 
-        /// <summary>
-        /// The privilege to grant on the current or future schema. Note that if "OWNERSHIP" is specified, ensure that the role that
-        /// terraform is using is granted access. To grant all privileges, use the value `ALL PRIVILEGES`
-        /// </summary>
         [Input("privilege")]
         public Input<string>? Privilege { get; set; }
 

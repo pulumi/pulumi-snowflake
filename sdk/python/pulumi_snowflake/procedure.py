@@ -40,11 +40,11 @@ class ProcedureArgs:
         :param pulumi.Input[str] statement: Specifies the code used to create the procedure.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -159,7 +159,7 @@ class ProcedureArgs:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 
@@ -207,7 +207,7 @@ class ProcedureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -303,11 +303,11 @@ class _ProcedureState:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureArgumentArgs']]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -393,7 +393,7 @@ class _ProcedureState:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 
@@ -441,7 +441,7 @@ class _ProcedureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -576,10 +576,10 @@ class Procedure(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -587,11 +587,11 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -612,10 +612,10 @@ class Procedure(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -718,11 +718,11 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
-        :param pulumi.Input[str] execute_as: Sets execute context - see caller's rights and owner's rights
+        :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python procedures. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -782,7 +782,7 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> pulumi.Output[Optional[str]]:
         """
-        Sets execute context - see caller's rights and owner's rights
+        Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
 
@@ -814,7 +814,7 @@ class Procedure(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The argument name
+        Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 

@@ -19,13 +19,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Tag;
@@ -43,23 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
+ *         var database = new Database("database", DatabaseArgs.builder()
+ *             .name("database")
+ *             .build());
  * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
+ *             .name("schema")
  *             .database(database.name())
  *             .build());
  * 
- *         var tag = new Tag(&#34;tag&#34;, TagArgs.builder()        
+ *         var tag = new Tag("tag", TagArgs.builder()
+ *             .name("cost_center")
  *             .database(database.name())
  *             .schema(schema.name())
  *             .allowedValues(            
- *                 &#34;finance&#34;,
- *                 &#34;engineering&#34;)
+ *                 "finance",
+ *                 "engineering")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

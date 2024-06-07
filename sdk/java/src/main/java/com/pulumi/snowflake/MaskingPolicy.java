@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,32 +43,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MaskingPolicy(&#34;test&#34;, MaskingPolicyArgs.builder()        
- *             .database(&#34;EXAMPLE_DB&#34;)
- *             .maskingExpression(&#34;&#34;&#34;
- *   case 
- *     when current_role() in (&#39;ROLE_A&#39;) then 
- *       val 
- *     when is_role_in_session( &#39;ROLE_B&#39; ) then 
- *       &#39;ABC123&#39;
- *     else
- *       &#39;******&#39;
- *   end
- * 
- *             &#34;&#34;&#34;)
- *             .returnDataType(&#34;VARCHAR&#34;)
- *             .schema(&#34;EXAMPLE_SCHEMA&#34;)
+ *         var test = new MaskingPolicy("test", MaskingPolicyArgs.builder()
+ *             .name("EXAMPLE_MASKING_POLICY")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
  *             .signature(MaskingPolicySignatureArgs.builder()
  *                 .columns(MaskingPolicySignatureColumnArgs.builder()
- *                     .name(&#34;val&#34;)
- *                     .type(&#34;VARCHAR&#34;)
+ *                     .name("val")
+ *                     .type("VARCHAR")
  *                     .build())
  *                 .build())
+ *             .maskingExpression("""
+ * case 
+ *   when current_role() in ('ROLE_A') then 
+ *     val 
+ *   when is_role_in_session( 'ROLE_B' ) then 
+ *     'ABC123'
+ *   else
+ *     '******'
+ * end
+ *             """)
+ *             .returnDataType("VARCHAR")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -152,14 +154,14 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.maskingExpression;
     }
     /**
-     * Specifies the column name to mask.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the column name to mask.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      * 
      */
     public Output<String> name() {

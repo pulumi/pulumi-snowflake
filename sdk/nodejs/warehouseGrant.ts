@@ -9,22 +9,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.WarehouseGrant("grant", {
+ *     warehouseName: "warehouse",
  *     privilege: "MODIFY",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     warehouseName: "warehouse",
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -62,10 +60,6 @@ export class WarehouseGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === WarehouseGrant.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -128,10 +122,6 @@ export class WarehouseGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WarehouseGrant resources.
  */
 export interface WarehouseGrantState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -159,10 +149,6 @@ export interface WarehouseGrantState {
  * The set of arguments for constructing a WarehouseGrant resource.
  */
 export interface WarehouseGrantArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the warehouse. To grant all privileges, use the value `ALL PRIVILEGES`.

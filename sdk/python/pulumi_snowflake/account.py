@@ -32,8 +32,8 @@ class AccountArgs:
         :param pulumi.Input[str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
-        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
-        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         :param pulumi.Input[str] comment: Specifies a comment for the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
         :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
@@ -107,7 +107,7 @@ class AccountArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
+        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
         """
         return pulumi.get(self, "admin_password")
 
@@ -119,7 +119,7 @@ class AccountArgs:
     @pulumi.getter(name="adminRsaPublicKey")
     def admin_rsa_public_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         """
         return pulumi.get(self, "admin_rsa_public_key")
 
@@ -244,8 +244,8 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
-        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         :param pulumi.Input[str] comment: Specifies a comment for the account.
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
@@ -303,7 +303,7 @@ class _AccountState:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
+        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
         """
         return pulumi.get(self, "admin_password")
 
@@ -315,7 +315,7 @@ class _AccountState:
     @pulumi.getter(name="adminRsaPublicKey")
     def admin_rsa_public_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         """
         return pulumi.get(self, "admin_rsa_public_key")
 
@@ -478,19 +478,18 @@ class Account(pulumi.CustomResource):
         """
         The account resource allows you to create and manage Snowflake accounts.
 
-            **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-            
-            **NOTE** ORGADMIN priviliges are required for this resource
+        !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
+
+        > **Note** ORGADMIN priviliges are required for this resource
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        orgadmin = snowflake.Provider("orgadmin", role="ORGADMIN")
         ac1 = snowflake.Account("ac1",
+            name="SNOWFLAKE_TEST_ACCOUNT",
             admin_name="John Doe",
             admin_password="Abcd1234!",
             email="john.doe@snowflake.com",
@@ -499,10 +498,8 @@ class Account(pulumi.CustomResource):
             must_change_password=True,
             edition="STANDARD",
             comment="Snowflake Test Account",
-            region="AWS_US_WEST_2",
-            opts=pulumi.ResourceOptions(provider=snowflake["orgadmin"]))
+            region="AWS_US_WEST_2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -513,8 +510,8 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
-        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         :param pulumi.Input[str] comment: Specifies a comment for the account.
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
@@ -535,19 +532,18 @@ class Account(pulumi.CustomResource):
         """
         The account resource allows you to create and manage Snowflake accounts.
 
-            **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-            
-            **NOTE** ORGADMIN priviliges are required for this resource
+        !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
+
+        > **Note** ORGADMIN priviliges are required for this resource
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        orgadmin = snowflake.Provider("orgadmin", role="ORGADMIN")
         ac1 = snowflake.Account("ac1",
+            name="SNOWFLAKE_TEST_ACCOUNT",
             admin_name="John Doe",
             admin_password="Abcd1234!",
             email="john.doe@snowflake.com",
@@ -556,10 +552,8 @@ class Account(pulumi.CustomResource):
             must_change_password=True,
             edition="STANDARD",
             comment="Snowflake Test Account",
-            region="AWS_US_WEST_2",
-            opts=pulumi.ResourceOptions(provider=snowflake["orgadmin"]))
+            region="AWS_US_WEST_2")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -658,8 +652,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
-        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        :param pulumi.Input[str] admin_password: Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
+        :param pulumi.Input[str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         :param pulumi.Input[str] comment: Specifies a comment for the account.
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
@@ -704,7 +698,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy).
+        Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
         """
         return pulumi.get(self, "admin_password")
 
@@ -712,7 +706,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="adminRsaPublicKey")
     def admin_rsa_public_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+        Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
         """
         return pulumi.get(self, "admin_rsa_public_key")
 

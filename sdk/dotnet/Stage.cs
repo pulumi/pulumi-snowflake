@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,29 +20,17 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStage = new Snowflake.Stage("exampleStage", new()
+    ///     var exampleStage = new Snowflake.Stage("example_stage", new()
     ///     {
+    ///         Name = "EXAMPLE_STAGE",
     ///         Url = "s3://com.example.bucket/prefix",
     ///         Database = "EXAMPLE_DB",
     ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Credentials = $"AWS_KEY_ID='{@var.Example_aws_key_id}' AWS_SECRET_KEY='{@var.Example_aws_secret_key}'",
-    ///     });
-    /// 
-    ///     var grantExampleStage = new Snowflake.StageGrant("grantExampleStage", new()
-    ///     {
-    ///         DatabaseName = exampleStage.Database,
-    ///         SchemaName = exampleStage.Schema,
-    ///         Roles = new[]
-    ///         {
-    ///             "LOADER",
-    ///         },
-    ///         Privilege = "OWNERSHIP",
-    ///         StageName = exampleStage.Name,
+    ///         Credentials = $"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -56,6 +43,9 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Output("awsExternalId")]
         public Output<string> AwsExternalId { get; private set; } = null!;
 
@@ -78,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -102,17 +92,20 @@ namespace Pulumi.Snowflake
         public Output<string?> FileFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Output("snowflakeIamUser")]
         public Output<string> SnowflakeIamUser { get; private set; } = null!;
 
@@ -184,6 +177,9 @@ namespace Pulumi.Snowflake
 
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
 
@@ -216,7 +212,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -240,17 +236,20 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 
@@ -287,6 +286,9 @@ namespace Pulumi.Snowflake
 
     public sealed class StageState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+        /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
 
@@ -319,7 +321,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the stage.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -343,17 +345,20 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the stage.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
+        /// <summary>
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 

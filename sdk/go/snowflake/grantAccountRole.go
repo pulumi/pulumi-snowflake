@@ -14,59 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// #################################
-//			// ## grant account role to account role
-//			// #################################
-//			roleRole, err := snowflake.NewRole(ctx, "roleRole", nil)
-//			if err != nil {
-//				return err
-//			}
-//			parentRole, err := snowflake.NewRole(ctx, "parentRole", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewGrantAccountRole(ctx, "grantAccountRole", &snowflake.GrantAccountRoleArgs{
-//				RoleName:       roleRole.Name,
-//				ParentRoleName: parentRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewRole(ctx, "roleIndex/roleRole", nil)
-//			if err != nil {
-//				return err
-//			}
-//			user, err := snowflake.NewUser(ctx, "user", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewGrantAccountRole(ctx, "index/grantAccountRoleGrantAccountRole", &snowflake.GrantAccountRoleArgs{
-//				RoleName: roleRole.Name,
-//				UserName: user.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

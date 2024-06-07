@@ -19,40 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ManagedAccount;
- * import com.pulumi.snowflake.ManagedAccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var account = new ManagedAccount(&#34;account&#34;, ManagedAccountArgs.builder()        
- *             .adminName(&#34;admin&#34;)
- *             .adminPassword(&#34;secret&#34;)
- *             .cloud(&#34;aws&#34;)
- *             .comment(&#34;A managed account.&#34;)
- *             .locator(&#34;managed-account&#34;)
- *             .region(&#34;us-west-2&#34;)
- *             .type(&#34;READER&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,8 +29,6 @@ class ExternalTableGrantArgs:
         The set of arguments for constructing a ExternalTableGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future external tables on which to grant privileges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] external_table_name: The name of the external table on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
@@ -88,10 +86,6 @@ class ExternalTableGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -212,8 +206,6 @@ class _ExternalTableGrantState:
         """
         Input properties used for looking up and filtering ExternalTableGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future external tables on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] external_table_name: The name of the external table on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
@@ -262,10 +254,6 @@ class _ExternalTableGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -403,28 +391,26 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ExternalTableGrant("grant",
             database_name="database",
+            schema_name="schema",
             external_table_name="external_table",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -437,8 +423,6 @@ class ExternalTableGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future external tables on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] external_table_name: The name of the external table on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
@@ -460,28 +444,26 @@ class ExternalTableGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.ExternalTableGrant("grant",
             database_name="database",
+            schema_name="schema",
             external_table_name="external_table",
-            on_future=False,
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
+            on_future=False,
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -570,8 +552,6 @@ class ExternalTableGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future external tables on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] external_table_name: The name of the external table on which to grant privileges immediately (only valid if on_future is false).
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all external tables in the given schema. When this is true and no schema*name is provided apply this grant on all external tables in the given database. The external*table*name and shares fields must be unset in order to use on*all. Cannot be used together with on*future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future external tables in the given schema. When this is true and no schema*name is provided apply this grant on all future external tables in the given database. The external*table*name and shares fields must be unset in order to use on*future. Cannot be used together with on*all.
@@ -610,10 +590,6 @@ class ExternalTableGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property

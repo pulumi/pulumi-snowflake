@@ -236,8 +236,29 @@
             "snowflake_grant_account_role": {
                 "current": "snowflake:index/grantAccountRole:GrantAccountRole"
             },
+            "snowflake_grant_application_role": {
+                "current": "snowflake:index/grantApplicationRole:GrantApplicationRole"
+            },
             "snowflake_grant_database_role": {
                 "current": "snowflake:index/grantDatabaseRole:GrantDatabaseRole"
+            },
+            "snowflake_grant_ownership": {
+                "current": "snowflake:index/grantOwnership:GrantOwnership",
+                "fields": {
+                    "on": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "all": {
+                                    "maxItemsOne": true
+                                },
+                                "future": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "snowflake_grant_privileges_to_account_role": {
                 "current": "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole",
@@ -384,7 +405,13 @@
                     "allowed_ip_list": {
                         "maxItemsOne": false
                     },
+                    "allowed_network_rule_list": {
+                        "maxItemsOne": false
+                    },
                     "blocked_ip_list": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_network_rule_list": {
                         "maxItemsOne": false
                     }
                 }
@@ -393,6 +420,14 @@
                 "current": "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment",
                 "fields": {
                     "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_network_rule": {
+                "current": "snowflake:index/networkRule:NetworkRule",
+                "fields": {
+                    "value_list": {
                         "maxItemsOne": false
                     }
                 }
@@ -810,6 +845,9 @@
             "snowflake_database": {
                 "current": "snowflake:index/getDatabase:getDatabase"
             },
+            "snowflake_database_role": {
+                "current": "snowflake:index/getDatabaseRole:getDatabaseRole"
+            },
             "snowflake_database_roles": {
                 "current": "snowflake:index/getDatabaseRoles:getDatabaseRoles",
                 "fields": {
@@ -921,14 +959,7 @@
                 "current": "snowflake:index/getGrants:getGrants",
                 "fields": {
                     "future_grants_in": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "schema": {
-                                    "maxItemsOne": true
-                                }
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "future_grants_to": {
                         "maxItemsOne": true
@@ -943,7 +974,14 @@
                         "maxItemsOne": true
                     },
                     "grants_to": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "share": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },

@@ -14,6 +14,10 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. &lt;deprecation&gt;
+ * 
+ */
 @ResourceType(type="snowflake:index/userOwnershipGrant:UserOwnershipGrant")
 public class UserOwnershipGrant extends com.pulumi.resources.CustomResource {
     /**
@@ -58,17 +62,9 @@ public class UserOwnershipGrant extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> revertOwnershipToRoleName() {
         return Codegen.optional(this.revertOwnershipToRoleName);
     }
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     @Export(name="toRoleName", refs={String.class}, tree="[0]")
     private Output<String> toRoleName;
 
-    /**
-     * @return The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     * 
-     */
     public Output<String> toRoleName() {
         return this.toRoleName;
     }

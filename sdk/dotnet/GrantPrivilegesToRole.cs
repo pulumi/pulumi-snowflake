@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,14 +33,14 @@ namespace Pulumi.Snowflake
     ///             "MODIFY",
     ///             "USAGE",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnAccount = true,
     ///     });
     /// 
     ///     // all privileges + grant option
     ///     var g2 = new Snowflake.GrantPrivilegesToRole("g2", new()
     ///     {
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnAccount = true,
     ///         AllPrivileges = true,
     ///         WithGrantOption = true,
@@ -58,22 +57,22 @@ namespace Pulumi.Snowflake
     ///             "CREATE",
     ///             "MONITOR",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnAccountObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnAccountObjectArgs
     ///         {
     ///             ObjectType = "DATABASE",
-    ///             ObjectName = snowflake_database.D.Name,
+    ///             ObjectName = d.Name,
     ///         },
     ///     });
     /// 
     ///     // all privileges + grant option
     ///     var g4 = new Snowflake.GrantPrivilegesToRole("g4", new()
     ///     {
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnAccountObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnAccountObjectArgs
     ///         {
     ///             ObjectType = "DATABASE",
-    ///             ObjectName = snowflake_database.D.Name,
+    ///             ObjectName = d.Name,
     ///         },
     ///         AllPrivileges = true,
     ///         WithGrantOption = true,
@@ -90,7 +89,7 @@ namespace Pulumi.Snowflake
     ///             "MODIFY",
     ///             "CREATE TABLE",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
     ///         {
     ///             SchemaName = "\"my_db\".\"my_schema\"",
@@ -100,7 +99,7 @@ namespace Pulumi.Snowflake
     ///     // all privileges + grant option
     ///     var g6 = new Snowflake.GrantPrivilegesToRole("g6", new()
     ///     {
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
     ///         {
     ///             SchemaName = "\"my_db\".\"my_schema\"",
@@ -117,10 +116,10 @@ namespace Pulumi.Snowflake
     ///             "MODIFY",
     ///             "CREATE TABLE",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
     ///         {
-    ///             AllSchemasInDatabase = snowflake_database.D.Name,
+    ///             AllSchemasInDatabase = d.Name,
     ///         },
     ///     });
     /// 
@@ -132,10 +131,10 @@ namespace Pulumi.Snowflake
     ///             "MODIFY",
     ///             "CREATE TABLE",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchema = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaArgs
     ///         {
-    ///             FutureSchemasInDatabase = snowflake_database.D.Name,
+    ///             FutureSchemasInDatabase = d.Name,
     ///         },
     ///     });
     /// 
@@ -150,7 +149,7 @@ namespace Pulumi.Snowflake
     ///             "SELECT",
     ///             "REFERENCES",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             ObjectType = "VIEW",
@@ -161,7 +160,7 @@ namespace Pulumi.Snowflake
     ///     // all privileges + grant option
     ///     var g10 = new Snowflake.GrantPrivilegesToRole("g10", new()
     ///     {
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             ObjectType = "VIEW",
@@ -179,13 +178,13 @@ namespace Pulumi.Snowflake
     ///             "SELECT",
     ///             "INSERT",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             All = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectAllArgs
     ///             {
     ///                 ObjectTypePlural = "TABLES",
-    ///                 InDatabase = snowflake_database.D.Name,
+    ///                 InDatabase = d.Name,
     ///             },
     ///         },
     ///     });
@@ -198,7 +197,7 @@ namespace Pulumi.Snowflake
     ///             "SELECT",
     ///             "INSERT",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             All = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectAllArgs
@@ -217,13 +216,13 @@ namespace Pulumi.Snowflake
     ///             "SELECT",
     ///             "INSERT",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             Future = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectFutureArgs
     ///             {
     ///                 ObjectTypePlural = "TABLES",
-    ///                 InDatabase = snowflake_database.D.Name,
+    ///                 InDatabase = d.Name,
     ///             },
     ///         },
     ///     });
@@ -236,7 +235,7 @@ namespace Pulumi.Snowflake
     ///             "SELECT",
     ///             "INSERT",
     ///         },
-    ///         RoleName = snowflake_role.R.Name,
+    ///         RoleName = r.Name,
     ///         OnSchemaObject = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectArgs
     ///         {
     ///             Future = new Snowflake.Inputs.GrantPrivilegesToRoleOnSchemaObjectFutureArgs
@@ -249,7 +248,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

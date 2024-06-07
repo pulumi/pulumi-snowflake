@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,6 +22,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.Share("test", new()
     ///     {
+    ///         Name = "share_name",
     ///         Comment = "cool comment",
     ///         Accounts = new[]
     ///         {
@@ -32,17 +32,17 @@ namespace Pulumi.Snowflake
     /// 
     ///     var example = new Snowflake.Database("example", new()
     ///     {
+    ///         Name = "test",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

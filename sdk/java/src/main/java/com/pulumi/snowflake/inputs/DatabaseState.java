@@ -19,22 +19,30 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
 
     public static final DatabaseState Empty = new DatabaseState();
 
+    /**
+     * Specifies a comment for the database.
+     * 
+     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
+    /**
+     * @return Specifies a comment for the database.
+     * 
+     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     @Import(name="dataRetentionTimeInDays")
     private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     public Optional<Output<Integer>> dataRetentionTimeInDays() {
@@ -57,14 +65,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     @Import(name="fromReplica")
     private @Nullable Output<String> fromReplica;
 
     /**
-     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     public Optional<Output<String>> fromReplica() {
@@ -72,14 +80,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     @Import(name="fromShare")
     private @Nullable Output<Map<String,String>> fromShare;
 
     /**
-     * @return Specify a provider and a share in this map to create a database from a share.
+     * @return Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     public Optional<Output<Map<String,String>>> fromShare() {
@@ -101,9 +109,17 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.isTransient);
     }
 
+    /**
+     * Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -154,17 +170,29 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
             $ = new DatabaseState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comment Specifies a comment for the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
+        /**
+         * @param comment Specifies a comment for the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
         /**
-         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
@@ -175,7 +203,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+         * @param dataRetentionTimeInDays Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
@@ -206,7 +234,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromReplica Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+         * @param fromReplica Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
          * 
          * @return builder
          * 
@@ -217,7 +245,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromReplica Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+         * @param fromReplica Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
          * 
          * @return builder
          * 
@@ -227,7 +255,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromShare Specify a provider and a share in this map to create a database from a share.
+         * @param fromShare Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
          * 
          * @return builder
          * 
@@ -238,7 +266,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fromShare Specify a provider and a share in this map to create a database from a share.
+         * @param fromShare Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
          * 
          * @return builder
          * 
@@ -268,11 +296,23 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
             return isTransient(Output.of(isTransient));
         }
 
+        /**
+         * @param name Specifies the identifier for the database; must be unique for your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Specifies the identifier for the database; must be unique for your account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

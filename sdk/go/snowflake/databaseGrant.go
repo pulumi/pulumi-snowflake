@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -63,9 +61,7 @@ type DatabaseGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -113,10 +109,8 @@ func GetDatabaseGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatabaseGrant resources.
 type databaseGrantState struct {
 	// The name of the database on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -131,9 +125,7 @@ type databaseGrantState struct {
 
 type DatabaseGrantState struct {
 	// The name of the database on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -153,10 +145,8 @@ func (DatabaseGrantState) ElementType() reflect.Type {
 
 type databaseGrantArgs struct {
 	// The name of the database on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -172,9 +162,7 @@ type databaseGrantArgs struct {
 // The set of arguments for constructing a DatabaseGrant resource.
 type DatabaseGrantArgs struct {
 	// The name of the database on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the database. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -280,8 +268,6 @@ func (o DatabaseGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabaseGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o DatabaseGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabaseGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

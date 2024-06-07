@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,14 +26,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewRowAccessPolicy(ctx, "exampleRowAccessPolicy", &snowflake.RowAccessPolicyArgs{
-//				Database:            pulumi.String("EXAMPLE_DB"),
-//				RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
-//				Schema:              pulumi.String("EXAMPLE_SCHEMA"),
+//			_, err := snowflake.NewRowAccessPolicy(ctx, "example_row_access_policy", &snowflake.RowAccessPolicyArgs{
+//				Name:     pulumi.String("EXAMPLE_ROW_ACCESS_POLICY"),
+//				Database: pulumi.String("EXAMPLE_DB"),
+//				Schema:   pulumi.String("EXAMPLE_SCHEMA"),
 //				Signature: pulumi.StringMap{
 //					"A": pulumi.String("VARCHAR"),
 //					"B": pulumi.String("VARCHAR"),
 //				},
+//				RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
 //			})
 //			if err != nil {
 //				return err
@@ -44,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

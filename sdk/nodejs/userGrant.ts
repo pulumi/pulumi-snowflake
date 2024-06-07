@@ -9,22 +9,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.UserGrant("grant", {
+ *     userName: "user",
  *     privilege: "MONITOR",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     userName: "user",
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -62,10 +60,6 @@ export class UserGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGrant.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -125,10 +119,6 @@ export class UserGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGrant resources.
  */
 export interface UserGrantState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -152,10 +142,6 @@ export interface UserGrantState {
  * The set of arguments for constructing a UserGrant resource.
  */
 export interface UserGrantArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the user. To grant all privileges, use the value `ALL PRIVILEGES`.

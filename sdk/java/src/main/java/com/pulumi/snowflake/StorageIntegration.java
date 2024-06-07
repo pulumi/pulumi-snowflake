@@ -20,40 +20,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.StorageIntegration;
- * import com.pulumi.snowflake.StorageIntegrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var integration = new StorageIntegration(&#34;integration&#34;, StorageIntegrationArgs.builder()        
- *             .comment(&#34;A storage integration.&#34;)
- *             .enabled(true)
- *             .storageAwsExternalId(&#34;...&#34;)
- *             .storageAwsIamUserArn(&#34;...&#34;)
- *             .storageAwsRoleArn(&#34;...&#34;)
- *             .storageProvider(&#34;S3&#34;)
- *             .type(&#34;EXTERNAL_STAGE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

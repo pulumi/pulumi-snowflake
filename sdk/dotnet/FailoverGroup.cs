@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,10 +20,14 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var db = new Snowflake.Database("db");
-    /// 
-    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("sourceFailoverGroup", new()
+    ///     var db = new Snowflake.Database("db", new()
     ///     {
+    ///         Name = "db1",
+    ///     });
+    /// 
+    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("source_failover_group", new()
+    ///     {
+    ///         Name = "FG1",
     ///         ObjectTypes = new[]
     ///         {
     ///             "WAREHOUSES",
@@ -55,24 +58,19 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var account2 = new Snowflake.Provider("account2");
-    /// 
-    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("targetFailoverGroup", new()
+    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("target_failover_group", new()
     ///     {
+    ///         Name = "FG1",
     ///         FromReplica = new Snowflake.Inputs.FailoverGroupFromReplicaArgs
     ///         {
     ///             OrganizationName = "...",
     ///             SourceAccountName = "...",
-    ///             Name = snowflake_failover_group.Fg.Name,
+    ///             Name = fg.Name,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = snowflake.Account2,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -96,7 +94,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedDatabases { get; private set; } = null!;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         [Output("allowedIntegrationTypes")]
         public Output<ImmutableArray<string>> AllowedIntegrationTypes { get; private set; } = null!;
@@ -120,7 +118,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IgnoreEditionCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the primary failover group in the source account.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -211,7 +209,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {
@@ -244,7 +242,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Identifier for the primary failover group in the source account.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -303,7 +301,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {
@@ -336,7 +334,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Identifier for the primary failover group in the source account.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

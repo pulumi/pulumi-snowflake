@@ -20,8 +20,6 @@ class AccountGrantArgs:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AccountGrant resource.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -38,10 +36,6 @@ class AccountGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -94,8 +88,6 @@ class _AccountGrantState:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering AccountGrant resources.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -112,10 +104,6 @@ class _AccountGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -174,20 +162,18 @@ class AccountGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.AccountGrant("grant",
-            privilege="CREATE ROLE",
             roles=[
                 "role1",
                 "role2",
             ],
+            privilege="CREATE ROLE",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -199,8 +185,6 @@ class AccountGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -216,20 +200,18 @@ class AccountGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         grant = snowflake.AccountGrant("grant",
-            privilege="CREATE ROLE",
             roles=[
                 "role1",
                 "role2",
             ],
+            privilege="CREATE ROLE",
             with_grant_option=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,8 +274,6 @@ class AccountGrant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[str] privilege: The account privilege to grant. Valid privileges are those in [globalPrivileges](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html). To grant all privileges, use the value `ALL PRIVILEGES`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Grants privilege to these roles.
         :param pulumi.Input[bool] with_grant_option: When this is set to true, allows the recipient role to grant the privileges to other roles.
@@ -311,10 +291,6 @@ class AccountGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property

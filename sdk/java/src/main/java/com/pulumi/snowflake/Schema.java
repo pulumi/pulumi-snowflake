@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .comment(&#34;A schema.&#34;)
- *             .dataRetentionDays(1)
- *             .database(&#34;database&#34;)
- *             .isManaged(false)
+ *         var schema = new Schema("schema", SchemaArgs.builder()
+ *             .database("database")
+ *             .name("schema")
+ *             .comment("A schema.")
  *             .isTransient(false)
+ *             .isManaged(false)
+ *             .dataRetentionDays(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -96,14 +99,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionDays);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the schema.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the schema.
      * 
      */
     public Output<String> database() {
@@ -138,14 +141,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isTransient);
     }
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Tag name, e.g. department.
+     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      * 
      */
     public Output<String> name() {

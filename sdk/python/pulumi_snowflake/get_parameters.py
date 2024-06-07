@@ -126,22 +126,23 @@ def get_parameters(object_name: Optional[str] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
-    database = snowflake.Database("database")
-    parameters = snowflake.get_parameters_output(parameter_type="OBJECT",
+    d = snowflake.Database("d", name="TEST_DB")
+    # read all object parameters in database TEST_DB
+    p = snowflake.get_parameters_output(parameter_type="OBJECT",
         object_type="DATABASE",
-        object_name=database.name)
+        object_name=d.name)
+    # read all account parameters with the pattern '%TIMESTAMP%'
     p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
         pattern="%TIMESTAMP%")
+    # read the exact session parameter ROWS_PER_RESULTSET
     p3 = snowflake.get_parameters(parameter_type="SESSION",
         pattern="ROWS_PER_RESULTSET",
         user="TEST_USER")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
@@ -179,22 +180,23 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_snowflake as snowflake
 
-    database = snowflake.Database("database")
-    parameters = snowflake.get_parameters_output(parameter_type="OBJECT",
+    d = snowflake.Database("d", name="TEST_DB")
+    # read all object parameters in database TEST_DB
+    p = snowflake.get_parameters_output(parameter_type="OBJECT",
         object_type="DATABASE",
-        object_name=database.name)
+        object_name=d.name)
+    # read all account parameters with the pattern '%TIMESTAMP%'
     p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
         pattern="%TIMESTAMP%")
+    # read the exact session parameter ROWS_PER_RESULTSET
     p3 = snowflake.get_parameters(parameter_type="SESSION",
         pattern="ROWS_PER_RESULTSET",
         user="TEST_USER")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.

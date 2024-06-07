@@ -9,25 +9,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.SequenceGrant("grant", {
  *     databaseName: "database",
- *     onFuture: false,
+ *     schemaName: "schema",
+ *     sequenceName: "sequence",
  *     privilege: "SELECT",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     schemaName: "schema",
- *     sequenceName: "sequence",
+ *     onFuture: false,
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -69,10 +67,6 @@ export class SequenceGrant extends pulumi.CustomResource {
      * The name of the database containing the current or future sequences on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
@@ -162,10 +156,6 @@ export interface SequenceGrantState {
      * The name of the database containing the current or future sequences on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.
@@ -209,10 +199,6 @@ export interface SequenceGrantArgs {
      * The name of the database containing the current or future sequences on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * When this is set to true and a schema*name is provided, apply this grant on all sequences in the given schema. When this is true and no schema*name is provided apply this grant on all sequences in the given database. The sequence*name field must be unset in order to use on*all. Cannot be used together with on_future.

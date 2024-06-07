@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,17 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tableauDesktop = new OauthIntegration(&#34;tableauDesktop&#34;, OauthIntegrationArgs.builder()        
- *             .blockedRolesLists(&#34;SYSADMIN&#34;)
+ *         var tableauDesktop = new OauthIntegration("tableauDesktop", OauthIntegrationArgs.builder()
+ *             .name("TABLEAU_DESKTOP")
+ *             .oauthClient("TABLEAU_DESKTOP")
  *             .enabled(true)
- *             .oauthClient(&#34;TABLEAU_DESKTOP&#34;)
  *             .oauthIssueRefreshTokens(true)
  *             .oauthRefreshTokenValidity(3600)
+ *             .blockedRolesLists("SYSADMIN")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

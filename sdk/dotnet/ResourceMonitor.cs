@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,27 +22,27 @@ namespace Pulumi.Snowflake
     /// {
     ///     var monitor = new Snowflake.ResourceMonitor("monitor", new()
     ///     {
+    ///         Name = "monitor",
     ///         CreditQuota = 100,
-    ///         EndTimestamp = "2021-12-07 00:00",
     ///         Frequency = "DAILY",
+    ///         StartTimestamp = "2020-12-07 00:00",
+    ///         EndTimestamp = "2021-12-07 00:00",
     ///         NotifyTriggers = new[]
     ///         {
     ///             40,
     ///             50,
     ///         },
+    ///         SuspendTriggers = 50,
+    ///         SuspendImmediateTriggers = 90,
     ///         NotifyUsers = new[]
     ///         {
     ///             "USERONE",
     ///             "USERTWO",
     ///         },
-    ///         StartTimestamp = "2020-12-07 00:00",
-    ///         SuspendImmediateTriggers = 90,
-    ///         SuspendTriggers = 50,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

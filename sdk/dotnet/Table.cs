@@ -12,6 +12,95 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     {
+    ///         Database = "database",
+    ///         Name = "schema",
+    ///         DataRetentionDays = 1,
+    ///     });
+    /// 
+    ///     var sequence = new Snowflake.Sequence("sequence", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "sequence",
+    ///     });
+    /// 
+    ///     var table = new Snowflake.Table("table", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "table",
+    ///         Comment = "A table.",
+    ///         ClusterBies = new[]
+    ///         {
+    ///             "to_date(DATE)",
+    ///         },
+    ///         DataRetentionTimeInDays = schema.DataRetentionTimeInDays,
+    ///         ChangeTracking = false,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///                 Nullable = true,
+    ///                 Default = new Snowflake.Inputs.TableColumnDefaultArgs
+    ///                 {
+    ///                     Sequence = sequence.FullyQualifiedName,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "identity",
+    ///                 Type = "NUMBER(38,0)",
+    ///                 Nullable = true,
+    ///                 Identity = new Snowflake.Inputs.TableColumnIdentityArgs
+    ///                 {
+    ///                     StartNum = 1,
+    ///                     StepNum = 3,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "data",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///                 Collate = "en-ci",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "DATE",
+    ///                 Type = "TIMESTAMP_NTZ(9)",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "extra",
+    ///                 Type = "VARIANT",
+    ///                 Comment = "extra data",
+    ///             },
+    ///         },
+    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
+    ///         {
+    ///             Name = "my_key",
+    ///             Keys = new[]
+    ///             {
+    ///                 "data",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | table name
@@ -42,7 +131,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.TableColumn>> Columns { get; private set; } = null!;
 
         /// <summary>
-        /// Column comment
+        /// Specifies a comment for the table.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -54,13 +143,13 @@ namespace Pulumi.Snowflake
         public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the table.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -84,7 +173,7 @@ namespace Pulumi.Snowflake
         public Output<string> QualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the table.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -172,7 +261,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Column comment
+        /// Specifies a comment for the table.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -184,13 +273,13 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the table.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -202,7 +291,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TablePrimaryKeyArgs>? PrimaryKey { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the table.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -259,7 +348,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Column comment
+        /// Specifies a comment for the table.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -271,13 +360,13 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the table.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Column name
+        /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -301,7 +390,7 @@ namespace Pulumi.Snowflake
         public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
-        /// Name of the schema that the tag was created in.
+        /// The schema in which to create the table.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var attach = new NetworkPolicyAttachment(&#34;attach&#34;, NetworkPolicyAttachmentArgs.builder()        
- *             .networkPolicyName(&#34;policy&#34;)
+ *         var attach = new NetworkPolicyAttachment("attach", NetworkPolicyAttachmentArgs.builder()
+ *             .networkPolicyName("policy")
  *             .setForAccount(false)
  *             .users(            
- *                 &#34;user1&#34;,
- *                 &#34;user2&#34;)
+ *                 "user1",
+ *                 "user2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

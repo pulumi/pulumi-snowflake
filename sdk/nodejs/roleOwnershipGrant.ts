@@ -5,15 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. <deprecation>
+ *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const role = new snowflake.Role("role", {comment: "for testing"});
- * const otherRole = new snowflake.Role("otherRole", {});
+ * const role = new snowflake.Role("role", {
+ *     name: "rking_test_role",
+ *     comment: "for testing",
+ * });
+ * const otherRole = new snowflake.Role("other_role", {name: "rking_test_role2"});
  * // ensure the Terraform user inherits ownership privileges for the rking_test_role role
  * // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
  * const grants = new snowflake.RoleGrants("grants", {
@@ -26,7 +30,6 @@ import * as utilities from "./utilities";
  *     currentGrants: "COPY",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -74,9 +77,6 @@ export class RoleOwnershipGrant extends pulumi.CustomResource {
      * The name of the role to revert ownership to on destroy.
      */
     public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     public readonly toRoleName!: pulumi.Output<string>;
 
     /**
@@ -130,9 +130,6 @@ export interface RoleOwnershipGrantState {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName?: pulumi.Input<string>;
 }
 
@@ -152,8 +149,5 @@ export interface RoleOwnershipGrantArgs {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName: pulumi.Input<string>;
 }

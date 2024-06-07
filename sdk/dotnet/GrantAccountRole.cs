@@ -12,45 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //#################################
-    ///     //## grant account role to account role
-    ///     //#################################
-    ///     var roleRole = new Snowflake.Role("roleRole");
-    /// 
-    ///     var parentRole = new Snowflake.Role("parentRole");
-    /// 
-    ///     var grantAccountRole = new Snowflake.GrantAccountRole("grantAccountRole", new()
-    ///     {
-    ///         RoleName = roleRole.Name,
-    ///         ParentRoleName = parentRole.Name,
-    ///     });
-    /// 
-    ///     //#################################
-    ///     //## grant account role to user
-    ///     //#################################
-    ///     var roleIndex_roleRole = new Snowflake.Role("roleIndex/roleRole");
-    /// 
-    ///     var user = new Snowflake.User("user");
-    /// 
-    ///     var index_grantAccountRoleGrantAccountRole = new Snowflake.GrantAccountRole("index/grantAccountRoleGrantAccountRole", new()
-    ///     {
-    ///         RoleName = roleRole.Name,
-    ///         UserName = user.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

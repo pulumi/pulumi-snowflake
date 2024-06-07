@@ -16,287 +16,6 @@ import (
 //
 // !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dbRole, err := snowflake.NewDatabaseRole(ctx, "dbRole", &snowflake.DatabaseRoleArgs{
-//				Database: pulumi.String("database"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// list of privileges
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("CREATE"),
-//					pulumi.String("MONITOR"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnDatabase: dbRole.Database,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all privileges + grant option
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnDatabase:      dbRole.Database,
-//				AllPrivileges:   pulumi.Bool(true),
-//				WithGrantOption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all privileges + grant option + always apply
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnDatabase:      dbRole.Database,
-//				AlwaysApply:     pulumi.Bool(true),
-//				AllPrivileges:   pulumi.Bool(true),
-//				WithGrantOption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// list of privileges
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("MODIFY"),
-//					pulumi.String("CREATE TABLE"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
-//					SchemaName: dbRole.Database.ApplyT(func(database string) (string, error) {
-//						return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all privileges + grant option
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
-//					SchemaName: dbRole.Database.ApplyT(func(database string) (string, error) {
-//						return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
-//					}).(pulumi.StringOutput),
-//				},
-//				AllPrivileges:   pulumi.Bool(true),
-//				WithGrantOption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all schemas in database
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("MODIFY"),
-//					pulumi.String("CREATE TABLE"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
-//					AllSchemasInDatabase: dbRole.Database,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// future schemas in database
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("MODIFY"),
-//					pulumi.String("CREATE TABLE"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchema: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaArgs{
-//					FutureSchemasInDatabase: dbRole.Database,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// list of privileges
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//					pulumi.String("REFERENCES"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					ObjectType: pulumi.String("VIEW"),
-//					ObjectName: dbRole.Database.ApplyT(func(database string) (string, error) {
-//						return fmt.Sprintf("\"%v\".\"my_schema\".\"my_view\"", database), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all privileges + grant option
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					ObjectType: pulumi.String("VIEW"),
-//					ObjectName: dbRole.Database.ApplyT(func(database string) (string, error) {
-//						return fmt.Sprintf("\"%v\".\"my_schema\".\"my_view\"", database), nil
-//					}).(pulumi.StringOutput),
-//				},
-//				AllPrivileges:   pulumi.Bool(true),
-//				WithGrantOption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all in database
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//					pulumi.String("INSERT"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					All: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs{
-//						ObjectTypePlural: pulumi.String("TABLES"),
-//						InDatabase:       dbRole.Database,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// all in schema
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//					pulumi.String("INSERT"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					All: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs{
-//						ObjectTypePlural: pulumi.String("TABLES"),
-//						InSchema: dbRole.Database.ApplyT(func(database string) (string, error) {
-//							return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// future in database
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//					pulumi.String("INSERT"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					Future: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{
-//						ObjectTypePlural: pulumi.String("TABLES"),
-//						InDatabase:       dbRole.Database,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// future in schema
-//			_, err = snowflake.NewGrantPrivilegesToDatabaseRole(ctx, "exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10", &snowflake.GrantPrivilegesToDatabaseRoleArgs{
-//				Privileges: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//					pulumi.String("INSERT"),
-//				},
-//				DatabaseRoleName: pulumi.All(dbRole.Database, dbRole.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					name := _args[1].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\"", database, name), nil
-//				}).(pulumi.StringOutput),
-//				OnSchemaObject: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs{
-//					Future: &snowflake.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{
-//						ObjectTypePlural: pulumi.String("TABLES"),
-//						InSchema: dbRole.Database.ApplyT(func(database string) (string, error) {
-//							return fmt.Sprintf("\"%v\".\"my_schema\"", database), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ## Import
-//
-// ### Import examples
-//
 // #### Grant all privileges OnDatabase
 //
 // ```sh
@@ -325,12 +44,7 @@ type GrantPrivilegesToDatabaseRole struct {
 
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
+	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -382,12 +96,7 @@ func GetGrantPrivilegesToDatabaseRole(ctx *pulumi.Context,
 type grantPrivilegesToDatabaseRoleState struct {
 	// Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply *bool `pulumi:"alwaysApply"`
+	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -407,12 +116,7 @@ type grantPrivilegesToDatabaseRoleState struct {
 type GrantPrivilegesToDatabaseRoleState struct {
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrInput
+	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -436,12 +140,7 @@ func (GrantPrivilegesToDatabaseRoleState) ElementType() reflect.Type {
 type grantPrivilegesToDatabaseRoleArgs struct {
 	// Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply *bool `pulumi:"alwaysApply"`
+	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -462,12 +161,7 @@ type grantPrivilegesToDatabaseRoleArgs struct {
 type GrantPrivilegesToDatabaseRoleArgs struct {
 	// Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
-	// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-	// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-	// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-	// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-	// of the config being eventually convergent (producing an empty plan).
-	AlwaysApply pulumi.BoolPtrInput
+	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// The fully qualified name of the database role to which privileges will be granted.
@@ -576,11 +270,6 @@ func (o GrantPrivilegesToDatabaseRoleOutput) AllPrivileges() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AllPrivileges }).(pulumi.BoolPtrOutput)
 }
 
-// If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-// supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-// X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-// new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-// of the config being eventually convergent (producing an empty plan).
 func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,38 +45,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Database(&#34;simple&#34;, DatabaseArgs.builder()        
- *             .comment(&#34;test comment&#34;)
+ *         var simple = new Database("simple", DatabaseArgs.builder()
+ *             .name("testing")
+ *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
  *             .build());
  * 
- *         var withReplication = new Database(&#34;withReplication&#34;, DatabaseArgs.builder()        
- *             .comment(&#34;test comment 2&#34;)
+ *         var withReplication = new Database("withReplication", DatabaseArgs.builder()
+ *             .name("testing_2")
+ *             .comment("test comment 2")
  *             .replicationConfiguration(DatabaseReplicationConfigurationArgs.builder()
  *                 .accounts(                
- *                     &#34;test_account1&#34;,
- *                     &#34;test_account_2&#34;)
+ *                     "test_account1",
+ *                     "test_account_2")
  *                 .ignoreEditionCheck(true)
  *                 .build())
  *             .build());
  * 
- *         var fromReplica = new Database(&#34;fromReplica&#34;, DatabaseArgs.builder()        
- *             .comment(&#34;test comment&#34;)
+ *         var fromReplica = new Database("fromReplica", DatabaseArgs.builder()
+ *             .name("testing_3")
+ *             .comment("test comment")
  *             .dataRetentionTimeInDays(3)
- *             .fromReplica(&#34;\&#34;org1\&#34;.\&#34;account1\&#34;.\&#34;primary_db_name\&#34;&#34;)
+ *             .fromReplica("\"org1\".\"account1\".\"primary_db_name\"")
  *             .build());
  * 
- *         var fromShare = new Database(&#34;fromShare&#34;, DatabaseArgs.builder()        
- *             .comment(&#34;test comment&#34;)
+ *         var fromShare = new Database("fromShare", DatabaseArgs.builder()
+ *             .name("testing_4")
+ *             .comment("test comment")
  *             .fromShare(Map.ofEntries(
- *                 Map.entry(&#34;provider&#34;, &#34;org1.account1&#34;),
- *                 Map.entry(&#34;share&#34;, &#34;share1&#34;)
+ *                 Map.entry("provider", "account1_locator"),
+ *                 Map.entry("share", "share1")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -87,21 +93,29 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies a comment for the database.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return Specifies a comment for the database.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding &amp; Using Time Travel.
+     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     public Output<Optional<Integer>> dataRetentionTimeInDays() {
@@ -122,28 +136,28 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fromDatabase);
     }
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     @Export(name="fromReplica", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fromReplica;
 
     /**
-     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of &#34;\n\n&#34;.&#34;\n\n&#34;.&#34;\n\n&#34;. An example would be: &#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;
+     * @return Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;db_name&gt;&#34;`. An example would be: `&#34;myorg1&#34;.&#34;account1&#34;.&#34;db1&#34;`
      * 
      */
     public Output<Optional<String>> fromReplica() {
         return Codegen.optional(this.fromReplica);
     }
     /**
-     * Specify a provider and a share in this map to create a database from a share.
+     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     @Export(name="fromShare", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> fromShare;
 
     /**
-     * @return Specify a provider and a share in this map to create a database from a share.
+     * @return Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
      * 
      */
     public Output<Optional<Map<String,String>>> fromShare() {
@@ -163,9 +177,17 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> isTransient() {
         return Codegen.optional(this.isTransient);
     }
+    /**
+     * Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the identifier for the database; must be unique for your account.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

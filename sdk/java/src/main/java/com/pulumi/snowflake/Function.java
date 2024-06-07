@@ -21,102 +21,14 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Database;
- * import com.pulumi.snowflake.DatabaseArgs;
- * import com.pulumi.snowflake.Schema;
- * import com.pulumi.snowflake.SchemaArgs;
- * import com.pulumi.snowflake.Function;
- * import com.pulumi.snowflake.FunctionArgs;
- * import com.pulumi.snowflake.inputs.FunctionArgumentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create database
- *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
- *             .dataRetentionDays(1)
- *             .build());
- * 
- *         // Create schema
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(db.name())
- *             .dataRetentionDays(1)
- *             .build());
- * 
- *         // Example for Java language
- *         var testFunctJava = new Function(&#34;testFunctJava&#34;, FunctionArgs.builder()        
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
- *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
- *                 .build())
- *             .comment(&#34;Example for java language&#34;)
- *             .returnType(&#34;varchar&#34;)
- *             .language(&#34;java&#34;)
- *             .handler(&#34;CoolFunc.test&#34;)
- *             .statement(&#34;class CoolFunc {public static String test(int n) {return \&#34;hello!\&#34;;}}&#34;)
- *             .build());
- * 
- *         // Example for Python language
- *         var pythonTest = new Function(&#34;pythonTest&#34;, FunctionArgs.builder()        
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
- *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
- *                 .build())
- *             .comment(&#34;Example for Python language&#34;)
- *             .returnType(&#34;NUMBER(38,0)&#34;)
- *             .nullInputBehavior(&#34;CALLED ON NULL INPUT&#34;)
- *             .returnBehavior(&#34;VOLATILE&#34;)
- *             .language(&#34;python&#34;)
- *             .runtimeVersion(&#34;3.8&#34;)
- *             .handler(&#34;add_py&#34;)
- *             .statement(&#34;def add_py(i): return i+1&#34;)
- *             .build());
- * 
- *         // Example SQL language
- *         var sqlTest = new Function(&#34;sqlTest&#34;, FunctionArgs.builder()        
- *             .database(&#34;MY_DB&#34;)
- *             .schema(&#34;MY_SCHEMA&#34;)
- *             .arguments(FunctionArgumentArgs.builder()
- *                 .name(&#34;arg1&#34;)
- *                 .type(&#34;number&#34;)
- *                 .build())
- *             .comment(&#34;Example for SQL language&#34;)
- *             .returnType(&#34;NUMBER(38,0)&#34;)
- *             .nullInputBehavior(&#34;CALLED ON NULL INPUT&#34;)
- *             .returnBehavior(&#34;VOLATILE&#34;)
- *             .statement(&#34;select arg1 + 1&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * format is database name | schema name | function name | &lt;list of arg types, separated with &#39;-&#39;&gt;
+ * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;function_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
  * 
  * ```sh
- * $ pulumi import snowflake:index/function:Function example &#39;dbName|schemaName|functionName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/function:Function example &#39;dbName.schemaName.functionName(varchar, varchar, varchar)&#39;
  * ```
  * 
  */
@@ -221,14 +133,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.language);
     }
     /**
-     * The argument name
+     * Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The argument name
+     * @return Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don&#39;t use the | character.
      * 
      */
     public Output<String> name() {

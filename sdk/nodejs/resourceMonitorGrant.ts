@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -59,10 +57,6 @@ export class ResourceMonitorGrant extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceMonitorGrant.__pulumiType;
     }
 
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier for the resource monitor; must be unique for your account.
@@ -119,10 +113,6 @@ export class ResourceMonitorGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceMonitorGrant resources.
  */
 export interface ResourceMonitorGrantState {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the resource monitor; must be unique for your account.
@@ -146,10 +136,6 @@ export interface ResourceMonitorGrantState {
  * The set of arguments for constructing a ResourceMonitorGrant resource.
  */
 export interface ResourceMonitorGrantArgs {
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * Identifier for the resource monitor; must be unique for your account.

@@ -26,11 +26,13 @@ class DatabaseArgs:
                  replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        :param pulumi.Input[str] comment: Specifies a comment for the database.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         """
         if comment is not None:
@@ -53,6 +55,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a comment for the database.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -63,7 +68,7 @@ class DatabaseArgs:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -87,7 +92,7 @@ class DatabaseArgs:
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
         """
         return pulumi.get(self, "from_replica")
 
@@ -99,7 +104,7 @@ class DatabaseArgs:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
@@ -122,6 +127,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier for the database; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -154,11 +162,13 @@ class _DatabaseState:
                  replication_configuration: Optional[pulumi.Input['DatabaseReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Database resources.
-        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        :param pulumi.Input[str] comment: Specifies a comment for the database.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input['DatabaseReplicationConfigurationArgs'] replication_configuration: When set, specifies the configurations for database replication.
         """
         if comment is not None:
@@ -181,6 +191,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a comment for the database.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -191,7 +204,7 @@ class _DatabaseState:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -215,7 +228,7 @@ class _DatabaseState:
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
         """
         return pulumi.get(self, "from_replica")
 
@@ -227,7 +240,7 @@ class _DatabaseState:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
@@ -250,6 +263,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier for the database; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -286,15 +302,16 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         simple = snowflake.Database("simple",
+            name="testing",
             comment="test comment",
             data_retention_time_in_days=3)
-        with_replication = snowflake.Database("withReplication",
+        with_replication = snowflake.Database("with_replication",
+            name="testing_2",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -303,18 +320,19 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        from_replica = snowflake.Database("fromReplica",
+        from_replica = snowflake.Database("from_replica",
+            name="testing_3",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.Database("fromShare",
+        from_share = snowflake.Database("from_share",
+            name="testing_4",
             comment="test comment",
             from_share={
-                "provider": "org1.account1",
+                "provider": "account1_locator",
                 "share": "share1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -324,11 +342,13 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        :param pulumi.Input[str] comment: Specifies a comment for the database.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         """
         ...
@@ -340,15 +360,16 @@ class Database(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         simple = snowflake.Database("simple",
+            name="testing",
             comment="test comment",
             data_retention_time_in_days=3)
-        with_replication = snowflake.Database("withReplication",
+        with_replication = snowflake.Database("with_replication",
+            name="testing_2",
             comment="test comment 2",
             replication_configuration=snowflake.DatabaseReplicationConfigurationArgs(
                 accounts=[
@@ -357,18 +378,19 @@ class Database(pulumi.CustomResource):
                 ],
                 ignore_edition_check=True,
             ))
-        from_replica = snowflake.Database("fromReplica",
+        from_replica = snowflake.Database("from_replica",
+            name="testing_3",
             comment="test comment",
             data_retention_time_in_days=3,
             from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.Database("fromShare",
+        from_share = snowflake.Database("from_share",
+            name="testing_4",
             comment="test comment",
             from_share={
-                "provider": "org1.account1",
+                "provider": "account1_locator",
                 "share": "share1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -441,11 +463,13 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        :param pulumi.Input[str] comment: Specifies a comment for the database.
+        :param pulumi.Input[int] data_retention_time_in_days: Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] from_database: Specify a database to create a clone from.
-        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share.
+        :param pulumi.Input[str] from_replica: Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
         :param pulumi.Input[pulumi.InputType['DatabaseReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -465,13 +489,16 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies a comment for the database.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see Understanding & Using Time Travel.
+        Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -487,7 +514,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="fromReplica")
     def from_replica(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of "\\n\\n"."\\n\\n"."\\n\\n". An example would be: "myorg1"."account1"."db1"
+        Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
         """
         return pulumi.get(self, "from_replica")
 
@@ -495,7 +522,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="fromShare")
     def from_share(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Specify a provider and a share in this map to create a database from a share.
+        Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         """
         return pulumi.get(self, "from_share")
 
@@ -510,6 +537,9 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Specifies the identifier for the database; must be unique for your account.
+        """
         return pulumi.get(self, "name")
 
     @property

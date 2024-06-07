@@ -7,29 +7,28 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const monitor = new snowflake.ResourceMonitor("monitor", {
+ *     name: "monitor",
  *     creditQuota: 100,
- *     endTimestamp: "2021-12-07 00:00",
  *     frequency: "DAILY",
+ *     startTimestamp: "2020-12-07 00:00",
+ *     endTimestamp: "2021-12-07 00:00",
  *     notifyTriggers: [
  *         40,
  *         50,
  *     ],
+ *     suspendTriggers: 50,
+ *     suspendImmediateTriggers: 90,
  *     notifyUsers: [
  *         "USERONE",
  *         "USERTWO",
  *     ],
- *     startTimestamp: "2020-12-07 00:00",
- *     suspendImmediateTriggers: 90,
- *     suspendTriggers: 50,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

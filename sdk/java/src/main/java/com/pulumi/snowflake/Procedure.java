@@ -21,76 +21,14 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Database;
- * import com.pulumi.snowflake.DatabaseArgs;
- * import com.pulumi.snowflake.Schema;
- * import com.pulumi.snowflake.SchemaArgs;
- * import com.pulumi.snowflake.Procedure;
- * import com.pulumi.snowflake.ProcedureArgs;
- * import com.pulumi.snowflake.inputs.ProcedureArgumentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var db = new Database(&#34;db&#34;, DatabaseArgs.builder()        
- *             .dataRetentionDays(1)
- *             .build());
- * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
- *             .database(db.name())
- *             .dataRetentionDays(1)
- *             .build());
- * 
- *         var proc = new Procedure(&#34;proc&#34;, ProcedureArgs.builder()        
- *             .database(db.name())
- *             .schema(schema.name())
- *             .language(&#34;JAVASCRIPT&#34;)
- *             .arguments(            
- *                 ProcedureArgumentArgs.builder()
- *                     .name(&#34;arg1&#34;)
- *                     .type(&#34;varchar&#34;)
- *                     .build(),
- *                 ProcedureArgumentArgs.builder()
- *                     .name(&#34;arg2&#34;)
- *                     .type(&#34;DATE&#34;)
- *                     .build())
- *             .comment(&#34;Procedure with 2 arguments&#34;)
- *             .returnType(&#34;VARCHAR&#34;)
- *             .executeAs(&#34;CALLER&#34;)
- *             .returnBehavior(&#34;IMMUTABLE&#34;)
- *             .nullInputBehavior(&#34;RETURNS NULL ON NULL INPUT&#34;)
- *             .statement(&#34;&#34;&#34;
- * var X=1
- * return X
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * format is database name | schema name | stored procedure name | &lt;list of arg types, separated with &#39;-&#39;&gt;
+ * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;procedure_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
  * 
  * ```sh
- * $ pulumi import snowflake:index/procedure:Procedure example &#39;dbName|schemaName|procedureName|varchar-varchar-varchar&#39;
+ * $ pulumi import snowflake:index/procedure:Procedure example &#39;dbName.schemaName.procedureName(varchar, varchar, varchar)&#39;
  * ```
  * 
  */
@@ -139,14 +77,14 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     @Export(name="executeAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executeAs;
 
     /**
-     * @return Sets execute context - see caller&#39;s rights and owner&#39;s rights
+     * @return Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller&#39;s rights and owner&#39;s rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      * 
      */
     public Output<Optional<String>> executeAs() {
@@ -195,14 +133,14 @@ public class Procedure extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.language);
     }
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The argument name
+     * @return Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don&#39;t use the | character.
      * 
      */
     public Output<String> name() {

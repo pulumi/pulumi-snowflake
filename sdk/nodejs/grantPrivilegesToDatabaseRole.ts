@@ -11,174 +11,6 @@ import * as utilities from "./utilities";
  *
  * !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const dbRole = new snowflake.DatabaseRole("dbRole", {database: "database"});
- * //#################################
- * //## on database privileges
- * //#################################
- * // list of privileges
- * const exampleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleGrantPrivilegesToDatabaseRole", {
- *     privileges: [
- *         "CREATE",
- *         "MONITOR",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onDatabase: dbRole.database,
- * });
- * // all privileges + grant option
- * const exampleIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", {
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onDatabase: dbRole.database,
- *     allPrivileges: true,
- *     withGrantOption: true,
- * });
- * // all privileges + grant option + always apply
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole", {
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onDatabase: dbRole.database,
- *     alwaysApply: true,
- *     allPrivileges: true,
- *     withGrantOption: true,
- * });
- * //#################################
- * //## schema privileges
- * //#################################
- * // list of privileges
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole1", {
- *     privileges: [
- *         "MODIFY",
- *         "CREATE TABLE",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchema: {
- *         schemaName: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
- *     },
- * });
- * // all privileges + grant option
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole2", {
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchema: {
- *         schemaName: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
- *     },
- *     allPrivileges: true,
- *     withGrantOption: true,
- * });
- * // all schemas in database
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole3", {
- *     privileges: [
- *         "MODIFY",
- *         "CREATE TABLE",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchema: {
- *         allSchemasInDatabase: dbRole.database,
- *     },
- * });
- * // future schemas in database
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole4", {
- *     privileges: [
- *         "MODIFY",
- *         "CREATE TABLE",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchema: {
- *         futureSchemasInDatabase: dbRole.database,
- *     },
- * });
- * //#################################
- * //## schema object privileges
- * //#################################
- * // list of privileges
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole5", {
- *     privileges: [
- *         "SELECT",
- *         "REFERENCES",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         objectType: "VIEW",
- *         objectName: pulumi.interpolate`"${dbRole.database}"."my_schema"."my_view"`,
- *     },
- * });
- * // all privileges + grant option
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole6", {
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         objectType: "VIEW",
- *         objectName: pulumi.interpolate`"${dbRole.database}"."my_schema"."my_view"`,
- *     },
- *     allPrivileges: true,
- *     withGrantOption: true,
- * });
- * // all in database
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole7", {
- *     privileges: [
- *         "SELECT",
- *         "INSERT",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         all: {
- *             objectTypePlural: "TABLES",
- *             inDatabase: dbRole.database,
- *         },
- *     },
- * });
- * // all in schema
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole8", {
- *     privileges: [
- *         "SELECT",
- *         "INSERT",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         all: {
- *             objectTypePlural: "TABLES",
- *             inSchema: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
- *         },
- *     },
- * });
- * // future in database
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole9", {
- *     privileges: [
- *         "SELECT",
- *         "INSERT",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         future: {
- *             objectTypePlural: "TABLES",
- *             inDatabase: dbRole.database,
- *         },
- *     },
- * });
- * // future in schema
- * const exampleSnowflakeIndex_grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10 = new snowflake.GrantPrivilegesToDatabaseRole("exampleSnowflakeIndex/grantPrivilegesToDatabaseRoleGrantPrivilegesToDatabaseRole10", {
- *     privileges: [
- *         "SELECT",
- *         "INSERT",
- *     ],
- *     databaseRoleName: pulumi.interpolate`"${dbRole.database}"."${dbRole.name}"`,
- *     onSchemaObject: {
- *         future: {
- *             objectTypePlural: "TABLES",
- *             inSchema: pulumi.interpolate`"${dbRole.database}"."my_schema"`,
- *         },
- *     },
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ## Import
- *
- * ### Import examples
- *
  * #### Grant all privileges OnDatabase
  *
  * ```sh
@@ -235,13 +67,6 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      * Grant all privileges on the database role.
      */
     public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
@@ -322,13 +147,6 @@ export interface GrantPrivilegesToDatabaseRoleState {
      * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     alwaysApply?: pulumi.Input<boolean>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
@@ -368,13 +186,6 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
-    /**
-     * If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-     * supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-     * X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-     * new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-     * of the config being eventually convergent (producing an empty plan).
-     */
     alwaysApply?: pulumi.Input<boolean>;
     /**
      * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.

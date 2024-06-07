@@ -44,7 +44,7 @@ class FunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: Specifies the language of the stored function code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -204,7 +204,7 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -301,7 +301,7 @@ class _FunctionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: Specifies the language of the stored function code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -432,7 +432,7 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The argument name
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 
@@ -564,10 +564,10 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | function name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -579,7 +579,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: Specifies the language of the stored function code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -600,10 +600,10 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        format is database name | schema name | function name | <list of arg types, separated with '-'>
+        format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
 
         ```sh
-        $ pulumi import snowflake:index/function:Function example 'dbName|schemaName|functionName|varchar-varchar-varchar'
+        $ pulumi import snowflake:index/function:Function example 'dbName.schemaName.functionName(varchar, varchar, varchar)'
         ```
 
         :param str resource_name: The name of the resource.
@@ -710,7 +710,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
         :param pulumi.Input[str] language: Specifies the language of the stored function code.
-        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] name: Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the function when called with null inputs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] packages: List of package imports to use for Java / Python functions. For Java, package imports should be of the form: package*name:version*number, where package*name is snowflake*domain:package. For Python use it should be: ('numpy','pandas','xgboost==1.5.0').
         :param pulumi.Input[str] return_behavior: Specifies the behavior of the function when returning results
@@ -802,7 +802,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The argument name
+        Specifies the identifier for the function; does not have to be unique for the schema in which the function is created. Don't use the | character.
         """
         return pulumi.get(self, "name")
 

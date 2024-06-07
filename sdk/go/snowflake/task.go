@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,6 +31,7 @@ import (
 //				Database:     pulumi.String("database"),
 //				Schema:       pulumi.String("schema"),
 //				Warehouse:    pulumi.String("warehouse"),
+//				Name:         pulumi.String("task"),
 //				Schedule:     pulumi.String("10 MINUTE"),
 //				SqlStatement: pulumi.String("select * from foo;"),
 //				SessionParameters: pulumi.StringMap{
@@ -45,10 +45,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTask(ctx, "serverlessTask", &snowflake.TaskArgs{
+//			_, err = snowflake.NewTask(ctx, "serverless_task", &snowflake.TaskArgs{
 //				Comment:      pulumi.String("my serverless task"),
 //				Database:     pulumi.String("db"),
 //				Schema:       pulumi.String("schema"),
+//				Name:         pulumi.String("serverless_task"),
 //				Schedule:     pulumi.String("10 MINUTE"),
 //				SqlStatement: pulumi.String("select * from foo;"),
 //				SessionParameters: pulumi.StringMap{
@@ -65,10 +66,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTask(ctx, "testTask", &snowflake.TaskArgs{
+//			_, err = snowflake.NewTask(ctx, "test_task", &snowflake.TaskArgs{
 //				Comment:                   pulumi.String("task with allow_overlapping_execution"),
 //				Database:                  pulumi.String("database"),
 //				Schema:                    pulumi.String("schema"),
+//				Name:                      pulumi.String("test_task"),
 //				SqlStatement:              pulumi.String("select 1 as c;"),
 //				AllowOverlappingExecution: pulumi.Bool(true),
 //				Enabled:                   pulumi.Bool(true),
@@ -81,7 +83,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

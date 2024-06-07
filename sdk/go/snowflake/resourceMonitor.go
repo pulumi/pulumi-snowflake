@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,20 +26,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
-//				CreditQuota:  pulumi.Int(100),
-//				EndTimestamp: pulumi.String("2021-12-07 00:00"),
-//				Frequency:    pulumi.String("DAILY"),
+//				Name:           pulumi.String("monitor"),
+//				CreditQuota:    pulumi.Int(100),
+//				Frequency:      pulumi.String("DAILY"),
+//				StartTimestamp: pulumi.String("2020-12-07 00:00"),
+//				EndTimestamp:   pulumi.String("2021-12-07 00:00"),
 //				NotifyTriggers: pulumi.IntArray{
 //					pulumi.Int(40),
 //					pulumi.Int(50),
 //				},
+//				SuspendTriggers:          pulumi.IntArray(50),
+//				SuspendImmediateTriggers: pulumi.IntArray(90),
 //				NotifyUsers: pulumi.StringArray{
 //					pulumi.String("USERONE"),
 //					pulumi.String("USERTWO"),
 //				},
-//				StartTimestamp:           pulumi.String("2020-12-07 00:00"),
-//				SuspendImmediateTriggers: pulumi.IntArray(90),
-//				SuspendTriggers:          pulumi.IntArray(50),
 //			})
 //			if err != nil {
 //				return err
@@ -50,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

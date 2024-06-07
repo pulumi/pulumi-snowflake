@@ -14,10 +14,10 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | stored procedure name | &lt;list of arg types, separated with '-'&gt;
+    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;procedure_name&gt;(&lt;arg types, separated with ','&gt;)
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+    /// $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/procedure:Procedure")]
@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Output("executeAs")]
         public Output<string?> ExecuteAs { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Language { get; private set; } = null!;
 
         /// <summary>
-        /// The argument name
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// The argument name
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Sets execute context - see caller's rights and owner's rights
+        /// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// The argument name
+        /// Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

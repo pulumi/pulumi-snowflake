@@ -9,26 +9,18 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleStage = new snowflake.Stage("exampleStage", {
+ * const exampleStage = new snowflake.Stage("example_stage", {
+ *     name: "EXAMPLE_STAGE",
  *     url: "s3://com.example.bucket/prefix",
  *     database: "EXAMPLE_DB",
  *     schema: "EXAMPLE_SCHEMA",
- *     credentials: `AWS_KEY_ID='${_var.example_aws_key_id}' AWS_SECRET_KEY='${_var.example_aws_secret_key}'`,
- * });
- * const grantExampleStage = new snowflake.StageGrant("grantExampleStage", {
- *     databaseName: exampleStage.database,
- *     schemaName: exampleStage.schema,
- *     roles: ["LOADER"],
- *     privilege: "OWNERSHIP",
- *     stageName: exampleStage.name,
+ *     credentials: `AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -66,6 +58,9 @@ export class Stage extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stage.__pulumiType;
     }
 
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+     */
     public readonly awsExternalId!: pulumi.Output<string>;
     /**
      * Specifies a comment for the stage.
@@ -80,7 +75,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<string | undefined>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -96,13 +91,16 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     */
     public readonly snowflakeIamUser!: pulumi.Output<string>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -180,6 +178,9 @@ export class Stage extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Stage resources.
  */
 export interface StageState {
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+     */
     awsExternalId?: pulumi.Input<string>;
     /**
      * Specifies a comment for the stage.
@@ -194,7 +195,7 @@ export interface StageState {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     database?: pulumi.Input<string>;
     /**
@@ -210,13 +211,16 @@ export interface StageState {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     schema?: pulumi.Input<string>;
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     */
     snowflakeIamUser?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -238,6 +242,9 @@ export interface StageState {
  * The set of arguments for constructing a Stage resource.
  */
 export interface StageArgs {
+    /**
+     * A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+     */
     awsExternalId?: pulumi.Input<string>;
     /**
      * Specifies a comment for the stage.
@@ -252,7 +259,7 @@ export interface StageArgs {
      */
     credentials?: pulumi.Input<string>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the stage.
      */
     database: pulumi.Input<string>;
     /**
@@ -268,13 +275,16 @@ export interface StageArgs {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the stage.
      */
     schema: pulumi.Input<string>;
+    /**
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     */
     snowflakeIamUser?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.

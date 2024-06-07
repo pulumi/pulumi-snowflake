@@ -7,18 +7,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const aad = new snowflake.ScimIntegration("aad", {
+ *     name: "AAD_PROVISIONING",
  *     networkPolicy: "AAD_NETWORK_POLICY",
  *     provisionerRole: "AAD_PROVISIONER",
  *     scimClient: "AZURE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

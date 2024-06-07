@@ -7,19 +7,18 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const this = snowflake.getCurrentAccount({});
- * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: aws.ssm.ParameterType.String,
- *     value: _this.then(_this => _this.url),
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurrentAccountResult> {
 
@@ -52,19 +51,18 @@ export interface GetCurrentAccountResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const this = snowflake.getCurrentAccount({});
- * const snowflakeAccountUrl = new aws.ssm.Parameter("snowflakeAccountUrl", {
- *     type: aws.ssm.ParameterType.String,
- *     value: _this.then(_this => _this.url),
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCurrentAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentAccountResult> {
     return pulumi.output(getCurrentAccount(opts))

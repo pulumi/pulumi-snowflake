@@ -14,9 +14,17 @@ public final class GetSchemasArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSchemasArgs Empty = new GetSchemasArgs();
 
+    /**
+     * The database from which to return the schemas from.
+     * 
+     */
     @Import(name="database", required=true)
     private Output<String> database;
 
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public Output<String> database() {
         return this.database;
     }
@@ -45,11 +53,23 @@ public final class GetSchemasArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSchemasArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param database The database from which to return the schemas from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
 
+        /**
+         * @param database The database from which to return the schemas from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(String database) {
             return database(Output.of(database));
         }

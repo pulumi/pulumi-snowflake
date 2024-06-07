@@ -7,17 +7,16 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const dbRole = new snowflake.DatabaseRole("dbRole", {
- *     comment: "my db role",
+ * const dbRole = new snowflake.DatabaseRole("db_role", {
  *     database: "database",
+ *     name: "role_1",
+ *     comment: "my db role",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

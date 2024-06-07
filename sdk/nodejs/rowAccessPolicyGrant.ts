@@ -9,24 +9,22 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const grant = new snowflake.RowAccessPolicyGrant("grant", {
  *     databaseName: "database",
+ *     schemaName: "schema",
+ *     rowAccessPolicyName: "row_access_policy",
  *     privilege: "APPLY",
  *     roles: [
  *         "role1",
  *         "role2",
  *     ],
- *     rowAccessPolicyName: "row_access_policy",
- *     schemaName: "schema",
  *     withGrantOption: false,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -68,10 +66,6 @@ export class RowAccessPolicyGrant extends pulumi.CustomResource {
      * The name of the database containing the row access policy on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -152,10 +146,6 @@ export interface RowAccessPolicyGrantState {
      * The name of the database containing the row access policy on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`
@@ -191,10 +181,6 @@ export interface RowAccessPolicyGrantArgs {
      * The name of the database containing the row access policy on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The privilege to grant on the row access policy. To grant all privileges, use the value `ALL PRIVILEGES`

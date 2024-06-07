@@ -13,19 +13,37 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GetGrantsGrantsToInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lists all privileges and roles granted to the role
+        /// Lists all privileges and roles granted to the role.
         /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
+        [Input("accountRole")]
+        public Input<string>? AccountRole { get; set; }
 
         /// <summary>
-        /// Lists all the privileges granted to the share
+        /// Lists all the privileges and roles granted to the application.
+        /// </summary>
+        [Input("application")]
+        public Input<string>? Application { get; set; }
+
+        /// <summary>
+        /// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&amp;lt;app*name&amp;gt;"."&amp;lt;app*role_name&amp;gt;").
+        /// </summary>
+        [Input("applicationRole")]
+        public Input<string>? ApplicationRole { get; set; }
+
+        /// <summary>
+        /// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        [Input("databaseRole")]
+        public Input<string>? DatabaseRole { get; set; }
+
+        /// <summary>
+        /// Lists all the privileges granted to the share.
         /// </summary>
         [Input("share")]
-        public Input<string>? Share { get; set; }
+        public Input<Inputs.GetGrantsGrantsToShareInputArgs>? Share { get; set; }
 
         /// <summary>
-        /// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        /// Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

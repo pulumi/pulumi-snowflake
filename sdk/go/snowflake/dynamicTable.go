@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,14 +28,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
 //			_, err := snowflake.NewDynamicTable(ctx, "dt", &snowflake.DynamicTableArgs{
-//				Comment:  pulumi.String("example comment"),
+//				Name:     pulumi.String("product"),
 //				Database: pulumi.String("mydb"),
-//				Query:    pulumi.String("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\""),
 //				Schema:   pulumi.String("myschema"),
 //				TargetLag: &snowflake.DynamicTableTargetLagArgs{
 //					MaximumDuration: pulumi.String("20 minutes"),
 //				},
 //				Warehouse: pulumi.String("mywh"),
+//				Query:     pulumi.String("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\""),
+//				Comment:   pulumi.String("example comment"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -92,7 +91,7 @@ type DynamicTable struct {
 	RefreshModeReason pulumi.StringOutput `pulumi:"refreshModeReason"`
 	// Number of rows in the table.
 	Rows pulumi.IntOutput `pulumi:"rows"`
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState pulumi.StringOutput `pulumi:"schedulingState"`
 	// The schema in which to create the dynamic table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -183,7 +182,7 @@ type dynamicTableState struct {
 	RefreshModeReason *string `pulumi:"refreshModeReason"`
 	// Number of rows in the table.
 	Rows *int `pulumi:"rows"`
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState *string `pulumi:"schedulingState"`
 	// The schema in which to create the dynamic table.
 	Schema *string `pulumi:"schema"`
@@ -230,7 +229,7 @@ type DynamicTableState struct {
 	RefreshModeReason pulumi.StringPtrInput
 	// Number of rows in the table.
 	Rows pulumi.IntPtrInput
-	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 	SchedulingState pulumi.StringPtrInput
 	// The schema in which to create the dynamic table.
 	Schema pulumi.StringPtrInput
@@ -468,7 +467,7 @@ func (o DynamicTableOutput) Rows() pulumi.IntOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.IntOutput { return v.Rows }).(pulumi.IntOutput)
 }
 
-// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
 func (o DynamicTableOutput) SchedulingState() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.SchedulingState }).(pulumi.StringOutput)
 }

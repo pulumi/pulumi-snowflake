@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSequences(args: GetSequencesArgs, opts?: pulumi.InvokeOptions): Promise<GetSequencesResult> {
 
@@ -34,7 +32,13 @@ export function getSequences(args: GetSequencesArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the sequences from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetSequencesResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetSequencesResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSequencesOutput(args: GetSequencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSequencesResult> {
     return pulumi.output(args).apply((a: any) => getSequences(a, opts))
@@ -82,6 +84,12 @@ export function getSequencesOutput(args: GetSequencesOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getSequences.
  */
 export interface GetSequencesOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the sequences from.
+     */
     schema: pulumi.Input<string>;
 }

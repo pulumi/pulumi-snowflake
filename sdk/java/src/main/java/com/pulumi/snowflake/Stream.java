@@ -19,40 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Stream;
- * import com.pulumi.snowflake.StreamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var stream = new Stream(&#34;stream&#34;, StreamArgs.builder()        
- *             .appendOnly(false)
- *             .comment(&#34;A stream.&#34;)
- *             .database(&#34;database&#34;)
- *             .insertOnly(false)
- *             .onTable(&#34;table&#34;)
- *             .owner(&#34;role1&#34;)
- *             .schema(&#34;schema&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -10,9 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. &lt;deprecation&gt;
+    /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,10 +24,14 @@ namespace Pulumi.Snowflake
     /// {
     ///     var role = new Snowflake.Role("role", new()
     ///     {
+    ///         Name = "rking_test_role",
     ///         Comment = "for testing",
     ///     });
     /// 
-    ///     var otherRole = new Snowflake.Role("otherRole");
+    ///     var otherRole = new Snowflake.Role("other_role", new()
+    ///     {
+    ///         Name = "rking_test_role2",
+    ///     });
     /// 
     ///     // ensure the Terraform user inherits ownership privileges for the rking_test_role role
     ///     // otherwise Terraform will fail to destroy the rking_test_role2 role due to insufficient privileges
@@ -48,7 +53,6 @@ namespace Pulumi.Snowflake
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -77,9 +81,6 @@ namespace Pulumi.Snowflake
         [Output("revertOwnershipToRoleName")]
         public Output<string?> RevertOwnershipToRoleName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        /// </summary>
         [Output("toRoleName")]
         public Output<string> ToRoleName { get; private set; } = null!;
 
@@ -147,9 +148,6 @@ namespace Pulumi.Snowflake
         [Input("revertOwnershipToRoleName")]
         public Input<string>? RevertOwnershipToRoleName { get; set; }
 
-        /// <summary>
-        /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        /// </summary>
         [Input("toRoleName", required: true)]
         public Input<string> ToRoleName { get; set; } = null!;
 
@@ -179,9 +177,6 @@ namespace Pulumi.Snowflake
         [Input("revertOwnershipToRoleName")]
         public Input<string>? RevertOwnershipToRoleName { get; set; }
 
-        /// <summary>
-        /// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-        /// </summary>
         [Input("toRoleName")]
         public Input<string>? ToRoleName { get; set; }
 

@@ -16,29 +16,45 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs extends co
 
     public static final GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs Empty = new GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs();
 
+    /**
+     * The fully qualified name of the database.
+     * 
+     */
     @Import(name="inDatabase")
     private @Nullable Output<String> inDatabase;
 
+    /**
+     * @return The fully qualified name of the database.
+     * 
+     */
     public Optional<Output<String>> inDatabase() {
         return Optional.ofNullable(this.inDatabase);
     }
 
+    /**
+     * The fully qualified name of the schema.
+     * 
+     */
     @Import(name="inSchema")
     private @Nullable Output<String> inSchema;
 
+    /**
+     * @return The fully qualified name of the schema.
+     * 
+     */
     public Optional<Output<String>> inSchema() {
         return Optional.ofNullable(this.inSchema);
     }
 
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      * 
      */
     @Import(name="objectTypePlural", required=true)
     private Output<String> objectTypePlural;
 
     /**
-     * @return The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+     * @return The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      * 
      */
     public Output<String> objectTypePlural() {
@@ -71,26 +87,50 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs extends co
             $ = new GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inDatabase The fully qualified name of the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inDatabase(@Nullable Output<String> inDatabase) {
             $.inDatabase = inDatabase;
             return this;
         }
 
+        /**
+         * @param inDatabase The fully qualified name of the database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inDatabase(String inDatabase) {
             return inDatabase(Output.of(inDatabase));
         }
 
+        /**
+         * @param inSchema The fully qualified name of the schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inSchema(@Nullable Output<String> inSchema) {
             $.inSchema = inSchema;
             return this;
         }
 
+        /**
+         * @param inSchema The fully qualified name of the schema.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inSchema(String inSchema) {
             return inSchema(Output.of(inSchema));
         }
 
         /**
-         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
          * 
          * @return builder
          * 
@@ -101,7 +141,7 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs extends co
         }
 
         /**
-         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+         * @param objectTypePlural The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
          * 
          * @return builder
          * 

@@ -17,59 +17,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Role;
- * import com.pulumi.snowflake.GrantAccountRole;
- * import com.pulumi.snowflake.GrantAccountRoleArgs;
- * import com.pulumi.snowflake.User;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         //#################################
- *         //## grant account role to account role
- *         //#################################
- *         var roleRole = new Role(&#34;roleRole&#34;);
- * 
- *         var parentRole = new Role(&#34;parentRole&#34;);
- * 
- *         var grantAccountRole = new GrantAccountRole(&#34;grantAccountRole&#34;, GrantAccountRoleArgs.builder()        
- *             .roleName(roleRole.name())
- *             .parentRoleName(parentRole.name())
- *             .build());
- * 
- *         //#################################
- *         //## grant account role to user
- *         //#################################
- *         var roleIndex_roleRole = new Role(&#34;roleIndex/roleRole&#34;);
- * 
- *         var user = new User(&#34;user&#34;);
- * 
- *         var index_grantAccountRoleGrantAccountRole = new GrantAccountRole(&#34;index/grantAccountRoleGrantAccountRole&#34;, GrantAccountRoleArgs.builder()        
- *             .roleName(roleRole.name())
- *             .userName(user.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,18 +22,8 @@ namespace Pulumi.Snowflake
     /// {
     ///     var test = new Snowflake.MaskingPolicy("test", new()
     ///     {
+    ///         Name = "EXAMPLE_MASKING_POLICY",
     ///         Database = "EXAMPLE_DB",
-    ///         MaskingExpression = @"  case 
-    ///     when current_role() in ('ROLE_A') then 
-    ///       val 
-    ///     when is_role_in_session( 'ROLE_B' ) then 
-    ///       'ABC123'
-    ///     else
-    ///       '******'
-    ///   end
-    /// 
-    /// ",
-    ///         ReturnDataType = "VARCHAR",
     ///         Schema = "EXAMPLE_SCHEMA",
     ///         Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs
     ///         {
@@ -47,11 +36,20 @@ namespace Pulumi.Snowflake
     ///                 },
     ///             },
     ///         },
+    ///         MaskingExpression = @"case 
+    ///   when current_role() in ('ROLE_A') then 
+    ///     val 
+    ///   when is_role_in_session( 'ROLE_B' ) then 
+    ///     'ABC123'
+    ///   else
+    ///     '******'
+    /// end
+    /// ",
+    ///         ReturnDataType = "VARCHAR",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -95,7 +93,7 @@ namespace Pulumi.Snowflake
         public Output<string> MaskingExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the column name to mask.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -207,7 +205,7 @@ namespace Pulumi.Snowflake
         public Input<string> MaskingExpression { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the column name to mask.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +273,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MaskingExpression { get; set; }
 
         /// <summary>
-        /// Specifies the column name to mask.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -20,14 +20,14 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
     public static final TableConstraintArgs Empty = new TableConstraintArgs();
 
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      * 
      */
     @Import(name="columns", required=true)
     private Output<List<String>> columns;
 
     /**
-     * @return Columns to use in foreign key reference
+     * @return Columns to use in constraint key
      * 
      */
     public Output<List<String>> columns() {
@@ -163,14 +163,14 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Import(name="tableId", required=true)
     private Output<String> tableId;
 
     /**
-     * @return Name of constraint
+     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Output<String> tableId() {
@@ -243,7 +243,7 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param columns Columns to use in foreign key reference
+         * @param columns Columns to use in constraint key
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tableId Name of constraint
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class TableConstraintArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tableId Name of constraint
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 

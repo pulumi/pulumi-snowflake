@@ -28,8 +28,6 @@ class ViewGrantArgs:
         """
         The set of arguments for constructing a ViewGrant resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future views on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -77,10 +75,6 @@ class ViewGrantArgs:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -213,8 +207,6 @@ class _ViewGrantState:
         """
         Input properties used for looking up and filtering ViewGrant resources.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future views on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -263,10 +255,6 @@ class _ViewGrantState:
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @enable_multiple_grants.setter
@@ -404,36 +392,36 @@ class ViewGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
+        grant = snowflake.ViewGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            view_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
-            view_name="view",
+            on_future=False,
             with_grant_option=False)
-        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+        #Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+        #grants, use the `snowflake_schema_grant` resource
+        grant_schema_grant = snowflake.SchemaGrant("grant",
             database_name="database",
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
-            ],
-            schema_name="schema")
+            ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -446,8 +434,6 @@ class ViewGrant(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future views on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -469,36 +455,36 @@ class ViewGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        grant_view_grant = snowflake.ViewGrant("grantViewGrant",
+        grant = snowflake.ViewGrant("grant",
             database_name="database",
-            on_future=False,
+            schema_name="schema",
+            view_name="view",
             privilege="SELECT",
             roles=[
                 "role1",
                 "role2",
             ],
-            schema_name="schema",
             shares=[
                 "share1",
                 "share2",
             ],
-            view_name="view",
+            on_future=False,
             with_grant_option=False)
-        grant_schema_grant = snowflake.SchemaGrant("grantSchemaGrant",
+        #Snowflake view grant is an object level grant, not a schema level grant. To add schema level
+        #grants, use the `snowflake_schema_grant` resource
+        grant_schema_grant = snowflake.SchemaGrant("grant",
             database_name="database",
+            schema_name="schema",
             privilege="USAGE",
             roles=[
                 "role1",
                 "role2",
-            ],
-            schema_name="schema")
+            ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -585,8 +571,6 @@ class ViewGrant(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database containing the current or future views on which to grant privileges.
-        :param pulumi.Input[bool] enable_multiple_grants: When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-               grants applied to roles and objects outside Terraform.
         :param pulumi.Input[bool] on_all: When this is set to true and a schema*name is provided, apply this grant on all views in the given schema. When this is true and no schema*name is provided apply this grant on all views in the given database. The view*name and shares fields must be unset in order to use on*all. Cannot be used together with on_future.
         :param pulumi.Input[bool] on_future: When this is set to true and a schema*name is provided, apply this grant on all future views in the given schema. When this is true and no schema*name is provided apply this grant on all future views in the given database. The view*name and shares fields must be unset in order to use on*future. Cannot be used together with on_all.
         :param pulumi.Input[str] privilege: The privilege to grant on the current or future view. To grant all privileges, use the value `ALL PRIVILEGES`.
@@ -625,10 +609,6 @@ class ViewGrant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableMultipleGrants")
     def enable_multiple_grants(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-        grants applied to roles and objects outside Terraform.
-        """
         return pulumi.get(self, "enable_multiple_grants")
 
     @property

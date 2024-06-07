@@ -13,10 +13,16 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GetGrantsFutureGrantsToArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        /// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
         /// </summary>
-        [Input("role", required: true)]
-        public string Role { get; set; } = null!;
+        [Input("accountRole")]
+        public string? AccountRole { get; set; }
+
+        /// <summary>
+        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        [Input("databaseRole")]
+        public string? DatabaseRole { get; set; }
 
         public GetGrantsFutureGrantsToArgs()
         {

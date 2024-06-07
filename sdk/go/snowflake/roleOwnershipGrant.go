@@ -12,9 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use GrantOwnership instead. <deprecation>
+//
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,12 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			role, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
+//				Name:    pulumi.String("rking_test_role"),
 //				Comment: pulumi.String("for testing"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			otherRole, err := snowflake.NewRole(ctx, "otherRole", nil)
+//			otherRole, err := snowflake.NewRole(ctx, "other_role", &snowflake.RoleArgs{
+//				Name: pulumi.String("rking_test_role2"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -61,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -77,8 +80,7 @@ type RoleOwnershipGrant struct {
 	OnRoleName pulumi.StringOutput `pulumi:"onRoleName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrOutput `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringOutput `pulumi:"toRoleName"`
+	ToRoleName                pulumi.StringOutput    `pulumi:"toRoleName"`
 }
 
 // NewRoleOwnershipGrant registers a new resource with the given unique name, arguments, and options.
@@ -123,8 +125,7 @@ type roleOwnershipGrantState struct {
 	OnRoleName *string `pulumi:"onRoleName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName *string `pulumi:"toRoleName"`
+	ToRoleName                *string `pulumi:"toRoleName"`
 }
 
 type RoleOwnershipGrantState struct {
@@ -134,8 +135,7 @@ type RoleOwnershipGrantState struct {
 	OnRoleName pulumi.StringPtrInput
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrInput
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringPtrInput
+	ToRoleName                pulumi.StringPtrInput
 }
 
 func (RoleOwnershipGrantState) ElementType() reflect.Type {
@@ -149,8 +149,7 @@ type roleOwnershipGrantArgs struct {
 	OnRoleName string `pulumi:"onRoleName"`
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName *string `pulumi:"revertOwnershipToRoleName"`
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName string `pulumi:"toRoleName"`
+	ToRoleName                string  `pulumi:"toRoleName"`
 }
 
 // The set of arguments for constructing a RoleOwnershipGrant resource.
@@ -161,8 +160,7 @@ type RoleOwnershipGrantArgs struct {
 	OnRoleName pulumi.StringInput
 	// The name of the role to revert ownership to on destroy.
 	RevertOwnershipToRoleName pulumi.StringPtrInput
-	// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-	ToRoleName pulumi.StringInput
+	ToRoleName                pulumi.StringInput
 }
 
 func (RoleOwnershipGrantArgs) ElementType() reflect.Type {
@@ -267,7 +265,6 @@ func (o RoleOwnershipGrantOutput) RevertOwnershipToRoleName() pulumi.StringPtrOu
 	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringPtrOutput { return v.RevertOwnershipToRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
 func (o RoleOwnershipGrantOutput) ToRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleOwnershipGrant) pulumi.StringOutput { return v.ToRoleName }).(pulumi.StringOutput)
 }

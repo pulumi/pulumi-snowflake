@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var externalTable = new ExternalTable(&#34;externalTable&#34;, ExternalTableArgs.builder()        
+ *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("external_table")
+ *             .comment("External table")
+ *             .fileFormat("TYPE = CSV FIELD_DELIMITER = '|'")
  *             .columns(            
  *                 ExternalTableColumnArgs.builder()
- *                     .name(&#34;id&#34;)
- *                     .type(&#34;int&#34;)
+ *                     .name("id")
+ *                     .type("int")
  *                     .build(),
  *                 ExternalTableColumnArgs.builder()
- *                     .name(&#34;data&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("data")
+ *                     .type("text")
  *                     .build())
- *             .comment(&#34;External table&#34;)
- *             .database(&#34;db&#34;)
- *             .fileFormat(&#34;TYPE = CSV FIELD_DELIMITER = &#39;|&#39;&#34;)
- *             .schema(&#34;schema&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -147,14 +150,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyGrants);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the external table.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the external table.
      * 
      */
     public Output<String> database() {
@@ -189,14 +192,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Column name
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     public Output<String> name() {
@@ -259,14 +262,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshOnCreate);
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the external table.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the external table.
      * 
      */
     public Output<String> schema() {

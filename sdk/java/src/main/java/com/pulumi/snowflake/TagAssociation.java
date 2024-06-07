@@ -21,13 +21,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.Schema;
  * import com.pulumi.snowflake.SchemaArgs;
  * import com.pulumi.snowflake.Tag;
@@ -51,69 +53,75 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database(&#34;database&#34;);
+ *         var database = new Database("database", DatabaseArgs.builder()
+ *             .name("database")
+ *             .build());
  * 
- *         var schema = new Schema(&#34;schema&#34;, SchemaArgs.builder()        
+ *         var schema = new Schema("schema", SchemaArgs.builder()
+ *             .name("schema")
  *             .database(database.name())
  *             .build());
  * 
- *         var tag = new Tag(&#34;tag&#34;, TagArgs.builder()        
+ *         var tag = new Tag("tag", TagArgs.builder()
+ *             .name("cost_center")
  *             .database(database.name())
  *             .schema(schema.name())
  *             .allowedValues(            
- *                 &#34;finance&#34;,
- *                 &#34;engineering&#34;)
+ *                 "finance",
+ *                 "engineering")
  *             .build());
  * 
- *         var dbAssociation = new TagAssociation(&#34;dbAssociation&#34;, TagAssociationArgs.builder()        
+ *         var dbAssociation = new TagAssociation("dbAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
  *                 .name(database.name())
  *                 .build())
- *             .objectType(&#34;DATABASE&#34;)
+ *             .objectType("DATABASE")
  *             .tagId(tag.id())
- *             .tagValue(&#34;finance&#34;)
+ *             .tagValue("finance")
  *             .build());
  * 
- *         var test = new Table(&#34;test&#34;, TableArgs.builder()        
- *             .database(snowflake_database.test().name())
- *             .schema(snowflake_schema.test().name())
- *             .comment(&#34;Terraform example table&#34;)
+ *         var test = new Table("test", TableArgs.builder()
+ *             .database(testSnowflakeDatabase.name())
+ *             .schema(testSnowflakeSchema.name())
+ *             .name("TABLE_NAME")
+ *             .comment("Terraform example table")
  *             .columns(            
  *                 TableColumnArgs.builder()
- *                     .name(&#34;column1&#34;)
- *                     .type(&#34;VARIANT&#34;)
+ *                     .name("column1")
+ *                     .type("VARIANT")
  *                     .build(),
  *                 TableColumnArgs.builder()
- *                     .name(&#34;column2&#34;)
- *                     .type(&#34;VARCHAR(16)&#34;)
+ *                     .name("column2")
+ *                     .type("VARCHAR(16)")
  *                     .build())
  *             .build());
  * 
- *         var tableAssociation = new TagAssociation(&#34;tableAssociation&#34;, TagAssociationArgs.builder()        
+ *         var tableAssociation = new TagAssociation("tableAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
  *                 .name(test.name())
- *                 .database(snowflake_database.test().name())
- *                 .schema(snowflake_schema.test().name())
+ *                 .database(testSnowflakeDatabase.name())
+ *                 .schema(testSnowflakeSchema.name())
  *                 .build())
- *             .objectType(&#34;TABLE&#34;)
- *             .tagId(snowflake_tag.test().id())
- *             .tagValue(&#34;engineering&#34;)
+ *             .objectType("TABLE")
+ *             .tagId(testSnowflakeTag.id())
+ *             .tagValue("engineering")
  *             .build());
  * 
- *         var columnAssociation = new TagAssociation(&#34;columnAssociation&#34;, TagAssociationArgs.builder()        
+ *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
- *                 .name(test.name().applyValue(name -&gt; String.format(&#34;%s.column_name&#34;, name)))
- *                 .database(snowflake_database.test().name())
- *                 .schema(snowflake_schema.test().name())
+ *                 .name(test.name().applyValue(name -> String.format("%s.column_name", name)))
+ *                 .database(testSnowflakeDatabase.name())
+ *                 .schema(testSnowflakeSchema.name())
  *                 .build())
- *             .objectType(&#34;COLUMN&#34;)
- *             .tagId(snowflake_tag.test().id())
- *             .tagValue(&#34;engineering&#34;)
+ *             .objectType("COLUMN")
+ *             .tagId(testSnowflakeTag.id())
+ *             .tagValue("engineering")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -160,14 +168,14 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectName);
     }
     /**
-     * Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      * 
      */
     @Export(name="objectType", refs={String.class}, tree="[0]")
     private Output<String> objectType;
 
     /**
-     * @return Specifies the type of object to add a tag to. ex: &#39;ACCOUNT&#39;, &#39;COLUMN&#39;, &#39;DATABASE&#39;, etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+     * @return Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      * 
      */
     public Output<String> objectType() {

@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,6 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewWarehouse(ctx, "warehouse", &snowflake.WarehouseArgs{
+//				Name:          pulumi.String("test"),
 //				Comment:       pulumi.String("foo"),
 //				WarehouseSize: pulumi.String("small"),
 //			})
@@ -38,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

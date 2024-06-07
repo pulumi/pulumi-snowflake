@@ -27,13 +27,13 @@ class MaterializedViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a MaterializedView resource.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[str] warehouse: The warehouse name.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -59,7 +59,7 @@ class MaterializedViewArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -71,7 +71,7 @@ class MaterializedViewArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 
@@ -131,7 +131,7 @@ class MaterializedViewArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created.
         """
         return pulumi.get(self, "name")
 
@@ -182,11 +182,11 @@ class _MaterializedViewState:
         """
         Input properties used for looking up and filtering MaterializedView resources.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
@@ -229,7 +229,7 @@ class _MaterializedViewState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -253,7 +253,7 @@ class _MaterializedViewState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created.
         """
         return pulumi.get(self, "name")
 
@@ -277,7 +277,7 @@ class _MaterializedViewState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 
@@ -343,7 +343,6 @@ class MaterializedView(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -351,13 +350,13 @@ class MaterializedView(pulumi.CustomResource):
         view = snowflake.MaterializedView("view",
             database="db",
             schema="schema",
+            name="view",
             warehouse="warehouse",
             comment="comment",
             statement="select * from foo;\\n",
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -370,11 +369,11 @@ class MaterializedView(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
@@ -388,7 +387,6 @@ class MaterializedView(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
@@ -396,13 +394,13 @@ class MaterializedView(pulumi.CustomResource):
         view = snowflake.MaterializedView("view",
             database="db",
             schema="schema",
+            name="view",
             warehouse="warehouse",
             comment="comment",
             statement="select * from foo;\\n",
             or_replace=False,
             is_secure=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -489,11 +487,11 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
+        :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaterializedViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[str] warehouse: The warehouse name.
@@ -525,7 +523,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
@@ -541,7 +539,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the view; must be unique for the schema in which the view is created.
         """
         return pulumi.get(self, "name")
 
@@ -557,7 +555,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        Name of the schema that the tag was created in.
+        The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 

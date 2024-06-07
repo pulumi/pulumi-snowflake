@@ -20,24 +20,22 @@ import javax.annotation.Nullable;
 /**
  * The account resource allows you to create and manage Snowflake accounts.
  * 
- *     **WARNING** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
- *     
- *     **NOTE** ORGADMIN priviliges are required for this resource
+ * !&gt; **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
+ * 
+ * &gt; **Note** ORGADMIN priviliges are required for this resource
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Provider;
- * import com.pulumi.snowflake.ProviderArgs;
  * import com.pulumi.snowflake.Account;
  * import com.pulumi.snowflake.AccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,27 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orgadmin = new Provider(&#34;orgadmin&#34;, ProviderArgs.builder()        
- *             .role(&#34;ORGADMIN&#34;)
- *             .build());
- * 
- *         var ac1 = new Account(&#34;ac1&#34;, AccountArgs.builder()        
- *             .adminName(&#34;John Doe&#34;)
- *             .adminPassword(&#34;Abcd1234!&#34;)
- *             .email(&#34;john.doe@snowflake.com&#34;)
- *             .firstName(&#34;John&#34;)
- *             .lastName(&#34;Doe&#34;)
+ *         var ac1 = new Account("ac1", AccountArgs.builder()
+ *             .name("SNOWFLAKE_TEST_ACCOUNT")
+ *             .adminName("John Doe")
+ *             .adminPassword("Abcd1234!")
+ *             .email("john.doe{@literal @}snowflake.com")
+ *             .firstName("John")
+ *             .lastName("Doe")
  *             .mustChangePassword(true)
- *             .edition(&#34;STANDARD&#34;)
- *             .comment(&#34;Snowflake Test Account&#34;)
- *             .region(&#34;AWS_US_WEST_2&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(snowflake.orgadmin())
- *                 .build());
+ *             .edition("STANDARD")
+ *             .comment("Snowflake Test Account")
+ *             .region("AWS_US_WEST_2")
+ *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -98,28 +92,28 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.adminName;
     }
     /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
     /**
-     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%!D(MISSING)provided%!P(MISSING)assword%!P(MISSING)olicy&gt;).
+     * @return Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
      * 
      */
     public Output<Optional<String>> adminPassword() {
         return Codegen.optional(this.adminPassword);
     }
     /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     @Export(name="adminRsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminRsaPublicKey;
 
     /**
-     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](&lt;https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%!p(MISSING)air%!a(MISSING)uthentication&gt;) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
+     * @return Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
      * 
      */
     public Output<Optional<String>> adminRsaPublicKey() {

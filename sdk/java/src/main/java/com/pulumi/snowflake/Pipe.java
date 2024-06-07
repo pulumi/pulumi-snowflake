@@ -16,43 +16,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Pipe;
- * import com.pulumi.snowflake.PipeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pipe = new Pipe(&#34;pipe&#34;, PipeArgs.builder()        
- *             .autoIngest(false)
- *             .awsSnsTopicArn(&#34;...&#34;)
- *             .comment(&#34;A pipe.&#34;)
- *             .copyStatement(&#34;copy into mytable from @mystage&#34;)
- *             .database(&#34;db&#34;)
- *             .notificationChannel(&#34;...&#34;)
- *             .schema(&#34;schema&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,22 +43,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alert = new Alert(&#34;alert&#34;, AlertArgs.builder()        
- *             .action(&#34;select 1 as c&#34;)
+ *         var alert = new Alert("alert", AlertArgs.builder()
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("alert")
+ *             .warehouse("warehouse")
  *             .alertSchedule(AlertAlertScheduleArgs.builder()
  *                 .interval(10)
  *                 .build())
- *             .comment(&#34;my alert&#34;)
- *             .condition(&#34;select 1 as c&#34;)
- *             .database(&#34;database&#34;)
+ *             .condition("select 1 as c")
+ *             .action("select 1 as c")
  *             .enabled(true)
- *             .schema(&#34;schema&#34;)
- *             .warehouse(&#34;warehouse&#34;)
+ *             .comment("my alert")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

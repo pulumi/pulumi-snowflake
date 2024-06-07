@@ -30,11 +30,6 @@ class GrantPrivilegesToAccountRoleArgs:
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
         :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
-        :param pulumi.Input[bool] always_apply: If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-               supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-               X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-               new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-               of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
@@ -90,13 +85,6 @@ class GrantPrivilegesToAccountRoleArgs:
     @property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-        supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-        X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-        new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-        of the config being eventually convergent (producing an empty plan).
-        """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
@@ -205,11 +193,6 @@ class _GrantPrivilegesToAccountRoleState:
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
         :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
-        :param pulumi.Input[bool] always_apply: If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-               supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-               X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-               new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-               of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
@@ -266,13 +249,6 @@ class _GrantPrivilegesToAccountRoleState:
     @property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-        supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-        X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-        new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-        of the config being eventually convergent (producing an empty plan).
-        """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
@@ -413,11 +389,6 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
-        :param pulumi.Input[bool] always_apply: If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-               supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-               X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-               new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-               of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] on_account_object: Specifies the account object on which privileges will be granted
@@ -536,11 +507,6 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
-        :param pulumi.Input[bool] always_apply: If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-               supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-               X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-               new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-               of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] on_account_object: Specifies the account object on which privileges will be granted
@@ -584,13 +550,6 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is
-        supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to
-        X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every
-        new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions
-        of the config being eventually convergent (producing an empty plan).
-        """
         return pulumi.get(self, "always_apply")
 
     @property

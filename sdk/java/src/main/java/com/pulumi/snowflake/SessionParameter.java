@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,21 +41,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sessionParameter = new SessionParameter(&#34;sessionParameter&#34;, SessionParameterArgs.builder()        
- *             .key(&#34;AUTOCOMMIT&#34;)
- *             .user(&#34;TEST_USER&#34;)
- *             .value(&#34;false&#34;)
+ *         var s = new SessionParameter("s", SessionParameterArgs.builder()
+ *             .key("AUTOCOMMIT")
+ *             .value("false")
+ *             .user("TEST_USER")
  *             .build());
  * 
- *         var s2 = new SessionParameter(&#34;s2&#34;, SessionParameterArgs.builder()        
- *             .key(&#34;BINARY_OUTPUT_FORMAT&#34;)
+ *         var s2 = new SessionParameter("s2", SessionParameterArgs.builder()
+ *             .key("BINARY_OUTPUT_FORMAT")
+ *             .value("BASE64")
  *             .onAccount(true)
- *             .value(&#34;BASE64&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

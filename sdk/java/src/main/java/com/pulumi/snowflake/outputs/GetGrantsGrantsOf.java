@@ -12,10 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetGrantsGrantsOf {
     /**
-     * @return Lists all users and roles to which the role has been granted
+     * @return Lists all users and roles to which the account role has been granted.
      * 
      */
-    private @Nullable String role;
+    private @Nullable String accountRole;
+    /**
+     * @return Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    private @Nullable String applicationRole;
+    /**
+     * @return Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    private @Nullable String databaseRole;
     /**
      * @return Lists all the accounts for the share and indicates the accounts that are using the share.
      * 
@@ -24,11 +34,25 @@ public final class GetGrantsGrantsOf {
 
     private GetGrantsGrantsOf() {}
     /**
-     * @return Lists all users and roles to which the role has been granted
+     * @return Lists all users and roles to which the account role has been granted.
      * 
      */
-    public Optional<String> role() {
-        return Optional.ofNullable(this.role);
+    public Optional<String> accountRole() {
+        return Optional.ofNullable(this.accountRole);
+    }
+    /**
+     * @return Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> applicationRole() {
+        return Optional.ofNullable(this.applicationRole);
+    }
+    /**
+     * @return Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<String> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
     }
     /**
      * @return Lists all the accounts for the share and indicates the accounts that are using the share.
@@ -47,19 +71,35 @@ public final class GetGrantsGrantsOf {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String role;
+        private @Nullable String accountRole;
+        private @Nullable String applicationRole;
+        private @Nullable String databaseRole;
         private @Nullable String share;
         public Builder() {}
         public Builder(GetGrantsGrantsOf defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.role = defaults.role;
+    	      this.accountRole = defaults.accountRole;
+    	      this.applicationRole = defaults.applicationRole;
+    	      this.databaseRole = defaults.databaseRole;
     	      this.share = defaults.share;
         }
 
         @CustomType.Setter
-        public Builder role(@Nullable String role) {
+        public Builder accountRole(@Nullable String accountRole) {
 
-            this.role = role;
+            this.accountRole = accountRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder applicationRole(@Nullable String applicationRole) {
+
+            this.applicationRole = applicationRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseRole(@Nullable String databaseRole) {
+
+            this.databaseRole = databaseRole;
             return this;
         }
         @CustomType.Setter
@@ -70,7 +110,9 @@ public final class GetGrantsGrantsOf {
         }
         public GetGrantsGrantsOf build() {
             final var _resultValue = new GetGrantsGrantsOf();
-            _resultValue.role = role;
+            _resultValue.accountRole = accountRole;
+            _resultValue.applicationRole = applicationRole;
+            _resultValue.databaseRole = databaseRole;
             _resultValue.share = share;
             return _resultValue;
         }

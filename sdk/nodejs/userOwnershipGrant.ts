@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.GrantOwnership instead. <deprecation>
+ */
 export class UserOwnershipGrant extends pulumi.CustomResource {
     /**
      * Get an existing UserOwnershipGrant resource's state with the given name, ID, and optional extra
@@ -44,9 +47,6 @@ export class UserOwnershipGrant extends pulumi.CustomResource {
      * The name of the role to revert ownership to on destroy.
      */
     public readonly revertOwnershipToRoleName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     public readonly toRoleName!: pulumi.Output<string>;
 
     /**
@@ -100,9 +100,6 @@ export interface UserOwnershipGrantState {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName?: pulumi.Input<string>;
 }
 
@@ -122,8 +119,5 @@ export interface UserOwnershipGrantArgs {
      * The name of the role to revert ownership to on destroy.
      */
     revertOwnershipToRoleName?: pulumi.Input<string>;
-    /**
-     * The name of the role to grant ownership. Please ensure that the role that terraform is using is granted access.
-     */
     toRoleName: pulumi.Input<string>;
 }

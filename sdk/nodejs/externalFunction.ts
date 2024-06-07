@@ -9,13 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const testExtFunc = new snowflake.ExternalFunction("testExtFunc", {
- *     apiIntegration: "api_integration_name",
+ * const testExtFunc = new snowflake.ExternalFunction("test_ext_func", {
+ *     name: "my_function",
+ *     database: "my_test_db",
+ *     schema: "my_test_schema",
  *     args: [
  *         {
  *             name: "arg1",
@@ -26,21 +27,19 @@ import * as utilities from "./utilities";
  *             type: "varchar",
  *         },
  *     ],
- *     database: "my_test_db",
- *     returnBehavior: "IMMUTABLE",
  *     returnType: "variant",
- *     schema: "my_test_schema",
+ *     returnBehavior: "IMMUTABLE",
+ *     apiIntegration: "api_integration_name",
  *     urlOfProxyAndResource: "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * format is database name | schema name | external function name | <list of function arg types, separated with '-'>
+ * format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
  *
  * ```sh
- * $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName|schemaName|externalFunctionName|varchar-varchar-varchar'
+ * $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
  * ```
  */
 export class ExternalFunction extends pulumi.CustomResource {
@@ -108,7 +107,7 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly maxBatchRows!: pulumi.Output<number | undefined>;
     /**
-     * Argument name
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -260,7 +259,7 @@ export interface ExternalFunctionState {
      */
     maxBatchRows?: pulumi.Input<number>;
     /**
-     * Argument name
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
     name?: pulumi.Input<string>;
     /**
@@ -334,7 +333,7 @@ export interface ExternalFunctionArgs {
      */
     maxBatchRows?: pulumi.Input<number>;
     /**
-     * Argument name
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
     name?: pulumi.Input<string>;
     /**

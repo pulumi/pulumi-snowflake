@@ -16,18 +16,48 @@ public final class GetGrantsGrantsOfArgs extends com.pulumi.resources.ResourceAr
     public static final GetGrantsGrantsOfArgs Empty = new GetGrantsGrantsOfArgs();
 
     /**
-     * Lists all users and roles to which the role has been granted
+     * Lists all users and roles to which the account role has been granted.
      * 
      */
-    @Import(name="role")
-    private @Nullable Output<String> role;
+    @Import(name="accountRole")
+    private @Nullable Output<String> accountRole;
 
     /**
-     * @return Lists all users and roles to which the role has been granted
+     * @return Lists all users and roles to which the account role has been granted.
      * 
      */
-    public Optional<Output<String>> role() {
-        return Optional.ofNullable(this.role);
+    public Optional<Output<String>> accountRole() {
+        return Optional.ofNullable(this.accountRole);
+    }
+
+    /**
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="applicationRole")
+    private @Nullable Output<String> applicationRole;
+
+    /**
+     * @return Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<Output<String>> applicationRole() {
+        return Optional.ofNullable(this.applicationRole);
+    }
+
+    /**
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    @Import(name="databaseRole")
+    private @Nullable Output<String> databaseRole;
+
+    /**
+     * @return Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * 
+     */
+    public Optional<Output<String>> databaseRole() {
+        return Optional.ofNullable(this.databaseRole);
     }
 
     /**
@@ -48,7 +78,9 @@ public final class GetGrantsGrantsOfArgs extends com.pulumi.resources.ResourceAr
     private GetGrantsGrantsOfArgs() {}
 
     private GetGrantsGrantsOfArgs(GetGrantsGrantsOfArgs $) {
-        this.role = $.role;
+        this.accountRole = $.accountRole;
+        this.applicationRole = $.applicationRole;
+        this.databaseRole = $.databaseRole;
         this.share = $.share;
     }
 
@@ -71,24 +103,66 @@ public final class GetGrantsGrantsOfArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param role Lists all users and roles to which the role has been granted
+         * @param accountRole Lists all users and roles to which the account role has been granted.
          * 
          * @return builder
          * 
          */
-        public Builder role(@Nullable Output<String> role) {
-            $.role = role;
+        public Builder accountRole(@Nullable Output<String> accountRole) {
+            $.accountRole = accountRole;
             return this;
         }
 
         /**
-         * @param role Lists all users and roles to which the role has been granted
+         * @param accountRole Lists all users and roles to which the account role has been granted.
          * 
          * @return builder
          * 
          */
-        public Builder role(String role) {
-            return role(Output.of(role));
+        public Builder accountRole(String accountRole) {
+            return accountRole(Output.of(accountRole));
+        }
+
+        /**
+         * @param applicationRole Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationRole(@Nullable Output<String> applicationRole) {
+            $.applicationRole = applicationRole;
+            return this;
+        }
+
+        /**
+         * @param applicationRole Lists all the users and roles to which the application role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationRole(String applicationRole) {
+            return applicationRole(Output.of(applicationRole));
+        }
+
+        /**
+         * @param databaseRole Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRole(@Nullable Output<String> databaseRole) {
+            $.databaseRole = databaseRole;
+            return this;
+        }
+
+        /**
+         * @param databaseRole Lists all users and roles to which the database role has been granted. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseRole(String databaseRole) {
+            return databaseRole(Output.of(databaseRole));
         }
 
         /**

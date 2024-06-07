@@ -7,18 +7,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const emailInt = new snowflake.EmailNotificationIntegration("emailInt", {
- *     allowedRecipients: ["john.doe@gmail.com"],
+ * const emailInt = new snowflake.EmailNotificationIntegration("email_int", {
+ *     name: "notification",
  *     comment: "A notification integration.",
  *     enabled: true,
+ *     allowedRecipients: ["john.doe@gmail.com"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

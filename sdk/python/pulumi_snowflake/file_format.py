@@ -1221,17 +1221,16 @@ class FileFormat(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_file_format = snowflake.FileFormat("exampleFileFormat",
+        example_file_format = snowflake.FileFormat("example_file_format",
+            name="EXAMPLE_FILE_FORMAT",
             database="EXAMPLE_DB",
-            format_type="CSV",
-            schema="EXAMPLE_SCHEMA")
+            schema="EXAMPLE_SCHEMA",
+            format_type="CSV")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1289,17 +1288,16 @@ class FileFormat(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
-        example_file_format = snowflake.FileFormat("exampleFileFormat",
+        example_file_format = snowflake.FileFormat("example_file_format",
+            name="EXAMPLE_FILE_FORMAT",
             database="EXAMPLE_DB",
-            format_type="CSV",
-            schema="EXAMPLE_SCHEMA")
+            schema="EXAMPLE_SCHEMA",
+            format_type="CSV")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

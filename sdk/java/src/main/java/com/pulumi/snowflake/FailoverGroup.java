@@ -22,20 +22,20 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
  * import com.pulumi.snowflake.FailoverGroup;
  * import com.pulumi.snowflake.FailoverGroupArgs;
  * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleArgs;
  * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleCronArgs;
- * import com.pulumi.snowflake.Provider;
  * import com.pulumi.snowflake.inputs.FailoverGroupFromReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,42 +49,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new Database(&#34;db&#34;);
+ *         var db = new Database("db", DatabaseArgs.builder()
+ *             .name("db1")
+ *             .build());
  * 
- *         var sourceFailoverGroup = new FailoverGroup(&#34;sourceFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()
+ *             .name("FG1")
  *             .objectTypes(            
- *                 &#34;WAREHOUSES&#34;,
- *                 &#34;DATABASES&#34;,
- *                 &#34;INTEGRATIONS&#34;,
- *                 &#34;ROLES&#34;)
+ *                 "WAREHOUSES",
+ *                 "DATABASES",
+ *                 "INTEGRATIONS",
+ *                 "ROLES")
  *             .allowedAccounts(            
- *                 &#34;&lt;org_name&gt;.&lt;target_account_name1&gt;&#34;,
- *                 &#34;&lt;org_name&gt;.&lt;target_account_name2&gt;&#34;)
+ *                 "<org_name>.<target_account_name1>",
+ *                 "<org_name>.<target_account_name2>")
  *             .allowedDatabases(db.name())
- *             .allowedIntegrationTypes(&#34;SECURITY INTEGRATIONS&#34;)
+ *             .allowedIntegrationTypes("SECURITY INTEGRATIONS")
  *             .replicationSchedule(FailoverGroupReplicationScheduleArgs.builder()
  *                 .cron(FailoverGroupReplicationScheduleCronArgs.builder()
- *                     .expression(&#34;0 0 10-20 * TUE,THU&#34;)
- *                     .timeZone(&#34;UTC&#34;)
+ *                     .expression("0 0 10-20 * TUE,THU")
+ *                     .timeZone("UTC")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var account2 = new Provider(&#34;account2&#34;);
- * 
- *         var targetFailoverGroup = new FailoverGroup(&#34;targetFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()
+ *             .name("FG1")
  *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
- *                 .organizationName(&#34;...&#34;)
- *                 .sourceAccountName(&#34;...&#34;)
- *                 .name(snowflake_failover_group.fg().name())
+ *                 .organizationName("...")
+ *                 .sourceAccountName("...")
+ *                 .name(fg.name())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(snowflake.account2())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -125,14 +126,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedDatabases);
     }
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     @Export(name="allowedIntegrationTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedIntegrationTypes;
 
     /**
-     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;
+     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     public Output<Optional<List<String>>> allowedIntegrationTypes() {
@@ -181,14 +182,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ignoreEditionCheck);
     }
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the primary failover group in the source account.
+     * @return Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     public Output<String> name() {

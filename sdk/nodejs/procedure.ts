@@ -11,10 +11,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * format is database name | schema name | stored procedure name | <list of arg types, separated with '-'>
+ * format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
  *
  * ```sh
- * $ pulumi import snowflake:index/procedure:Procedure example 'dbName|schemaName|procedureName|varchar-varchar-varchar'
+ * $ pulumi import snowflake:index/procedure:Procedure example 'dbName.schemaName.procedureName(varchar, varchar, varchar)'
  * ```
  */
 export class Procedure extends pulumi.CustomResource {
@@ -58,7 +58,7 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
     /**
@@ -74,7 +74,7 @@ export class Procedure extends pulumi.CustomResource {
      */
     public readonly language!: pulumi.Output<string | undefined>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export interface ProcedureState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     executeAs?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface ProcedureState {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface ProcedureArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Sets execute context - see caller's rights and owner's rights
+     * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     executeAs?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface ProcedureArgs {
      */
     language?: pulumi.Input<string>;
     /**
-     * The argument name
+     * Specifies the identifier for the procedure; does not have to be unique for the schema in which the procedure is created. Don't use the | character.
      */
     name?: pulumi.Input<string>;
     /**

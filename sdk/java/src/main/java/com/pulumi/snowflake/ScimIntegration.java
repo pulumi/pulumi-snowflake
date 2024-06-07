@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -39,15 +40,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var aad = new ScimIntegration(&#34;aad&#34;, ScimIntegrationArgs.builder()        
- *             .networkPolicy(&#34;AAD_NETWORK_POLICY&#34;)
- *             .provisionerRole(&#34;AAD_PROVISIONER&#34;)
- *             .scimClient(&#34;AZURE&#34;)
+ *         var aad = new ScimIntegration("aad", ScimIntegrationArgs.builder()
+ *             .name("AAD_PROVISIONING")
+ *             .networkPolicy("AAD_NETWORK_POLICY")
+ *             .provisionerRole("AAD_PROVISIONER")
+ *             .scimClient("AZURE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

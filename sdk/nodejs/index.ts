@@ -135,6 +135,11 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetDatabaseRoleArgs, GetDatabaseRoleResult, GetDatabaseRoleOutputArgs } from "./getDatabaseRole";
+export const getDatabaseRole: typeof import("./getDatabaseRole").getDatabaseRole = null as any;
+export const getDatabaseRoleOutput: typeof import("./getDatabaseRole").getDatabaseRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseRole","getDatabaseRoleOutput"], () => require("./getDatabaseRole"));
+
 export { GetDatabaseRolesArgs, GetDatabaseRolesResult, GetDatabaseRolesOutputArgs } from "./getDatabaseRoles";
 export const getDatabaseRoles: typeof import("./getDatabaseRoles").getDatabaseRoles = null as any;
 export const getDatabaseRolesOutput: typeof import("./getDatabaseRoles").getDatabaseRolesOutput = null as any;
@@ -305,10 +310,20 @@ export type GrantAccountRole = import("./grantAccountRole").GrantAccountRole;
 export const GrantAccountRole: typeof import("./grantAccountRole").GrantAccountRole = null as any;
 utilities.lazyLoad(exports, ["GrantAccountRole"], () => require("./grantAccountRole"));
 
+export { GrantApplicationRoleArgs, GrantApplicationRoleState } from "./grantApplicationRole";
+export type GrantApplicationRole = import("./grantApplicationRole").GrantApplicationRole;
+export const GrantApplicationRole: typeof import("./grantApplicationRole").GrantApplicationRole = null as any;
+utilities.lazyLoad(exports, ["GrantApplicationRole"], () => require("./grantApplicationRole"));
+
 export { GrantDatabaseRoleArgs, GrantDatabaseRoleState } from "./grantDatabaseRole";
 export type GrantDatabaseRole = import("./grantDatabaseRole").GrantDatabaseRole;
 export const GrantDatabaseRole: typeof import("./grantDatabaseRole").GrantDatabaseRole = null as any;
 utilities.lazyLoad(exports, ["GrantDatabaseRole"], () => require("./grantDatabaseRole"));
+
+export { GrantOwnershipArgs, GrantOwnershipState } from "./grantOwnership";
+export type GrantOwnership = import("./grantOwnership").GrantOwnership;
+export const GrantOwnership: typeof import("./grantOwnership").GrantOwnership = null as any;
+utilities.lazyLoad(exports, ["GrantOwnership"], () => require("./grantOwnership"));
 
 export { GrantPrivilegesToAccountRoleArgs, GrantPrivilegesToAccountRoleState } from "./grantPrivilegesToAccountRole";
 export type GrantPrivilegesToAccountRole = import("./grantPrivilegesToAccountRole").GrantPrivilegesToAccountRole;
@@ -369,6 +384,11 @@ export { NetworkPolicyAttachmentArgs, NetworkPolicyAttachmentState } from "./net
 export type NetworkPolicyAttachment = import("./networkPolicyAttachment").NetworkPolicyAttachment;
 export const NetworkPolicyAttachment: typeof import("./networkPolicyAttachment").NetworkPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["NetworkPolicyAttachment"], () => require("./networkPolicyAttachment"));
+
+export { NetworkRuleArgs, NetworkRuleState } from "./networkRule";
+export type NetworkRule = import("./networkRule").NetworkRule;
+export const NetworkRule: typeof import("./networkRule").NetworkRule = null as any;
+utilities.lazyLoad(exports, ["NetworkRule"], () => require("./networkRule"));
 
 export { NotificationIntegrationArgs, NotificationIntegrationState } from "./notificationIntegration";
 export type NotificationIntegration = import("./notificationIntegration").NotificationIntegration;
@@ -673,8 +693,12 @@ const _module = {
                 return new FunctionGrant(name, <any>undefined, { urn })
             case "snowflake:index/grantAccountRole:GrantAccountRole":
                 return new GrantAccountRole(name, <any>undefined, { urn })
+            case "snowflake:index/grantApplicationRole:GrantApplicationRole":
+                return new GrantApplicationRole(name, <any>undefined, { urn })
             case "snowflake:index/grantDatabaseRole:GrantDatabaseRole":
                 return new GrantDatabaseRole(name, <any>undefined, { urn })
+            case "snowflake:index/grantOwnership:GrantOwnership":
+                return new GrantOwnership(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole":
                 return new GrantPrivilegesToAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
@@ -699,6 +723,8 @@ const _module = {
                 return new NetworkPolicy(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
                 return new NetworkPolicyAttachment(name, <any>undefined, { urn })
+            case "snowflake:index/networkRule:NetworkRule":
+                return new NetworkRule(name, <any>undefined, { urn })
             case "snowflake:index/notificationIntegration:NotificationIntegration":
                 return new NotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegration:OauthIntegration":
@@ -822,7 +848,9 @@ pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _mod
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantApplicationRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToRole", _module)
@@ -835,6 +863,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _mo
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedViewGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)

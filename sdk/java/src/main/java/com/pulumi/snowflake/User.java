@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,26 +42,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;, UserArgs.builder()        
- *             .comment(&#34;A user of snowflake.&#34;)
- *             .defaultRole(&#34;role1&#34;)
- *             .defaultSecondaryRoles(&#34;ALL&#34;)
- *             .defaultWarehouse(&#34;warehouse&#34;)
+ *         var user = new User("user", UserArgs.builder()
+ *             .name("Snowflake User")
+ *             .loginName("snowflake_user")
+ *             .comment("A user of snowflake.")
+ *             .password("secret")
  *             .disabled(false)
- *             .displayName(&#34;Snowflake User&#34;)
- *             .email(&#34;user@snowflake.example&#34;)
- *             .firstName(&#34;Snowflake&#34;)
- *             .lastName(&#34;User&#34;)
- *             .loginName(&#34;snowflake_user&#34;)
+ *             .displayName("Snowflake User")
+ *             .email("user{@literal @}snowflake.example")
+ *             .firstName("Snowflake")
+ *             .lastName("User")
+ *             .defaultWarehouse("warehouse")
+ *             .defaultSecondaryRoles("ALL")
+ *             .defaultRole("role1")
+ *             .rsaPublicKey("...")
+ *             .rsaPublicKey2("...")
  *             .mustChangePassword(false)
- *             .password(&#34;secret&#34;)
- *             .rsaPublicKey(&#34;...&#34;)
- *             .rsaPublicKey2(&#34;...&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -252,17 +255,9 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * **WARNING:** this will put the password in the terraform state file. Use carefully.
-     * 
-     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
-    /**
-     * @return **WARNING:** this will put the password in the terraform state file. Use carefully.
-     * 
-     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }

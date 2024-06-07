@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +30,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewTagGrant(ctx, "example", &snowflake.TagGrantArgs{
 //				DatabaseName: pulumi.String("database"),
-//				Privilege:    pulumi.String("OWNERSHIP"),
+//				SchemaName:   pulumi.String("schema"),
+//				TagName:      pulumi.String("tag"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("TEST_ROLE"),
 //				},
-//				SchemaName: pulumi.String("schema"),
-//				TagName:    pulumi.String("tag"),
+//				Privilege: pulumi.String("OWNERSHIP"),
 //			})
 //			if err != nil {
 //				return err
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -59,9 +57,7 @@ type TagGrant struct {
 	pulumi.CustomResourceState
 
 	// The name of the database containing the tag on which to grant privileges.
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringOutput  `pulumi:"databaseName"`
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrOutput `pulumi:"privilege"`
@@ -117,10 +113,8 @@ func GetTagGrant(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TagGrant resources.
 type tagGrantState struct {
 	// The name of the database containing the tag on which to grant privileges.
-	DatabaseName *string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         *string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool   `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -137,9 +131,7 @@ type tagGrantState struct {
 
 type TagGrantState struct {
 	// The name of the database containing the tag on which to grant privileges.
-	DatabaseName pulumi.StringPtrInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringPtrInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -161,10 +153,8 @@ func (TagGrantState) ElementType() reflect.Type {
 
 type tagGrantArgs struct {
 	// The name of the database containing the tag on which to grant privileges.
-	DatabaseName string `pulumi:"databaseName"`
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
-	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
+	DatabaseName         string `pulumi:"databaseName"`
+	EnableMultipleGrants *bool  `pulumi:"enableMultipleGrants"`
 	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege *string `pulumi:"privilege"`
 	// The name of the role to revert ownership to on destroy. Has no effect unless `privilege` is set to `OWNERSHIP`
@@ -182,9 +172,7 @@ type tagGrantArgs struct {
 // The set of arguments for constructing a TagGrant resource.
 type TagGrantArgs struct {
 	// The name of the database containing the tag on which to grant privileges.
-	DatabaseName pulumi.StringInput
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
+	DatabaseName         pulumi.StringInput
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// The privilege to grant on the tag. To grant all privileges, use the value `ALL PRIVILEGES`.
 	Privilege pulumi.StringPtrInput
@@ -292,8 +280,6 @@ func (o TagGrantOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagGrant) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o TagGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

@@ -9,16 +9,19 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const schema = new snowflake.Schema("schema", {database: database.name});
- * const table = new snowflake.Table("table", {
- *     database: database.name,
- *     schema: schema.name,
+ * const d = new snowflake.Database("d", {name: "some_db"});
+ * const s = new snowflake.Schema("s", {
+ *     name: "some_schema",
+ *     database: d.name,
+ * });
+ * const t = new snowflake.Table("t", {
+ *     database: d.name,
+ *     schema: s.name,
+ *     name: "some_table",
  *     columns: [
  *         {
  *             name: "col1",
@@ -37,9 +40,10 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * const fkT = new snowflake.Table("fkT", {
- *     database: database.name,
- *     schema: schema.name,
+ * const fkT = new snowflake.Table("fk_t", {
+ *     database: d.name,
+ *     schema: s.name,
+ *     name: "fk_table",
  *     columns: [
  *         {
  *             name: "fk_col1",
@@ -53,15 +57,17 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * const primaryKey = new snowflake.TableConstraint("primaryKey", {
+ * const primaryKey = new snowflake.TableConstraint("primary_key", {
+ *     name: "myconstraint",
  *     type: "PRIMARY KEY",
- *     tableId: table.qualifiedName,
+ *     tableId: t.qualifiedName,
  *     columns: ["col1"],
  *     comment: "hello world",
  * });
- * const foreignKey = new snowflake.TableConstraint("foreignKey", {
+ * const foreignKey = new snowflake.TableConstraint("foreign_key", {
+ *     name: "myconstraintfk",
  *     type: "FOREIGN KEY",
- *     tableId: table.qualifiedName,
+ *     tableId: t.qualifiedName,
  *     columns: ["col2"],
  *     foreignKeyProperties: {
  *         references: {
@@ -75,13 +81,13 @@ import * as utilities from "./utilities";
  *     comment: "hello fk",
  * });
  * const unique = new snowflake.TableConstraint("unique", {
+ *     name: "unique",
  *     type: "UNIQUE",
- *     tableId: table.qualifiedName,
+ *     tableId: t.qualifiedName,
  *     columns: ["col3"],
  *     comment: "hello unique",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -118,7 +124,7 @@ export class TableConstraint extends pulumi.CustomResource {
     }
 
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      */
     public readonly columns!: pulumi.Output<string[]>;
     /**
@@ -156,7 +162,7 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly rely!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     public readonly tableId!: pulumi.Output<string>;
     /**
@@ -227,7 +233,7 @@ export class TableConstraint extends pulumi.CustomResource {
  */
 export interface TableConstraintState {
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -265,7 +271,7 @@ export interface TableConstraintState {
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     tableId?: pulumi.Input<string>;
     /**
@@ -283,7 +289,7 @@ export interface TableConstraintState {
  */
 export interface TableConstraintArgs {
     /**
-     * Columns to use in foreign key reference
+     * Columns to use in constraint key
      */
     columns: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -321,7 +327,7 @@ export interface TableConstraintArgs {
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Name of constraint
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     tableId: pulumi.Input<string>;
     /**

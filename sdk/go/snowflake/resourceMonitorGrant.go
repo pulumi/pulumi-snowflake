@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -57,8 +55,6 @@ import (
 type ResourceMonitorGrant struct {
 	pulumi.CustomResourceState
 
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrOutput `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
@@ -103,8 +99,6 @@ func GetResourceMonitorGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceMonitorGrant resources.
 type resourceMonitorGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName *string `pulumi:"monitorName"`
@@ -117,8 +111,6 @@ type resourceMonitorGrantState struct {
 }
 
 type ResourceMonitorGrantState struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringPtrInput
@@ -135,8 +127,6 @@ func (ResourceMonitorGrantState) ElementType() reflect.Type {
 }
 
 type resourceMonitorGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants *bool `pulumi:"enableMultipleGrants"`
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName string `pulumi:"monitorName"`
@@ -150,8 +140,6 @@ type resourceMonitorGrantArgs struct {
 
 // The set of arguments for constructing a ResourceMonitorGrant resource.
 type ResourceMonitorGrantArgs struct {
-	// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-	// grants applied to roles and objects outside Terraform.
 	EnableMultipleGrants pulumi.BoolPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	MonitorName pulumi.StringInput
@@ -250,8 +238,6 @@ func (o ResourceMonitorGrantOutput) ToResourceMonitorGrantOutputWithContext(ctx 
 	return o
 }
 
-// When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-// grants applied to roles and objects outside Terraform.
 func (o ResourceMonitorGrantOutput) EnableMultipleGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceMonitorGrant) pulumi.BoolPtrOutput { return v.EnableMultipleGrants }).(pulumi.BoolPtrOutput)
 }

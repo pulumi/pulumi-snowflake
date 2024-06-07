@@ -577,21 +577,20 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         azure = snowflake.ExternalOauthIntegration("azure",
-            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
+            name="AZURE_POWERBI",
+            type="AZURE",
             enabled=True,
             issuer="https://sts.windows.net/00000000-0000-0000-0000-000000000000",
-            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
             snowflake_user_mapping_attribute="LOGIN_NAME",
-            token_user_mapping_claims=["upn"],
-            type="AZURE")
+            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
+            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
+            token_user_mapping_claims=["upn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -629,21 +628,20 @@ class ExternalOauthIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         azure = snowflake.ExternalOauthIntegration("azure",
-            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
+            name="AZURE_POWERBI",
+            type="AZURE",
             enabled=True,
             issuer="https://sts.windows.net/00000000-0000-0000-0000-000000000000",
-            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
             snowflake_user_mapping_attribute="LOGIN_NAME",
-            token_user_mapping_claims=["upn"],
-            type="AZURE")
+            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
+            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
+            token_user_mapping_claims=["upn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,20 +9,19 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const schema = new snowflake.Schema("schema", {
- *     comment: "A schema.",
- *     dataRetentionDays: 1,
  *     database: "database",
- *     isManaged: false,
+ *     name: "schema",
+ *     comment: "A schema.",
  *     isTransient: false,
+ *     isManaged: false,
+ *     dataRetentionDays: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -69,7 +68,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly dataRetentionDays!: pulumi.Output<number | undefined>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the schema.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -81,7 +80,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly isTransient!: pulumi.Output<boolean | undefined>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -142,7 +141,7 @@ export interface SchemaState {
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the schema.
      */
     database?: pulumi.Input<string>;
     /**
@@ -154,7 +153,7 @@ export interface SchemaState {
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -178,7 +177,7 @@ export interface SchemaArgs {
      */
     dataRetentionDays?: pulumi.Input<number>;
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the schema.
      */
     database: pulumi.Input<string>;
     /**
@@ -190,7 +189,7 @@ export interface SchemaArgs {
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Tag name, e.g. department.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
      */
     name?: pulumi.Input<string>;
     /**

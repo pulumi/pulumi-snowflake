@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +37,7 @@ import (
 //					pulumi.String("MODIFY"),
 //					pulumi.String("USAGE"),
 //				},
-//				RoleName:  pulumi.Any(snowflake_role.R.Name),
+//				RoleName:  pulumi.Any(r.Name),
 //				OnAccount: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -46,7 +45,7 @@ import (
 //			}
 //			// all privileges + grant option
 //			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g2", &snowflake.GrantPrivilegesToRoleArgs{
-//				RoleName:        pulumi.Any(snowflake_role.R.Name),
+//				RoleName:        pulumi.Any(r.Name),
 //				OnAccount:       pulumi.Bool(true),
 //				AllPrivileges:   pulumi.Bool(true),
 //				WithGrantOption: pulumi.Bool(true),
@@ -60,10 +59,10 @@ import (
 //					pulumi.String("CREATE"),
 //					pulumi.String("MONITOR"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnAccountObject: &snowflake.GrantPrivilegesToRoleOnAccountObjectArgs{
 //					ObjectType: pulumi.String("DATABASE"),
-//					ObjectName: pulumi.Any(snowflake_database.D.Name),
+//					ObjectName: pulumi.Any(d.Name),
 //				},
 //			})
 //			if err != nil {
@@ -71,10 +70,10 @@ import (
 //			}
 //			// all privileges + grant option
 //			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g4", &snowflake.GrantPrivilegesToRoleArgs{
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnAccountObject: &snowflake.GrantPrivilegesToRoleOnAccountObjectArgs{
 //					ObjectType: pulumi.String("DATABASE"),
-//					ObjectName: pulumi.Any(snowflake_database.D.Name),
+//					ObjectName: pulumi.Any(d.Name),
 //				},
 //				AllPrivileges:   pulumi.Bool(true),
 //				WithGrantOption: pulumi.Bool(true),
@@ -88,7 +87,7 @@ import (
 //					pulumi.String("MODIFY"),
 //					pulumi.String("CREATE TABLE"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
 //					SchemaName: pulumi.String("\"my_db\".\"my_schema\""),
 //				},
@@ -98,7 +97,7 @@ import (
 //			}
 //			// all privileges + grant option
 //			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g6", &snowflake.GrantPrivilegesToRoleArgs{
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
 //					SchemaName: pulumi.String("\"my_db\".\"my_schema\""),
 //				},
@@ -114,9 +113,9 @@ import (
 //					pulumi.String("MODIFY"),
 //					pulumi.String("CREATE TABLE"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
-//					AllSchemasInDatabase: pulumi.Any(snowflake_database.D.Name),
+//					AllSchemasInDatabase: pulumi.Any(d.Name),
 //				},
 //			})
 //			if err != nil {
@@ -128,9 +127,9 @@ import (
 //					pulumi.String("MODIFY"),
 //					pulumi.String("CREATE TABLE"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchema: &snowflake.GrantPrivilegesToRoleOnSchemaArgs{
-//					FutureSchemasInDatabase: pulumi.Any(snowflake_database.D.Name),
+//					FutureSchemasInDatabase: pulumi.Any(d.Name),
 //				},
 //			})
 //			if err != nil {
@@ -142,7 +141,7 @@ import (
 //					pulumi.String("SELECT"),
 //					pulumi.String("REFERENCES"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					ObjectType: pulumi.String("VIEW"),
 //					ObjectName: pulumi.String("\"my_db\".\"my_schema\".\"my_view\""),
@@ -153,7 +152,7 @@ import (
 //			}
 //			// all privileges + grant option
 //			_, err = snowflake.NewGrantPrivilegesToRole(ctx, "g10", &snowflake.GrantPrivilegesToRoleArgs{
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					ObjectType: pulumi.String("VIEW"),
 //					ObjectName: pulumi.String("\"my_db\".\"my_schema\".\"my_view\""),
@@ -170,11 +169,11 @@ import (
 //					pulumi.String("SELECT"),
 //					pulumi.String("INSERT"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					All: &snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs{
 //						ObjectTypePlural: pulumi.String("TABLES"),
-//						InDatabase:       pulumi.Any(snowflake_database.D.Name),
+//						InDatabase:       pulumi.Any(d.Name),
 //					},
 //				},
 //			})
@@ -187,7 +186,7 @@ import (
 //					pulumi.String("SELECT"),
 //					pulumi.String("INSERT"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					All: &snowflake.GrantPrivilegesToRoleOnSchemaObjectAllArgs{
 //						ObjectTypePlural: pulumi.String("TABLES"),
@@ -204,11 +203,11 @@ import (
 //					pulumi.String("SELECT"),
 //					pulumi.String("INSERT"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					Future: &snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs{
 //						ObjectTypePlural: pulumi.String("TABLES"),
-//						InDatabase:       pulumi.Any(snowflake_database.D.Name),
+//						InDatabase:       pulumi.Any(d.Name),
 //					},
 //				},
 //			})
@@ -221,7 +220,7 @@ import (
 //					pulumi.String("SELECT"),
 //					pulumi.String("INSERT"),
 //				},
-//				RoleName: pulumi.Any(snowflake_role.R.Name),
+//				RoleName: pulumi.Any(r.Name),
 //				OnSchemaObject: &snowflake.GrantPrivilegesToRoleOnSchemaObjectArgs{
 //					Future: &snowflake.GrantPrivilegesToRoleOnSchemaObjectFutureArgs{
 //						ObjectTypePlural: pulumi.String("TABLES"),
@@ -237,7 +236,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

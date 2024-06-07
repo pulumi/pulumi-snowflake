@@ -7,14 +7,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const schema = new snowflake.Schema("schema", {database: database.name});
+ * const database = new snowflake.Database("database", {name: "database"});
+ * const schema = new snowflake.Schema("schema", {
+ *     name: "schema",
+ *     database: database.name,
+ * });
  * const tag = new snowflake.Tag("tag", {
+ *     name: "cost_center",
  *     database: database.name,
  *     schema: schema.name,
  *     allowedValues: [
@@ -23,7 +26,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

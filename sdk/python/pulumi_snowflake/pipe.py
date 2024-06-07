@@ -360,7 +360,7 @@ class Pipe(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
+        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
 
         ## Import
 
@@ -389,7 +389,7 @@ class Pipe(pulumi.CustomResource):
                  args: PipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
+        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
 
         ## Import
 

@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,9 +26,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabaseRole(ctx, "dbRole", &snowflake.DatabaseRoleArgs{
-//				Comment:  pulumi.String("my db role"),
+//			_, err := snowflake.NewDatabaseRole(ctx, "db_role", &snowflake.DatabaseRoleArgs{
 //				Database: pulumi.String("database"),
+//				Name:     pulumi.String("role_1"),
+//				Comment:  pulumi.String("my db role"),
 //			})
 //			if err != nil {
 //				return err
@@ -39,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

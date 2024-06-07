@@ -23,6 +23,102 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Sequence;
+ * import com.pulumi.snowflake.SequenceArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
+ * import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var schema = new Schema("schema", SchemaArgs.builder()
+ *             .database("database")
+ *             .name("schema")
+ *             .dataRetentionDays(1)
+ *             .build());
+ * 
+ *         var sequence = new Sequence("sequence", SequenceArgs.builder()
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name("sequence")
+ *             .build());
+ * 
+ *         var table = new Table("table", TableArgs.builder()
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name("table")
+ *             .comment("A table.")
+ *             .clusterBies("to_date(DATE)")
+ *             .dataRetentionTimeInDays(schema.dataRetentionTimeInDays())
+ *             .changeTracking(false)
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("id")
+ *                     .type("int")
+ *                     .nullable(true)
+ *                     .default_(TableColumnDefaultArgs.builder()
+ *                         .sequence(sequence.fullyQualifiedName())
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("identity")
+ *                     .type("NUMBER(38,0)")
+ *                     .nullable(true)
+ *                     .identity(TableColumnIdentityArgs.builder()
+ *                         .startNum(1)
+ *                         .stepNum(3)
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("data")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .collate("en-ci")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("DATE")
+ *                     .type("TIMESTAMP_NTZ(9)")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("extra")
+ *                     .type("VARIANT")
+ *                     .comment("extra data")
+ *                     .build())
+ *             .primaryKey(TablePrimaryKeyArgs.builder()
+ *                 .name("my_key")
+ *                 .keys("data")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * format is database name | schema name | table name
@@ -77,14 +173,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.columns;
     }
     /**
-     * Column comment
+     * Specifies a comment for the table.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Column comment
+     * @return Specifies a comment for the table.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -105,28 +201,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRetentionTimeInDays);
     }
     /**
-     * Name of the database that the tag was created in.
+     * The database in which to create the table.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return Name of the database that the tag was created in.
+     * @return The database in which to create the table.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Column name
+     * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Column name
+     * @return Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
     public Output<String> name() {
@@ -179,14 +275,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.qualifiedName;
     }
     /**
-     * Name of the schema that the tag was created in.
+     * The schema in which to create the table.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return Name of the schema that the tag was created in.
+     * @return The schema in which to create the table.
      * 
      */
     public Output<String> schema() {

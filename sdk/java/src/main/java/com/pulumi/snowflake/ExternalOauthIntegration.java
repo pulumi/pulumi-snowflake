@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,19 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azure = new ExternalOauthIntegration(&#34;azure&#34;, ExternalOauthIntegrationArgs.builder()        
- *             .audienceUrls(&#34;https://analysis.windows.net/powerbi/connector/Snowflake&#34;)
+ *         var azure = new ExternalOauthIntegration("azure", ExternalOauthIntegrationArgs.builder()
+ *             .name("AZURE_POWERBI")
+ *             .type("AZURE")
  *             .enabled(true)
- *             .issuer(&#34;https://sts.windows.net/00000000-0000-0000-0000-000000000000&#34;)
- *             .jwsKeysUrls(&#34;https://login.windows.net/common/discovery/keys&#34;)
- *             .snowflakeUserMappingAttribute(&#34;LOGIN_NAME&#34;)
- *             .tokenUserMappingClaims(&#34;upn&#34;)
- *             .type(&#34;AZURE&#34;)
+ *             .issuer("https://sts.windows.net/00000000-0000-0000-0000-000000000000")
+ *             .snowflakeUserMappingAttribute("LOGIN_NAME")
+ *             .jwsKeysUrls("https://login.windows.net/common/discovery/keys")
+ *             .audienceUrls("https://analysis.windows.net/powerbi/connector/Snowflake")
+ *             .tokenUserMappingClaims("upn")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

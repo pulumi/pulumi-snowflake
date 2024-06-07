@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaterializedViews(args: GetMaterializedViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaterializedViewsResult> {
 
@@ -34,7 +32,13 @@ export function getMaterializedViews(args: GetMaterializedViewsArgs, opts?: pulu
  * A collection of arguments for invoking getMaterializedViews.
  */
 export interface GetMaterializedViewsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: string;
 }
 
@@ -62,7 +66,6 @@ export interface GetMaterializedViewsResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
@@ -72,7 +75,6 @@ export interface GetMaterializedViewsResult {
  *     schema: "MYSCHEMA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaterializedViewsResult> {
     return pulumi.output(args).apply((a: any) => getMaterializedViews(a, opts))
@@ -82,6 +84,12 @@ export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs,
  * A collection of arguments for invoking getMaterializedViews.
  */
 export interface GetMaterializedViewsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the views from.
+     */
     schema: pulumi.Input<string>;
 }

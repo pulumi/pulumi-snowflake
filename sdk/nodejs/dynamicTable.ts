@@ -9,24 +9,23 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
  * const dt = new snowflake.DynamicTable("dt", {
- *     comment: "example comment",
+ *     name: "product",
  *     database: "mydb",
- *     query: "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
  *     schema: "myschema",
  *     targetLag: {
  *         maximumDuration: "20 minutes",
  *     },
  *     warehouse: "mywh",
+ *     query: "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
+ *     comment: "example comment",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -135,7 +134,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly rows!: pulumi.Output<number>;
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
     public /*out*/ readonly schedulingState!: pulumi.Output<string>;
     /**
@@ -308,7 +307,7 @@ export interface DynamicTableState {
      */
     rows?: pulumi.Input<number>;
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
     schedulingState?: pulumi.Input<string>;
     /**

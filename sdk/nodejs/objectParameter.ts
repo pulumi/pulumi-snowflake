@@ -9,33 +9,36 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {});
- * const objectParameter = new snowflake.ObjectParameter("objectParameter", {
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * const o = new snowflake.ObjectParameter("o", {
  *     key: "SUSPEND_TASK_AFTER_NUM_FAILURES",
  *     value: "33",
  *     objectType: "DATABASE",
  *     objectIdentifiers: [{
- *         name: database.name,
+ *         name: d.name,
  *     }],
  * });
- * const schema = new snowflake.Schema("schema", {database: database.name});
+ * const s = new snowflake.Schema("s", {
+ *     name: "TEST_SCHEMA",
+ *     database: d.name,
+ * });
  * const o2 = new snowflake.ObjectParameter("o2", {
  *     key: "USER_TASK_TIMEOUT_MS",
  *     value: "500",
  *     objectType: "SCHEMA",
  *     objectIdentifiers: [{
- *         database: database.name,
- *         name: schema.name,
+ *         database: d.name,
+ *         name: s.name,
  *     }],
  * });
- * const table = new snowflake.Table("table", {
- *     database: database.name,
- *     schema: schema.name,
+ * const t = new snowflake.Table("t", {
+ *     name: "TEST_TABLE",
+ *     database: d.name,
+ *     schema: s.name,
  *     columns: [{
  *         name: "id",
  *         type: "NUMBER",
@@ -46,9 +49,9 @@ import * as utilities from "./utilities";
  *     value: "89",
  *     objectType: "TABLE",
  *     objectIdentifiers: [{
- *         database: database.name,
- *         schema: schema.name,
- *         name: table.name,
+ *         database: d.name,
+ *         schema: s.name,
+ *         name: t.name,
  *     }],
  * });
  * // Setting object parameter at account level
@@ -58,7 +61,6 @@ import * as utilities from "./utilities";
  *     onAccount: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

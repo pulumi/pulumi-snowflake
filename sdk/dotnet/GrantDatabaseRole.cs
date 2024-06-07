@@ -12,63 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //#################################
-    ///     //## grant database role to account role
-    ///     //#################################
-    ///     var databaseRoleDatabaseRole = new Snowflake.DatabaseRole("databaseRoleDatabaseRole", new()
-    ///     {
-    ///         Database = @var.Database,
-    ///     });
-    /// 
-    ///     var parentRole = new Snowflake.Role("parentRole");
-    /// 
-    ///     var grantDatabaseRole = new Snowflake.GrantDatabaseRole("grantDatabaseRole", new()
-    ///     {
-    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
-    ///         ParentRoleName = parentRole.Name,
-    ///     });
-    /// 
-    ///     //#################################
-    ///     //## grant database role to database role
-    ///     //#################################
-    ///     var databaseRoleIndex_databaseRoleDatabaseRole = new Snowflake.DatabaseRole("databaseRoleIndex/databaseRoleDatabaseRole", new()
-    ///     {
-    ///         Database = @var.Database,
-    ///     });
-    /// 
-    ///     var parentDatabaseRole = new Snowflake.DatabaseRole("parentDatabaseRole", new()
-    ///     {
-    ///         Database = @var.Database,
-    ///     });
-    /// 
-    ///     var index_grantDatabaseRoleGrantDatabaseRole = new Snowflake.GrantDatabaseRole("index/grantDatabaseRoleGrantDatabaseRole", new()
-    ///     {
-    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
-    ///         ParentDatabaseRoleName = parentDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
-    ///     });
-    /// 
-    ///     //#################################
-    ///     //## grant database role to share
-    ///     //#################################
-    ///     var snowflakeIndex_grantDatabaseRoleGrantDatabaseRole = new Snowflake.GrantDatabaseRole("snowflakeIndex/grantDatabaseRoleGrantDatabaseRole", new()
-    ///     {
-    ///         DatabaseRoleName = databaseRoleDatabaseRole.Name.Apply(name =&gt; $"\"{@var.Database}\".\"{name}\""),
-    ///         ShareName = snowflake_share.Share.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)

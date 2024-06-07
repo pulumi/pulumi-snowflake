@@ -14,7 +14,6 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,27 +24,27 @@ namespace Pulumi.Snowflake
     /// {
     ///     var azure = new Snowflake.ExternalOauthIntegration("azure", new()
     ///     {
-    ///         AudienceUrls = new[]
-    ///         {
-    ///             "https://analysis.windows.net/powerbi/connector/Snowflake",
-    ///         },
+    ///         Name = "AZURE_POWERBI",
+    ///         Type = "AZURE",
     ///         Enabled = true,
     ///         Issuer = "https://sts.windows.net/00000000-0000-0000-0000-000000000000",
+    ///         SnowflakeUserMappingAttribute = "LOGIN_NAME",
     ///         JwsKeysUrls = new[]
     ///         {
     ///             "https://login.windows.net/common/discovery/keys",
     ///         },
-    ///         SnowflakeUserMappingAttribute = "LOGIN_NAME",
+    ///         AudienceUrls = new[]
+    ///         {
+    ///             "https://analysis.windows.net/powerbi/connector/Snowflake",
+    ///         },
     ///         TokenUserMappingClaims = new[]
     ///         {
     ///             "upn",
     ///         },
-    ///         Type = "AZURE",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

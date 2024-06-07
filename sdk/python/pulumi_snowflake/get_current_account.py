@@ -84,18 +84,17 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_current_account()
-    snowflake_account_url = aws.ssm.Parameter("snowflakeAccountUrl",
-        type=aws.ssm.ParameterType.STRING,
+    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
+        name=/snowflake/account_url,
+        type=String,
         value=this.url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -113,17 +112,16 @@ def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_current_account()
-    snowflake_account_url = aws.ssm.Parameter("snowflakeAccountUrl",
-        type=aws.ssm.ParameterType.STRING,
+    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
+        name=/snowflake/account_url,
+        type=String,
         value=this.url)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

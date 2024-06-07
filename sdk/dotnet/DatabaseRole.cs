@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,15 +20,15 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dbRole = new Snowflake.DatabaseRole("dbRole", new()
+    ///     var dbRole = new Snowflake.DatabaseRole("db_role", new()
     ///     {
-    ///         Comment = "my db role",
     ///         Database = "database",
+    ///         Name = "role_1",
+    ///         Comment = "my db role",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

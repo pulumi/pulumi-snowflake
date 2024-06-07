@@ -7,18 +7,17 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const exampleFileFormat = new snowflake.FileFormat("exampleFileFormat", {
+ * const exampleFileFormat = new snowflake.FileFormat("example_file_format", {
+ *     name: "EXAMPLE_FILE_FORMAT",
  *     database: "EXAMPLE_DB",
- *     formatType: "CSV",
  *     schema: "EXAMPLE_SCHEMA",
+ *     formatType: "CSV",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

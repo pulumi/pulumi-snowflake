@@ -22,6 +22,9 @@ __all__ = [
     'FailoverGroupReplicationScheduleArgs',
     'FailoverGroupReplicationScheduleCronArgs',
     'FunctionArgumentArgs',
+    'GrantOwnershipOnArgs',
+    'GrantOwnershipOnAllArgs',
+    'GrantOwnershipOnFutureArgs',
     'GrantPrivilegesToAccountRoleOnAccountObjectArgs',
     'GrantPrivilegesToAccountRoleOnSchemaArgs',
     'GrantPrivilegesToAccountRoleOnSchemaObjectArgs',
@@ -58,11 +61,11 @@ __all__ = [
     'GetDynamicTablesLikeArgs',
     'GetDynamicTablesLimitArgs',
     'GetGrantsFutureGrantsInArgs',
-    'GetGrantsFutureGrantsInSchemaArgs',
     'GetGrantsFutureGrantsToArgs',
     'GetGrantsGrantsOfArgs',
     'GetGrantsGrantsOnArgs',
     'GetGrantsGrantsToArgs',
+    'GetGrantsGrantsToShareArgs',
 ]
 
 @pulumi.input_type
@@ -569,6 +572,185 @@ class FunctionArgumentArgs:
 
 
 @pulumi.input_type
+class GrantOwnershipOnArgs:
+    def __init__(__self__, *,
+                 all: Optional[pulumi.Input['GrantOwnershipOnAllArgs']] = None,
+                 future: Optional[pulumi.Input['GrantOwnershipOnFutureArgs']] = None,
+                 object_name: Optional[pulumi.Input[str]] = None,
+                 object_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['GrantOwnershipOnAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
+        :param pulumi.Input['GrantOwnershipOnFutureArgs'] future: Configures the privilege to be granted on all objects in either a database or schema.
+        :param pulumi.Input[str] object_name: Specifies the identifier for the object on which you are transferring ownership.
+        :param pulumi.Input[str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if future is not None:
+            pulumi.set(__self__, "future", future)
+        if object_name is not None:
+            pulumi.set(__self__, "object_name", object_name)
+        if object_type is not None:
+            pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[pulumi.Input['GrantOwnershipOnAllArgs']]:
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[pulumi.Input['GrantOwnershipOnAllArgs']]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter
+    def future(self) -> Optional[pulumi.Input['GrantOwnershipOnFutureArgs']]:
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        return pulumi.get(self, "future")
+
+    @future.setter
+    def future(self, value: Optional[pulumi.Input['GrantOwnershipOnFutureArgs']]):
+        pulumi.set(self, "future", value)
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the identifier for the object on which you are transferring ownership.
+        """
+        return pulumi.get(self, "object_name")
+
+    @object_name.setter
+    def object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_name", value)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_type", value)
+
+
+@pulumi.input_type
+class GrantOwnershipOnAllArgs:
+    def __init__(__self__, *,
+                 object_type_plural: pulumi.Input[str],
+                 in_database: Optional[pulumi.Input[str]] = None,
+                 in_schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[str] in_database: The fully qualified name of the database.
+        :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @object_type_plural.setter
+    def object_type_plural(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type_plural", value)
+
+    @property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the database.
+        """
+        return pulumi.get(self, "in_database")
+
+    @in_database.setter
+    def in_database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_database", value)
+
+    @property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the schema.
+        """
+        return pulumi.get(self, "in_schema")
+
+    @in_schema.setter
+    def in_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_schema", value)
+
+
+@pulumi.input_type
+class GrantOwnershipOnFutureArgs:
+    def __init__(__self__, *,
+                 object_type_plural: pulumi.Input[str],
+                 in_database: Optional[pulumi.Input[str]] = None,
+                 in_schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[str] in_database: The fully qualified name of the database.
+        :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @object_type_plural.setter
+    def object_type_plural(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type_plural", value)
+
+    @property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the database.
+        """
+        return pulumi.get(self, "in_database")
+
+    @in_database.setter
+    def in_database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_database", value)
+
+    @property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the schema.
+        """
+        return pulumi.get(self, "in_schema")
+
+    @in_schema.setter
+    def in_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "in_schema", value)
+
+
+@pulumi.input_type
 class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     def __init__(__self__, *,
                  object_name: pulumi.Input[str],
@@ -669,9 +851,9 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
                  object_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on all objects in either a database or schema.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -698,7 +880,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter
     def future(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs']]:
         """
-        Configures the privilege to be granted on all objects in either a database or schema.
+        Configures the privilege to be granted on future objects in either a database or schema.
         """
         return pulumi.get(self, "future")
 
@@ -722,7 +904,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -738,7 +920,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -750,7 +932,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -784,7 +966,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -796,7 +978,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -889,7 +1071,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -940,7 +1122,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW | NETWORK RULE | PACKAGES POLICY | ICEBERG TABLE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -956,7 +1138,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        :param pulumi.Input[str] in_database: The fully qualified name of the database.
+        :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -968,7 +1152,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -979,6 +1163,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @property
     @pulumi.getter(name="inDatabase")
     def in_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the database.
+        """
         return pulumi.get(self, "in_database")
 
     @in_database.setter
@@ -988,6 +1175,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @property
     @pulumi.getter(name="inSchema")
     def in_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the schema.
+        """
         return pulumi.get(self, "in_schema")
 
     @in_schema.setter
@@ -1002,7 +1192,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[str] in_database: The fully qualified name of the database.
+        :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -1014,7 +1206,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS | NETWORK RULES | PACKAGES POLICIES | ICEBERG TABLES
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1025,6 +1217,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @property
     @pulumi.getter(name="inDatabase")
     def in_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the database.
+        """
         return pulumi.get(self, "in_database")
 
     @in_database.setter
@@ -1034,6 +1229,9 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @property
     @pulumi.getter(name="inSchema")
     def in_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the schema.
+        """
         return pulumi.get(self, "in_schema")
 
     @in_schema.setter
@@ -1144,7 +1342,7 @@ class GrantPrivilegesToRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in eihter a database or schema.
         :param pulumi.Input['GrantPrivilegesToRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in eihter a database or schema.
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -1195,7 +1393,7 @@ class GrantPrivilegesToRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: ALERT | DYNAMIC TABLE | EVENT TABLE | FILE FORMAT | FUNCTION | ICEBERG TABLE | PROCEDURE | SECRET | SEQUENCE | PIPE | MASKING POLICY | PASSWORD POLICY | ROW ACCESS POLICY | SESSION POLICY | TAG | STAGE | STREAM | TABLE | EXTERNAL TABLE | TASK | VIEW | MATERIALIZED VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -1211,7 +1409,7 @@ class GrantPrivilegesToRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
@@ -1225,7 +1423,7 @@ class GrantPrivilegesToRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1265,7 +1463,7 @@ class GrantPrivilegesToRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
@@ -1279,7 +1477,7 @@ class GrantPrivilegesToRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | DYNAMIC TABLES | EVENT TABLES | FILE FORMATS | FUNCTIONS | ICEBERG TABLES | PROCEDURES | SECRETS | SEQUENCES | PIPES | MASKING POLICIES | PASSWORD POLICIES | ROW ACCESS POLICIES | SESSION POLICIES | TAGS | STAGES | STREAMS | TABLES | EXTERNAL TABLES | TASKS | VIEWS | MATERIALIZED VIEWS
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1824,7 +2022,8 @@ class TableColumnArgs:
                  default: Optional[pulumi.Input['TableColumnDefaultArgs']] = None,
                  identity: Optional[pulumi.Input['TableColumnIdentityArgs']] = None,
                  masking_policy: Optional[pulumi.Input[str]] = None,
-                 nullable: Optional[pulumi.Input[bool]] = None):
+                 nullable: Optional[pulumi.Input[bool]] = None,
+                 schema_evolution_record: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Column name
         :param pulumi.Input[str] type: Column type, e.g. VARIANT
@@ -1834,6 +2033,7 @@ class TableColumnArgs:
         :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
         :param pulumi.Input[str] masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
         :param pulumi.Input[bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        :param pulumi.Input[str] schema_evolution_record: Record of schema evolution.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -1849,6 +2049,8 @@ class TableColumnArgs:
             pulumi.set(__self__, "masking_policy", masking_policy)
         if nullable is not None:
             pulumi.set(__self__, "nullable", nullable)
+        if schema_evolution_record is not None:
+            pulumi.set(__self__, "schema_evolution_record", schema_evolution_record)
 
     @property
     @pulumi.getter
@@ -1945,6 +2147,18 @@ class TableColumnArgs:
     @nullable.setter
     def nullable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "nullable", value)
+
+    @property
+    @pulumi.getter(name="schemaEvolutionRecord")
+    def schema_evolution_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        Record of schema evolution.
+        """
+        return pulumi.get(self, "schema_evolution_record")
+
+    @schema_evolution_record.setter
+    def schema_evolution_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_evolution_record", value)
 
 
 @pulumi.input_type
@@ -2044,24 +2258,35 @@ class TableColumnIdentityArgs:
 @pulumi.input_type
 class TableConstraintForeignKeyPropertiesArgs:
     def __init__(__self__, *,
+                 references: pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'],
                  match: Optional[pulumi.Input[str]] = None,
                  on_delete: Optional[pulumi.Input[str]] = None,
-                 on_update: Optional[pulumi.Input[str]] = None,
-                 references: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']] = None):
+                 on_update: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references.
         :param pulumi.Input[str] match: The match type for the foreign key. Not applicable for primary/unique keys
         :param pulumi.Input[str] on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         :param pulumi.Input[str] on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
-        :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references. Not applicable for primary/unique keys
         """
+        pulumi.set(__self__, "references", references)
         if match is not None:
             pulumi.set(__self__, "match", match)
         if on_delete is not None:
             pulumi.set(__self__, "on_delete", on_delete)
         if on_update is not None:
             pulumi.set(__self__, "on_update", on_update)
-        if references is not None:
-            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']:
+        """
+        The table and columns that the foreign key references.
+        """
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']):
+        pulumi.set(self, "references", value)
 
     @property
     @pulumi.getter
@@ -2098,18 +2323,6 @@ class TableConstraintForeignKeyPropertiesArgs:
     @on_update.setter
     def on_update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "on_update", value)
-
-    @property
-    @pulumi.getter
-    def references(self) -> Optional[pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']]:
-        """
-        The table and columns that the foreign key references. Not applicable for primary/unique keys
-        """
-        return pulumi.get(self, "references")
-
-    @references.setter
-    def references(self, value: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs']]):
-        pulumi.set(self, "references", value)
 
 
 @pulumi.input_type
@@ -2439,7 +2652,7 @@ class GetDynamicTablesLikeArgs:
     def __init__(__self__, *,
                  pattern: str):
         """
-        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+        :param str pattern: Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -2447,7 +2660,7 @@ class GetDynamicTablesLikeArgs:
     @pulumi.getter
     def pattern(self) -> str:
         """
-        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (%!a(MISSING)nd _).
+        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
         """
         return pulumi.get(self, "pattern")
 
@@ -2499,10 +2712,10 @@ class GetDynamicTablesLimitArgs:
 class GetGrantsFutureGrantsInArgs:
     def __init__(__self__, *,
                  database: Optional[str] = None,
-                 schema: Optional['GetGrantsFutureGrantsInSchemaArgs'] = None):
+                 schema: Optional[str] = None):
         """
         :param str database: Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
-        :param 'GetGrantsFutureGrantsInSchemaArgs' schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        :param str schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
         """
         if database is not None:
             pulumi.set(__self__, "database", database)
@@ -2523,102 +2736,113 @@ class GetGrantsFutureGrantsInArgs:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional['GetGrantsFutureGrantsInSchemaArgs']:
+    def schema(self) -> Optional[str]:
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role.
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional['GetGrantsFutureGrantsInSchemaArgs']):
+    def schema(self, value: Optional[str]):
         pulumi.set(self, "schema", value)
-
-
-@pulumi.input_type
-class GetGrantsFutureGrantsInSchemaArgs:
-    def __init__(__self__, *,
-                 schema_name: str,
-                 database_name: Optional[str] = None):
-        """
-        :param str schema_name: The name of the schema to list all privileges of new (ie. future) objects granted to
-        :param str database_name: The database in which the scehma resides. Optional when querying a schema in the current database.
-        """
-        pulumi.set(__self__, "schema_name", schema_name)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> str:
-        """
-        The name of the schema to list all privileges of new (ie. future) objects granted to
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: str):
-        pulumi.set(self, "schema_name", value)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
-        """
-        The database in which the scehma resides. Optional when querying a schema in the current database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: Optional[str]):
-        pulumi.set(self, "database_name", value)
 
 
 @pulumi.input_type
 class GetGrantsFutureGrantsToArgs:
     def __init__(__self__, *,
-                 role: str):
+                 account_role: Optional[str] = None,
+                 database_role: Optional[str] = None):
         """
-        :param str role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        :param str account_role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+        :param str database_role: Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
-        pulumi.set(__self__, "role", role)
+        if account_role is not None:
+            pulumi.set(__self__, "account_role", account_role)
+        if database_role is not None:
+            pulumi.set(__self__, "database_role", database_role)
 
     @property
-    @pulumi.getter
-    def role(self) -> str:
+    @pulumi.getter(name="accountRole")
+    def account_role(self) -> Optional[str]:
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the role.
+        Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
         """
-        return pulumi.get(self, "role")
+        return pulumi.get(self, "account_role")
 
-    @role.setter
-    def role(self, value: str):
-        pulumi.set(self, "role", value)
+    @account_role.setter
+    def account_role(self, value: Optional[str]):
+        pulumi.set(self, "account_role", value)
+
+    @property
+    @pulumi.getter(name="databaseRole")
+    def database_role(self) -> Optional[str]:
+        """
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        return pulumi.get(self, "database_role")
+
+    @database_role.setter
+    def database_role(self, value: Optional[str]):
+        pulumi.set(self, "database_role", value)
 
 
 @pulumi.input_type
 class GetGrantsGrantsOfArgs:
     def __init__(__self__, *,
-                 role: Optional[str] = None,
+                 account_role: Optional[str] = None,
+                 application_role: Optional[str] = None,
+                 database_role: Optional[str] = None,
                  share: Optional[str] = None):
         """
-        :param str role: Lists all users and roles to which the role has been granted
+        :param str account_role: Lists all users and roles to which the account role has been granted.
+        :param str application_role: Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param str database_role: Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         :param str share: Lists all the accounts for the share and indicates the accounts that are using the share.
         """
-        if role is not None:
-            pulumi.set(__self__, "role", role)
+        if account_role is not None:
+            pulumi.set(__self__, "account_role", account_role)
+        if application_role is not None:
+            pulumi.set(__self__, "application_role", application_role)
+        if database_role is not None:
+            pulumi.set(__self__, "database_role", database_role)
         if share is not None:
             pulumi.set(__self__, "share", share)
 
     @property
-    @pulumi.getter
-    def role(self) -> Optional[str]:
+    @pulumi.getter(name="accountRole")
+    def account_role(self) -> Optional[str]:
         """
-        Lists all users and roles to which the role has been granted
+        Lists all users and roles to which the account role has been granted.
         """
-        return pulumi.get(self, "role")
+        return pulumi.get(self, "account_role")
 
-    @role.setter
-    def role(self, value: Optional[str]):
-        pulumi.set(self, "role", value)
+    @account_role.setter
+    def account_role(self, value: Optional[str]):
+        pulumi.set(self, "account_role", value)
+
+    @property
+    @pulumi.getter(name="applicationRole")
+    def application_role(self) -> Optional[str]:
+        """
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        return pulumi.get(self, "application_role")
+
+    @application_role.setter
+    def application_role(self, value: Optional[str]):
+        pulumi.set(self, "application_role", value)
+
+    @property
+    @pulumi.getter(name="databaseRole")
+    def database_role(self) -> Optional[str]:
+        """
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        return pulumi.get(self, "database_role")
+
+    @database_role.setter
+    def database_role(self, value: Optional[str]):
+        pulumi.set(self, "database_role", value)
 
     @property
     @pulumi.getter
@@ -2641,7 +2865,7 @@ class GetGrantsGrantsOnArgs:
                  object_type: Optional[str] = None):
         """
         :param bool account: Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
-        :param str object_name: Name of object to list privileges on
+        :param str object_name: Name of object to list privileges on.
         :param str object_type: Type of object to list privileges on.
         """
         if account is not None:
@@ -2667,7 +2891,7 @@ class GetGrantsGrantsOnArgs:
     @pulumi.getter(name="objectName")
     def object_name(self) -> Optional[str]:
         """
-        Name of object to list privileges on
+        Name of object to list privileges on.
         """
         return pulumi.get(self, "object_name")
 
@@ -2691,55 +2915,125 @@ class GetGrantsGrantsOnArgs:
 @pulumi.input_type
 class GetGrantsGrantsToArgs:
     def __init__(__self__, *,
-                 role: Optional[str] = None,
-                 share: Optional[str] = None,
+                 account_role: Optional[str] = None,
+                 application: Optional[str] = None,
+                 application_role: Optional[str] = None,
+                 database_role: Optional[str] = None,
+                 share: Optional['GetGrantsGrantsToShareArgs'] = None,
                  user: Optional[str] = None):
         """
-        :param str role: Lists all privileges and roles granted to the role
-        :param str share: Lists all the privileges granted to the share
-        :param str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        :param str account_role: Lists all privileges and roles granted to the role.
+        :param str application: Lists all the privileges and roles granted to the application.
+        :param str application_role: Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        :param str database_role: Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param 'GetGrantsGrantsToShareArgs' share: Lists all the privileges granted to the share.
+        :param str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         """
-        if role is not None:
-            pulumi.set(__self__, "role", role)
+        if account_role is not None:
+            pulumi.set(__self__, "account_role", account_role)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_role is not None:
+            pulumi.set(__self__, "application_role", application_role)
+        if database_role is not None:
+            pulumi.set(__self__, "database_role", database_role)
         if share is not None:
             pulumi.set(__self__, "share", share)
         if user is not None:
             pulumi.set(__self__, "user", user)
 
     @property
-    @pulumi.getter
-    def role(self) -> Optional[str]:
+    @pulumi.getter(name="accountRole")
+    def account_role(self) -> Optional[str]:
         """
-        Lists all privileges and roles granted to the role
+        Lists all privileges and roles granted to the role.
         """
-        return pulumi.get(self, "role")
+        return pulumi.get(self, "account_role")
 
-    @role.setter
-    def role(self, value: Optional[str]):
-        pulumi.set(self, "role", value)
+    @account_role.setter
+    def account_role(self, value: Optional[str]):
+        pulumi.set(self, "account_role", value)
 
     @property
     @pulumi.getter
-    def share(self) -> Optional[str]:
+    def application(self) -> Optional[str]:
         """
-        Lists all the privileges granted to the share
+        Lists all the privileges and roles granted to the application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationRole")
+    def application_role(self) -> Optional[str]:
+        """
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        """
+        return pulumi.get(self, "application_role")
+
+    @application_role.setter
+    def application_role(self, value: Optional[str]):
+        pulumi.set(self, "application_role", value)
+
+    @property
+    @pulumi.getter(name="databaseRole")
+    def database_role(self) -> Optional[str]:
+        """
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        return pulumi.get(self, "database_role")
+
+    @database_role.setter
+    def database_role(self, value: Optional[str]):
+        pulumi.set(self, "database_role", value)
+
+    @property
+    @pulumi.getter
+    def share(self) -> Optional['GetGrantsGrantsToShareArgs']:
+        """
+        Lists all the privileges granted to the share.
         """
         return pulumi.get(self, "share")
 
     @share.setter
-    def share(self, value: Optional[str]):
+    def share(self, value: Optional['GetGrantsGrantsToShareArgs']):
         pulumi.set(self, "share", value)
 
     @property
     @pulumi.getter
     def user(self) -> Optional[str]:
         """
-        Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed
+        Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         """
         return pulumi.get(self, "user")
 
     @user.setter
     def user(self, value: Optional[str]):
         pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class GetGrantsGrantsToShareArgs:
+    def __init__(__self__, *,
+                 share_name: str):
+        """
+        :param str share_name: Lists all of the privileges and roles granted to the specified share.
+        """
+        pulumi.set(__self__, "share_name", share_name)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        Lists all of the privileges and roles granted to the specified share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: str):
+        pulumi.set(self, "share_name", value)
 
 

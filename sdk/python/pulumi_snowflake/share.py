@@ -135,17 +135,17 @@ class Share(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         test = snowflake.Share("test",
+            name="share_name",
             comment="cool comment",
             accounts=["organizationName.accountName"])
-        example = snowflake.Database("example", opts=pulumi.ResourceOptions(depends_on=[test]))
+        example = snowflake.Database("example", name="test",
+        opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,17 +168,17 @@ class Share(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         test = snowflake.Share("test",
+            name="share_name",
             comment="cool comment",
             accounts=["organizationName.accountName"])
-        example = snowflake.Database("example", opts=pulumi.ResourceOptions(depends_on=[test]))
+        example = snowflake.Database("example", name="test",
+        opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

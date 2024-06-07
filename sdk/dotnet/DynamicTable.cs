@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +23,20 @@ namespace Pulumi.Snowflake
     ///     // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
     ///     var dt = new Snowflake.DynamicTable("dt", new()
     ///     {
-    ///         Comment = "example comment",
+    ///         Name = "product",
     ///         Database = "mydb",
-    ///         Query = "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
     ///         Schema = "myschema",
     ///         TargetLag = new Snowflake.Inputs.DynamicTableTargetLagArgs
     ///         {
     ///             MaximumDuration = "20 minutes",
     ///         },
     ///         Warehouse = "mywh",
+    ///         Query = "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
+    ///         Comment = "example comment",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -157,7 +156,7 @@ namespace Pulumi.Snowflake
         public Output<int> Rows { get; private set; } = null!;
 
         /// <summary>
-        /// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        /// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         /// </summary>
         [Output("schedulingState")]
         public Output<string> SchedulingState { get; private set; } = null!;
@@ -403,7 +402,7 @@ namespace Pulumi.Snowflake
         public Input<int>? Rows { get; set; }
 
         /// <summary>
-        /// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+        /// Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         /// </summary>
         [Input("schedulingState")]
         public Input<string>? SchedulingState { get; set; }

@@ -9,24 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const test = new snowflake.MaskingPolicy("test", {
+ *     name: "EXAMPLE_MASKING_POLICY",
  *     database: "EXAMPLE_DB",
- *     maskingExpression: `  case 
- *     when current_role() in ('ROLE_A') then 
- *       val 
- *     when is_role_in_session( 'ROLE_B' ) then 
- *       'ABC123'
- *     else
- *       '******'
- *   end
- *
- * `,
- *     returnDataType: "VARCHAR",
  *     schema: "EXAMPLE_SCHEMA",
  *     signature: {
  *         columns: [{
@@ -34,9 +23,18 @@ import * as utilities from "./utilities";
  *             type: "VARCHAR",
  *         }],
  *     },
+ *     maskingExpression: `case 
+ *   when current_role() in ('ROLE_A') then 
+ *     val 
+ *   when is_role_in_session( 'ROLE_B' ) then 
+ *     'ABC123'
+ *   else
+ *     '******'
+ * end
+ * `,
+ *     returnDataType: "VARCHAR",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -95,7 +93,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly maskingExpression!: pulumi.Output<string>;
     /**
-     * Specifies the column name to mask.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -202,7 +200,7 @@ export interface MaskingPolicyState {
      */
     maskingExpression?: pulumi.Input<string>;
     /**
-     * Specifies the column name to mask.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -252,7 +250,7 @@ export interface MaskingPolicyArgs {
      */
     maskingExpression: pulumi.Input<string>;
     /**
-     * Specifies the column name to mask.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
      */
     name?: pulumi.Input<string>;
     /**

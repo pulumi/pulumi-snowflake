@@ -15,6 +15,8 @@ import com.pulumi.snowflake.inputs.GetAlertsArgs;
 import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseArgs;
 import com.pulumi.snowflake.inputs.GetDatabasePlainArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+import com.pulumi.snowflake.inputs.GetDatabaseRolePlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseRolesPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabasesArgs;
@@ -76,6 +78,7 @@ import com.pulumi.snowflake.outputs.GetAlertsResult;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
 import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseResult;
+import com.pulumi.snowflake.outputs.GetDatabaseRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetDynamicTablesResult;
@@ -134,7 +137,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -156,13 +160,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +178,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -195,13 +201,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -212,7 +219,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -234,13 +242,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +260,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,13 +283,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -290,7 +301,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -312,13 +324,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +342,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,13 +365,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -368,15 +383,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -392,14 +408,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -410,15 +428,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -434,14 +453,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -452,15 +473,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -476,14 +498,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -494,15 +518,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -518,14 +543,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -536,15 +563,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -560,14 +588,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -578,15 +608,16 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssm.Parameter;
-     * import com.pulumi.aws.ssm.ParameterArgs;
+     * import com.pulumi.aws.ssmParameter;
+     * import com.pulumi.aws.SsmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -602,14 +633,16 @@ public final class SnowflakeFunctions {
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getCurrentAccount();
      * 
-     *         var snowflakeAccountUrl = new Parameter(&#34;snowflakeAccountUrl&#34;, ParameterArgs.builder()        
-     *             .type(&#34;String&#34;)
+     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
+     *             .name("/snowflake/account_url")
+     *             .type("String")
      *             .value(this_.url())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -638,7 +671,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -660,12 +694,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;DEMO_DB&#34;)
+     *             .name("DEMO_DB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -676,7 +711,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -698,12 +734,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;DEMO_DB&#34;)
+     *             .name("DEMO_DB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -714,7 +751,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -736,12 +774,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;DEMO_DB&#34;)
+     *             .name("DEMO_DB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -752,7 +791,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -774,12 +814,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;DEMO_DB&#34;)
+     *             .name("DEMO_DB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -790,7 +831,172 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args) {
+        return getDatabaseRole(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args) {
+        return getDatabaseRolePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
+     *             .database("MYDB")
+     *             .name("DBROLE")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -812,12 +1018,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -828,7 +1035,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -850,12 +1058,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -866,7 +1075,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -888,12 +1098,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -904,7 +1115,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -926,12 +1138,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -942,7 +1155,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -967,7 +1181,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -978,7 +1193,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1003,7 +1219,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1014,7 +1231,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1039,7 +1257,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1050,7 +1269,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,7 +1295,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1086,7 +1307,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1111,7 +1333,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1122,7 +1345,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1147,7 +1371,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1176,7 +1401,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1198,13 +1424,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1215,7 +1442,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1237,13 +1465,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1254,7 +1483,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1276,13 +1506,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1293,7 +1524,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1315,13 +1547,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1332,7 +1565,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1354,13 +1588,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1371,7 +1606,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1393,13 +1629,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1410,7 +1647,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1432,13 +1670,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalTables(GetExternalTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1449,7 +1688,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1471,13 +1711,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalTables(GetExternalTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1488,7 +1729,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1510,13 +1752,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalTables(GetExternalTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1527,7 +1770,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1549,13 +1793,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getExternalTables(GetExternalTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1584,7 +1829,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1606,13 +1852,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1623,7 +1870,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1645,13 +1893,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1662,7 +1911,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1684,13 +1934,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1701,7 +1952,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1723,13 +1975,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1740,7 +1993,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1762,13 +2016,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFunctions(GetFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1779,7 +2034,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1801,13 +2057,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFunctions(GetFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1818,7 +2075,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1840,13 +2098,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFunctions(GetFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1857,7 +2116,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1879,13 +2139,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getFunctions(GetFunctionsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1896,7 +2157,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1906,9 +2168,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1923,55 +2185,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1982,7 +2333,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1992,9 +2344,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2009,55 +2361,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2068,7 +2509,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2078,9 +2520,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2095,55 +2537,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2154,7 +2685,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2164,9 +2696,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2181,55 +2713,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2240,7 +2861,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2250,9 +2872,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2267,55 +2889,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2326,7 +3037,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2336,9 +3048,9 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInSchemaArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2353,55 +3065,144 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var grants = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         //#################################
+     *         //## SHOW GRANTS ON ...
+     *         //#################################
+     *         // account
+     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
      *                 .account(true)
      *                 .build())
      *             .build());
      * 
-     *         final var grants2 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // account object (e.g. database)
+     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName(&#34;\&#34;tst\&#34;&#34;)
-     *                 .objectType(&#34;DATABASE&#34;)
+     *                 .objectName("some_database")
+     *                 .objectType("DATABASE")
      *                 .build())
      *             .build());
      * 
-     *         final var grants3 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // database object (e.g. schema)
+     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectType("SCHEMA")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema object (e.g. table)
+     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
+     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectType("TABLE")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application
+     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .application("some_application")
      *                 .build())
      *             .build());
      * 
-     *         final var grants4 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *         // application role
+     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
      *                 .build())
      *             .build());
      * 
-     *         final var grants5 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database(&#34;\&#34;tst\&#34;&#34;)
+     *         // account role
+     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .accountRole("some_role")
      *                 .build())
      *             .build());
      * 
-     *         final var grants6 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema(GetGrantsFutureGrantsInSchemaArgs.builder()
-     *                     .databaseName(&#34;\&#34;mydatabase\&#34;&#34;)
-     *                     .schemaName(&#34;\&#34;myschema\&#34;&#34;)
+     *         // database role
+     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .share(GetGrantsGrantsToShareArgs.builder()
+     *                     .shareName("some_share")
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         final var grants7 = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *         // user
+     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsTo(GetGrantsGrantsToArgs.builder()
+     *                 .user("some_user")
+     *                 .build())
+     *             .build());
+     * 
+     *         // application role
+     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // share
+     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
+     *                 .share("some_share")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account role
+     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .role(&#34;ACCOUNTADMIN&#34;)
+     *                 .accountRole("some_role")
+     *                 .build())
+     *             .build());
+     * 
+     *         // database role
+     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
+     *                 .databaseRole("\"some_database\".\"some_database_role\"")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2412,7 +3213,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2434,13 +3236,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaskingPolicies(GetMaskingPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2451,7 +3254,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2473,13 +3277,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaskingPolicies(GetMaskingPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2490,7 +3295,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2512,13 +3318,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaskingPolicies(GetMaskingPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2529,7 +3336,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2551,13 +3359,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaskingPolicies(GetMaskingPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2568,7 +3377,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2590,13 +3400,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaterializedViews(GetMaterializedViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2607,7 +3418,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2629,13 +3441,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaterializedViews(GetMaterializedViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2646,7 +3459,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2668,13 +3482,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaterializedViews(GetMaterializedViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2685,7 +3500,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2707,13 +3523,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getMaterializedViews(GetMaterializedViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2724,13 +3541,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -2746,28 +3565,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2778,13 +3603,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -2800,28 +3627,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2832,13 +3665,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -2854,28 +3689,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2886,13 +3727,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -2908,28 +3751,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2940,13 +3789,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -2962,28 +3813,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2994,13 +3851,15 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.Database;
+     * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
      * import java.util.List;
@@ -3016,28 +3875,34 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var database = new Database(&#34;database&#34;);
-     * 
-     *         final var parameters = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;OBJECT&#34;)
-     *             .objectType(&#34;DATABASE&#34;)
-     *             .objectName(database.name())
+     *         var d = new Database("d", DatabaseArgs.builder()
+     *             .name("TEST_DB")
      *             .build());
      * 
+     *         // read all object parameters in database TEST_DB
+     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
+     *             .parameterType("OBJECT")
+     *             .objectType("DATABASE")
+     *             .objectName(d.name())
+     *             .build());
+     * 
+     *         // read all account parameters with the pattern '%TIMESTAMP%'
      *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;ACCOUNT&#34;)
-     *             .pattern(&#34;%TIMESTAMP%&#34;)
+     *             .parameterType("ACCOUNT")
+     *             .pattern("%TIMESTAMP%")
      *             .build());
      * 
+     *         // read the exact session parameter ROWS_PER_RESULTSET
      *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType(&#34;SESSION&#34;)
-     *             .pattern(&#34;ROWS_PER_RESULTSET&#34;)
-     *             .user(&#34;TEST_USER&#34;)
+     *             .parameterType("SESSION")
+     *             .pattern("ROWS_PER_RESULTSET")
+     *             .user("TEST_USER")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3048,7 +3913,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3070,13 +3936,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getPipes(GetPipesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3087,7 +3954,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3109,13 +3977,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getPipes(GetPipesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3126,7 +3995,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3148,13 +4018,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getPipes(GetPipesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3165,7 +4036,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3187,13 +4059,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getPipes(GetPipesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3204,7 +4077,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3226,13 +4100,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getProcedures(GetProceduresArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3243,7 +4118,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3265,13 +4141,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getProcedures(GetProceduresArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3282,7 +4159,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3304,13 +4182,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getProcedures(GetProceduresArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3321,7 +4200,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3343,13 +4223,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getProcedures(GetProceduresArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3360,7 +4241,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3384,7 +4266,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3395,7 +4278,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3419,7 +4303,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3430,7 +4315,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3454,7 +4340,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3465,7 +4352,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3489,7 +4377,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3500,7 +4389,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3524,7 +4414,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3535,7 +4426,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3559,7 +4451,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3572,7 +4465,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3594,12 +4488,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;role1&#34;)
+     *             .name("role1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3612,7 +4507,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3634,12 +4530,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;role1&#34;)
+     *             .name("role1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3652,7 +4549,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3674,12 +4572,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;role1&#34;)
+     *             .name("role1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3692,7 +4591,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3714,12 +4614,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var this = SnowflakeFunctions.getRole(GetRoleArgs.builder()
-     *             .name(&#34;role1&#34;)
+     *             .name("role1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3730,7 +4631,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3754,12 +4656,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3770,7 +4673,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3794,12 +4698,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3810,7 +4715,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3834,12 +4740,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3850,7 +4757,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3874,12 +4782,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3890,7 +4799,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3914,12 +4824,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3930,7 +4841,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3954,12 +4866,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getRoles();
      * 
      *         final var ad = SnowflakeFunctions.getRoles(GetRolesArgs.builder()
-     *             .pattern(&#34;SYSADMIN&#34;)
+     *             .pattern("SYSADMIN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3970,7 +4883,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3992,13 +4906,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getRowAccessPolicies(GetRowAccessPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4009,7 +4924,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4031,13 +4947,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getRowAccessPolicies(GetRowAccessPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4048,7 +4965,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4070,13 +4988,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getRowAccessPolicies(GetRowAccessPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4087,7 +5006,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4109,13 +5029,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getRowAccessPolicies(GetRowAccessPoliciesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4126,7 +5047,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4148,12 +5070,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSchemas(GetSchemasArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4164,7 +5087,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4186,12 +5110,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSchemas(GetSchemasArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4202,7 +5127,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4224,12 +5150,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSchemas(GetSchemasArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4240,7 +5167,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4262,12 +5190,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSchemas(GetSchemasArgs.builder()
-     *             .database(&#34;MYDB&#34;)
+     *             .database("MYDB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4278,7 +5207,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4300,13 +5230,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSequences(GetSequencesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4317,7 +5248,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4339,13 +5271,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSequences(GetSequencesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4356,7 +5289,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4378,13 +5312,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSequences(GetSequencesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4395,7 +5330,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4417,13 +5353,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getSequences(GetSequencesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4434,7 +5371,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4458,12 +5396,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4474,7 +5413,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4498,12 +5438,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4514,7 +5455,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4538,12 +5480,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4554,7 +5497,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4578,12 +5522,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4594,7 +5539,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4618,12 +5564,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4634,7 +5581,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4658,12 +5606,13 @@ public final class SnowflakeFunctions {
      *         final var this = SnowflakeFunctions.getShares();
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern(&#34;usage&#34;)
+     *             .pattern("usage")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4674,7 +5623,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4696,13 +5646,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStages(GetStagesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4713,7 +5664,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4735,13 +5687,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStages(GetStagesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4752,7 +5705,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4774,13 +5728,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStages(GetStagesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4791,7 +5746,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4813,13 +5769,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStages(GetStagesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4830,7 +5787,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4854,7 +5812,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4865,7 +5824,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4889,7 +5849,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4900,7 +5861,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4924,7 +5886,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4935,7 +5898,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4959,7 +5923,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4970,7 +5935,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4994,7 +5960,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5005,7 +5972,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5029,7 +5997,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5040,7 +6009,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5062,13 +6032,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5079,7 +6050,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5101,13 +6073,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5118,7 +6091,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5140,13 +6114,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5157,7 +6132,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5179,13 +6155,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5196,7 +6173,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5218,12 +6196,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var scim = SnowflakeFunctions.getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs.builder()
-     *             .integrationName(&#34;AAD_PROVISIONING&#34;)
+     *             .integrationName("AAD_PROVISIONING")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5234,7 +6213,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5256,12 +6236,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var scim = SnowflakeFunctions.getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs.builder()
-     *             .integrationName(&#34;AAD_PROVISIONING&#34;)
+     *             .integrationName("AAD_PROVISIONING")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5272,7 +6253,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5294,12 +6276,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var scim = SnowflakeFunctions.getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs.builder()
-     *             .integrationName(&#34;AAD_PROVISIONING&#34;)
+     *             .integrationName("AAD_PROVISIONING")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5310,7 +6293,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5332,32 +6316,256 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var scim = SnowflakeFunctions.getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs.builder()
-     *             .integrationName(&#34;AAD_PROVISIONING&#34;)
+     *             .integrationName("AAD_PROVISIONING")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args) {
         return getSystemGetAwsSnsIamPolicy(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args) {
         return getSystemGetAwsSnsIamPolicyPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
+     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig() {
@@ -5366,12 +6574,162 @@ public final class SnowflakeFunctions {
     /**
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain() {
         return getSystemGetPrivateLinkConfigPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args) {
@@ -5380,6 +6738,81 @@ public final class SnowflakeFunctions {
     /**
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args) {
         return getSystemGetPrivateLinkConfigPlain(args, InvokeOptions.Empty);
@@ -5387,12 +6820,162 @@ public final class SnowflakeFunctions {
     /**
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.aws.securityGroup;
+     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.vpcEndpoint;
+     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.route53Zone;
+     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53Record;
+     * import com.pulumi.aws.Route53RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     * 
+     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
+     *             .vpcId(vpcId)
+     *             .ingress(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
+     *             .vpcId(vpcId)
+     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .vpcEndpointType("Interface")
+     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .subnetIds(subnetIds)
+     *             .privateDnsEnabled(false)
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
+     *             .name("privatelink.snowflakecomputing.com")
+     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .type("CNAME")
+     *             .ttl("300")
+     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args, InvokeOptions options) {
@@ -5420,7 +7003,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5442,13 +7026,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5459,7 +7044,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5481,13 +7067,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5498,7 +7085,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5520,13 +7108,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5537,7 +7126,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5559,13 +7149,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5576,7 +7167,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5598,13 +7190,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTasks(GetTasksArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5615,7 +7208,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5637,13 +7231,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTasks(GetTasksArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5654,7 +7249,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5676,13 +7272,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTasks(GetTasksArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5693,7 +7290,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5715,13 +7313,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getTasks(GetTasksArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5732,7 +7331,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5754,12 +7354,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getUsers(GetUsersArgs.builder()
-     *             .pattern(&#34;user1&#34;)
+     *             .pattern("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5770,7 +7371,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5792,12 +7394,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getUsers(GetUsersArgs.builder()
-     *             .pattern(&#34;user1&#34;)
+     *             .pattern("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5808,7 +7411,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5830,12 +7434,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getUsers(GetUsersArgs.builder()
-     *             .pattern(&#34;user1&#34;)
+     *             .pattern("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5846,7 +7451,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5868,12 +7474,13 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getUsers(GetUsersArgs.builder()
-     *             .pattern(&#34;user1&#34;)
+     *             .pattern("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5884,7 +7491,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5906,13 +7514,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getViews(GetViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5923,7 +7532,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5945,13 +7555,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getViews(GetViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5962,7 +7573,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5984,13 +7596,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getViews(GetViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6001,7 +7614,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6023,13 +7637,14 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = SnowflakeFunctions.getViews(GetViewsArgs.builder()
-     *             .database(&#34;MYDB&#34;)
-     *             .schema(&#34;MYSCHEMA&#34;)
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6040,7 +7655,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6064,7 +7680,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6075,7 +7692,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6099,7 +7717,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6110,7 +7729,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6134,7 +7754,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6145,7 +7766,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6169,7 +7791,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6180,7 +7803,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6204,7 +7828,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6215,7 +7840,8 @@ public final class SnowflakeFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6239,7 +7865,8 @@ public final class SnowflakeFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

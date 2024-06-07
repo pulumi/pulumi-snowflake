@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,17 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			database, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("database"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("schema"),
 //				Database: database.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tag, err := snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+//				Name:     pulumi.String("cost_center"),
 //				Database: database.Name,
 //				Schema:   schema.Name,
 //				AllowedValues: pulumi.StringArray{
@@ -50,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "dbAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "db_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name: database.Name,
@@ -64,8 +67,9 @@ import (
 //				return err
 //			}
 //			test, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
-//				Database: pulumi.Any(snowflake_database.Test.Name),
-//				Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//				Database: pulumi.Any(testSnowflakeDatabase.Name),
+//				Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//				Name:     pulumi.String("TABLE_NAME"),
 //				Comment:  pulumi.String("Terraform example table"),
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
@@ -81,33 +85,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "tableAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "table_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name:     test.Name,
-//						Database: pulumi.Any(snowflake_database.Test.Name),
-//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//						Database: pulumi.Any(testSnowflakeDatabase.Name),
+//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
 //					},
 //				},
 //				ObjectType: pulumi.String("TABLE"),
-//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
+//				TagId:      pulumi.Any(testSnowflakeTag.Id),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewTagAssociation(ctx, "columnAssociation", &snowflake.TagAssociationArgs{
+//			_, err = snowflake.NewTagAssociation(ctx, "column_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
 //						Name: test.Name.ApplyT(func(name string) (string, error) {
 //							return fmt.Sprintf("%v.column_name", name), nil
 //						}).(pulumi.StringOutput),
-//						Database: pulumi.Any(snowflake_database.Test.Name),
-//						Schema:   pulumi.Any(snowflake_schema.Test.Name),
+//						Database: pulumi.Any(testSnowflakeDatabase.Name),
+//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
 //					},
 //				},
 //				ObjectType: pulumi.String("COLUMN"),
-//				TagId:      pulumi.Any(snowflake_tag.Test.Id),
+//				TagId:      pulumi.Any(testSnowflakeTag.Id),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {
@@ -118,7 +122,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -136,7 +139,7 @@ type TagAssociation struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrOutput `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringOutput `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrOutput `pulumi:"skipValidation"`
@@ -194,7 +197,7 @@ type tagAssociationState struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType *string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
@@ -211,7 +214,7 @@ type TagAssociationState struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringPtrInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
@@ -232,7 +235,7 @@ type tagAssociationArgs struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
@@ -250,7 +253,7 @@ type TagAssociationArgs struct {
 	//
 	// Deprecated: Use `objectIdentifier` instead
 	ObjectName pulumi.StringPtrInput
-	// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
@@ -359,7 +362,7 @@ func (o TagAssociationOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringPtrOutput { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object to add a tag to. ex: 'ACCOUNT', 'COLUMN', 'DATABASE', etc. For more information: https://docs.snowflake.com/en/user-guide/object-tagging.html#supported-objects
+// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 func (o TagAssociationOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringOutput { return v.ObjectType }).(pulumi.StringOutput)
 }

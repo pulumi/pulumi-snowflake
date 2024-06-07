@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,22 +26,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-//				Comment:     pulumi.String("A user of snowflake."),
-//				DefaultRole: pulumi.String("role1"),
+//				Name:             pulumi.String("Snowflake User"),
+//				LoginName:        pulumi.String("snowflake_user"),
+//				Comment:          pulumi.String("A user of snowflake."),
+//				Password:         pulumi.String("secret"),
+//				Disabled:         pulumi.Bool(false),
+//				DisplayName:      pulumi.String("Snowflake User"),
+//				Email:            pulumi.String("user@snowflake.example"),
+//				FirstName:        pulumi.String("Snowflake"),
+//				LastName:         pulumi.String("User"),
+//				DefaultWarehouse: pulumi.String("warehouse"),
 //				DefaultSecondaryRoles: pulumi.StringArray{
 //					pulumi.String("ALL"),
 //				},
-//				DefaultWarehouse:   pulumi.String("warehouse"),
-//				Disabled:           pulumi.Bool(false),
-//				DisplayName:        pulumi.String("Snowflake User"),
-//				Email:              pulumi.String("user@snowflake.example"),
-//				FirstName:          pulumi.String("Snowflake"),
-//				LastName:           pulumi.String("User"),
-//				LoginName:          pulumi.String("snowflake_user"),
-//				MustChangePassword: pulumi.Bool(false),
-//				Password:           pulumi.String("secret"),
+//				DefaultRole:        pulumi.String("role1"),
 //				RsaPublicKey:       pulumi.String("..."),
 //				RsaPublicKey2:      pulumi.String("..."),
+//				MustChangePassword: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -52,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -87,8 +86,7 @@ type User struct {
 	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
 	MustChangePassword pulumi.BoolPtrOutput `pulumi:"mustChangePassword"`
 	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-	Name pulumi.StringOutput `pulumi:"name"`
-	// **WARNING:** this will put the password in the terraform state file. Use carefully.
+	Name     pulumi.StringOutput    `pulumi:"name"`
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrOutput `pulumi:"rsaPublicKey"`
@@ -178,8 +176,7 @@ type userState struct {
 	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
 	MustChangePassword *bool `pulumi:"mustChangePassword"`
 	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-	Name *string `pulumi:"name"`
-	// **WARNING:** this will put the password in the terraform state file. Use carefully.
+	Name     *string `pulumi:"name"`
 	Password *string `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
@@ -213,8 +210,7 @@ type UserState struct {
 	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
 	MustChangePassword pulumi.BoolPtrInput
 	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-	Name pulumi.StringPtrInput
-	// **WARNING:** this will put the password in the terraform state file. Use carefully.
+	Name     pulumi.StringPtrInput
 	Password pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
@@ -250,8 +246,7 @@ type userArgs struct {
 	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
 	MustChangePassword *bool `pulumi:"mustChangePassword"`
 	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-	Name *string `pulumi:"name"`
-	// **WARNING:** this will put the password in the terraform state file. Use carefully.
+	Name     *string `pulumi:"name"`
 	Password *string `pulumi:"password"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
@@ -284,8 +279,7 @@ type UserArgs struct {
 	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system.
 	MustChangePassword pulumi.BoolPtrInput
 	// Name of the user. Note that if you do not supply login*name this will be used as login*name. [doc](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters)
-	Name pulumi.StringPtrInput
-	// **WARNING:** this will put the password in the terraform state file. Use carefully.
+	Name     pulumi.StringPtrInput
 	Password pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
@@ -448,7 +442,6 @@ func (o UserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// **WARNING:** this will put the password in the terraform state file. Use carefully.
 func (o UserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

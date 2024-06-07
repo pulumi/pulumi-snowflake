@@ -12,32 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var policy = new Snowflake.NetworkPolicy("policy", new()
-    ///     {
-    ///         AllowedIpLists = new[]
-    ///         {
-    ///             "192.168.0.100/24",
-    ///         },
-    ///         BlockedIpLists = new[]
-    ///         {
-    ///             "192.168.0.101",
-    ///         },
-    ///         Comment = "A policy.",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -48,16 +22,28 @@ namespace Pulumi.Snowflake
     public partial class NetworkPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         /// </summary>
         [Output("allowedIpLists")]
         public Output<ImmutableArray<string>> AllowedIpLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// </summary>
+        [Output("allowedNetworkRuleLists")]
+        public Output<ImmutableArray<string>> AllowedNetworkRuleLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
         /// </summary>
         [Output("blockedIpLists")]
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// </summary>
+        [Output("blockedNetworkRuleLists")]
+        public Output<ImmutableArray<string>> BlockedNetworkRuleLists { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a comment for the network policy.
@@ -79,7 +65,7 @@ namespace Pulumi.Snowflake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NetworkPolicy(string name, NetworkPolicyArgs args, CustomResourceOptions? options = null)
+        public NetworkPolicy(string name, NetworkPolicyArgs? args = null, CustomResourceOptions? options = null)
             : base("snowflake:index/networkPolicy:NetworkPolicy", name, args ?? new NetworkPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,11 +103,11 @@ namespace Pulumi.Snowflake
 
     public sealed class NetworkPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedIpLists", required: true)]
+        [Input("allowedIpLists")]
         private InputList<string>? _allowedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         /// </summary>
         public InputList<string> AllowedIpLists
         {
@@ -129,16 +115,40 @@ namespace Pulumi.Snowflake
             set => _allowedIpLists = value;
         }
 
+        [Input("allowedNetworkRuleLists")]
+        private InputList<string>? _allowedNetworkRuleLists;
+
+        /// <summary>
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// </summary>
+        public InputList<string> AllowedNetworkRuleLists
+        {
+            get => _allowedNetworkRuleLists ?? (_allowedNetworkRuleLists = new InputList<string>());
+            set => _allowedNetworkRuleLists = value;
+        }
+
         [Input("blockedIpLists")]
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
             get => _blockedIpLists ?? (_blockedIpLists = new InputList<string>());
             set => _blockedIpLists = value;
+        }
+
+        [Input("blockedNetworkRuleLists")]
+        private InputList<string>? _blockedNetworkRuleLists;
+
+        /// <summary>
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// </summary>
+        public InputList<string> BlockedNetworkRuleLists
+        {
+            get => _blockedNetworkRuleLists ?? (_blockedNetworkRuleLists = new InputList<string>());
+            set => _blockedNetworkRuleLists = value;
         }
 
         /// <summary>
@@ -165,7 +175,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         /// </summary>
         public InputList<string> AllowedIpLists
         {
@@ -173,16 +183,40 @@ namespace Pulumi.Snowflake
             set => _allowedIpLists = value;
         }
 
+        [Input("allowedNetworkRuleLists")]
+        private InputList<string>? _allowedNetworkRuleLists;
+
+        /// <summary>
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// </summary>
+        public InputList<string> AllowedNetworkRuleLists
+        {
+            get => _allowedNetworkRuleLists ?? (_allowedNetworkRuleLists = new InputList<string>());
+            set => _allowedNetworkRuleLists = value;
+        }
+
         [Input("blockedIpLists")]
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
             get => _blockedIpLists ?? (_blockedIpLists = new InputList<string>());
             set => _blockedIpLists = value;
+        }
+
+        [Input("blockedNetworkRuleLists")]
+        private InputList<string>? _blockedNetworkRuleLists;
+
+        /// <summary>
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// </summary>
+        public InputList<string> BlockedNetworkRuleLists
+        {
+            get => _blockedNetworkRuleLists ?? (_blockedNetworkRuleLists = new InputList<string>());
+            set => _blockedNetworkRuleLists = value;
         }
 
         /// <summary>

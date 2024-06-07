@@ -13,10 +13,22 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GetGrantsGrantsOfInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lists all users and roles to which the role has been granted
+        /// Lists all users and roles to which the account role has been granted.
         /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
+        [Input("accountRole")]
+        public Input<string>? AccountRole { get; set; }
+
+        /// <summary>
+        /// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        [Input("applicationRole")]
+        public Input<string>? ApplicationRole { get; set; }
+
+        /// <summary>
+        /// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// </summary>
+        [Input("databaseRole")]
+        public Input<string>? DatabaseRole { get; set; }
 
         /// <summary>
         /// Lists all the accounts for the share and indicates the accounts that are using the share.

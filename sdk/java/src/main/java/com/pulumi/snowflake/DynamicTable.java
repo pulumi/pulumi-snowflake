@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
- *         var dt = new DynamicTable(&#34;dt&#34;, DynamicTableArgs.builder()        
- *             .comment(&#34;example comment&#34;)
- *             .database(&#34;mydb&#34;)
- *             .query(&#34;SELECT product_id, product_name FROM \&#34;mydb\&#34;.\&#34;myschema\&#34;.\&#34;staging_table\&#34;&#34;)
- *             .schema(&#34;myschema&#34;)
+ *         var dt = new DynamicTable("dt", DynamicTableArgs.builder()
+ *             .name("product")
+ *             .database("mydb")
+ *             .schema("myschema")
  *             .targetLag(DynamicTableTargetLagArgs.builder()
- *                 .maximumDuration(&#34;20 minutes&#34;)
+ *                 .maximumDuration("20 minutes")
  *                 .build())
- *             .warehouse(&#34;mywh&#34;)
+ *             .warehouse("mywh")
+ *             .query("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"")
+ *             .comment("example comment")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -322,14 +325,14 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.rows;
     }
     /**
-     * Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     @Export(name="schedulingState", refs={String.class}, tree="[0]")
     private Output<String> schedulingState;
 
     /**
-     * @return Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+     * @return Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      * 
      */
     public Output<String> schedulingState() {

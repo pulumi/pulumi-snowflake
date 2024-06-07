@@ -25,12 +25,12 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
         :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
@@ -54,7 +54,7 @@ class SchemaArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the schema.
         """
         return pulumi.get(self, "database")
 
@@ -114,7 +114,7 @@ class SchemaArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         """
         return pulumi.get(self, "name")
 
@@ -152,10 +152,10 @@ class _SchemaState:
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
         :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
@@ -204,7 +204,7 @@ class _SchemaState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the schema.
         """
         return pulumi.get(self, "database")
 
@@ -240,7 +240,7 @@ class _SchemaState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         """
         return pulumi.get(self, "name")
 
@@ -280,19 +280,18 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         schema = snowflake.Schema("schema",
-            comment="A schema.",
-            data_retention_days=1,
             database="database",
+            name="schema",
+            comment="A schema.",
+            is_transient=False,
             is_managed=False,
-            is_transient=False)
+            data_retention_days=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -306,10 +305,10 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
         :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
@@ -321,19 +320,18 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         schema = snowflake.Schema("schema",
-            comment="A schema.",
-            data_retention_days=1,
             database="database",
+            name="schema",
+            comment="A schema.",
+            is_transient=False,
             is_managed=False,
-            is_transient=False)
+            data_retention_days=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -409,10 +407,10 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the schema.
         :param pulumi.Input[int] data_retention_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
+        :param pulumi.Input[str] database: The database in which to create the schema.
         :param pulumi.Input[bool] is_managed: Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
         :param pulumi.Input[bool] is_transient: Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[str] name: Tag name, e.g. department.
+        :param pulumi.Input[str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -448,7 +446,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        Name of the database that the tag was created in.
+        The database in which to create the schema.
         """
         return pulumi.get(self, "database")
 
@@ -472,7 +470,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Tag name, e.g. department.
+        Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         """
         return pulumi.get(self, "name")
 

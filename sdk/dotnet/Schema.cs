@@ -12,7 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,16 +22,16 @@ namespace Pulumi.Snowflake
     /// {
     ///     var schema = new Snowflake.Schema("schema", new()
     ///     {
-    ///         Comment = "A schema.",
-    ///         DataRetentionDays = 1,
     ///         Database = "database",
-    ///         IsManaged = false,
+    ///         Name = "schema",
+    ///         Comment = "A schema.",
     ///         IsTransient = false,
+    ///         IsManaged = false,
+    ///         DataRetentionDays = 1,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -58,7 +57,7 @@ namespace Pulumi.Snowflake
         public Output<int?> DataRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the schema.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -76,7 +75,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> IsTransient { get; private set; } = null!;
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,7 +145,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the schema.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -164,7 +163,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsTransient { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,7 +202,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionDays { get; set; }
 
         /// <summary>
-        /// Name of the database that the tag was created in.
+        /// The database in which to create the schema.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -221,7 +220,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsTransient { get; set; }
 
         /// <summary>
-        /// Tag name, e.g. department.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

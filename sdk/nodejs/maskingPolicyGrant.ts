@@ -9,25 +9,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
  * const example = new snowflake.MaskingPolicyGrant("example", {
- *     databaseName: "EXAMPLE_DB_NAME",
- *     enableMultipleGrants: true,
  *     maskingPolicyName: "EXAMPLE_MASKING_POLICY_NAME",
+ *     databaseName: "EXAMPLE_DB_NAME",
+ *     schemaName: "EXAMPLE_SCHEMA_NAME",
  *     privilege: "APPLY",
  *     roles: [
  *         "ROLE1_NAME",
  *         "ROLE2_NAME",
  *     ],
- *     schemaName: "EXAMPLE_SCHEMA_NAME",
  *     withGrantOption: true,
+ *     enableMultipleGrants: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -69,10 +67,6 @@ export class MaskingPolicyGrant extends pulumi.CustomResource {
      * The name of the database containing the masking policy on which to grant privileges.
      */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     public readonly enableMultipleGrants!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the masking policy on which to grant privileges immediately.
@@ -153,10 +147,6 @@ export interface MaskingPolicyGrantState {
      * The name of the database containing the masking policy on which to grant privileges.
      */
     databaseName?: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the masking policy on which to grant privileges immediately.
@@ -192,10 +182,6 @@ export interface MaskingPolicyGrantArgs {
      * The name of the database containing the masking policy on which to grant privileges.
      */
     databaseName: pulumi.Input<string>;
-    /**
-     * When this is set to true, multiple grants of the same type can be created. This will cause Terraform to not revoke
-     * grants applied to roles and objects outside Terraform.
-     */
     enableMultipleGrants?: pulumi.Input<boolean>;
     /**
      * The name of the masking policy on which to grant privileges immediately.

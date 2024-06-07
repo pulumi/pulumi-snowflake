@@ -9,13 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const db = new snowflake.Database("db", {});
- * const sourceFailoverGroup = new snowflake.FailoverGroup("sourceFailoverGroup", {
+ * const db = new snowflake.Database("db", {name: "db1"});
+ * const sourceFailoverGroup = new snowflake.FailoverGroup("source_failover_group", {
+ *     name: "FG1",
  *     objectTypes: [
  *         "WAREHOUSES",
  *         "DATABASES",
@@ -35,16 +35,15 @@ import * as utilities from "./utilities";
  *         },
  *     },
  * });
- * const account2 = new snowflake.Provider("account2", {});
- * const targetFailoverGroup = new snowflake.FailoverGroup("targetFailoverGroup", {fromReplica: {
- *     organizationName: "...",
- *     sourceAccountName: "...",
- *     name: snowflake_failover_group.fg.name,
- * }}, {
- *     provider: snowflake.account2,
+ * const targetFailoverGroup = new snowflake.FailoverGroup("target_failover_group", {
+ *     name: "FG1",
+ *     fromReplica: {
+ *         organizationName: "...",
+ *         sourceAccountName: "...",
+ *         name: fg.name,
+ *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -89,7 +88,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly allowedDatabases!: pulumi.Output<string[] | undefined>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     public readonly allowedIntegrationTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -105,7 +104,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -169,7 +168,7 @@ export interface FailoverGroupState {
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -185,7 +184,7 @@ export interface FailoverGroupState {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**
@@ -211,7 +210,7 @@ export interface FailoverGroupArgs {
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -227,7 +226,7 @@ export interface FailoverGroupArgs {
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Identifier for the primary failover group in the source account.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**

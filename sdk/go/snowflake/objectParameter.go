@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,25 +26,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", nil)
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("TEST_DB"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewObjectParameter(ctx, "objectParameter", &snowflake.ObjectParameterArgs{
+//			_, err = snowflake.NewObjectParameter(ctx, "o", &snowflake.ObjectParameterArgs{
 //				Key:        pulumi.String("SUSPEND_TASK_AFTER_NUM_FAILURES"),
 //				Value:      pulumi.String("33"),
 //				ObjectType: pulumi.String("DATABASE"),
 //				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
 //					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Name: database.Name,
+//						Name: d.Name,
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Database: database.Name,
+//			s, err := snowflake.NewSchema(ctx, "s", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("TEST_SCHEMA"),
+//				Database: d.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -56,17 +58,18 @@ import (
 //				ObjectType: pulumi.String("SCHEMA"),
 //				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
 //					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Database: database.Name,
-//						Name:     schema.Name,
+//						Database: d.Name,
+//						Name:     s.Name,
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			table, err := snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//			t, err := snowflake.NewTable(ctx, "t", &snowflake.TableArgs{
+//				Name:     pulumi.String("TEST_TABLE"),
+//				Database: d.Name,
+//				Schema:   s.Name,
 //				Columns: snowflake.TableColumnArray{
 //					&snowflake.TableColumnArgs{
 //						Name: pulumi.String("id"),
@@ -83,9 +86,9 @@ import (
 //				ObjectType: pulumi.String("TABLE"),
 //				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
 //					&snowflake.ObjectParameterObjectIdentifierArgs{
-//						Database: database.Name,
-//						Schema:   schema.Name,
-//						Name:     table.Name,
+//						Database: d.Name,
+//						Schema:   s.Name,
+//						Name:     t.Name,
 //					},
 //				},
 //			})
@@ -106,7 +109,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

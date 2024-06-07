@@ -494,29 +494,30 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         aws = snowflake.ApiIntegration("aws",
-            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
-            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
+            name="aws_integration",
             api_provider="aws_api_gateway",
+            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
+            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
             enabled=True)
         azure = snowflake.ApiIntegration("azure",
-            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
+            name="azure_integration",
             api_provider="azure_api_management",
-            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
             azure_tenant_id="00000000-0000-0000-0000-000000000000",
+            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
+            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
             enabled=True)
         gcp = snowflake.ApiIntegration("gcp",
-            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            name="gcp_integration",
             api_provider="google_api_gateway",
-            enabled=True,
-            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
+            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
+            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -547,29 +548,30 @@ class ApiIntegration(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_snowflake as snowflake
 
         aws = snowflake.ApiIntegration("aws",
-            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
-            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
+            name="aws_integration",
             api_provider="aws_api_gateway",
+            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
+            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
             enabled=True)
         azure = snowflake.ApiIntegration("azure",
-            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
+            name="azure_integration",
             api_provider="azure_api_management",
-            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
             azure_tenant_id="00000000-0000-0000-0000-000000000000",
+            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
+            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
             enabled=True)
         gcp = snowflake.ApiIntegration("gcp",
-            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            name="gcp_integration",
             api_provider="google_api_gateway",
-            enabled=True,
-            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
+            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
+            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
+            enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

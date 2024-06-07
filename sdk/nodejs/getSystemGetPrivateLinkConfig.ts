@@ -6,6 +6,59 @@ import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});
+ * const snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup("snowflake_private_link", {
+ *     vpcId: vpcId,
+ *     ingress: [
+ *         {
+ *             fromPort: 80,
+ *             toPort: 80,
+ *             cidrBlocks: vpcCidr,
+ *             protocol: "tcp",
+ *         },
+ *         {
+ *             fromPort: 443,
+ *             toPort: 443,
+ *             cidrBlocks: vpcCidr,
+ *             protocol: "tcp",
+ *         },
+ *     ],
+ * });
+ * const snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint("snowflake_private_link", {
+ *     vpcId: vpcId,
+ *     serviceName: snowflakePrivateLink.awsVpceId,
+ *     vpcEndpointType: "Interface",
+ *     securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],
+ *     subnetIds: subnetIds,
+ *     privateDnsEnabled: false,
+ * });
+ * const snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone("snowflake_private_link", {
+ *     name: "privatelink.snowflakecomputing.com",
+ *     vpc: [{
+ *         vpcId: vpcId,
+ *     }],
+ * });
+ * const snowflakePrivateLinkUrl = new aws.index.Route53Record("snowflake_private_link_url", {
+ *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
+ *     name: snowflakePrivateLink.accountUrl,
+ *     type: "CNAME",
+ *     ttl: "300",
+ *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
+ * });
+ * const snowflakePrivateLinkOcspUrl = new aws.index.Route53Record("snowflake_private_link_ocsp_url", {
+ *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
+ *     name: snowflakePrivateLink.ocspUrl,
+ *     type: "CNAME",
+ *     ttl: "300",
+ *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
+ * });
+ * ```
  */
 export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Promise<GetSystemGetPrivateLinkConfigResult> {
 
@@ -61,6 +114,59 @@ export interface GetSystemGetPrivateLinkConfigResult {
 }
 /**
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});
+ * const snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup("snowflake_private_link", {
+ *     vpcId: vpcId,
+ *     ingress: [
+ *         {
+ *             fromPort: 80,
+ *             toPort: 80,
+ *             cidrBlocks: vpcCidr,
+ *             protocol: "tcp",
+ *         },
+ *         {
+ *             fromPort: 443,
+ *             toPort: 443,
+ *             cidrBlocks: vpcCidr,
+ *             protocol: "tcp",
+ *         },
+ *     ],
+ * });
+ * const snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint("snowflake_private_link", {
+ *     vpcId: vpcId,
+ *     serviceName: snowflakePrivateLink.awsVpceId,
+ *     vpcEndpointType: "Interface",
+ *     securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],
+ *     subnetIds: subnetIds,
+ *     privateDnsEnabled: false,
+ * });
+ * const snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone("snowflake_private_link", {
+ *     name: "privatelink.snowflakecomputing.com",
+ *     vpc: [{
+ *         vpcId: vpcId,
+ *     }],
+ * });
+ * const snowflakePrivateLinkUrl = new aws.index.Route53Record("snowflake_private_link_url", {
+ *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
+ *     name: snowflakePrivateLink.accountUrl,
+ *     type: "CNAME",
+ *     ttl: "300",
+ *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
+ * });
+ * const snowflakePrivateLinkOcspUrl = new aws.index.Route53Record("snowflake_private_link_ocsp_url", {
+ *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
+ *     name: snowflakePrivateLink.ocspUrl,
+ *     type: "CNAME",
+ *     ttl: "300",
+ *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
+ * });
+ * ```
  */
 export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
     return pulumi.output(getSystemGetPrivateLinkConfig(opts))

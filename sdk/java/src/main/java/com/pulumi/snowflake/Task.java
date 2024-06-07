@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,46 +44,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new Task(&#34;task&#34;, TaskArgs.builder()        
- *             .comment(&#34;my task&#34;)
- *             .database(&#34;database&#34;)
- *             .schema(&#34;schema&#34;)
- *             .warehouse(&#34;warehouse&#34;)
- *             .schedule(&#34;10 MINUTE&#34;)
- *             .sqlStatement(&#34;select * from foo;&#34;)
- *             .sessionParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *         var task = new Task("task", TaskArgs.builder()
+ *             .comment("my task")
+ *             .database("database")
+ *             .schema("schema")
+ *             .warehouse("warehouse")
+ *             .name("task")
+ *             .schedule("10 MINUTE")
+ *             .sqlStatement("select * from foo;")
+ *             .sessionParameters(Map.of("foo", "bar"))
  *             .userTaskTimeoutMs(10000)
- *             .afters(&#34;preceding_task&#34;)
- *             .when(&#34;foo AND bar&#34;)
+ *             .afters("preceding_task")
+ *             .when("foo AND bar")
  *             .enabled(true)
  *             .build());
  * 
- *         var serverlessTask = new Task(&#34;serverlessTask&#34;, TaskArgs.builder()        
- *             .comment(&#34;my serverless task&#34;)
- *             .database(&#34;db&#34;)
- *             .schema(&#34;schema&#34;)
- *             .schedule(&#34;10 MINUTE&#34;)
- *             .sqlStatement(&#34;select * from foo;&#34;)
- *             .sessionParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *         var serverlessTask = new Task("serverlessTask", TaskArgs.builder()
+ *             .comment("my serverless task")
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("serverless_task")
+ *             .schedule("10 MINUTE")
+ *             .sqlStatement("select * from foo;")
+ *             .sessionParameters(Map.of("foo", "bar"))
  *             .userTaskTimeoutMs(10000)
- *             .userTaskManagedInitialWarehouseSize(&#34;XSMALL&#34;)
+ *             .userTaskManagedInitialWarehouseSize("XSMALL")
  *             .afters(task.name())
- *             .when(&#34;foo AND bar&#34;)
+ *             .when("foo AND bar")
  *             .enabled(true)
  *             .build());
  * 
- *         var testTask = new Task(&#34;testTask&#34;, TaskArgs.builder()        
- *             .comment(&#34;task with allow_overlapping_execution&#34;)
- *             .database(&#34;database&#34;)
- *             .schema(&#34;schema&#34;)
- *             .sqlStatement(&#34;select 1 as c;&#34;)
+ *         var testTask = new Task("testTask", TaskArgs.builder()
+ *             .comment("task with allow_overlapping_execution")
+ *             .database("database")
+ *             .schema("schema")
+ *             .name("test_task")
+ *             .sqlStatement("select 1 as c;")
  *             .allowOverlappingExecution(true)
  *             .enabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
