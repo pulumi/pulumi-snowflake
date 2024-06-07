@@ -81,6 +81,7 @@ from .materialized_view import *
 from .materialized_view_grant import *
 from .network_policy import *
 from .network_policy_attachment import *
+from .network_rule import *
 from .notification_integration import *
 from .oauth_integration import *
 from .object_parameter import *
@@ -437,6 +438,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment": "NetworkPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/networkRule",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/networkRule:NetworkRule": "NetworkRule"
   }
  },
  {

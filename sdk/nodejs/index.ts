@@ -385,6 +385,11 @@ export type NetworkPolicyAttachment = import("./networkPolicyAttachment").Networ
 export const NetworkPolicyAttachment: typeof import("./networkPolicyAttachment").NetworkPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["NetworkPolicyAttachment"], () => require("./networkPolicyAttachment"));
 
+export { NetworkRuleArgs, NetworkRuleState } from "./networkRule";
+export type NetworkRule = import("./networkRule").NetworkRule;
+export const NetworkRule: typeof import("./networkRule").NetworkRule = null as any;
+utilities.lazyLoad(exports, ["NetworkRule"], () => require("./networkRule"));
+
 export { NotificationIntegrationArgs, NotificationIntegrationState } from "./notificationIntegration";
 export type NotificationIntegration = import("./notificationIntegration").NotificationIntegration;
 export const NotificationIntegration: typeof import("./notificationIntegration").NotificationIntegration = null as any;
@@ -718,6 +723,8 @@ const _module = {
                 return new NetworkPolicy(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
                 return new NetworkPolicyAttachment(name, <any>undefined, { urn })
+            case "snowflake:index/networkRule:NetworkRule":
+                return new NetworkRule(name, <any>undefined, { urn })
             case "snowflake:index/notificationIntegration:NotificationIntegration":
                 return new NotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegration:OauthIntegration":
@@ -856,6 +863,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _mo
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedViewGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)

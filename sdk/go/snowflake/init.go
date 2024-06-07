@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPolicy{}
 	case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
 		r = &NetworkPolicyAttachment{}
+	case "snowflake:index/networkRule:NetworkRule":
+		r = &NetworkRule{}
 	case "snowflake:index/notificationIntegration:NotificationIntegration":
 		r = &NotificationIntegration{}
 	case "snowflake:index/oauthIntegration:OauthIntegration":
@@ -405,6 +407,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/networkPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/networkRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

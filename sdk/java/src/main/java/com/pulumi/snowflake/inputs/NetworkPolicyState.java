@@ -17,14 +17,14 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     public static final NetworkPolicyState Empty = new NetworkPolicyState();
 
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+     * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      * 
      */
     @Import(name="allowedIpLists")
     private @Nullable Output<List<String>> allowedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      * 
      */
     public Optional<Output<List<String>>> allowedIpLists() {
@@ -32,18 +32,48 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * 
+     */
+    @Import(name="allowedNetworkRuleLists")
+    private @Nullable Output<List<String>> allowedNetworkRuleLists;
+
+    /**
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedNetworkRuleLists() {
+        return Optional.ofNullable(this.allowedNetworkRuleLists);
+    }
+
+    /**
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
      * 
      */
     @Import(name="blockedIpLists")
     private @Nullable Output<List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
      * 
      */
     public Optional<Output<List<String>>> blockedIpLists() {
         return Optional.ofNullable(this.blockedIpLists);
+    }
+
+    /**
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * 
+     */
+    @Import(name="blockedNetworkRuleLists")
+    private @Nullable Output<List<String>> blockedNetworkRuleLists;
+
+    /**
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * 
+     */
+    public Optional<Output<List<String>>> blockedNetworkRuleLists() {
+        return Optional.ofNullable(this.blockedNetworkRuleLists);
     }
 
     /**
@@ -80,7 +110,9 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
 
     private NetworkPolicyState(NetworkPolicyState $) {
         this.allowedIpLists = $.allowedIpLists;
+        this.allowedNetworkRuleLists = $.allowedNetworkRuleLists;
         this.blockedIpLists = $.blockedIpLists;
+        this.blockedNetworkRuleLists = $.blockedNetworkRuleLists;
         this.comment = $.comment;
         this.name = $.name;
     }
@@ -104,7 +136,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
          * 
          * @return builder
          * 
@@ -115,7 +147,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
          * 
          * @return builder
          * 
@@ -125,7 +157,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account
+         * @param allowedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
          * 
          * @return builder
          * 
@@ -135,7 +167,38 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedNetworkRuleLists(@Nullable Output<List<String>> allowedNetworkRuleLists) {
+            $.allowedNetworkRuleLists = allowedNetworkRuleLists;
+            return this;
+        }
+
+        /**
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedNetworkRuleLists(List<String> allowedNetworkRuleLists) {
+            return allowedNetworkRuleLists(Output.of(allowedNetworkRuleLists));
+        }
+
+        /**
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedNetworkRuleLists(String... allowedNetworkRuleLists) {
+            return allowedNetworkRuleLists(List.of(allowedNetworkRuleLists));
+        }
+
+        /**
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
          * 
          * @return builder
          * 
@@ -146,7 +209,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
          * 
          * @return builder
          * 
@@ -156,13 +219,44 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
          * 
          * @return builder
          * 
          */
         public Builder blockedIpLists(String... blockedIpLists) {
             return blockedIpLists(List.of(blockedIpLists));
+        }
+
+        /**
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedNetworkRuleLists(@Nullable Output<List<String>> blockedNetworkRuleLists) {
+            $.blockedNetworkRuleLists = blockedNetworkRuleLists;
+            return this;
+        }
+
+        /**
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedNetworkRuleLists(List<String> blockedNetworkRuleLists) {
+            return blockedNetworkRuleLists(Output.of(blockedNetworkRuleLists));
+        }
+
+        /**
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blockedNetworkRuleLists(String... blockedNetworkRuleLists) {
+            return blockedNetworkRuleLists(List.of(blockedNetworkRuleLists));
         }
 
         /**

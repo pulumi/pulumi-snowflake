@@ -405,7 +405,13 @@
                     "allowed_ip_list": {
                         "maxItemsOne": false
                     },
+                    "allowed_network_rule_list": {
+                        "maxItemsOne": false
+                    },
                     "blocked_ip_list": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_network_rule_list": {
                         "maxItemsOne": false
                     }
                 }
@@ -414,6 +420,14 @@
                 "current": "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment",
                 "fields": {
                     "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_network_rule": {
+                "current": "snowflake:index/networkRule:NetworkRule",
+                "fields": {
+                    "value_list": {
                         "maxItemsOne": false
                     }
                 }

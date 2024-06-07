@@ -92,6 +92,7 @@
         "materializedViewGrant.ts",
         "networkPolicy.ts",
         "networkPolicyAttachment.ts",
+        "networkRule.ts",
         "notificationIntegration.ts",
         "oauthIntegration.ts",
         "objectParameter.ts",
