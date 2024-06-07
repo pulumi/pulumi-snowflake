@@ -1,0 +1,50 @@
+name: index_rolegrantsVNh3ZD2RSAH4
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/6028a145-2feb-4b20-bc56-e2b3af06a61a.zip
+resources:
+  mySnowflakeDatabase:
+    type: snowflake:Database
+  mySnowflakeRole:
+    type: snowflake:Role
+  mySnowflakeRoleGrantToDatabase:
+    properties:
+      databaseName: ${mySnowflakeDatabase.name}
+      privilege: USAGE
+      roles:
+        - ${mySnowflakeRole.name}
+    type: snowflake:DatabaseGrant
+  mySnowflakeRoleGrantToSchema:
+    properties:
+      databaseName: ${mySnowflakeDatabase.name}
+      privilege: USAGE
+      roles:
+        - ${mySnowflakeRole.name}
+      schemaName: ${mySnowflakeSchema.name}
+    type: snowflake:SchemaGrant
+  mySnowflakeRoleGrantToTable:
+    properties:
+      databaseName: ${mySnowflakeDatabase.name}
+      privilege: SELECT
+      roles:
+        - ${mySnowflakeRole.name}
+      schemaName: ${mySnowflakeSchema.name}
+      tableName: ${mySnowflakeTable.name}
+    type: snowflake:TableGrant
+  mySnowflakeSchema:
+    properties:
+      database: ${mySnowflakeDatabase.name}
+    type: snowflake:Schema
+  mySnowflakeTable:
+    properties:
+      columns:
+        - name: id
+          type: NUMBER
+        - name: data
+          type: STRING
+      database: ${mySnowflakeDatabase.name}
+      schema: ${mySnowflakeSchema.name}
+    type: snowflake:Table

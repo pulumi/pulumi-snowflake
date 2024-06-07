@@ -1,0 +1,24 @@
+name: index_schemagranteZrLkDzzEsiW
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/d3052bad-1db5-44cb-bbbd-dc75c1ca52f2.zip
+resources:
+  snowflake-db:
+    type: snowflake:Database
+  snowflake-role:
+    type: snowflake:Role
+  snowflake-schema:
+    properties:
+      database: ${snowflake-db.name}
+    type: snowflake:Schema
+  snowflake-schemagrant:
+    properties:
+      databaseName: ${snowflake-schema.database}
+      privilege: USAGE
+      roles:
+        - ${snowflake-role.name}
+      schemaName: ${snowflake-schema.name}
+    type: snowflake:SchemaGrant

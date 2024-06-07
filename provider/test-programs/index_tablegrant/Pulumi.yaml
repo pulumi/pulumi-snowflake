@@ -1,0 +1,41 @@
+name: index_tablegrantTx7kMhknU6tx
+runtime: yaml
+description: A minimal Pulumi YAML program that creates a Snowflake Table Grant, along with its dependencies.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/5a852d61-bf03-4c97-b02a-de2505a04b69.zip
+outputs:
+  databaseName: ${snowflakeDatabase.name}
+  roleName: ${snowflakeRole.name}
+  schemaName: ${snowflakeSchema.name}
+  tableGrantPrivilege: ${snowflakeTableGrant.privilege}
+  tableName: ${snowflakeTable.name}
+resources:
+  snowflakeDatabase:
+    type: snowflake:Database
+  snowflakeRole:
+    type: snowflake:Role
+  snowflakeSchema:
+    properties:
+      database: ${snowflakeDatabase.name}
+    type: snowflake:Schema
+  snowflakeTable:
+    properties:
+      columns:
+        - name: id
+          type: STRING
+        - name: data
+          type: STRING
+      database: ${snowflakeDatabase.name}
+      schema: ${snowflakeSchema.name}
+    type: snowflake:Table
+  snowflakeTableGrant:
+    properties:
+      databaseName: ${snowflakeDatabase.name}
+      privilege: SELECT
+      roles:
+        - ${snowflakeRole.name}
+      schemaName: ${snowflakeSchema.name}
+      tableName: ${snowflakeTable.name}
+    type: snowflake:TableGrant
