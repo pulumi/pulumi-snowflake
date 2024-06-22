@@ -53,13 +53,11 @@ class RoleArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -107,13 +105,11 @@ class _RoleState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -249,12 +245,10 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RoleTag']]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 

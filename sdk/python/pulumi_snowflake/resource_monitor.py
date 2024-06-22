@@ -186,13 +186,11 @@ class ResourceMonitorArgs:
 
     @property
     @pulumi.getter(name="suspendImmediateTriggers")
+    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
     def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
-
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
@@ -213,13 +211,11 @@ class ResourceMonitorArgs:
 
     @property
     @pulumi.getter(name="suspendTriggers")
+    @_utilities.deprecated("""Use suspend_trigger instead""")
     def suspend_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
-
         return pulumi.get(self, "suspend_triggers")
 
     @suspend_triggers.setter
@@ -414,13 +410,11 @@ class _ResourceMonitorState:
 
     @property
     @pulumi.getter(name="suspendImmediateTriggers")
+    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
     def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
-
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @suspend_immediate_triggers.setter
@@ -441,13 +435,11 @@ class _ResourceMonitorState:
 
     @property
     @pulumi.getter(name="suspendTriggers")
+    @_utilities.deprecated("""Use suspend_trigger instead""")
     def suspend_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
-
         return pulumi.get(self, "suspend_triggers")
 
     @suspend_triggers.setter
@@ -761,13 +753,11 @@ class ResourceMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suspendImmediateTriggers")
+    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
     def suspend_immediate_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
-
         return pulumi.get(self, "suspend_immediate_triggers")
 
     @property
@@ -780,13 +770,11 @@ class ResourceMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suspendTriggers")
+    @_utilities.deprecated("""Use suspend_trigger instead""")
     def suspend_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         A list of percentage thresholds at which to suspend all warehouses.
         """
-        warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
-        pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
-
         return pulumi.get(self, "suspend_triggers")
 
     @property
