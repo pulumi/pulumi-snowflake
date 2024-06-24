@@ -241,13 +241,11 @@ class ProcedureArgs:
 
     @property
     @pulumi.getter(name="returnBehavior")
+    @_utilities.deprecated("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
     def return_behavior(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the behavior of the function when returning results
         """
-        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
-        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
-
         return pulumi.get(self, "return_behavior")
 
     @return_behavior.setter
@@ -475,13 +473,11 @@ class _ProcedureState:
 
     @property
     @pulumi.getter(name="returnBehavior")
+    @_utilities.deprecated("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
     def return_behavior(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the behavior of the function when returning results
         """
-        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
-        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
-
         return pulumi.get(self, "return_behavior")
 
     @return_behavior.setter
@@ -836,13 +832,11 @@ class Procedure(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="returnBehavior")
+    @_utilities.deprecated("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
     def return_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the behavior of the function when returning results
         """
-        warnings.warn("""These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""", DeprecationWarning)
-        pulumi.log.warn("""return_behavior is deprecated: These keywords are deprecated for stored procedures. These keywords are not intended to apply to stored procedures. In a future release, these keywords will be removed from the documentation.""")
-
         return pulumi.get(self, "return_behavior")
 
     @property

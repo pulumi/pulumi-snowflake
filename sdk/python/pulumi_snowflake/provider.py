@@ -338,13 +338,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="browserAuth")
+    @_utilities.deprecated("""Use `authenticator` instead""")
     def browser_auth(self) -> Optional[pulumi.Input[bool]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
         """
-        warnings.warn("""Use `authenticator` instead""", DeprecationWarning)
-        pulumi.log.warn("""browser_auth is deprecated: Use `authenticator` instead""")
-
         return pulumi.get(self, "browser_auth")
 
     @browser_auth.setter
@@ -520,15 +518,13 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthAccessToken")
+    @_utilities.deprecated("""Use `token` instead""")
     def oauth_access_token(self) -> Optional[pulumi.Input[str]]:
         """
         Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
         `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
         environment variable.
         """
-        warnings.warn("""Use `token` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
-
         return pulumi.get(self, "oauth_access_token")
 
     @oauth_access_token.setter
@@ -537,13 +533,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthClientId")
+    @_utilities.deprecated("""Use `token_accessor.0.client_id` instead""")
     def oauth_client_id(self) -> Optional[pulumi.Input[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
-
         return pulumi.get(self, "oauth_client_id")
 
     @oauth_client_id.setter
@@ -552,14 +546,12 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthClientSecret")
+    @_utilities.deprecated("""Use `token_accessor.0.client_secret` instead""")
     def oauth_client_secret(self) -> Optional[pulumi.Input[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
         variable.
         """
-        warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
-
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
@@ -568,13 +560,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthEndpoint")
+    @_utilities.deprecated("""Use `token_accessor.0.token_endpoint` instead""")
     def oauth_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
-
         return pulumi.get(self, "oauth_endpoint")
 
     @oauth_endpoint.setter
@@ -583,14 +573,12 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthRedirectUrl")
+    @_utilities.deprecated("""Use `token_accessor.0.redirect_uri` instead""")
     def oauth_redirect_url(self) -> Optional[pulumi.Input[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
         variable.
         """
-        warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
-
         return pulumi.get(self, "oauth_redirect_url")
 
     @oauth_redirect_url.setter
@@ -599,6 +587,7 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="oauthRefreshToken")
+    @_utilities.deprecated("""Use `token_accessor.0.refresh_token` instead""")
     def oauth_refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
         Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
@@ -606,9 +595,6 @@ class ProviderArgs:
         `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
         environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
-
         return pulumi.get(self, "oauth_refresh_token")
 
     @oauth_refresh_token.setter
@@ -733,14 +719,12 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="privateKeyPath")
+    @_utilities.deprecated("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
     def private_key_path(self) -> Optional[pulumi.Input[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
         `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
-        warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
-        pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
-
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
@@ -774,6 +758,7 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Specify the region as part of the account parameter""")
     def region(self) -> Optional[pulumi.Input[str]]:
         """
         Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
@@ -783,9 +768,6 @@ class ProviderArgs:
         identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
         in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
-        warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
-        pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
-
         return pulumi.get(self, "region")
 
     @region.setter
@@ -820,13 +802,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="sessionParams")
+    @_utilities.deprecated("""Use `params` instead""")
     def session_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         """
-        warnings.warn("""Use `params` instead""", DeprecationWarning)
-        pulumi.log.warn("""session_params is deprecated: Use `params` instead""")
-
         return pulumi.get(self, "session_params")
 
     @session_params.setter
@@ -869,14 +849,12 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `user` instead of `username`""")
     def username(self) -> Optional[pulumi.Input[str]]:
         """
         Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         Required unless using `profile`.
         """
-        warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
-        pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
-
         return pulumi.get(self, "username")
 
     @username.setter
@@ -1264,65 +1242,56 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="oauthAccessToken")
+    @_utilities.deprecated("""Use `token` instead""")
     def oauth_access_token(self) -> pulumi.Output[Optional[str]]:
         """
         Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
         `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
         environment variable.
         """
-        warnings.warn("""Use `token` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_access_token is deprecated: Use `token` instead""")
-
         return pulumi.get(self, "oauth_access_token")
 
     @property
     @pulumi.getter(name="oauthClientId")
+    @_utilities.deprecated("""Use `token_accessor.0.client_id` instead""")
     def oauth_client_id(self) -> pulumi.Output[Optional[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.client_id` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_client_id is deprecated: Use `token_accessor.0.client_id` instead""")
-
         return pulumi.get(self, "oauth_client_id")
 
     @property
     @pulumi.getter(name="oauthClientSecret")
+    @_utilities.deprecated("""Use `token_accessor.0.client_secret` instead""")
     def oauth_client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
         variable.
         """
-        warnings.warn("""Use `token_accessor.0.client_secret` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_client_secret is deprecated: Use `token_accessor.0.client_secret` instead""")
-
         return pulumi.get(self, "oauth_client_secret")
 
     @property
     @pulumi.getter(name="oauthEndpoint")
+    @_utilities.deprecated("""Use `token_accessor.0.token_endpoint` instead""")
     def oauth_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.token_endpoint` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_endpoint is deprecated: Use `token_accessor.0.token_endpoint` instead""")
-
         return pulumi.get(self, "oauth_endpoint")
 
     @property
     @pulumi.getter(name="oauthRedirectUrl")
+    @_utilities.deprecated("""Use `token_accessor.0.redirect_uri` instead""")
     def oauth_redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
         variable.
         """
-        warnings.warn("""Use `token_accessor.0.redirect_uri` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_redirect_url is deprecated: Use `token_accessor.0.redirect_uri` instead""")
-
         return pulumi.get(self, "oauth_redirect_url")
 
     @property
     @pulumi.getter(name="oauthRefreshToken")
+    @_utilities.deprecated("""Use `token_accessor.0.refresh_token` instead""")
     def oauth_refresh_token(self) -> pulumi.Output[Optional[str]]:
         """
         Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
@@ -1330,9 +1299,6 @@ class Provider(pulumi.ProviderResource):
         `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
         environment variable.
         """
-        warnings.warn("""Use `token_accessor.0.refresh_token` instead""", DeprecationWarning)
-        pulumi.log.warn("""oauth_refresh_token is deprecated: Use `token_accessor.0.refresh_token` instead""")
-
         return pulumi.get(self, "oauth_refresh_token")
 
     @property
@@ -1382,14 +1348,12 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="privateKeyPath")
+    @_utilities.deprecated("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
     def private_key_path(self) -> pulumi.Output[Optional[str]]:
         """
         Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
         `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
         """
-        warnings.warn("""use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""", DeprecationWarning)
-        pulumi.log.warn("""private_key_path is deprecated: use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead""")
-
         return pulumi.get(self, "private_key_path")
 
     @property
@@ -1411,6 +1375,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Specify the region as part of the account parameter""")
     def region(self) -> pulumi.Output[Optional[str]]:
         """
         Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
@@ -1420,9 +1385,6 @@ class Provider(pulumi.ProviderResource):
         identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
         in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
         """
-        warnings.warn("""Specify the region as part of the account parameter""", DeprecationWarning)
-        pulumi.log.warn("""region is deprecated: Specify the region as part of the account parameter""")
-
         return pulumi.get(self, "region")
 
     @property
@@ -1453,14 +1415,12 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `user` instead of `username`""")
     def username(self) -> pulumi.Output[Optional[str]]:
         """
         Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
         Required unless using `profile`.
         """
-        warnings.warn("""Use `user` instead of `username`""", DeprecationWarning)
-        pulumi.log.warn("""username is deprecated: Use `user` instead of `username`""")
-
         return pulumi.get(self, "username")
 
     @property

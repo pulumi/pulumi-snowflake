@@ -93,13 +93,11 @@ class TagAssociationArgs:
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -167,13 +165,11 @@ class _TagAssociationState:
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -490,13 +486,11 @@ class TagAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @property

@@ -144,7 +144,7 @@ class Share(pulumi.CustomResource):
             comment="cool comment",
             accounts=["organizationName.accountName"])
         example = snowflake.Database("example", name="test",
-        opts=pulumi.ResourceOptions(depends_on=[test]))
+        opts = pulumi.ResourceOptions(depends_on=[test]))
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class Share(pulumi.CustomResource):
             comment="cool comment",
             accounts=["organizationName.accountName"])
         example = snowflake.Database("example", name="test",
-        opts=pulumi.ResourceOptions(depends_on=[test]))
+        opts = pulumi.ResourceOptions(depends_on=[test]))
         ```
 
         ## Import

@@ -255,13 +255,11 @@ class WarehouseArgs:
 
     @property
     @pulumi.getter(name="waitForProvisioning")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
     def wait_for_provisioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
-        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
-        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
-
         return pulumi.get(self, "wait_for_provisioning")
 
     @wait_for_provisioning.setter
@@ -537,13 +535,11 @@ class _WarehouseState:
 
     @property
     @pulumi.getter(name="waitForProvisioning")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
     def wait_for_provisioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
-        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
-        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
-
         return pulumi.get(self, "wait_for_provisioning")
 
     @wait_for_provisioning.setter
@@ -904,13 +900,11 @@ class Warehouse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="waitForProvisioning")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
     def wait_for_provisioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
         """
-        warnings.warn("""This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""", DeprecationWarning)
-        pulumi.log.warn("""wait_for_provisioning is deprecated: This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.""")
-
         return pulumi.get(self, "wait_for_provisioning")
 
     @property
