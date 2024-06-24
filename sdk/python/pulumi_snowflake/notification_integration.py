@@ -121,13 +121,11 @@ class NotificationIntegrationArgs:
 
     @property
     @pulumi.getter(name="awsSqsArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_arn(self) -> Optional[pulumi.Input[str]]:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
@@ -136,13 +134,11 @@ class NotificationIntegrationArgs:
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         AWS IAM role ARN for notification integration to assume
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
@@ -187,13 +183,11 @@ class NotificationIntegrationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def direction(self) -> Optional[pulumi.Input[str]]:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -244,13 +238,11 @@ class NotificationIntegrationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         A type of integration
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "type")
 
     @type.setter
@@ -411,13 +403,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter(name="awsSqsArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_arn(self) -> Optional[pulumi.Input[str]]:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
@@ -426,13 +416,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter(name="awsSqsExternalId")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_external_id(self) -> Optional[pulumi.Input[str]]:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_external_id is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_external_id")
 
     @aws_sqs_external_id.setter
@@ -441,13 +429,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter(name="awsSqsIamUserArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_iam_user_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_iam_user_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @aws_sqs_iam_user_arn.setter
@@ -456,13 +442,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         AWS IAM role ARN for notification integration to assume
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
@@ -519,13 +503,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def direction(self) -> Optional[pulumi.Input[str]]:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -600,13 +582,11 @@ class _NotificationIntegrationState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         A type of integration
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "type")
 
     @type.setter
@@ -879,46 +859,38 @@ class NotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsSqsArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_arn(self) -> pulumi.Output[Optional[str]]:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_arn")
 
     @property
     @pulumi.getter(name="awsSqsExternalId")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_external_id(self) -> pulumi.Output[str]:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_external_id is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_external_id")
 
     @property
     @pulumi.getter(name="awsSqsIamUserArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_iam_user_arn(self) -> pulumi.Output[str]:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_iam_user_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @property
     @pulumi.getter(name="awsSqsRoleArn")
+    @_utilities.deprecated("""No longer supported notification method""")
     def aws_sqs_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         AWS IAM role ARN for notification integration to assume
         """
-        warnings.warn("""No longer supported notification method""", DeprecationWarning)
-        pulumi.log.warn("""aws_sqs_role_arn is deprecated: No longer supported notification method""")
-
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @property
@@ -955,13 +927,11 @@ class NotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def direction(self) -> pulumi.Output[Optional[str]]:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""direction is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "direction")
 
     @property
@@ -1008,12 +978,10 @@ class NotificationIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> pulumi.Output[Optional[str]]:
         """
         A type of integration
         """
-        warnings.warn("""Will be removed - it is added automatically on the SDK level.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: Will be removed - it is added automatically on the SDK level.""")
-
         return pulumi.get(self, "type")
 

@@ -106,13 +106,11 @@ class TableConstraintArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -288,13 +286,11 @@ class _TableConstraintState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -751,13 +747,11 @@ class TableConstraint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> pulumi.Output[Optional[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @property

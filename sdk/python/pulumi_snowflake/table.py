@@ -161,13 +161,11 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -176,13 +174,11 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -349,13 +345,11 @@ class _TableState:
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -388,13 +382,11 @@ class _TableState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -757,13 +749,11 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> pulumi.Output[Optional['outputs.TablePrimaryKey']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @property
@@ -784,12 +774,10 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TableTag']]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
