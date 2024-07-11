@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetDatabasesResult',
@@ -22,41 +23,36 @@ class GetDatabasesResult:
     """
     A collection of values returned by getDatabases.
     """
-    def __init__(__self__, databases=None, history=None, id=None, pattern=None, starts_with=None, terse=None):
+    def __init__(__self__, databases=None, id=None, like=None, limit=None, starts_with=None, with_describe=None, with_parameters=None):
         if databases and not isinstance(databases, list):
             raise TypeError("Expected argument 'databases' to be a list")
         pulumi.set(__self__, "databases", databases)
-        if history and not isinstance(history, bool):
-            raise TypeError("Expected argument 'history' to be a bool")
-        pulumi.set(__self__, "history", history)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pattern and not isinstance(pattern, str):
-            raise TypeError("Expected argument 'pattern' to be a str")
-        pulumi.set(__self__, "pattern", pattern)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if limit and not isinstance(limit, dict):
+            raise TypeError("Expected argument 'limit' to be a dict")
+        pulumi.set(__self__, "limit", limit)
         if starts_with and not isinstance(starts_with, str):
             raise TypeError("Expected argument 'starts_with' to be a str")
         pulumi.set(__self__, "starts_with", starts_with)
-        if terse and not isinstance(terse, bool):
-            raise TypeError("Expected argument 'terse' to be a bool")
-        pulumi.set(__self__, "terse", terse)
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
+        if with_parameters and not isinstance(with_parameters, bool):
+            raise TypeError("Expected argument 'with_parameters' to be a bool")
+        pulumi.set(__self__, "with_parameters", with_parameters)
 
     @property
     @pulumi.getter
     def databases(self) -> Sequence['outputs.GetDatabasesDatabaseResult']:
         """
-        Snowflake databases
+        Holds the aggregated output of all database details queries.
         """
         return pulumi.get(self, "databases")
-
-    @property
-    @pulumi.getter
-    def history(self) -> Optional[bool]:
-        """
-        Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-        """
-        return pulumi.get(self, "history")
 
     @property
     @pulumi.getter
@@ -68,27 +64,43 @@ class GetDatabasesResult:
 
     @property
     @pulumi.getter
-    def pattern(self) -> Optional[str]:
+    def like(self) -> Optional[str]:
         """
-        Optionally filters the databases by a pattern
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "pattern")
+        return pulumi.get(self, "like")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.GetDatabasesLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
+        return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[str]:
         """
-        Optionally filters the databases by a pattern
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
         """
         return pulumi.get(self, "starts_with")
 
     @property
-    @pulumi.getter
-    def terse(self) -> Optional[bool]:
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[bool]:
         """
-        Optionally returns only the columns `created_on` and `name` in the results
+        Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         """
-        return pulumi.get(self, "terse")
+        return pulumi.get(self, "with_describe")
+
+    @property
+    @pulumi.getter(name="withParameters")
+    def with_parameters(self) -> Optional[bool]:
+        """
+        Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_parameters")
 
 
 class AwaitableGetDatabasesResult(GetDatabasesResult):
@@ -98,71 +110,68 @@ class AwaitableGetDatabasesResult(GetDatabasesResult):
             yield self
         return GetDatabasesResult(
             databases=self.databases,
-            history=self.history,
             id=self.id,
-            pattern=self.pattern,
+            like=self.like,
+            limit=self.limit,
             starts_with=self.starts_with,
-            terse=self.terse)
+            with_describe=self.with_describe,
+            with_parameters=self.with_parameters)
 
 
-def get_databases(history: Optional[bool] = None,
-                  pattern: Optional[str] = None,
+def get_databases(like: Optional[str] = None,
+                  limit: Optional[pulumi.InputType['GetDatabasesLimitArgs']] = None,
                   starts_with: Optional[str] = None,
-                  terse: Optional[bool] = None,
+                  with_describe: Optional[bool] = None,
+                  with_parameters: Optional[bool] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesResult:
     """
-    ## Example Usage
+    !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_databases()
-    ```
+    Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param bool history: Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-    :param str pattern: Optionally filters the databases by a pattern
-    :param str starts_with: Optionally filters the databases by a pattern
-    :param bool terse: Optionally returns only the columns `created_on` and `name` in the results
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param pulumi.InputType['GetDatabasesLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+    :param bool with_parameters: Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['history'] = history
-    __args__['pattern'] = pattern
+    __args__['like'] = like
+    __args__['limit'] = limit
     __args__['startsWith'] = starts_with
-    __args__['terse'] = terse
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getDatabases:getDatabases', __args__, opts=opts, typ=GetDatabasesResult).value
 
     return AwaitableGetDatabasesResult(
         databases=pulumi.get(__ret__, 'databases'),
-        history=pulumi.get(__ret__, 'history'),
         id=pulumi.get(__ret__, 'id'),
-        pattern=pulumi.get(__ret__, 'pattern'),
+        like=pulumi.get(__ret__, 'like'),
+        limit=pulumi.get(__ret__, 'limit'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
-        terse=pulumi.get(__ret__, 'terse'))
+        with_describe=pulumi.get(__ret__, 'with_describe'),
+        with_parameters=pulumi.get(__ret__, 'with_parameters'))
 
 
 @_utilities.lift_output_func(get_databases)
-def get_databases_output(history: Optional[pulumi.Input[Optional[bool]]] = None,
-                         pattern: Optional[pulumi.Input[Optional[str]]] = None,
+def get_databases_output(like: Optional[pulumi.Input[Optional[str]]] = None,
+                         limit: Optional[pulumi.Input[Optional[pulumi.InputType['GetDatabasesLimitArgs']]]] = None,
                          starts_with: Optional[pulumi.Input[Optional[str]]] = None,
-                         terse: Optional[pulumi.Input[Optional[bool]]] = None,
+                         with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
+                         with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesResult]:
     """
-    ## Example Usage
+    !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_databases()
-    ```
+    Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param bool history: Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-    :param str pattern: Optionally filters the databases by a pattern
-    :param str starts_with: Optionally filters the databases by a pattern
-    :param bool terse: Optionally returns only the columns `created_on` and `name` in the results
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param pulumi.InputType['GetDatabasesLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+    :param bool with_parameters: Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     ...

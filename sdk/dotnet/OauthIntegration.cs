@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.OauthIntegrationForCustomClients or snowflake.OauthIntegrationForPartnerApplications instead. &lt;deprecation&gt;
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -11,56 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetWarehouses(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-func GetWarehouses(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetWarehousesResult, error) {
+// Datasource used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+func GetWarehouses(ctx *pulumi.Context, args *GetWarehousesArgs, opts ...pulumi.InvokeOption) (*GetWarehousesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWarehousesResult
-	err := ctx.Invoke("snowflake:index/getWarehouses:getWarehouses", nil, &rv, opts...)
+	err := ctx.Invoke("snowflake:index/getWarehouses:getWarehouses", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getWarehouses.
+type GetWarehousesArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
+}
+
 // A collection of values returned by getWarehouses.
 type GetWarehousesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The warehouses in the database
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Holds the aggregated output of all warehouse details queries.
 	Warehouses []GetWarehousesWarehouse `pulumi:"warehouses"`
+	// Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
-func GetWarehousesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetWarehousesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetWarehousesResult, error) {
-		r, err := GetWarehouses(ctx, opts...)
-		var s GetWarehousesResult
-		if r != nil {
-			s = *r
-		}
-		return s, err
-	}).(GetWarehousesResultOutput)
+func GetWarehousesOutput(ctx *pulumi.Context, args GetWarehousesOutputArgs, opts ...pulumi.InvokeOption) GetWarehousesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetWarehousesResult, error) {
+			args := v.(GetWarehousesArgs)
+			r, err := GetWarehouses(ctx, &args, opts...)
+			var s GetWarehousesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetWarehousesResultOutput)
+}
+
+// A collection of arguments for invoking getWarehouses.
+type GetWarehousesOutputArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
+}
+
+func (GetWarehousesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWarehousesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getWarehouses.
@@ -83,9 +95,24 @@ func (o GetWarehousesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWarehousesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The warehouses in the database
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetWarehousesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWarehousesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all warehouse details queries.
 func (o GetWarehousesResultOutput) Warehouses() GetWarehousesWarehouseArrayOutput {
 	return o.ApplyT(func(v GetWarehousesResult) []GetWarehousesWarehouse { return v.Warehouses }).(GetWarehousesWarehouseArrayOutput)
+}
+
+// Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetWarehousesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetWarehousesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
+}
+
+// Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+func (o GetWarehousesResultOutput) WithParameters() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetWarehousesResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

@@ -24,7 +24,7 @@ type ManagedAccount struct {
 
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringOutput `pulumi:"adminName"`
-	// Password for the initial user in the managed account.
+	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// Cloud in which the managed account is located.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -89,7 +89,7 @@ func GetManagedAccount(ctx *pulumi.Context,
 type managedAccountState struct {
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName *string `pulumi:"adminName"`
-	// Password for the initial user in the managed account.
+	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Cloud in which the managed account is located.
 	Cloud *string `pulumi:"cloud"`
@@ -112,7 +112,7 @@ type managedAccountState struct {
 type ManagedAccountState struct {
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringPtrInput
-	// Password for the initial user in the managed account.
+	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringPtrInput
 	// Cloud in which the managed account is located.
 	Cloud pulumi.StringPtrInput
@@ -139,7 +139,7 @@ func (ManagedAccountState) ElementType() reflect.Type {
 type managedAccountArgs struct {
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName string `pulumi:"adminName"`
-	// Password for the initial user in the managed account.
+	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword string `pulumi:"adminPassword"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -153,7 +153,7 @@ type managedAccountArgs struct {
 type ManagedAccountArgs struct {
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName pulumi.StringInput
-	// Password for the initial user in the managed account.
+	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -255,7 +255,7 @@ func (o ManagedAccountOutput) AdminName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminName }).(pulumi.StringOutput)
 }
 
-// Password for the initial user in the managed account.
+// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 func (o ManagedAccountOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminPassword }).(pulumi.StringOutput)
 }

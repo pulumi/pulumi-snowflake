@@ -5,36 +5,51 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetWarehousesWarehouseDescribeOutput;
+import com.pulumi.snowflake.outputs.GetWarehousesWarehouseParameter;
+import com.pulumi.snowflake.outputs.GetWarehousesWarehouseShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetWarehousesWarehouse {
-    private String comment;
-    private String name;
-    private String scalingPolicy;
-    private String size;
-    private String state;
-    private String type;
+    /**
+     * @return Holds the output of DESCRIBE WAREHOUSE.
+     * 
+     */
+    private List<GetWarehousesWarehouseDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+     * 
+     */
+    private List<GetWarehousesWarehouseParameter> parameters;
+    /**
+     * @return Holds the output of SHOW WAREHOUSES.
+     * 
+     */
+    private List<GetWarehousesWarehouseShowOutput> showOutputs;
 
     private GetWarehousesWarehouse() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE WAREHOUSE.
+     * 
+     */
+    public List<GetWarehousesWarehouseDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String name() {
-        return this.name;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+     * 
+     */
+    public List<GetWarehousesWarehouseParameter> parameters() {
+        return this.parameters;
     }
-    public String scalingPolicy() {
-        return this.scalingPolicy;
-    }
-    public String size() {
-        return this.size;
-    }
-    public String state() {
-        return this.state;
-    }
-    public String type() {
-        return this.type;
+    /**
+     * @return Holds the output of SHOW WAREHOUSES.
+     * 
+     */
+    public List<GetWarehousesWarehouseShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -46,79 +61,55 @@ public final class GetWarehousesWarehouse {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String name;
-        private String scalingPolicy;
-        private String size;
-        private String state;
-        private String type;
+        private List<GetWarehousesWarehouseDescribeOutput> describeOutputs;
+        private List<GetWarehousesWarehouseParameter> parameters;
+        private List<GetWarehousesWarehouseShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetWarehousesWarehouse defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.name = defaults.name;
-    	      this.scalingPolicy = defaults.scalingPolicy;
-    	      this.size = defaults.size;
-    	      this.state = defaults.state;
-    	      this.type = defaults.type;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "comment");
+        public Builder describeOutputs(List<GetWarehousesWarehouseDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "name");
-            }
-            this.name = name;
-            return this;
+        public Builder describeOutputs(GetWarehousesWarehouseDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder scalingPolicy(String scalingPolicy) {
-            if (scalingPolicy == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "scalingPolicy");
+        public Builder parameters(List<GetWarehousesWarehouseParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "parameters");
             }
-            this.scalingPolicy = scalingPolicy;
+            this.parameters = parameters;
             return this;
         }
-        @CustomType.Setter
-        public Builder size(String size) {
-            if (size == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "size");
-            }
-            this.size = size;
-            return this;
+        public Builder parameters(GetWarehousesWarehouseParameter... parameters) {
+            return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder state(String state) {
-            if (state == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "state");
+        public Builder showOutputs(List<GetWarehousesWarehouseShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "showOutputs");
             }
-            this.state = state;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder type(String type) {
-            if (type == null) {
-              throw new MissingRequiredPropertyException("GetWarehousesWarehouse", "type");
-            }
-            this.type = type;
-            return this;
+        public Builder showOutputs(GetWarehousesWarehouseShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetWarehousesWarehouse build() {
             final var _resultValue = new GetWarehousesWarehouse();
-            _resultValue.comment = comment;
-            _resultValue.name = name;
-            _resultValue.scalingPolicy = scalingPolicy;
-            _resultValue.size = size;
-            _resultValue.state = state;
-            _resultValue.type = type;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

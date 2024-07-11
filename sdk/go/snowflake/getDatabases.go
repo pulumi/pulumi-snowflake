@@ -11,29 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetDatabases(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `startsWith`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 func GetDatabases(ctx *pulumi.Context, args *GetDatabasesArgs, opts ...pulumi.InvokeOption) (*GetDatabasesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatabasesResult
@@ -46,30 +26,34 @@ func GetDatabases(ctx *pulumi.Context, args *GetDatabasesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDatabases.
 type GetDatabasesArgs struct {
-	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
-	History *bool `pulumi:"history"`
-	// Optionally filters the databases by a pattern
-	Pattern *string `pulumi:"pattern"`
-	// Optionally filters the databases by a pattern
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetDatabasesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Optionally returns only the columns `createdOn` and `name` in the results
-	Terse *bool `pulumi:"terse"`
+	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getDatabases.
 type GetDatabasesResult struct {
-	// Snowflake databases
+	// Holds the aggregated output of all database details queries.
 	Databases []GetDatabasesDatabase `pulumi:"databases"`
-	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
-	History *bool `pulumi:"history"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Optionally filters the databases by a pattern
-	Pattern *string `pulumi:"pattern"`
-	// Optionally filters the databases by a pattern
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetDatabasesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Optionally returns only the columns `createdOn` and `name` in the results
-	Terse *bool `pulumi:"terse"`
+	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 func GetDatabasesOutput(ctx *pulumi.Context, args GetDatabasesOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesResultOutput {
@@ -87,14 +71,16 @@ func GetDatabasesOutput(ctx *pulumi.Context, args GetDatabasesOutputArgs, opts .
 
 // A collection of arguments for invoking getDatabases.
 type GetDatabasesOutputArgs struct {
-	// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
-	History pulumi.BoolPtrInput `pulumi:"history"`
-	// Optionally filters the databases by a pattern
-	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
-	// Optionally filters the databases by a pattern
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetDatabasesLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// Optionally returns only the columns `createdOn` and `name` in the results
-	Terse pulumi.BoolPtrInput `pulumi:"terse"`
+	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
 func (GetDatabasesOutputArgs) ElementType() reflect.Type {
@@ -116,14 +102,9 @@ func (o GetDatabasesResultOutput) ToGetDatabasesResultOutputWithContext(ctx cont
 	return o
 }
 
-// Snowflake databases
+// Holds the aggregated output of all database details queries.
 func (o GetDatabasesResultOutput) Databases() GetDatabasesDatabaseArrayOutput {
 	return o.ApplyT(func(v GetDatabasesResult) []GetDatabasesDatabase { return v.Databases }).(GetDatabasesDatabaseArrayOutput)
-}
-
-// Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
-func (o GetDatabasesResultOutput) History() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.History }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -131,19 +112,29 @@ func (o GetDatabasesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabasesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Optionally filters the databases by a pattern
-func (o GetDatabasesResultOutput) Pattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDatabasesResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetDatabasesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Optionally filters the databases by a pattern
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetDatabasesResultOutput) Limit() GetDatabasesLimitPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *GetDatabasesLimit { return v.Limit }).(GetDatabasesLimitPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetDatabasesResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
-// Optionally returns only the columns `createdOn` and `name` in the results
-func (o GetDatabasesResultOutput) Terse() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.Terse }).(pulumi.BoolPtrOutput)
+// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetDatabasesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
+}
+
+// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+func (o GetDatabasesResultOutput) WithParameters() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

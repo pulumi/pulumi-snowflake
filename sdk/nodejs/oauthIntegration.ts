@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.OauthIntegrationForCustomClients or snowflake.OauthIntegrationForPartnerApplications instead. <deprecation>
+ *
  * ## Example Usage
  *
  * ```typescript

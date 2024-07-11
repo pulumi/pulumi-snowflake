@@ -10,6 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.ExternalOauthIntegrationArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ExternalOauthIntegrationState;
+import com.pulumi.snowflake.outputs.ExternalOauthIntegrationDescribeOutput;
+import com.pulumi.snowflake.outputs.ExternalOauthIntegrationRelatedParameter;
+import com.pulumi.snowflake.outputs.ExternalOauthIntegrationShowOutput;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -17,115 +20,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+ * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ExternalOauthIntegration;
- * import com.pulumi.snowflake.ExternalOauthIntegrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var azure = new ExternalOauthIntegration("azure", ExternalOauthIntegrationArgs.builder()
- *             .name("AZURE_POWERBI")
- *             .type("AZURE")
- *             .enabled(true)
- *             .issuer("https://sts.windows.net/00000000-0000-0000-0000-000000000000")
- *             .snowflakeUserMappingAttribute("LOGIN_NAME")
- *             .jwsKeysUrls("https://login.windows.net/common/discovery/keys")
- *             .audienceUrls("https://analysis.windows.net/powerbi/connector/Snowflake")
- *             .tokenUserMappingClaims("upn")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ * Resource used to manage external oauth security integrations. For more information, check [documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
  * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+ * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example &#34;name&#34;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/externalOauthIntegration:ExternalOauthIntegration")
 public class ExternalOauthIntegration extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the list of roles that the client can set as the primary role.
-     * 
-     */
-    @Export(name="allowedRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> allowedRoles;
-
-    /**
-     * @return Specifies the list of roles that the client can set as the primary role.
-     * 
-     */
-    public Output<Optional<List<String>>> allowedRoles() {
-        return Codegen.optional(this.allowedRoles);
-    }
-    /**
-     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-     * 
-     */
-    @Export(name="anyRoleMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> anyRoleMode;
-
-    /**
-     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-     * 
-     */
-    public Output<Optional<String>> anyRoleMode() {
-        return Codegen.optional(this.anyRoleMode);
-    }
-    /**
-     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-     * 
-     */
-    @Export(name="audienceUrls", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> audienceUrls;
-
-    /**
-     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-     * 
-     */
-    public Output<Optional<List<String>>> audienceUrls() {
-        return Codegen.optional(this.audienceUrls);
-    }
-    /**
-     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-     * 
-     */
-    @Export(name="blockedRoles", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> blockedRoles;
-
-    /**
-     * @return Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-     * 
-     */
-    public Output<Optional<List<String>>> blockedRoles() {
-        return Codegen.optional(this.blockedRoles);
-    }
     /**
      * Specifies a comment for the OAuth integration.
      * 
@@ -141,18 +48,18 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.comment);
     }
     /**
-     * Date and time when the External OAUTH integration was created.
+     * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      * 
      */
-    @Export(name="createdOn", refs={String.class}, tree="[0]")
-    private Output<String> createdOn;
+    @Export(name="describeOutputs", refs={List.class,ExternalOauthIntegrationDescribeOutput.class}, tree="[0,1]")
+    private Output<List<ExternalOauthIntegrationDescribeOutput>> describeOutputs;
 
     /**
-     * @return Date and time when the External OAUTH integration was created.
+     * @return Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      * 
      */
-    public Output<String> createdOn() {
-        return this.createdOn;
+    public Output<List<ExternalOauthIntegrationDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
      * Specifies whether to initiate operation of the integration or suspend it.
@@ -169,32 +76,186 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return this.enabled;
     }
     /**
+     * Specifies the list of roles that the client can set as the primary role.
+     * 
+     */
+    @Export(name="externalOauthAllowedRolesLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> externalOauthAllowedRolesLists;
+
+    /**
+     * @return Specifies the list of roles that the client can set as the primary role.
+     * 
+     */
+    public Output<Optional<List<String>>> externalOauthAllowedRolesLists() {
+        return Codegen.optional(this.externalOauthAllowedRolesLists);
+    }
+    /**
+     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * 
+     */
+    @Export(name="externalOauthAnyRoleMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalOauthAnyRoleMode;
+
+    /**
+     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * 
+     */
+    public Output<Optional<String>> externalOauthAnyRoleMode() {
+        return Codegen.optional(this.externalOauthAnyRoleMode);
+    }
+    /**
+     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+     * 
+     */
+    @Export(name="externalOauthAudienceLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> externalOauthAudienceLists;
+
+    /**
+     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+     * 
+     */
+    public Output<Optional<List<String>>> externalOauthAudienceLists() {
+        return Codegen.optional(this.externalOauthAudienceLists);
+    }
+    /**
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * 
+     */
+    @Export(name="externalOauthBlockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> externalOauthBlockedRolesLists;
+
+    /**
+     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * 
+     */
+    public Output<Optional<List<String>>> externalOauthBlockedRolesLists() {
+        return Codegen.optional(this.externalOauthBlockedRolesLists);
+    }
+    /**
      * Specifies the URL to define the OAuth 2.0 authorization server.
      * 
      */
-    @Export(name="issuer", refs={String.class}, tree="[0]")
-    private Output<String> issuer;
+    @Export(name="externalOauthIssuer", refs={String.class}, tree="[0]")
+    private Output<String> externalOauthIssuer;
 
     /**
      * @return Specifies the URL to define the OAuth 2.0 authorization server.
      * 
      */
-    public Output<String> issuer() {
-        return this.issuer;
+    public Output<String> externalOauthIssuer() {
+        return this.externalOauthIssuer;
     }
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
-    @Export(name="jwsKeysUrls", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> jwsKeysUrls;
+    @Export(name="externalOauthJwsKeysUrls", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> externalOauthJwsKeysUrls;
 
     /**
-     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
-    public Output<Optional<List<String>>> jwsKeysUrls() {
-        return Codegen.optional(this.jwsKeysUrls);
+    public Output<Optional<List<String>>> externalOauthJwsKeysUrls() {
+        return Codegen.optional(this.externalOauthJwsKeysUrls);
+    }
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Export(name="externalOauthRsaPublicKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalOauthRsaPublicKey;
+
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Output<Optional<String>> externalOauthRsaPublicKey() {
+        return Codegen.optional(this.externalOauthRsaPublicKey);
+    }
+    /**
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Export(name="externalOauthRsaPublicKey2", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalOauthRsaPublicKey2;
+
+    /**
+     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Output<Optional<String>> externalOauthRsaPublicKey2() {
+        return Codegen.optional(this.externalOauthRsaPublicKey2);
+    }
+    /**
+     * Specifies the scope delimiter in the authorization token.
+     * 
+     */
+    @Export(name="externalOauthScopeDelimiter", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalOauthScopeDelimiter;
+
+    /**
+     * @return Specifies the scope delimiter in the authorization token.
+     * 
+     */
+    public Output<Optional<String>> externalOauthScopeDelimiter() {
+        return Codegen.optional(this.externalOauthScopeDelimiter);
+    }
+    /**
+     * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Export(name="externalOauthScopeMappingAttribute", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalOauthScopeMappingAttribute;
+
+    /**
+     * @return Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Output<Optional<String>> externalOauthScopeMappingAttribute() {
+        return Codegen.optional(this.externalOauthScopeMappingAttribute);
+    }
+    /**
+     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * 
+     */
+    @Export(name="externalOauthSnowflakeUserMappingAttribute", refs={String.class}, tree="[0]")
+    private Output<String> externalOauthSnowflakeUserMappingAttribute;
+
+    /**
+     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * 
+     */
+    public Output<String> externalOauthSnowflakeUserMappingAttribute() {
+        return this.externalOauthSnowflakeUserMappingAttribute;
+    }
+    /**
+     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Export(name="externalOauthTokenUserMappingClaims", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> externalOauthTokenUserMappingClaims;
+
+    /**
+     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Output<List<String>> externalOauthTokenUserMappingClaims() {
+        return this.externalOauthTokenUserMappingClaims;
+    }
+    /**
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * 
+     */
+    @Export(name="externalOauthType", refs={String.class}, tree="[0]")
+    private Output<String> externalOauthType;
+
+    /**
+     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * 
+     */
+    public Output<String> externalOauthType() {
+        return this.externalOauthType;
     }
     /**
      * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
@@ -211,102 +272,32 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return this.name;
     }
     /**
-     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+     * Paramteres related to this security integration.
      * 
      */
-    @Export(name="rsaPublicKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> rsaPublicKey;
+    @Export(name="relatedParameters", refs={List.class,ExternalOauthIntegrationRelatedParameter.class}, tree="[0,1]")
+    private Output<List<ExternalOauthIntegrationRelatedParameter>> relatedParameters;
 
     /**
-     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+     * @return Paramteres related to this security integration.
      * 
      */
-    public Output<Optional<String>> rsaPublicKey() {
-        return Codegen.optional(this.rsaPublicKey);
+    public Output<List<ExternalOauthIntegrationRelatedParameter>> relatedParameters() {
+        return this.relatedParameters;
     }
     /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+     * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      * 
      */
-    @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> rsaPublicKey2;
+    @Export(name="showOutputs", refs={List.class,ExternalOauthIntegrationShowOutput.class}, tree="[0,1]")
+    private Output<List<ExternalOauthIntegrationShowOutput>> showOutputs;
 
     /**
-     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+     * @return Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      * 
      */
-    public Output<Optional<String>> rsaPublicKey2() {
-        return Codegen.optional(this.rsaPublicKey2);
-    }
-    /**
-     * Specifies the scope delimiter in the authorization token.
-     * 
-     */
-    @Export(name="scopeDelimiter", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> scopeDelimiter;
-
-    /**
-     * @return Specifies the scope delimiter in the authorization token.
-     * 
-     */
-    public Output<Optional<String>> scopeDelimiter() {
-        return Codegen.optional(this.scopeDelimiter);
-    }
-    /**
-     * Specifies the access token claim to map the access token to an account role.
-     * 
-     */
-    @Export(name="scopeMappingAttribute", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> scopeMappingAttribute;
-
-    /**
-     * @return Specifies the access token claim to map the access token to an account role.
-     * 
-     */
-    public Output<Optional<String>> scopeMappingAttribute() {
-        return Codegen.optional(this.scopeMappingAttribute);
-    }
-    /**
-     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-     * 
-     */
-    @Export(name="snowflakeUserMappingAttribute", refs={String.class}, tree="[0]")
-    private Output<String> snowflakeUserMappingAttribute;
-
-    /**
-     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-     * 
-     */
-    public Output<String> snowflakeUserMappingAttribute() {
-        return this.snowflakeUserMappingAttribute;
-    }
-    /**
-     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-     * 
-     */
-    @Export(name="tokenUserMappingClaims", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> tokenUserMappingClaims;
-
-    /**
-     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-     * 
-     */
-    public Output<List<String>> tokenUserMappingClaims() {
-        return this.tokenUserMappingClaims;
-    }
-    /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-     * 
-     */
-    @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
-
-    /**
-     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-     * 
-     */
-    public Output<String> type() {
-        return this.type;
+    public Output<List<ExternalOauthIntegrationShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

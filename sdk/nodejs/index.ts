@@ -10,11 +10,6 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
-export { AccountGrantArgs, AccountGrantState } from "./accountGrant";
-export type AccountGrant = import("./accountGrant").AccountGrant;
-export const AccountGrant: typeof import("./accountGrant").AccountGrant = null as any;
-utilities.lazyLoad(exports, ["AccountGrant"], () => require("./accountGrant"));
-
 export { AccountParameterArgs, AccountParameterState } from "./accountParameter";
 export type AccountParameter = import("./accountParameter").AccountParameter;
 export const AccountParameter: typeof import("./accountParameter").AccountParameter = null as any;
@@ -30,20 +25,40 @@ export type Alert = import("./alert").Alert;
 export const Alert: typeof import("./alert").Alert = null as any;
 utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
 
+export { ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs, ApiAuthenticationIntegrationWithAuthorizationCodeGrantState } from "./apiAuthenticationIntegrationWithAuthorizationCodeGrant";
+export type ApiAuthenticationIntegrationWithAuthorizationCodeGrant = import("./apiAuthenticationIntegrationWithAuthorizationCodeGrant").ApiAuthenticationIntegrationWithAuthorizationCodeGrant;
+export const ApiAuthenticationIntegrationWithAuthorizationCodeGrant: typeof import("./apiAuthenticationIntegrationWithAuthorizationCodeGrant").ApiAuthenticationIntegrationWithAuthorizationCodeGrant = null as any;
+utilities.lazyLoad(exports, ["ApiAuthenticationIntegrationWithAuthorizationCodeGrant"], () => require("./apiAuthenticationIntegrationWithAuthorizationCodeGrant"));
+
+export { ApiAuthenticationIntegrationWithClientCredentialsArgs, ApiAuthenticationIntegrationWithClientCredentialsState } from "./apiAuthenticationIntegrationWithClientCredentials";
+export type ApiAuthenticationIntegrationWithClientCredentials = import("./apiAuthenticationIntegrationWithClientCredentials").ApiAuthenticationIntegrationWithClientCredentials;
+export const ApiAuthenticationIntegrationWithClientCredentials: typeof import("./apiAuthenticationIntegrationWithClientCredentials").ApiAuthenticationIntegrationWithClientCredentials = null as any;
+utilities.lazyLoad(exports, ["ApiAuthenticationIntegrationWithClientCredentials"], () => require("./apiAuthenticationIntegrationWithClientCredentials"));
+
+export { ApiAuthenticationIntegrationWithJwtBearerArgs, ApiAuthenticationIntegrationWithJwtBearerState } from "./apiAuthenticationIntegrationWithJwtBearer";
+export type ApiAuthenticationIntegrationWithJwtBearer = import("./apiAuthenticationIntegrationWithJwtBearer").ApiAuthenticationIntegrationWithJwtBearer;
+export const ApiAuthenticationIntegrationWithJwtBearer: typeof import("./apiAuthenticationIntegrationWithJwtBearer").ApiAuthenticationIntegrationWithJwtBearer = null as any;
+utilities.lazyLoad(exports, ["ApiAuthenticationIntegrationWithJwtBearer"], () => require("./apiAuthenticationIntegrationWithJwtBearer"));
+
 export { ApiIntegrationArgs, ApiIntegrationState } from "./apiIntegration";
 export type ApiIntegration = import("./apiIntegration").ApiIntegration;
 export const ApiIntegration: typeof import("./apiIntegration").ApiIntegration = null as any;
 utilities.lazyLoad(exports, ["ApiIntegration"], () => require("./apiIntegration"));
+
+export { CortexSearchServiceArgs, CortexSearchServiceState } from "./cortexSearchService";
+export type CortexSearchService = import("./cortexSearchService").CortexSearchService;
+export const CortexSearchService: typeof import("./cortexSearchService").CortexSearchService = null as any;
+utilities.lazyLoad(exports, ["CortexSearchService"], () => require("./cortexSearchService"));
 
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
-export { DatabaseGrantArgs, DatabaseGrantState } from "./databaseGrant";
-export type DatabaseGrant = import("./databaseGrant").DatabaseGrant;
-export const DatabaseGrant: typeof import("./databaseGrant").DatabaseGrant = null as any;
-utilities.lazyLoad(exports, ["DatabaseGrant"], () => require("./databaseGrant"));
+export { DatabaseOldArgs, DatabaseOldState } from "./databaseOld";
+export type DatabaseOld = import("./databaseOld").DatabaseOld;
+export const DatabaseOld: typeof import("./databaseOld").DatabaseOld = null as any;
+utilities.lazyLoad(exports, ["DatabaseOld"], () => require("./databaseOld"));
 
 export { DatabaseRoleArgs, DatabaseRoleState } from "./databaseRole";
 export type DatabaseRole = import("./databaseRole").DatabaseRole;
@@ -75,40 +90,20 @@ export type ExternalTable = import("./externalTable").ExternalTable;
 export const ExternalTable: typeof import("./externalTable").ExternalTable = null as any;
 utilities.lazyLoad(exports, ["ExternalTable"], () => require("./externalTable"));
 
-export { ExternalTableGrantArgs, ExternalTableGrantState } from "./externalTableGrant";
-export type ExternalTableGrant = import("./externalTableGrant").ExternalTableGrant;
-export const ExternalTableGrant: typeof import("./externalTableGrant").ExternalTableGrant = null as any;
-utilities.lazyLoad(exports, ["ExternalTableGrant"], () => require("./externalTableGrant"));
-
 export { FailoverGroupArgs, FailoverGroupState } from "./failoverGroup";
 export type FailoverGroup = import("./failoverGroup").FailoverGroup;
 export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
 utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
-
-export { FailoverGroupGrantArgs, FailoverGroupGrantState } from "./failoverGroupGrant";
-export type FailoverGroupGrant = import("./failoverGroupGrant").FailoverGroupGrant;
-export const FailoverGroupGrant: typeof import("./failoverGroupGrant").FailoverGroupGrant = null as any;
-utilities.lazyLoad(exports, ["FailoverGroupGrant"], () => require("./failoverGroupGrant"));
 
 export { FileFormatArgs, FileFormatState } from "./fileFormat";
 export type FileFormat = import("./fileFormat").FileFormat;
 export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
 utilities.lazyLoad(exports, ["FileFormat"], () => require("./fileFormat"));
 
-export { FileFormatGrantArgs, FileFormatGrantState } from "./fileFormatGrant";
-export type FileFormatGrant = import("./fileFormatGrant").FileFormatGrant;
-export const FileFormatGrant: typeof import("./fileFormatGrant").FileFormatGrant = null as any;
-utilities.lazyLoad(exports, ["FileFormatGrant"], () => require("./fileFormatGrant"));
-
 export { FunctionArgs, FunctionState } from "./function";
 export type Function = import("./function").Function;
 export const Function: typeof import("./function").Function = null as any;
 utilities.lazyLoad(exports, ["Function"], () => require("./function"));
-
-export { FunctionGrantArgs, FunctionGrantState } from "./functionGrant";
-export type FunctionGrant = import("./functionGrant").FunctionGrant;
-export const FunctionGrant: typeof import("./functionGrant").FunctionGrant = null as any;
-utilities.lazyLoad(exports, ["FunctionGrant"], () => require("./functionGrant"));
 
 export { GetAccountsArgs, GetAccountsResult, GetAccountsOutputArgs } from "./getAccounts";
 export const getAccounts: typeof import("./getAccounts").getAccounts = null as any;
@@ -119,6 +114,11 @@ export { GetAlertsArgs, GetAlertsResult, GetAlertsOutputArgs } from "./getAlerts
 export const getAlerts: typeof import("./getAlerts").getAlerts = null as any;
 export const getAlertsOutput: typeof import("./getAlerts").getAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./getAlerts"));
+
+export { GetCortexSearchServicesArgs, GetCortexSearchServicesResult, GetCortexSearchServicesOutputArgs } from "./getCortexSearchServices";
+export const getCortexSearchServices: typeof import("./getCortexSearchServices").getCortexSearchServices = null as any;
+export const getCortexSearchServicesOutput: typeof import("./getCortexSearchServices").getCortexSearchServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getCortexSearchServices","getCortexSearchServicesOutput"], () => require("./getCortexSearchServices"));
 
 export { GetCurrentAccountResult } from "./getCurrentAccount";
 export const getCurrentAccount: typeof import("./getCurrentAccount").getCurrentAccount = null as any;
@@ -235,6 +235,11 @@ export const getSchemas: typeof import("./getSchemas").getSchemas = null as any;
 export const getSchemasOutput: typeof import("./getSchemas").getSchemasOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemas","getSchemasOutput"], () => require("./getSchemas"));
 
+export { GetSecurityIntegrationsArgs, GetSecurityIntegrationsResult, GetSecurityIntegrationsOutputArgs } from "./getSecurityIntegrations";
+export const getSecurityIntegrations: typeof import("./getSecurityIntegrations").getSecurityIntegrations = null as any;
+export const getSecurityIntegrationsOutput: typeof import("./getSecurityIntegrations").getSecurityIntegrationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityIntegrations","getSecurityIntegrationsOutput"], () => require("./getSecurityIntegrations"));
+
 export { GetSequencesArgs, GetSequencesResult, GetSequencesOutputArgs } from "./getSequences";
 export const getSequences: typeof import("./getSequences").getSequences = null as any;
 export const getSequencesOutput: typeof import("./getSequences").getSequencesOutput = null as any;
@@ -300,7 +305,7 @@ export const getViews: typeof import("./getViews").getViews = null as any;
 export const getViewsOutput: typeof import("./getViews").getViewsOutput = null as any;
 utilities.lazyLoad(exports, ["getViews","getViewsOutput"], () => require("./getViews"));
 
-export { GetWarehousesResult } from "./getWarehouses";
+export { GetWarehousesArgs, GetWarehousesResult, GetWarehousesOutputArgs } from "./getWarehouses";
 export const getWarehouses: typeof import("./getWarehouses").getWarehouses = null as any;
 export const getWarehousesOutput: typeof import("./getWarehouses").getWarehousesOutput = null as any;
 utilities.lazyLoad(exports, ["getWarehouses","getWarehousesOutput"], () => require("./getWarehouses"));
@@ -335,20 +340,10 @@ export type GrantPrivilegesToDatabaseRole = import("./grantPrivilegesToDatabaseR
 export const GrantPrivilegesToDatabaseRole: typeof import("./grantPrivilegesToDatabaseRole").GrantPrivilegesToDatabaseRole = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToDatabaseRole"], () => require("./grantPrivilegesToDatabaseRole"));
 
-export { GrantPrivilegesToRoleArgs, GrantPrivilegesToRoleState } from "./grantPrivilegesToRole";
-export type GrantPrivilegesToRole = import("./grantPrivilegesToRole").GrantPrivilegesToRole;
-export const GrantPrivilegesToRole: typeof import("./grantPrivilegesToRole").GrantPrivilegesToRole = null as any;
-utilities.lazyLoad(exports, ["GrantPrivilegesToRole"], () => require("./grantPrivilegesToRole"));
-
 export { GrantPrivilegesToShareArgs, GrantPrivilegesToShareState } from "./grantPrivilegesToShare";
 export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPrivilegesToShare;
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
-
-export { IntegrationGrantArgs, IntegrationGrantState } from "./integrationGrant";
-export type IntegrationGrant = import("./integrationGrant").IntegrationGrant;
-export const IntegrationGrant: typeof import("./integrationGrant").IntegrationGrant = null as any;
-utilities.lazyLoad(exports, ["IntegrationGrant"], () => require("./integrationGrant"));
 
 export { ManagedAccountArgs, ManagedAccountState } from "./managedAccount";
 export type ManagedAccount = import("./managedAccount").ManagedAccount;
@@ -360,20 +355,10 @@ export type MaskingPolicy = import("./maskingPolicy").MaskingPolicy;
 export const MaskingPolicy: typeof import("./maskingPolicy").MaskingPolicy = null as any;
 utilities.lazyLoad(exports, ["MaskingPolicy"], () => require("./maskingPolicy"));
 
-export { MaskingPolicyGrantArgs, MaskingPolicyGrantState } from "./maskingPolicyGrant";
-export type MaskingPolicyGrant = import("./maskingPolicyGrant").MaskingPolicyGrant;
-export const MaskingPolicyGrant: typeof import("./maskingPolicyGrant").MaskingPolicyGrant = null as any;
-utilities.lazyLoad(exports, ["MaskingPolicyGrant"], () => require("./maskingPolicyGrant"));
-
 export { MaterializedViewArgs, MaterializedViewState } from "./materializedView";
 export type MaterializedView = import("./materializedView").MaterializedView;
 export const MaterializedView: typeof import("./materializedView").MaterializedView = null as any;
 utilities.lazyLoad(exports, ["MaterializedView"], () => require("./materializedView"));
-
-export { MaterializedViewGrantArgs, MaterializedViewGrantState } from "./materializedViewGrant";
-export type MaterializedViewGrant = import("./materializedViewGrant").MaterializedViewGrant;
-export const MaterializedViewGrant: typeof import("./materializedViewGrant").MaterializedViewGrant = null as any;
-utilities.lazyLoad(exports, ["MaterializedViewGrant"], () => require("./materializedViewGrant"));
 
 export { NetworkPolicyArgs, NetworkPolicyState } from "./networkPolicy";
 export type NetworkPolicy = import("./networkPolicy").NetworkPolicy;
@@ -400,6 +385,16 @@ export type OauthIntegration = import("./oauthIntegration").OauthIntegration;
 export const OauthIntegration: typeof import("./oauthIntegration").OauthIntegration = null as any;
 utilities.lazyLoad(exports, ["OauthIntegration"], () => require("./oauthIntegration"));
 
+export { OauthIntegrationForCustomClientsArgs, OauthIntegrationForCustomClientsState } from "./oauthIntegrationForCustomClients";
+export type OauthIntegrationForCustomClients = import("./oauthIntegrationForCustomClients").OauthIntegrationForCustomClients;
+export const OauthIntegrationForCustomClients: typeof import("./oauthIntegrationForCustomClients").OauthIntegrationForCustomClients = null as any;
+utilities.lazyLoad(exports, ["OauthIntegrationForCustomClients"], () => require("./oauthIntegrationForCustomClients"));
+
+export { OauthIntegrationForPartnerApplicationsArgs, OauthIntegrationForPartnerApplicationsState } from "./oauthIntegrationForPartnerApplications";
+export type OauthIntegrationForPartnerApplications = import("./oauthIntegrationForPartnerApplications").OauthIntegrationForPartnerApplications;
+export const OauthIntegrationForPartnerApplications: typeof import("./oauthIntegrationForPartnerApplications").OauthIntegrationForPartnerApplications = null as any;
+utilities.lazyLoad(exports, ["OauthIntegrationForPartnerApplications"], () => require("./oauthIntegrationForPartnerApplications"));
+
 export { ObjectParameterArgs, ObjectParameterState } from "./objectParameter";
 export type ObjectParameter = import("./objectParameter").ObjectParameter;
 export const ObjectParameter: typeof import("./objectParameter").ObjectParameter = null as any;
@@ -415,20 +410,10 @@ export type Pipe = import("./pipe").Pipe;
 export const Pipe: typeof import("./pipe").Pipe = null as any;
 utilities.lazyLoad(exports, ["Pipe"], () => require("./pipe"));
 
-export { PipeGrantArgs, PipeGrantState } from "./pipeGrant";
-export type PipeGrant = import("./pipeGrant").PipeGrant;
-export const PipeGrant: typeof import("./pipeGrant").PipeGrant = null as any;
-utilities.lazyLoad(exports, ["PipeGrant"], () => require("./pipeGrant"));
-
 export { ProcedureArgs, ProcedureState } from "./procedure";
 export type Procedure = import("./procedure").Procedure;
 export const Procedure: typeof import("./procedure").Procedure = null as any;
 utilities.lazyLoad(exports, ["Procedure"], () => require("./procedure"));
-
-export { ProcedureGrantArgs, ProcedureGrantState } from "./procedureGrant";
-export type ProcedureGrant = import("./procedureGrant").ProcedureGrant;
-export const ProcedureGrant: typeof import("./procedureGrant").ProcedureGrant = null as any;
-utilities.lazyLoad(exports, ["ProcedureGrant"], () => require("./procedureGrant"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -440,35 +425,20 @@ export type ResourceMonitor = import("./resourceMonitor").ResourceMonitor;
 export const ResourceMonitor: typeof import("./resourceMonitor").ResourceMonitor = null as any;
 utilities.lazyLoad(exports, ["ResourceMonitor"], () => require("./resourceMonitor"));
 
-export { ResourceMonitorGrantArgs, ResourceMonitorGrantState } from "./resourceMonitorGrant";
-export type ResourceMonitorGrant = import("./resourceMonitorGrant").ResourceMonitorGrant;
-export const ResourceMonitorGrant: typeof import("./resourceMonitorGrant").ResourceMonitorGrant = null as any;
-utilities.lazyLoad(exports, ["ResourceMonitorGrant"], () => require("./resourceMonitorGrant"));
-
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
 utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-
-export { RoleGrantsArgs, RoleGrantsState } from "./roleGrants";
-export type RoleGrants = import("./roleGrants").RoleGrants;
-export const RoleGrants: typeof import("./roleGrants").RoleGrants = null as any;
-utilities.lazyLoad(exports, ["RoleGrants"], () => require("./roleGrants"));
-
-export { RoleOwnershipGrantArgs, RoleOwnershipGrantState } from "./roleOwnershipGrant";
-export type RoleOwnershipGrant = import("./roleOwnershipGrant").RoleOwnershipGrant;
-export const RoleOwnershipGrant: typeof import("./roleOwnershipGrant").RoleOwnershipGrant = null as any;
-utilities.lazyLoad(exports, ["RoleOwnershipGrant"], () => require("./roleOwnershipGrant"));
 
 export { RowAccessPolicyArgs, RowAccessPolicyState } from "./rowAccessPolicy";
 export type RowAccessPolicy = import("./rowAccessPolicy").RowAccessPolicy;
 export const RowAccessPolicy: typeof import("./rowAccessPolicy").RowAccessPolicy = null as any;
 utilities.lazyLoad(exports, ["RowAccessPolicy"], () => require("./rowAccessPolicy"));
 
-export { RowAccessPolicyGrantArgs, RowAccessPolicyGrantState } from "./rowAccessPolicyGrant";
-export type RowAccessPolicyGrant = import("./rowAccessPolicyGrant").RowAccessPolicyGrant;
-export const RowAccessPolicyGrant: typeof import("./rowAccessPolicyGrant").RowAccessPolicyGrant = null as any;
-utilities.lazyLoad(exports, ["RowAccessPolicyGrant"], () => require("./rowAccessPolicyGrant"));
+export { Saml2IntegrationArgs, Saml2IntegrationState } from "./saml2Integration";
+export type Saml2Integration = import("./saml2Integration").Saml2Integration;
+export const Saml2Integration: typeof import("./saml2Integration").Saml2Integration = null as any;
+utilities.lazyLoad(exports, ["Saml2Integration"], () => require("./saml2Integration"));
 
 export { SamlIntegrationArgs, SamlIntegrationState } from "./samlIntegration";
 export type SamlIntegration = import("./samlIntegration").SamlIntegration;
@@ -480,25 +450,20 @@ export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
 utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
-export { SchemaGrantArgs, SchemaGrantState } from "./schemaGrant";
-export type SchemaGrant = import("./schemaGrant").SchemaGrant;
-export const SchemaGrant: typeof import("./schemaGrant").SchemaGrant = null as any;
-utilities.lazyLoad(exports, ["SchemaGrant"], () => require("./schemaGrant"));
-
 export { ScimIntegrationArgs, ScimIntegrationState } from "./scimIntegration";
 export type ScimIntegration = import("./scimIntegration").ScimIntegration;
 export const ScimIntegration: typeof import("./scimIntegration").ScimIntegration = null as any;
 utilities.lazyLoad(exports, ["ScimIntegration"], () => require("./scimIntegration"));
 
+export { SecondaryDatabaseArgs, SecondaryDatabaseState } from "./secondaryDatabase";
+export type SecondaryDatabase = import("./secondaryDatabase").SecondaryDatabase;
+export const SecondaryDatabase: typeof import("./secondaryDatabase").SecondaryDatabase = null as any;
+utilities.lazyLoad(exports, ["SecondaryDatabase"], () => require("./secondaryDatabase"));
+
 export { SequenceArgs, SequenceState } from "./sequence";
 export type Sequence = import("./sequence").Sequence;
 export const Sequence: typeof import("./sequence").Sequence = null as any;
 utilities.lazyLoad(exports, ["Sequence"], () => require("./sequence"));
-
-export { SequenceGrantArgs, SequenceGrantState } from "./sequenceGrant";
-export type SequenceGrant = import("./sequenceGrant").SequenceGrant;
-export const SequenceGrant: typeof import("./sequenceGrant").SequenceGrant = null as any;
-utilities.lazyLoad(exports, ["SequenceGrant"], () => require("./sequenceGrant"));
 
 export { SessionParameterArgs, SessionParameterState } from "./sessionParameter";
 export type SessionParameter = import("./sessionParameter").SessionParameter;
@@ -510,15 +475,15 @@ export type Share = import("./share").Share;
 export const Share: typeof import("./share").Share = null as any;
 utilities.lazyLoad(exports, ["Share"], () => require("./share"));
 
+export { SharedDatabaseArgs, SharedDatabaseState } from "./sharedDatabase";
+export type SharedDatabase = import("./sharedDatabase").SharedDatabase;
+export const SharedDatabase: typeof import("./sharedDatabase").SharedDatabase = null as any;
+utilities.lazyLoad(exports, ["SharedDatabase"], () => require("./sharedDatabase"));
+
 export { StageArgs, StageState } from "./stage";
 export type Stage = import("./stage").Stage;
 export const Stage: typeof import("./stage").Stage = null as any;
 utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
-
-export { StageGrantArgs, StageGrantState } from "./stageGrant";
-export type StageGrant = import("./stageGrant").StageGrant;
-export const StageGrant: typeof import("./stageGrant").StageGrant = null as any;
-utilities.lazyLoad(exports, ["StageGrant"], () => require("./stageGrant"));
 
 export { StorageIntegrationArgs, StorageIntegrationState } from "./storageIntegration";
 export type StorageIntegration = import("./storageIntegration").StorageIntegration;
@@ -529,11 +494,6 @@ export { StreamArgs, StreamState } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
-
-export { StreamGrantArgs, StreamGrantState } from "./streamGrant";
-export type StreamGrant = import("./streamGrant").StreamGrant;
-export const StreamGrant: typeof import("./streamGrant").StreamGrant = null as any;
-utilities.lazyLoad(exports, ["StreamGrant"], () => require("./streamGrant"));
 
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
@@ -550,11 +510,6 @@ export type TableConstraint = import("./tableConstraint").TableConstraint;
 export const TableConstraint: typeof import("./tableConstraint").TableConstraint = null as any;
 utilities.lazyLoad(exports, ["TableConstraint"], () => require("./tableConstraint"));
 
-export { TableGrantArgs, TableGrantState } from "./tableGrant";
-export type TableGrant = import("./tableGrant").TableGrant;
-export const TableGrant: typeof import("./tableGrant").TableGrant = null as any;
-utilities.lazyLoad(exports, ["TableGrant"], () => require("./tableGrant"));
-
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
@@ -564,11 +519,6 @@ export { TagAssociationArgs, TagAssociationState } from "./tagAssociation";
 export type TagAssociation = import("./tagAssociation").TagAssociation;
 export const TagAssociation: typeof import("./tagAssociation").TagAssociation = null as any;
 utilities.lazyLoad(exports, ["TagAssociation"], () => require("./tagAssociation"));
-
-export { TagGrantArgs, TagGrantState } from "./tagGrant";
-export type TagGrant = import("./tagGrant").TagGrant;
-export const TagGrant: typeof import("./tagGrant").TagGrant = null as any;
-utilities.lazyLoad(exports, ["TagGrant"], () => require("./tagGrant"));
 
 export { TagMaskingPolicyAssociationArgs, TagMaskingPolicyAssociationState } from "./tagMaskingPolicyAssociation";
 export type TagMaskingPolicyAssociation = import("./tagMaskingPolicyAssociation").TagMaskingPolicyAssociation;
@@ -580,11 +530,6 @@ export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
-export { TaskGrantArgs, TaskGrantState } from "./taskGrant";
-export type TaskGrant = import("./taskGrant").TaskGrant;
-export const TaskGrant: typeof import("./taskGrant").TaskGrant = null as any;
-utilities.lazyLoad(exports, ["TaskGrant"], () => require("./taskGrant"));
-
 export { UnsafeExecuteArgs, UnsafeExecuteState } from "./unsafeExecute";
 export type UnsafeExecute = import("./unsafeExecute").UnsafeExecute;
 export const UnsafeExecute: typeof import("./unsafeExecute").UnsafeExecute = null as any;
@@ -594,16 +539,6 @@ export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
-
-export { UserGrantArgs, UserGrantState } from "./userGrant";
-export type UserGrant = import("./userGrant").UserGrant;
-export const UserGrant: typeof import("./userGrant").UserGrant = null as any;
-utilities.lazyLoad(exports, ["UserGrant"], () => require("./userGrant"));
-
-export { UserOwnershipGrantArgs, UserOwnershipGrantState } from "./userOwnershipGrant";
-export type UserOwnershipGrant = import("./userOwnershipGrant").UserOwnershipGrant;
-export const UserOwnershipGrant: typeof import("./userOwnershipGrant").UserOwnershipGrant = null as any;
-utilities.lazyLoad(exports, ["UserOwnershipGrant"], () => require("./userOwnershipGrant"));
 
 export { UserPasswordPolicyAttachmentArgs, UserPasswordPolicyAttachmentState } from "./userPasswordPolicyAttachment";
 export type UserPasswordPolicyAttachment = import("./userPasswordPolicyAttachment").UserPasswordPolicyAttachment;
@@ -620,20 +555,10 @@ export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
 utilities.lazyLoad(exports, ["View"], () => require("./view"));
 
-export { ViewGrantArgs, ViewGrantState } from "./viewGrant";
-export type ViewGrant = import("./viewGrant").ViewGrant;
-export const ViewGrant: typeof import("./viewGrant").ViewGrant = null as any;
-utilities.lazyLoad(exports, ["ViewGrant"], () => require("./viewGrant"));
-
 export { WarehouseArgs, WarehouseState } from "./warehouse";
 export type Warehouse = import("./warehouse").Warehouse;
 export const Warehouse: typeof import("./warehouse").Warehouse = null as any;
 utilities.lazyLoad(exports, ["Warehouse"], () => require("./warehouse"));
-
-export { WarehouseGrantArgs, WarehouseGrantState } from "./warehouseGrant";
-export type WarehouseGrant = import("./warehouseGrant").WarehouseGrant;
-export const WarehouseGrant: typeof import("./warehouseGrant").WarehouseGrant = null as any;
-utilities.lazyLoad(exports, ["WarehouseGrant"], () => require("./warehouseGrant"));
 
 
 // Export sub-modules:
@@ -651,20 +576,26 @@ const _module = {
         switch (type) {
             case "snowflake:index/account:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "snowflake:index/accountGrant:AccountGrant":
-                return new AccountGrant(name, <any>undefined, { urn })
             case "snowflake:index/accountParameter:AccountParameter":
                 return new AccountParameter(name, <any>undefined, { urn })
             case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
                 return new AccountPasswordPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/alert:Alert":
                 return new Alert(name, <any>undefined, { urn })
+            case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
+                return new ApiAuthenticationIntegrationWithAuthorizationCodeGrant(name, <any>undefined, { urn })
+            case "snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials":
+                return new ApiAuthenticationIntegrationWithClientCredentials(name, <any>undefined, { urn })
+            case "snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer":
+                return new ApiAuthenticationIntegrationWithJwtBearer(name, <any>undefined, { urn })
             case "snowflake:index/apiIntegration:ApiIntegration":
                 return new ApiIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/cortexSearchService:CortexSearchService":
+                return new CortexSearchService(name, <any>undefined, { urn })
             case "snowflake:index/database:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "snowflake:index/databaseGrant:DatabaseGrant":
-                return new DatabaseGrant(name, <any>undefined, { urn })
+            case "snowflake:index/databaseOld:DatabaseOld":
+                return new DatabaseOld(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
                 return new DatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/dynamicTable:DynamicTable":
@@ -677,20 +608,12 @@ const _module = {
                 return new ExternalOauthIntegration(name, <any>undefined, { urn })
             case "snowflake:index/externalTable:ExternalTable":
                 return new ExternalTable(name, <any>undefined, { urn })
-            case "snowflake:index/externalTableGrant:ExternalTableGrant":
-                return new ExternalTableGrant(name, <any>undefined, { urn })
             case "snowflake:index/failoverGroup:FailoverGroup":
                 return new FailoverGroup(name, <any>undefined, { urn })
-            case "snowflake:index/failoverGroupGrant:FailoverGroupGrant":
-                return new FailoverGroupGrant(name, <any>undefined, { urn })
             case "snowflake:index/fileFormat:FileFormat":
                 return new FileFormat(name, <any>undefined, { urn })
-            case "snowflake:index/fileFormatGrant:FileFormatGrant":
-                return new FileFormatGrant(name, <any>undefined, { urn })
             case "snowflake:index/function:Function":
                 return new Function(name, <any>undefined, { urn })
-            case "snowflake:index/functionGrant:FunctionGrant":
-                return new FunctionGrant(name, <any>undefined, { urn })
             case "snowflake:index/grantAccountRole:GrantAccountRole":
                 return new GrantAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -703,22 +626,14 @@ const _module = {
                 return new GrantPrivilegesToAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
-            case "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole":
-                return new GrantPrivilegesToRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
-            case "snowflake:index/integrationGrant:IntegrationGrant":
-                return new IntegrationGrant(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
                 return new ManagedAccount(name, <any>undefined, { urn })
             case "snowflake:index/maskingPolicy:MaskingPolicy":
                 return new MaskingPolicy(name, <any>undefined, { urn })
-            case "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant":
-                return new MaskingPolicyGrant(name, <any>undefined, { urn })
             case "snowflake:index/materializedView:MaterializedView":
                 return new MaterializedView(name, <any>undefined, { urn })
-            case "snowflake:index/materializedViewGrant:MaterializedViewGrant":
-                return new MaterializedViewGrant(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicy:NetworkPolicy":
                 return new NetworkPolicy(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
@@ -729,189 +644,148 @@ const _module = {
                 return new NotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegration:OauthIntegration":
                 return new OauthIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
+                return new OauthIntegrationForCustomClients(name, <any>undefined, { urn })
+            case "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications":
+                return new OauthIntegrationForPartnerApplications(name, <any>undefined, { urn })
             case "snowflake:index/objectParameter:ObjectParameter":
                 return new ObjectParameter(name, <any>undefined, { urn })
             case "snowflake:index/passwordPolicy:PasswordPolicy":
                 return new PasswordPolicy(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
                 return new Pipe(name, <any>undefined, { urn })
-            case "snowflake:index/pipeGrant:PipeGrant":
-                return new PipeGrant(name, <any>undefined, { urn })
             case "snowflake:index/procedure:Procedure":
                 return new Procedure(name, <any>undefined, { urn })
-            case "snowflake:index/procedureGrant:ProcedureGrant":
-                return new ProcedureGrant(name, <any>undefined, { urn })
             case "snowflake:index/resourceMonitor:ResourceMonitor":
                 return new ResourceMonitor(name, <any>undefined, { urn })
-            case "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant":
-                return new ResourceMonitorGrant(name, <any>undefined, { urn })
             case "snowflake:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "snowflake:index/roleGrants:RoleGrants":
-                return new RoleGrants(name, <any>undefined, { urn })
-            case "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant":
-                return new RoleOwnershipGrant(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
                 return new RowAccessPolicy(name, <any>undefined, { urn })
-            case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
-                return new RowAccessPolicyGrant(name, <any>undefined, { urn })
+            case "snowflake:index/saml2Integration:Saml2Integration":
+                return new Saml2Integration(name, <any>undefined, { urn })
             case "snowflake:index/samlIntegration:SamlIntegration":
                 return new SamlIntegration(name, <any>undefined, { urn })
             case "snowflake:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
-            case "snowflake:index/schemaGrant:SchemaGrant":
-                return new SchemaGrant(name, <any>undefined, { urn })
             case "snowflake:index/scimIntegration:ScimIntegration":
                 return new ScimIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/secondaryDatabase:SecondaryDatabase":
+                return new SecondaryDatabase(name, <any>undefined, { urn })
             case "snowflake:index/sequence:Sequence":
                 return new Sequence(name, <any>undefined, { urn })
-            case "snowflake:index/sequenceGrant:SequenceGrant":
-                return new SequenceGrant(name, <any>undefined, { urn })
             case "snowflake:index/sessionParameter:SessionParameter":
                 return new SessionParameter(name, <any>undefined, { urn })
             case "snowflake:index/share:Share":
                 return new Share(name, <any>undefined, { urn })
+            case "snowflake:index/sharedDatabase:SharedDatabase":
+                return new SharedDatabase(name, <any>undefined, { urn })
             case "snowflake:index/stage:Stage":
                 return new Stage(name, <any>undefined, { urn })
-            case "snowflake:index/stageGrant:StageGrant":
-                return new StageGrant(name, <any>undefined, { urn })
             case "snowflake:index/storageIntegration:StorageIntegration":
                 return new StorageIntegration(name, <any>undefined, { urn })
             case "snowflake:index/stream:Stream":
                 return new Stream(name, <any>undefined, { urn })
-            case "snowflake:index/streamGrant:StreamGrant":
-                return new StreamGrant(name, <any>undefined, { urn })
             case "snowflake:index/table:Table":
                 return new Table(name, <any>undefined, { urn })
             case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
                 return new TableColumnMaskingPolicyApplication(name, <any>undefined, { urn })
             case "snowflake:index/tableConstraint:TableConstraint":
                 return new TableConstraint(name, <any>undefined, { urn })
-            case "snowflake:index/tableGrant:TableGrant":
-                return new TableGrant(name, <any>undefined, { urn })
             case "snowflake:index/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "snowflake:index/tagAssociation:TagAssociation":
                 return new TagAssociation(name, <any>undefined, { urn })
-            case "snowflake:index/tagGrant:TagGrant":
-                return new TagGrant(name, <any>undefined, { urn })
             case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
                 return new TagMaskingPolicyAssociation(name, <any>undefined, { urn })
             case "snowflake:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "snowflake:index/taskGrant:TaskGrant":
-                return new TaskGrant(name, <any>undefined, { urn })
             case "snowflake:index/unsafeExecute:UnsafeExecute":
                 return new UnsafeExecute(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
-            case "snowflake:index/userGrant:UserGrant":
-                return new UserGrant(name, <any>undefined, { urn })
-            case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
-                return new UserOwnershipGrant(name, <any>undefined, { urn })
             case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
                 return new UserPasswordPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
                 return new UserPublicKeys(name, <any>undefined, { urn })
             case "snowflake:index/view:View":
                 return new View(name, <any>undefined, { urn })
-            case "snowflake:index/viewGrant:ViewGrant":
-                return new ViewGrant(name, <any>undefined, { urn })
             case "snowflake:index/warehouse:Warehouse":
                 return new Warehouse(name, <any>undefined, { urn })
-            case "snowflake:index/warehouseGrant:WarehouseGrant":
-                return new WarehouseGrant(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("snowflake", "index/account", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/accountGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/alert", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithAuthorizationCodeGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithClientCredentials", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithJwtBearer", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/databaseGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/databaseOld", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/emailNotificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/externalTableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroup", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroupGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/functionGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantApplicationRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/integrationGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicyGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/materializedViewGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForCustomClients", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForPartnerApplications", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/pipeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedure", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/procedureGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitorGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/role", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/roleGrants", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/roleOwnershipGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicyGrant", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/saml2Integration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/samlIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schema", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/schemaGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/scimIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/secondaryDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/sequenceGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sessionParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/stageGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/streamGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPolicyApplication", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/tableGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagAssociation", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/tagGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagMaskingPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/taskGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/unsafeExecute", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/userGrant", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/userOwnershipGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/viewGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/warehouseGrant", _module)
 pulumi.runtime.registerResourcePackage("snowflake", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

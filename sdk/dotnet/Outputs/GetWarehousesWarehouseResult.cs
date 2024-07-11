@@ -13,33 +13,30 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetWarehousesWarehouseResult
     {
-        public readonly string Comment;
-        public readonly string Name;
-        public readonly string ScalingPolicy;
-        public readonly string Size;
-        public readonly string State;
-        public readonly string Type;
+        /// <summary>
+        /// Holds the output of DESCRIBE WAREHOUSE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWarehousesWarehouseDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWarehousesWarehouseParameterResult> Parameters;
+        /// <summary>
+        /// Holds the output of SHOW WAREHOUSES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWarehousesWarehouseShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetWarehousesWarehouseResult(
-            string comment,
+            ImmutableArray<Outputs.GetWarehousesWarehouseDescribeOutputResult> describeOutputs,
 
-            string name,
+            ImmutableArray<Outputs.GetWarehousesWarehouseParameterResult> parameters,
 
-            string scalingPolicy,
-
-            string size,
-
-            string state,
-
-            string type)
+            ImmutableArray<Outputs.GetWarehousesWarehouseShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Name = name;
-            ScalingPolicy = scalingPolicy;
-            Size = size;
-            State = state;
-            Type = type;
+            DescribeOutputs = describeOutputs;
+            Parameters = parameters;
+            ShowOutputs = showOutputs;
         }
     }
 }

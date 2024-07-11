@@ -8,47 +8,72 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ScimIntegrationArgs', 'ScimIntegration']
 
 @pulumi.input_type
 class ScimIntegrationArgs:
     def __init__(__self__, *,
-                 provisioner_role: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 run_as_role: pulumi.Input[str],
                  scim_client: pulumi.Input[str],
+                 comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_policy: Optional[pulumi.Input[str]] = None):
+                 network_policy: Optional[pulumi.Input[str]] = None,
+                 sync_password: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScimIntegration resource.
-        :param pulumi.Input[str] provisioner_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
-        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration
-        :param pulumi.Input[str] name: Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] network_policy: Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        :param pulumi.Input[bool] enabled: Specify whether the security integration is enabled.
+        :param pulumi.Input[str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+        :param pulumi.Input[str] comment: Specifies a comment for the integration.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        :param pulumi.Input[str] network_policy: Specifies an existing network policy that controls SCIM network traffic.
+        :param pulumi.Input[str] sync_password: Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
-        pulumi.set(__self__, "provisioner_role", provisioner_role)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "run_as_role", run_as_role)
         pulumi.set(__self__, "scim_client", scim_client)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
+        if sync_password is not None:
+            pulumi.set(__self__, "sync_password", sync_password)
 
     @property
-    @pulumi.getter(name="provisionerRole")
-    def provisioner_role(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
         """
-        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        Specify whether the security integration is enabled.
         """
-        return pulumi.get(self, "provisioner_role")
+        return pulumi.get(self, "enabled")
 
-    @provisioner_role.setter
-    def provisioner_role(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provisioner_role", value)
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="runAsRole")
+    def run_as_role(self) -> pulumi.Input[str]:
+        """
+        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        """
+        return pulumi.get(self, "run_as_role")
+
+    @run_as_role.setter
+    def run_as_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "run_as_role", value)
 
     @property
     @pulumi.getter(name="scimClient")
     def scim_client(self) -> pulumi.Input[str]:
         """
-        Specifies the client type for the scim integration
+        Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
         """
         return pulumi.get(self, "scim_client")
 
@@ -58,73 +83,21 @@ class ScimIntegrationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies a comment for the integration.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "comment")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
-        """
-        return pulumi.get(self, "network_policy")
-
-    @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_policy", value)
-
-
-@pulumi.input_type
-class _ScimIntegrationState:
-    def __init__(__self__, *,
-                 created_on: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 network_policy: Optional[pulumi.Input[str]] = None,
-                 provisioner_role: Optional[pulumi.Input[str]] = None,
-                 scim_client: Optional[pulumi.Input[str]] = None):
-        """
-        Input properties used for looking up and filtering ScimIntegration resources.
-        :param pulumi.Input[str] created_on: Date and time when the SCIM integration was created.
-        :param pulumi.Input[str] name: Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] network_policy: Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
-        :param pulumi.Input[str] provisioner_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
-        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration
-        """
-        if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if network_policy is not None:
-            pulumi.set(__self__, "network_policy", network_policy)
-        if provisioner_role is not None:
-            pulumi.set(__self__, "provisioner_role", provisioner_role)
-        if scim_client is not None:
-            pulumi.set(__self__, "scim_client", scim_client)
-
-    @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time when the SCIM integration was created.
-        """
-        return pulumi.get(self, "created_on")
-
-    @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_on", value)
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         """
         return pulumi.get(self, "name")
 
@@ -136,7 +109,7 @@ class _ScimIntegrationState:
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        Specifies an existing network policy that controls SCIM network traffic.
         """
         return pulumi.get(self, "network_policy")
 
@@ -145,22 +118,138 @@ class _ScimIntegrationState:
         pulumi.set(self, "network_policy", value)
 
     @property
-    @pulumi.getter(name="provisionerRole")
-    def provisioner_role(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="syncPassword")
+    def sync_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
-        return pulumi.get(self, "provisioner_role")
+        return pulumi.get(self, "sync_password")
 
-    @provisioner_role.setter
-    def provisioner_role(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioner_role", value)
+    @sync_password.setter
+    def sync_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_password", value)
+
+
+@pulumi.input_type
+class _ScimIntegrationState:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_policy: Optional[pulumi.Input[str]] = None,
+                 run_as_role: Optional[pulumi.Input[str]] = None,
+                 scim_client: Optional[pulumi.Input[str]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]] = None,
+                 sync_password: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ScimIntegration resources.
+        :param pulumi.Input[str] comment: Specifies a comment for the integration.
+        :param pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[bool] enabled: Specify whether the security integration is enabled.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        :param pulumi.Input[str] network_policy: Specifies an existing network policy that controls SCIM network traffic.
+        :param pulumi.Input[str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+        :param pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[str] sync_password: Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_policy is not None:
+            pulumi.set(__self__, "network_policy", network_policy)
+        if run_as_role is not None:
+            pulumi.set(__self__, "run_as_role", run_as_role)
+        if scim_client is not None:
+            pulumi.set(__self__, "scim_client", scim_client)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
+        if sync_password is not None:
+            pulumi.set(__self__, "sync_password", sync_password)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a comment for the integration.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify whether the security integration is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkPolicy")
+    def network_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an existing network policy that controls SCIM network traffic.
+        """
+        return pulumi.get(self, "network_policy")
+
+    @network_policy.setter
+    def network_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_policy", value)
+
+    @property
+    @pulumi.getter(name="runAsRole")
+    def run_as_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        """
+        return pulumi.get(self, "run_as_role")
+
+    @run_as_role.setter
+    def run_as_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_role", value)
 
     @property
     @pulumi.getter(name="scimClient")
     def scim_client(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the client type for the scim integration
+        Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
         """
         return pulumi.get(self, "scim_client")
 
@@ -168,43 +257,62 @@ class _ScimIntegrationState:
     def scim_client(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scim_client", value)
 
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
+
+    @property
+    @pulumi.getter(name="syncPassword")
+    def sync_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "sync_password")
+
+    @sync_password.setter
+    def sync_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_password", value)
+
 
 class ScimIntegration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
-                 provisioner_role: Optional[pulumi.Input[str]] = None,
+                 run_as_role: Optional[pulumi.Input[str]] = None,
                  scim_client: Optional[pulumi.Input[str]] = None,
+                 sync_password: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        aad = snowflake.ScimIntegration("aad",
-            name="AAD_PROVISIONING",
-            network_policy="AAD_NETWORK_POLICY",
-            provisioner_role="AAD_PROVISIONER",
-            scim_client="AZURE")
-        ```
+        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
+        $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] network_policy: Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
-        :param pulumi.Input[str] provisioner_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
-        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration
+        :param pulumi.Input[str] comment: Specifies a comment for the integration.
+        :param pulumi.Input[bool] enabled: Specify whether the security integration is enabled.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        :param pulumi.Input[str] network_policy: Specifies an existing network policy that controls SCIM network traffic.
+        :param pulumi.Input[str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+        :param pulumi.Input[str] sync_password: Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         ...
     @overload
@@ -213,23 +321,12 @@ class ScimIntegration(pulumi.CustomResource):
                  args: ScimIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        aad = snowflake.ScimIntegration("aad",
-            name="AAD_PROVISIONING",
-            network_policy="AAD_NETWORK_POLICY",
-            provisioner_role="AAD_PROVISIONER",
-            scim_client="AZURE")
-        ```
+        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
+        $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,10 +344,13 @@ class ScimIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
-                 provisioner_role: Optional[pulumi.Input[str]] = None,
+                 run_as_role: Optional[pulumi.Input[str]] = None,
                  scim_client: Optional[pulumi.Input[str]] = None,
+                 sync_password: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,15 +360,21 @@ class ScimIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScimIntegrationArgs.__new__(ScimIntegrationArgs)
 
+            __props__.__dict__["comment"] = comment
+            if enabled is None and not opts.urn:
+                raise TypeError("Missing required property 'enabled'")
+            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["network_policy"] = network_policy
-            if provisioner_role is None and not opts.urn:
-                raise TypeError("Missing required property 'provisioner_role'")
-            __props__.__dict__["provisioner_role"] = provisioner_role
+            if run_as_role is None and not opts.urn:
+                raise TypeError("Missing required property 'run_as_role'")
+            __props__.__dict__["run_as_role"] = run_as_role
             if scim_client is None and not opts.urn:
                 raise TypeError("Missing required property 'scim_client'")
             __props__.__dict__["scim_client"] = scim_client
-            __props__.__dict__["created_on"] = None
+            __props__.__dict__["sync_password"] = sync_password
+            __props__.__dict__["describe_outputs"] = None
+            __props__.__dict__["show_outputs"] = None
         super(ScimIntegration, __self__).__init__(
             'snowflake:index/scimIntegration:ScimIntegration',
             resource_name,
@@ -279,11 +385,15 @@ class ScimIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_on: Optional[pulumi.Input[str]] = None,
+            comment: Optional[pulumi.Input[str]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScimIntegrationDescribeOutputArgs']]]]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_policy: Optional[pulumi.Input[str]] = None,
-            provisioner_role: Optional[pulumi.Input[str]] = None,
-            scim_client: Optional[pulumi.Input[str]] = None) -> 'ScimIntegration':
+            run_as_role: Optional[pulumi.Input[str]] = None,
+            scim_client: Optional[pulumi.Input[str]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScimIntegrationShowOutputArgs']]]]] = None,
+            sync_password: Optional[pulumi.Input[str]] = None) -> 'ScimIntegration':
         """
         Get an existing ScimIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -291,36 +401,60 @@ class ScimIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_on: Date and time when the SCIM integration was created.
-        :param pulumi.Input[str] name: Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] network_policy: Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
-        :param pulumi.Input[str] provisioner_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
-        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration
+        :param pulumi.Input[str] comment: Specifies a comment for the integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScimIntegrationDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[bool] enabled: Specify whether the security integration is enabled.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        :param pulumi.Input[str] network_policy: Specifies an existing network policy that controls SCIM network traffic.
+        :param pulumi.Input[str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+        :param pulumi.Input[str] scim_client: Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScimIntegrationShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[str] sync_password: Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ScimIntegrationState.__new__(_ScimIntegrationState)
 
-        __props__.__dict__["created_on"] = created_on
+        __props__.__dict__["comment"] = comment
+        __props__.__dict__["describe_outputs"] = describe_outputs
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["network_policy"] = network_policy
-        __props__.__dict__["provisioner_role"] = provisioner_role
+        __props__.__dict__["run_as_role"] = run_as_role
         __props__.__dict__["scim_client"] = scim_client
+        __props__.__dict__["show_outputs"] = show_outputs
+        __props__.__dict__["sync_password"] = sync_password
         return ScimIntegration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def comment(self) -> pulumi.Output[Optional[str]]:
         """
-        Date and time when the SCIM integration was created.
+        Specifies a comment for the integration.
         """
-        return pulumi.get(self, "created_on")
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.ScimIntegrationDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[bool]:
+        """
+        Specify whether the security integration is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         """
         return pulumi.get(self, "name")
 
@@ -328,23 +462,39 @@ class ScimIntegration(pulumi.CustomResource):
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        Specifies an existing network policy that controls SCIM network traffic.
         """
         return pulumi.get(self, "network_policy")
 
     @property
-    @pulumi.getter(name="provisionerRole")
-    def provisioner_role(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="runAsRole")
+    def run_as_role(self) -> pulumi.Output[str]:
         """
-        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
         """
-        return pulumi.get(self, "provisioner_role")
+        return pulumi.get(self, "run_as_role")
 
     @property
     @pulumi.getter(name="scimClient")
     def scim_client(self) -> pulumi.Output[str]:
         """
-        Specifies the client type for the scim integration
+        Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
         """
         return pulumi.get(self, "scim_client")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.ScimIntegrationShowOutput']]:
+        """
+        Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @property
+    @pulumi.getter(name="syncPassword")
+    def sync_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "sync_password")
 

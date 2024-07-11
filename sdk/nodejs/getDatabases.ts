@@ -7,24 +7,20 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const this = snowflake.getDatabases({});
- * ```
+ * Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `startsWith`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
 export function getDatabases(args?: GetDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasesResult> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabases:getDatabases", {
-        "history": args.history,
-        "pattern": args.pattern,
+        "like": args.like,
+        "limit": args.limit,
         "startsWith": args.startsWith,
-        "terse": args.terse,
+        "withDescribe": args.withDescribe,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -33,21 +29,25 @@ export function getDatabases(args?: GetDatabasesArgs, opts?: pulumi.InvokeOption
  */
 export interface GetDatabasesArgs {
     /**
-     * Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    history?: boolean;
+    like?: string;
     /**
-     * Optionally filters the databases by a pattern
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    pattern?: string;
+    limit?: inputs.GetDatabasesLimit;
     /**
-     * Optionally filters the databases by a pattern
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
     startsWith?: string;
     /**
-     * Optionally returns only the columns `createdOn` and `name` in the results
+     * Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    terse?: boolean;
+    withDescribe?: boolean;
+    /**
+     * Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: boolean;
 }
 
 /**
@@ -55,39 +55,38 @@ export interface GetDatabasesArgs {
  */
 export interface GetDatabasesResult {
     /**
-     * Snowflake databases
+     * Holds the aggregated output of all database details queries.
      */
     readonly databases: outputs.GetDatabasesDatabase[];
-    /**
-     * Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
-     */
-    readonly history?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * Optionally filters the databases by a pattern
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    readonly pattern?: string;
+    readonly like?: string;
     /**
-     * Optionally filters the databases by a pattern
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetDatabasesLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
     readonly startsWith?: string;
     /**
-     * Optionally returns only the columns `createdOn` and `name` in the results
+     * Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    readonly terse?: boolean;
+    readonly withDescribe?: boolean;
+    /**
+     * Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    readonly withParameters?: boolean;
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const this = snowflake.getDatabases({});
- * ```
+ * Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `startsWith`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
 export function getDatabasesOutput(args?: GetDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasesResult> {
     return pulumi.output(args).apply((a: any) => getDatabases(a, opts))
@@ -98,19 +97,23 @@ export function getDatabasesOutput(args?: GetDatabasesOutputArgs, opts?: pulumi.
  */
 export interface GetDatabasesOutputArgs {
     /**
-     * Optionally includes dropped databases that have not yet been purged The output also includes an additional `droppedOn` column
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    history?: pulumi.Input<boolean>;
+    like?: pulumi.Input<string>;
     /**
-     * Optionally filters the databases by a pattern
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    pattern?: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.GetDatabasesLimitArgs>;
     /**
-     * Optionally filters the databases by a pattern
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
     startsWith?: pulumi.Input<string>;
     /**
-     * Optionally returns only the columns `createdOn` and `name` in the results
+     * Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    terse?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean>;
+    /**
+     * Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: pulumi.Input<boolean>;
 }

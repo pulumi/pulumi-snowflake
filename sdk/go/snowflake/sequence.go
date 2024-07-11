@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
 //				Name: pulumi.String("things"),
 //			})
 //			if err != nil {
@@ -34,13 +34,13 @@ import (
 //			}
 //			testSchema, err := snowflake.NewSchema(ctx, "test_schema", &snowflake.SchemaArgs{
 //				Name:     pulumi.String("things"),
-//				Database: pulumi.Any(testDatabase.Name),
+//				Database: test.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = snowflake.NewSequence(ctx, "test_sequence", &snowflake.SequenceArgs{
-//				Database: pulumi.Any(testDatabase.Name),
+//				Database: test.Name,
 //				Schema:   testSchema.Name,
 //				Name:     pulumi.String("thing_counter"),
 //			})

@@ -5,56 +5,51 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.pulumi.snowflake.outputs.GetDatabasesDatabaseReplicationConfiguration;
-import java.lang.Boolean;
-import java.lang.Integer;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseDescribeOutput;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameter;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseShowOutput;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetDatabasesDatabase {
-    private String comment;
-    private String createdOn;
-    private Boolean isCurrent;
-    private Boolean isDefault;
-    private String name;
-    private String options;
-    private String origin;
-    private String owner;
-    private List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations;
-    private Integer retentionTime;
+    /**
+     * @return Holds the output of DESCRIBE DATABASE.
+     * 
+     */
+    private List<GetDatabasesDatabaseDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR DATABASE.
+     * 
+     */
+    private List<GetDatabasesDatabaseParameter> parameters;
+    /**
+     * @return Holds the output of SHOW DATABASES.
+     * 
+     */
+    private List<GetDatabasesDatabaseShowOutput> showOutputs;
 
     private GetDatabasesDatabase() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE DATABASE.
+     * 
+     */
+    public List<GetDatabasesDatabaseDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String createdOn() {
-        return this.createdOn;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR DATABASE.
+     * 
+     */
+    public List<GetDatabasesDatabaseParameter> parameters() {
+        return this.parameters;
     }
-    public Boolean isCurrent() {
-        return this.isCurrent;
-    }
-    public Boolean isDefault() {
-        return this.isDefault;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String options() {
-        return this.options;
-    }
-    public String origin() {
-        return this.origin;
-    }
-    public String owner() {
-        return this.owner;
-    }
-    public List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations() {
-        return this.replicationConfigurations;
-    }
-    public Integer retentionTime() {
-        return this.retentionTime;
+    /**
+     * @return Holds the output of SHOW DATABASES.
+     * 
+     */
+    public List<GetDatabasesDatabaseShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -66,126 +61,55 @@ public final class GetDatabasesDatabase {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String createdOn;
-        private Boolean isCurrent;
-        private Boolean isDefault;
-        private String name;
-        private String options;
-        private String origin;
-        private String owner;
-        private List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations;
-        private Integer retentionTime;
+        private List<GetDatabasesDatabaseDescribeOutput> describeOutputs;
+        private List<GetDatabasesDatabaseParameter> parameters;
+        private List<GetDatabasesDatabaseShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetDatabasesDatabase defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.createdOn = defaults.createdOn;
-    	      this.isCurrent = defaults.isCurrent;
-    	      this.isDefault = defaults.isDefault;
-    	      this.name = defaults.name;
-    	      this.options = defaults.options;
-    	      this.origin = defaults.origin;
-    	      this.owner = defaults.owner;
-    	      this.replicationConfigurations = defaults.replicationConfigurations;
-    	      this.retentionTime = defaults.retentionTime;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "comment");
+        public Builder describeOutputs(List<GetDatabasesDatabaseDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
+        }
+        public Builder describeOutputs(GetDatabasesDatabaseDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder createdOn(String createdOn) {
-            if (createdOn == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "createdOn");
+        public Builder parameters(List<GetDatabasesDatabaseParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "parameters");
             }
-            this.createdOn = createdOn;
+            this.parameters = parameters;
             return this;
+        }
+        public Builder parameters(GetDatabasesDatabaseParameter... parameters) {
+            return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder isCurrent(Boolean isCurrent) {
-            if (isCurrent == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "isCurrent");
+        public Builder showOutputs(List<GetDatabasesDatabaseShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "showOutputs");
             }
-            this.isCurrent = isCurrent;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder isDefault(Boolean isDefault) {
-            if (isDefault == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "isDefault");
-            }
-            this.isDefault = isDefault;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder options(String options) {
-            if (options == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "options");
-            }
-            this.options = options;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder origin(String origin) {
-            if (origin == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "origin");
-            }
-            this.origin = origin;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder owner(String owner) {
-            if (owner == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "owner");
-            }
-            this.owner = owner;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder replicationConfigurations(List<GetDatabasesDatabaseReplicationConfiguration> replicationConfigurations) {
-            if (replicationConfigurations == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "replicationConfigurations");
-            }
-            this.replicationConfigurations = replicationConfigurations;
-            return this;
-        }
-        public Builder replicationConfigurations(GetDatabasesDatabaseReplicationConfiguration... replicationConfigurations) {
-            return replicationConfigurations(List.of(replicationConfigurations));
-        }
-        @CustomType.Setter
-        public Builder retentionTime(Integer retentionTime) {
-            if (retentionTime == null) {
-              throw new MissingRequiredPropertyException("GetDatabasesDatabase", "retentionTime");
-            }
-            this.retentionTime = retentionTime;
-            return this;
+        public Builder showOutputs(GetDatabasesDatabaseShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetDatabasesDatabase build() {
             final var _resultValue = new GetDatabasesDatabase();
-            _resultValue.comment = comment;
-            _resultValue.createdOn = createdOn;
-            _resultValue.isCurrent = isCurrent;
-            _resultValue.isDefault = isDefault;
-            _resultValue.name = name;
-            _resultValue.options = options;
-            _resultValue.origin = origin;
-            _resultValue.owner = owner;
-            _resultValue.replicationConfigurations = replicationConfigurations;
-            _resultValue.retentionTime = retentionTime;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }
