@@ -379,6 +379,8 @@ class OauthIntegration(pulumi.CustomResource):
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use OauthIntegrationForCustomClients or OauthIntegrationForPartnerApplications instead. <deprecation>
+
         ## Example Usage
 
         ```python
@@ -420,6 +422,8 @@ class OauthIntegration(pulumi.CustomResource):
                  args: OauthIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use OauthIntegrationForCustomClients or OauthIntegrationForPartnerApplications instead. <deprecation>
+
         ## Example Usage
 
         ```python

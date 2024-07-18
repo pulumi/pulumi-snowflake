@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var database = new Database("database", DatabaseArgs.builder()
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .name("database")
  *             .build());
  * 
- *         var schema = new Schema("schema", SchemaArgs.builder()
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
  *             .name("schema")
- *             .database(database.name())
+ *             .database(test.name())
  *             .build());
  * 
- *         var tag = new Tag("tag", TagArgs.builder()
+ *         var testTag = new Tag("testTag", TagArgs.builder()
  *             .name("cost_center")
- *             .database(database.name())
- *             .schema(schema.name())
+ *             .database(test.name())
+ *             .schema(testSchema.name())
  *             .allowedValues(            
  *                 "finance",
  *                 "engineering")
@@ -73,16 +73,16 @@ import javax.annotation.Nullable;
  * 
  *         var dbAssociation = new TagAssociation("dbAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
- *                 .name(database.name())
+ *                 .name(test.name())
  *                 .build())
  *             .objectType("DATABASE")
- *             .tagId(tag.id())
+ *             .tagId(testTag.id())
  *             .tagValue("finance")
  *             .build());
  * 
- *         var test = new Table("test", TableArgs.builder()
- *             .database(testSnowflakeDatabase.name())
- *             .schema(testSnowflakeSchema.name())
+ *         var testTable = new Table("testTable", TableArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSchema.name())
  *             .name("TABLE_NAME")
  *             .comment("Terraform example table")
  *             .columns(            
@@ -98,23 +98,23 @@ import javax.annotation.Nullable;
  * 
  *         var tableAssociation = new TagAssociation("tableAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
- *                 .name(test.name())
- *                 .database(testSnowflakeDatabase.name())
- *                 .schema(testSnowflakeSchema.name())
+ *                 .name(testTable.name())
+ *                 .database(test.name())
+ *                 .schema(testSchema.name())
  *                 .build())
  *             .objectType("TABLE")
- *             .tagId(testSnowflakeTag.id())
+ *             .tagId(testTag.id())
  *             .tagValue("engineering")
  *             .build());
  * 
  *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(TagAssociationObjectIdentifierArgs.builder()
- *                 .name(test.name().applyValue(name -> String.format("%s.column_name", name)))
- *                 .database(testSnowflakeDatabase.name())
- *                 .schema(testSnowflakeSchema.name())
+ *                 .name(testTable.name().applyValue(name -> String.format("%s.column_name", name)))
+ *                 .database(test.name())
+ *                 .schema(testSchema.name())
  *                 .build())
  *             .objectType("COLUMN")
- *             .tagId(testSnowflakeTag.id())
+ *             .tagId(testTag.id())
  *             .tagValue("engineering")
  *             .build());
  * 

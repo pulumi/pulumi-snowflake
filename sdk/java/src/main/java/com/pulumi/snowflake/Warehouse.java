@@ -10,13 +10,20 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.WarehouseArgs;
 import com.pulumi.snowflake.inputs.WarehouseState;
+import com.pulumi.snowflake.outputs.WarehouseParameter;
+import com.pulumi.snowflake.outputs.WarehouseShowOutput;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+ * 
+ * Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -64,51 +71,59 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/warehouse:Warehouse")
 public class Warehouse extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    @Export(name="autoResume", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> autoResume;
+    @Export(name="autoResume", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> autoResume;
 
     /**
-     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Output<Boolean> autoResume() {
-        return this.autoResume;
+    public Output<Optional<String>> autoResume() {
+        return Codegen.optional(this.autoResume);
     }
     /**
      * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     @Export(name="autoSuspend", refs={Integer.class}, tree="[0]")
-    private Output<Integer> autoSuspend;
+    private Output</* @Nullable */ Integer> autoSuspend;
 
     /**
      * @return Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
-    public Output<Integer> autoSuspend() {
-        return this.autoSuspend;
+    public Output<Optional<Integer>> autoSuspend() {
+        return Codegen.optional(this.autoSuspend);
     }
+    /**
+     * Specifies a comment for the warehouse.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return Specifies a comment for the warehouse.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    @Export(name="enableQueryAcceleration", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableQueryAcceleration;
+    @Export(name="enableQueryAcceleration", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> enableQueryAcceleration;
 
     /**
-     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Output<Optional<Boolean>> enableQueryAcceleration() {
+    public Output<Optional<String>> enableQueryAcceleration() {
         return Codegen.optional(this.enableQueryAcceleration);
     }
     /**
@@ -130,42 +145,42 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxClusterCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maxClusterCount;
+    private Output</* @Nullable */ Integer> maxClusterCount;
 
     /**
      * @return Specifies the maximum number of server clusters for the warehouse.
      * 
      */
-    public Output<Integer> maxClusterCount() {
-        return this.maxClusterCount;
+    public Output<Optional<Integer>> maxClusterCount() {
+        return Codegen.optional(this.maxClusterCount);
     }
     /**
      * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      * 
      */
     @Export(name="maxConcurrencyLevel", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> maxConcurrencyLevel;
+    private Output<Integer> maxConcurrencyLevel;
 
     /**
      * @return Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      * 
      */
-    public Output<Optional<Integer>> maxConcurrencyLevel() {
-        return Codegen.optional(this.maxConcurrencyLevel);
+    public Output<Integer> maxConcurrencyLevel() {
+        return this.maxConcurrencyLevel;
     }
     /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      * 
      */
     @Export(name="minClusterCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> minClusterCount;
+    private Output</* @Nullable */ Integer> minClusterCount;
 
     /**
      * @return Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      * 
      */
-    public Output<Integer> minClusterCount() {
-        return this.minClusterCount;
+    public Output<Optional<Integer>> minClusterCount() {
+        return Codegen.optional(this.minClusterCount);
     }
     /**
      * Identifier for the virtual warehouse; must be unique for your account.
@@ -180,6 +195,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+     * 
+     */
+    @Export(name="parameters", refs={List.class,WarehouseParameter.class}, tree="[0,1]")
+    private Output<List<WarehouseParameter>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+     * 
+     */
+    public Output<List<WarehouseParameter>> parameters() {
+        return this.parameters;
     }
     /**
      * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
@@ -200,98 +229,94 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceMonitor", refs={String.class}, tree="[0]")
-    private Output<String> resourceMonitor;
+    private Output</* @Nullable */ String> resourceMonitor;
 
     /**
      * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      * 
      */
-    public Output<String> resourceMonitor() {
-        return this.resourceMonitor;
+    public Output<Optional<String>> resourceMonitor() {
+        return Codegen.optional(this.resourceMonitor);
     }
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
     @Export(name="scalingPolicy", refs={String.class}, tree="[0]")
-    private Output<String> scalingPolicy;
+    private Output</* @Nullable */ String> scalingPolicy;
 
     /**
-     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
-    public Output<String> scalingPolicy() {
-        return this.scalingPolicy;
+    public Output<Optional<String>> scalingPolicy() {
+        return Codegen.optional(this.scalingPolicy);
+    }
+    /**
+     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,WarehouseShowOutput.class}, tree="[0,1]")
+    private Output<List<WarehouseShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * 
+     */
+    public Output<List<WarehouseShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
     @Export(name="statementQueuedTimeoutInSeconds", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> statementQueuedTimeoutInSeconds;
+    private Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
      * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
-    public Output<Optional<Integer>> statementQueuedTimeoutInSeconds() {
-        return Codegen.optional(this.statementQueuedTimeoutInSeconds);
+    public Output<Integer> statementQueuedTimeoutInSeconds() {
+        return this.statementQueuedTimeoutInSeconds;
     }
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      * 
      */
     @Export(name="statementTimeoutInSeconds", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> statementTimeoutInSeconds;
+    private Output<Integer> statementTimeoutInSeconds;
 
     /**
      * @return Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      * 
      */
-    public Output<Optional<Integer>> statementTimeoutInSeconds() {
-        return Codegen.optional(this.statementTimeoutInSeconds);
+    public Output<Integer> statementTimeoutInSeconds() {
+        return this.statementTimeoutInSeconds;
     }
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-    @Export(name="waitForProvisioning", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> waitForProvisioning;
-
-    /**
-     * @return Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     * 
-     */
-    public Output<Optional<Boolean>> waitForProvisioning() {
-        return Codegen.optional(this.waitForProvisioning);
-    }
-    /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
     @Export(name="warehouseSize", refs={String.class}, tree="[0]")
-    private Output<String> warehouseSize;
+    private Output</* @Nullable */ String> warehouseSize;
 
     /**
-     * @return Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * @return Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
-    public Output<String> warehouseSize() {
-        return this.warehouseSize;
+    public Output<Optional<String>> warehouseSize() {
+        return Codegen.optional(this.warehouseSize);
     }
     /**
-     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     @Export(name="warehouseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouseType;
 
     /**
-     * @return Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     public Output<Optional<String>> warehouseType() {

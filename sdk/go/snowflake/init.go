@@ -23,20 +23,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "snowflake:index/account:Account":
 		r = &Account{}
-	case "snowflake:index/accountGrant:AccountGrant":
-		r = &AccountGrant{}
 	case "snowflake:index/accountParameter:AccountParameter":
 		r = &AccountParameter{}
 	case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
 		r = &AccountPasswordPolicyAttachment{}
 	case "snowflake:index/alert:Alert":
 		r = &Alert{}
+	case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
+		r = &ApiAuthenticationIntegrationWithAuthorizationCodeGrant{}
+	case "snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials":
+		r = &ApiAuthenticationIntegrationWithClientCredentials{}
+	case "snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer":
+		r = &ApiAuthenticationIntegrationWithJwtBearer{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
 		r = &ApiIntegration{}
+	case "snowflake:index/cortexSearchService:CortexSearchService":
+		r = &CortexSearchService{}
 	case "snowflake:index/database:Database":
 		r = &Database{}
-	case "snowflake:index/databaseGrant:DatabaseGrant":
-		r = &DatabaseGrant{}
+	case "snowflake:index/databaseOld:DatabaseOld":
+		r = &DatabaseOld{}
 	case "snowflake:index/databaseRole:DatabaseRole":
 		r = &DatabaseRole{}
 	case "snowflake:index/dynamicTable:DynamicTable":
@@ -49,20 +55,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExternalOauthIntegration{}
 	case "snowflake:index/externalTable:ExternalTable":
 		r = &ExternalTable{}
-	case "snowflake:index/externalTableGrant:ExternalTableGrant":
-		r = &ExternalTableGrant{}
 	case "snowflake:index/failoverGroup:FailoverGroup":
 		r = &FailoverGroup{}
-	case "snowflake:index/failoverGroupGrant:FailoverGroupGrant":
-		r = &FailoverGroupGrant{}
 	case "snowflake:index/fileFormat:FileFormat":
 		r = &FileFormat{}
-	case "snowflake:index/fileFormatGrant:FileFormatGrant":
-		r = &FileFormatGrant{}
 	case "snowflake:index/function:Function":
 		r = &Function{}
-	case "snowflake:index/functionGrant:FunctionGrant":
-		r = &FunctionGrant{}
 	case "snowflake:index/grantAccountRole:GrantAccountRole":
 		r = &GrantAccountRole{}
 	case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -75,22 +73,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToAccountRole{}
 	case "snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole":
 		r = &GrantPrivilegesToDatabaseRole{}
-	case "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole":
-		r = &GrantPrivilegesToRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
-	case "snowflake:index/integrationGrant:IntegrationGrant":
-		r = &IntegrationGrant{}
 	case "snowflake:index/managedAccount:ManagedAccount":
 		r = &ManagedAccount{}
 	case "snowflake:index/maskingPolicy:MaskingPolicy":
 		r = &MaskingPolicy{}
-	case "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant":
-		r = &MaskingPolicyGrant{}
 	case "snowflake:index/materializedView:MaterializedView":
 		r = &MaterializedView{}
-	case "snowflake:index/materializedViewGrant:MaterializedViewGrant":
-		r = &MaterializedViewGrant{}
 	case "snowflake:index/networkPolicy:NetworkPolicy":
 		r = &NetworkPolicy{}
 	case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
@@ -101,98 +91,74 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationIntegration{}
 	case "snowflake:index/oauthIntegration:OauthIntegration":
 		r = &OauthIntegration{}
+	case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
+		r = &OauthIntegrationForCustomClients{}
+	case "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications":
+		r = &OauthIntegrationForPartnerApplications{}
 	case "snowflake:index/objectParameter:ObjectParameter":
 		r = &ObjectParameter{}
 	case "snowflake:index/passwordPolicy:PasswordPolicy":
 		r = &PasswordPolicy{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
-	case "snowflake:index/pipeGrant:PipeGrant":
-		r = &PipeGrant{}
 	case "snowflake:index/procedure:Procedure":
 		r = &Procedure{}
-	case "snowflake:index/procedureGrant:ProcedureGrant":
-		r = &ProcedureGrant{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
 		r = &ResourceMonitor{}
-	case "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant":
-		r = &ResourceMonitorGrant{}
 	case "snowflake:index/role:Role":
 		r = &Role{}
-	case "snowflake:index/roleGrants:RoleGrants":
-		r = &RoleGrants{}
-	case "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant":
-		r = &RoleOwnershipGrant{}
 	case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
 		r = &RowAccessPolicy{}
-	case "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant":
-		r = &RowAccessPolicyGrant{}
+	case "snowflake:index/saml2Integration:Saml2Integration":
+		r = &Saml2Integration{}
 	case "snowflake:index/samlIntegration:SamlIntegration":
 		r = &SamlIntegration{}
 	case "snowflake:index/schema:Schema":
 		r = &Schema{}
-	case "snowflake:index/schemaGrant:SchemaGrant":
-		r = &SchemaGrant{}
 	case "snowflake:index/scimIntegration:ScimIntegration":
 		r = &ScimIntegration{}
+	case "snowflake:index/secondaryDatabase:SecondaryDatabase":
+		r = &SecondaryDatabase{}
 	case "snowflake:index/sequence:Sequence":
 		r = &Sequence{}
-	case "snowflake:index/sequenceGrant:SequenceGrant":
-		r = &SequenceGrant{}
 	case "snowflake:index/sessionParameter:SessionParameter":
 		r = &SessionParameter{}
 	case "snowflake:index/share:Share":
 		r = &Share{}
+	case "snowflake:index/sharedDatabase:SharedDatabase":
+		r = &SharedDatabase{}
 	case "snowflake:index/stage:Stage":
 		r = &Stage{}
-	case "snowflake:index/stageGrant:StageGrant":
-		r = &StageGrant{}
 	case "snowflake:index/storageIntegration:StorageIntegration":
 		r = &StorageIntegration{}
 	case "snowflake:index/stream:Stream":
 		r = &Stream{}
-	case "snowflake:index/streamGrant:StreamGrant":
-		r = &StreamGrant{}
 	case "snowflake:index/table:Table":
 		r = &Table{}
 	case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
 		r = &TableColumnMaskingPolicyApplication{}
 	case "snowflake:index/tableConstraint:TableConstraint":
 		r = &TableConstraint{}
-	case "snowflake:index/tableGrant:TableGrant":
-		r = &TableGrant{}
 	case "snowflake:index/tag:Tag":
 		r = &Tag{}
 	case "snowflake:index/tagAssociation:TagAssociation":
 		r = &TagAssociation{}
-	case "snowflake:index/tagGrant:TagGrant":
-		r = &TagGrant{}
 	case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
 		r = &TagMaskingPolicyAssociation{}
 	case "snowflake:index/task:Task":
 		r = &Task{}
-	case "snowflake:index/taskGrant:TaskGrant":
-		r = &TaskGrant{}
 	case "snowflake:index/unsafeExecute:UnsafeExecute":
 		r = &UnsafeExecute{}
 	case "snowflake:index/user:User":
 		r = &User{}
-	case "snowflake:index/userGrant:UserGrant":
-		r = &UserGrant{}
-	case "snowflake:index/userOwnershipGrant:UserOwnershipGrant":
-		r = &UserOwnershipGrant{}
 	case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
 		r = &UserPasswordPolicyAttachment{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
 		r = &UserPublicKeys{}
 	case "snowflake:index/view:View":
 		r = &View{}
-	case "snowflake:index/viewGrant:ViewGrant":
-		r = &ViewGrant{}
 	case "snowflake:index/warehouse:Warehouse":
 		r = &Warehouse{}
-	case "snowflake:index/warehouseGrant:WarehouseGrant":
-		r = &WarehouseGrant{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -231,11 +197,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/accountGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/accountParameter",
 		&module{version},
 	)
@@ -251,7 +212,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/apiAuthenticationIntegrationWithAuthorizationCodeGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiAuthenticationIntegrationWithClientCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiAuthenticationIntegrationWithJwtBearer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/apiIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/cortexSearchService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -261,7 +242,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/databaseGrant",
+		"index/databaseOld",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -296,17 +277,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/externalTableGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/failoverGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/failoverGroupGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -316,17 +287,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/fileFormatGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/function",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/functionGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -361,17 +322,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/grantPrivilegesToRole",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/grantPrivilegesToShare",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/integrationGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -386,17 +337,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/maskingPolicyGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/materializedView",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/materializedViewGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -426,6 +367,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/oauthIntegrationForCustomClients",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/oauthIntegrationForPartnerApplications",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/objectParameter",
 		&module{version},
 	)
@@ -441,17 +392,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/pipeGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/procedure",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/procedureGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -461,22 +402,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/resourceMonitorGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/role",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/roleGrants",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/roleOwnershipGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -486,7 +412,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/rowAccessPolicyGrant",
+		"index/saml2Integration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -501,22 +427,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/schemaGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/scimIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/sequence",
+		"index/secondaryDatabase",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/sequenceGrant",
+		"index/sequence",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -531,12 +452,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/stage",
+		"index/sharedDatabase",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/stageGrant",
+		"index/stage",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -547,11 +468,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/stream",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/streamGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -571,22 +487,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/tableGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/tag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/tagAssociation",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/tagGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -601,27 +507,12 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/taskGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/unsafeExecute",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/user",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/userGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/userOwnershipGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -641,17 +532,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/viewGrant",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/warehouse",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/warehouseGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

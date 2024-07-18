@@ -12,6 +12,43 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// Specifies the password policy to use for a certain user.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Name = "USER_NAME",
+    ///     });
+    /// 
+    ///     var pp = new Snowflake.PasswordPolicy("pp", new()
+    ///     {
+    ///         Database = "prod",
+    ///         Schema = "security",
+    ///         Name = "default_policy",
+    ///     });
+    /// 
+    ///     var ppa = new Snowflake.UserPasswordPolicyAttachment("ppa", new()
+    ///     {
+    ///         PasswordPolicyName = Output.Tuple(pp.Database, pp.Schema, pp.Name).Apply(values =&gt;
+    ///         {
+    ///             var database = values.Item1;
+    ///             var schema = values.Item2;
+    ///             var name = values.Item3;
+    ///             return $"\"{database}\".\"{schema}\".\"{name}\"";
+    ///         }),
+    ///         UserName = user.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

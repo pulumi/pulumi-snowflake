@@ -100,6 +100,22 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
         """
         Specifies the password policy to use for a certain user.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        user = snowflake.User("user", name="USER_NAME")
+        pp = snowflake.PasswordPolicy("pp",
+            database="prod",
+            schema="security",
+            name="default_policy")
+        ppa = snowflake.UserPasswordPolicyAttachment("ppa",
+            password_policy_name=pulumi.Output.all(pp.database, pp.schema, pp.name).apply(lambda database, schema, name: f"\\"{database}\\".\\"{schema}\\".\\"{name}\\""),
+            user_name=user.name)
+        ```
+
         ## Import
 
         ```sh
@@ -119,6 +135,22 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies the password policy to use for a certain user.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        user = snowflake.User("user", name="USER_NAME")
+        pp = snowflake.PasswordPolicy("pp",
+            database="prod",
+            schema="security",
+            name="default_policy")
+        ppa = snowflake.UserPasswordPolicyAttachment("ppa",
+            password_policy_name=pulumi.Output.all(pp.database, pp.schema, pp.name).apply(lambda database, schema, name: f"\\"{database}\\".\\"{schema}\\".\\"{name}\\""),
+            user_name=user.name)
+        ```
 
         ## Import
 

@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  *     fromReplica: {
  *         organizationName: "...",
  *         sourceAccountName: "...",
- *         name: fg.name,
+ *         name: sourceFailoverGroup.name,
  *     },
  * });
  * ```

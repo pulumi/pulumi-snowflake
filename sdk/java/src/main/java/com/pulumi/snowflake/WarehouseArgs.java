@@ -18,17 +18,17 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     public static final WarehouseArgs Empty = new WarehouseArgs();
 
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="autoResume")
-    private @Nullable Output<Boolean> autoResume;
+    private @Nullable Output<String> autoResume;
 
     /**
-     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Optional<Output<Boolean>> autoResume() {
+    public Optional<Output<String>> autoResume() {
         return Optional.ofNullable(this.autoResume);
     }
 
@@ -47,25 +47,33 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.autoSuspend);
     }
 
+    /**
+     * Specifies a comment for the warehouse.
+     * 
+     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
+    /**
+     * @return Specifies a comment for the warehouse.
+     * 
+     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="enableQueryAcceleration")
-    private @Nullable Output<Boolean> enableQueryAcceleration;
+    private @Nullable Output<String> enableQueryAcceleration;
 
     /**
-     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Optional<Output<Boolean>> enableQueryAcceleration() {
+    public Optional<Output<String>> enableQueryAcceleration() {
         return Optional.ofNullable(this.enableQueryAcceleration);
     }
 
@@ -175,14 +183,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
     @Import(name="scalingPolicy")
     private @Nullable Output<String> scalingPolicy;
 
     /**
-     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
     public Optional<Output<String>> scalingPolicy() {
@@ -220,37 +228,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-    @Import(name="waitForProvisioning")
-    private @Nullable Output<Boolean> waitForProvisioning;
-
-    /**
-     * @return Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-    public Optional<Output<Boolean>> waitForProvisioning() {
-        return Optional.ofNullable(this.waitForProvisioning);
-    }
-
-    /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
     @Import(name="warehouseSize")
     private @Nullable Output<String> warehouseSize;
 
     /**
-     * @return Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * @return Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
     public Optional<Output<String>> warehouseSize() {
@@ -258,14 +243,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     @Import(name="warehouseType")
     private @Nullable Output<String> warehouseType;
 
     /**
-     * @return Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     public Optional<Output<String>> warehouseType() {
@@ -289,7 +274,6 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         this.scalingPolicy = $.scalingPolicy;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
         this.statementTimeoutInSeconds = $.statementTimeoutInSeconds;
-        this.waitForProvisioning = $.waitForProvisioning;
         this.warehouseSize = $.warehouseSize;
         this.warehouseType = $.warehouseType;
     }
@@ -313,23 +297,23 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder autoResume(@Nullable Output<Boolean> autoResume) {
+        public Builder autoResume(@Nullable Output<String> autoResume) {
             $.autoResume = autoResume;
             return this;
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder autoResume(Boolean autoResume) {
+        public Builder autoResume(String autoResume) {
             return autoResume(Output.of(autoResume));
         }
 
@@ -354,33 +338,45 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
             return autoSuspend(Output.of(autoSuspend));
         }
 
+        /**
+         * @param comment Specifies a comment for the warehouse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
+        /**
+         * @param comment Specifies a comment for the warehouse.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder enableQueryAcceleration(@Nullable Output<Boolean> enableQueryAcceleration) {
+        public Builder enableQueryAcceleration(@Nullable Output<String> enableQueryAcceleration) {
             $.enableQueryAcceleration = enableQueryAcceleration;
             return this;
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder enableQueryAcceleration(Boolean enableQueryAcceleration) {
+        public Builder enableQueryAcceleration(String enableQueryAcceleration) {
             return enableQueryAcceleration(Output.of(enableQueryAcceleration));
         }
 
@@ -532,7 +528,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
          * 
          * @return builder
          * 
@@ -543,7 +539,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
          * 
          * @return builder
          * 
@@ -595,36 +591,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForProvisioning Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
-         * 
-         */
-        @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-        public Builder waitForProvisioning(@Nullable Output<Boolean> waitForProvisioning) {
-            $.waitForProvisioning = waitForProvisioning;
-            return this;
-        }
-
-        /**
-         * @param waitForProvisioning Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated and will be removed in the next major version of the provider. It doesn&#39;t do anything and should be removed from your configuration.
-         * 
-         */
-        @Deprecated /* This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration. */
-        public Builder waitForProvisioning(Boolean waitForProvisioning) {
-            return waitForProvisioning(Output.of(waitForProvisioning));
-        }
-
-        /**
-         * @param warehouseSize Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
          * 
          * @return builder
          * 
@@ -635,7 +602,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseSize Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
          * 
          * @return builder
          * 
@@ -645,7 +612,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
          * 
          * @return builder
          * 
@@ -656,7 +623,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
          * 
          * @return builder
          * 

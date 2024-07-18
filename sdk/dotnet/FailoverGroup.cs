@@ -65,7 +65,7 @@ namespace Pulumi.Snowflake
     ///         {
     ///             OrganizationName = "...",
     ///             SourceAccountName = "...",
-    ///             Name = fg.Name,
+    ///             Name = sourceFailoverGroup.Name,
     ///         },
     ///     });
     /// 

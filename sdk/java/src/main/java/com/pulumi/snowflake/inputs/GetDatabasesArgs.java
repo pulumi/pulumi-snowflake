@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.GetDatabasesLimitArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -17,44 +18,44 @@ public final class GetDatabasesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDatabasesArgs Empty = new GetDatabasesArgs();
 
     /**
-     * Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="history")
-    private @Nullable Output<Boolean> history;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<Output<Boolean>> history() {
-        return Optional.ofNullable(this.history);
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
     }
 
     /**
-     * Optionally filters the databases by a pattern
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<String> pattern;
+    @Import(name="limit")
+    private @Nullable Output<GetDatabasesLimitArgs> limit;
 
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
      * 
      */
-    public Optional<Output<String>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<Output<GetDatabasesLimitArgs>> limit() {
+        return Optional.ofNullable(this.limit);
     }
 
     /**
-     * Optionally filters the databases by a pattern
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      * 
      */
     @Import(name="startsWith")
     private @Nullable Output<String> startsWith;
 
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      * 
      */
     public Optional<Output<String>> startsWith() {
@@ -62,27 +63,43 @@ public final class GetDatabasesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Optionally returns only the columns `created_on` and `name` in the results
+     * Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    @Import(name="terse")
-    private @Nullable Output<Boolean> terse;
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
 
     /**
-     * @return Optionally returns only the columns `created_on` and `name` in the results
+     * @return Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    public Optional<Output<Boolean>> terse() {
-        return Optional.ofNullable(this.terse);
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+
+    /**
+     * Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    @Import(name="withParameters")
+    private @Nullable Output<Boolean> withParameters;
+
+    /**
+     * @return Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     private GetDatabasesArgs() {}
 
     private GetDatabasesArgs(GetDatabasesArgs $) {
-        this.history = $.history;
-        this.pattern = $.pattern;
+        this.like = $.like;
+        this.limit = $.limit;
         this.startsWith = $.startsWith;
-        this.terse = $.terse;
+        this.withDescribe = $.withDescribe;
+        this.withParameters = $.withParameters;
     }
 
     public static Builder builder() {
@@ -104,49 +121,49 @@ public final class GetDatabasesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param history Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder history(@Nullable Output<Boolean> history) {
-            $.history = history;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param history Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder history(Boolean history) {
-            return history(Output.of(history));
+        public Builder like(String like) {
+            return like(Output.of(like));
         }
 
         /**
-         * @param pattern Optionally filters the databases by a pattern
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<String> pattern) {
-            $.pattern = pattern;
+        public Builder limit(@Nullable Output<GetDatabasesLimitArgs> limit) {
+            $.limit = limit;
             return this;
         }
 
         /**
-         * @param pattern Optionally filters the databases by a pattern
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder limit(GetDatabasesLimitArgs limit) {
+            return limit(Output.of(limit));
         }
 
         /**
-         * @param startsWith Optionally filters the databases by a pattern
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
          * 
          * @return builder
          * 
@@ -157,7 +174,7 @@ public final class GetDatabasesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param startsWith Optionally filters the databases by a pattern
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
          * 
          * @return builder
          * 
@@ -167,24 +184,45 @@ public final class GetDatabasesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param terse Optionally returns only the columns `created_on` and `name` in the results
+         * @param withDescribe Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 
          */
-        public Builder terse(@Nullable Output<Boolean> terse) {
-            $.terse = terse;
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
             return this;
         }
 
         /**
-         * @param terse Optionally returns only the columns `created_on` and `name` in the results
+         * @param withDescribe Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 
          */
-        public Builder terse(Boolean terse) {
-            return terse(Output.of(terse));
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
+        }
+
+        /**
+         * @param withParameters Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(@Nullable Output<Boolean> withParameters) {
+            $.withParameters = withParameters;
+            return this;
+        }
+
+        /**
+         * @param withParameters Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(Boolean withParameters) {
+            return withParameters(Output.of(withParameters));
         }
 
         public GetDatabasesArgs build() {

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ExternalOauthIntegrationArgs', 'ExternalOauthIntegration']
 
@@ -15,67 +17,67 @@ __all__ = ['ExternalOauthIntegrationArgs', 'ExternalOauthIntegration']
 class ExternalOauthIntegrationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 issuer: pulumi.Input[str],
-                 snowflake_user_mapping_attribute: pulumi.Input[str],
-                 token_user_mapping_claims: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str],
-                 allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 any_role_mode: Optional[pulumi.Input[str]] = None,
-                 audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_issuer: pulumi.Input[str],
+                 external_oauth_snowflake_user_mapping_attribute: pulumi.Input[str],
+                 external_oauth_token_user_mapping_claims: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 external_oauth_type: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
-                 jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 scope_delimiter: Optional[pulumi.Input[str]] = None,
-                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None):
+                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_any_role_mode: Optional[pulumi.Input[str]] = None,
+                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_rsa_public_key: Optional[pulumi.Input[str]] = None,
+                 external_oauth_rsa_public_key2: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExternalOauthIntegration resource.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
-        :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
-        :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
+        :param pulumi.Input[str] external_oauth_issuer: Specifies the URL to define the OAuth 2.0 authorization server.
+        :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_allowed_roles_lists: Specifies the list of roles that the client can set as the primary role.
+        :param pulumi.Input[str] external_oauth_any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_audience_lists: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_blocked_roles_lists: Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] external_oauth_scope_mapping_attribute: Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
         :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
-        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
         """
         pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
-        pulumi.set(__self__, "token_user_mapping_claims", token_user_mapping_claims)
-        pulumi.set(__self__, "type", type)
-        if allowed_roles is not None:
-            pulumi.set(__self__, "allowed_roles", allowed_roles)
-        if any_role_mode is not None:
-            pulumi.set(__self__, "any_role_mode", any_role_mode)
-        if audience_urls is not None:
-            pulumi.set(__self__, "audience_urls", audience_urls)
-        if blocked_roles is not None:
-            pulumi.set(__self__, "blocked_roles", blocked_roles)
+        pulumi.set(__self__, "external_oauth_issuer", external_oauth_issuer)
+        pulumi.set(__self__, "external_oauth_snowflake_user_mapping_attribute", external_oauth_snowflake_user_mapping_attribute)
+        pulumi.set(__self__, "external_oauth_token_user_mapping_claims", external_oauth_token_user_mapping_claims)
+        pulumi.set(__self__, "external_oauth_type", external_oauth_type)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if jws_keys_urls is not None:
-            pulumi.set(__self__, "jws_keys_urls", jws_keys_urls)
+        if external_oauth_allowed_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_allowed_roles_lists", external_oauth_allowed_roles_lists)
+        if external_oauth_any_role_mode is not None:
+            pulumi.set(__self__, "external_oauth_any_role_mode", external_oauth_any_role_mode)
+        if external_oauth_audience_lists is not None:
+            pulumi.set(__self__, "external_oauth_audience_lists", external_oauth_audience_lists)
+        if external_oauth_blocked_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_blocked_roles_lists", external_oauth_blocked_roles_lists)
+        if external_oauth_jws_keys_urls is not None:
+            pulumi.set(__self__, "external_oauth_jws_keys_urls", external_oauth_jws_keys_urls)
+        if external_oauth_rsa_public_key is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_key", external_oauth_rsa_public_key)
+        if external_oauth_rsa_public_key2 is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_key2", external_oauth_rsa_public_key2)
+        if external_oauth_scope_delimiter is not None:
+            pulumi.set(__self__, "external_oauth_scope_delimiter", external_oauth_scope_delimiter)
+        if external_oauth_scope_mapping_attribute is not None:
+            pulumi.set(__self__, "external_oauth_scope_mapping_attribute", external_oauth_scope_mapping_attribute)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
-        if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
-        if scope_delimiter is not None:
-            pulumi.set(__self__, "scope_delimiter", scope_delimiter)
-        if scope_mapping_attribute is not None:
-            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
 
     @property
     @pulumi.getter
@@ -90,100 +92,52 @@ class ExternalOauthIntegrationArgs:
         pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter
-    def issuer(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="externalOauthIssuer")
+    def external_oauth_issuer(self) -> pulumi.Input[str]:
         """
         Specifies the URL to define the OAuth 2.0 authorization server.
         """
-        return pulumi.get(self, "issuer")
+        return pulumi.get(self, "external_oauth_issuer")
 
-    @issuer.setter
-    def issuer(self, value: pulumi.Input[str]):
-        pulumi.set(self, "issuer", value)
-
-    @property
-    @pulumi.getter(name="snowflakeUserMappingAttribute")
-    def snowflake_user_mapping_attribute(self) -> pulumi.Input[str]:
-        """
-        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        """
-        return pulumi.get(self, "snowflake_user_mapping_attribute")
-
-    @snowflake_user_mapping_attribute.setter
-    def snowflake_user_mapping_attribute(self, value: pulumi.Input[str]):
-        pulumi.set(self, "snowflake_user_mapping_attribute", value)
+    @external_oauth_issuer.setter
+    def external_oauth_issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_oauth_issuer", value)
 
     @property
-    @pulumi.getter(name="tokenUserMappingClaims")
-    def token_user_mapping_claims(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    @pulumi.getter(name="externalOauthSnowflakeUserMappingAttribute")
+    def external_oauth_snowflake_user_mapping_attribute(self) -> pulumi.Input[str]:
         """
-        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
+        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
         """
-        return pulumi.get(self, "token_user_mapping_claims")
+        return pulumi.get(self, "external_oauth_snowflake_user_mapping_attribute")
 
-    @token_user_mapping_claims.setter
-    def token_user_mapping_claims(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "token_user_mapping_claims", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
+    @external_oauth_snowflake_user_mapping_attribute.setter
+    def external_oauth_snowflake_user_mapping_attribute(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_oauth_snowflake_user_mapping_attribute", value)
 
     @property
-    @pulumi.getter(name="allowedRoles")
-    def allowed_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="externalOauthTokenUserMappingClaims")
+    def external_oauth_token_user_mapping_claims(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies the list of roles that the client can set as the primary role.
+        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
         """
-        return pulumi.get(self, "allowed_roles")
+        return pulumi.get(self, "external_oauth_token_user_mapping_claims")
 
-    @allowed_roles.setter
-    def allowed_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "allowed_roles", value)
-
-    @property
-    @pulumi.getter(name="anyRoleMode")
-    def any_role_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        """
-        return pulumi.get(self, "any_role_mode")
-
-    @any_role_mode.setter
-    def any_role_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "any_role_mode", value)
+    @external_oauth_token_user_mapping_claims.setter
+    def external_oauth_token_user_mapping_claims(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "external_oauth_token_user_mapping_claims", value)
 
     @property
-    @pulumi.getter(name="audienceUrls")
-    def audience_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="externalOauthType")
+    def external_oauth_type(self) -> pulumi.Input[str]:
         """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         """
-        return pulumi.get(self, "audience_urls")
+        return pulumi.get(self, "external_oauth_type")
 
-    @audience_urls.setter
-    def audience_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "audience_urls", value)
-
-    @property
-    @pulumi.getter(name="blockedRoles")
-    def blocked_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        """
-        return pulumi.get(self, "blocked_roles")
-
-    @blocked_roles.setter
-    def blocked_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "blocked_roles", value)
+    @external_oauth_type.setter
+    def external_oauth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_oauth_type", value)
 
     @property
     @pulumi.getter
@@ -198,16 +152,112 @@ class ExternalOauthIntegrationArgs:
         pulumi.set(self, "comment", value)
 
     @property
-    @pulumi.getter(name="jwsKeysUrls")
-    def jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="externalOauthAllowedRolesLists")
+    def external_oauth_allowed_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the list of roles that the client can set as the primary role.
         """
-        return pulumi.get(self, "jws_keys_urls")
+        return pulumi.get(self, "external_oauth_allowed_roles_lists")
 
-    @jws_keys_urls.setter
-    def jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "jws_keys_urls", value)
+    @external_oauth_allowed_roles_lists.setter
+    def external_oauth_allowed_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_allowed_roles_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthAnyRoleMode")
+    def external_oauth_any_role_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        """
+        return pulumi.get(self, "external_oauth_any_role_mode")
+
+    @external_oauth_any_role_mode.setter
+    def external_oauth_any_role_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_any_role_mode", value)
+
+    @property
+    @pulumi.getter(name="externalOauthAudienceLists")
+    def external_oauth_audience_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        """
+        return pulumi.get(self, "external_oauth_audience_lists")
+
+    @external_oauth_audience_lists.setter
+    def external_oauth_audience_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_audience_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthBlockedRolesLists")
+    def external_oauth_blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        """
+        return pulumi.get(self, "external_oauth_blocked_roles_lists")
+
+    @external_oauth_blocked_roles_lists.setter
+    def external_oauth_blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_blocked_roles_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthJwsKeysUrls")
+    def external_oauth_jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_jws_keys_urls")
+
+    @external_oauth_jws_keys_urls.setter
+    def external_oauth_jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_jws_keys_urls", value)
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey")
+    def external_oauth_rsa_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key")
+
+    @external_oauth_rsa_public_key.setter
+    def external_oauth_rsa_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_rsa_public_key", value)
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey2")
+    def external_oauth_rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key2")
+
+    @external_oauth_rsa_public_key2.setter
+    def external_oauth_rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_rsa_public_key2", value)
+
+    @property
+    @pulumi.getter(name="externalOauthScopeDelimiter")
+    def external_oauth_scope_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the scope delimiter in the authorization token.
+        """
+        return pulumi.get(self, "external_oauth_scope_delimiter")
+
+    @external_oauth_scope_delimiter.setter
+    def external_oauth_scope_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_scope_delimiter", value)
+
+    @property
+    @pulumi.getter(name="externalOauthScopeMappingAttribute")
+    def external_oauth_scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_scope_mapping_attribute")
+
+    @external_oauth_scope_mapping_attribute.setter
+    def external_oauth_scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_scope_mapping_attribute", value)
 
     @property
     @pulumi.getter
@@ -221,177 +271,89 @@ class ExternalOauthIntegrationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="rsaPublicKey")
-    def rsa_public_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        """
-        return pulumi.get(self, "rsa_public_key")
-
-    @rsa_public_key.setter
-    def rsa_public_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rsa_public_key", value)
-
-    @property
-    @pulumi.getter(name="rsaPublicKey2")
-    def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        """
-        return pulumi.get(self, "rsa_public_key2")
-
-    @rsa_public_key2.setter
-    def rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rsa_public_key2", value)
-
-    @property
-    @pulumi.getter(name="scopeDelimiter")
-    def scope_delimiter(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the scope delimiter in the authorization token.
-        """
-        return pulumi.get(self, "scope_delimiter")
-
-    @scope_delimiter.setter
-    def scope_delimiter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope_delimiter", value)
-
-    @property
-    @pulumi.getter(name="scopeMappingAttribute")
-    def scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the access token claim to map the access token to an account role.
-        """
-        return pulumi.get(self, "scope_mapping_attribute")
-
-    @scope_mapping_attribute.setter
-    def scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope_mapping_attribute", value)
-
 
 @pulumi.input_type
 class _ExternalOauthIntegrationState:
     def __init__(__self__, *,
-                 allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 any_role_mode: Optional[pulumi.Input[str]] = None,
-                 audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 created_on: Optional[pulumi.Input[str]] = None,
+                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 issuer: Optional[pulumi.Input[str]] = None,
-                 jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_any_role_mode: Optional[pulumi.Input[str]] = None,
+                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_issuer: Optional[pulumi.Input[str]] = None,
+                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_rsa_public_key: Optional[pulumi.Input[str]] = None,
+                 external_oauth_rsa_public_key2: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 scope_delimiter: Optional[pulumi.Input[str]] = None,
-                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalOauthIntegration resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
-        :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[str] created_on: Date and time when the External OAUTH integration was created.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
-        :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_allowed_roles_lists: Specifies the list of roles that the client can set as the primary role.
+        :param pulumi.Input[str] external_oauth_any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_audience_lists: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_blocked_roles_lists: Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        :param pulumi.Input[str] external_oauth_issuer: Specifies the URL to define the OAuth 2.0 authorization server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] external_oauth_scope_mapping_attribute: Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
-        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
-        :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]] related_parameters: Paramteres related to this security integration.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
-        if allowed_roles is not None:
-            pulumi.set(__self__, "allowed_roles", allowed_roles)
-        if any_role_mode is not None:
-            pulumi.set(__self__, "any_role_mode", any_role_mode)
-        if audience_urls is not None:
-            pulumi.set(__self__, "audience_urls", audience_urls)
-        if blocked_roles is not None:
-            pulumi.set(__self__, "blocked_roles", blocked_roles)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
-        if jws_keys_urls is not None:
-            pulumi.set(__self__, "jws_keys_urls", jws_keys_urls)
+        if external_oauth_allowed_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_allowed_roles_lists", external_oauth_allowed_roles_lists)
+        if external_oauth_any_role_mode is not None:
+            pulumi.set(__self__, "external_oauth_any_role_mode", external_oauth_any_role_mode)
+        if external_oauth_audience_lists is not None:
+            pulumi.set(__self__, "external_oauth_audience_lists", external_oauth_audience_lists)
+        if external_oauth_blocked_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_blocked_roles_lists", external_oauth_blocked_roles_lists)
+        if external_oauth_issuer is not None:
+            pulumi.set(__self__, "external_oauth_issuer", external_oauth_issuer)
+        if external_oauth_jws_keys_urls is not None:
+            pulumi.set(__self__, "external_oauth_jws_keys_urls", external_oauth_jws_keys_urls)
+        if external_oauth_rsa_public_key is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_key", external_oauth_rsa_public_key)
+        if external_oauth_rsa_public_key2 is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_key2", external_oauth_rsa_public_key2)
+        if external_oauth_scope_delimiter is not None:
+            pulumi.set(__self__, "external_oauth_scope_delimiter", external_oauth_scope_delimiter)
+        if external_oauth_scope_mapping_attribute is not None:
+            pulumi.set(__self__, "external_oauth_scope_mapping_attribute", external_oauth_scope_mapping_attribute)
+        if external_oauth_snowflake_user_mapping_attribute is not None:
+            pulumi.set(__self__, "external_oauth_snowflake_user_mapping_attribute", external_oauth_snowflake_user_mapping_attribute)
+        if external_oauth_token_user_mapping_claims is not None:
+            pulumi.set(__self__, "external_oauth_token_user_mapping_claims", external_oauth_token_user_mapping_claims)
+        if external_oauth_type is not None:
+            pulumi.set(__self__, "external_oauth_type", external_oauth_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if rsa_public_key is not None:
-            pulumi.set(__self__, "rsa_public_key", rsa_public_key)
-        if rsa_public_key2 is not None:
-            pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
-        if scope_delimiter is not None:
-            pulumi.set(__self__, "scope_delimiter", scope_delimiter)
-        if scope_mapping_attribute is not None:
-            pulumi.set(__self__, "scope_mapping_attribute", scope_mapping_attribute)
-        if snowflake_user_mapping_attribute is not None:
-            pulumi.set(__self__, "snowflake_user_mapping_attribute", snowflake_user_mapping_attribute)
-        if token_user_mapping_claims is not None:
-            pulumi.set(__self__, "token_user_mapping_claims", token_user_mapping_claims)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allowedRoles")
-    def allowed_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies the list of roles that the client can set as the primary role.
-        """
-        return pulumi.get(self, "allowed_roles")
-
-    @allowed_roles.setter
-    def allowed_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "allowed_roles", value)
-
-    @property
-    @pulumi.getter(name="anyRoleMode")
-    def any_role_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        """
-        return pulumi.get(self, "any_role_mode")
-
-    @any_role_mode.setter
-    def any_role_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "any_role_mode", value)
-
-    @property
-    @pulumi.getter(name="audienceUrls")
-    def audience_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        """
-        return pulumi.get(self, "audience_urls")
-
-    @audience_urls.setter
-    def audience_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "audience_urls", value)
-
-    @property
-    @pulumi.getter(name="blockedRoles")
-    def blocked_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        """
-        return pulumi.get(self, "blocked_roles")
-
-    @blocked_roles.setter
-    def blocked_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "blocked_roles", value)
+        if related_parameters is not None:
+            pulumi.set(__self__, "related_parameters", related_parameters)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @property
     @pulumi.getter
@@ -406,16 +368,16 @@ class _ExternalOauthIntegrationState:
         pulumi.set(self, "comment", value)
 
     @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]:
         """
-        Date and time when the External OAUTH integration was created.
+        Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         """
-        return pulumi.get(self, "created_on")
+        return pulumi.get(self, "describe_outputs")
 
-    @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_on", value)
+    @describe_outputs.setter
+    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
 
     @property
     @pulumi.getter
@@ -430,28 +392,160 @@ class _ExternalOauthIntegrationState:
         pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="externalOauthAllowedRolesLists")
+    def external_oauth_allowed_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of roles that the client can set as the primary role.
+        """
+        return pulumi.get(self, "external_oauth_allowed_roles_lists")
+
+    @external_oauth_allowed_roles_lists.setter
+    def external_oauth_allowed_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_allowed_roles_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthAnyRoleMode")
+    def external_oauth_any_role_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        """
+        return pulumi.get(self, "external_oauth_any_role_mode")
+
+    @external_oauth_any_role_mode.setter
+    def external_oauth_any_role_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_any_role_mode", value)
+
+    @property
+    @pulumi.getter(name="externalOauthAudienceLists")
+    def external_oauth_audience_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        """
+        return pulumi.get(self, "external_oauth_audience_lists")
+
+    @external_oauth_audience_lists.setter
+    def external_oauth_audience_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_audience_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthBlockedRolesLists")
+    def external_oauth_blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        """
+        return pulumi.get(self, "external_oauth_blocked_roles_lists")
+
+    @external_oauth_blocked_roles_lists.setter
+    def external_oauth_blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_blocked_roles_lists", value)
+
+    @property
+    @pulumi.getter(name="externalOauthIssuer")
+    def external_oauth_issuer(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the URL to define the OAuth 2.0 authorization server.
         """
-        return pulumi.get(self, "issuer")
+        return pulumi.get(self, "external_oauth_issuer")
 
-    @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "issuer", value)
+    @external_oauth_issuer.setter
+    def external_oauth_issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_issuer", value)
 
     @property
-    @pulumi.getter(name="jwsKeysUrls")
-    def jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="externalOauthJwsKeysUrls")
+    def external_oauth_jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         """
-        return pulumi.get(self, "jws_keys_urls")
+        return pulumi.get(self, "external_oauth_jws_keys_urls")
 
-    @jws_keys_urls.setter
-    def jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "jws_keys_urls", value)
+    @external_oauth_jws_keys_urls.setter
+    def external_oauth_jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_jws_keys_urls", value)
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey")
+    def external_oauth_rsa_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key")
+
+    @external_oauth_rsa_public_key.setter
+    def external_oauth_rsa_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_rsa_public_key", value)
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey2")
+    def external_oauth_rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key2")
+
+    @external_oauth_rsa_public_key2.setter
+    def external_oauth_rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_rsa_public_key2", value)
+
+    @property
+    @pulumi.getter(name="externalOauthScopeDelimiter")
+    def external_oauth_scope_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the scope delimiter in the authorization token.
+        """
+        return pulumi.get(self, "external_oauth_scope_delimiter")
+
+    @external_oauth_scope_delimiter.setter
+    def external_oauth_scope_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_scope_delimiter", value)
+
+    @property
+    @pulumi.getter(name="externalOauthScopeMappingAttribute")
+    def external_oauth_scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_scope_mapping_attribute")
+
+    @external_oauth_scope_mapping_attribute.setter
+    def external_oauth_scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_scope_mapping_attribute", value)
+
+    @property
+    @pulumi.getter(name="externalOauthSnowflakeUserMappingAttribute")
+    def external_oauth_snowflake_user_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        """
+        return pulumi.get(self, "external_oauth_snowflake_user_mapping_attribute")
+
+    @external_oauth_snowflake_user_mapping_attribute.setter
+    def external_oauth_snowflake_user_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_snowflake_user_mapping_attribute", value)
+
+    @property
+    @pulumi.getter(name="externalOauthTokenUserMappingClaims")
+    def external_oauth_token_user_mapping_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_token_user_mapping_claims")
+
+    @external_oauth_token_user_mapping_claims.setter
+    def external_oauth_token_user_mapping_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_oauth_token_user_mapping_claims", value)
+
+    @property
+    @pulumi.getter(name="externalOauthType")
+    def external_oauth_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+        """
+        return pulumi.get(self, "external_oauth_type")
+
+    @external_oauth_type.setter
+    def external_oauth_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_oauth_type", value)
 
     @property
     @pulumi.getter
@@ -466,88 +560,28 @@ class _ExternalOauthIntegrationState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="rsaPublicKey")
-    def rsa_public_key(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="relatedParameters")
+    def related_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]:
         """
-        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+        Paramteres related to this security integration.
         """
-        return pulumi.get(self, "rsa_public_key")
+        return pulumi.get(self, "related_parameters")
 
-    @rsa_public_key.setter
-    def rsa_public_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rsa_public_key", value)
-
-    @property
-    @pulumi.getter(name="rsaPublicKey2")
-    def rsa_public_key2(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        """
-        return pulumi.get(self, "rsa_public_key2")
-
-    @rsa_public_key2.setter
-    def rsa_public_key2(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rsa_public_key2", value)
+    @related_parameters.setter
+    def related_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]):
+        pulumi.set(self, "related_parameters", value)
 
     @property
-    @pulumi.getter(name="scopeDelimiter")
-    def scope_delimiter(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]:
         """
-        Specifies the scope delimiter in the authorization token.
+        Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
-        return pulumi.get(self, "scope_delimiter")
+        return pulumi.get(self, "show_outputs")
 
-    @scope_delimiter.setter
-    def scope_delimiter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope_delimiter", value)
-
-    @property
-    @pulumi.getter(name="scopeMappingAttribute")
-    def scope_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the access token claim to map the access token to an account role.
-        """
-        return pulumi.get(self, "scope_mapping_attribute")
-
-    @scope_mapping_attribute.setter
-    def scope_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope_mapping_attribute", value)
-
-    @property
-    @pulumi.getter(name="snowflakeUserMappingAttribute")
-    def snowflake_user_mapping_attribute(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        """
-        return pulumi.get(self, "snowflake_user_mapping_attribute")
-
-    @snowflake_user_mapping_attribute.setter
-    def snowflake_user_mapping_attribute(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "snowflake_user_mapping_attribute", value)
-
-    @property
-    @pulumi.getter(name="tokenUserMappingClaims")
-    def token_user_mapping_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        """
-        return pulumi.get(self, "token_user_mapping_claims")
-
-    @token_user_mapping_claims.setter
-    def token_user_mapping_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "token_user_mapping_claims", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 class ExternalOauthIntegration(pulumi.CustomResource):
@@ -555,67 +589,52 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 any_role_mode: Optional[pulumi.Input[str]] = None,
-                 audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 issuer: Optional[pulumi.Input[str]] = None,
-                 jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_any_role_mode: Optional[pulumi.Input[str]] = None,
+                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_issuer: Optional[pulumi.Input[str]] = None,
+                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_rsa_public_key: Optional[pulumi.Input[str]] = None,
+                 external_oauth_rsa_public_key2: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 scope_delimiter: Optional[pulumi.Input[str]] = None,
-                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        azure = snowflake.ExternalOauthIntegration("azure",
-            name="AZURE_POWERBI",
-            type="AZURE",
-            enabled=True,
-            issuer="https://sts.windows.net/00000000-0000-0000-0000-000000000000",
-            snowflake_user_mapping_attribute="LOGIN_NAME",
-            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
-            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
-            token_user_mapping_claims=["upn"])
-        ```
+        Resource used to manage external oauth security integrations. For more information, check [documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
 
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
-        :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
-        :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_allowed_roles_lists: Specifies the list of roles that the client can set as the primary role.
+        :param pulumi.Input[str] external_oauth_any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_audience_lists: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_blocked_roles_lists: Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        :param pulumi.Input[str] external_oauth_issuer: Specifies the URL to define the OAuth 2.0 authorization server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] external_oauth_scope_mapping_attribute: Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
-        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
-        :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
         """
         ...
     @overload
@@ -624,29 +643,14 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  args: ExternalOauthIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        azure = snowflake.ExternalOauthIntegration("azure",
-            name="AZURE_POWERBI",
-            type="AZURE",
-            enabled=True,
-            issuer="https://sts.windows.net/00000000-0000-0000-0000-000000000000",
-            snowflake_user_mapping_attribute="LOGIN_NAME",
-            jws_keys_urls=["https://login.windows.net/common/discovery/keys"],
-            audience_urls=["https://analysis.windows.net/powerbi/connector/Snowflake"],
-            token_user_mapping_claims=["upn"])
-        ```
+        Resource used to manage external oauth security integrations. For more information, check [documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
 
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+        $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
         ```
 
         :param str resource_name: The name of the resource.
@@ -664,22 +668,22 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 any_role_mode: Optional[pulumi.Input[str]] = None,
-                 audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 issuer: Optional[pulumi.Input[str]] = None,
-                 jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_any_role_mode: Optional[pulumi.Input[str]] = None,
+                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_issuer: Optional[pulumi.Input[str]] = None,
+                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_rsa_public_key: Optional[pulumi.Input[str]] = None,
+                 external_oauth_rsa_public_key2: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_delimiter: Optional[pulumi.Input[str]] = None,
+                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_oauth_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[str]] = None,
-                 scope_delimiter: Optional[pulumi.Input[str]] = None,
-                 scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
-                 token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -689,33 +693,35 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExternalOauthIntegrationArgs.__new__(ExternalOauthIntegrationArgs)
 
-            __props__.__dict__["allowed_roles"] = allowed_roles
-            __props__.__dict__["any_role_mode"] = any_role_mode
-            __props__.__dict__["audience_urls"] = audience_urls
-            __props__.__dict__["blocked_roles"] = blocked_roles
             __props__.__dict__["comment"] = comment
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            if issuer is None and not opts.urn:
-                raise TypeError("Missing required property 'issuer'")
-            __props__.__dict__["issuer"] = issuer
-            __props__.__dict__["jws_keys_urls"] = jws_keys_urls
+            __props__.__dict__["external_oauth_allowed_roles_lists"] = external_oauth_allowed_roles_lists
+            __props__.__dict__["external_oauth_any_role_mode"] = external_oauth_any_role_mode
+            __props__.__dict__["external_oauth_audience_lists"] = external_oauth_audience_lists
+            __props__.__dict__["external_oauth_blocked_roles_lists"] = external_oauth_blocked_roles_lists
+            if external_oauth_issuer is None and not opts.urn:
+                raise TypeError("Missing required property 'external_oauth_issuer'")
+            __props__.__dict__["external_oauth_issuer"] = external_oauth_issuer
+            __props__.__dict__["external_oauth_jws_keys_urls"] = external_oauth_jws_keys_urls
+            __props__.__dict__["external_oauth_rsa_public_key"] = external_oauth_rsa_public_key
+            __props__.__dict__["external_oauth_rsa_public_key2"] = external_oauth_rsa_public_key2
+            __props__.__dict__["external_oauth_scope_delimiter"] = external_oauth_scope_delimiter
+            __props__.__dict__["external_oauth_scope_mapping_attribute"] = external_oauth_scope_mapping_attribute
+            if external_oauth_snowflake_user_mapping_attribute is None and not opts.urn:
+                raise TypeError("Missing required property 'external_oauth_snowflake_user_mapping_attribute'")
+            __props__.__dict__["external_oauth_snowflake_user_mapping_attribute"] = external_oauth_snowflake_user_mapping_attribute
+            if external_oauth_token_user_mapping_claims is None and not opts.urn:
+                raise TypeError("Missing required property 'external_oauth_token_user_mapping_claims'")
+            __props__.__dict__["external_oauth_token_user_mapping_claims"] = external_oauth_token_user_mapping_claims
+            if external_oauth_type is None and not opts.urn:
+                raise TypeError("Missing required property 'external_oauth_type'")
+            __props__.__dict__["external_oauth_type"] = external_oauth_type
             __props__.__dict__["name"] = name
-            __props__.__dict__["rsa_public_key"] = rsa_public_key
-            __props__.__dict__["rsa_public_key2"] = rsa_public_key2
-            __props__.__dict__["scope_delimiter"] = scope_delimiter
-            __props__.__dict__["scope_mapping_attribute"] = scope_mapping_attribute
-            if snowflake_user_mapping_attribute is None and not opts.urn:
-                raise TypeError("Missing required property 'snowflake_user_mapping_attribute'")
-            __props__.__dict__["snowflake_user_mapping_attribute"] = snowflake_user_mapping_attribute
-            if token_user_mapping_claims is None and not opts.urn:
-                raise TypeError("Missing required property 'token_user_mapping_claims'")
-            __props__.__dict__["token_user_mapping_claims"] = token_user_mapping_claims
-            if type is None and not opts.urn:
-                raise TypeError("Missing required property 'type'")
-            __props__.__dict__["type"] = type
-            __props__.__dict__["created_on"] = None
+            __props__.__dict__["describe_outputs"] = None
+            __props__.__dict__["related_parameters"] = None
+            __props__.__dict__["show_outputs"] = None
         super(ExternalOauthIntegration, __self__).__init__(
             'snowflake:index/externalOauthIntegration:ExternalOauthIntegration',
             resource_name,
@@ -726,23 +732,25 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            any_role_mode: Optional[pulumi.Input[str]] = None,
-            audience_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            blocked_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            created_on: Optional[pulumi.Input[str]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationDescribeOutputArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            issuer: Optional[pulumi.Input[str]] = None,
-            jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_any_role_mode: Optional[pulumi.Input[str]] = None,
+            external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_issuer: Optional[pulumi.Input[str]] = None,
+            external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_rsa_public_key: Optional[pulumi.Input[str]] = None,
+            external_oauth_rsa_public_key2: Optional[pulumi.Input[str]] = None,
+            external_oauth_scope_delimiter: Optional[pulumi.Input[str]] = None,
+            external_oauth_scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
+            external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
+            external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            external_oauth_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rsa_public_key: Optional[pulumi.Input[str]] = None,
-            rsa_public_key2: Optional[pulumi.Input[str]] = None,
-            scope_delimiter: Optional[pulumi.Input[str]] = None,
-            scope_mapping_attribute: Optional[pulumi.Input[str]] = None,
-            snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
-            token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'ExternalOauthIntegration':
+            related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationRelatedParameterArgs']]]]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationShowOutputArgs']]]]] = None) -> 'ExternalOauthIntegration':
         """
         Get an existing ExternalOauthIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -750,78 +758,50 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_roles: Specifies the list of roles that the client can set as the primary role.
-        :param pulumi.Input[str] any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience_urls: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles: Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[str] created_on: Date and time when the External OAUTH integration was created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
-        :param pulumi.Input[str] issuer: Specifies the URL to define the OAuth 2.0 authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_allowed_roles_lists: Specifies the list of roles that the client can set as the primary role.
+        :param pulumi.Input[str] external_oauth_any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_audience_lists: Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_blocked_roles_lists: Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        :param pulumi.Input[str] external_oauth_issuer: Specifies the URL to define the OAuth 2.0 authorization server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_jws_keys_urls: Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_scope_delimiter: Specifies the scope delimiter in the authorization token.
+        :param pulumi.Input[str] external_oauth_scope_mapping_attribute: Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        :param pulumi.Input[str] rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        :param pulumi.Input[str] scope_delimiter: Specifies the scope delimiter in the authorization token.
-        :param pulumi.Input[str] scope_mapping_attribute: Specifies the access token claim to map the access token to an account role.
-        :param pulumi.Input[str] snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        :param pulumi.Input[str] type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationRelatedParameterArgs']]]] related_parameters: Paramteres related to this security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalOauthIntegrationShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ExternalOauthIntegrationState.__new__(_ExternalOauthIntegrationState)
 
-        __props__.__dict__["allowed_roles"] = allowed_roles
-        __props__.__dict__["any_role_mode"] = any_role_mode
-        __props__.__dict__["audience_urls"] = audience_urls
-        __props__.__dict__["blocked_roles"] = blocked_roles
         __props__.__dict__["comment"] = comment
-        __props__.__dict__["created_on"] = created_on
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
-        __props__.__dict__["issuer"] = issuer
-        __props__.__dict__["jws_keys_urls"] = jws_keys_urls
+        __props__.__dict__["external_oauth_allowed_roles_lists"] = external_oauth_allowed_roles_lists
+        __props__.__dict__["external_oauth_any_role_mode"] = external_oauth_any_role_mode
+        __props__.__dict__["external_oauth_audience_lists"] = external_oauth_audience_lists
+        __props__.__dict__["external_oauth_blocked_roles_lists"] = external_oauth_blocked_roles_lists
+        __props__.__dict__["external_oauth_issuer"] = external_oauth_issuer
+        __props__.__dict__["external_oauth_jws_keys_urls"] = external_oauth_jws_keys_urls
+        __props__.__dict__["external_oauth_rsa_public_key"] = external_oauth_rsa_public_key
+        __props__.__dict__["external_oauth_rsa_public_key2"] = external_oauth_rsa_public_key2
+        __props__.__dict__["external_oauth_scope_delimiter"] = external_oauth_scope_delimiter
+        __props__.__dict__["external_oauth_scope_mapping_attribute"] = external_oauth_scope_mapping_attribute
+        __props__.__dict__["external_oauth_snowflake_user_mapping_attribute"] = external_oauth_snowflake_user_mapping_attribute
+        __props__.__dict__["external_oauth_token_user_mapping_claims"] = external_oauth_token_user_mapping_claims
+        __props__.__dict__["external_oauth_type"] = external_oauth_type
         __props__.__dict__["name"] = name
-        __props__.__dict__["rsa_public_key"] = rsa_public_key
-        __props__.__dict__["rsa_public_key2"] = rsa_public_key2
-        __props__.__dict__["scope_delimiter"] = scope_delimiter
-        __props__.__dict__["scope_mapping_attribute"] = scope_mapping_attribute
-        __props__.__dict__["snowflake_user_mapping_attribute"] = snowflake_user_mapping_attribute
-        __props__.__dict__["token_user_mapping_claims"] = token_user_mapping_claims
-        __props__.__dict__["type"] = type
+        __props__.__dict__["related_parameters"] = related_parameters
+        __props__.__dict__["show_outputs"] = show_outputs
         return ExternalOauthIntegration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="allowedRoles")
-    def allowed_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Specifies the list of roles that the client can set as the primary role.
-        """
-        return pulumi.get(self, "allowed_roles")
-
-    @property
-    @pulumi.getter(name="anyRoleMode")
-    def any_role_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        """
-        return pulumi.get(self, "any_role_mode")
-
-    @property
-    @pulumi.getter(name="audienceUrls")
-    def audience_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        """
-        return pulumi.get(self, "audience_urls")
-
-    @property
-    @pulumi.getter(name="blockedRoles")
-    def blocked_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        """
-        return pulumi.get(self, "blocked_roles")
 
     @property
     @pulumi.getter
@@ -832,12 +812,12 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         return pulumi.get(self, "comment")
 
     @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.ExternalOauthIntegrationDescribeOutput']]:
         """
-        Date and time when the External OAUTH integration was created.
+        Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         """
-        return pulumi.get(self, "created_on")
+        return pulumi.get(self, "describe_outputs")
 
     @property
     @pulumi.getter
@@ -848,20 +828,108 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter
-    def issuer(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="externalOauthAllowedRolesLists")
+    def external_oauth_allowed_roles_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the list of roles that the client can set as the primary role.
+        """
+        return pulumi.get(self, "external_oauth_allowed_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthAnyRoleMode")
+    def external_oauth_any_role_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        """
+        return pulumi.get(self, "external_oauth_any_role_mode")
+
+    @property
+    @pulumi.getter(name="externalOauthAudienceLists")
+    def external_oauth_audience_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        """
+        return pulumi.get(self, "external_oauth_audience_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthBlockedRolesLists")
+    def external_oauth_blocked_roles_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        """
+        return pulumi.get(self, "external_oauth_blocked_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthIssuer")
+    def external_oauth_issuer(self) -> pulumi.Output[str]:
         """
         Specifies the URL to define the OAuth 2.0 authorization server.
         """
-        return pulumi.get(self, "issuer")
+        return pulumi.get(self, "external_oauth_issuer")
 
     @property
-    @pulumi.getter(name="jwsKeysUrls")
-    def jws_keys_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter(name="externalOauthJwsKeysUrls")
+    def external_oauth_jws_keys_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         """
-        return pulumi.get(self, "jws_keys_urls")
+        return pulumi.get(self, "external_oauth_jws_keys_urls")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey")
+    def external_oauth_rsa_public_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey2")
+    def external_oauth_rsa_public_key2(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_rsa_public_key2")
+
+    @property
+    @pulumi.getter(name="externalOauthScopeDelimiter")
+    def external_oauth_scope_delimiter(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the scope delimiter in the authorization token.
+        """
+        return pulumi.get(self, "external_oauth_scope_delimiter")
+
+    @property
+    @pulumi.getter(name="externalOauthScopeMappingAttribute")
+    def external_oauth_scope_mapping_attribute(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_scope_mapping_attribute")
+
+    @property
+    @pulumi.getter(name="externalOauthSnowflakeUserMappingAttribute")
+    def external_oauth_snowflake_user_mapping_attribute(self) -> pulumi.Output[str]:
+        """
+        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        """
+        return pulumi.get(self, "external_oauth_snowflake_user_mapping_attribute")
+
+    @property
+    @pulumi.getter(name="externalOauthTokenUserMappingClaims")
+    def external_oauth_token_user_mapping_claims(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        """
+        return pulumi.get(self, "external_oauth_token_user_mapping_claims")
+
+    @property
+    @pulumi.getter(name="externalOauthType")
+    def external_oauth_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+        """
+        return pulumi.get(self, "external_oauth_type")
 
     @property
     @pulumi.getter
@@ -872,58 +940,18 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="rsaPublicKey")
-    def rsa_public_key(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="relatedParameters")
+    def related_parameters(self) -> pulumi.Output[Sequence['outputs.ExternalOauthIntegrationRelatedParameter']]:
         """
-        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+        Paramteres related to this security integration.
         """
-        return pulumi.get(self, "rsa_public_key")
+        return pulumi.get(self, "related_parameters")
 
     @property
-    @pulumi.getter(name="rsaPublicKey2")
-    def rsa_public_key2(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.ExternalOauthIntegrationShowOutput']]:
         """
-        Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
-        return pulumi.get(self, "rsa_public_key2")
-
-    @property
-    @pulumi.getter(name="scopeDelimiter")
-    def scope_delimiter(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the scope delimiter in the authorization token.
-        """
-        return pulumi.get(self, "scope_delimiter")
-
-    @property
-    @pulumi.getter(name="scopeMappingAttribute")
-    def scope_mapping_attribute(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the access token claim to map the access token to an account role.
-        """
-        return pulumi.get(self, "scope_mapping_attribute")
-
-    @property
-    @pulumi.getter(name="snowflakeUserMappingAttribute")
-    def snowflake_user_mapping_attribute(self) -> pulumi.Output[str]:
-        """
-        Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        """
-        return pulumi.get(self, "snowflake_user_mapping_attribute")
-
-    @property
-    @pulumi.getter(name="tokenUserMappingClaims")
-    def token_user_mapping_claims(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        """
-        return pulumi.get(self, "token_user_mapping_claims")
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
-        """
-        Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "show_outputs")
 
