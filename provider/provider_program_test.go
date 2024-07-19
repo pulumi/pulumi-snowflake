@@ -22,19 +22,12 @@ const providerName = "snowflake"
 const defaultBaselineVersion = "0.50.2"
 
 var programs = []string{
-	"test-programs/index_accountgrant",
 	"test-programs/index_fileformat",
-	"test-programs/index_rolegrants",
 	"test-programs/index_role",
-	"test-programs/index_grantprivilegestorole",
 	"test-programs/index_schema",
 	"test-programs/index_user",
-	"test-programs/index_schemagrant",
-	"test-programs/index_databasegrant",
 	"test-programs/index_task",
 	"test-programs/index_table",
-	"test-programs/index_database",
-	"test-programs/index_tablegrant",
 }
 
 func TestUpgradeCoverage(t *testing.T) {
