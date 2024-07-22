@@ -7,49 +7,74 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
+ * Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
  *
- * const simple = new snowflake.Database("simple", {
- *     name: "testing",
- *     comment: "test comment",
- *     dataRetentionTimeInDays: 3,
- * });
- * const withReplication = new snowflake.Database("with_replication", {
- *     name: "testing_2",
- *     comment: "test comment 2",
- *     replicationConfiguration: {
- *         accounts: [
- *             "test_account1",
- *             "test_account_2",
- *         ],
- *         ignoreEditionCheck: true,
+ * ## Minimal
+ *
+ * resource "snowflake.Database" "primary" {
+ *   name = "databaseName"
+ * }
+ *
+ * ## Complete (with every optional set)
+ *
+ * resource "snowflake.Database" "primary" {
+ *   name         = "databaseName"
+ *   isTransient = false
+ *   comment      = "my standard database"
+ *
+ *   dataRetentionTimeInDays                   = 10
+ *   dataRetentionTimeInDaysSave              = 10
+ *   maxDataExtensionTimeInDays               = 20
+ *   externalVolume                               = "<external_volume_name>"
+ *   catalog                                       = "<catalog_name>"
+ *   replaceInvalidCharacters                    = false
+ *   defaultDdlCollation                         = "en_US"
+ *   storageSerializationPolicy                  = "COMPATIBLE"
+ *   logLevel                                     = "INFO"
+ *   traceLevel                                   = "ALWAYS"
+ *   suspendTaskAfterNumFailures               = 10
+ *   taskAutoRetryAttempts                      = 10
+ *   userTaskManagedInitialWarehouseSize      = "LARGE"
+ *   userTaskTimeoutMs                          = 3600000
+ *   userTaskMinimumTriggerIntervalInSeconds = 120
+ *   quotedIdentifiersIgnoreCase                = false
+ *   enableConsoleOutput                         = false
+ *
+ *   replication {
+ *     enableToAccount {
+ *       accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
+ *       withFailover      = true
+ *     }
+ *     ignoreEditionCheck = true
+ *   }
+ * }
+ *
+ * ## Replication with forEach
+ *
+ * locals {
+ *   replicationConfigs = [
+ *     {
+ *       accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
+ *       withFailover      = true
  *     },
- * });
- * const fromReplica = new snowflake.Database("from_replica", {
- *     name: "testing_3",
- *     comment: "test comment",
- *     dataRetentionTimeInDays: 3,
- *     fromReplica: "\"org1\".\"account1\".\"primary_db_name\"",
- * });
- * const fromShare = new snowflake.Database("from_share", {
- *     name: "testing_4",
- *     comment: "test comment",
- *     fromShare: {
- *         provider: "account1_locator",
- *         share: "share1",
+ *     {
+ *       accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
+ *       withFailover      = true
  *     },
- * });
- * ```
+ *   ]
+ * }
  *
- * ## Import
+ * resource "snowflake.Database" "primary" {
+ *   name     = "databaseName"
+ *   forEach = local.replication_configs
  *
- * ```sh
- * $ pulumi import snowflake:index/database:Database example name
- * ```
+ *   replication {
+ *     enableToAccount    = each.value
+ *     ignoreEditionCheck = true
+ *   }
+ * }
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -80,37 +105,85 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
+     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     */
+    public readonly catalog!: pulumi.Output<string>;
+    /**
      * Specifies a comment for the database.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      */
-    public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
+    public readonly dataRetentionTimeInDays!: pulumi.Output<number>;
     /**
-     * Specify a database to create a clone from.
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    public readonly fromDatabase!: pulumi.Output<string | undefined>;
+    public readonly defaultDdlCollation!: pulumi.Output<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    public readonly fromReplica!: pulumi.Output<string | undefined>;
+    public readonly enableConsoleOutput!: pulumi.Output<boolean>;
     /**
-     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
+     * The database parameter that specifies the default external volume to use for Iceberg tables.
      */
-    public readonly fromShare!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly externalVolume!: pulumi.Output<string>;
     /**
-     * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     public readonly isTransient!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     */
+    public readonly logLevel!: pulumi.Output<string>;
+    /**
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     */
+    public readonly maxDataExtensionTimeInDays!: pulumi.Output<number>;
+    /**
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * When set, specifies the configurations for database replication.
+     * If true, the case of quoted identifiers is ignored.
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.DatabaseReplicationConfiguration | undefined>;
+    public readonly quotedIdentifiersIgnoreCase!: pulumi.Output<boolean>;
+    /**
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     */
+    public readonly replaceInvalidCharacters!: pulumi.Output<boolean>;
+    /**
+     * Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
+     */
+    public readonly replication!: pulumi.Output<outputs.DatabaseReplication | undefined>;
+    /**
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     */
+    public readonly storageSerializationPolicy!: pulumi.Output<string>;
+    /**
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     */
+    public readonly suspendTaskAfterNumFailures!: pulumi.Output<number>;
+    /**
+     * Maximum automatic retries allowed for a user task.
+     */
+    public readonly taskAutoRetryAttempts!: pulumi.Output<number>;
+    /**
+     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     */
+    public readonly traceLevel!: pulumi.Output<string>;
+    /**
+     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     */
+    public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string>;
+    /**
+     * Minimum amount of time between Triggered Task executions in seconds.
+     */
+    public readonly userTaskMinimumTriggerIntervalInSeconds!: pulumi.Output<number>;
+    /**
+     * User task execution timeout in milliseconds.
+     */
+    public readonly userTaskTimeoutMs!: pulumi.Output<number>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -125,24 +198,48 @@ export class Database extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
+            resourceInputs["catalog"] = state ? state.catalog : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
-            resourceInputs["fromDatabase"] = state ? state.fromDatabase : undefined;
-            resourceInputs["fromReplica"] = state ? state.fromReplica : undefined;
-            resourceInputs["fromShare"] = state ? state.fromShare : undefined;
+            resourceInputs["defaultDdlCollation"] = state ? state.defaultDdlCollation : undefined;
+            resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
+            resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
             resourceInputs["isTransient"] = state ? state.isTransient : undefined;
+            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
+            resourceInputs["maxDataExtensionTimeInDays"] = state ? state.maxDataExtensionTimeInDays : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = state ? state.quotedIdentifiersIgnoreCase : undefined;
+            resourceInputs["replaceInvalidCharacters"] = state ? state.replaceInvalidCharacters : undefined;
+            resourceInputs["replication"] = state ? state.replication : undefined;
+            resourceInputs["storageSerializationPolicy"] = state ? state.storageSerializationPolicy : undefined;
+            resourceInputs["suspendTaskAfterNumFailures"] = state ? state.suspendTaskAfterNumFailures : undefined;
+            resourceInputs["taskAutoRetryAttempts"] = state ? state.taskAutoRetryAttempts : undefined;
+            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = state ? state.userTaskMinimumTriggerIntervalInSeconds : undefined;
+            resourceInputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
+            resourceInputs["catalog"] = args ? args.catalog : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
-            resourceInputs["fromDatabase"] = args ? args.fromDatabase : undefined;
-            resourceInputs["fromReplica"] = args ? args.fromReplica : undefined;
-            resourceInputs["fromShare"] = args ? args.fromShare : undefined;
+            resourceInputs["defaultDdlCollation"] = args ? args.defaultDdlCollation : undefined;
+            resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
+            resourceInputs["externalVolume"] = args ? args.externalVolume : undefined;
             resourceInputs["isTransient"] = args ? args.isTransient : undefined;
+            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["maxDataExtensionTimeInDays"] = args ? args.maxDataExtensionTimeInDays : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = args ? args.quotedIdentifiersIgnoreCase : undefined;
+            resourceInputs["replaceInvalidCharacters"] = args ? args.replaceInvalidCharacters : undefined;
+            resourceInputs["replication"] = args ? args.replication : undefined;
+            resourceInputs["storageSerializationPolicy"] = args ? args.storageSerializationPolicy : undefined;
+            resourceInputs["suspendTaskAfterNumFailures"] = args ? args.suspendTaskAfterNumFailures : undefined;
+            resourceInputs["taskAutoRetryAttempts"] = args ? args.taskAutoRetryAttempts : undefined;
+            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args ? args.userTaskMinimumTriggerIntervalInSeconds : undefined;
+            resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -154,37 +251,85 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
+     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     */
+    catalog?: pulumi.Input<string>;
+    /**
      * Specifies a comment for the database.
      */
     comment?: pulumi.Input<string>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specify a database to create a clone from.
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    fromDatabase?: pulumi.Input<string>;
+    defaultDdlCollation?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    fromReplica?: pulumi.Input<string>;
+    enableConsoleOutput?: pulumi.Input<boolean>;
     /**
-     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
+     * The database parameter that specifies the default external volume to use for Iceberg tables.
      */
-    fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalVolume?: pulumi.Input<string>;
     /**
-     * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     */
+    logLevel?: pulumi.Input<string>;
+    /**
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     */
+    maxDataExtensionTimeInDays?: pulumi.Input<number>;
+    /**
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
      */
     name?: pulumi.Input<string>;
     /**
-     * When set, specifies the configurations for database replication.
+     * If true, the case of quoted identifiers is ignored.
      */
-    replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
+    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     */
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    /**
+     * Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
+     */
+    replication?: pulumi.Input<inputs.DatabaseReplication>;
+    /**
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     */
+    storageSerializationPolicy?: pulumi.Input<string>;
+    /**
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     */
+    suspendTaskAfterNumFailures?: pulumi.Input<number>;
+    /**
+     * Maximum automatic retries allowed for a user task.
+     */
+    taskAutoRetryAttempts?: pulumi.Input<number>;
+    /**
+     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     */
+    traceLevel?: pulumi.Input<string>;
+    /**
+     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     */
+    userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
+    /**
+     * Minimum amount of time between Triggered Task executions in seconds.
+     */
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
+    /**
+     * User task execution timeout in milliseconds.
+     */
+    userTaskTimeoutMs?: pulumi.Input<number>;
 }
 
 /**
@@ -192,35 +337,83 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
+     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     */
+    catalog?: pulumi.Input<string>;
+    /**
      * Specifies a comment for the database.
      */
     comment?: pulumi.Input<string>;
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database. Default value for this field is set to -1, which is a fallback to use Snowflake default. For more information, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specify a database to create a clone from.
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    fromDatabase?: pulumi.Input<string>;
+    defaultDdlCollation?: pulumi.Input<string>;
     /**
-     * Specify a fully-qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<db_name>"`. An example would be: `"myorg1"."account1"."db1"`
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    fromReplica?: pulumi.Input<string>;
+    enableConsoleOutput?: pulumi.Input<boolean>;
     /**
-     * Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
+     * The database parameter that specifies the default external volume to use for Iceberg tables.
      */
-    fromShare?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalVolume?: pulumi.Input<string>;
     /**
-     * Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
     isTransient?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     */
+    logLevel?: pulumi.Input<string>;
+    /**
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     */
+    maxDataExtensionTimeInDays?: pulumi.Input<number>;
+    /**
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
      */
     name?: pulumi.Input<string>;
     /**
-     * When set, specifies the configurations for database replication.
+     * If true, the case of quoted identifiers is ignored.
      */
-    replicationConfiguration?: pulumi.Input<inputs.DatabaseReplicationConfiguration>;
+    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     */
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    /**
+     * Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
+     */
+    replication?: pulumi.Input<inputs.DatabaseReplication>;
+    /**
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     */
+    storageSerializationPolicy?: pulumi.Input<string>;
+    /**
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     */
+    suspendTaskAfterNumFailures?: pulumi.Input<number>;
+    /**
+     * Maximum automatic retries allowed for a user task.
+     */
+    taskAutoRetryAttempts?: pulumi.Input<number>;
+    /**
+     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     */
+    traceLevel?: pulumi.Input<string>;
+    /**
+     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     */
+    userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
+    /**
+     * Minimum amount of time between Triggered Task executions in seconds.
+     */
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
+    /**
+     * User task execution timeout in milliseconds.
+     */
+    userTaskTimeoutMs?: pulumi.Input<number>;
 }

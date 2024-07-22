@@ -6,28 +6,28 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
-from .account_grant import *
 from .account_parameter import *
 from .account_password_policy_attachment import *
 from .alert import *
+from .api_authentication_integration_with_authorization_code_grant import *
+from .api_authentication_integration_with_client_credentials import *
+from .api_authentication_integration_with_jwt_bearer import *
 from .api_integration import *
+from .cortex_search_service import *
 from .database import *
-from .database_grant import *
+from .database_old import *
 from .database_role import *
 from .dynamic_table import *
 from .email_notification_integration import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
-from .external_table_grant import *
 from .failover_group import *
-from .failover_group_grant import *
 from .file_format import *
-from .file_format_grant import *
 from .function import *
-from .function_grant import *
 from .get_accounts import *
 from .get_alerts import *
+from .get_cortex_search_services import *
 from .get_current_account import *
 from .get_current_role import *
 from .get_database import *
@@ -51,6 +51,7 @@ from .get_role import *
 from .get_roles import *
 from .get_row_access_policies import *
 from .get_schemas import *
+from .get_security_integrations import *
 from .get_sequences import *
 from .get_shares import *
 from .get_stages import *
@@ -71,66 +72,50 @@ from .grant_database_role import *
 from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
-from .grant_privileges_to_role import *
 from .grant_privileges_to_share import *
-from .integration_grant import *
 from .managed_account import *
 from .masking_policy import *
-from .masking_policy_grant import *
 from .materialized_view import *
-from .materialized_view_grant import *
 from .network_policy import *
 from .network_policy_attachment import *
 from .network_rule import *
 from .notification_integration import *
 from .oauth_integration import *
+from .oauth_integration_for_custom_clients import *
+from .oauth_integration_for_partner_applications import *
 from .object_parameter import *
 from .password_policy import *
 from .pipe import *
-from .pipe_grant import *
 from .procedure import *
-from .procedure_grant import *
 from .provider import *
 from .resource_monitor import *
-from .resource_monitor_grant import *
 from .role import *
-from .role_grants import *
-from .role_ownership_grant import *
 from .row_access_policy import *
-from .row_access_policy_grant import *
+from .saml2_integration import *
 from .saml_integration import *
 from .schema import *
-from .schema_grant import *
 from .scim_integration import *
+from .secondary_database import *
 from .sequence import *
-from .sequence_grant import *
 from .session_parameter import *
 from .share import *
+from .shared_database import *
 from .stage import *
-from .stage_grant import *
 from .storage_integration import *
 from .stream import *
-from .stream_grant import *
 from .table import *
 from .table_column_masking_policy_application import *
 from .table_constraint import *
-from .table_grant import *
 from .tag import *
 from .tag_association import *
-from .tag_grant import *
 from .tag_masking_policy_association import *
 from .task import *
-from .task_grant import *
 from .unsafe_execute import *
 from .user import *
-from .user_grant import *
-from .user_ownership_grant import *
 from .user_password_policy_attachment import *
 from .user_public_keys import *
 from .view import *
-from .view_grant import *
 from .warehouse import *
-from .warehouse_grant import *
 from ._inputs import *
 from . import outputs
 
@@ -150,14 +135,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/account:Account": "Account"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/accountGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/accountGrant:AccountGrant": "AccountGrant"
   }
  },
  {
@@ -186,10 +163,42 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/apiAuthenticationIntegrationWithAuthorizationCodeGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant": "ApiAuthenticationIntegrationWithAuthorizationCodeGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiAuthenticationIntegrationWithClientCredentials",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials": "ApiAuthenticationIntegrationWithClientCredentials"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiAuthenticationIntegrationWithJwtBearer",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer": "ApiAuthenticationIntegrationWithJwtBearer"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/apiIntegration",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/apiIntegration:ApiIntegration": "ApiIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/cortexSearchService",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/cortexSearchService:CortexSearchService": "CortexSearchService"
   }
  },
  {
@@ -202,10 +211,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/databaseGrant",
+  "mod": "index/databaseOld",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/databaseGrant:DatabaseGrant": "DatabaseGrant"
+   "snowflake:index/databaseOld:DatabaseOld": "DatabaseOld"
   }
  },
  {
@@ -258,26 +267,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/externalTableGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/externalTableGrant:ExternalTableGrant": "ExternalTableGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/failoverGroup",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/failoverGroup:FailoverGroup": "FailoverGroup"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/failoverGroupGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/failoverGroupGrant:FailoverGroupGrant": "FailoverGroupGrant"
   }
  },
  {
@@ -290,26 +283,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/fileFormatGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/fileFormatGrant:FileFormatGrant": "FileFormatGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/function",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/function:Function": "Function"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/functionGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/functionGrant:FunctionGrant": "FunctionGrant"
   }
  },
  {
@@ -362,26 +339,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/grantPrivilegesToRole",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/grantPrivilegesToRole:GrantPrivilegesToRole": "GrantPrivilegesToRole"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/grantPrivilegesToShare",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": "GrantPrivilegesToShare"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/integrationGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/integrationGrant:IntegrationGrant": "IntegrationGrant"
   }
  },
  {
@@ -402,26 +363,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/maskingPolicyGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/maskingPolicyGrant:MaskingPolicyGrant": "MaskingPolicyGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/materializedView",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/materializedView:MaterializedView": "MaterializedView"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/materializedViewGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/materializedViewGrant:MaterializedViewGrant": "MaterializedViewGrant"
   }
  },
  {
@@ -466,6 +411,22 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/oauthIntegrationForCustomClients",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients": "OauthIntegrationForCustomClients"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/oauthIntegrationForPartnerApplications",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications": "OauthIntegrationForPartnerApplications"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/objectParameter",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -490,26 +451,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/pipeGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/pipeGrant:PipeGrant": "PipeGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/procedure",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/procedure:Procedure": "Procedure"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/procedureGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/procedureGrant:ProcedureGrant": "ProcedureGrant"
   }
  },
  {
@@ -522,34 +467,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/resourceMonitorGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/resourceMonitorGrant:ResourceMonitorGrant": "ResourceMonitorGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/role",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/role:Role": "Role"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/roleGrants",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/roleGrants:RoleGrants": "RoleGrants"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/roleOwnershipGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/roleOwnershipGrant:RoleOwnershipGrant": "RoleOwnershipGrant"
   }
  },
  {
@@ -562,10 +483,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/rowAccessPolicyGrant",
+  "mod": "index/saml2Integration",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/rowAccessPolicyGrant:RowAccessPolicyGrant": "RowAccessPolicyGrant"
+   "snowflake:index/saml2Integration:Saml2Integration": "Saml2Integration"
   }
  },
  {
@@ -586,14 +507,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/schemaGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/schemaGrant:SchemaGrant": "SchemaGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/scimIntegration",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -602,18 +515,18 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/sequence",
+  "mod": "index/secondaryDatabase",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/sequence:Sequence": "Sequence"
+   "snowflake:index/secondaryDatabase:SecondaryDatabase": "SecondaryDatabase"
   }
  },
  {
   "pkg": "snowflake",
-  "mod": "index/sequenceGrant",
+  "mod": "index/sequence",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/sequenceGrant:SequenceGrant": "SequenceGrant"
+   "snowflake:index/sequence:Sequence": "Sequence"
   }
  },
  {
@@ -634,18 +547,18 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/stage",
+  "mod": "index/sharedDatabase",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/stage:Stage": "Stage"
+   "snowflake:index/sharedDatabase:SharedDatabase": "SharedDatabase"
   }
  },
  {
   "pkg": "snowflake",
-  "mod": "index/stageGrant",
+  "mod": "index/stage",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/stageGrant:StageGrant": "StageGrant"
+   "snowflake:index/stage:Stage": "Stage"
   }
  },
  {
@@ -662,14 +575,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/stream:Stream": "Stream"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/streamGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/streamGrant:StreamGrant": "StreamGrant"
   }
  },
  {
@@ -698,14 +603,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/tableGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/tableGrant:TableGrant": "TableGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/tag",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -718,14 +615,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/tagAssociation:TagAssociation": "TagAssociation"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/tagGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/tagGrant:TagGrant": "TagGrant"
   }
  },
  {
@@ -746,14 +635,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/taskGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/taskGrant:TaskGrant": "TaskGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/unsafeExecute",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -766,22 +647,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/user:User": "User"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/userGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/userGrant:UserGrant": "UserGrant"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/userOwnershipGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/userOwnershipGrant:UserOwnershipGrant": "UserOwnershipGrant"
   }
  },
  {
@@ -810,26 +675,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/viewGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/viewGrant:ViewGrant": "ViewGrant"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/warehouse",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/warehouse:Warehouse": "Warehouse"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/warehouseGrant",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/warehouseGrant:WarehouseGrant": "WarehouseGrant"
   }
  }
 ]

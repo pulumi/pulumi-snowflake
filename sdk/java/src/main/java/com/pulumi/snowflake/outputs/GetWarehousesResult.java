@@ -6,9 +6,12 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetWarehousesWarehouse;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWarehousesResult {
@@ -18,10 +21,25 @@ public final class GetWarehousesResult {
      */
     private String id;
     /**
-     * @return The warehouses in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all warehouse details queries.
      * 
      */
     private List<GetWarehousesWarehouse> warehouses;
+    /**
+     * @return Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
+    /**
+     * @return Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withParameters;
 
     private GetWarehousesResult() {}
     /**
@@ -32,11 +50,32 @@ public final class GetWarehousesResult {
         return this.id;
     }
     /**
-     * @return The warehouses in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all warehouse details queries.
      * 
      */
     public List<GetWarehousesWarehouse> warehouses() {
         return this.warehouses;
+    }
+    /**
+     * @return Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+    /**
+     * @return Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     public static Builder builder() {
@@ -49,12 +88,18 @@ public final class GetWarehousesResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable String like;
         private List<GetWarehousesWarehouse> warehouses;
+        private @Nullable Boolean withDescribe;
+        private @Nullable Boolean withParameters;
         public Builder() {}
         public Builder(GetWarehousesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.like = defaults.like;
     	      this.warehouses = defaults.warehouses;
+    	      this.withDescribe = defaults.withDescribe;
+    	      this.withParameters = defaults.withParameters;
         }
 
         @CustomType.Setter
@@ -63,6 +108,12 @@ public final class GetWarehousesResult {
               throw new MissingRequiredPropertyException("GetWarehousesResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -76,10 +127,25 @@ public final class GetWarehousesResult {
         public Builder warehouses(GetWarehousesWarehouse... warehouses) {
             return warehouses(List.of(warehouses));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withParameters(@Nullable Boolean withParameters) {
+
+            this.withParameters = withParameters;
+            return this;
+        }
         public GetWarehousesResult build() {
             final var _resultValue = new GetWarehousesResult();
             _resultValue.id = id;
+            _resultValue.like = like;
             _resultValue.warehouses = warehouses;
+            _resultValue.withDescribe = withDescribe;
+            _resultValue.withParameters = withParameters;
             return _resultValue;
         }
     }

@@ -19,66 +19,6 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
     public static final ExternalOauthIntegrationArgs Empty = new ExternalOauthIntegrationArgs();
 
     /**
-     * Specifies the list of roles that the client can set as the primary role.
-     * 
-     */
-    @Import(name="allowedRoles")
-    private @Nullable Output<List<String>> allowedRoles;
-
-    /**
-     * @return Specifies the list of roles that the client can set as the primary role.
-     * 
-     */
-    public Optional<Output<List<String>>> allowedRoles() {
-        return Optional.ofNullable(this.allowedRoles);
-    }
-
-    /**
-     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-     * 
-     */
-    @Import(name="anyRoleMode")
-    private @Nullable Output<String> anyRoleMode;
-
-    /**
-     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-     * 
-     */
-    public Optional<Output<String>> anyRoleMode() {
-        return Optional.ofNullable(this.anyRoleMode);
-    }
-
-    /**
-     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-     * 
-     */
-    @Import(name="audienceUrls")
-    private @Nullable Output<List<String>> audienceUrls;
-
-    /**
-     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-     * 
-     */
-    public Optional<Output<List<String>>> audienceUrls() {
-        return Optional.ofNullable(this.audienceUrls);
-    }
-
-    /**
-     * Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-     * 
-     */
-    @Import(name="blockedRoles")
-    private @Nullable Output<List<String>> blockedRoles;
-
-    /**
-     * @return Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-     * 
-     */
-    public Optional<Output<List<String>>> blockedRoles() {
-        return Optional.ofNullable(this.blockedRoles);
-    }
-
-    /**
      * Specifies a comment for the OAuth integration.
      * 
      */
@@ -109,33 +49,198 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the list of roles that the client can set as the primary role.
+     * 
+     */
+    @Import(name="externalOauthAllowedRolesLists")
+    private @Nullable Output<List<String>> externalOauthAllowedRolesLists;
+
+    /**
+     * @return Specifies the list of roles that the client can set as the primary role.
+     * 
+     */
+    public Optional<Output<List<String>>> externalOauthAllowedRolesLists() {
+        return Optional.ofNullable(this.externalOauthAllowedRolesLists);
+    }
+
+    /**
+     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * 
+     */
+    @Import(name="externalOauthAnyRoleMode")
+    private @Nullable Output<String> externalOauthAnyRoleMode;
+
+    /**
+     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * 
+     */
+    public Optional<Output<String>> externalOauthAnyRoleMode() {
+        return Optional.ofNullable(this.externalOauthAnyRoleMode);
+    }
+
+    /**
+     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+     * 
+     */
+    @Import(name="externalOauthAudienceLists")
+    private @Nullable Output<List<String>> externalOauthAudienceLists;
+
+    /**
+     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+     * 
+     */
+    public Optional<Output<List<String>>> externalOauthAudienceLists() {
+        return Optional.ofNullable(this.externalOauthAudienceLists);
+    }
+
+    /**
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * 
+     */
+    @Import(name="externalOauthBlockedRolesLists")
+    private @Nullable Output<List<String>> externalOauthBlockedRolesLists;
+
+    /**
+     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * 
+     */
+    public Optional<Output<List<String>>> externalOauthBlockedRolesLists() {
+        return Optional.ofNullable(this.externalOauthBlockedRolesLists);
+    }
+
+    /**
      * Specifies the URL to define the OAuth 2.0 authorization server.
      * 
      */
-    @Import(name="issuer", required=true)
-    private Output<String> issuer;
+    @Import(name="externalOauthIssuer", required=true)
+    private Output<String> externalOauthIssuer;
 
     /**
      * @return Specifies the URL to define the OAuth 2.0 authorization server.
      * 
      */
-    public Output<String> issuer() {
-        return this.issuer;
+    public Output<String> externalOauthIssuer() {
+        return this.externalOauthIssuer;
     }
 
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
-    @Import(name="jwsKeysUrls")
-    private @Nullable Output<List<String>> jwsKeysUrls;
+    @Import(name="externalOauthJwsKeysUrls")
+    private @Nullable Output<List<String>> externalOauthJwsKeysUrls;
 
     /**
-     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
-    public Optional<Output<List<String>>> jwsKeysUrls() {
-        return Optional.ofNullable(this.jwsKeysUrls);
+    public Optional<Output<List<String>>> externalOauthJwsKeysUrls() {
+        return Optional.ofNullable(this.externalOauthJwsKeysUrls);
+    }
+
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Import(name="externalOauthRsaPublicKey")
+    private @Nullable Output<String> externalOauthRsaPublicKey;
+
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Optional<Output<String>> externalOauthRsaPublicKey() {
+        return Optional.ofNullable(this.externalOauthRsaPublicKey);
+    }
+
+    /**
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Import(name="externalOauthRsaPublicKey2")
+    private @Nullable Output<String> externalOauthRsaPublicKey2;
+
+    /**
+     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Optional<Output<String>> externalOauthRsaPublicKey2() {
+        return Optional.ofNullable(this.externalOauthRsaPublicKey2);
+    }
+
+    /**
+     * Specifies the scope delimiter in the authorization token.
+     * 
+     */
+    @Import(name="externalOauthScopeDelimiter")
+    private @Nullable Output<String> externalOauthScopeDelimiter;
+
+    /**
+     * @return Specifies the scope delimiter in the authorization token.
+     * 
+     */
+    public Optional<Output<String>> externalOauthScopeDelimiter() {
+        return Optional.ofNullable(this.externalOauthScopeDelimiter);
+    }
+
+    /**
+     * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Import(name="externalOauthScopeMappingAttribute")
+    private @Nullable Output<String> externalOauthScopeMappingAttribute;
+
+    /**
+     * @return Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Optional<Output<String>> externalOauthScopeMappingAttribute() {
+        return Optional.ofNullable(this.externalOauthScopeMappingAttribute);
+    }
+
+    /**
+     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * 
+     */
+    @Import(name="externalOauthSnowflakeUserMappingAttribute", required=true)
+    private Output<String> externalOauthSnowflakeUserMappingAttribute;
+
+    /**
+     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * 
+     */
+    public Output<String> externalOauthSnowflakeUserMappingAttribute() {
+        return this.externalOauthSnowflakeUserMappingAttribute;
+    }
+
+    /**
+     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+     * 
+     */
+    @Import(name="externalOauthTokenUserMappingClaims", required=true)
+    private Output<List<String>> externalOauthTokenUserMappingClaims;
+
+    /**
+     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+     * 
+     */
+    public Output<List<String>> externalOauthTokenUserMappingClaims() {
+        return this.externalOauthTokenUserMappingClaims;
+    }
+
+    /**
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * 
+     */
+    @Import(name="externalOauthType", required=true)
+    private Output<String> externalOauthType;
+
+    /**
+     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * 
+     */
+    public Output<String> externalOauthType() {
+        return this.externalOauthType;
     }
 
     /**
@@ -153,130 +258,25 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-     * 
-     */
-    @Import(name="rsaPublicKey")
-    private @Nullable Output<String> rsaPublicKey;
-
-    /**
-     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-     * 
-     */
-    public Optional<Output<String>> rsaPublicKey() {
-        return Optional.ofNullable(this.rsaPublicKey);
-    }
-
-    /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-     * 
-     */
-    @Import(name="rsaPublicKey2")
-    private @Nullable Output<String> rsaPublicKey2;
-
-    /**
-     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-     * 
-     */
-    public Optional<Output<String>> rsaPublicKey2() {
-        return Optional.ofNullable(this.rsaPublicKey2);
-    }
-
-    /**
-     * Specifies the scope delimiter in the authorization token.
-     * 
-     */
-    @Import(name="scopeDelimiter")
-    private @Nullable Output<String> scopeDelimiter;
-
-    /**
-     * @return Specifies the scope delimiter in the authorization token.
-     * 
-     */
-    public Optional<Output<String>> scopeDelimiter() {
-        return Optional.ofNullable(this.scopeDelimiter);
-    }
-
-    /**
-     * Specifies the access token claim to map the access token to an account role.
-     * 
-     */
-    @Import(name="scopeMappingAttribute")
-    private @Nullable Output<String> scopeMappingAttribute;
-
-    /**
-     * @return Specifies the access token claim to map the access token to an account role.
-     * 
-     */
-    public Optional<Output<String>> scopeMappingAttribute() {
-        return Optional.ofNullable(this.scopeMappingAttribute);
-    }
-
-    /**
-     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-     * 
-     */
-    @Import(name="snowflakeUserMappingAttribute", required=true)
-    private Output<String> snowflakeUserMappingAttribute;
-
-    /**
-     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-     * 
-     */
-    public Output<String> snowflakeUserMappingAttribute() {
-        return this.snowflakeUserMappingAttribute;
-    }
-
-    /**
-     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-     * 
-     */
-    @Import(name="tokenUserMappingClaims", required=true)
-    private Output<List<String>> tokenUserMappingClaims;
-
-    /**
-     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-     * 
-     */
-    public Output<List<String>> tokenUserMappingClaims() {
-        return this.tokenUserMappingClaims;
-    }
-
-    /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-     * 
-     */
-    @Import(name="type", required=true)
-    private Output<String> type;
-
-    /**
-     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-     * 
-     */
-    public Output<String> type() {
-        return this.type;
-    }
-
     private ExternalOauthIntegrationArgs() {}
 
     private ExternalOauthIntegrationArgs(ExternalOauthIntegrationArgs $) {
-        this.allowedRoles = $.allowedRoles;
-        this.anyRoleMode = $.anyRoleMode;
-        this.audienceUrls = $.audienceUrls;
-        this.blockedRoles = $.blockedRoles;
         this.comment = $.comment;
         this.enabled = $.enabled;
-        this.issuer = $.issuer;
-        this.jwsKeysUrls = $.jwsKeysUrls;
+        this.externalOauthAllowedRolesLists = $.externalOauthAllowedRolesLists;
+        this.externalOauthAnyRoleMode = $.externalOauthAnyRoleMode;
+        this.externalOauthAudienceLists = $.externalOauthAudienceLists;
+        this.externalOauthBlockedRolesLists = $.externalOauthBlockedRolesLists;
+        this.externalOauthIssuer = $.externalOauthIssuer;
+        this.externalOauthJwsKeysUrls = $.externalOauthJwsKeysUrls;
+        this.externalOauthRsaPublicKey = $.externalOauthRsaPublicKey;
+        this.externalOauthRsaPublicKey2 = $.externalOauthRsaPublicKey2;
+        this.externalOauthScopeDelimiter = $.externalOauthScopeDelimiter;
+        this.externalOauthScopeMappingAttribute = $.externalOauthScopeMappingAttribute;
+        this.externalOauthSnowflakeUserMappingAttribute = $.externalOauthSnowflakeUserMappingAttribute;
+        this.externalOauthTokenUserMappingClaims = $.externalOauthTokenUserMappingClaims;
+        this.externalOauthType = $.externalOauthType;
         this.name = $.name;
-        this.rsaPublicKey = $.rsaPublicKey;
-        this.rsaPublicKey2 = $.rsaPublicKey2;
-        this.scopeDelimiter = $.scopeDelimiter;
-        this.scopeMappingAttribute = $.scopeMappingAttribute;
-        this.snowflakeUserMappingAttribute = $.snowflakeUserMappingAttribute;
-        this.tokenUserMappingClaims = $.tokenUserMappingClaims;
-        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -295,120 +295,6 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
 
         public Builder(ExternalOauthIntegrationArgs defaults) {
             $ = new ExternalOauthIntegrationArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param allowedRoles Specifies the list of roles that the client can set as the primary role.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder allowedRoles(@Nullable Output<List<String>> allowedRoles) {
-            $.allowedRoles = allowedRoles;
-            return this;
-        }
-
-        /**
-         * @param allowedRoles Specifies the list of roles that the client can set as the primary role.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder allowedRoles(List<String> allowedRoles) {
-            return allowedRoles(Output.of(allowedRoles));
-        }
-
-        /**
-         * @param allowedRoles Specifies the list of roles that the client can set as the primary role.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder allowedRoles(String... allowedRoles) {
-            return allowedRoles(List.of(allowedRoles));
-        }
-
-        /**
-         * @param anyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder anyRoleMode(@Nullable Output<String> anyRoleMode) {
-            $.anyRoleMode = anyRoleMode;
-            return this;
-        }
-
-        /**
-         * @param anyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder anyRoleMode(String anyRoleMode) {
-            return anyRoleMode(Output.of(anyRoleMode));
-        }
-
-        /**
-         * @param audienceUrls Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder audienceUrls(@Nullable Output<List<String>> audienceUrls) {
-            $.audienceUrls = audienceUrls;
-            return this;
-        }
-
-        /**
-         * @param audienceUrls Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder audienceUrls(List<String> audienceUrls) {
-            return audienceUrls(Output.of(audienceUrls));
-        }
-
-        /**
-         * @param audienceUrls Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder audienceUrls(String... audienceUrls) {
-            return audienceUrls(List.of(audienceUrls));
-        }
-
-        /**
-         * @param blockedRoles Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blockedRoles(@Nullable Output<List<String>> blockedRoles) {
-            $.blockedRoles = blockedRoles;
-            return this;
-        }
-
-        /**
-         * @param blockedRoles Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blockedRoles(List<String> blockedRoles) {
-            return blockedRoles(Output.of(blockedRoles));
-        }
-
-        /**
-         * @param blockedRoles Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder blockedRoles(String... blockedRoles) {
-            return blockedRoles(List.of(blockedRoles));
         }
 
         /**
@@ -454,55 +340,326 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param issuer Specifies the URL to define the OAuth 2.0 authorization server.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
          * 
          * @return builder
          * 
          */
-        public Builder issuer(Output<String> issuer) {
-            $.issuer = issuer;
+        public Builder externalOauthAllowedRolesLists(@Nullable Output<List<String>> externalOauthAllowedRolesLists) {
+            $.externalOauthAllowedRolesLists = externalOauthAllowedRolesLists;
             return this;
         }
 
         /**
-         * @param issuer Specifies the URL to define the OAuth 2.0 authorization server.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
          * 
          * @return builder
          * 
          */
-        public Builder issuer(String issuer) {
-            return issuer(Output.of(issuer));
+        public Builder externalOauthAllowedRolesLists(List<String> externalOauthAllowedRolesLists) {
+            return externalOauthAllowedRolesLists(Output.of(externalOauthAllowedRolesLists));
         }
 
         /**
-         * @param jwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
          * 
          * @return builder
          * 
          */
-        public Builder jwsKeysUrls(@Nullable Output<List<String>> jwsKeysUrls) {
-            $.jwsKeysUrls = jwsKeysUrls;
+        public Builder externalOauthAllowedRolesLists(String... externalOauthAllowedRolesLists) {
+            return externalOauthAllowedRolesLists(List.of(externalOauthAllowedRolesLists));
+        }
+
+        /**
+         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthAnyRoleMode(@Nullable Output<String> externalOauthAnyRoleMode) {
+            $.externalOauthAnyRoleMode = externalOauthAnyRoleMode;
             return this;
         }
 
         /**
-         * @param jwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
          * 
          * @return builder
          * 
          */
-        public Builder jwsKeysUrls(List<String> jwsKeysUrls) {
-            return jwsKeysUrls(Output.of(jwsKeysUrls));
+        public Builder externalOauthAnyRoleMode(String externalOauthAnyRoleMode) {
+            return externalOauthAnyRoleMode(Output.of(externalOauthAnyRoleMode));
         }
 
         /**
-         * @param jwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
          * 
          * @return builder
          * 
          */
-        public Builder jwsKeysUrls(String... jwsKeysUrls) {
-            return jwsKeysUrls(List.of(jwsKeysUrls));
+        public Builder externalOauthAudienceLists(@Nullable Output<List<String>> externalOauthAudienceLists) {
+            $.externalOauthAudienceLists = externalOauthAudienceLists;
+            return this;
+        }
+
+        /**
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthAudienceLists(List<String> externalOauthAudienceLists) {
+            return externalOauthAudienceLists(Output.of(externalOauthAudienceLists));
+        }
+
+        /**
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthAudienceLists(String... externalOauthAudienceLists) {
+            return externalOauthAudienceLists(List.of(externalOauthAudienceLists));
+        }
+
+        /**
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthBlockedRolesLists(@Nullable Output<List<String>> externalOauthBlockedRolesLists) {
+            $.externalOauthBlockedRolesLists = externalOauthBlockedRolesLists;
+            return this;
+        }
+
+        /**
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthBlockedRolesLists(List<String> externalOauthBlockedRolesLists) {
+            return externalOauthBlockedRolesLists(Output.of(externalOauthBlockedRolesLists));
+        }
+
+        /**
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthBlockedRolesLists(String... externalOauthBlockedRolesLists) {
+            return externalOauthBlockedRolesLists(List.of(externalOauthBlockedRolesLists));
+        }
+
+        /**
+         * @param externalOauthIssuer Specifies the URL to define the OAuth 2.0 authorization server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthIssuer(Output<String> externalOauthIssuer) {
+            $.externalOauthIssuer = externalOauthIssuer;
+            return this;
+        }
+
+        /**
+         * @param externalOauthIssuer Specifies the URL to define the OAuth 2.0 authorization server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthIssuer(String externalOauthIssuer) {
+            return externalOauthIssuer(Output.of(externalOauthIssuer));
+        }
+
+        /**
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthJwsKeysUrls(@Nullable Output<List<String>> externalOauthJwsKeysUrls) {
+            $.externalOauthJwsKeysUrls = externalOauthJwsKeysUrls;
+            return this;
+        }
+
+        /**
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthJwsKeysUrls(List<String> externalOauthJwsKeysUrls) {
+            return externalOauthJwsKeysUrls(Output.of(externalOauthJwsKeysUrls));
+        }
+
+        /**
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthJwsKeysUrls(String... externalOauthJwsKeysUrls) {
+            return externalOauthJwsKeysUrls(List.of(externalOauthJwsKeysUrls));
+        }
+
+        /**
+         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthRsaPublicKey(@Nullable Output<String> externalOauthRsaPublicKey) {
+            $.externalOauthRsaPublicKey = externalOauthRsaPublicKey;
+            return this;
+        }
+
+        /**
+         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthRsaPublicKey(String externalOauthRsaPublicKey) {
+            return externalOauthRsaPublicKey(Output.of(externalOauthRsaPublicKey));
+        }
+
+        /**
+         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthRsaPublicKey2(@Nullable Output<String> externalOauthRsaPublicKey2) {
+            $.externalOauthRsaPublicKey2 = externalOauthRsaPublicKey2;
+            return this;
+        }
+
+        /**
+         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthRsaPublicKey2(String externalOauthRsaPublicKey2) {
+            return externalOauthRsaPublicKey2(Output.of(externalOauthRsaPublicKey2));
+        }
+
+        /**
+         * @param externalOauthScopeDelimiter Specifies the scope delimiter in the authorization token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthScopeDelimiter(@Nullable Output<String> externalOauthScopeDelimiter) {
+            $.externalOauthScopeDelimiter = externalOauthScopeDelimiter;
+            return this;
+        }
+
+        /**
+         * @param externalOauthScopeDelimiter Specifies the scope delimiter in the authorization token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthScopeDelimiter(String externalOauthScopeDelimiter) {
+            return externalOauthScopeDelimiter(Output.of(externalOauthScopeDelimiter));
+        }
+
+        /**
+         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthScopeMappingAttribute(@Nullable Output<String> externalOauthScopeMappingAttribute) {
+            $.externalOauthScopeMappingAttribute = externalOauthScopeMappingAttribute;
+            return this;
+        }
+
+        /**
+         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthScopeMappingAttribute(String externalOauthScopeMappingAttribute) {
+            return externalOauthScopeMappingAttribute(Output.of(externalOauthScopeMappingAttribute));
+        }
+
+        /**
+         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthSnowflakeUserMappingAttribute(Output<String> externalOauthSnowflakeUserMappingAttribute) {
+            $.externalOauthSnowflakeUserMappingAttribute = externalOauthSnowflakeUserMappingAttribute;
+            return this;
+        }
+
+        /**
+         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthSnowflakeUserMappingAttribute(String externalOauthSnowflakeUserMappingAttribute) {
+            return externalOauthSnowflakeUserMappingAttribute(Output.of(externalOauthSnowflakeUserMappingAttribute));
+        }
+
+        /**
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthTokenUserMappingClaims(Output<List<String>> externalOauthTokenUserMappingClaims) {
+            $.externalOauthTokenUserMappingClaims = externalOauthTokenUserMappingClaims;
+            return this;
+        }
+
+        /**
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthTokenUserMappingClaims(List<String> externalOauthTokenUserMappingClaims) {
+            return externalOauthTokenUserMappingClaims(Output.of(externalOauthTokenUserMappingClaims));
+        }
+
+        /**
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthTokenUserMappingClaims(String... externalOauthTokenUserMappingClaims) {
+            return externalOauthTokenUserMappingClaims(List.of(externalOauthTokenUserMappingClaims));
+        }
+
+        /**
+         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthType(Output<String> externalOauthType) {
+            $.externalOauthType = externalOauthType;
+            return this;
+        }
+
+        /**
+         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalOauthType(String externalOauthType) {
+            return externalOauthType(Output.of(externalOauthType));
         }
 
         /**
@@ -526,178 +683,21 @@ public final class ExternalOauthIntegrationArgs extends com.pulumi.resources.Res
             return name(Output.of(name));
         }
 
-        /**
-         * @param rsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rsaPublicKey(@Nullable Output<String> rsaPublicKey) {
-            $.rsaPublicKey = rsaPublicKey;
-            return this;
-        }
-
-        /**
-         * @param rsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rsaPublicKey(String rsaPublicKey) {
-            return rsaPublicKey(Output.of(rsaPublicKey));
-        }
-
-        /**
-         * @param rsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rsaPublicKey2(@Nullable Output<String> rsaPublicKey2) {
-            $.rsaPublicKey2 = rsaPublicKey2;
-            return this;
-        }
-
-        /**
-         * @param rsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rsaPublicKey2(String rsaPublicKey2) {
-            return rsaPublicKey2(Output.of(rsaPublicKey2));
-        }
-
-        /**
-         * @param scopeDelimiter Specifies the scope delimiter in the authorization token.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopeDelimiter(@Nullable Output<String> scopeDelimiter) {
-            $.scopeDelimiter = scopeDelimiter;
-            return this;
-        }
-
-        /**
-         * @param scopeDelimiter Specifies the scope delimiter in the authorization token.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopeDelimiter(String scopeDelimiter) {
-            return scopeDelimiter(Output.of(scopeDelimiter));
-        }
-
-        /**
-         * @param scopeMappingAttribute Specifies the access token claim to map the access token to an account role.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopeMappingAttribute(@Nullable Output<String> scopeMappingAttribute) {
-            $.scopeMappingAttribute = scopeMappingAttribute;
-            return this;
-        }
-
-        /**
-         * @param scopeMappingAttribute Specifies the access token claim to map the access token to an account role.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scopeMappingAttribute(String scopeMappingAttribute) {
-            return scopeMappingAttribute(Output.of(scopeMappingAttribute));
-        }
-
-        /**
-         * @param snowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder snowflakeUserMappingAttribute(Output<String> snowflakeUserMappingAttribute) {
-            $.snowflakeUserMappingAttribute = snowflakeUserMappingAttribute;
-            return this;
-        }
-
-        /**
-         * @param snowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder snowflakeUserMappingAttribute(String snowflakeUserMappingAttribute) {
-            return snowflakeUserMappingAttribute(Output.of(snowflakeUserMappingAttribute));
-        }
-
-        /**
-         * @param tokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tokenUserMappingClaims(Output<List<String>> tokenUserMappingClaims) {
-            $.tokenUserMappingClaims = tokenUserMappingClaims;
-            return this;
-        }
-
-        /**
-         * @param tokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tokenUserMappingClaims(List<String> tokenUserMappingClaims) {
-            return tokenUserMappingClaims(Output.of(tokenUserMappingClaims));
-        }
-
-        /**
-         * @param tokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tokenUserMappingClaims(String... tokenUserMappingClaims) {
-            return tokenUserMappingClaims(List.of(tokenUserMappingClaims));
-        }
-
-        /**
-         * @param type Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(Output<String> type) {
-            $.type = type;
-            return this;
-        }
-
-        /**
-         * @param type Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(String type) {
-            return type(Output.of(type));
-        }
-
         public ExternalOauthIntegrationArgs build() {
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "enabled");
             }
-            if ($.issuer == null) {
-                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "issuer");
+            if ($.externalOauthIssuer == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "externalOauthIssuer");
             }
-            if ($.snowflakeUserMappingAttribute == null) {
-                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "snowflakeUserMappingAttribute");
+            if ($.externalOauthSnowflakeUserMappingAttribute == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "externalOauthSnowflakeUserMappingAttribute");
             }
-            if ($.tokenUserMappingClaims == null) {
-                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "tokenUserMappingClaims");
+            if ($.externalOauthTokenUserMappingClaims == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "externalOauthTokenUserMappingClaims");
             }
-            if ($.type == null) {
-                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "type");
+            if ($.externalOauthType == null) {
+                throw new MissingRequiredPropertyException("ExternalOauthIntegrationArgs", "externalOauthType");
             }
             return $;
         }

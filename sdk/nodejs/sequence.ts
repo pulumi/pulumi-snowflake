@@ -11,13 +11,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {name: "things"});
+ * const test = new snowflake.Database("test", {name: "things"});
  * const testSchema = new snowflake.Schema("test_schema", {
  *     name: "things",
- *     database: testDatabase.name,
+ *     database: test.name,
  * });
  * const testSequence = new snowflake.Sequence("test_sequence", {
- *     database: testDatabase.name,
+ *     database: test.name,
  *     schema: testSchema.name,
  *     name: "thing_counter",
  * });

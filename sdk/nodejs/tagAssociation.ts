@@ -13,15 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const database = new snowflake.Database("database", {name: "database"});
- * const schema = new snowflake.Schema("schema", {
+ * const test = new snowflake.Database("test", {name: "database"});
+ * const testSchema = new snowflake.Schema("test", {
  *     name: "schema",
- *     database: database.name,
+ *     database: test.name,
  * });
- * const tag = new snowflake.Tag("tag", {
+ * const testTag = new snowflake.Tag("test", {
  *     name: "cost_center",
- *     database: database.name,
- *     schema: schema.name,
+ *     database: test.name,
+ *     schema: testSchema.name,
  *     allowedValues: [
  *         "finance",
  *         "engineering",
@@ -29,15 +29,15 @@ import * as utilities from "./utilities";
  * });
  * const dbAssociation = new snowflake.TagAssociation("db_association", {
  *     objectIdentifiers: [{
- *         name: database.name,
+ *         name: test.name,
  *     }],
  *     objectType: "DATABASE",
- *     tagId: tag.id,
+ *     tagId: testTag.id,
  *     tagValue: "finance",
  * });
- * const test = new snowflake.Table("test", {
- *     database: testSnowflakeDatabase.name,
- *     schema: testSnowflakeSchema.name,
+ * const testTable = new snowflake.Table("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
  *     name: "TABLE_NAME",
  *     comment: "Terraform example table",
  *     columns: [
@@ -53,22 +53,22 @@ import * as utilities from "./utilities";
  * });
  * const tableAssociation = new snowflake.TagAssociation("table_association", {
  *     objectIdentifiers: [{
- *         name: test.name,
- *         database: testSnowflakeDatabase.name,
- *         schema: testSnowflakeSchema.name,
+ *         name: testTable.name,
+ *         database: test.name,
+ *         schema: testSchema.name,
  *     }],
  *     objectType: "TABLE",
- *     tagId: testSnowflakeTag.id,
+ *     tagId: testTag.id,
  *     tagValue: "engineering",
  * });
  * const columnAssociation = new snowflake.TagAssociation("column_association", {
  *     objectIdentifiers: [{
- *         name: pulumi.interpolate`${test.name}.column_name`,
- *         database: testSnowflakeDatabase.name,
- *         schema: testSnowflakeSchema.name,
+ *         name: pulumi.interpolate`${testTable.name}.column_name`,
+ *         database: test.name,
+ *         schema: testSchema.name,
  *     }],
  *     objectType: "COLUMN",
- *     tagId: testSnowflakeTag.id,
+ *     tagId: testTag.id,
  *     tagValue: "engineering",
  * });
  * ```

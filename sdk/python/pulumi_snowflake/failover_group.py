@@ -365,7 +365,7 @@ class FailoverGroup(pulumi.CustomResource):
             from_replica=snowflake.FailoverGroupFromReplicaArgs(
                 organization_name="...",
                 source_account_name="...",
-                name=fg["name"],
+                name=source_failover_group.name,
             ))
         ```
 
@@ -426,7 +426,7 @@ class FailoverGroup(pulumi.CustomResource):
             from_replica=snowflake.FailoverGroupFromReplicaArgs(
                 organization_name="...",
                 source_account_name="...",
-                name=fg["name"],
+                name=source_failover_group.name,
             ))
         ```
 

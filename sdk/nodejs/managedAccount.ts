@@ -46,7 +46,7 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     public readonly adminName!: pulumi.Output<string>;
     /**
-     * Password for the initial user in the managed account.
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     public readonly adminPassword!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface ManagedAccountState {
      */
     adminName?: pulumi.Input<string>;
     /**
-     * Password for the initial user in the managed account.
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     adminPassword?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface ManagedAccountArgs {
      */
     adminName: pulumi.Input<string>;
     /**
-     * Password for the initial user in the managed account.
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     adminPassword: pulumi.Input<string>;
     /**

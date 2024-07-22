@@ -45,14 +45,14 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
         return this.adminName;
     }
     /**
-     * Password for the initial user in the managed account.
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output<String> adminPassword;
 
     /**
-     * @return Password for the initial user in the managed account.
+     * @return Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     public Output<String> adminPassword() {

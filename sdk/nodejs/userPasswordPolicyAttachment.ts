@@ -7,6 +7,24 @@ import * as utilities from "./utilities";
 /**
  * Specifies the password policy to use for a certain user.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const user = new snowflake.User("user", {name: "USER_NAME"});
+ * const pp = new snowflake.PasswordPolicy("pp", {
+ *     database: "prod",
+ *     schema: "security",
+ *     name: "default_policy",
+ * });
+ * const ppa = new snowflake.UserPasswordPolicyAttachment("ppa", {
+ *     passwordPolicyName: pulumi.interpolate`"${pp.database}"."${pp.schema}"."${pp.name}"`,
+ *     userName: user.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

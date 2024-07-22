@@ -581,6 +581,8 @@ class SamlIntegration(pulumi.CustomResource):
                  saml2_x509_cert: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use Saml2Integration instead. <deprecation>
+
         ## Example Usage
 
         ```python
@@ -627,6 +629,8 @@ class SamlIntegration(pulumi.CustomResource):
                  args: SamlIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use Saml2Integration instead. <deprecation>
+
         ## Example Usage
 
         ```python

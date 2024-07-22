@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
         public Output<string> AdminName { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the initial user in the managed account.
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         [Output("adminPassword")]
         public Output<string> AdminPassword { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial user in the managed account.
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -189,7 +189,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial user in the managed account.
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         public Input<string>? AdminPassword
         {

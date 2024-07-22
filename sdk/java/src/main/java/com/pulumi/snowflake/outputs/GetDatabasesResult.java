@@ -6,6 +6,7 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabase;
+import com.pulumi.snowflake.outputs.GetDatabasesLimit;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,50 +17,48 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDatabasesResult {
     /**
-     * @return Snowflake databases
+     * @return Holds the aggregated output of all database details queries.
      * 
      */
     private List<GetDatabasesDatabase> databases;
-    /**
-     * @return Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-     * 
-     */
-    private @Nullable Boolean history;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable String like;
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetDatabasesLimit limit;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      * 
      */
     private @Nullable String startsWith;
     /**
-     * @return Optionally returns only the columns `created_on` and `name` in the results
+     * @return Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    private @Nullable Boolean terse;
+    private @Nullable Boolean withDescribe;
+    /**
+     * @return Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withParameters;
 
     private GetDatabasesResult() {}
     /**
-     * @return Snowflake databases
+     * @return Holds the aggregated output of all database details queries.
      * 
      */
     public List<GetDatabasesDatabase> databases() {
         return this.databases;
-    }
-    /**
-     * @return Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-     * 
-     */
-    public Optional<Boolean> history() {
-        return Optional.ofNullable(this.history);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -69,25 +68,39 @@ public final class GetDatabasesResult {
         return this.id;
     }
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
     }
     /**
-     * @return Optionally filters the databases by a pattern
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetDatabasesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      * 
      */
     public Optional<String> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
     /**
-     * @return Optionally returns only the columns `created_on` and `name` in the results
+     * @return Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    public Optional<Boolean> terse() {
-        return Optional.ofNullable(this.terse);
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+    /**
+     * @return Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     public static Builder builder() {
@@ -100,20 +113,22 @@ public final class GetDatabasesResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetDatabasesDatabase> databases;
-        private @Nullable Boolean history;
         private String id;
-        private @Nullable String pattern;
+        private @Nullable String like;
+        private @Nullable GetDatabasesLimit limit;
         private @Nullable String startsWith;
-        private @Nullable Boolean terse;
+        private @Nullable Boolean withDescribe;
+        private @Nullable Boolean withParameters;
         public Builder() {}
         public Builder(GetDatabasesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databases = defaults.databases;
-    	      this.history = defaults.history;
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
     	      this.startsWith = defaults.startsWith;
-    	      this.terse = defaults.terse;
+    	      this.withDescribe = defaults.withDescribe;
+    	      this.withParameters = defaults.withParameters;
         }
 
         @CustomType.Setter
@@ -128,12 +143,6 @@ public final class GetDatabasesResult {
             return databases(List.of(databases));
         }
         @CustomType.Setter
-        public Builder history(@Nullable Boolean history) {
-
-            this.history = history;
-            return this;
-        }
-        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetDatabasesResult", "id");
@@ -142,9 +151,15 @@ public final class GetDatabasesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(@Nullable String pattern) {
+        public Builder like(@Nullable String like) {
 
-            this.pattern = pattern;
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetDatabasesLimit limit) {
+
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
@@ -154,19 +169,26 @@ public final class GetDatabasesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder terse(@Nullable Boolean terse) {
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
 
-            this.terse = terse;
+            this.withDescribe = withDescribe;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withParameters(@Nullable Boolean withParameters) {
+
+            this.withParameters = withParameters;
             return this;
         }
         public GetDatabasesResult build() {
             final var _resultValue = new GetDatabasesResult();
             _resultValue.databases = databases;
-            _resultValue.history = history;
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
             _resultValue.startsWith = startsWith;
-            _resultValue.terse = terse;
+            _resultValue.withDescribe = withDescribe;
+            _resultValue.withParameters = withParameters;
             return _resultValue;
         }
     }

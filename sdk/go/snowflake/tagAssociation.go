@@ -28,23 +28,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
+//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
 //				Name: pulumi.String("database"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//			testSchema, err := snowflake.NewSchema(ctx, "test", &snowflake.SchemaArgs{
 //				Name:     pulumi.String("schema"),
-//				Database: database.Name,
+//				Database: test.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			tag, err := snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
+//			testTag, err := snowflake.NewTag(ctx, "test", &snowflake.TagArgs{
 //				Name:     pulumi.String("cost_center"),
-//				Database: database.Name,
-//				Schema:   schema.Name,
+//				Database: test.Name,
+//				Schema:   testSchema.Name,
 //				AllowedValues: pulumi.StringArray{
 //					pulumi.String("finance"),
 //					pulumi.String("engineering"),
@@ -56,19 +56,19 @@ import (
 //			_, err = snowflake.NewTagAssociation(ctx, "db_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
-//						Name: database.Name,
+//						Name: test.Name,
 //					},
 //				},
 //				ObjectType: pulumi.String("DATABASE"),
-//				TagId:      tag.ID(),
+//				TagId:      testTag.ID(),
 //				TagValue:   pulumi.String("finance"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			test, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
-//				Database: pulumi.Any(testSnowflakeDatabase.Name),
-//				Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//			testTable, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
+//				Database: test.Name,
+//				Schema:   testSchema.Name,
 //				Name:     pulumi.String("TABLE_NAME"),
 //				Comment:  pulumi.String("Terraform example table"),
 //				Columns: snowflake.TableColumnArray{
@@ -88,13 +88,13 @@ import (
 //			_, err = snowflake.NewTagAssociation(ctx, "table_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
-//						Name:     test.Name,
-//						Database: pulumi.Any(testSnowflakeDatabase.Name),
-//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//						Name:     testTable.Name,
+//						Database: test.Name,
+//						Schema:   testSchema.Name,
 //					},
 //				},
 //				ObjectType: pulumi.String("TABLE"),
-//				TagId:      pulumi.Any(testSnowflakeTag.Id),
+//				TagId:      testTag.ID(),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {
@@ -103,15 +103,15 @@ import (
 //			_, err = snowflake.NewTagAssociation(ctx, "column_association", &snowflake.TagAssociationArgs{
 //				ObjectIdentifiers: snowflake.TagAssociationObjectIdentifierArray{
 //					&snowflake.TagAssociationObjectIdentifierArgs{
-//						Name: test.Name.ApplyT(func(name string) (string, error) {
+//						Name: testTable.Name.ApplyT(func(name string) (string, error) {
 //							return fmt.Sprintf("%v.column_name", name), nil
 //						}).(pulumi.StringOutput),
-//						Database: pulumi.Any(testSnowflakeDatabase.Name),
-//						Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//						Database: test.Name,
+//						Schema:   testSchema.Name,
 //					},
 //				},
 //				ObjectType: pulumi.String("COLUMN"),
-//				TagId:      pulumi.Any(testSnowflakeTag.Id),
+//				TagId:      testTag.ID(),
 //				TagValue:   pulumi.String("engineering"),
 //			})
 //			if err != nil {

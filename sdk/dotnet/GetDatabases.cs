@@ -12,39 +12,17 @@ namespace Pulumi.Snowflake
     public static class GetDatabases
     {
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetDatabases.Invoke();
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Task<GetDatabasesResult> InvokeAsync(GetDatabasesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", args ?? new GetDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetDatabases.Invoke();
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetDatabasesResult> Invoke(GetDatabasesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", args ?? new GetDatabasesInvokeArgs(), options.WithDefaults());
@@ -54,28 +32,34 @@ namespace Pulumi.Snowflake
     public sealed class GetDatabasesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("history")]
-        public bool? History { get; set; }
+        [Input("like")]
+        public string? Like { get; set; }
 
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         /// </summary>
-        [Input("pattern")]
-        public string? Pattern { get; set; }
+        [Input("limit")]
+        public Inputs.GetDatabasesLimitArgs? Limit { get; set; }
 
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
         /// </summary>
         [Input("startsWith")]
         public string? StartsWith { get; set; }
 
         /// <summary>
-        /// Optionally returns only the columns `created_on` and `name` in the results
+        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
-        [Input("terse")]
-        public bool? Terse { get; set; }
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public bool? WithParameters { get; set; }
 
         public GetDatabasesArgs()
         {
@@ -86,28 +70,34 @@ namespace Pulumi.Snowflake
     public sealed class GetDatabasesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("history")]
-        public Input<bool>? History { get; set; }
+        [Input("like")]
+        public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         /// </summary>
-        [Input("pattern")]
-        public Input<string>? Pattern { get; set; }
+        [Input("limit")]
+        public Input<Inputs.GetDatabasesLimitInputArgs>? Limit { get; set; }
 
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
         /// </summary>
         [Input("startsWith")]
         public Input<string>? StartsWith { get; set; }
 
         /// <summary>
-        /// Optionally returns only the columns `created_on` and `name` in the results
+        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
-        [Input("terse")]
-        public Input<bool>? Terse { get; set; }
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public Input<bool>? WithParameters { get; set; }
 
         public GetDatabasesInvokeArgs()
         {
@@ -120,50 +110,57 @@ namespace Pulumi.Snowflake
     public sealed class GetDatabasesResult
     {
         /// <summary>
-        /// Snowflake databases
+        /// Holds the aggregated output of all database details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseResult> Databases;
-        /// <summary>
-        /// Optionally includes dropped databases that have not yet been purged The output also includes an additional `dropped_on` column
-        /// </summary>
-        public readonly bool? History;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        public readonly string? Pattern;
+        public readonly string? Like;
         /// <summary>
-        /// Optionally filters the databases by a pattern
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        public readonly Outputs.GetDatabasesLimitResult? Limit;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
         /// </summary>
         public readonly string? StartsWith;
         /// <summary>
-        /// Optionally returns only the columns `created_on` and `name` in the results
+        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
-        public readonly bool? Terse;
+        public readonly bool? WithDescribe;
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithParameters;
 
         [OutputConstructor]
         private GetDatabasesResult(
             ImmutableArray<Outputs.GetDatabasesDatabaseResult> databases,
 
-            bool? history,
-
             string id,
 
-            string? pattern,
+            string? like,
+
+            Outputs.GetDatabasesLimitResult? limit,
 
             string? startsWith,
 
-            bool? terse)
+            bool? withDescribe,
+
+            bool? withParameters)
         {
             Databases = databases;
-            History = history;
             Id = id;
-            Pattern = pattern;
+            Like = like;
+            Limit = limit;
             StartsWith = startsWith;
-            Terse = terse;
+            WithDescribe = withDescribe;
+            WithParameters = withParameters;
         }
     }
 }
