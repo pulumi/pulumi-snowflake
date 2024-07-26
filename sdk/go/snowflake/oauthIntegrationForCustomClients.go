@@ -76,8 +76,8 @@ import (
 //				OauthIssueRefreshTokens:   pulumi.String("true"),
 //				OauthRefreshTokenValidity: pulumi.Int(87600),
 //				NetworkPolicy:             pulumi.String("network_policy_id"),
-//				OauthClientRsaPublicKey:   invokeFile.Result,
-//				OauthClientRsaPublicKey2:  invokeFile1.Result,
+//				OauthClientRsaPublicKey:   pulumi.String(invokeFile.Result),
+//				OauthClientRsaPublicKey2:  pulumi.String(invokeFile1.Result),
 //				Comment:                   pulumi.String("my oauth integration"),
 //			})
 //			if err != nil {
