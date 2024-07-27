@@ -10,54 +10,29 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.RoleArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.RoleState;
-import com.pulumi.snowflake.outputs.RoleTag;
+import com.pulumi.snowflake.outputs.RoleShowOutput;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.AccountRole instead. &lt;deprecation&gt;
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
+ * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Role;
- * import com.pulumi.snowflake.RoleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
+ * ## Minimal
  * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var role = new Role("role", RoleArgs.builder()
- *             .name("role1")
- *             .comment("A role.")
- *             .build());
- * 
- *     }
+ * resource &#34;snowflake.Role&#34; &#34;minimal&#34; {
+ *   name = &#34;role_name&#34;
  * }
+ * 
+ * ## Complete (with every optional set)
+ * 
+ * resource &#34;snowflake.Role&#34; &#34;complete&#34; {
+ *   name    = &#34;role_name&#34;
+ *   comment = &#34;my account role&#34;
  * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/role:Role example roleName
- * ```
  * 
  */
 @ResourceType(type="snowflake:index/role:Role")
@@ -75,22 +50,18 @@ public class Role extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * Outputs the result of `SHOW ROLES` for the given role.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", refs={List.class,RoleTag.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RoleTag>> tags;
+    @Export(name="showOutputs", refs={List.class,RoleShowOutput.class}, tree="[0,1]")
+    private Output<List<RoleShowOutput>> showOutputs;
 
     /**
-     * @return Definitions of a tag to associate with the resource.
+     * @return Outputs the result of `SHOW ROLES` for the given role.
      * 
      */
-    public Output<Optional<List<RoleTag>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<RoleShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

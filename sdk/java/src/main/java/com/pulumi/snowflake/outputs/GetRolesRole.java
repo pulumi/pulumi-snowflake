@@ -5,48 +5,25 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetRolesRoleShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetRolesRole {
     /**
-     * @return The comment on the role
+     * @return Holds the output of SHOW ROLES.
      * 
      */
-    private String comment;
-    /**
-     * @return Identifier for the role.
-     * 
-     */
-    private String name;
-    /**
-     * @return The owner of the role
-     * 
-     */
-    private String owner;
+    private List<GetRolesRoleShowOutput> showOutputs;
 
     private GetRolesRole() {}
     /**
-     * @return The comment on the role
+     * @return Holds the output of SHOW ROLES.
      * 
      */
-    public String comment() {
-        return this.comment;
-    }
-    /**
-     * @return Identifier for the role.
-     * 
-     */
-    public String name() {
-        return this.name;
-    }
-    /**
-     * @return The owner of the role
-     * 
-     */
-    public String owner() {
-        return this.owner;
+    public List<GetRolesRoleShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -58,46 +35,27 @@ public final class GetRolesRole {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String name;
-        private String owner;
+        private List<GetRolesRoleShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetRolesRole defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.name = defaults.name;
-    	      this.owner = defaults.owner;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetRolesRole", "comment");
+        public Builder showOutputs(List<GetRolesRoleShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetRolesRole", "showOutputs");
             }
-            this.comment = comment;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetRolesRole", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder owner(String owner) {
-            if (owner == null) {
-              throw new MissingRequiredPropertyException("GetRolesRole", "owner");
-            }
-            this.owner = owner;
-            return this;
+        public Builder showOutputs(GetRolesRoleShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetRolesRole build() {
             final var _resultValue = new GetRolesRole();
-            _resultValue.comment = comment;
-            _resultValue.name = name;
-            _resultValue.owner = owner;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

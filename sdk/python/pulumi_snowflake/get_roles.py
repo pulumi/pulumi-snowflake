@@ -22,13 +22,16 @@ class GetRolesResult:
     """
     A collection of values returned by getRoles.
     """
-    def __init__(__self__, id=None, pattern=None, roles=None):
+    def __init__(__self__, id=None, in_class=None, like=None, roles=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pattern and not isinstance(pattern, str):
-            raise TypeError("Expected argument 'pattern' to be a str")
-        pulumi.set(__self__, "pattern", pattern)
+        if in_class and not isinstance(in_class, str):
+            raise TypeError("Expected argument 'in_class' to be a str")
+        pulumi.set(__self__, "in_class", in_class)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
         if roles and not isinstance(roles, list):
             raise TypeError("Expected argument 'roles' to be a list")
         pulumi.set(__self__, "roles", roles)
@@ -42,18 +45,26 @@ class GetRolesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="inClass")
+    def in_class(self) -> Optional[str]:
+        """
+        Filters the SHOW GRANTS output by class name.
+        """
+        return pulumi.get(self, "in_class")
+
+    @property
     @pulumi.getter
-    def pattern(self) -> Optional[str]:
+    def like(self) -> Optional[str]:
         """
-        Filters the command output by object name.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "pattern")
+        return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def roles(self) -> Sequence['outputs.GetRolesRoleResult']:
         """
-        List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+        Holds the aggregated output of all role details queries.
         """
         return pulumi.get(self, "roles")
 
@@ -65,52 +76,47 @@ class AwaitableGetRolesResult(GetRolesResult):
             yield self
         return GetRolesResult(
             id=self.id,
-            pattern=self.pattern,
+            in_class=self.in_class,
+            like=self.like,
             roles=self.roles)
 
 
-def get_roles(pattern: Optional[str] = None,
+def get_roles(in_class: Optional[str] = None,
+              like: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRolesResult:
     """
-    ## Example Usage
+    !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_roles()
-    ad = snowflake.get_roles(pattern="SYSADMIN")
-    ```
+    Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
 
 
-    :param str pattern: Filters the command output by object name.
+    :param str in_class: Filters the SHOW GRANTS output by class name.
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
-    __args__['pattern'] = pattern
+    __args__['inClass'] = in_class
+    __args__['like'] = like
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult).value
 
     return AwaitableGetRolesResult(
         id=pulumi.get(__ret__, 'id'),
-        pattern=pulumi.get(__ret__, 'pattern'),
+        in_class=pulumi.get(__ret__, 'in_class'),
+        like=pulumi.get(__ret__, 'like'),
         roles=pulumi.get(__ret__, 'roles'))
 
 
 @_utilities.lift_output_func(get_roles)
-def get_roles_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
+def get_roles_output(in_class: Optional[pulumi.Input[Optional[str]]] = None,
+                     like: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
     """
-    ## Example Usage
+    !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_roles()
-    ad = snowflake.get_roles(pattern="SYSADMIN")
-    ```
+    Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
 
 
-    :param str pattern: Filters the command output by object name.
+    :param str in_class: Filters the SHOW GRANTS output by class name.
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     ...

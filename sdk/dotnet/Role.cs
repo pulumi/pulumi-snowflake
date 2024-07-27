@@ -10,30 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.AccountRole instead. &lt;deprecation&gt;
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
+    /// The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var role = new Snowflake.Role("role", new()
-    ///     {
-    ///         Name = "role1",
-    ///         Comment = "A role.",
-    ///     });
+    /// ## Minimal
     /// 
-    /// });
-    /// ```
+    /// resource "snowflake.Role" "minimal" {
+    ///   name = "role_name"
+    /// }
     /// 
-    /// ## Import
+    /// ## Complete (with every optional set)
     /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/role:Role example roleName
-    /// ```
+    /// resource "snowflake.Role" "complete" {
+    ///   name    = "role_name"
+    ///   comment = "my account role"
+    /// }
     /// </summary>
     [SnowflakeResourceType("snowflake:index/role:Role")]
     public partial class Role : global::Pulumi.CustomResource
@@ -45,10 +37,10 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Definitions of a tag to associate with the resource.
+        /// Outputs the result of `SHOW ROLES` for the given role.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableArray<Outputs.RoleTag>> Tags { get; private set; } = null!;
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.RoleShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,19 +94,6 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("tags")]
-        private InputList<Inputs.RoleTagArgs>? _tags;
-
-        /// <summary>
-        /// Definitions of a tag to associate with the resource.
-        /// </summary>
-        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
-        public InputList<Inputs.RoleTagArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.RoleTagArgs>());
-            set => _tags = value;
-        }
-
         public RoleArgs()
         {
         }
@@ -129,17 +108,16 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("tags")]
-        private InputList<Inputs.RoleTagGetArgs>? _tags;
+        [Input("showOutputs")]
+        private InputList<Inputs.RoleShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Definitions of a tag to associate with the resource.
+        /// Outputs the result of `SHOW ROLES` for the given role.
         /// </summary>
-        [Obsolete(@"Use the 'snowflake_tag_association' resource instead.")]
-        public InputList<Inputs.RoleTagGetArgs> Tags
+        public InputList<Inputs.RoleShowOutputGetArgs> ShowOutputs
         {
-            get => _tags ?? (_tags = new InputList<Inputs.RoleTagGetArgs>());
-            set => _tags = value;
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.RoleShowOutputGetArgs>());
+            set => _showOutputs = value;
         }
 
         public RoleState()

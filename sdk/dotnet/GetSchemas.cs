@@ -12,47 +12,15 @@ namespace Pulumi.Snowflake
     public static class GetSchemas
     {
         /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetSchemas.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
-        public static Task<GetSchemasResult> InvokeAsync(GetSchemasArgs args, InvokeOptions? options = null)
+        public static Task<GetSchemasResult> InvokeAsync(GetSchemasArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetSchemas.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
-        public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemasResult>("snowflake:index/getSchemas:getSchemas", args ?? new GetSchemasInvokeArgs(), options.WithDefaults());
     }
 
@@ -60,10 +28,40 @@ namespace Pulumi.Snowflake
     public sealed class GetSchemasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of streamlits
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetSchemasInArgs? In { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Inputs.GetSchemasLimitArgs? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public string? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public bool? WithParameters { get; set; }
 
         public GetSchemasArgs()
         {
@@ -74,10 +72,40 @@ namespace Pulumi.Snowflake
     public sealed class GetSchemasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of streamlits
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetSchemasInInputArgs>? In { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Input<Inputs.GetSchemasLimitInputArgs>? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public Input<string>? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public Input<bool>? WithParameters { get; set; }
 
         public GetSchemasInvokeArgs()
         {
@@ -90,29 +118,64 @@ namespace Pulumi.Snowflake
     public sealed class GetSchemasResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schemas in the database
+        /// IN clause to filter the list of streamlits
+        /// </summary>
+        public readonly Outputs.GetSchemasInResult? In;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        public readonly Outputs.GetSchemasLimitResult? Limit;
+        /// <summary>
+        /// Holds the aggregated output of all SCHEMA details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemasSchemaResult> Schemas;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        public readonly string? StartsWith;
+        /// <summary>
+        /// Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithParameters;
 
         [OutputConstructor]
         private GetSchemasResult(
-            string database,
-
             string id,
 
-            ImmutableArray<Outputs.GetSchemasSchemaResult> schemas)
+            Outputs.GetSchemasInResult? @in,
+
+            string? like,
+
+            Outputs.GetSchemasLimitResult? limit,
+
+            ImmutableArray<Outputs.GetSchemasSchemaResult> schemas,
+
+            string? startsWith,
+
+            bool? withDescribe,
+
+            bool? withParameters)
         {
-            Database = database;
             Id = id;
+            In = @in;
+            Like = like;
+            Limit = limit;
             Schemas = schemas;
+            StartsWith = startsWith;
+            WithDescribe = withDescribe;
+            WithParameters = withParameters;
         }
     }
 }

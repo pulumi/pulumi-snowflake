@@ -140,7 +140,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
 // ```
 type TableConstraint struct {
 	pulumi.CustomResourceState

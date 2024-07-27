@@ -123,14 +123,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     @Import(name="oauthClientType", required=true)
     private Output<String> oauthClientType;
 
     /**
-     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     public Output<String> oauthClientType() {
@@ -198,14 +198,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Import(name="oauthUseSecondaryRoles")
     private @Nullable Output<String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Optional<Output<String>> oauthUseSecondaryRoles() {
@@ -420,7 +420,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 

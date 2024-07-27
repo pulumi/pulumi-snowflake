@@ -5,6 +5,8 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.NetworkPolicyDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.NetworkPolicyShowOutputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,14 +49,14 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
      * 
      */
     @Import(name="blockedIpLists")
     private @Nullable Output<List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
      * 
      */
     public Optional<Output<List<String>>> blockedIpLists() {
@@ -92,6 +94,21 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<NetworkPolicyDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     * 
+     */
+    public Optional<Output<List<NetworkPolicyDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
+    }
+
+    /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      * 
      */
@@ -106,6 +123,21 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<NetworkPolicyShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     * 
+     */
+    public Optional<Output<List<NetworkPolicyShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
+    }
+
     private NetworkPolicyState() {}
 
     private NetworkPolicyState(NetworkPolicyState $) {
@@ -114,7 +146,9 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         this.blockedIpLists = $.blockedIpLists;
         this.blockedNetworkRuleLists = $.blockedNetworkRuleLists;
         this.comment = $.comment;
+        this.describeOutputs = $.describeOutputs;
         this.name = $.name;
+        this.showOutputs = $.showOutputs;
     }
 
     public static Builder builder() {
@@ -198,7 +232,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
          * 
          * @return builder
          * 
@@ -209,7 +243,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
          * 
          * @return builder
          * 
@@ -219,7 +253,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+         * @param blockedIpLists Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
          * 
          * @return builder
          * 
@@ -281,6 +315,37 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param describeOutputs Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<NetworkPolicyDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<NetworkPolicyDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(NetworkPolicyDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
          * @param name Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
          * 
          * @return builder
@@ -299,6 +364,37 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<NetworkPolicyShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<NetworkPolicyShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(NetworkPolicyShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         public NetworkPolicyState build() {

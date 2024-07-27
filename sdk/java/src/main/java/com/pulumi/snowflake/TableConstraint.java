@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/tableConstraint:TableConstraint example &#39;myconstraintfk❄️FOREIGN KEY❄️test|test|table&#39;
+ * $ pulumi import snowflake:index/tableConstraint:TableConstraint example &#39;myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName&#39;
  * ```
  * 
  */

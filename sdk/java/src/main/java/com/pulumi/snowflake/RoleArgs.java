@@ -5,9 +5,7 @@ package com.pulumi.snowflake;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.RoleTagArgs;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,35 +29,11 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<RoleTagArgs>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<RoleTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private RoleArgs() {}
 
     private RoleArgs(RoleArgs $) {
         this.comment = $.comment;
         this.name = $.name;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -96,49 +70,6 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<RoleTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<RoleTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(RoleTagArgs... tags) {
-            return tags(List.of(tags));
         }
 
         public RoleArgs build() {

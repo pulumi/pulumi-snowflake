@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
     /// 
+    /// Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -52,7 +54,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         /// </summary>
         [Output("oauthClient")]
         public Output<string> OauthClient { get; private set; } = null!;
@@ -73,7 +75,7 @@ namespace Pulumi.Snowflake
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Output("oauthUseSecondaryRoles")]
         public Output<string?> OauthUseSecondaryRoles { get; private set; } = null!;
@@ -161,7 +163,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         /// </summary>
         [Input("oauthClient", required: true)]
         public Input<string> OauthClient { get; set; } = null!;
@@ -182,7 +184,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }
@@ -238,7 +240,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         /// </summary>
         [Input("oauthClient")]
         public Input<string>? OauthClient { get; set; }
@@ -259,7 +261,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }

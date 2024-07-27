@@ -79,14 +79,14 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
     }
 
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     @Import(name="oauthClient", required=true)
     private Output<String> oauthClient;
 
     /**
-     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     public Output<String> oauthClient() {
@@ -131,14 +131,14 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
     }
 
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Import(name="oauthUseSecondaryRoles")
     private @Nullable Output<String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Optional<Output<String>> oauthUseSecondaryRoles() {
@@ -272,7 +272,7 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
         }
 
         /**
-         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
         }
 
         /**
-         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 

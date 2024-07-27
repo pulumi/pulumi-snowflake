@@ -78,14 +78,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
     @Import(name="runAsRole", required=true)
     private Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
     public Output<String> runAsRole() {
@@ -93,14 +93,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+     * Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     @Import(name="scimClient", required=true)
     private Output<String> scimClient;
 
     /**
-     * @return Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+     * @return Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     public Output<String> scimClient() {
@@ -108,14 +108,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="syncPassword")
     private @Nullable Output<String> syncPassword;
 
     /**
-     * @return Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> syncPassword() {
@@ -237,7 +237,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: [OKTA*PROVISIONER AAD*PROVISIONER GENERIC*SCIM*PROVISIONER].
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scimClient Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+         * @param scimClient Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scimClient Specifies the client type for the scim integration. Valid options are: [OKTA AZURE GENERIC].
+         * @param scimClient Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 

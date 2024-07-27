@@ -9,69 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const schema = new snowflake.Schema("schema", {
- *     database: "database",
- *     name: "schema",
- *     dataRetentionDays: 1,
- * });
- * const sequence = new snowflake.Sequence("sequence", {
- *     database: schema.database,
- *     schema: schema.name,
- *     name: "sequence",
- * });
- * const table = new snowflake.Table("table", {
- *     database: schema.database,
- *     schema: schema.name,
- *     name: "table",
- *     comment: "A table.",
- *     clusterBies: ["to_date(DATE)"],
- *     dataRetentionTimeInDays: schema.dataRetentionTimeInDays,
- *     changeTracking: false,
- *     columns: [
- *         {
- *             name: "id",
- *             type: "int",
- *             nullable: true,
- *             "default": {
- *                 sequence: sequence.fullyQualifiedName,
- *             },
- *         },
- *         {
- *             name: "identity",
- *             type: "NUMBER(38,0)",
- *             nullable: true,
- *             identity: {
- *                 startNum: 1,
- *                 stepNum: 3,
- *             },
- *         },
- *         {
- *             name: "data",
- *             type: "text",
- *             nullable: false,
- *             collate: "en-ci",
- *         },
- *         {
- *             name: "DATE",
- *             type: "TIMESTAMP_NTZ(9)",
- *         },
- *         {
- *             name: "extra",
- *             type: "VARIANT",
- *             comment: "extra data",
- *         },
- *     ],
- *     primaryKey: {
- *         name: "my_key",
- *         keys: ["data"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | table name

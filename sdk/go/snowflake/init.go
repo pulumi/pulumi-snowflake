@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountParameter{}
 	case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
 		r = &AccountPasswordPolicyAttachment{}
+	case "snowflake:index/accountRole:AccountRole":
+		r = &AccountRole{}
 	case "snowflake:index/alert:Alert":
 		r = &Alert{}
 	case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
@@ -133,6 +135,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StorageIntegration{}
 	case "snowflake:index/stream:Stream":
 		r = &Stream{}
+	case "snowflake:index/streamlit:Streamlit":
+		r = &Streamlit{}
 	case "snowflake:index/table:Table":
 		r = &Table{}
 	case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
@@ -203,6 +207,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/accountPasswordPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/accountRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -468,6 +477,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/stream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/streamlit",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -5,7 +5,9 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.SchemaTagArgs;
+import com.pulumi.snowflake.inputs.SchemaDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.SchemaParameterArgs;
+import com.pulumi.snowflake.inputs.SchemaShowOutputArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,6 +20,21 @@ import javax.annotation.Nullable;
 public final class SchemaState extends com.pulumi.resources.ResourceArgs {
 
     public static final SchemaState Empty = new SchemaState();
+
+    /**
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * 
+     */
+    @Import(name="catalog")
+    private @Nullable Output<String> catalog;
+
+    /**
+     * @return The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * 
+     */
+    public Optional<Output<String>> catalog() {
+        return Optional.ofNullable(this.catalog);
+    }
 
     /**
      * Specifies a comment for the schema.
@@ -35,18 +52,18 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
-    @Import(name="dataRetentionDays")
-    private @Nullable Output<Integer> dataRetentionDays;
+    @Import(name="dataRetentionTimeInDays")
+    private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
+     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
-    public Optional<Output<Integer>> dataRetentionDays() {
-        return Optional.ofNullable(this.dataRetentionDays);
+    public Optional<Output<Integer>> dataRetentionTimeInDays() {
+        return Optional.ofNullable(this.dataRetentionTimeInDays);
     }
 
     /**
@@ -65,33 +82,108 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      * 
      */
-    @Import(name="isManaged")
-    private @Nullable Output<Boolean> isManaged;
+    @Import(name="defaultDdlCollation")
+    private @Nullable Output<String> defaultDdlCollation;
 
     /**
-     * @return Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
+     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      * 
      */
-    public Optional<Output<Boolean>> isManaged() {
-        return Optional.ofNullable(this.isManaged);
+    public Optional<Output<String>> defaultDdlCollation() {
+        return Optional.ofNullable(this.defaultDdlCollation);
     }
 
     /**
-     * Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<SchemaDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * 
+     */
+    public Optional<Output<List<SchemaDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
+    }
+
+    /**
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+     * 
+     */
+    @Import(name="enableConsoleOutput")
+    private @Nullable Output<Boolean> enableConsoleOutput;
+
+    /**
+     * @return If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+     * 
+     */
+    public Optional<Output<Boolean>> enableConsoleOutput() {
+        return Optional.ofNullable(this.enableConsoleOutput);
+    }
+
+    /**
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * 
+     */
+    @Import(name="externalVolume")
+    private @Nullable Output<String> externalVolume;
+
+    /**
+     * @return The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * 
+     */
+    public Optional<Output<String>> externalVolume() {
+        return Optional.ofNullable(this.externalVolume);
+    }
+
+    /**
+     * Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="isTransient")
-    private @Nullable Output<Boolean> isTransient;
+    private @Nullable Output<String> isTransient;
 
     /**
-     * @return Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+     * @return Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Optional<Output<Boolean>> isTransient() {
+    public Optional<Output<String>> isTransient() {
         return Optional.ofNullable(this.isTransient);
+    }
+
+    /**
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * 
+     */
+    @Import(name="logLevel")
+    private @Nullable Output<String> logLevel;
+
+    /**
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * 
+     */
+    public Optional<Output<String>> logLevel() {
+        return Optional.ofNullable(this.logLevel);
+    }
+
+    /**
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * 
+     */
+    @Import(name="maxDataExtensionTimeInDays")
+    private @Nullable Output<Integer> maxDataExtensionTimeInDays;
+
+    /**
+     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * 
+     */
+    public Optional<Output<Integer>> maxDataExtensionTimeInDays() {
+        return Optional.ofNullable(this.maxDataExtensionTimeInDays);
     }
 
     /**
@@ -110,38 +202,228 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<SchemaTagArgs>> tags;
+    @Import(name="parameters")
+    private @Nullable Output<List<SchemaParameterArgs>> parameters;
 
     /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @return Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<SchemaTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<Output<List<SchemaParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    @Import(name="pipeExecutionPaused")
+    private @Nullable Output<Boolean> pipeExecutionPaused;
+
+    /**
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * 
+     */
+    public Optional<Output<Boolean>> pipeExecutionPaused() {
+        return Optional.ofNullable(this.pipeExecutionPaused);
+    }
+
+    /**
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * 
+     */
+    @Import(name="quotedIdentifiersIgnoreCase")
+    private @Nullable Output<Boolean> quotedIdentifiersIgnoreCase;
+
+    /**
+     * @return If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * 
+     */
+    public Optional<Output<Boolean>> quotedIdentifiersIgnoreCase() {
+        return Optional.ofNullable(this.quotedIdentifiersIgnoreCase);
+    }
+
+    /**
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * 
+     */
+    @Import(name="replaceInvalidCharacters")
+    private @Nullable Output<Boolean> replaceInvalidCharacters;
+
+    /**
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * 
+     */
+    public Optional<Output<Boolean>> replaceInvalidCharacters() {
+        return Optional.ofNullable(this.replaceInvalidCharacters);
+    }
+
+    /**
+     * Outputs the result of `SHOW SCHEMA` for the given object.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<SchemaShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW SCHEMA` for the given object.
+     * 
+     */
+    public Optional<Output<List<SchemaShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
+    }
+
+    /**
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * 
+     */
+    @Import(name="storageSerializationPolicy")
+    private @Nullable Output<String> storageSerializationPolicy;
+
+    /**
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * 
+     */
+    public Optional<Output<String>> storageSerializationPolicy() {
+        return Optional.ofNullable(this.storageSerializationPolicy);
+    }
+
+    /**
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * 
+     */
+    @Import(name="suspendTaskAfterNumFailures")
+    private @Nullable Output<Integer> suspendTaskAfterNumFailures;
+
+    /**
+     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * 
+     */
+    public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
+        return Optional.ofNullable(this.suspendTaskAfterNumFailures);
+    }
+
+    /**
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * 
+     */
+    @Import(name="taskAutoRetryAttempts")
+    private @Nullable Output<Integer> taskAutoRetryAttempts;
+
+    /**
+     * @return Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * 
+     */
+    public Optional<Output<Integer>> taskAutoRetryAttempts() {
+        return Optional.ofNullable(this.taskAutoRetryAttempts);
+    }
+
+    /**
+     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * 
+     */
+    @Import(name="traceLevel")
+    private @Nullable Output<String> traceLevel;
+
+    /**
+     * @return Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * 
+     */
+    public Optional<Output<String>> traceLevel() {
+        return Optional.ofNullable(this.traceLevel);
+    }
+
+    /**
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * 
+     */
+    @Import(name="userTaskManagedInitialWarehouseSize")
+    private @Nullable Output<String> userTaskManagedInitialWarehouseSize;
+
+    /**
+     * @return The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * 
+     */
+    public Optional<Output<String>> userTaskManagedInitialWarehouseSize() {
+        return Optional.ofNullable(this.userTaskManagedInitialWarehouseSize);
+    }
+
+    /**
+     * Minimum amount of time between Triggered Task executions in seconds.
+     * 
+     */
+    @Import(name="userTaskMinimumTriggerIntervalInSeconds")
+    private @Nullable Output<Integer> userTaskMinimumTriggerIntervalInSeconds;
+
+    /**
+     * @return Minimum amount of time between Triggered Task executions in seconds.
+     * 
+     */
+    public Optional<Output<Integer>> userTaskMinimumTriggerIntervalInSeconds() {
+        return Optional.ofNullable(this.userTaskMinimumTriggerIntervalInSeconds);
+    }
+
+    /**
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * 
+     */
+    @Import(name="userTaskTimeoutMs")
+    private @Nullable Output<Integer> userTaskTimeoutMs;
+
+    /**
+     * @return User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * 
+     */
+    public Optional<Output<Integer>> userTaskTimeoutMs() {
+        return Optional.ofNullable(this.userTaskTimeoutMs);
+    }
+
+    /**
+     * Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="withManagedAccess")
+    private @Nullable Output<String> withManagedAccess;
+
+    /**
+     * @return Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> withManagedAccess() {
+        return Optional.ofNullable(this.withManagedAccess);
     }
 
     private SchemaState() {}
 
     private SchemaState(SchemaState $) {
+        this.catalog = $.catalog;
         this.comment = $.comment;
-        this.dataRetentionDays = $.dataRetentionDays;
+        this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.database = $.database;
-        this.isManaged = $.isManaged;
+        this.defaultDdlCollation = $.defaultDdlCollation;
+        this.describeOutputs = $.describeOutputs;
+        this.enableConsoleOutput = $.enableConsoleOutput;
+        this.externalVolume = $.externalVolume;
         this.isTransient = $.isTransient;
+        this.logLevel = $.logLevel;
+        this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
         this.name = $.name;
-        this.tags = $.tags;
+        this.parameters = $.parameters;
+        this.pipeExecutionPaused = $.pipeExecutionPaused;
+        this.quotedIdentifiersIgnoreCase = $.quotedIdentifiersIgnoreCase;
+        this.replaceInvalidCharacters = $.replaceInvalidCharacters;
+        this.showOutputs = $.showOutputs;
+        this.storageSerializationPolicy = $.storageSerializationPolicy;
+        this.suspendTaskAfterNumFailures = $.suspendTaskAfterNumFailures;
+        this.taskAutoRetryAttempts = $.taskAutoRetryAttempts;
+        this.traceLevel = $.traceLevel;
+        this.userTaskManagedInitialWarehouseSize = $.userTaskManagedInitialWarehouseSize;
+        this.userTaskMinimumTriggerIntervalInSeconds = $.userTaskMinimumTriggerIntervalInSeconds;
+        this.userTaskTimeoutMs = $.userTaskTimeoutMs;
+        this.withManagedAccess = $.withManagedAccess;
     }
 
     public static Builder builder() {
@@ -160,6 +442,27 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(SchemaState defaults) {
             $ = new SchemaState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalog(@Nullable Output<String> catalog) {
+            $.catalog = catalog;
+            return this;
+        }
+
+        /**
+         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalog(String catalog) {
+            return catalog(Output.of(catalog));
         }
 
         /**
@@ -184,24 +487,24 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
          */
-        public Builder dataRetentionDays(@Nullable Output<Integer> dataRetentionDays) {
-            $.dataRetentionDays = dataRetentionDays;
+        public Builder dataRetentionTimeInDays(@Nullable Output<Integer> dataRetentionTimeInDays) {
+            $.dataRetentionTimeInDays = dataRetentionTimeInDays;
             return this;
         }
 
         /**
-         * @param dataRetentionDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema. Default value for this field is set to -1, which is a fallback to use Snowflake default.
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
          */
-        public Builder dataRetentionDays(Integer dataRetentionDays) {
-            return dataRetentionDays(Output.of(dataRetentionDays));
+        public Builder dataRetentionTimeInDays(Integer dataRetentionTimeInDays) {
+            return dataRetentionTimeInDays(Output.of(dataRetentionTimeInDays));
         }
 
         /**
@@ -226,45 +529,160 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isManaged Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
          * 
          * @return builder
          * 
          */
-        public Builder isManaged(@Nullable Output<Boolean> isManaged) {
-            $.isManaged = isManaged;
+        public Builder defaultDdlCollation(@Nullable Output<String> defaultDdlCollation) {
+            $.defaultDdlCollation = defaultDdlCollation;
             return this;
         }
 
         /**
-         * @param isManaged Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner.
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
          * 
          * @return builder
          * 
          */
-        public Builder isManaged(Boolean isManaged) {
-            return isManaged(Output.of(isManaged));
+        public Builder defaultDdlCollation(String defaultDdlCollation) {
+            return defaultDdlCollation(Output.of(defaultDdlCollation));
         }
 
         /**
-         * @param isTransient Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+         * @param describeOutputs Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
          * 
          * @return builder
          * 
          */
-        public Builder isTransient(@Nullable Output<Boolean> isTransient) {
+        public Builder describeOutputs(@Nullable Output<List<SchemaDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<SchemaDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(SchemaDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableConsoleOutput(@Nullable Output<Boolean> enableConsoleOutput) {
+            $.enableConsoleOutput = enableConsoleOutput;
+            return this;
+        }
+
+        /**
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableConsoleOutput(Boolean enableConsoleOutput) {
+            return enableConsoleOutput(Output.of(enableConsoleOutput));
+        }
+
+        /**
+         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalVolume(@Nullable Output<String> externalVolume) {
+            $.externalVolume = externalVolume;
+            return this;
+        }
+
+        /**
+         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalVolume(String externalVolume) {
+            return externalVolume(Output.of(externalVolume));
+        }
+
+        /**
+         * @param isTransient Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isTransient(@Nullable Output<String> isTransient) {
             $.isTransient = isTransient;
             return this;
         }
 
         /**
-         * @param isTransient Specifies a schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+         * @param isTransient Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder isTransient(Boolean isTransient) {
+        public Builder isTransient(String isTransient) {
             return isTransient(Output.of(isTransient));
+        }
+
+        /**
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logLevel(@Nullable Output<String> logLevel) {
+            $.logLevel = logLevel;
+            return this;
+        }
+
+        /**
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logLevel(String logLevel) {
+            return logLevel(Output.of(logLevel));
+        }
+
+        /**
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxDataExtensionTimeInDays(@Nullable Output<Integer> maxDataExtensionTimeInDays) {
+            $.maxDataExtensionTimeInDays = maxDataExtensionTimeInDays;
+            return this;
+        }
+
+        /**
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxDataExtensionTimeInDays(Integer maxDataExtensionTimeInDays) {
+            return maxDataExtensionTimeInDays(Output.of(maxDataExtensionTimeInDays));
         }
 
         /**
@@ -289,46 +707,296 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<SchemaTagArgs>> tags) {
-            $.tags = tags;
+        public Builder parameters(@Nullable Output<List<SchemaParameterArgs>> parameters) {
+            $.parameters = parameters;
             return this;
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<SchemaTagArgs> tags) {
-            return tags(Output.of(tags));
+        public Builder parameters(List<SchemaParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         */
+        public Builder parameters(SchemaParameterArgs... parameters) {
+            return parameters(List.of(parameters));
+        }
+
+        /**
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(SchemaTagArgs... tags) {
-            return tags(List.of(tags));
+        public Builder pipeExecutionPaused(@Nullable Output<Boolean> pipeExecutionPaused) {
+            $.pipeExecutionPaused = pipeExecutionPaused;
+            return this;
+        }
+
+        /**
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipeExecutionPaused(Boolean pipeExecutionPaused) {
+            return pipeExecutionPaused(Output.of(pipeExecutionPaused));
+        }
+
+        /**
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder quotedIdentifiersIgnoreCase(@Nullable Output<Boolean> quotedIdentifiersIgnoreCase) {
+            $.quotedIdentifiersIgnoreCase = quotedIdentifiersIgnoreCase;
+            return this;
+        }
+
+        /**
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder quotedIdentifiersIgnoreCase(Boolean quotedIdentifiersIgnoreCase) {
+            return quotedIdentifiersIgnoreCase(Output.of(quotedIdentifiersIgnoreCase));
+        }
+
+        /**
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceInvalidCharacters(@Nullable Output<Boolean> replaceInvalidCharacters) {
+            $.replaceInvalidCharacters = replaceInvalidCharacters;
+            return this;
+        }
+
+        /**
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceInvalidCharacters(Boolean replaceInvalidCharacters) {
+            return replaceInvalidCharacters(Output.of(replaceInvalidCharacters));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SCHEMA` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<SchemaShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SCHEMA` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<SchemaShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SCHEMA` for the given object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(SchemaShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
+        }
+
+        /**
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageSerializationPolicy(@Nullable Output<String> storageSerializationPolicy) {
+            $.storageSerializationPolicy = storageSerializationPolicy;
+            return this;
+        }
+
+        /**
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageSerializationPolicy(String storageSerializationPolicy) {
+            return storageSerializationPolicy(Output.of(storageSerializationPolicy));
+        }
+
+        /**
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendTaskAfterNumFailures(@Nullable Output<Integer> suspendTaskAfterNumFailures) {
+            $.suspendTaskAfterNumFailures = suspendTaskAfterNumFailures;
+            return this;
+        }
+
+        /**
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendTaskAfterNumFailures(Integer suspendTaskAfterNumFailures) {
+            return suspendTaskAfterNumFailures(Output.of(suspendTaskAfterNumFailures));
+        }
+
+        /**
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskAutoRetryAttempts(@Nullable Output<Integer> taskAutoRetryAttempts) {
+            $.taskAutoRetryAttempts = taskAutoRetryAttempts;
+            return this;
+        }
+
+        /**
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskAutoRetryAttempts(Integer taskAutoRetryAttempts) {
+            return taskAutoRetryAttempts(Output.of(taskAutoRetryAttempts));
+        }
+
+        /**
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder traceLevel(@Nullable Output<String> traceLevel) {
+            $.traceLevel = traceLevel;
+            return this;
+        }
+
+        /**
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder traceLevel(String traceLevel) {
+            return traceLevel(Output.of(traceLevel));
+        }
+
+        /**
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskManagedInitialWarehouseSize(@Nullable Output<String> userTaskManagedInitialWarehouseSize) {
+            $.userTaskManagedInitialWarehouseSize = userTaskManagedInitialWarehouseSize;
+            return this;
+        }
+
+        /**
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskManagedInitialWarehouseSize(String userTaskManagedInitialWarehouseSize) {
+            return userTaskManagedInitialWarehouseSize(Output.of(userTaskManagedInitialWarehouseSize));
+        }
+
+        /**
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskMinimumTriggerIntervalInSeconds(@Nullable Output<Integer> userTaskMinimumTriggerIntervalInSeconds) {
+            $.userTaskMinimumTriggerIntervalInSeconds = userTaskMinimumTriggerIntervalInSeconds;
+            return this;
+        }
+
+        /**
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskMinimumTriggerIntervalInSeconds(Integer userTaskMinimumTriggerIntervalInSeconds) {
+            return userTaskMinimumTriggerIntervalInSeconds(Output.of(userTaskMinimumTriggerIntervalInSeconds));
+        }
+
+        /**
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskTimeoutMs(@Nullable Output<Integer> userTaskTimeoutMs) {
+            $.userTaskTimeoutMs = userTaskTimeoutMs;
+            return this;
+        }
+
+        /**
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userTaskTimeoutMs(Integer userTaskTimeoutMs) {
+            return userTaskTimeoutMs(Output.of(userTaskTimeoutMs));
+        }
+
+        /**
+         * @param withManagedAccess Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withManagedAccess(@Nullable Output<String> withManagedAccess) {
+            $.withManagedAccess = withManagedAccess;
+            return this;
+        }
+
+        /**
+         * @param withManagedAccess Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withManagedAccess(String withManagedAccess) {
+            return withManagedAccess(Output.of(withManagedAccess));
         }
 
         public SchemaState build() {

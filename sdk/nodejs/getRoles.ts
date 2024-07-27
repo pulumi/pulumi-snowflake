@@ -7,24 +7,17 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const this = snowflake.getRoles({});
- * const ad = snowflake.getRoles({
- *     pattern: "SYSADMIN",
- * });
- * ```
+ * Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getRoles:getRoles", {
-        "pattern": args.pattern,
+        "inClass": args.inClass,
+        "like": args.like,
     }, opts);
 }
 
@@ -33,9 +26,13 @@ export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetRolesArgs {
     /**
-     * Filters the command output by object name.
+     * Filters the SHOW GRANTS output by class name.
      */
-    pattern?: string;
+    inClass?: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: string;
 }
 
 /**
@@ -47,26 +44,22 @@ export interface GetRolesResult {
      */
     readonly id: string;
     /**
-     * Filters the command output by object name.
+     * Filters the SHOW GRANTS output by class name.
      */
-    readonly pattern?: string;
+    readonly inClass?: string;
     /**
-     * List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Holds the aggregated output of all role details queries.
      */
     readonly roles: outputs.GetRolesRole[];
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const this = snowflake.getRoles({});
- * const ad = snowflake.getRoles({
- *     pattern: "SYSADMIN",
- * });
- * ```
+ * Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
     return pulumi.output(args).apply((a: any) => getRoles(a, opts))
@@ -77,7 +70,11 @@ export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOp
  */
 export interface GetRolesOutputArgs {
     /**
-     * Filters the command output by object name.
+     * Filters the SHOW GRANTS output by class name.
      */
-    pattern?: pulumi.Input<string>;
+    inClass?: pulumi.Input<string>;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: pulumi.Input<string>;
 }

@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Export(name="catalog", refs={String.class}, tree="[0]")
     private Output<String> catalog;
 
     /**
-     * @return The database parameter that specifies the default catalog to use for Iceberg tables.
+     * @return The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Output<String> catalog() {
@@ -161,14 +161,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.enableConsoleOutput;
     }
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables.
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Export(name="externalVolume", refs={String.class}, tree="[0]")
     private Output<String> externalVolume;
 
     /**
-     * @return The database parameter that specifies the default external volume to use for Iceberg tables.
+     * @return The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Output<String> externalVolume() {
@@ -231,28 +231,28 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * If true, the case of quoted identifiers is ignored.
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Export(name="quotedIdentifiersIgnoreCase", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return If true, the case of quoted identifiers is ignored.
+     * @return If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Output<Boolean> quotedIdentifiersIgnoreCase() {
         return this.quotedIdentifiersIgnoreCase;
     }
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Export(name="replaceInvalidCharacters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Output<Boolean> replaceInvalidCharacters() {
@@ -273,42 +273,42 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.replication);
     }
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     @Export(name="storageSerializationPolicy", refs={String.class}, tree="[0]")
     private Output<String> storageSerializationPolicy;
 
     /**
-     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     public Output<String> storageSerializationPolicy() {
         return this.storageSerializationPolicy;
     }
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     @Export(name="suspendTaskAfterNumFailures", refs={Integer.class}, tree="[0]")
     private Output<Integer> suspendTaskAfterNumFailures;
 
     /**
-     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     public Output<Integer> suspendTaskAfterNumFailures() {
         return this.suspendTaskAfterNumFailures;
     }
     /**
-     * Maximum automatic retries allowed for a user task.
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     @Export(name="taskAutoRetryAttempts", refs={Integer.class}, tree="[0]")
     private Output<Integer> taskAutoRetryAttempts;
 
     /**
-     * @return Maximum automatic retries allowed for a user task.
+     * @return Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     public Output<Integer> taskAutoRetryAttempts() {
@@ -329,14 +329,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.traceLevel;
     }
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Export(name="userTaskManagedInitialWarehouseSize", refs={String.class}, tree="[0]")
     private Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return The initial size of warehouse to use for managed warehouses in the absence of history.
+     * @return The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Output<String> userTaskManagedInitialWarehouseSize() {
@@ -357,14 +357,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.userTaskMinimumTriggerIntervalInSeconds;
     }
     /**
-     * User task execution timeout in milliseconds.
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     @Export(name="userTaskTimeoutMs", refs={Integer.class}, tree="[0]")
     private Output<Integer> userTaskTimeoutMs;
 
     /**
-     * @return User task execution timeout in milliseconds.
+     * @return User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     public Output<Integer> userTaskTimeoutMs() {

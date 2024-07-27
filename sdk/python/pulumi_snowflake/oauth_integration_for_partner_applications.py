@@ -28,13 +28,13 @@ class OauthIntegrationForPartnerApplicationsArgs:
         """
         The set of arguments for constructing a OauthIntegrationForPartnerApplications resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
-        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         pulumi.set(__self__, "oauth_client", oauth_client)
@@ -69,7 +69,7 @@ class OauthIntegrationForPartnerApplicationsArgs:
     @pulumi.getter(name="oauthClient")
     def oauth_client(self) -> pulumi.Input[str]:
         """
-        Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         """
         return pulumi.get(self, "oauth_client")
 
@@ -150,7 +150,7 @@ class OauthIntegrationForPartnerApplicationsArgs:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -180,10 +180,10 @@ class _OauthIntegrationForPartnerApplicationsState:
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         if blocked_roles_lists is not None:
@@ -273,7 +273,7 @@ class _OauthIntegrationForPartnerApplicationsState:
     @pulumi.getter(name="oauthClient")
     def oauth_client(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         """
         return pulumi.get(self, "oauth_client")
 
@@ -318,7 +318,7 @@ class _OauthIntegrationForPartnerApplicationsState:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -357,6 +357,8 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         """
         !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 
+        Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+
         ## Import
 
         ```sh
@@ -369,10 +371,10 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         ...
     @overload
@@ -382,6 +384,8 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+
+        Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
 
         ## Import
 
@@ -470,10 +474,10 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
-        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -537,7 +541,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
     @pulumi.getter(name="oauthClient")
     def oauth_client(self) -> pulumi.Output[str]:
         """
-        Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+        Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         """
         return pulumi.get(self, "oauth_client")
 
@@ -566,7 +570,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 

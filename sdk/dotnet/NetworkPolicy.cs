@@ -10,13 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
+    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
     /// 
-    /// ## Import
+    /// Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
     /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
-    /// ```
+    /// ## Minimal
+    /// 
+    /// resource "snowflake.NetworkPolicy" "basic" {
+    ///   name = "network_policy_name"
+    /// }
+    /// 
+    /// ## Complete (with every optional set)
+    /// 
+    /// resource "snowflake.NetworkPolicy" "basic" {
+    ///   name                      = "network_policy_name"
+    ///   allowed_network_rule_list = ["&lt;fully qualified network rule id&gt;"]
+    ///   blocked_network_rule_list = ["&lt;fully qualified network rule id&gt;"]
+    ///   allowed_ip_list           = ["192.168.1.0/24"]
+    ///   blocked_ip_list           = ["192.168.1.99"]
+    ///   comment                   = "my network policy"
+    /// }
     /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicy:NetworkPolicy")]
     public partial class NetworkPolicy : global::Pulumi.CustomResource
@@ -34,7 +47,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedNetworkRuleLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         /// </summary>
         [Output("blockedIpLists")]
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
@@ -52,10 +65,22 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
+        /// Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.NetworkPolicyDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.NetworkPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,7 +156,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -199,7 +224,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -225,11 +250,35 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("describeOutputs")]
+        private InputList<Inputs.NetworkPolicyDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+        /// </summary>
+        public InputList<Inputs.NetworkPolicyDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.NetworkPolicyDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
+
         /// <summary>
         /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.NetworkPolicyShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+        /// </summary>
+        public InputList<Inputs.NetworkPolicyShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.NetworkPolicyShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public NetworkPolicyState()
         {

@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'AccountRoleShowOutputArgs',
     'AlertAlertScheduleArgs',
     'AlertAlertScheduleCronArgs',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs',
@@ -98,6 +99,8 @@ __all__ = [
     'MaskingPolicySignatureArgs',
     'MaskingPolicySignatureColumnArgs',
     'MaterializedViewTagArgs',
+    'NetworkPolicyDescribeOutputArgs',
+    'NetworkPolicyShowOutputArgs',
     'OauthIntegrationForCustomClientsDescribeOutputArgs',
     'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs',
     'OauthIntegrationForCustomClientsDescribeOutputCommentArgs',
@@ -143,7 +146,7 @@ __all__ = [
     'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
     'ProviderTokenAccessorArgs',
-    'RoleTagArgs',
+    'RoleShowOutputArgs',
     'Saml2IntegrationDescribeOutputArgs',
     'Saml2IntegrationDescribeOutputAllowedEmailPatternArgs',
     'Saml2IntegrationDescribeOutputAllowedUserDomainArgs',
@@ -165,7 +168,26 @@ __all__ = [
     'Saml2IntegrationDescribeOutputSaml2SsoUrlArgs',
     'Saml2IntegrationDescribeOutputSaml2X509CertArgs',
     'Saml2IntegrationShowOutputArgs',
-    'SchemaTagArgs',
+    'SchemaDescribeOutputArgs',
+    'SchemaParameterArgs',
+    'SchemaParameterCatalogArgs',
+    'SchemaParameterDataRetentionTimeInDayArgs',
+    'SchemaParameterDefaultDdlCollationArgs',
+    'SchemaParameterEnableConsoleOutputArgs',
+    'SchemaParameterExternalVolumeArgs',
+    'SchemaParameterLogLevelArgs',
+    'SchemaParameterMaxDataExtensionTimeInDayArgs',
+    'SchemaParameterPipeExecutionPausedArgs',
+    'SchemaParameterQuotedIdentifiersIgnoreCaseArgs',
+    'SchemaParameterReplaceInvalidCharacterArgs',
+    'SchemaParameterStorageSerializationPolicyArgs',
+    'SchemaParameterSuspendTaskAfterNumFailureArgs',
+    'SchemaParameterTaskAutoRetryAttemptArgs',
+    'SchemaParameterTraceLevelArgs',
+    'SchemaParameterUserTaskManagedInitialWarehouseSizeArgs',
+    'SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs',
+    'SchemaParameterUserTaskTimeoutMArgs',
+    'SchemaShowOutputArgs',
     'ScimIntegrationDescribeOutputArgs',
     'ScimIntegrationDescribeOutputCommentArgs',
     'ScimIntegrationDescribeOutputEnabledArgs',
@@ -174,6 +196,8 @@ __all__ = [
     'ScimIntegrationDescribeOutputSyncPasswordArgs',
     'ScimIntegrationShowOutputArgs',
     'StageTagArgs',
+    'StreamlitDescribeOutputArgs',
+    'StreamlitShowOutputArgs',
     'TableColumnArgs',
     'TableColumnDefaultArgs',
     'TableColumnIdentityArgs',
@@ -200,7 +224,136 @@ __all__ = [
     'GetGrantsGrantsOnArgs',
     'GetGrantsGrantsToArgs',
     'GetGrantsGrantsToShareArgs',
+    'GetSchemasInArgs',
+    'GetSchemasLimitArgs',
+    'GetStreamlitsInArgs',
+    'GetStreamlitsLimitArgs',
 ]
+
+@pulumi.input_type
+class AccountRoleShowOutputArgs:
+    def __init__(__self__, *,
+                 assigned_to_users: Optional[pulumi.Input[int]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 granted_roles: Optional[pulumi.Input[int]] = None,
+                 granted_to_roles: Optional[pulumi.Input[int]] = None,
+                 is_current: Optional[pulumi.Input[bool]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
+                 is_inherited: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None):
+        if assigned_to_users is not None:
+            pulumi.set(__self__, "assigned_to_users", assigned_to_users)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if granted_roles is not None:
+            pulumi.set(__self__, "granted_roles", granted_roles)
+        if granted_to_roles is not None:
+            pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if is_inherited is not None:
+            pulumi.set(__self__, "is_inherited", is_inherited)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "assigned_to_users")
+
+    @assigned_to_users.setter
+    def assigned_to_users(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "assigned_to_users", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "granted_roles")
+
+    @granted_roles.setter
+    def granted_roles(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "granted_roles", value)
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "granted_to_roles")
+
+    @granted_to_roles.setter
+    def granted_to_roles(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "granted_to_roles", value)
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_current")
+
+    @is_current.setter
+    def is_current(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_current", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_inherited")
+
+    @is_inherited.setter
+    def is_inherited(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_inherited", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
 
 @pulumi.input_type
 class AlertAlertScheduleArgs:
@@ -4658,7 +4811,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -4709,7 +4862,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -4725,7 +4878,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -4737,7 +4890,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -4771,7 +4924,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -4783,7 +4936,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -4876,7 +5029,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        :param pulumi.Input[str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -4927,7 +5080,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -4943,7 +5096,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
@@ -4957,7 +5110,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -4997,7 +5150,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[str]] = None,
                  in_schema: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         :param pulumi.Input[str] in_database: The fully qualified name of the database.
         :param pulumi.Input[str] in_schema: The fully qualified name of the schema.
         """
@@ -5011,7 +5164,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -5164,6 +5317,148 @@ class MaterializedViewTagArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class NetworkPolicyDescribeOutputArgs:
+    def __init__(__self__, *,
+                 allowed_ip_list: Optional[pulumi.Input[str]] = None,
+                 allowed_network_rule_list: Optional[pulumi.Input[str]] = None,
+                 blocked_ip_list: Optional[pulumi.Input[str]] = None,
+                 blocked_network_rule_list: Optional[pulumi.Input[str]] = None):
+        if allowed_ip_list is not None:
+            pulumi.set(__self__, "allowed_ip_list", allowed_ip_list)
+        if allowed_network_rule_list is not None:
+            pulumi.set(__self__, "allowed_network_rule_list", allowed_network_rule_list)
+        if blocked_ip_list is not None:
+            pulumi.set(__self__, "blocked_ip_list", blocked_ip_list)
+        if blocked_network_rule_list is not None:
+            pulumi.set(__self__, "blocked_network_rule_list", blocked_network_rule_list)
+
+    @property
+    @pulumi.getter(name="allowedIpList")
+    def allowed_ip_list(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allowed_ip_list")
+
+    @allowed_ip_list.setter
+    def allowed_ip_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_ip_list", value)
+
+    @property
+    @pulumi.getter(name="allowedNetworkRuleList")
+    def allowed_network_rule_list(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allowed_network_rule_list")
+
+    @allowed_network_rule_list.setter
+    def allowed_network_rule_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_network_rule_list", value)
+
+    @property
+    @pulumi.getter(name="blockedIpList")
+    def blocked_ip_list(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "blocked_ip_list")
+
+    @blocked_ip_list.setter
+    def blocked_ip_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blocked_ip_list", value)
+
+    @property
+    @pulumi.getter(name="blockedNetworkRuleList")
+    def blocked_network_rule_list(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "blocked_network_rule_list")
+
+    @blocked_network_rule_list.setter
+    def blocked_network_rule_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blocked_network_rule_list", value)
+
+
+@pulumi.input_type
+class NetworkPolicyShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 entries_in_allowed_ip_list: Optional[pulumi.Input[int]] = None,
+                 entries_in_allowed_network_rules: Optional[pulumi.Input[int]] = None,
+                 entries_in_blocked_ip_list: Optional[pulumi.Input[int]] = None,
+                 entries_in_blocked_network_rules: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if entries_in_allowed_ip_list is not None:
+            pulumi.set(__self__, "entries_in_allowed_ip_list", entries_in_allowed_ip_list)
+        if entries_in_allowed_network_rules is not None:
+            pulumi.set(__self__, "entries_in_allowed_network_rules", entries_in_allowed_network_rules)
+        if entries_in_blocked_ip_list is not None:
+            pulumi.set(__self__, "entries_in_blocked_ip_list", entries_in_blocked_ip_list)
+        if entries_in_blocked_network_rules is not None:
+            pulumi.set(__self__, "entries_in_blocked_network_rules", entries_in_blocked_network_rules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="entriesInAllowedIpList")
+    def entries_in_allowed_ip_list(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "entries_in_allowed_ip_list")
+
+    @entries_in_allowed_ip_list.setter
+    def entries_in_allowed_ip_list(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "entries_in_allowed_ip_list", value)
+
+    @property
+    @pulumi.getter(name="entriesInAllowedNetworkRules")
+    def entries_in_allowed_network_rules(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "entries_in_allowed_network_rules")
+
+    @entries_in_allowed_network_rules.setter
+    def entries_in_allowed_network_rules(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "entries_in_allowed_network_rules", value)
+
+    @property
+    @pulumi.getter(name="entriesInBlockedIpList")
+    def entries_in_blocked_ip_list(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "entries_in_blocked_ip_list")
+
+    @entries_in_blocked_ip_list.setter
+    def entries_in_blocked_ip_list(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "entries_in_blocked_ip_list", value)
+
+    @property
+    @pulumi.getter(name="entriesInBlockedNetworkRules")
+    def entries_in_blocked_network_rules(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "entries_in_blocked_network_rules")
+
+    @entries_in_blocked_network_rules.setter
+    def entries_in_blocked_network_rules(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "entries_in_blocked_network_rules", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -7974,72 +8269,128 @@ class ProviderTokenAccessorArgs:
 
 
 @pulumi.input_type
-class RoleTagArgs:
+class RoleShowOutputArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str],
-                 database: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+                 assigned_to_users: Optional[pulumi.Input[int]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 granted_roles: Optional[pulumi.Input[int]] = None,
+                 granted_to_roles: Optional[pulumi.Input[int]] = None,
+                 is_current: Optional[pulumi.Input[bool]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
+                 is_inherited: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None):
+        if assigned_to_users is not None:
+            pulumi.set(__self__, "assigned_to_users", assigned_to_users)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if granted_roles is not None:
+            pulumi.set(__self__, "granted_roles", granted_roles)
+        if granted_to_roles is not None:
+            pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if is_inherited is not None:
+            pulumi.set(__self__, "is_inherited", is_inherited)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "assigned_to_users")
+
+    @assigned_to_users.setter
+    def assigned_to_users(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "assigned_to_users", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "granted_roles")
+
+    @granted_roles.setter
+    def granted_roles(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "granted_roles", value)
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "granted_to_roles")
+
+    @granted_to_roles.setter
+    def granted_to_roles(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "granted_to_roles", value)
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_current")
+
+    @is_current.setter
+    def is_current(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_current", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_inherited")
+
+    @is_inherited.setter
+    def is_inherited(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_inherited", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
 
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @database.setter
-    def database(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
-
-    @schema.setter
-    def schema(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "schema", value)
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
 
 
 @pulumi.input_type
@@ -9360,72 +9711,1495 @@ class Saml2IntegrationShowOutputArgs:
 
 
 @pulumi.input_type
-class SchemaTagArgs:
+class SchemaDescribeOutputArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str],
-                 database: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Tag name, e.g. department.
-        :param pulumi.Input[str] value: Tag value, e.g. marketing_info.
-        :param pulumi.Input[str] database: Name of the database that the tag was created in.
-        :param pulumi.Input[str] schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Tag name, e.g. department.
-        """
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SchemaParameterArgs:
+    def __init__(__self__, *,
+                 catalogs: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterCatalogArgs']]]] = None,
+                 data_retention_time_in_days: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgs']]]] = None,
+                 default_ddl_collations: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]] = None,
+                 enable_console_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgs']]]] = None,
+                 external_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgs']]]] = None,
+                 log_levels: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterLogLevelArgs']]]] = None,
+                 max_data_extension_time_in_days: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgs']]]] = None,
+                 pipe_execution_pauseds: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgs']]]] = None,
+                 quoted_identifiers_ignore_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
+                 replace_invalid_characters: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgs']]]] = None,
+                 storage_serialization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgs']]]] = None,
+                 suspend_task_after_num_failures: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgs']]]] = None,
+                 task_auto_retry_attempts: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgs']]]] = None,
+                 trace_levels: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTraceLevelArgs']]]] = None,
+                 user_task_managed_initial_warehouse_sizes: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgs']]]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]] = None,
+                 user_task_timeout_ms: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgs']]]] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if data_retention_time_in_days is not None:
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        if default_ddl_collations is not None:
+            pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if max_data_extension_time_in_days is not None:
+            pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        if pipe_execution_pauseds is not None:
+            pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
+        if quoted_identifiers_ignore_cases is not None:
+            pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if storage_serialization_policies is not None:
+            pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        if suspend_task_after_num_failures is not None:
+            pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if task_auto_retry_attempts is not None:
+            pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+        if user_task_managed_initial_warehouse_sizes is not None:
+            pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        if user_task_minimum_trigger_interval_in_seconds is not None:
+            pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        if user_task_timeout_ms is not None:
+            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+
+    @property
+    @pulumi.getter
+    def catalogs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterCatalogArgs']]]]:
+        return pulumi.get(self, "catalogs")
+
+    @catalogs.setter
+    def catalogs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterCatalogArgs']]]]):
+        pulumi.set(self, "catalogs", value)
+
+    @property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgs']]]]:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @data_retention_time_in_days.setter
+    def data_retention_time_in_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgs']]]]):
+        pulumi.set(self, "data_retention_time_in_days", value)
+
+    @property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]]:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @default_ddl_collations.setter
+    def default_ddl_collations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]]):
+        pulumi.set(self, "default_ddl_collations", value)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgs']]]]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @enable_console_outputs.setter
+    def enable_console_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgs']]]]):
+        pulumi.set(self, "enable_console_outputs", value)
+
+    @property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgs']]]]:
+        return pulumi.get(self, "external_volumes")
+
+    @external_volumes.setter
+    def external_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgs']]]]):
+        pulumi.set(self, "external_volumes", value)
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterLogLevelArgs']]]]:
+        return pulumi.get(self, "log_levels")
+
+    @log_levels.setter
+    def log_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterLogLevelArgs']]]]):
+        pulumi.set(self, "log_levels", value)
+
+    @property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgs']]]]:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @max_data_extension_time_in_days.setter
+    def max_data_extension_time_in_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgs']]]]):
+        pulumi.set(self, "max_data_extension_time_in_days", value)
+
+    @property
+    @pulumi.getter(name="pipeExecutionPauseds")
+    def pipe_execution_pauseds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgs']]]]:
+        return pulumi.get(self, "pipe_execution_pauseds")
+
+    @pipe_execution_pauseds.setter
+    def pipe_execution_pauseds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgs']]]]):
+        pulumi.set(self, "pipe_execution_pauseds", value)
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgs']]]]:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @quoted_identifiers_ignore_cases.setter
+    def quoted_identifiers_ignore_cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgs']]]]):
+        pulumi.set(self, "quoted_identifiers_ignore_cases", value)
+
+    @property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgs']]]]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @replace_invalid_characters.setter
+    def replace_invalid_characters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgs']]]]):
+        pulumi.set(self, "replace_invalid_characters", value)
+
+    @property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgs']]]]:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @storage_serialization_policies.setter
+    def storage_serialization_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgs']]]]):
+        pulumi.set(self, "storage_serialization_policies", value)
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgs']]]]:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @suspend_task_after_num_failures.setter
+    def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgs']]]]):
+        pulumi.set(self, "suspend_task_after_num_failures", value)
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgs']]]]:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @task_auto_retry_attempts.setter
+    def task_auto_retry_attempts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgs']]]]):
+        pulumi.set(self, "task_auto_retry_attempts", value)
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTraceLevelArgs']]]]:
+        return pulumi.get(self, "trace_levels")
+
+    @trace_levels.setter
+    def trace_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTraceLevelArgs']]]]):
+        pulumi.set(self, "trace_levels", value)
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgs']]]]:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @user_task_managed_initial_warehouse_sizes.setter
+    def user_task_managed_initial_warehouse_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgs']]]]):
+        pulumi.set(self, "user_task_managed_initial_warehouse_sizes", value)
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @user_task_minimum_trigger_interval_in_seconds.setter
+    def user_task_minimum_trigger_interval_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]):
+        pulumi.set(self, "user_task_minimum_trigger_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgs']]]]:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @user_task_timeout_ms.setter
+    def user_task_timeout_ms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgs']]]]):
+        pulumi.set(self, "user_task_timeout_ms", value)
+
+
+@pulumi.input_type
+class SchemaParameterCatalogArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterDataRetentionTimeInDayArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterDefaultDdlCollationArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterEnableConsoleOutputArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterExternalVolumeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterLogLevelArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterMaxDataExtensionTimeInDayArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterPipeExecutionPausedArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterQuotedIdentifiersIgnoreCaseArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterReplaceInvalidCharacterArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterStorageSerializationPolicyArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterSuspendTaskAfterNumFailureArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterTaskAutoRetryAttemptArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterTraceLevelArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterUserTaskManagedInitialWarehouseSizeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaParameterUserTaskTimeoutMArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 dropped_on: Optional[pulumi.Input[str]] = None,
+                 is_current: Optional[pulumi.Input[bool]] = None,
+                 is_default: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 retention_time: Optional[pulumi.Input[str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dropped_on is not None:
+            pulumi.set(__self__, "dropped_on", dropped_on)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if retention_time is not None:
+            pulumi.set(__self__, "retention_time", retention_time)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dropped_on")
+
+    @dropped_on.setter
+    def dropped_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dropped_on", value)
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_current")
+
+    @is_current.setter
+    def is_current(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_current", value)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
+    def options(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "options")
 
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
 
-    @database.setter
-    def database(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database", value)
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
 
     @property
-    @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
 
-    @schema.setter
-    def schema(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "schema", value)
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "retention_time")
+
+    @retention_time.setter
+    def retention_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retention_time", value)
 
 
 @pulumi.input_type
@@ -9905,6 +11679,268 @@ class StageTagArgs:
 
 
 @pulumi.input_type
+class StreamlitDescribeOutputArgs:
+    def __init__(__self__, *,
+                 default_packages: Optional[pulumi.Input[str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_access_secrets: Optional[pulumi.Input[str]] = None,
+                 import_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 main_file: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query_warehouse: Optional[pulumi.Input[str]] = None,
+                 root_location: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 url_id: Optional[pulumi.Input[str]] = None,
+                 user_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if default_packages is not None:
+            pulumi.set(__self__, "default_packages", default_packages)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if external_access_secrets is not None:
+            pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        if import_urls is not None:
+            pulumi.set(__self__, "import_urls", import_urls)
+        if main_file is not None:
+            pulumi.set(__self__, "main_file", main_file)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if root_location is not None:
+            pulumi.set(__self__, "root_location", root_location)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+        if user_packages is not None:
+            pulumi.set(__self__, "user_packages", user_packages)
+
+    @property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_packages")
+
+    @default_packages.setter
+    def default_packages(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_packages", value)
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "external_access_secrets")
+
+    @external_access_secrets.setter
+    def external_access_secrets(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_access_secrets", value)
+
+    @property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "import_urls")
+
+    @import_urls.setter
+    def import_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "import_urls", value)
+
+    @property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "main_file")
+
+    @main_file.setter
+    def main_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "main_file", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="rootLocation")
+    def root_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "root_location")
+
+    @root_location.setter
+    def root_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_location", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url_id")
+
+    @url_id.setter
+    def url_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_id", value)
+
+    @property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "user_packages")
+
+    @user_packages.setter
+    def user_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_packages", value)
+
+
+@pulumi.input_type
+class StreamlitShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 query_warehouse: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 url_id: Optional[pulumi.Input[str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url_id")
+
+    @url_id.setter
+    def url_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_id", value)
+
+
+@pulumi.input_type
 class TableColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -9918,7 +11954,7 @@ class TableColumnArgs:
                  schema_evolution_record: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Column name
-        :param pulumi.Input[str] type: Column type, e.g. VARIANT
+        :param pulumi.Input[str] type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         :param pulumi.Input[str] collate: Column collation, e.g. utf8
         :param pulumi.Input[str] comment: Column comment
         :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
@@ -9960,7 +11996,7 @@ class TableColumnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Column type, e.g. VARIANT
+        Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "type")
 
@@ -11623,5 +13659,207 @@ class GetGrantsGrantsToShareArgs:
     @share_name.setter
     def share_name(self, value: str):
         pulumi.set(self, "share_name", value)
+
+
+@pulumi.input_type
+class GetSchemasInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+
+@pulumi.input_type
+class GetSchemasLimitArgs:
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
+
+
+@pulumi.input_type
+class GetStreamlitsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class GetStreamlitsLimitArgs:
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
 
 

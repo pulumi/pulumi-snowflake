@@ -516,7 +516,7 @@ class TableConstraint(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -620,7 +620,7 @@ class TableConstraint(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.

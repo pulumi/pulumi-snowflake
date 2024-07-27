@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
     /// 
+    /// Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -133,7 +135,7 @@ namespace Pulumi.Snowflake
         public Output<string?> OauthClientRsaPublicKey2 { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         /// </summary>
         [Output("oauthClientType")]
         public Output<string> OauthClientType { get; private set; } = null!;
@@ -163,7 +165,7 @@ namespace Pulumi.Snowflake
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Output("oauthUseSecondaryRoles")]
         public Output<string?> OauthUseSecondaryRoles { get; private set; } = null!;
@@ -275,7 +277,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthClientRsaPublicKey2 { get; set; }
 
         /// <summary>
-        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         /// </summary>
         [Input("oauthClientType", required: true)]
         public Input<string> OauthClientType { get; set; } = null!;
@@ -305,7 +307,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }
@@ -391,7 +393,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthClientRsaPublicKey2 { get; set; }
 
         /// <summary>
-        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        /// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         /// </summary>
         [Input("oauthClientType")]
         public Input<string>? OauthClientType { get; set; }
@@ -421,7 +423,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }

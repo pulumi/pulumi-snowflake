@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
+ * Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+ *
  * ## Import
  *
  * ```sh
@@ -64,7 +66,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
     public readonly oauthClient!: pulumi.Output<string>;
     /**
@@ -77,7 +79,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
     public readonly oauthUseSecondaryRoles!: pulumi.Output<string | undefined>;
     /**
@@ -159,7 +161,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
     oauthClient?: pulumi.Input<string>;
     /**
@@ -172,7 +174,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
     oauthUseSecondaryRoles?: pulumi.Input<string>;
     /**
@@ -202,7 +204,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
     oauthClient: pulumi.Input<string>;
     /**
@@ -215,7 +217,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
     oauthUseSecondaryRoles?: pulumi.Input<string>;
 }

@@ -10,19 +10,34 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.NetworkPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.NetworkPolicyState;
+import com.pulumi.snowflake.outputs.NetworkPolicyDescribeOutput;
+import com.pulumi.snowflake.outputs.NetworkPolicyShowOutput;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  * 
- * ## Import
+ * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
  * 
- * ```sh
- * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
- * ```
+ * ## Minimal
+ * 
+ * resource &#34;snowflake.NetworkPolicy&#34; &#34;basic&#34; {
+ *   name = &#34;network_policy_name&#34;
+ * }
+ * 
+ * ## Complete (with every optional set)
+ * 
+ * resource &#34;snowflake.NetworkPolicy&#34; &#34;basic&#34; {
+ *   name                      = &#34;network_policy_name&#34;
+ *   allowed_network_rule_list = [&#34;&lt;fully qualified network rule id&gt;&#34;]
+ *   blocked_network_rule_list = [&#34;&lt;fully qualified network rule id&gt;&#34;]
+ *   allowed_ip_list           = [&#34;192.168.1.0/24&#34;]
+ *   blocked_ip_list           = [&#34;192.168.1.99&#34;]
+ *   comment                   = &#34;my network policy&#34;
+ * }
  * 
  */
 @ResourceType(type="snowflake:index/networkPolicy:NetworkPolicy")
@@ -56,14 +71,14 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedNetworkRuleLists);
     }
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
      * 
      */
     @Export(name="blockedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blocked_ip_list`.
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
      * 
      */
     public Output<Optional<List<String>>> blockedIpLists() {
@@ -98,6 +113,20 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
+     * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,NetworkPolicyDescribeOutput.class}, tree="[0,1]")
+    private Output<List<NetworkPolicyDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     * 
+     */
+    public Output<List<NetworkPolicyDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      * 
      */
@@ -110,6 +139,20 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,NetworkPolicyShowOutput.class}, tree="[0,1]")
+    private Output<List<NetworkPolicyShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     * 
+     */
+    public Output<List<NetworkPolicyShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

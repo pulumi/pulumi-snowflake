@@ -16,24 +16,40 @@ public final class GetRolesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRolesArgs Empty = new GetRolesArgs();
 
     /**
-     * Filters the command output by object name.
+     * Filters the SHOW GRANTS output by class name.
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<String> pattern;
+    @Import(name="inClass")
+    private @Nullable Output<String> inClass;
 
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the SHOW GRANTS output by class name.
      * 
      */
-    public Optional<Output<String>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<Output<String>> inClass() {
+        return Optional.ofNullable(this.inClass);
+    }
+
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    @Import(name="like")
+    private @Nullable Output<String> like;
+
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
     }
 
     private GetRolesArgs() {}
 
     private GetRolesArgs(GetRolesArgs $) {
-        this.pattern = $.pattern;
+        this.inClass = $.inClass;
+        this.like = $.like;
     }
 
     public static Builder builder() {
@@ -55,24 +71,45 @@ public final class GetRolesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param inClass Filters the SHOW GRANTS output by class name.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<String> pattern) {
-            $.pattern = pattern;
+        public Builder inClass(@Nullable Output<String> inClass) {
+            $.inClass = inClass;
             return this;
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param inClass Filters the SHOW GRANTS output by class name.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder inClass(String inClass) {
+            return inClass(Output.of(inClass));
+        }
+
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
+            return this;
+        }
+
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder like(String like) {
+            return like(Output.of(like));
         }
 
         public GetRolesArgs build() {
