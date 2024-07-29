@@ -140,14 +140,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Column type, e.g. VARIANT
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Column type, e.g. VARIANT
+     * @return Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> type() {
@@ -355,7 +355,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Column type, e.g. VARIANT
+         * @param type Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Column type, e.g. VARIANT
+         * @param type Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 

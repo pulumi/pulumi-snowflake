@@ -61,7 +61,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? SchemaEvolutionRecord { get; set; }
 
         /// <summary>
-        /// Column type, e.g. VARIANT
+        /// Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

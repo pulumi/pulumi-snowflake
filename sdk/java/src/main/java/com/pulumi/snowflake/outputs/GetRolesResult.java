@@ -20,12 +20,17 @@ public final class GetRolesResult {
      */
     private String id;
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the SHOW GRANTS output by class name.
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable String inClass;
     /**
-     * @return List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all role details queries.
      * 
      */
     private List<GetRolesRole> roles;
@@ -39,14 +44,21 @@ public final class GetRolesResult {
         return this.id;
     }
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the SHOW GRANTS output by class name.
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<String> inClass() {
+        return Optional.ofNullable(this.inClass);
     }
     /**
-     * @return List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all role details queries.
      * 
      */
     public List<GetRolesRole> roles() {
@@ -63,13 +75,15 @@ public final class GetRolesResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable String pattern;
+        private @Nullable String inClass;
+        private @Nullable String like;
         private List<GetRolesRole> roles;
         public Builder() {}
         public Builder(GetRolesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
+    	      this.inClass = defaults.inClass;
+    	      this.like = defaults.like;
     	      this.roles = defaults.roles;
         }
 
@@ -82,9 +96,15 @@ public final class GetRolesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(@Nullable String pattern) {
+        public Builder inClass(@Nullable String inClass) {
 
-            this.pattern = pattern;
+            this.inClass = inClass;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -101,7 +121,8 @@ public final class GetRolesResult {
         public GetRolesResult build() {
             final var _resultValue = new GetRolesResult();
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
+            _resultValue.inClass = inClass;
+            _resultValue.like = like;
             _resultValue.roles = roles;
             return _resultValue;
         }

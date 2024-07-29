@@ -44,7 +44,7 @@ export class SharedDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
     public readonly catalog!: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly enableConsoleOutput!: pulumi.Output<boolean>;
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables.
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
     public readonly externalVolume!: pulumi.Output<string>;
     /**
@@ -76,23 +76,23 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If true, the case of quoted identifiers is ignored.
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
     public readonly quotedIdentifiersIgnoreCase!: pulumi.Output<boolean>;
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
     public readonly replaceInvalidCharacters!: pulumi.Output<boolean>;
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
     public readonly storageSerializationPolicy!: pulumi.Output<string>;
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
     public readonly suspendTaskAfterNumFailures!: pulumi.Output<number>;
     /**
-     * Maximum automatic retries allowed for a user task.
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
     public readonly taskAutoRetryAttempts!: pulumi.Output<number>;
     /**
@@ -100,7 +100,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly traceLevel!: pulumi.Output<string>;
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
     public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly userTaskMinimumTriggerIntervalInSeconds!: pulumi.Output<number>;
     /**
-     * User task execution timeout in milliseconds.
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
     public readonly userTaskTimeoutMs!: pulumi.Output<number>;
 
@@ -175,7 +175,7 @@ export class SharedDatabase extends pulumi.CustomResource {
  */
 export interface SharedDatabaseState {
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
     catalog?: pulumi.Input<string>;
     /**
@@ -191,7 +191,7 @@ export interface SharedDatabaseState {
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables.
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
     externalVolume?: pulumi.Input<string>;
     /**
@@ -207,23 +207,23 @@ export interface SharedDatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * If true, the case of quoted identifiers is ignored.
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
     quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
     replaceInvalidCharacters?: pulumi.Input<boolean>;
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
     storageSerializationPolicy?: pulumi.Input<string>;
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
     suspendTaskAfterNumFailures?: pulumi.Input<number>;
     /**
-     * Maximum automatic retries allowed for a user task.
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
     taskAutoRetryAttempts?: pulumi.Input<number>;
     /**
@@ -231,7 +231,7 @@ export interface SharedDatabaseState {
      */
     traceLevel?: pulumi.Input<string>;
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
     userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface SharedDatabaseState {
      */
     userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
     /**
-     * User task execution timeout in milliseconds.
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
     userTaskTimeoutMs?: pulumi.Input<number>;
 }
@@ -249,7 +249,7 @@ export interface SharedDatabaseState {
  */
 export interface SharedDatabaseArgs {
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables.
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
     catalog?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface SharedDatabaseArgs {
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables.
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
     externalVolume?: pulumi.Input<string>;
     /**
@@ -281,23 +281,23 @@ export interface SharedDatabaseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * If true, the case of quoted identifiers is ignored.
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
     quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog.
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
     replaceInvalidCharacters?: pulumi.Input<boolean>;
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake.
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
     storageSerializationPolicy?: pulumi.Input<string>;
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending.
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
     suspendTaskAfterNumFailures?: pulumi.Input<number>;
     /**
-     * Maximum automatic retries allowed for a user task.
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
     taskAutoRetryAttempts?: pulumi.Input<number>;
     /**
@@ -305,7 +305,7 @@ export interface SharedDatabaseArgs {
      */
     traceLevel?: pulumi.Input<string>;
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history.
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
     userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
     /**
@@ -313,7 +313,7 @@ export interface SharedDatabaseArgs {
      */
     userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
     /**
-     * User task execution timeout in milliseconds.
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
     userTaskTimeoutMs?: pulumi.Input<number>;
 }

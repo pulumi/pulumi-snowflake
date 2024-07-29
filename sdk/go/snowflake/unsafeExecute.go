@@ -12,15 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Will be deleted in the upcoming versions. Use at your own risk.
+// !> **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
+//
+// > **Note** This resource will be included in the V1 (check here.
 //
 // > **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.
 //
 // > **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `queryResults` being empty.
 //
-// > **Deprecation** Experimental resource. Will be deleted in the upcoming versions. Use at your own risk. <deprecation>
-//
-// Experimental resource used for testing purposes only. Allows to execute ANY SQL statement.
+// Experimental resource allowing execution of ANY SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
 type UnsafeExecute struct {
 	pulumi.CustomResourceState
 

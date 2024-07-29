@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  * 
+ * Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+ * 
  * ## Import
  * 
  * ```sh
@@ -101,14 +103,14 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
         return this.name;
     }
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     @Export(name="oauthClient", refs={String.class}, tree="[0]")
     private Output<String> oauthClient;
 
     /**
-     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     public Output<String> oauthClient() {
@@ -149,14 +151,14 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
         return Codegen.optional(this.oauthRefreshTokenValidity);
     }
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Export(name="oauthUseSecondaryRoles", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Output<Optional<String>> oauthUseSecondaryRoles() {

@@ -20,6 +20,11 @@ export type AccountPasswordPolicyAttachment = import("./accountPasswordPolicyAtt
 export const AccountPasswordPolicyAttachment: typeof import("./accountPasswordPolicyAttachment").AccountPasswordPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["AccountPasswordPolicyAttachment"], () => require("./accountPasswordPolicyAttachment"));
 
+export { AccountRoleArgs, AccountRoleState } from "./accountRole";
+export type AccountRole = import("./accountRole").AccountRole;
+export const AccountRole: typeof import("./accountRole").AccountRole = null as any;
+utilities.lazyLoad(exports, ["AccountRole"], () => require("./accountRole"));
+
 export { AlertArgs, AlertState } from "./alert";
 export type Alert = import("./alert").Alert;
 export const Alert: typeof import("./alert").Alert = null as any;
@@ -195,6 +200,11 @@ export const getMaterializedViews: typeof import("./getMaterializedViews").getMa
 export const getMaterializedViewsOutput: typeof import("./getMaterializedViews").getMaterializedViewsOutput = null as any;
 utilities.lazyLoad(exports, ["getMaterializedViews","getMaterializedViewsOutput"], () => require("./getMaterializedViews"));
 
+export { GetNetworkPoliciesArgs, GetNetworkPoliciesResult, GetNetworkPoliciesOutputArgs } from "./getNetworkPolicies";
+export const getNetworkPolicies: typeof import("./getNetworkPolicies").getNetworkPolicies = null as any;
+export const getNetworkPoliciesOutput: typeof import("./getNetworkPolicies").getNetworkPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkPolicies","getNetworkPoliciesOutput"], () => require("./getNetworkPolicies"));
+
 export { GetParametersArgs, GetParametersResult, GetParametersOutputArgs } from "./getParameters";
 export const getParameters: typeof import("./getParameters").getParameters = null as any;
 export const getParametersOutput: typeof import("./getParameters").getParametersOutput = null as any;
@@ -259,6 +269,11 @@ export { GetStorageIntegrationsResult } from "./getStorageIntegrations";
 export const getStorageIntegrations: typeof import("./getStorageIntegrations").getStorageIntegrations = null as any;
 export const getStorageIntegrationsOutput: typeof import("./getStorageIntegrations").getStorageIntegrationsOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageIntegrations","getStorageIntegrationsOutput"], () => require("./getStorageIntegrations"));
+
+export { GetStreamlitsArgs, GetStreamlitsResult, GetStreamlitsOutputArgs } from "./getStreamlits";
+export const getStreamlits: typeof import("./getStreamlits").getStreamlits = null as any;
+export const getStreamlitsOutput: typeof import("./getStreamlits").getStreamlitsOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamlits","getStreamlitsOutput"], () => require("./getStreamlits"));
 
 export { GetStreamsArgs, GetStreamsResult, GetStreamsOutputArgs } from "./getStreams";
 export const getStreams: typeof import("./getStreams").getStreams = null as any;
@@ -495,6 +510,11 @@ export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
 
+export { StreamlitArgs, StreamlitState } from "./streamlit";
+export type Streamlit = import("./streamlit").Streamlit;
+export const Streamlit: typeof import("./streamlit").Streamlit = null as any;
+utilities.lazyLoad(exports, ["Streamlit"], () => require("./streamlit"));
+
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
@@ -580,6 +600,8 @@ const _module = {
                 return new AccountParameter(name, <any>undefined, { urn })
             case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
                 return new AccountPasswordPolicyAttachment(name, <any>undefined, { urn })
+            case "snowflake:index/accountRole:AccountRole":
+                return new AccountRole(name, <any>undefined, { urn })
             case "snowflake:index/alert:Alert":
                 return new Alert(name, <any>undefined, { urn })
             case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
@@ -686,6 +708,8 @@ const _module = {
                 return new StorageIntegration(name, <any>undefined, { urn })
             case "snowflake:index/stream:Stream":
                 return new Stream(name, <any>undefined, { urn })
+            case "snowflake:index/streamlit:Streamlit":
+                return new Streamlit(name, <any>undefined, { urn })
             case "snowflake:index/table:Table":
                 return new Table(name, <any>undefined, { urn })
             case "snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication":
@@ -720,6 +744,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("snowflake", "index/account", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountPasswordPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/accountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/alert", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithAuthorizationCodeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithClientCredentials", _module)
@@ -773,6 +798,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/streamlit", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPolicyApplication", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)

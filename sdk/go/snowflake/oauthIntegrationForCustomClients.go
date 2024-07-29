@@ -14,6 +14,8 @@ import (
 
 // !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 //
+// Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+//
 // ## Example Usage
 //
 // ```go
@@ -113,7 +115,7 @@ type OauthIntegrationForCustomClients struct {
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrOutput `pulumi:"oauthAllowNonTlsRedirectUri"`
 	OauthClientRsaPublicKey     pulumi.StringPtrOutput `pulumi:"oauthClientRsaPublicKey"`
 	OauthClientRsaPublicKey2    pulumi.StringPtrOutput `pulumi:"oauthClientRsaPublicKey2"`
-	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 	OauthClientType pulumi.StringOutput `pulumi:"oauthClientType"`
 	// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthEnforcePkce pulumi.StringPtrOutput `pulumi:"oauthEnforcePkce"`
@@ -123,7 +125,7 @@ type OauthIntegrationForCustomClients struct {
 	OauthRedirectUri pulumi.StringOutput `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
 	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
 	PreAuthorizedRolesLists pulumi.StringArrayOutput `pulumi:"preAuthorizedRolesLists"`
@@ -186,7 +188,7 @@ type oauthIntegrationForCustomClientsState struct {
 	OauthAllowNonTlsRedirectUri *string `pulumi:"oauthAllowNonTlsRedirectUri"`
 	OauthClientRsaPublicKey     *string `pulumi:"oauthClientRsaPublicKey"`
 	OauthClientRsaPublicKey2    *string `pulumi:"oauthClientRsaPublicKey2"`
-	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 	OauthClientType *string `pulumi:"oauthClientType"`
 	// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthEnforcePkce *string `pulumi:"oauthEnforcePkce"`
@@ -196,7 +198,7 @@ type oauthIntegrationForCustomClientsState struct {
 	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
 	PreAuthorizedRolesLists []string `pulumi:"preAuthorizedRolesLists"`
@@ -221,7 +223,7 @@ type OauthIntegrationForCustomClientsState struct {
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrInput
 	OauthClientRsaPublicKey     pulumi.StringPtrInput
 	OauthClientRsaPublicKey2    pulumi.StringPtrInput
-	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 	OauthClientType pulumi.StringPtrInput
 	// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthEnforcePkce pulumi.StringPtrInput
@@ -231,7 +233,7 @@ type OauthIntegrationForCustomClientsState struct {
 	OauthRedirectUri pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
 	PreAuthorizedRolesLists pulumi.StringArrayInput
@@ -258,7 +260,7 @@ type oauthIntegrationForCustomClientsArgs struct {
 	OauthAllowNonTlsRedirectUri *string `pulumi:"oauthAllowNonTlsRedirectUri"`
 	OauthClientRsaPublicKey     *string `pulumi:"oauthClientRsaPublicKey"`
 	OauthClientRsaPublicKey2    *string `pulumi:"oauthClientRsaPublicKey2"`
-	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 	OauthClientType string `pulumi:"oauthClientType"`
 	// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthEnforcePkce *string `pulumi:"oauthEnforcePkce"`
@@ -268,7 +270,7 @@ type oauthIntegrationForCustomClientsArgs struct {
 	OauthRedirectUri string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
 	PreAuthorizedRolesLists []string `pulumi:"preAuthorizedRolesLists"`
@@ -290,7 +292,7 @@ type OauthIntegrationForCustomClientsArgs struct {
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrInput
 	OauthClientRsaPublicKey     pulumi.StringPtrInput
 	OauthClientRsaPublicKey2    pulumi.StringPtrInput
-	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+	// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 	OauthClientType pulumi.StringInput
 	// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthEnforcePkce pulumi.StringPtrInput
@@ -300,7 +302,7 @@ type OauthIntegrationForCustomClientsArgs struct {
 	OauthRedirectUri pulumi.StringInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
 	PreAuthorizedRolesLists pulumi.StringArrayInput
@@ -438,7 +440,7 @@ func (o OauthIntegrationForCustomClientsOutput) OauthClientRsaPublicKey2() pulum
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringPtrOutput { return v.OauthClientRsaPublicKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+// Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
 func (o OauthIntegrationForCustomClientsOutput) OauthClientType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringOutput { return v.OauthClientType }).(pulumi.StringOutput)
 }
@@ -463,7 +465,7 @@ func (o OauthIntegrationForCustomClientsOutput) OauthRefreshTokenValidity() pulu
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.IntPtrOutput { return v.OauthRefreshTokenValidity }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 func (o OauthIntegrationForCustomClientsOutput) OauthUseSecondaryRoles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringPtrOutput { return v.OauthUseSecondaryRoles }).(pulumi.StringPtrOutput)
 }

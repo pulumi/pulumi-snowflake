@@ -12,49 +12,17 @@ namespace Pulumi.Snowflake
     public static class GetRoles
     {
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetRoles.Invoke();
-        /// 
-        ///     var ad = Snowflake.GetRoles.Invoke(new()
-        ///     {
-        ///         Pattern = "SYSADMIN",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("snowflake:index/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetRoles.Invoke();
-        /// 
-        ///     var ad = Snowflake.GetRoles.Invoke(new()
-        ///     {
-        ///         Pattern = "SYSADMIN",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
         /// </summary>
         public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRolesResult>("snowflake:index/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());
@@ -64,10 +32,16 @@ namespace Pulumi.Snowflake
     public sealed class GetRolesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filters the command output by object name.
+        /// Filters the SHOW GRANTS output by class name.
         /// </summary>
-        [Input("pattern")]
-        public string? Pattern { get; set; }
+        [Input("inClass")]
+        public string? InClass { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public string? Like { get; set; }
 
         public GetRolesArgs()
         {
@@ -78,10 +52,16 @@ namespace Pulumi.Snowflake
     public sealed class GetRolesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filters the command output by object name.
+        /// Filters the SHOW GRANTS output by class name.
         /// </summary>
-        [Input("pattern")]
-        public Input<string>? Pattern { get; set; }
+        [Input("inClass")]
+        public Input<string>? InClass { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public Input<string>? Like { get; set; }
 
         public GetRolesInvokeArgs()
         {
@@ -98,11 +78,15 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Filters the command output by object name.
+        /// Filters the SHOW GRANTS output by class name.
         /// </summary>
-        public readonly string? Pattern;
+        public readonly string? InClass;
         /// <summary>
-        /// List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all role details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRolesRoleResult> Roles;
 
@@ -110,12 +94,15 @@ namespace Pulumi.Snowflake
         private GetRolesResult(
             string id,
 
-            string? pattern,
+            string? inClass,
+
+            string? like,
 
             ImmutableArray<Outputs.GetRolesRoleResult> roles)
         {
             Id = id;
-            Pattern = pattern;
+            InClass = inClass;
+            Like = like;
             Roles = roles;
         }
     }

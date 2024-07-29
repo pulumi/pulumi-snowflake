@@ -8,6 +8,7 @@ import typing
 from .account import *
 from .account_parameter import *
 from .account_password_policy_attachment import *
+from .account_role import *
 from .alert import *
 from .api_authentication_integration_with_authorization_code_grant import *
 from .api_authentication_integration_with_client_credentials import *
@@ -43,6 +44,7 @@ from .get_functions import *
 from .get_grants import *
 from .get_masking_policies import *
 from .get_materialized_views import *
+from .get_network_policies import *
 from .get_parameters import *
 from .get_pipes import *
 from .get_procedures import *
@@ -56,6 +58,7 @@ from .get_sequences import *
 from .get_shares import *
 from .get_stages import *
 from .get_storage_integrations import *
+from .get_streamlits import *
 from .get_streams import *
 from .get_system_generate_scim_access_token import *
 from .get_system_get_aws_sns_iam_policy import *
@@ -103,6 +106,7 @@ from .shared_database import *
 from .stage import *
 from .storage_integration import *
 from .stream import *
+from .streamlit import *
 from .table import *
 from .table_column_masking_policy_application import *
 from .table_constraint import *
@@ -151,6 +155,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment": "AccountPasswordPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/accountRole",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/accountRole:AccountRole": "AccountRole"
   }
  },
  {
@@ -575,6 +587,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/stream:Stream": "Stream"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/streamlit",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/streamlit:Streamlit": "Streamlit"
   }
  },
  {

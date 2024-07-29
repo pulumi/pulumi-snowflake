@@ -14,6 +14,8 @@ import (
 
 // !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 //
+// Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+//
 // ## Import
 //
 // ```sh
@@ -32,14 +34,14 @@ type OauthIntegrationForPartnerApplications struct {
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
 	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrOutput `pulumi:"oauthIssueRefreshTokens"`
 	OauthRedirectUri        pulumi.StringPtrOutput `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForPartnerApplicationsShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -91,14 +93,14 @@ type oauthIntegrationForPartnerApplicationsState struct {
 	Enabled *string `pulumi:"enabled"`
 	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name *string `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient *string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
 	OauthRedirectUri        *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs []OauthIntegrationForPartnerApplicationsShowOutput `pulumi:"showOutputs"`
@@ -115,14 +117,14 @@ type OauthIntegrationForPartnerApplicationsState struct {
 	Enabled pulumi.StringPtrInput
 	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringPtrInput
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringPtrInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
 	OauthRedirectUri        pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForPartnerApplicationsShowOutputArrayInput
@@ -141,14 +143,14 @@ type oauthIntegrationForPartnerApplicationsArgs struct {
 	Enabled *string `pulumi:"enabled"`
 	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name *string `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
 	OauthRedirectUri        *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 }
 
@@ -162,14 +164,14 @@ type OauthIntegrationForPartnerApplicationsArgs struct {
 	Enabled pulumi.StringPtrInput
 	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
 	Name pulumi.StringPtrInput
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
 	OauthRedirectUri        pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 }
 
@@ -287,7 +289,7 @@ func (o OauthIntegrationForPartnerApplicationsOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates an OAuth interface between Snowflake and a partner application. Valid options are: [LOOKER TABLEAU*DESKTOP TABLEAU*SERVER]
+// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthClient() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.OauthClient }).(pulumi.StringOutput)
 }
@@ -310,7 +312,7 @@ func (o OauthIntegrationForPartnerApplicationsOutput) OauthRefreshTokenValidity(
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthUseSecondaryRoles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput {
 		return v.OauthUseSecondaryRoles

@@ -34,7 +34,7 @@ class OauthIntegrationForCustomClientsArgs:
         """
         The set of arguments for constructing a OauthIntegrationForCustomClients resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
-        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -44,7 +44,7 @@ class OauthIntegrationForCustomClientsArgs:
         :param pulumi.Input[str] oauth_enforce_pkce: Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
         """
         pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
@@ -91,7 +91,7 @@ class OauthIntegrationForCustomClientsArgs:
     @pulumi.getter(name="oauthClientType")
     def oauth_client_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         """
         return pulumi.get(self, "oauth_client_type")
 
@@ -229,7 +229,7 @@ class OauthIntegrationForCustomClientsArgs:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -279,12 +279,12 @@ class _OauthIntegrationForCustomClientsState:
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[str] oauth_enforce_pkce: Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
@@ -429,7 +429,7 @@ class _OauthIntegrationForCustomClientsState:
     @pulumi.getter(name="oauthClientType")
     def oauth_client_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         """
         return pulumi.get(self, "oauth_client_type")
 
@@ -489,7 +489,7 @@ class _OauthIntegrationForCustomClientsState:
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
@@ -545,6 +545,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  __props__=None):
         """
         !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+
+        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
 
         ## Example Usage
 
@@ -603,12 +605,12 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[str] oauth_enforce_pkce: Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
         """
         ...
@@ -619,6 +621,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+
+        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
 
         ## Example Usage
 
@@ -772,12 +776,12 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[str] oauth_enforce_pkce: Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
-        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForCustomClientsShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
@@ -874,7 +878,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     @pulumi.getter(name="oauthClientType")
     def oauth_client_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: [PUBLIC CONFIDENTIAL]
+        Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         """
         return pulumi.get(self, "oauth_client_type")
 
@@ -914,7 +918,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     @pulumi.getter(name="oauthUseSecondaryRoles")
     def oauth_use_secondary_roles(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: [IMPLICIT NONE]
+        Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 

@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AccountRoleShowOutput {
+    assignedToUsers: number;
+    comment: string;
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
+    name: string;
+    owner: string;
+}
+
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
@@ -1338,6 +1351,34 @@ export interface GetMaterializedViewsMaterializedView {
     schema: string;
 }
 
+export interface GetNetworkPoliciesNetworkPolicy {
+    /**
+     * Holds the output of DESCRIBE NETWORK POLICIES.
+     */
+    describeOutputs: outputs.GetNetworkPoliciesNetworkPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW NETWORK POLICIES.
+     */
+    showOutputs: outputs.GetNetworkPoliciesNetworkPolicyShowOutput[];
+}
+
+export interface GetNetworkPoliciesNetworkPolicyDescribeOutput {
+    allowedIpList: string;
+    allowedNetworkRuleList: string;
+    blockedIpList: string;
+    blockedNetworkRuleList: string;
+}
+
+export interface GetNetworkPoliciesNetworkPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    entriesInAllowedIpList: number;
+    entriesInAllowedNetworkRules: number;
+    entriesInBlockedIpList: number;
+    entriesInBlockedNetworkRules: number;
+    name: string;
+}
+
 export interface GetParametersParameter {
     /**
      * The default value of the parameter
@@ -1387,16 +1428,21 @@ export interface GetResourceMonitorsResourceMonitor {
 
 export interface GetRolesRole {
     /**
-     * The comment on the role
+     * Holds the output of SHOW ROLES.
      */
+    showOutputs: outputs.GetRolesRoleShowOutput[];
+}
+
+export interface GetRolesRoleShowOutput {
+    assignedToUsers: number;
     comment: string;
-    /**
-     * Identifier for the role.
-     */
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
     name: string;
-    /**
-     * The owner of the role
-     */
     owner: string;
 }
 
@@ -1407,10 +1453,225 @@ export interface GetRowAccessPoliciesRowAccessPolicy {
     schema: string;
 }
 
+export interface GetSchemasIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+}
+
+export interface GetSchemasLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetSchemasSchema {
-    comment: string;
-    database: string;
+    /**
+     * Holds the output of DESCRIBE SCHEMA.
+     */
+    describeOutputs: outputs.GetSchemasSchemaDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR SCHEMA.
+     */
+    parameters: outputs.GetSchemasSchemaParameter[];
+    /**
+     * Holds the output of SHOW SCHEMAS.
+     */
+    showOutputs: outputs.GetSchemasSchemaShowOutput[];
+}
+
+export interface GetSchemasSchemaDescribeOutput {
+    createdOn: string;
+    kind: string;
     name: string;
+}
+
+export interface GetSchemasSchemaParameter {
+    catalogs: outputs.GetSchemasSchemaParameterCatalog[];
+    dataRetentionTimeInDays: outputs.GetSchemasSchemaParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.GetSchemasSchemaParameterDefaultDdlCollation[];
+    enableConsoleOutputs: outputs.GetSchemasSchemaParameterEnableConsoleOutput[];
+    externalVolumes: outputs.GetSchemasSchemaParameterExternalVolume[];
+    logLevels: outputs.GetSchemasSchemaParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDay[];
+    pipeExecutionPauseds: outputs.GetSchemasSchemaParameterPipeExecutionPaused[];
+    quotedIdentifiersIgnoreCases: outputs.GetSchemasSchemaParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.GetSchemasSchemaParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.GetSchemasSchemaParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.GetSchemasSchemaParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.GetSchemasSchemaParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.GetSchemasSchemaParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.GetSchemasSchemaParameterUserTaskTimeoutM[];
+}
+
+export interface GetSchemasSchemaParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    droppedOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    retentionTime: string;
 }
 
 export interface GetSecurityIntegrationsSecurityIntegration {
@@ -1929,6 +2190,70 @@ export interface GetStorageIntegrationsStorageIntegration {
     type: string;
 }
 
+export interface GetStreamlitsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetStreamlitsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetStreamlitsStreamlit {
+    /**
+     * Holds the output of DESCRIBE STREAMLITS.
+     */
+    describeOutputs: outputs.GetStreamlitsStreamlitDescribeOutput[];
+    /**
+     * Holds the output of SHOW STREAMLITS.
+     */
+    showOutputs: outputs.GetStreamlitsStreamlitShowOutput[];
+}
+
+export interface GetStreamlitsStreamlitDescribeOutput {
+    defaultPackages: string;
+    externalAccessIntegrations: string[];
+    externalAccessSecrets: string;
+    importUrls: string[];
+    mainFile: string;
+    name: string;
+    queryWarehouse: string;
+    rootLocation: string;
+    title: string;
+    urlId: string;
+    userPackages: string[];
+}
+
+export interface GetStreamlitsStreamlitShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    title: string;
+    urlId: string;
+}
+
 export interface GetStreamsStream {
     comment: string;
     database: string;
@@ -2145,7 +2470,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: string;
 }
@@ -2154,7 +2479,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: string;
 }
@@ -2163,7 +2488,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -2197,7 +2522,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: string;
 }
@@ -2212,7 +2537,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: string;
 }
@@ -2227,7 +2552,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -2264,6 +2589,23 @@ export interface MaterializedViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface NetworkPolicyDescribeOutput {
+    allowedIpList: string;
+    allowedNetworkRuleList: string;
+    blockedIpList: string;
+    blockedNetworkRuleList: string;
+}
+
+export interface NetworkPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    entriesInAllowedIpList: number;
+    entriesInAllowedNetworkRules: number;
+    entriesInBlockedIpList: number;
+    entriesInBlockedNetworkRules: number;
+    name: string;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
@@ -2620,23 +2962,17 @@ export interface ProcedureArgument {
     type: string;
 }
 
-export interface RoleTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
+export interface RoleShowOutput {
+    assignedToUsers: number;
+    comment: string;
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: string;
+    owner: string;
 }
 
 export interface Saml2IntegrationDescribeOutput {
@@ -2803,23 +3139,180 @@ export interface Saml2IntegrationShowOutput {
     name: string;
 }
 
-export interface SchemaTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
+export interface SchemaDescribeOutput {
+    createdOn: string;
+    kind: string;
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
+}
+
+export interface SchemaParameter {
+    catalogs: outputs.SchemaParameterCatalog[];
+    dataRetentionTimeInDays: outputs.SchemaParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.SchemaParameterDefaultDdlCollation[];
+    enableConsoleOutputs: outputs.SchemaParameterEnableConsoleOutput[];
+    externalVolumes: outputs.SchemaParameterExternalVolume[];
+    logLevels: outputs.SchemaParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.SchemaParameterMaxDataExtensionTimeInDay[];
+    pipeExecutionPauseds: outputs.SchemaParameterPipeExecutionPaused[];
+    quotedIdentifiersIgnoreCases: outputs.SchemaParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.SchemaParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.SchemaParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.SchemaParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.SchemaParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.SchemaParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.SchemaParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.SchemaParameterUserTaskTimeoutM[];
+}
+
+export interface SchemaParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
     value: string;
+}
+
+export interface SchemaParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    droppedOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    retentionTime: string;
 }
 
 export interface ScimIntegrationDescribeOutput {
@@ -2893,6 +3386,33 @@ export interface StageTag {
     value: string;
 }
 
+export interface StreamlitDescribeOutput {
+    defaultPackages: string;
+    externalAccessIntegrations: string[];
+    externalAccessSecrets: string;
+    importUrls: string[];
+    mainFile: string;
+    name: string;
+    queryWarehouse: string;
+    rootLocation: string;
+    title: string;
+    urlId: string;
+    userPackages: string[];
+}
+
+export interface StreamlitShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    title: string;
+    urlId: string;
+}
+
 export interface TableColumn {
     /**
      * Column collation, e.g. utf8
@@ -2927,7 +3447,7 @@ export interface TableColumn {
      */
     schemaEvolutionRecord: string;
     /**
-     * Column type, e.g. VARIANT
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     type: string;
 }

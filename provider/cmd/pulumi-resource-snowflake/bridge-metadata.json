@@ -10,6 +10,14 @@
             "snowflake_account_password_policy_attachment": {
                 "current": "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment"
             },
+            "snowflake_account_role": {
+                "current": "snowflake:index/accountRole:AccountRole",
+                "fields": {
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_alert": {
                 "current": "snowflake:index/alert:Alert",
                 "fields": {
@@ -540,6 +548,12 @@
                     },
                     "blocked_network_rule_list": {
                         "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -774,7 +788,7 @@
             "snowflake_role": {
                 "current": "snowflake:index/role:Role",
                 "fields": {
-                    "tag": {
+                    "show_output": {
                         "maxItemsOne": false
                     }
                 }
@@ -866,7 +880,68 @@
             "snowflake_schema": {
                 "current": "snowflake:index/schema:Schema",
                 "fields": {
-                    "tag": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "catalog": {
+                                    "maxItemsOne": false
+                                },
+                                "data_retention_time_in_days": {
+                                    "maxItemsOne": false
+                                },
+                                "default_ddl_collation": {
+                                    "maxItemsOne": false
+                                },
+                                "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "external_volume": {
+                                    "maxItemsOne": false
+                                },
+                                "log_level": {
+                                    "maxItemsOne": false
+                                },
+                                "max_data_extension_time_in_days": {
+                                    "maxItemsOne": false
+                                },
+                                "pipe_execution_paused": {
+                                    "maxItemsOne": false
+                                },
+                                "quoted_identifiers_ignore_case": {
+                                    "maxItemsOne": false
+                                },
+                                "replace_invalid_characters": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_serialization_policy": {
+                                    "maxItemsOne": false
+                                },
+                                "suspend_task_after_num_failures": {
+                                    "maxItemsOne": false
+                                },
+                                "task_auto_retry_attempts": {
+                                    "maxItemsOne": false
+                                },
+                                "trace_level": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_managed_initial_warehouse_size": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_minimum_trigger_interval_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_timeout_ms": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
                         "maxItemsOne": false
                     }
                 }
@@ -942,6 +1017,33 @@
             },
             "snowflake_stream": {
                 "current": "snowflake:index/stream:Stream"
+            },
+            "snowflake_streamlit": {
+                "current": "snowflake:index/streamlit:Streamlit",
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "external_access_integrations": {
+                                    "maxItemsOne": false
+                                },
+                                "import_urls": {
+                                    "maxItemsOne": false
+                                },
+                                "user_packages": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "external_access_integrations": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_table": {
                 "current": "snowflake:index/table:Table",
@@ -1337,6 +1439,24 @@
                     }
                 }
             },
+            "snowflake_network_policies": {
+                "current": "snowflake:index/getNetworkPolicies:getNetworkPolicies",
+                "fields": {
+                    "network_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_parameters": {
                 "current": "snowflake:index/getParameters:getParameters",
                 "fields": {
@@ -1383,7 +1503,14 @@
                 "current": "snowflake:index/getRoles:getRoles",
                 "fields": {
                     "roles": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1398,8 +1525,82 @@
             "snowflake_schemas": {
                 "current": "snowflake:index/getSchemas:getSchemas",
                 "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
                     "schemas": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "catalog": {
+                                                "maxItemsOne": false
+                                            },
+                                            "data_retention_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_ddl_collation": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_console_output": {
+                                                "maxItemsOne": false
+                                            },
+                                            "external_volume": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "max_data_extension_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "pipe_execution_paused": {
+                                                "maxItemsOne": false
+                                            },
+                                            "quoted_identifiers_ignore_case": {
+                                                "maxItemsOne": false
+                                            },
+                                            "replace_invalid_characters": {
+                                                "maxItemsOne": false
+                                            },
+                                            "storage_serialization_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "suspend_task_after_num_failures": {
+                                                "maxItemsOne": false
+                                            },
+                                            "task_auto_retry_attempts": {
+                                                "maxItemsOne": false
+                                            },
+                                            "trace_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_managed_initial_warehouse_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_minimum_trigger_interval_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_timeout_ms": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1629,6 +1830,43 @@
                 "fields": {
                     "storage_integrations": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_streamlits": {
+                "current": "snowflake:index/getStreamlits:getStreamlits",
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "streamlits": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "external_access_integrations": {
+                                                "maxItemsOne": false
+                                            },
+                                            "import_urls": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_packages": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },

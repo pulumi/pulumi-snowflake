@@ -9,7 +9,7 @@ replace (
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.93.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.94.0
 	github.com/pulumi/providertest v0.0.14
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.0
 	github.com/pulumi/pulumi/sdk/v3 v3.126.0
