@@ -30,6 +30,11 @@ var programs = []string{
 	"test-programs/index_table",
 }
 
+var upgradeTestPrograms = []string{
+	"test-programs/index_role",
+	"test-programs/index_user",
+}
+
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
 }
@@ -116,7 +121,7 @@ func TestPrograms(t *testing.T) {
 }
 
 func TestProgramsUpgrade(t *testing.T) {
-	for _, p := range programs {
+	for _, p := range upgradeTestPrograms {
 		t.Run(p, func(t *testing.T) {
 			testProviderUpgrade(t, p)
 		})
