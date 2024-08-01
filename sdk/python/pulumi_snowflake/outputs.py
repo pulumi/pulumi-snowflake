@@ -11,12 +11,74 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountRoleShowOutput',
     'AlertAlertSchedule',
     'AlertAlertScheduleCron',
-    'DatabaseReplicationConfiguration',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration',
+    'ApiAuthenticationIntegrationWithClientCredentialsShowOutput',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutput',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration',
+    'ApiAuthenticationIntegrationWithJwtBearerShowOutput',
+    'DatabaseOldReplicationConfiguration',
+    'DatabaseReplication',
+    'DatabaseReplicationEnableToAccount',
     'DynamicTableTargetLag',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
+    'ExternalOauthIntegrationDescribeOutput',
+    'ExternalOauthIntegrationDescribeOutputComment',
+    'ExternalOauthIntegrationDescribeOutputEnabled',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthIssuer',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim',
+    'ExternalOauthIntegrationRelatedParameter',
+    'ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList',
+    'ExternalOauthIntegrationShowOutput',
     'ExternalTableColumn',
     'ExternalTableTag',
     'FailoverGroupFromReplica',
@@ -35,19 +97,107 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
-    'GrantPrivilegesToRoleOnAccountObject',
-    'GrantPrivilegesToRoleOnSchema',
-    'GrantPrivilegesToRoleOnSchemaObject',
-    'GrantPrivilegesToRoleOnSchemaObjectAll',
-    'GrantPrivilegesToRoleOnSchemaObjectFuture',
     'MaskingPolicySignature',
     'MaskingPolicySignatureColumn',
     'MaterializedViewTag',
+    'NetworkPolicyDescribeOutput',
+    'NetworkPolicyShowOutput',
+    'OauthIntegrationForCustomClientsDescribeOutput',
+    'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList',
+    'OauthIntegrationForCustomClientsDescribeOutputComment',
+    'OauthIntegrationForCustomClientsDescribeOutputEnabled',
+    'OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientId',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientType',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole',
+    'OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList',
+    'OauthIntegrationForCustomClientsShowOutput',
+    'OauthIntegrationForPartnerApplicationsDescribeOutput',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputComment',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputEnabled',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList',
+    'OauthIntegrationForPartnerApplicationsShowOutput',
     'ObjectParameterObjectIdentifier',
     'ProcedureArgument',
-    'RoleTag',
-    'SchemaTag',
+    'RoleShowOutput',
+    'Saml2IntegrationDescribeOutput',
+    'Saml2IntegrationDescribeOutputAllowedEmailPattern',
+    'Saml2IntegrationDescribeOutputAllowedUserDomain',
+    'Saml2IntegrationDescribeOutputComment',
+    'Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed',
+    'Saml2IntegrationDescribeOutputSaml2EnableSpInitiated',
+    'Saml2IntegrationDescribeOutputSaml2ForceAuthn',
+    'Saml2IntegrationDescribeOutputSaml2Issuer',
+    'Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl',
+    'Saml2IntegrationDescribeOutputSaml2Provider',
+    'Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat',
+    'Saml2IntegrationDescribeOutputSaml2SignRequest',
+    'Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert',
+    'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel',
+    'Saml2IntegrationDescribeOutputSaml2SsoUrl',
+    'Saml2IntegrationDescribeOutputSaml2X509Cert',
+    'Saml2IntegrationShowOutput',
+    'SchemaDescribeOutput',
+    'SchemaParameter',
+    'SchemaParameterCatalog',
+    'SchemaParameterDataRetentionTimeInDay',
+    'SchemaParameterDefaultDdlCollation',
+    'SchemaParameterEnableConsoleOutput',
+    'SchemaParameterExternalVolume',
+    'SchemaParameterLogLevel',
+    'SchemaParameterMaxDataExtensionTimeInDay',
+    'SchemaParameterPipeExecutionPaused',
+    'SchemaParameterQuotedIdentifiersIgnoreCase',
+    'SchemaParameterReplaceInvalidCharacter',
+    'SchemaParameterStorageSerializationPolicy',
+    'SchemaParameterSuspendTaskAfterNumFailure',
+    'SchemaParameterTaskAutoRetryAttempt',
+    'SchemaParameterTraceLevel',
+    'SchemaParameterUserTaskManagedInitialWarehouseSize',
+    'SchemaParameterUserTaskMinimumTriggerIntervalInSecond',
+    'SchemaParameterUserTaskTimeoutM',
+    'SchemaShowOutput',
+    'ScimIntegrationDescribeOutput',
+    'ScimIntegrationDescribeOutputComment',
+    'ScimIntegrationDescribeOutputEnabled',
+    'ScimIntegrationDescribeOutputNetworkPolicy',
+    'ScimIntegrationDescribeOutputRunAsRole',
+    'ScimIntegrationDescribeOutputSyncPassword',
+    'ScimIntegrationShowOutput',
     'StageTag',
+    'StreamlitDescribeOutput',
+    'StreamlitShowOutput',
     'TableColumn',
     'TableColumnDefault',
     'TableColumnIdentity',
@@ -57,11 +207,38 @@ __all__ = [
     'TableTag',
     'TagAssociationObjectIdentifier',
     'ViewTag',
+    'WarehouseParameter',
+    'WarehouseParameterMaxConcurrencyLevel',
+    'WarehouseParameterStatementQueuedTimeoutInSecond',
+    'WarehouseParameterStatementTimeoutInSecond',
+    'WarehouseShowOutput',
     'GetAccountsAccountResult',
     'GetAlertsAlertResult',
+    'GetCortexSearchServicesCortexSearchServiceResult',
+    'GetCortexSearchServicesInResult',
+    'GetCortexSearchServicesLimitResult',
     'GetDatabaseRolesDatabaseRoleResult',
     'GetDatabasesDatabaseResult',
-    'GetDatabasesDatabaseReplicationConfigurationResult',
+    'GetDatabasesDatabaseDescribeOutputResult',
+    'GetDatabasesDatabaseParameterResult',
+    'GetDatabasesDatabaseParameterCatalogResult',
+    'GetDatabasesDatabaseParameterDataRetentionTimeInDayResult',
+    'GetDatabasesDatabaseParameterDefaultDdlCollationResult',
+    'GetDatabasesDatabaseParameterEnableConsoleOutputResult',
+    'GetDatabasesDatabaseParameterExternalVolumeResult',
+    'GetDatabasesDatabaseParameterLogLevelResult',
+    'GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult',
+    'GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult',
+    'GetDatabasesDatabaseParameterReplaceInvalidCharacterResult',
+    'GetDatabasesDatabaseParameterStorageSerializationPolicyResult',
+    'GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureResult',
+    'GetDatabasesDatabaseParameterTaskAutoRetryAttemptResult',
+    'GetDatabasesDatabaseParameterTraceLevelResult',
+    'GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeResult',
+    'GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondResult',
+    'GetDatabasesDatabaseParameterUserTaskTimeoutMResult',
+    'GetDatabasesDatabaseShowOutputResult',
+    'GetDatabasesLimitResult',
     'GetDynamicTablesInResult',
     'GetDynamicTablesLikeResult',
     'GetDynamicTablesLimitResult',
@@ -80,24 +257,234 @@ __all__ = [
     'GetGrantsGrantsToShareResult',
     'GetMaskingPoliciesMaskingPolicyResult',
     'GetMaterializedViewsMaterializedViewResult',
+    'GetNetworkPoliciesNetworkPolicyResult',
+    'GetNetworkPoliciesNetworkPolicyDescribeOutputResult',
+    'GetNetworkPoliciesNetworkPolicyShowOutputResult',
     'GetParametersParameterResult',
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
     'GetRolesRoleResult',
+    'GetRolesRoleShowOutputResult',
     'GetRowAccessPoliciesRowAccessPolicyResult',
+    'GetSchemasInResult',
+    'GetSchemasLimitResult',
     'GetSchemasSchemaResult',
+    'GetSchemasSchemaDescribeOutputResult',
+    'GetSchemasSchemaParameterResult',
+    'GetSchemasSchemaParameterCatalogResult',
+    'GetSchemasSchemaParameterDataRetentionTimeInDayResult',
+    'GetSchemasSchemaParameterDefaultDdlCollationResult',
+    'GetSchemasSchemaParameterEnableConsoleOutputResult',
+    'GetSchemasSchemaParameterExternalVolumeResult',
+    'GetSchemasSchemaParameterLogLevelResult',
+    'GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult',
+    'GetSchemasSchemaParameterPipeExecutionPausedResult',
+    'GetSchemasSchemaParameterQuotedIdentifiersIgnoreCaseResult',
+    'GetSchemasSchemaParameterReplaceInvalidCharacterResult',
+    'GetSchemasSchemaParameterStorageSerializationPolicyResult',
+    'GetSchemasSchemaParameterSuspendTaskAfterNumFailureResult',
+    'GetSchemasSchemaParameterTaskAutoRetryAttemptResult',
+    'GetSchemasSchemaParameterTraceLevelResult',
+    'GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSizeResult',
+    'GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecondResult',
+    'GetSchemasSchemaParameterUserTaskTimeoutMResult',
+    'GetSchemasSchemaShowOutputResult',
+    'GetSecurityIntegrationsSecurityIntegrationResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputCommentResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabledResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesListResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleModeResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceListResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesListResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuerResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrlResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2Result',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKeyResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiterResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaimResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicyResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidityResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUriResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpointResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScopeResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegrationResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesListResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRoleResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsedResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiatedResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthnResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2IssuerResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrlResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ProviderResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormatResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequestResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsedResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult',
+    'GetSecurityIntegrationsSecurityIntegrationShowOutputResult',
     'GetSequencesSequenceResult',
     'GetSharesShareResult',
     'GetStagesStageResult',
     'GetStorageIntegrationsStorageIntegrationResult',
+    'GetStreamlitsInResult',
+    'GetStreamlitsLimitResult',
+    'GetStreamlitsStreamlitResult',
+    'GetStreamlitsStreamlitDescribeOutputResult',
+    'GetStreamlitsStreamlitShowOutputResult',
     'GetStreamsStreamResult',
     'GetTablesTableResult',
     'GetTasksTaskResult',
     'GetUsersUserResult',
     'GetViewsViewResult',
     'GetWarehousesWarehouseResult',
+    'GetWarehousesWarehouseDescribeOutputResult',
+    'GetWarehousesWarehouseParameterResult',
+    'GetWarehousesWarehouseParameterMaxConcurrencyLevelResult',
+    'GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult',
+    'GetWarehousesWarehouseParameterStatementTimeoutInSecondResult',
+    'GetWarehousesWarehouseShowOutputResult',
 ]
+
+@pulumi.output_type
+class AccountRoleShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedToUsers":
+            suggest = "assigned_to_users"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "grantedRoles":
+            suggest = "granted_roles"
+        elif key == "grantedToRoles":
+            suggest = "granted_to_roles"
+        elif key == "isCurrent":
+            suggest = "is_current"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "isInherited":
+            suggest = "is_inherited"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRoleShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRoleShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRoleShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_to_users: Optional[int] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 granted_roles: Optional[int] = None,
+                 granted_to_roles: Optional[int] = None,
+                 is_current: Optional[bool] = None,
+                 is_default: Optional[bool] = None,
+                 is_inherited: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None):
+        if assigned_to_users is not None:
+            pulumi.set(__self__, "assigned_to_users", assigned_to_users)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if granted_roles is not None:
+            pulumi.set(__self__, "granted_roles", granted_roles)
+        if granted_to_roles is not None:
+            pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if is_inherited is not None:
+            pulumi.set(__self__, "is_inherited", is_inherited)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> Optional[int]:
+        return pulumi.get(self, "assigned_to_users")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> Optional[int]:
+        return pulumi.get(self, "granted_roles")
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> Optional[int]:
+        return pulumi.get(self, "granted_to_roles")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[bool]:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> Optional[bool]:
+        return pulumi.get(self, "is_inherited")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
 
 @pulumi.output_type
 class AlertAlertSchedule(dict):
@@ -177,7 +564,1963 @@ class AlertAlertScheduleCron(dict):
 
 
 @pulumi.output_type
-class DatabaseReplicationConfiguration(dict):
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTypes":
+            suggest = "auth_types"
+        elif key == "oauthAccessTokenValidities":
+            suggest = "oauth_access_token_validities"
+        elif key == "oauthAllowedScopes":
+            suggest = "oauth_allowed_scopes"
+        elif key == "oauthAuthorizationEndpoints":
+            suggest = "oauth_authorization_endpoints"
+        elif key == "oauthClientAuthMethods":
+            suggest = "oauth_client_auth_methods"
+        elif key == "oauthClientIds":
+            suggest = "oauth_client_ids"
+        elif key == "oauthGrants":
+            suggest = "oauth_grants"
+        elif key == "oauthRefreshTokenValidities":
+            suggest = "oauth_refresh_token_validities"
+        elif key == "oauthTokenEndpoints":
+            suggest = "oauth_token_endpoints"
+        elif key == "parentIntegrations":
+            suggest = "parent_integrations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_types: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType']] = None,
+                 comments: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled']] = None,
+                 oauth_access_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity']] = None,
+                 oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope']] = None,
+                 oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint']] = None,
+                 oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod']] = None,
+                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId']] = None,
+                 oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant']] = None,
+                 oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity']] = None,
+                 oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint']] = None,
+                 parent_integrations: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration']] = None):
+        if auth_types is not None:
+            pulumi.set(__self__, "auth_types", auth_types)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if oauth_access_token_validities is not None:
+            pulumi.set(__self__, "oauth_access_token_validities", oauth_access_token_validities)
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        if oauth_client_auth_methods is not None:
+            pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
+        if oauth_client_ids is not None:
+            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        if oauth_grants is not None:
+            pulumi.set(__self__, "oauth_grants", oauth_grants)
+        if oauth_refresh_token_validities is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        if oauth_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        if parent_integrations is not None:
+            pulumi.set(__self__, "parent_integrations", parent_integrations)
+
+    @property
+    @pulumi.getter(name="authTypes")
+    def auth_types(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType']]:
+        return pulumi.get(self, "auth_types")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="oauthAccessTokenValidities")
+    def oauth_access_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity']]:
+        return pulumi.get(self, "oauth_access_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope']]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientAuthMethods")
+    def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod']]:
+        return pulumi.get(self, "oauth_client_auth_methods")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId']]:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthGrants")
+    def oauth_grants(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant']]:
+        return pulumi.get(self, "oauth_grants")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity']]:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint']]:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="parentIntegrations")
+    def parent_integrations(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration']]:
+        return pulumi.get(self, "parent_integrations")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTypes":
+            suggest = "auth_types"
+        elif key == "oauthAccessTokenValidities":
+            suggest = "oauth_access_token_validities"
+        elif key == "oauthAllowedScopes":
+            suggest = "oauth_allowed_scopes"
+        elif key == "oauthAuthorizationEndpoints":
+            suggest = "oauth_authorization_endpoints"
+        elif key == "oauthClientAuthMethods":
+            suggest = "oauth_client_auth_methods"
+        elif key == "oauthClientIds":
+            suggest = "oauth_client_ids"
+        elif key == "oauthGrants":
+            suggest = "oauth_grants"
+        elif key == "oauthRefreshTokenValidities":
+            suggest = "oauth_refresh_token_validities"
+        elif key == "oauthTokenEndpoints":
+            suggest = "oauth_token_endpoints"
+        elif key == "parentIntegrations":
+            suggest = "parent_integrations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_types: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType']] = None,
+                 comments: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled']] = None,
+                 oauth_access_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity']] = None,
+                 oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope']] = None,
+                 oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint']] = None,
+                 oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod']] = None,
+                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId']] = None,
+                 oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant']] = None,
+                 oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity']] = None,
+                 oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint']] = None,
+                 parent_integrations: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration']] = None):
+        if auth_types is not None:
+            pulumi.set(__self__, "auth_types", auth_types)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if oauth_access_token_validities is not None:
+            pulumi.set(__self__, "oauth_access_token_validities", oauth_access_token_validities)
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        if oauth_client_auth_methods is not None:
+            pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
+        if oauth_client_ids is not None:
+            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        if oauth_grants is not None:
+            pulumi.set(__self__, "oauth_grants", oauth_grants)
+        if oauth_refresh_token_validities is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        if oauth_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        if parent_integrations is not None:
+            pulumi.set(__self__, "parent_integrations", parent_integrations)
+
+    @property
+    @pulumi.getter(name="authTypes")
+    def auth_types(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType']]:
+        return pulumi.get(self, "auth_types")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="oauthAccessTokenValidities")
+    def oauth_access_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity']]:
+        return pulumi.get(self, "oauth_access_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope']]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientAuthMethods")
+    def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod']]:
+        return pulumi.get(self, "oauth_client_auth_methods")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId']]:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthGrants")
+    def oauth_grants(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant']]:
+        return pulumi.get(self, "oauth_grants")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity']]:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint']]:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="parentIntegrations")
+    def parent_integrations(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration']]:
+        return pulumi.get(self, "parent_integrations")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithClientCredentialsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithClientCredentialsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithClientCredentialsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithClientCredentialsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTypes":
+            suggest = "auth_types"
+        elif key == "oauthAccessTokenValidities":
+            suggest = "oauth_access_token_validities"
+        elif key == "oauthAllowedScopes":
+            suggest = "oauth_allowed_scopes"
+        elif key == "oauthAuthorizationEndpoints":
+            suggest = "oauth_authorization_endpoints"
+        elif key == "oauthClientAuthMethods":
+            suggest = "oauth_client_auth_methods"
+        elif key == "oauthClientIds":
+            suggest = "oauth_client_ids"
+        elif key == "oauthGrants":
+            suggest = "oauth_grants"
+        elif key == "oauthRefreshTokenValidities":
+            suggest = "oauth_refresh_token_validities"
+        elif key == "oauthTokenEndpoints":
+            suggest = "oauth_token_endpoints"
+        elif key == "parentIntegrations":
+            suggest = "parent_integrations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithJwtBearerDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithJwtBearerDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithJwtBearerDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_types: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType']] = None,
+                 comments: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled']] = None,
+                 oauth_access_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity']] = None,
+                 oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope']] = None,
+                 oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint']] = None,
+                 oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod']] = None,
+                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId']] = None,
+                 oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant']] = None,
+                 oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity']] = None,
+                 oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint']] = None,
+                 parent_integrations: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration']] = None):
+        if auth_types is not None:
+            pulumi.set(__self__, "auth_types", auth_types)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if oauth_access_token_validities is not None:
+            pulumi.set(__self__, "oauth_access_token_validities", oauth_access_token_validities)
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        if oauth_client_auth_methods is not None:
+            pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
+        if oauth_client_ids is not None:
+            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        if oauth_grants is not None:
+            pulumi.set(__self__, "oauth_grants", oauth_grants)
+        if oauth_refresh_token_validities is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        if oauth_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        if parent_integrations is not None:
+            pulumi.set(__self__, "parent_integrations", parent_integrations)
+
+    @property
+    @pulumi.getter(name="authTypes")
+    def auth_types(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType']]:
+        return pulumi.get(self, "auth_types")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="oauthAccessTokenValidities")
+    def oauth_access_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity']]:
+        return pulumi.get(self, "oauth_access_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope']]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientAuthMethods")
+    def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod']]:
+        return pulumi.get(self, "oauth_client_auth_methods")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId']]:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthGrants")
+    def oauth_grants(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant']]:
+        return pulumi.get(self, "oauth_grants")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity']]:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint']]:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="parentIntegrations")
+    def parent_integrations(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration']]:
+        return pulumi.get(self, "parent_integrations")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApiAuthenticationIntegrationWithJwtBearerShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthenticationIntegrationWithJwtBearerShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthenticationIntegrationWithJwtBearerShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthenticationIntegrationWithJwtBearerShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DatabaseOldReplicationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,14 +2528,14 @@ class DatabaseReplicationConfiguration(dict):
             suggest = "ignore_edition_check"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseReplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseOldReplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatabaseReplicationConfiguration.__key_warning(key)
+        DatabaseOldReplicationConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatabaseReplicationConfiguration.__key_warning(key)
+        DatabaseOldReplicationConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -211,6 +2554,104 @@ class DatabaseReplicationConfiguration(dict):
     @pulumi.getter(name="ignoreEditionCheck")
     def ignore_edition_check(self) -> Optional[bool]:
         return pulumi.get(self, "ignore_edition_check")
+
+
+@pulumi.output_type
+class DatabaseReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableToAccounts":
+            suggest = "enable_to_accounts"
+        elif key == "ignoreEditionCheck":
+            suggest = "ignore_edition_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_to_accounts: Sequence['outputs.DatabaseReplicationEnableToAccount'],
+                 ignore_edition_check: Optional[bool] = None):
+        """
+        :param Sequence['DatabaseReplicationEnableToAccountArgs'] enable_to_accounts: Entry to enable replication and optionally failover for a given account identifier.
+        :param bool ignore_edition_check: Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
+        """
+        pulumi.set(__self__, "enable_to_accounts", enable_to_accounts)
+        if ignore_edition_check is not None:
+            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+
+    @property
+    @pulumi.getter(name="enableToAccounts")
+    def enable_to_accounts(self) -> Sequence['outputs.DatabaseReplicationEnableToAccount']:
+        """
+        Entry to enable replication and optionally failover for a given account identifier.
+        """
+        return pulumi.get(self, "enable_to_accounts")
+
+    @property
+    @pulumi.getter(name="ignoreEditionCheck")
+    def ignore_edition_check(self) -> Optional[bool]:
+        """
+        Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
+        """
+        return pulumi.get(self, "ignore_edition_check")
+
+
+@pulumi.output_type
+class DatabaseReplicationEnableToAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIdentifier":
+            suggest = "account_identifier"
+        elif key == "withFailover":
+            suggest = "with_failover"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseReplicationEnableToAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseReplicationEnableToAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseReplicationEnableToAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_identifier: str,
+                 with_failover: Optional[bool] = None):
+        """
+        :param str account_identifier: Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+        :param bool with_failover: Specifies if failover should be enabled for the specified account identifier
+        """
+        pulumi.set(__self__, "account_identifier", account_identifier)
+        if with_failover is not None:
+            pulumi.set(__self__, "with_failover", with_failover)
+
+    @property
+    @pulumi.getter(name="accountIdentifier")
+    def account_identifier(self) -> str:
+        """
+        Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+        """
+        return pulumi.get(self, "account_identifier")
+
+    @property
+    @pulumi.getter(name="withFailover")
+    def with_failover(self) -> Optional[bool]:
+        """
+        Specifies if failover should be enabled for the specified account identifier
+        """
+        return pulumi.get(self, "with_failover")
 
 
 @pulumi.output_type
@@ -317,6 +2758,780 @@ class ExternalFunctionHeader(dict):
         Header value
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalOauthAllowedRolesLists":
+            suggest = "external_oauth_allowed_roles_lists"
+        elif key == "externalOauthAnyRoleModes":
+            suggest = "external_oauth_any_role_modes"
+        elif key == "externalOauthAudienceLists":
+            suggest = "external_oauth_audience_lists"
+        elif key == "externalOauthBlockedRolesLists":
+            suggest = "external_oauth_blocked_roles_lists"
+        elif key == "externalOauthIssuers":
+            suggest = "external_oauth_issuers"
+        elif key == "externalOauthJwsKeysUrls":
+            suggest = "external_oauth_jws_keys_urls"
+        elif key == "externalOauthRsaPublicKey2s":
+            suggest = "external_oauth_rsa_public_key2s"
+        elif key == "externalOauthRsaPublicKeys":
+            suggest = "external_oauth_rsa_public_keys"
+        elif key == "externalOauthScopeDelimiters":
+            suggest = "external_oauth_scope_delimiters"
+        elif key == "externalOauthSnowflakeUserMappingAttributes":
+            suggest = "external_oauth_snowflake_user_mapping_attributes"
+        elif key == "externalOauthTokenUserMappingClaims":
+            suggest = "external_oauth_token_user_mapping_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalOauthIntegrationDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalOauthIntegrationDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalOauthIntegrationDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comments: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputEnabled']] = None,
+                 external_oauth_allowed_roles_lists: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList']] = None,
+                 external_oauth_any_role_modes: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode']] = None,
+                 external_oauth_audience_lists: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList']] = None,
+                 external_oauth_blocked_roles_lists: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList']] = None,
+                 external_oauth_issuers: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer']] = None,
+                 external_oauth_jws_keys_urls: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl']] = None,
+                 external_oauth_rsa_public_key2s: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2']] = None,
+                 external_oauth_rsa_public_keys: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey']] = None,
+                 external_oauth_scope_delimiters: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter']] = None,
+                 external_oauth_snowflake_user_mapping_attributes: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute']] = None,
+                 external_oauth_token_user_mapping_claims: Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim']] = None):
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if external_oauth_allowed_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_allowed_roles_lists", external_oauth_allowed_roles_lists)
+        if external_oauth_any_role_modes is not None:
+            pulumi.set(__self__, "external_oauth_any_role_modes", external_oauth_any_role_modes)
+        if external_oauth_audience_lists is not None:
+            pulumi.set(__self__, "external_oauth_audience_lists", external_oauth_audience_lists)
+        if external_oauth_blocked_roles_lists is not None:
+            pulumi.set(__self__, "external_oauth_blocked_roles_lists", external_oauth_blocked_roles_lists)
+        if external_oauth_issuers is not None:
+            pulumi.set(__self__, "external_oauth_issuers", external_oauth_issuers)
+        if external_oauth_jws_keys_urls is not None:
+            pulumi.set(__self__, "external_oauth_jws_keys_urls", external_oauth_jws_keys_urls)
+        if external_oauth_rsa_public_key2s is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_key2s", external_oauth_rsa_public_key2s)
+        if external_oauth_rsa_public_keys is not None:
+            pulumi.set(__self__, "external_oauth_rsa_public_keys", external_oauth_rsa_public_keys)
+        if external_oauth_scope_delimiters is not None:
+            pulumi.set(__self__, "external_oauth_scope_delimiters", external_oauth_scope_delimiters)
+        if external_oauth_snowflake_user_mapping_attributes is not None:
+            pulumi.set(__self__, "external_oauth_snowflake_user_mapping_attributes", external_oauth_snowflake_user_mapping_attributes)
+        if external_oauth_token_user_mapping_claims is not None:
+            pulumi.set(__self__, "external_oauth_token_user_mapping_claims", external_oauth_token_user_mapping_claims)
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="externalOauthAllowedRolesLists")
+    def external_oauth_allowed_roles_lists(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList']]:
+        return pulumi.get(self, "external_oauth_allowed_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthAnyRoleModes")
+    def external_oauth_any_role_modes(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode']]:
+        return pulumi.get(self, "external_oauth_any_role_modes")
+
+    @property
+    @pulumi.getter(name="externalOauthAudienceLists")
+    def external_oauth_audience_lists(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList']]:
+        return pulumi.get(self, "external_oauth_audience_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthBlockedRolesLists")
+    def external_oauth_blocked_roles_lists(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList']]:
+        return pulumi.get(self, "external_oauth_blocked_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthIssuers")
+    def external_oauth_issuers(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer']]:
+        return pulumi.get(self, "external_oauth_issuers")
+
+    @property
+    @pulumi.getter(name="externalOauthJwsKeysUrls")
+    def external_oauth_jws_keys_urls(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl']]:
+        return pulumi.get(self, "external_oauth_jws_keys_urls")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey2s")
+    def external_oauth_rsa_public_key2s(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2']]:
+        return pulumi.get(self, "external_oauth_rsa_public_key2s")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKeys")
+    def external_oauth_rsa_public_keys(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey']]:
+        return pulumi.get(self, "external_oauth_rsa_public_keys")
+
+    @property
+    @pulumi.getter(name="externalOauthScopeDelimiters")
+    def external_oauth_scope_delimiters(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter']]:
+        return pulumi.get(self, "external_oauth_scope_delimiters")
+
+    @property
+    @pulumi.getter(name="externalOauthSnowflakeUserMappingAttributes")
+    def external_oauth_snowflake_user_mapping_attributes(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute']]:
+        return pulumi.get(self, "external_oauth_snowflake_user_mapping_attributes")
+
+    @property
+    @pulumi.getter(name="externalOauthTokenUserMappingClaims")
+    def external_oauth_token_user_mapping_claims(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim']]:
+        return pulumi.get(self, "external_oauth_token_user_mapping_claims")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthIssuer(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationRelatedParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalOauthAddPrivilegedRolesToBlockedLists":
+            suggest = "external_oauth_add_privileged_roles_to_blocked_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalOauthIntegrationRelatedParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalOauthIntegrationRelatedParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalOauthIntegrationRelatedParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_oauth_add_privileged_roles_to_blocked_lists: Optional[Sequence['outputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList']] = None):
+        if external_oauth_add_privileged_roles_to_blocked_lists is not None:
+            pulumi.set(__self__, "external_oauth_add_privileged_roles_to_blocked_lists", external_oauth_add_privileged_roles_to_blocked_lists)
+
+    @property
+    @pulumi.getter(name="externalOauthAddPrivilegedRolesToBlockedLists")
+    def external_oauth_add_privileged_roles_to_blocked_lists(self) -> Optional[Sequence['outputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList']]:
+        return pulumi.get(self, "external_oauth_add_privileged_roles_to_blocked_lists")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExternalOauthIntegrationShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalOauthIntegrationShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalOauthIntegrationShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalOauthIntegrationShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -936,7 +4151,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
         :param str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -975,7 +4190,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -1008,7 +4223,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
                  in_database: Optional[str] = None,
                  in_schema: Optional[str] = None):
         """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -1020,7 +4235,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1063,7 +4278,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[str] = None,
                  in_schema: Optional[str] = None):
         """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -1075,7 +4290,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1184,7 +4399,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
         :param str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -1223,7 +4438,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
         """
         return pulumi.get(self, "object_type")
 
@@ -1256,7 +4471,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
                  in_database: Optional[str] = None,
                  in_schema: Optional[str] = None):
         """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         :param str in_database: The fully qualified name of the database.
         :param str in_schema: The fully qualified name of the schema.
         """
@@ -1270,7 +4485,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1319,7 +4534,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[str] = None,
                  in_schema: Optional[str] = None):
         """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         :param str in_database: The fully qualified name of the database.
         :param str in_schema: The fully qualified name of the schema.
         """
@@ -1333,319 +4548,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
-        """
-        return pulumi.get(self, "object_type_plural")
-
-    @property
-    @pulumi.getter(name="inDatabase")
-    def in_database(self) -> Optional[str]:
-        """
-        The fully qualified name of the database.
-        """
-        return pulumi.get(self, "in_database")
-
-    @property
-    @pulumi.getter(name="inSchema")
-    def in_schema(self) -> Optional[str]:
-        """
-        The fully qualified name of the schema.
-        """
-        return pulumi.get(self, "in_schema")
-
-
-@pulumi.output_type
-class GrantPrivilegesToRoleOnAccountObject(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectName":
-            suggest = "object_name"
-        elif key == "objectType":
-            suggest = "object_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToRoleOnAccountObject. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GrantPrivilegesToRoleOnAccountObject.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GrantPrivilegesToRoleOnAccountObject.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_name: str,
-                 object_type: str):
-        """
-        :param str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param str object_type: The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
-        """
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "object_type", object_type)
-
-    @property
-    @pulumi.getter(name="objectName")
-    def object_name(self) -> str:
-        """
-        The fully qualified name of the object on which privileges will be granted.
-        """
-        return pulumi.get(self, "object_name")
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> str:
-        """
-        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
-        """
-        return pulumi.get(self, "object_type")
-
-
-@pulumi.output_type
-class GrantPrivilegesToRoleOnSchema(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allSchemasInDatabase":
-            suggest = "all_schemas_in_database"
-        elif key == "futureSchemasInDatabase":
-            suggest = "future_schemas_in_database"
-        elif key == "schemaName":
-            suggest = "schema_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToRoleOnSchema. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GrantPrivilegesToRoleOnSchema.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GrantPrivilegesToRoleOnSchema.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 all_schemas_in_database: Optional[str] = None,
-                 future_schemas_in_database: Optional[str] = None,
-                 schema_name: Optional[str] = None):
-        """
-        :param str all_schemas_in_database: The fully qualified name of the database.
-        :param str future_schemas_in_database: The fully qualified name of the database.
-        :param str schema_name: The fully qualified name of the schema.
-        """
-        if all_schemas_in_database is not None:
-            pulumi.set(__self__, "all_schemas_in_database", all_schemas_in_database)
-        if future_schemas_in_database is not None:
-            pulumi.set(__self__, "future_schemas_in_database", future_schemas_in_database)
-        if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
-
-    @property
-    @pulumi.getter(name="allSchemasInDatabase")
-    def all_schemas_in_database(self) -> Optional[str]:
-        """
-        The fully qualified name of the database.
-        """
-        return pulumi.get(self, "all_schemas_in_database")
-
-    @property
-    @pulumi.getter(name="futureSchemasInDatabase")
-    def future_schemas_in_database(self) -> Optional[str]:
-        """
-        The fully qualified name of the database.
-        """
-        return pulumi.get(self, "future_schemas_in_database")
-
-    @property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[str]:
-        """
-        The fully qualified name of the schema.
-        """
-        return pulumi.get(self, "schema_name")
-
-
-@pulumi.output_type
-class GrantPrivilegesToRoleOnSchemaObject(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectName":
-            suggest = "object_name"
-        elif key == "objectType":
-            suggest = "object_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToRoleOnSchemaObject. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GrantPrivilegesToRoleOnSchemaObject.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GrantPrivilegesToRoleOnSchemaObject.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 all: Optional['outputs.GrantPrivilegesToRoleOnSchemaObjectAll'] = None,
-                 future: Optional['outputs.GrantPrivilegesToRoleOnSchemaObjectFuture'] = None,
-                 object_name: Optional[str] = None,
-                 object_type: Optional[str] = None):
-        """
-        :param 'GrantPrivilegesToRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in eihter a database or schema.
-        :param 'GrantPrivilegesToRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in eihter a database or schema.
-        :param str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
-        """
-        if all is not None:
-            pulumi.set(__self__, "all", all)
-        if future is not None:
-            pulumi.set(__self__, "future", future)
-        if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
-        if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
-
-    @property
-    @pulumi.getter
-    def all(self) -> Optional['outputs.GrantPrivilegesToRoleOnSchemaObjectAll']:
-        """
-        Configures the privilege to be granted on all objects in eihter a database or schema.
-        """
-        return pulumi.get(self, "all")
-
-    @property
-    @pulumi.getter
-    def future(self) -> Optional['outputs.GrantPrivilegesToRoleOnSchemaObjectFuture']:
-        """
-        Configures the privilege to be granted on future objects in eihter a database or schema.
-        """
-        return pulumi.get(self, "future")
-
-    @property
-    @pulumi.getter(name="objectName")
-    def object_name(self) -> Optional[str]:
-        """
-        The fully qualified name of the object on which privileges will be granted.
-        """
-        return pulumi.get(self, "object_name")
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> Optional[str]:
-        """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
-        """
-        return pulumi.get(self, "object_type")
-
-
-@pulumi.output_type
-class GrantPrivilegesToRoleOnSchemaObjectAll(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectTypePlural":
-            suggest = "object_type_plural"
-        elif key == "inDatabase":
-            suggest = "in_database"
-        elif key == "inSchema":
-            suggest = "in_schema"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToRoleOnSchemaObjectAll. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GrantPrivilegesToRoleOnSchemaObjectAll.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GrantPrivilegesToRoleOnSchemaObjectAll.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_type_plural: str,
-                 in_database: Optional[str] = None,
-                 in_schema: Optional[str] = None):
-        """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
-        :param str in_database: The fully qualified name of the database.
-        :param str in_schema: The fully qualified name of the schema.
-        """
-        pulumi.set(__self__, "object_type_plural", object_type_plural)
-        if in_database is not None:
-            pulumi.set(__self__, "in_database", in_database)
-        if in_schema is not None:
-            pulumi.set(__self__, "in_schema", in_schema)
-
-    @property
-    @pulumi.getter(name="objectTypePlural")
-    def object_type_plural(self) -> str:
-        """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
-        """
-        return pulumi.get(self, "object_type_plural")
-
-    @property
-    @pulumi.getter(name="inDatabase")
-    def in_database(self) -> Optional[str]:
-        """
-        The fully qualified name of the database.
-        """
-        return pulumi.get(self, "in_database")
-
-    @property
-    @pulumi.getter(name="inSchema")
-    def in_schema(self) -> Optional[str]:
-        """
-        The fully qualified name of the schema.
-        """
-        return pulumi.get(self, "in_schema")
-
-
-@pulumi.output_type
-class GrantPrivilegesToRoleOnSchemaObjectFuture(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectTypePlural":
-            suggest = "object_type_plural"
-        elif key == "inDatabase":
-            suggest = "in_database"
-        elif key == "inSchema":
-            suggest = "in_schema"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToRoleOnSchemaObjectFuture. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GrantPrivilegesToRoleOnSchemaObjectFuture.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GrantPrivilegesToRoleOnSchemaObjectFuture.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_type_plural: str,
-                 in_database: Optional[str] = None,
-                 in_schema: Optional[str] = None):
-        """
-        :param str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
-        :param str in_database: The fully qualified name of the database.
-        :param str in_schema: The fully qualified name of the schema.
-        """
-        pulumi.set(__self__, "object_type_plural", object_type_plural)
-        if in_database is not None:
-            pulumi.set(__self__, "in_database", in_database)
-        if in_schema is not None:
-            pulumi.set(__self__, "in_schema", in_schema)
-
-    @property
-    @pulumi.getter(name="objectTypePlural")
-    def object_type_plural(self) -> str:
-        """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -1761,6 +4664,2114 @@ class MaterializedViewTag(dict):
 
 
 @pulumi.output_type
+class NetworkPolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedIpList":
+            suggest = "allowed_ip_list"
+        elif key == "allowedNetworkRuleList":
+            suggest = "allowed_network_rule_list"
+        elif key == "blockedIpList":
+            suggest = "blocked_ip_list"
+        elif key == "blockedNetworkRuleList":
+            suggest = "blocked_network_rule_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkPolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkPolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_ip_list: Optional[str] = None,
+                 allowed_network_rule_list: Optional[str] = None,
+                 blocked_ip_list: Optional[str] = None,
+                 blocked_network_rule_list: Optional[str] = None):
+        if allowed_ip_list is not None:
+            pulumi.set(__self__, "allowed_ip_list", allowed_ip_list)
+        if allowed_network_rule_list is not None:
+            pulumi.set(__self__, "allowed_network_rule_list", allowed_network_rule_list)
+        if blocked_ip_list is not None:
+            pulumi.set(__self__, "blocked_ip_list", blocked_ip_list)
+        if blocked_network_rule_list is not None:
+            pulumi.set(__self__, "blocked_network_rule_list", blocked_network_rule_list)
+
+    @property
+    @pulumi.getter(name="allowedIpList")
+    def allowed_ip_list(self) -> Optional[str]:
+        return pulumi.get(self, "allowed_ip_list")
+
+    @property
+    @pulumi.getter(name="allowedNetworkRuleList")
+    def allowed_network_rule_list(self) -> Optional[str]:
+        return pulumi.get(self, "allowed_network_rule_list")
+
+    @property
+    @pulumi.getter(name="blockedIpList")
+    def blocked_ip_list(self) -> Optional[str]:
+        return pulumi.get(self, "blocked_ip_list")
+
+    @property
+    @pulumi.getter(name="blockedNetworkRuleList")
+    def blocked_network_rule_list(self) -> Optional[str]:
+        return pulumi.get(self, "blocked_network_rule_list")
+
+
+@pulumi.output_type
+class NetworkPolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "entriesInAllowedIpList":
+            suggest = "entries_in_allowed_ip_list"
+        elif key == "entriesInAllowedNetworkRules":
+            suggest = "entries_in_allowed_network_rules"
+        elif key == "entriesInBlockedIpList":
+            suggest = "entries_in_blocked_ip_list"
+        elif key == "entriesInBlockedNetworkRules":
+            suggest = "entries_in_blocked_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkPolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkPolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 entries_in_allowed_ip_list: Optional[int] = None,
+                 entries_in_allowed_network_rules: Optional[int] = None,
+                 entries_in_blocked_ip_list: Optional[int] = None,
+                 entries_in_blocked_network_rules: Optional[int] = None,
+                 name: Optional[str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if entries_in_allowed_ip_list is not None:
+            pulumi.set(__self__, "entries_in_allowed_ip_list", entries_in_allowed_ip_list)
+        if entries_in_allowed_network_rules is not None:
+            pulumi.set(__self__, "entries_in_allowed_network_rules", entries_in_allowed_network_rules)
+        if entries_in_blocked_ip_list is not None:
+            pulumi.set(__self__, "entries_in_blocked_ip_list", entries_in_blocked_ip_list)
+        if entries_in_blocked_network_rules is not None:
+            pulumi.set(__self__, "entries_in_blocked_network_rules", entries_in_blocked_network_rules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="entriesInAllowedIpList")
+    def entries_in_allowed_ip_list(self) -> Optional[int]:
+        return pulumi.get(self, "entries_in_allowed_ip_list")
+
+    @property
+    @pulumi.getter(name="entriesInAllowedNetworkRules")
+    def entries_in_allowed_network_rules(self) -> Optional[int]:
+        return pulumi.get(self, "entries_in_allowed_network_rules")
+
+    @property
+    @pulumi.getter(name="entriesInBlockedIpList")
+    def entries_in_blocked_ip_list(self) -> Optional[int]:
+        return pulumi.get(self, "entries_in_blocked_ip_list")
+
+    @property
+    @pulumi.getter(name="entriesInBlockedNetworkRules")
+    def entries_in_blocked_network_rules(self) -> Optional[int]:
+        return pulumi.get(self, "entries_in_blocked_network_rules")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockedRolesLists":
+            suggest = "blocked_roles_lists"
+        elif key == "networkPolicies":
+            suggest = "network_policies"
+        elif key == "oauthAllowNonTlsRedirectUris":
+            suggest = "oauth_allow_non_tls_redirect_uris"
+        elif key == "oauthAllowedAuthorizationEndpoints":
+            suggest = "oauth_allowed_authorization_endpoints"
+        elif key == "oauthAllowedTokenEndpoints":
+            suggest = "oauth_allowed_token_endpoints"
+        elif key == "oauthAuthorizationEndpoints":
+            suggest = "oauth_authorization_endpoints"
+        elif key == "oauthClientIds":
+            suggest = "oauth_client_ids"
+        elif key == "oauthClientRsaPublicKey2Fps":
+            suggest = "oauth_client_rsa_public_key2_fps"
+        elif key == "oauthClientRsaPublicKeyFps":
+            suggest = "oauth_client_rsa_public_key_fps"
+        elif key == "oauthClientTypes":
+            suggest = "oauth_client_types"
+        elif key == "oauthEnforcePkces":
+            suggest = "oauth_enforce_pkces"
+        elif key == "oauthIssueRefreshTokens":
+            suggest = "oauth_issue_refresh_tokens"
+        elif key == "oauthRedirectUris":
+            suggest = "oauth_redirect_uris"
+        elif key == "oauthRefreshTokenValidities":
+            suggest = "oauth_refresh_token_validities"
+        elif key == "oauthTokenEndpoints":
+            suggest = "oauth_token_endpoints"
+        elif key == "oauthUseSecondaryRoles":
+            suggest = "oauth_use_secondary_roles"
+        elif key == "preAuthorizedRolesLists":
+            suggest = "pre_authorized_roles_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForCustomClientsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForCustomClientsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForCustomClientsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocked_roles_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList']] = None,
+                 comments: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled']] = None,
+                 network_policies: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy']] = None,
+                 oauth_allow_non_tls_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri']] = None,
+                 oauth_allowed_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint']] = None,
+                 oauth_allowed_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint']] = None,
+                 oauth_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint']] = None,
+                 oauth_client_ids: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId']] = None,
+                 oauth_client_rsa_public_key2_fps: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp']] = None,
+                 oauth_client_rsa_public_key_fps: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp']] = None,
+                 oauth_client_types: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType']] = None,
+                 oauth_enforce_pkces: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce']] = None,
+                 oauth_issue_refresh_tokens: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken']] = None,
+                 oauth_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri']] = None,
+                 oauth_refresh_token_validities: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity']] = None,
+                 oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint']] = None,
+                 oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole']] = None,
+                 pre_authorized_roles_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList']] = None):
+        if blocked_roles_lists is not None:
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if network_policies is not None:
+            pulumi.set(__self__, "network_policies", network_policies)
+        if oauth_allow_non_tls_redirect_uris is not None:
+            pulumi.set(__self__, "oauth_allow_non_tls_redirect_uris", oauth_allow_non_tls_redirect_uris)
+        if oauth_allowed_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_allowed_authorization_endpoints", oauth_allowed_authorization_endpoints)
+        if oauth_allowed_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
+        if oauth_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        if oauth_client_ids is not None:
+            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        if oauth_client_rsa_public_key2_fps is not None:
+            pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
+        if oauth_client_rsa_public_key_fps is not None:
+            pulumi.set(__self__, "oauth_client_rsa_public_key_fps", oauth_client_rsa_public_key_fps)
+        if oauth_client_types is not None:
+            pulumi.set(__self__, "oauth_client_types", oauth_client_types)
+        if oauth_enforce_pkces is not None:
+            pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
+        if oauth_issue_refresh_tokens is not None:
+            pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+        if oauth_redirect_uris is not None:
+            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
+        if oauth_refresh_token_validities is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        if oauth_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        if oauth_use_secondary_roles is not None:
+            pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
+        if pre_authorized_roles_lists is not None:
+            pulumi.set(__self__, "pre_authorized_roles_lists", pre_authorized_roles_lists)
+
+    @property
+    @pulumi.getter(name="blockedRolesLists")
+    def blocked_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList']]:
+        return pulumi.get(self, "blocked_roles_lists")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="networkPolicies")
+    def network_policies(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy']]:
+        return pulumi.get(self, "network_policies")
+
+    @property
+    @pulumi.getter(name="oauthAllowNonTlsRedirectUris")
+    def oauth_allow_non_tls_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri']]:
+        return pulumi.get(self, "oauth_allow_non_tls_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthAllowedAuthorizationEndpoints")
+    def oauth_allowed_authorization_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_allowed_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAllowedTokenEndpoints")
+    def oauth_allowed_token_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint']]:
+        return pulumi.get(self, "oauth_allowed_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId']]:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
+    def oauth_client_rsa_public_key2_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp']]:
+        return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKeyFps")
+    def oauth_client_rsa_public_key_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp']]:
+        return pulumi.get(self, "oauth_client_rsa_public_key_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientTypes")
+    def oauth_client_types(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType']]:
+        return pulumi.get(self, "oauth_client_types")
+
+    @property
+    @pulumi.getter(name="oauthEnforcePkces")
+    def oauth_enforce_pkces(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce']]:
+        return pulumi.get(self, "oauth_enforce_pkces")
+
+    @property
+    @pulumi.getter(name="oauthIssueRefreshTokens")
+    def oauth_issue_refresh_tokens(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken']]:
+        return pulumi.get(self, "oauth_issue_refresh_tokens")
+
+    @property
+    @pulumi.getter(name="oauthRedirectUris")
+    def oauth_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri']]:
+        return pulumi.get(self, "oauth_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity']]:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint']]:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthUseSecondaryRoles")
+    def oauth_use_secondary_roles(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole']]:
+        return pulumi.get(self, "oauth_use_secondary_roles")
+
+    @property
+    @pulumi.getter(name="preAuthorizedRolesLists")
+    def pre_authorized_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList']]:
+        return pulumi.get(self, "pre_authorized_roles_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthClientId(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthClientType(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForCustomClientsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForCustomClientsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForCustomClientsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockedRolesLists":
+            suggest = "blocked_roles_lists"
+        elif key == "networkPolicies":
+            suggest = "network_policies"
+        elif key == "oauthAllowNonTlsRedirectUris":
+            suggest = "oauth_allow_non_tls_redirect_uris"
+        elif key == "oauthAllowedAuthorizationEndpoints":
+            suggest = "oauth_allowed_authorization_endpoints"
+        elif key == "oauthAllowedTokenEndpoints":
+            suggest = "oauth_allowed_token_endpoints"
+        elif key == "oauthAuthorizationEndpoints":
+            suggest = "oauth_authorization_endpoints"
+        elif key == "oauthClientIds":
+            suggest = "oauth_client_ids"
+        elif key == "oauthClientRsaPublicKey2Fps":
+            suggest = "oauth_client_rsa_public_key2_fps"
+        elif key == "oauthClientRsaPublicKeyFps":
+            suggest = "oauth_client_rsa_public_key_fps"
+        elif key == "oauthClientTypes":
+            suggest = "oauth_client_types"
+        elif key == "oauthEnforcePkces":
+            suggest = "oauth_enforce_pkces"
+        elif key == "oauthIssueRefreshTokens":
+            suggest = "oauth_issue_refresh_tokens"
+        elif key == "oauthRedirectUris":
+            suggest = "oauth_redirect_uris"
+        elif key == "oauthRefreshTokenValidities":
+            suggest = "oauth_refresh_token_validities"
+        elif key == "oauthTokenEndpoints":
+            suggest = "oauth_token_endpoints"
+        elif key == "oauthUseSecondaryRoles":
+            suggest = "oauth_use_secondary_roles"
+        elif key == "preAuthorizedRolesLists":
+            suggest = "pre_authorized_roles_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForPartnerApplicationsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForPartnerApplicationsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForPartnerApplicationsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocked_roles_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList']] = None,
+                 comments: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled']] = None,
+                 network_policies: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy']] = None,
+                 oauth_allow_non_tls_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri']] = None,
+                 oauth_allowed_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint']] = None,
+                 oauth_allowed_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint']] = None,
+                 oauth_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint']] = None,
+                 oauth_client_ids: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId']] = None,
+                 oauth_client_rsa_public_key2_fps: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp']] = None,
+                 oauth_client_rsa_public_key_fps: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp']] = None,
+                 oauth_client_types: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType']] = None,
+                 oauth_enforce_pkces: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce']] = None,
+                 oauth_issue_refresh_tokens: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken']] = None,
+                 oauth_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri']] = None,
+                 oauth_refresh_token_validities: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity']] = None,
+                 oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint']] = None,
+                 oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole']] = None,
+                 pre_authorized_roles_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList']] = None):
+        if blocked_roles_lists is not None:
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if network_policies is not None:
+            pulumi.set(__self__, "network_policies", network_policies)
+        if oauth_allow_non_tls_redirect_uris is not None:
+            pulumi.set(__self__, "oauth_allow_non_tls_redirect_uris", oauth_allow_non_tls_redirect_uris)
+        if oauth_allowed_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_allowed_authorization_endpoints", oauth_allowed_authorization_endpoints)
+        if oauth_allowed_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
+        if oauth_authorization_endpoints is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        if oauth_client_ids is not None:
+            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        if oauth_client_rsa_public_key2_fps is not None:
+            pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
+        if oauth_client_rsa_public_key_fps is not None:
+            pulumi.set(__self__, "oauth_client_rsa_public_key_fps", oauth_client_rsa_public_key_fps)
+        if oauth_client_types is not None:
+            pulumi.set(__self__, "oauth_client_types", oauth_client_types)
+        if oauth_enforce_pkces is not None:
+            pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
+        if oauth_issue_refresh_tokens is not None:
+            pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+        if oauth_redirect_uris is not None:
+            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
+        if oauth_refresh_token_validities is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        if oauth_token_endpoints is not None:
+            pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        if oauth_use_secondary_roles is not None:
+            pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
+        if pre_authorized_roles_lists is not None:
+            pulumi.set(__self__, "pre_authorized_roles_lists", pre_authorized_roles_lists)
+
+    @property
+    @pulumi.getter(name="blockedRolesLists")
+    def blocked_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList']]:
+        return pulumi.get(self, "blocked_roles_lists")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="networkPolicies")
+    def network_policies(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy']]:
+        return pulumi.get(self, "network_policies")
+
+    @property
+    @pulumi.getter(name="oauthAllowNonTlsRedirectUris")
+    def oauth_allow_non_tls_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri']]:
+        return pulumi.get(self, "oauth_allow_non_tls_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthAllowedAuthorizationEndpoints")
+    def oauth_allowed_authorization_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_allowed_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAllowedTokenEndpoints")
+    def oauth_allowed_token_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint']]:
+        return pulumi.get(self, "oauth_allowed_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint']]:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId']]:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
+    def oauth_client_rsa_public_key2_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp']]:
+        return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKeyFps")
+    def oauth_client_rsa_public_key_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp']]:
+        return pulumi.get(self, "oauth_client_rsa_public_key_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientTypes")
+    def oauth_client_types(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType']]:
+        return pulumi.get(self, "oauth_client_types")
+
+    @property
+    @pulumi.getter(name="oauthEnforcePkces")
+    def oauth_enforce_pkces(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce']]:
+        return pulumi.get(self, "oauth_enforce_pkces")
+
+    @property
+    @pulumi.getter(name="oauthIssueRefreshTokens")
+    def oauth_issue_refresh_tokens(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken']]:
+        return pulumi.get(self, "oauth_issue_refresh_tokens")
+
+    @property
+    @pulumi.getter(name="oauthRedirectUris")
+    def oauth_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri']]:
+        return pulumi.get(self, "oauth_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity']]:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint']]:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthUseSecondaryRoles")
+    def oauth_use_secondary_roles(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole']]:
+        return pulumi.get(self, "oauth_use_secondary_roles")
+
+    @property
+    @pulumi.getter(name="preAuthorizedRolesLists")
+    def pre_authorized_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList']]:
+        return pulumi.get(self, "pre_authorized_roles_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForPartnerApplicationsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForPartnerApplicationsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForPartnerApplicationsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ObjectParameterObjectIdentifier(dict):
     def __init__(__self__, *,
                  name: str,
@@ -1832,109 +6843,2544 @@ class ProcedureArgument(dict):
 
 
 @pulumi.output_type
-class RoleTag(dict):
+class RoleShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedToUsers":
+            suggest = "assigned_to_users"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "grantedRoles":
+            suggest = "granted_roles"
+        elif key == "grantedToRoles":
+            suggest = "granted_to_roles"
+        elif key == "isCurrent":
+            suggest = "is_current"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "isInherited":
+            suggest = "is_inherited"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleShowOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str,
-                 value: str,
-                 database: Optional[str] = None,
-                 schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+                 assigned_to_users: Optional[int] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 granted_roles: Optional[int] = None,
+                 granted_to_roles: Optional[int] = None,
+                 is_current: Optional[bool] = None,
+                 is_default: Optional[bool] = None,
+                 is_inherited: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None):
+        if assigned_to_users is not None:
+            pulumi.set(__self__, "assigned_to_users", assigned_to_users)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if granted_roles is not None:
+            pulumi.set(__self__, "granted_roles", granted_roles)
+        if granted_to_roles is not None:
+            pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if is_inherited is not None:
+            pulumi.set(__self__, "is_inherited", is_inherited)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> Optional[int]:
+        return pulumi.get(self, "assigned_to_users")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> Optional[int]:
+        return pulumi.get(self, "granted_roles")
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> Optional[int]:
+        return pulumi.get(self, "granted_to_roles")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[bool]:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> Optional[bool]:
+        return pulumi.get(self, "is_inherited")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
 
 
 @pulumi.output_type
-class SchemaTag(dict):
+class Saml2IntegrationDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedEmailPatterns":
+            suggest = "allowed_email_patterns"
+        elif key == "allowedUserDomains":
+            suggest = "allowed_user_domains"
+        elif key == "saml2DigestMethodsUseds":
+            suggest = "saml2_digest_methods_useds"
+        elif key == "saml2EnableSpInitiateds":
+            suggest = "saml2_enable_sp_initiateds"
+        elif key == "saml2ForceAuthns":
+            suggest = "saml2_force_authns"
+        elif key == "saml2Issuers":
+            suggest = "saml2_issuers"
+        elif key == "saml2PostLogoutRedirectUrls":
+            suggest = "saml2_post_logout_redirect_urls"
+        elif key == "saml2Providers":
+            suggest = "saml2_providers"
+        elif key == "saml2RequestedNameidFormats":
+            suggest = "saml2_requested_nameid_formats"
+        elif key == "saml2SignRequests":
+            suggest = "saml2_sign_requests"
+        elif key == "saml2SignatureMethodsUseds":
+            suggest = "saml2_signature_methods_useds"
+        elif key == "saml2SnowflakeAcsUrls":
+            suggest = "saml2_snowflake_acs_urls"
+        elif key == "saml2SnowflakeIssuerUrls":
+            suggest = "saml2_snowflake_issuer_urls"
+        elif key == "saml2SnowflakeMetadatas":
+            suggest = "saml2_snowflake_metadatas"
+        elif key == "saml2SnowflakeX509Certs":
+            suggest = "saml2_snowflake_x509_certs"
+        elif key == "saml2SpInitiatedLoginPageLabels":
+            suggest = "saml2_sp_initiated_login_page_labels"
+        elif key == "saml2SsoUrls":
+            suggest = "saml2_sso_urls"
+        elif key == "saml2X509Certs":
+            suggest = "saml2_x509_certs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Saml2IntegrationDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Saml2IntegrationDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Saml2IntegrationDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str,
-                 value: str,
-                 database: Optional[str] = None,
-                 schema: Optional[str] = None):
-        """
-        :param str name: Tag name, e.g. department.
-        :param str value: Tag value, e.g. marketing_info.
-        :param str database: Name of the database that the tag was created in.
-        :param str schema: Name of the schema that the tag was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+                 allowed_email_patterns: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputAllowedEmailPattern']] = None,
+                 allowed_user_domains: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputAllowedUserDomain']] = None,
+                 comments: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputComment']] = None,
+                 saml2_digest_methods_useds: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed']] = None,
+                 saml2_enable_sp_initiateds: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated']] = None,
+                 saml2_force_authns: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn']] = None,
+                 saml2_issuers: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2Issuer']] = None,
+                 saml2_post_logout_redirect_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl']] = None,
+                 saml2_providers: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2Provider']] = None,
+                 saml2_requested_nameid_formats: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat']] = None,
+                 saml2_sign_requests: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SignRequest']] = None,
+                 saml2_signature_methods_useds: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed']] = None,
+                 saml2_snowflake_acs_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl']] = None,
+                 saml2_snowflake_issuer_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl']] = None,
+                 saml2_snowflake_metadatas: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata']] = None,
+                 saml2_snowflake_x509_certs: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert']] = None,
+                 saml2_sp_initiated_login_page_labels: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel']] = None,
+                 saml2_sso_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl']] = None,
+                 saml2_x509_certs: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2X509Cert']] = None):
+        if allowed_email_patterns is not None:
+            pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
+        if allowed_user_domains is not None:
+            pulumi.set(__self__, "allowed_user_domains", allowed_user_domains)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if saml2_digest_methods_useds is not None:
+            pulumi.set(__self__, "saml2_digest_methods_useds", saml2_digest_methods_useds)
+        if saml2_enable_sp_initiateds is not None:
+            pulumi.set(__self__, "saml2_enable_sp_initiateds", saml2_enable_sp_initiateds)
+        if saml2_force_authns is not None:
+            pulumi.set(__self__, "saml2_force_authns", saml2_force_authns)
+        if saml2_issuers is not None:
+            pulumi.set(__self__, "saml2_issuers", saml2_issuers)
+        if saml2_post_logout_redirect_urls is not None:
+            pulumi.set(__self__, "saml2_post_logout_redirect_urls", saml2_post_logout_redirect_urls)
+        if saml2_providers is not None:
+            pulumi.set(__self__, "saml2_providers", saml2_providers)
+        if saml2_requested_nameid_formats is not None:
+            pulumi.set(__self__, "saml2_requested_nameid_formats", saml2_requested_nameid_formats)
+        if saml2_sign_requests is not None:
+            pulumi.set(__self__, "saml2_sign_requests", saml2_sign_requests)
+        if saml2_signature_methods_useds is not None:
+            pulumi.set(__self__, "saml2_signature_methods_useds", saml2_signature_methods_useds)
+        if saml2_snowflake_acs_urls is not None:
+            pulumi.set(__self__, "saml2_snowflake_acs_urls", saml2_snowflake_acs_urls)
+        if saml2_snowflake_issuer_urls is not None:
+            pulumi.set(__self__, "saml2_snowflake_issuer_urls", saml2_snowflake_issuer_urls)
+        if saml2_snowflake_metadatas is not None:
+            pulumi.set(__self__, "saml2_snowflake_metadatas", saml2_snowflake_metadatas)
+        if saml2_snowflake_x509_certs is not None:
+            pulumi.set(__self__, "saml2_snowflake_x509_certs", saml2_snowflake_x509_certs)
+        if saml2_sp_initiated_login_page_labels is not None:
+            pulumi.set(__self__, "saml2_sp_initiated_login_page_labels", saml2_sp_initiated_login_page_labels)
+        if saml2_sso_urls is not None:
+            pulumi.set(__self__, "saml2_sso_urls", saml2_sso_urls)
+        if saml2_x509_certs is not None:
+            pulumi.set(__self__, "saml2_x509_certs", saml2_x509_certs)
+
+    @property
+    @pulumi.getter(name="allowedEmailPatterns")
+    def allowed_email_patterns(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputAllowedEmailPattern']]:
+        return pulumi.get(self, "allowed_email_patterns")
+
+    @property
+    @pulumi.getter(name="allowedUserDomains")
+    def allowed_user_domains(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputAllowedUserDomain']]:
+        return pulumi.get(self, "allowed_user_domains")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
-        """
-        Tag name, e.g. department.
-        """
+    def comments(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter(name="saml2DigestMethodsUseds")
+    def saml2_digest_methods_useds(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed']]:
+        return pulumi.get(self, "saml2_digest_methods_useds")
+
+    @property
+    @pulumi.getter(name="saml2EnableSpInitiateds")
+    def saml2_enable_sp_initiateds(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated']]:
+        return pulumi.get(self, "saml2_enable_sp_initiateds")
+
+    @property
+    @pulumi.getter(name="saml2ForceAuthns")
+    def saml2_force_authns(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn']]:
+        return pulumi.get(self, "saml2_force_authns")
+
+    @property
+    @pulumi.getter(name="saml2Issuers")
+    def saml2_issuers(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2Issuer']]:
+        return pulumi.get(self, "saml2_issuers")
+
+    @property
+    @pulumi.getter(name="saml2PostLogoutRedirectUrls")
+    def saml2_post_logout_redirect_urls(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl']]:
+        return pulumi.get(self, "saml2_post_logout_redirect_urls")
+
+    @property
+    @pulumi.getter(name="saml2Providers")
+    def saml2_providers(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2Provider']]:
+        return pulumi.get(self, "saml2_providers")
+
+    @property
+    @pulumi.getter(name="saml2RequestedNameidFormats")
+    def saml2_requested_nameid_formats(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat']]:
+        return pulumi.get(self, "saml2_requested_nameid_formats")
+
+    @property
+    @pulumi.getter(name="saml2SignRequests")
+    def saml2_sign_requests(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SignRequest']]:
+        return pulumi.get(self, "saml2_sign_requests")
+
+    @property
+    @pulumi.getter(name="saml2SignatureMethodsUseds")
+    def saml2_signature_methods_useds(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed']]:
+        return pulumi.get(self, "saml2_signature_methods_useds")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeAcsUrls")
+    def saml2_snowflake_acs_urls(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl']]:
+        return pulumi.get(self, "saml2_snowflake_acs_urls")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeIssuerUrls")
+    def saml2_snowflake_issuer_urls(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl']]:
+        return pulumi.get(self, "saml2_snowflake_issuer_urls")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeMetadatas")
+    def saml2_snowflake_metadatas(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata']]:
+        return pulumi.get(self, "saml2_snowflake_metadatas")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeX509Certs")
+    def saml2_snowflake_x509_certs(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert']]:
+        return pulumi.get(self, "saml2_snowflake_x509_certs")
+
+    @property
+    @pulumi.getter(name="saml2SpInitiatedLoginPageLabels")
+    def saml2_sp_initiated_login_page_labels(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel']]:
+        return pulumi.get(self, "saml2_sp_initiated_login_page_labels")
+
+    @property
+    @pulumi.getter(name="saml2SsoUrls")
+    def saml2_sso_urls(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl']]:
+        return pulumi.get(self, "saml2_sso_urls")
+
+    @property
+    @pulumi.getter(name="saml2X509Certs")
+    def saml2_x509_certs(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2X509Cert']]:
+        return pulumi.get(self, "saml2_x509_certs")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputAllowedEmailPattern(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def value(self) -> str:
-        """
-        Tag value, e.g. marketing_info.
-        """
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[str]:
-        """
-        Name of the database that the tag was created in.
-        """
-        return pulumi.get(self, "database")
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputAllowedUserDomain(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the tag was created in.
-        """
-        return pulumi.get(self, "schema")
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2EnableSpInitiated(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2ForceAuthn(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2Issuer(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2Provider(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SignRequest(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2SsoUrl(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationDescribeOutputSaml2X509Cert(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Saml2IntegrationShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Saml2IntegrationShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Saml2IntegrationShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Saml2IntegrationShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SchemaDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_on: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 name: Optional[str] = None):
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SchemaParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataRetentionTimeInDays":
+            suggest = "data_retention_time_in_days"
+        elif key == "defaultDdlCollations":
+            suggest = "default_ddl_collations"
+        elif key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "maxDataExtensionTimeInDays":
+            suggest = "max_data_extension_time_in_days"
+        elif key == "pipeExecutionPauseds":
+            suggest = "pipe_execution_pauseds"
+        elif key == "quotedIdentifiersIgnoreCases":
+            suggest = "quoted_identifiers_ignore_cases"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "storageSerializationPolicies":
+            suggest = "storage_serialization_policies"
+        elif key == "suspendTaskAfterNumFailures":
+            suggest = "suspend_task_after_num_failures"
+        elif key == "taskAutoRetryAttempts":
+            suggest = "task_auto_retry_attempts"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+        elif key == "userTaskManagedInitialWarehouseSizes":
+            suggest = "user_task_managed_initial_warehouse_sizes"
+        elif key == "userTaskMinimumTriggerIntervalInSeconds":
+            suggest = "user_task_minimum_trigger_interval_in_seconds"
+        elif key == "userTaskTimeoutMs":
+            suggest = "user_task_timeout_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalogs: Optional[Sequence['outputs.SchemaParameterCatalog']] = None,
+                 data_retention_time_in_days: Optional[Sequence['outputs.SchemaParameterDataRetentionTimeInDay']] = None,
+                 default_ddl_collations: Optional[Sequence['outputs.SchemaParameterDefaultDdlCollation']] = None,
+                 enable_console_outputs: Optional[Sequence['outputs.SchemaParameterEnableConsoleOutput']] = None,
+                 external_volumes: Optional[Sequence['outputs.SchemaParameterExternalVolume']] = None,
+                 log_levels: Optional[Sequence['outputs.SchemaParameterLogLevel']] = None,
+                 max_data_extension_time_in_days: Optional[Sequence['outputs.SchemaParameterMaxDataExtensionTimeInDay']] = None,
+                 pipe_execution_pauseds: Optional[Sequence['outputs.SchemaParameterPipeExecutionPaused']] = None,
+                 quoted_identifiers_ignore_cases: Optional[Sequence['outputs.SchemaParameterQuotedIdentifiersIgnoreCase']] = None,
+                 replace_invalid_characters: Optional[Sequence['outputs.SchemaParameterReplaceInvalidCharacter']] = None,
+                 storage_serialization_policies: Optional[Sequence['outputs.SchemaParameterStorageSerializationPolicy']] = None,
+                 suspend_task_after_num_failures: Optional[Sequence['outputs.SchemaParameterSuspendTaskAfterNumFailure']] = None,
+                 task_auto_retry_attempts: Optional[Sequence['outputs.SchemaParameterTaskAutoRetryAttempt']] = None,
+                 trace_levels: Optional[Sequence['outputs.SchemaParameterTraceLevel']] = None,
+                 user_task_managed_initial_warehouse_sizes: Optional[Sequence['outputs.SchemaParameterUserTaskManagedInitialWarehouseSize']] = None,
+                 user_task_minimum_trigger_interval_in_seconds: Optional[Sequence['outputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond']] = None,
+                 user_task_timeout_ms: Optional[Sequence['outputs.SchemaParameterUserTaskTimeoutM']] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if data_retention_time_in_days is not None:
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        if default_ddl_collations is not None:
+            pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if max_data_extension_time_in_days is not None:
+            pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        if pipe_execution_pauseds is not None:
+            pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
+        if quoted_identifiers_ignore_cases is not None:
+            pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if storage_serialization_policies is not None:
+            pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        if suspend_task_after_num_failures is not None:
+            pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if task_auto_retry_attempts is not None:
+            pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+        if user_task_managed_initial_warehouse_sizes is not None:
+            pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        if user_task_minimum_trigger_interval_in_seconds is not None:
+            pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        if user_task_timeout_ms is not None:
+            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+
+    @property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.SchemaParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Optional[Sequence['outputs.SchemaParameterDataRetentionTimeInDay']]:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> Optional[Sequence['outputs.SchemaParameterDefaultDdlCollation']]:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.SchemaParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.SchemaParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.SchemaParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Optional[Sequence['outputs.SchemaParameterMaxDataExtensionTimeInDay']]:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @property
+    @pulumi.getter(name="pipeExecutionPauseds")
+    def pipe_execution_pauseds(self) -> Optional[Sequence['outputs.SchemaParameterPipeExecutionPaused']]:
+        return pulumi.get(self, "pipe_execution_pauseds")
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Optional[Sequence['outputs.SchemaParameterQuotedIdentifiersIgnoreCase']]:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[Sequence['outputs.SchemaParameterReplaceInvalidCharacter']]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Optional[Sequence['outputs.SchemaParameterStorageSerializationPolicy']]:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Optional[Sequence['outputs.SchemaParameterSuspendTaskAfterNumFailure']]:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Optional[Sequence['outputs.SchemaParameterTaskAutoRetryAttempt']]:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.SchemaParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Optional[Sequence['outputs.SchemaParameterUserTaskManagedInitialWarehouseSize']]:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[Sequence['outputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond']]:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Optional[Sequence['outputs.SchemaParameterUserTaskTimeoutM']]:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+
+@pulumi.output_type
+class SchemaParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterDataRetentionTimeInDay(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterDefaultDdlCollation(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterMaxDataExtensionTimeInDay(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterPipeExecutionPaused(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterQuotedIdentifiersIgnoreCase(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterReplaceInvalidCharacter(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterStorageSerializationPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterSuspendTaskAfterNumFailure(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterTaskAutoRetryAttempt(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterUserTaskManagedInitialWarehouseSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterUserTaskMinimumTriggerIntervalInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterUserTaskTimeoutM(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "droppedOn":
+            suggest = "dropped_on"
+        elif key == "isCurrent":
+            suggest = "is_current"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "retentionTime":
+            suggest = "retention_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 dropped_on: Optional[str] = None,
+                 is_current: Optional[bool] = None,
+                 is_default: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 options: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 retention_time: Optional[str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dropped_on is not None:
+            pulumi.set(__self__, "dropped_on", dropped_on)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if retention_time is not None:
+            pulumi.set(__self__, "retention_time", retention_time)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> Optional[str]:
+        return pulumi.get(self, "dropped_on")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[bool]:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[str]:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> Optional[str]:
+        return pulumi.get(self, "retention_time")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkPolicies":
+            suggest = "network_policies"
+        elif key == "runAsRoles":
+            suggest = "run_as_roles"
+        elif key == "syncPasswords":
+            suggest = "sync_passwords"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScimIntegrationDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScimIntegrationDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScimIntegrationDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comments: Optional[Sequence['outputs.ScimIntegrationDescribeOutputComment']] = None,
+                 enableds: Optional[Sequence['outputs.ScimIntegrationDescribeOutputEnabled']] = None,
+                 network_policies: Optional[Sequence['outputs.ScimIntegrationDescribeOutputNetworkPolicy']] = None,
+                 run_as_roles: Optional[Sequence['outputs.ScimIntegrationDescribeOutputRunAsRole']] = None,
+                 sync_passwords: Optional[Sequence['outputs.ScimIntegrationDescribeOutputSyncPassword']] = None):
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if network_policies is not None:
+            pulumi.set(__self__, "network_policies", network_policies)
+        if run_as_roles is not None:
+            pulumi.set(__self__, "run_as_roles", run_as_roles)
+        if sync_passwords is not None:
+            pulumi.set(__self__, "sync_passwords", sync_passwords)
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Optional[Sequence['outputs.ScimIntegrationDescribeOutputComment']]:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence['outputs.ScimIntegrationDescribeOutputEnabled']]:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="networkPolicies")
+    def network_policies(self) -> Optional[Sequence['outputs.ScimIntegrationDescribeOutputNetworkPolicy']]:
+        return pulumi.get(self, "network_policies")
+
+    @property
+    @pulumi.getter(name="runAsRoles")
+    def run_as_roles(self) -> Optional[Sequence['outputs.ScimIntegrationDescribeOutputRunAsRole']]:
+        return pulumi.get(self, "run_as_roles")
+
+    @property
+    @pulumi.getter(name="syncPasswords")
+    def sync_passwords(self) -> Optional[Sequence['outputs.ScimIntegrationDescribeOutputSyncPassword']]:
+        return pulumi.get(self, "sync_passwords")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutputComment(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutputEnabled(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutputNetworkPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutputRunAsRole(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScimIntegrationDescribeOutputSyncPassword(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScimIntegrationShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "integrationType":
+            suggest = "integration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScimIntegrationShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScimIntegrationShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScimIntegrationShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 integration_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if integration_type is not None:
+            pulumi.set(__self__, "integration_type", integration_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> Optional[str]:
+        return pulumi.get(self, "integration_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -1991,6 +9437,244 @@ class StageTag(dict):
 
 
 @pulumi.output_type
+class StreamlitDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultPackages":
+            suggest = "default_packages"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "externalAccessSecrets":
+            suggest = "external_access_secrets"
+        elif key == "importUrls":
+            suggest = "import_urls"
+        elif key == "mainFile":
+            suggest = "main_file"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "rootLocation":
+            suggest = "root_location"
+        elif key == "urlId":
+            suggest = "url_id"
+        elif key == "userPackages":
+            suggest = "user_packages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamlitDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamlitDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamlitDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_packages: Optional[str] = None,
+                 external_access_integrations: Optional[Sequence[str]] = None,
+                 external_access_secrets: Optional[str] = None,
+                 import_urls: Optional[Sequence[str]] = None,
+                 main_file: Optional[str] = None,
+                 name: Optional[str] = None,
+                 query_warehouse: Optional[str] = None,
+                 root_location: Optional[str] = None,
+                 title: Optional[str] = None,
+                 url_id: Optional[str] = None,
+                 user_packages: Optional[Sequence[str]] = None):
+        if default_packages is not None:
+            pulumi.set(__self__, "default_packages", default_packages)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if external_access_secrets is not None:
+            pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        if import_urls is not None:
+            pulumi.set(__self__, "import_urls", import_urls)
+        if main_file is not None:
+            pulumi.set(__self__, "main_file", main_file)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if root_location is not None:
+            pulumi.set(__self__, "root_location", root_location)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+        if user_packages is not None:
+            pulumi.set(__self__, "user_packages", user_packages)
+
+    @property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> Optional[str]:
+        return pulumi.get(self, "default_packages")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_secrets")
+
+    @property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "import_urls")
+
+    @property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> Optional[str]:
+        return pulumi.get(self, "main_file")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="rootLocation")
+    def root_location(self) -> Optional[str]:
+        return pulumi.get(self, "root_location")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[str]:
+        return pulumi.get(self, "url_id")
+
+    @property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "user_packages")
+
+
+@pulumi.output_type
+class StreamlitShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "urlId":
+            suggest = "url_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamlitShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamlitShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamlitShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 query_warehouse: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 title: Optional[str] = None,
+                 url_id: Optional[str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[str]:
+        return pulumi.get(self, "url_id")
+
+
+@pulumi.output_type
 class TableColumn(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2023,7 +9707,7 @@ class TableColumn(dict):
                  schema_evolution_record: Optional[str] = None):
         """
         :param str name: Column name
-        :param str type: Column type, e.g. VARIANT
+        :param str type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         :param str collate: Column collation, e.g. utf8
         :param str comment: Column comment
         :param 'TableColumnDefaultArgs' default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
@@ -2061,7 +9745,7 @@ class TableColumn(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Column type, e.g. VARIANT
+        Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "type")
 
@@ -2513,6 +10197,457 @@ class ViewTag(dict):
 
 
 @pulumi.output_type
+class WarehouseParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrencyLevels":
+            suggest = "max_concurrency_levels"
+        elif key == "statementQueuedTimeoutInSeconds":
+            suggest = "statement_queued_timeout_in_seconds"
+        elif key == "statementTimeoutInSeconds":
+            suggest = "statement_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarehouseParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarehouseParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarehouseParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrency_levels: Optional[Sequence['outputs.WarehouseParameterMaxConcurrencyLevel']] = None,
+                 statement_queued_timeout_in_seconds: Optional[Sequence['outputs.WarehouseParameterStatementQueuedTimeoutInSecond']] = None,
+                 statement_timeout_in_seconds: Optional[Sequence['outputs.WarehouseParameterStatementTimeoutInSecond']] = None):
+        if max_concurrency_levels is not None:
+            pulumi.set(__self__, "max_concurrency_levels", max_concurrency_levels)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        if statement_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="maxConcurrencyLevels")
+    def max_concurrency_levels(self) -> Optional[Sequence['outputs.WarehouseParameterMaxConcurrencyLevel']]:
+        return pulumi.get(self, "max_concurrency_levels")
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[Sequence['outputs.WarehouseParameterStatementQueuedTimeoutInSecond']]:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Optional[Sequence['outputs.WarehouseParameterStatementTimeoutInSecond']]:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+
+@pulumi.output_type
+class WarehouseParameterMaxConcurrencyLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseParameterStatementQueuedTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseParameterStatementTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspend":
+            suggest = "auto_suspend"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "enableQueryAcceleration":
+            suggest = "enable_query_acceleration"
+        elif key == "isCurrent":
+            suggest = "is_current"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "maxClusterCount":
+            suggest = "max_cluster_count"
+        elif key == "minClusterCount":
+            suggest = "min_cluster_count"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryAccelerationMaxScaleFactor":
+            suggest = "query_acceleration_max_scale_factor"
+        elif key == "resourceMonitor":
+            suggest = "resource_monitor"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "scalingPolicy":
+            suggest = "scaling_policy"
+        elif key == "startedClusters":
+            suggest = "started_clusters"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarehouseShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarehouseShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarehouseShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[bool] = None,
+                 auto_suspend: Optional[int] = None,
+                 available: Optional[float] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 enable_query_acceleration: Optional[bool] = None,
+                 is_current: Optional[bool] = None,
+                 is_default: Optional[bool] = None,
+                 max_cluster_count: Optional[int] = None,
+                 min_cluster_count: Optional[int] = None,
+                 name: Optional[str] = None,
+                 other: Optional[float] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 provisioning: Optional[float] = None,
+                 query_acceleration_max_scale_factor: Optional[int] = None,
+                 queued: Optional[int] = None,
+                 quiescing: Optional[float] = None,
+                 resource_monitor: Optional[str] = None,
+                 resumed_on: Optional[str] = None,
+                 running: Optional[int] = None,
+                 scaling_policy: Optional[str] = None,
+                 size: Optional[str] = None,
+                 started_clusters: Optional[int] = None,
+                 state: Optional[str] = None,
+                 type: Optional[str] = None,
+                 updated_on: Optional[str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend is not None:
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
+        if available is not None:
+            pulumi.set(__self__, "available", available)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enable_query_acceleration is not None:
+            pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if max_cluster_count is not None:
+            pulumi.set(__self__, "max_cluster_count", max_cluster_count)
+        if min_cluster_count is not None:
+            pulumi.set(__self__, "min_cluster_count", min_cluster_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if other is not None:
+            pulumi.set(__self__, "other", other)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if provisioning is not None:
+            pulumi.set(__self__, "provisioning", provisioning)
+        if query_acceleration_max_scale_factor is not None:
+            pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+        if queued is not None:
+            pulumi.set(__self__, "queued", queued)
+        if quiescing is not None:
+            pulumi.set(__self__, "quiescing", quiescing)
+        if resource_monitor is not None:
+            pulumi.set(__self__, "resource_monitor", resource_monitor)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if running is not None:
+            pulumi.set(__self__, "running", running)
+        if scaling_policy is not None:
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if started_clusters is not None:
+            pulumi.set(__self__, "started_clusters", started_clusters)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> Optional[int]:
+        return pulumi.get(self, "auto_suspend")
+
+    @property
+    @pulumi.getter
+    def available(self) -> Optional[float]:
+        return pulumi.get(self, "available")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="enableQueryAcceleration")
+    def enable_query_acceleration(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_query_acceleration")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[bool]:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="maxClusterCount")
+    def max_cluster_count(self) -> Optional[int]:
+        return pulumi.get(self, "max_cluster_count")
+
+    @property
+    @pulumi.getter(name="minClusterCount")
+    def min_cluster_count(self) -> Optional[int]:
+        return pulumi.get(self, "min_cluster_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def other(self) -> Optional[float]:
+        return pulumi.get(self, "other")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter
+    def provisioning(self) -> Optional[float]:
+        return pulumi.get(self, "provisioning")
+
+    @property
+    @pulumi.getter(name="queryAccelerationMaxScaleFactor")
+    def query_acceleration_max_scale_factor(self) -> Optional[int]:
+        return pulumi.get(self, "query_acceleration_max_scale_factor")
+
+    @property
+    @pulumi.getter
+    def queued(self) -> Optional[int]:
+        return pulumi.get(self, "queued")
+
+    @property
+    @pulumi.getter
+    def quiescing(self) -> Optional[float]:
+        return pulumi.get(self, "quiescing")
+
+    @property
+    @pulumi.getter(name="resourceMonitor")
+    def resource_monitor(self) -> Optional[str]:
+        return pulumi.get(self, "resource_monitor")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def running(self) -> Optional[int]:
+        return pulumi.get(self, "running")
+
+    @property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> Optional[str]:
+        return pulumi.get(self, "scaling_policy")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="startedClusters")
+    def started_clusters(self) -> Optional[int]:
+        return pulumi.get(self, "started_clusters")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
 class GetAccountsAccountResult(dict):
     def __init__(__self__, *,
                  account_locator: str,
@@ -2780,6 +10915,141 @@ class GetAlertsAlertResult(dict):
 
 
 @pulumi.output_type
+class GetCortexSearchServicesCortexSearchServiceResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 database_name: str,
+                 name: str,
+                 schema_name: str):
+        """
+        :param str comment: Comment for the cortex search service.
+        :param str created_on: Date and time when the cortex search service was created.
+        :param str database_name: Database in which the cortex search service is stored.
+        :param str name: Name of the cortex search service.
+        :param str schema_name: Schema in which the cortex search service is stored.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        """
+        Comment for the cortex search service.
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Date and time when the cortex search service was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Database in which the cortex search service is stored.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the cortex search service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        """
+        Schema in which the cortex search service is stored.
+        """
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetCortexSearchServicesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetCortexSearchServicesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetDatabaseRolesDatabaseRoleResult(dict):
     def __init__(__self__, *,
                  comment: str,
@@ -2822,26 +11092,857 @@ class GetDatabaseRolesDatabaseRoleResult(dict):
 @pulumi.output_type
 class GetDatabasesDatabaseResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetDatabasesDatabaseDescribeOutputResult'],
+                 parameters: Sequence['outputs.GetDatabasesDatabaseParameterResult'],
+                 show_outputs: Sequence['outputs.GetDatabasesDatabaseShowOutputResult']):
+        """
+        :param Sequence['GetDatabasesDatabaseDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE DATABASE.
+        :param Sequence['GetDatabasesDatabaseParameterArgs'] parameters: Holds the output of SHOW PARAMETERS FOR DATABASE.
+        :param Sequence['GetDatabasesDatabaseShowOutputArgs'] show_outputs: Holds the output of SHOW DATABASES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetDatabasesDatabaseDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE DATABASE.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetDatabasesDatabaseParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS FOR DATABASE.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetDatabasesDatabaseShowOutputResult']:
+        """
+        Holds the output of SHOW DATABASES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 created_on: str,
+                 kind: str,
+                 name: str):
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterResult(dict):
+    def __init__(__self__, *,
+                 catalogs: Sequence['outputs.GetDatabasesDatabaseParameterCatalogResult'],
+                 data_retention_time_in_days: Sequence['outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDayResult'],
+                 default_ddl_collations: Sequence['outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult'],
+                 enable_console_outputs: Sequence['outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult'],
+                 external_volumes: Sequence['outputs.GetDatabasesDatabaseParameterExternalVolumeResult'],
+                 log_levels: Sequence['outputs.GetDatabasesDatabaseParameterLogLevelResult'],
+                 max_data_extension_time_in_days: Sequence['outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult'],
+                 quoted_identifiers_ignore_cases: Sequence['outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult'],
+                 replace_invalid_characters: Sequence['outputs.GetDatabasesDatabaseParameterReplaceInvalidCharacterResult'],
+                 storage_serialization_policies: Sequence['outputs.GetDatabasesDatabaseParameterStorageSerializationPolicyResult'],
+                 suspend_task_after_num_failures: Sequence['outputs.GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureResult'],
+                 task_auto_retry_attempts: Sequence['outputs.GetDatabasesDatabaseParameterTaskAutoRetryAttemptResult'],
+                 trace_levels: Sequence['outputs.GetDatabasesDatabaseParameterTraceLevelResult'],
+                 user_task_managed_initial_warehouse_sizes: Sequence['outputs.GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeResult'],
+                 user_task_minimum_trigger_interval_in_seconds: Sequence['outputs.GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondResult'],
+                 user_task_timeout_ms: Sequence['outputs.GetDatabasesDatabaseParameterUserTaskTimeoutMResult']):
+        pulumi.set(__self__, "catalogs", catalogs)
+        pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        pulumi.set(__self__, "trace_levels", trace_levels)
+        pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+
+    @property
+    @pulumi.getter
+    def catalogs(self) -> Sequence['outputs.GetDatabasesDatabaseParameterCatalogResult']:
+        return pulumi.get(self, "catalogs")
+
+    @property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Sequence['outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDayResult']:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> Sequence['outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult']:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Sequence['outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult']:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Sequence['outputs.GetDatabasesDatabaseParameterExternalVolumeResult']:
+        return pulumi.get(self, "external_volumes")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Sequence['outputs.GetDatabasesDatabaseParameterLogLevelResult']:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Sequence['outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult']:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Sequence['outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult']:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Sequence['outputs.GetDatabasesDatabaseParameterReplaceInvalidCharacterResult']:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Sequence['outputs.GetDatabasesDatabaseParameterStorageSerializationPolicyResult']:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Sequence['outputs.GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureResult']:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Sequence['outputs.GetDatabasesDatabaseParameterTaskAutoRetryAttemptResult']:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Sequence['outputs.GetDatabasesDatabaseParameterTraceLevelResult']:
+        return pulumi.get(self, "trace_levels")
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Sequence['outputs.GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeResult']:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Sequence['outputs.GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondResult']:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Sequence['outputs.GetDatabasesDatabaseParameterUserTaskTimeoutMResult']:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterCatalogResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterDataRetentionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterDefaultDdlCollationResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterEnableConsoleOutputResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterLogLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterReplaceInvalidCharacterResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterStorageSerializationPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterTaskAutoRetryAttemptResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterTraceLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterUserTaskTimeoutMResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseShowOutputResult(dict):
+    def __init__(__self__, *,
                  comment: str,
                  created_on: str,
+                 dropped_on: str,
                  is_current: bool,
                  is_default: bool,
+                 kind: str,
                  name: str,
                  options: str,
                  origin: str,
                  owner: str,
-                 replication_configurations: Sequence['outputs.GetDatabasesDatabaseReplicationConfigurationResult'],
-                 retention_time: int):
+                 owner_role_type: str,
+                 resource_group: str,
+                 retention_time: int,
+                 transient: bool):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "dropped_on", dropped_on)
         pulumi.set(__self__, "is_current", is_current)
         pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "origin", origin)
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "replication_configurations", replication_configurations)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "resource_group", resource_group)
         pulumi.set(__self__, "retention_time", retention_time)
+        pulumi.set(__self__, "transient", transient)
 
     @property
     @pulumi.getter
@@ -2854,6 +11955,11 @@ class GetDatabasesDatabaseResult(dict):
         return pulumi.get(self, "created_on")
 
     @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> str:
+        return pulumi.get(self, "dropped_on")
+
+    @property
     @pulumi.getter(name="isCurrent")
     def is_current(self) -> bool:
         return pulumi.get(self, "is_current")
@@ -2862,6 +11968,11 @@ class GetDatabasesDatabaseResult(dict):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> bool:
         return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -2884,33 +11995,54 @@ class GetDatabasesDatabaseResult(dict):
         return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter(name="replicationConfigurations")
-    def replication_configurations(self) -> Sequence['outputs.GetDatabasesDatabaseReplicationConfigurationResult']:
-        return pulumi.get(self, "replication_configurations")
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> str:
+        return pulumi.get(self, "resource_group")
 
     @property
     @pulumi.getter(name="retentionTime")
     def retention_time(self) -> int:
         return pulumi.get(self, "retention_time")
 
+    @property
+    @pulumi.getter
+    def transient(self) -> bool:
+        return pulumi.get(self, "transient")
+
 
 @pulumi.output_type
-class GetDatabasesDatabaseReplicationConfigurationResult(dict):
+class GetDatabasesLimitResult(dict):
     def __init__(__self__, *,
-                 accounts: Sequence[str],
-                 ignore_edition_check: bool):
-        pulumi.set(__self__, "accounts", accounts)
-        pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
 
     @property
     @pulumi.getter
-    def accounts(self) -> Sequence[str]:
-        return pulumi.get(self, "accounts")
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
 
     @property
-    @pulumi.getter(name="ignoreEditionCheck")
-    def ignore_edition_check(self) -> bool:
-        return pulumi.get(self, "ignore_edition_check")
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
 
 
 @pulumi.output_type
@@ -4012,6 +13144,122 @@ class GetMaterializedViewsMaterializedViewResult(dict):
 
 
 @pulumi.output_type
+class GetNetworkPoliciesNetworkPolicyResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetNetworkPoliciesNetworkPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetNetworkPoliciesNetworkPolicyShowOutputResult']):
+        """
+        :param Sequence['GetNetworkPoliciesNetworkPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE NETWORK POLICIES.
+        :param Sequence['GetNetworkPoliciesNetworkPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW NETWORK POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetNetworkPoliciesNetworkPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE NETWORK POLICIES.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetNetworkPoliciesNetworkPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW NETWORK POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetNetworkPoliciesNetworkPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_ip_list: str,
+                 allowed_network_rule_list: str,
+                 blocked_ip_list: str,
+                 blocked_network_rule_list: str):
+        pulumi.set(__self__, "allowed_ip_list", allowed_ip_list)
+        pulumi.set(__self__, "allowed_network_rule_list", allowed_network_rule_list)
+        pulumi.set(__self__, "blocked_ip_list", blocked_ip_list)
+        pulumi.set(__self__, "blocked_network_rule_list", blocked_network_rule_list)
+
+    @property
+    @pulumi.getter(name="allowedIpList")
+    def allowed_ip_list(self) -> str:
+        return pulumi.get(self, "allowed_ip_list")
+
+    @property
+    @pulumi.getter(name="allowedNetworkRuleList")
+    def allowed_network_rule_list(self) -> str:
+        return pulumi.get(self, "allowed_network_rule_list")
+
+    @property
+    @pulumi.getter(name="blockedIpList")
+    def blocked_ip_list(self) -> str:
+        return pulumi.get(self, "blocked_ip_list")
+
+    @property
+    @pulumi.getter(name="blockedNetworkRuleList")
+    def blocked_network_rule_list(self) -> str:
+        return pulumi.get(self, "blocked_network_rule_list")
+
+
+@pulumi.output_type
+class GetNetworkPoliciesNetworkPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 entries_in_allowed_ip_list: int,
+                 entries_in_allowed_network_rules: int,
+                 entries_in_blocked_ip_list: int,
+                 entries_in_blocked_network_rules: int,
+                 name: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "entries_in_allowed_ip_list", entries_in_allowed_ip_list)
+        pulumi.set(__self__, "entries_in_allowed_network_rules", entries_in_allowed_network_rules)
+        pulumi.set(__self__, "entries_in_blocked_ip_list", entries_in_blocked_ip_list)
+        pulumi.set(__self__, "entries_in_blocked_network_rules", entries_in_blocked_network_rules)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="entriesInAllowedIpList")
+    def entries_in_allowed_ip_list(self) -> int:
+        return pulumi.get(self, "entries_in_allowed_ip_list")
+
+    @property
+    @pulumi.getter(name="entriesInAllowedNetworkRules")
+    def entries_in_allowed_network_rules(self) -> int:
+        return pulumi.get(self, "entries_in_allowed_network_rules")
+
+    @property
+    @pulumi.getter(name="entriesInBlockedIpList")
+    def entries_in_blocked_ip_list(self) -> int:
+        return pulumi.get(self, "entries_in_blocked_ip_list")
+
+    @property
+    @pulumi.getter(name="entriesInBlockedNetworkRules")
+    def entries_in_blocked_network_rules(self) -> int:
+        return pulumi.get(self, "entries_in_blocked_network_rules")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetParametersParameterResult(dict):
     def __init__(__self__, *,
                  default: str,
@@ -4196,40 +13444,93 @@ class GetResourceMonitorsResourceMonitorResult(dict):
 @pulumi.output_type
 class GetRolesRoleResult(dict):
     def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetRolesRoleShowOutputResult']):
+        """
+        :param Sequence['GetRolesRoleShowOutputArgs'] show_outputs: Holds the output of SHOW ROLES.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetRolesRoleShowOutputResult']:
+        """
+        Holds the output of SHOW ROLES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetRolesRoleShowOutputResult(dict):
+    def __init__(__self__, *,
+                 assigned_to_users: int,
                  comment: str,
+                 created_on: str,
+                 granted_roles: int,
+                 granted_to_roles: int,
+                 is_current: bool,
+                 is_default: bool,
+                 is_inherited: bool,
                  name: str,
                  owner: str):
-        """
-        :param str comment: The comment on the role
-        :param str name: Identifier for the role.
-        :param str owner: The owner of the role
-        """
+        pulumi.set(__self__, "assigned_to_users", assigned_to_users)
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "granted_roles", granted_roles)
+        pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        pulumi.set(__self__, "is_current", is_current)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "is_inherited", is_inherited)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
 
     @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> int:
+        return pulumi.get(self, "assigned_to_users")
+
+    @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        The comment on the role
-        """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> int:
+        return pulumi.get(self, "granted_roles")
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> int:
+        return pulumi.get(self, "granted_to_roles")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> bool:
+        return pulumi.get(self, "is_inherited")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Identifier for the role.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        The owner of the role
-        """
         return pulumi.get(self, "owner")
 
 
@@ -4267,14 +13568,985 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
 
 
 @pulumi.output_type
+class GetSchemasInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+
+@pulumi.output_type
+class GetSchemasLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetSchemasSchemaResult(dict):
     def __init__(__self__, *,
-                 comment: str,
-                 database: str,
+                 describe_outputs: Sequence['outputs.GetSchemasSchemaDescribeOutputResult'],
+                 parameters: Sequence['outputs.GetSchemasSchemaParameterResult'],
+                 show_outputs: Sequence['outputs.GetSchemasSchemaShowOutputResult']):
+        """
+        :param Sequence['GetSchemasSchemaDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE SCHEMA.
+        :param Sequence['GetSchemasSchemaParameterArgs'] parameters: Holds the output of SHOW PARAMETERS FOR SCHEMA.
+        :param Sequence['GetSchemasSchemaShowOutputArgs'] show_outputs: Holds the output of SHOW SCHEMAS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetSchemasSchemaDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE SCHEMA.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetSchemasSchemaParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS FOR SCHEMA.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetSchemasSchemaShowOutputResult']:
+        """
+        Holds the output of SHOW SCHEMAS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetSchemasSchemaDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 created_on: str,
+                 kind: str,
                  name: str):
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterResult(dict):
+    def __init__(__self__, *,
+                 catalogs: Sequence['outputs.GetSchemasSchemaParameterCatalogResult'],
+                 data_retention_time_in_days: Sequence['outputs.GetSchemasSchemaParameterDataRetentionTimeInDayResult'],
+                 default_ddl_collations: Sequence['outputs.GetSchemasSchemaParameterDefaultDdlCollationResult'],
+                 enable_console_outputs: Sequence['outputs.GetSchemasSchemaParameterEnableConsoleOutputResult'],
+                 external_volumes: Sequence['outputs.GetSchemasSchemaParameterExternalVolumeResult'],
+                 log_levels: Sequence['outputs.GetSchemasSchemaParameterLogLevelResult'],
+                 max_data_extension_time_in_days: Sequence['outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult'],
+                 pipe_execution_pauseds: Sequence['outputs.GetSchemasSchemaParameterPipeExecutionPausedResult'],
+                 quoted_identifiers_ignore_cases: Sequence['outputs.GetSchemasSchemaParameterQuotedIdentifiersIgnoreCaseResult'],
+                 replace_invalid_characters: Sequence['outputs.GetSchemasSchemaParameterReplaceInvalidCharacterResult'],
+                 storage_serialization_policies: Sequence['outputs.GetSchemasSchemaParameterStorageSerializationPolicyResult'],
+                 suspend_task_after_num_failures: Sequence['outputs.GetSchemasSchemaParameterSuspendTaskAfterNumFailureResult'],
+                 task_auto_retry_attempts: Sequence['outputs.GetSchemasSchemaParameterTaskAutoRetryAttemptResult'],
+                 trace_levels: Sequence['outputs.GetSchemasSchemaParameterTraceLevelResult'],
+                 user_task_managed_initial_warehouse_sizes: Sequence['outputs.GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSizeResult'],
+                 user_task_minimum_trigger_interval_in_seconds: Sequence['outputs.GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecondResult'],
+                 user_task_timeout_ms: Sequence['outputs.GetSchemasSchemaParameterUserTaskTimeoutMResult']):
+        pulumi.set(__self__, "catalogs", catalogs)
+        pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
+        pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        pulumi.set(__self__, "trace_levels", trace_levels)
+        pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+
+    @property
+    @pulumi.getter
+    def catalogs(self) -> Sequence['outputs.GetSchemasSchemaParameterCatalogResult']:
+        return pulumi.get(self, "catalogs")
+
+    @property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Sequence['outputs.GetSchemasSchemaParameterDataRetentionTimeInDayResult']:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> Sequence['outputs.GetSchemasSchemaParameterDefaultDdlCollationResult']:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Sequence['outputs.GetSchemasSchemaParameterEnableConsoleOutputResult']:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Sequence['outputs.GetSchemasSchemaParameterExternalVolumeResult']:
+        return pulumi.get(self, "external_volumes")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Sequence['outputs.GetSchemasSchemaParameterLogLevelResult']:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Sequence['outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult']:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @property
+    @pulumi.getter(name="pipeExecutionPauseds")
+    def pipe_execution_pauseds(self) -> Sequence['outputs.GetSchemasSchemaParameterPipeExecutionPausedResult']:
+        return pulumi.get(self, "pipe_execution_pauseds")
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Sequence['outputs.GetSchemasSchemaParameterQuotedIdentifiersIgnoreCaseResult']:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Sequence['outputs.GetSchemasSchemaParameterReplaceInvalidCharacterResult']:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Sequence['outputs.GetSchemasSchemaParameterStorageSerializationPolicyResult']:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Sequence['outputs.GetSchemasSchemaParameterSuspendTaskAfterNumFailureResult']:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Sequence['outputs.GetSchemasSchemaParameterTaskAutoRetryAttemptResult']:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Sequence['outputs.GetSchemasSchemaParameterTraceLevelResult']:
+        return pulumi.get(self, "trace_levels")
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Sequence['outputs.GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSizeResult']:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Sequence['outputs.GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecondResult']:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Sequence['outputs.GetSchemasSchemaParameterUserTaskTimeoutMResult']:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterCatalogResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterDataRetentionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterDefaultDdlCollationResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterEnableConsoleOutputResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterLogLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterPipeExecutionPausedResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterQuotedIdentifiersIgnoreCaseResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterReplaceInvalidCharacterResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterStorageSerializationPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterSuspendTaskAfterNumFailureResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterTaskAutoRetryAttemptResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterTraceLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSizeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterUserTaskTimeoutMResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 database_name: str,
+                 dropped_on: str,
+                 is_current: bool,
+                 is_default: bool,
+                 name: str,
+                 options: str,
+                 owner: str,
+                 owner_role_type: str,
+                 retention_time: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dropped_on", dropped_on)
+        pulumi.set(__self__, "is_current", is_current)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "retention_time", retention_time)
 
     @property
     @pulumi.getter
@@ -4282,9 +14554,2370 @@ class GetSchemasSchemaResult(dict):
         return pulumi.get(self, "comment")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> str:
+        return pulumi.get(self, "dropped_on")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
     @pulumi.getter
-    def database(self) -> str:
-        return pulumi.get(self, "database")
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> str:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> str:
+        return pulumi.get(self, "retention_time")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationShowOutputResult']):
+        """
+        :param Sequence['GetSecurityIntegrationsSecurityIntegrationDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE SECURITY INTEGRATIONS.
+        :param Sequence['GetSecurityIntegrationsSecurityIntegrationShowOutputArgs'] show_outputs: Holds the output of SHOW SECURITY INTEGRATIONS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE SECURITY INTEGRATIONS.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationShowOutputResult']:
+        """
+        Holds the output of SHOW SECURITY INTEGRATIONS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_email_patterns: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult'],
+                 allowed_user_domains: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult'],
+                 auth_types: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult'],
+                 blocked_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult'],
+                 comments: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputCommentResult'],
+                 enableds: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabledResult'],
+                 external_oauth_allowed_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesListResult'],
+                 external_oauth_any_role_modes: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleModeResult'],
+                 external_oauth_audience_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceListResult'],
+                 external_oauth_blocked_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesListResult'],
+                 external_oauth_issuers: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuerResult'],
+                 external_oauth_jws_keys_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrlResult'],
+                 external_oauth_rsa_public_key2s: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2Result'],
+                 external_oauth_rsa_public_keys: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKeyResult'],
+                 external_oauth_scope_delimiters: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiterResult'],
+                 external_oauth_snowflake_user_mapping_attributes: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeResult'],
+                 external_oauth_token_user_mapping_claims: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaimResult'],
+                 network_policies: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicyResult'],
+                 oauth_access_token_validities: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidityResult'],
+                 oauth_allow_non_tls_redirect_uris: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUriResult'],
+                 oauth_allowed_authorization_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpointResult'],
+                 oauth_allowed_scopes: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScopeResult'],
+                 oauth_allowed_token_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult'],
+                 oauth_authorization_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult'],
+                 oauth_client_auth_methods: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult'],
+                 oauth_client_ids: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult'],
+                 oauth_client_rsa_public_key2_fps: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult'],
+                 oauth_client_rsa_public_key_fps: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult'],
+                 oauth_client_types: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult'],
+                 oauth_enforce_pkces: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult'],
+                 oauth_grants: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult'],
+                 oauth_issue_refresh_tokens: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult'],
+                 oauth_redirect_uris: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult'],
+                 oauth_refresh_token_validities: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult'],
+                 oauth_token_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult'],
+                 oauth_use_secondary_roles: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult'],
+                 parent_integrations: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegrationResult'],
+                 pre_authorized_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesListResult'],
+                 run_as_roles: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRoleResult'],
+                 saml2_digest_methods_useds: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsedResult'],
+                 saml2_enable_sp_initiateds: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiatedResult'],
+                 saml2_force_authns: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthnResult'],
+                 saml2_issuers: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2IssuerResult'],
+                 saml2_post_logout_redirect_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrlResult'],
+                 saml2_providers: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ProviderResult'],
+                 saml2_requested_nameid_formats: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormatResult'],
+                 saml2_sign_requests: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequestResult'],
+                 saml2_signature_methods_useds: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsedResult'],
+                 saml2_snowflake_acs_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult'],
+                 saml2_snowflake_issuer_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult'],
+                 saml2_snowflake_metadatas: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult'],
+                 saml2_snowflake_x509_certs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult'],
+                 saml2_sp_initiated_login_page_labels: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult'],
+                 saml2_sso_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult'],
+                 saml2_x509_certs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult'],
+                 sync_passwords: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult']):
+        pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
+        pulumi.set(__self__, "allowed_user_domains", allowed_user_domains)
+        pulumi.set(__self__, "auth_types", auth_types)
+        pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
+        pulumi.set(__self__, "comments", comments)
+        pulumi.set(__self__, "enableds", enableds)
+        pulumi.set(__self__, "external_oauth_allowed_roles_lists", external_oauth_allowed_roles_lists)
+        pulumi.set(__self__, "external_oauth_any_role_modes", external_oauth_any_role_modes)
+        pulumi.set(__self__, "external_oauth_audience_lists", external_oauth_audience_lists)
+        pulumi.set(__self__, "external_oauth_blocked_roles_lists", external_oauth_blocked_roles_lists)
+        pulumi.set(__self__, "external_oauth_issuers", external_oauth_issuers)
+        pulumi.set(__self__, "external_oauth_jws_keys_urls", external_oauth_jws_keys_urls)
+        pulumi.set(__self__, "external_oauth_rsa_public_key2s", external_oauth_rsa_public_key2s)
+        pulumi.set(__self__, "external_oauth_rsa_public_keys", external_oauth_rsa_public_keys)
+        pulumi.set(__self__, "external_oauth_scope_delimiters", external_oauth_scope_delimiters)
+        pulumi.set(__self__, "external_oauth_snowflake_user_mapping_attributes", external_oauth_snowflake_user_mapping_attributes)
+        pulumi.set(__self__, "external_oauth_token_user_mapping_claims", external_oauth_token_user_mapping_claims)
+        pulumi.set(__self__, "network_policies", network_policies)
+        pulumi.set(__self__, "oauth_access_token_validities", oauth_access_token_validities)
+        pulumi.set(__self__, "oauth_allow_non_tls_redirect_uris", oauth_allow_non_tls_redirect_uris)
+        pulumi.set(__self__, "oauth_allowed_authorization_endpoints", oauth_allowed_authorization_endpoints)
+        pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
+        pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
+        pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
+        pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
+        pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
+        pulumi.set(__self__, "oauth_client_rsa_public_key_fps", oauth_client_rsa_public_key_fps)
+        pulumi.set(__self__, "oauth_client_types", oauth_client_types)
+        pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
+        pulumi.set(__self__, "oauth_grants", oauth_grants)
+        pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
+        pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
+        pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
+        pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
+        pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
+        pulumi.set(__self__, "parent_integrations", parent_integrations)
+        pulumi.set(__self__, "pre_authorized_roles_lists", pre_authorized_roles_lists)
+        pulumi.set(__self__, "run_as_roles", run_as_roles)
+        pulumi.set(__self__, "saml2_digest_methods_useds", saml2_digest_methods_useds)
+        pulumi.set(__self__, "saml2_enable_sp_initiateds", saml2_enable_sp_initiateds)
+        pulumi.set(__self__, "saml2_force_authns", saml2_force_authns)
+        pulumi.set(__self__, "saml2_issuers", saml2_issuers)
+        pulumi.set(__self__, "saml2_post_logout_redirect_urls", saml2_post_logout_redirect_urls)
+        pulumi.set(__self__, "saml2_providers", saml2_providers)
+        pulumi.set(__self__, "saml2_requested_nameid_formats", saml2_requested_nameid_formats)
+        pulumi.set(__self__, "saml2_sign_requests", saml2_sign_requests)
+        pulumi.set(__self__, "saml2_signature_methods_useds", saml2_signature_methods_useds)
+        pulumi.set(__self__, "saml2_snowflake_acs_urls", saml2_snowflake_acs_urls)
+        pulumi.set(__self__, "saml2_snowflake_issuer_urls", saml2_snowflake_issuer_urls)
+        pulumi.set(__self__, "saml2_snowflake_metadatas", saml2_snowflake_metadatas)
+        pulumi.set(__self__, "saml2_snowflake_x509_certs", saml2_snowflake_x509_certs)
+        pulumi.set(__self__, "saml2_sp_initiated_login_page_labels", saml2_sp_initiated_login_page_labels)
+        pulumi.set(__self__, "saml2_sso_urls", saml2_sso_urls)
+        pulumi.set(__self__, "saml2_x509_certs", saml2_x509_certs)
+        pulumi.set(__self__, "sync_passwords", sync_passwords)
+
+    @property
+    @pulumi.getter(name="allowedEmailPatterns")
+    def allowed_email_patterns(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult']:
+        return pulumi.get(self, "allowed_email_patterns")
+
+    @property
+    @pulumi.getter(name="allowedUserDomains")
+    def allowed_user_domains(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult']:
+        return pulumi.get(self, "allowed_user_domains")
+
+    @property
+    @pulumi.getter(name="authTypes")
+    def auth_types(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult']:
+        return pulumi.get(self, "auth_types")
+
+    @property
+    @pulumi.getter(name="blockedRolesLists")
+    def blocked_roles_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult']:
+        return pulumi.get(self, "blocked_roles_lists")
+
+    @property
+    @pulumi.getter
+    def comments(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputCommentResult']:
+        return pulumi.get(self, "comments")
+
+    @property
+    @pulumi.getter
+    def enableds(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabledResult']:
+        return pulumi.get(self, "enableds")
+
+    @property
+    @pulumi.getter(name="externalOauthAllowedRolesLists")
+    def external_oauth_allowed_roles_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesListResult']:
+        return pulumi.get(self, "external_oauth_allowed_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthAnyRoleModes")
+    def external_oauth_any_role_modes(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleModeResult']:
+        return pulumi.get(self, "external_oauth_any_role_modes")
+
+    @property
+    @pulumi.getter(name="externalOauthAudienceLists")
+    def external_oauth_audience_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceListResult']:
+        return pulumi.get(self, "external_oauth_audience_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthBlockedRolesLists")
+    def external_oauth_blocked_roles_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesListResult']:
+        return pulumi.get(self, "external_oauth_blocked_roles_lists")
+
+    @property
+    @pulumi.getter(name="externalOauthIssuers")
+    def external_oauth_issuers(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuerResult']:
+        return pulumi.get(self, "external_oauth_issuers")
+
+    @property
+    @pulumi.getter(name="externalOauthJwsKeysUrls")
+    def external_oauth_jws_keys_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrlResult']:
+        return pulumi.get(self, "external_oauth_jws_keys_urls")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKey2s")
+    def external_oauth_rsa_public_key2s(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2Result']:
+        return pulumi.get(self, "external_oauth_rsa_public_key2s")
+
+    @property
+    @pulumi.getter(name="externalOauthRsaPublicKeys")
+    def external_oauth_rsa_public_keys(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKeyResult']:
+        return pulumi.get(self, "external_oauth_rsa_public_keys")
+
+    @property
+    @pulumi.getter(name="externalOauthScopeDelimiters")
+    def external_oauth_scope_delimiters(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiterResult']:
+        return pulumi.get(self, "external_oauth_scope_delimiters")
+
+    @property
+    @pulumi.getter(name="externalOauthSnowflakeUserMappingAttributes")
+    def external_oauth_snowflake_user_mapping_attributes(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeResult']:
+        return pulumi.get(self, "external_oauth_snowflake_user_mapping_attributes")
+
+    @property
+    @pulumi.getter(name="externalOauthTokenUserMappingClaims")
+    def external_oauth_token_user_mapping_claims(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaimResult']:
+        return pulumi.get(self, "external_oauth_token_user_mapping_claims")
+
+    @property
+    @pulumi.getter(name="networkPolicies")
+    def network_policies(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicyResult']:
+        return pulumi.get(self, "network_policies")
+
+    @property
+    @pulumi.getter(name="oauthAccessTokenValidities")
+    def oauth_access_token_validities(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidityResult']:
+        return pulumi.get(self, "oauth_access_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthAllowNonTlsRedirectUris")
+    def oauth_allow_non_tls_redirect_uris(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUriResult']:
+        return pulumi.get(self, "oauth_allow_non_tls_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthAllowedAuthorizationEndpoints")
+    def oauth_allowed_authorization_endpoints(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpointResult']:
+        return pulumi.get(self, "oauth_allowed_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScopeResult']:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @property
+    @pulumi.getter(name="oauthAllowedTokenEndpoints")
+    def oauth_allowed_token_endpoints(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult']:
+        return pulumi.get(self, "oauth_allowed_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthAuthorizationEndpoints")
+    def oauth_authorization_endpoints(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult']:
+        return pulumi.get(self, "oauth_authorization_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthClientAuthMethods")
+    def oauth_client_auth_methods(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult']:
+        return pulumi.get(self, "oauth_client_auth_methods")
+
+    @property
+    @pulumi.getter(name="oauthClientIds")
+    def oauth_client_ids(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult']:
+        return pulumi.get(self, "oauth_client_ids")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
+    def oauth_client_rsa_public_key2_fps(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult']:
+        return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientRsaPublicKeyFps")
+    def oauth_client_rsa_public_key_fps(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult']:
+        return pulumi.get(self, "oauth_client_rsa_public_key_fps")
+
+    @property
+    @pulumi.getter(name="oauthClientTypes")
+    def oauth_client_types(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult']:
+        return pulumi.get(self, "oauth_client_types")
+
+    @property
+    @pulumi.getter(name="oauthEnforcePkces")
+    def oauth_enforce_pkces(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult']:
+        return pulumi.get(self, "oauth_enforce_pkces")
+
+    @property
+    @pulumi.getter(name="oauthGrants")
+    def oauth_grants(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult']:
+        return pulumi.get(self, "oauth_grants")
+
+    @property
+    @pulumi.getter(name="oauthIssueRefreshTokens")
+    def oauth_issue_refresh_tokens(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult']:
+        return pulumi.get(self, "oauth_issue_refresh_tokens")
+
+    @property
+    @pulumi.getter(name="oauthRedirectUris")
+    def oauth_redirect_uris(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult']:
+        return pulumi.get(self, "oauth_redirect_uris")
+
+    @property
+    @pulumi.getter(name="oauthRefreshTokenValidities")
+    def oauth_refresh_token_validities(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult']:
+        return pulumi.get(self, "oauth_refresh_token_validities")
+
+    @property
+    @pulumi.getter(name="oauthTokenEndpoints")
+    def oauth_token_endpoints(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult']:
+        return pulumi.get(self, "oauth_token_endpoints")
+
+    @property
+    @pulumi.getter(name="oauthUseSecondaryRoles")
+    def oauth_use_secondary_roles(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult']:
+        return pulumi.get(self, "oauth_use_secondary_roles")
+
+    @property
+    @pulumi.getter(name="parentIntegrations")
+    def parent_integrations(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegrationResult']:
+        return pulumi.get(self, "parent_integrations")
+
+    @property
+    @pulumi.getter(name="preAuthorizedRolesLists")
+    def pre_authorized_roles_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesListResult']:
+        return pulumi.get(self, "pre_authorized_roles_lists")
+
+    @property
+    @pulumi.getter(name="runAsRoles")
+    def run_as_roles(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRoleResult']:
+        return pulumi.get(self, "run_as_roles")
+
+    @property
+    @pulumi.getter(name="saml2DigestMethodsUseds")
+    def saml2_digest_methods_useds(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsedResult']:
+        return pulumi.get(self, "saml2_digest_methods_useds")
+
+    @property
+    @pulumi.getter(name="saml2EnableSpInitiateds")
+    def saml2_enable_sp_initiateds(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiatedResult']:
+        return pulumi.get(self, "saml2_enable_sp_initiateds")
+
+    @property
+    @pulumi.getter(name="saml2ForceAuthns")
+    def saml2_force_authns(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthnResult']:
+        return pulumi.get(self, "saml2_force_authns")
+
+    @property
+    @pulumi.getter(name="saml2Issuers")
+    def saml2_issuers(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2IssuerResult']:
+        return pulumi.get(self, "saml2_issuers")
+
+    @property
+    @pulumi.getter(name="saml2PostLogoutRedirectUrls")
+    def saml2_post_logout_redirect_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrlResult']:
+        return pulumi.get(self, "saml2_post_logout_redirect_urls")
+
+    @property
+    @pulumi.getter(name="saml2Providers")
+    def saml2_providers(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ProviderResult']:
+        return pulumi.get(self, "saml2_providers")
+
+    @property
+    @pulumi.getter(name="saml2RequestedNameidFormats")
+    def saml2_requested_nameid_formats(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormatResult']:
+        return pulumi.get(self, "saml2_requested_nameid_formats")
+
+    @property
+    @pulumi.getter(name="saml2SignRequests")
+    def saml2_sign_requests(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequestResult']:
+        return pulumi.get(self, "saml2_sign_requests")
+
+    @property
+    @pulumi.getter(name="saml2SignatureMethodsUseds")
+    def saml2_signature_methods_useds(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsedResult']:
+        return pulumi.get(self, "saml2_signature_methods_useds")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeAcsUrls")
+    def saml2_snowflake_acs_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult']:
+        return pulumi.get(self, "saml2_snowflake_acs_urls")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeIssuerUrls")
+    def saml2_snowflake_issuer_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult']:
+        return pulumi.get(self, "saml2_snowflake_issuer_urls")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeMetadatas")
+    def saml2_snowflake_metadatas(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult']:
+        return pulumi.get(self, "saml2_snowflake_metadatas")
+
+    @property
+    @pulumi.getter(name="saml2SnowflakeX509Certs")
+    def saml2_snowflake_x509_certs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult']:
+        return pulumi.get(self, "saml2_snowflake_x509_certs")
+
+    @property
+    @pulumi.getter(name="saml2SpInitiatedLoginPageLabels")
+    def saml2_sp_initiated_login_page_labels(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult']:
+        return pulumi.get(self, "saml2_sp_initiated_login_page_labels")
+
+    @property
+    @pulumi.getter(name="saml2SsoUrls")
+    def saml2_sso_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult']:
+        return pulumi.get(self, "saml2_sso_urls")
+
+    @property
+    @pulumi.getter(name="saml2X509Certs")
+    def saml2_x509_certs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult']:
+        return pulumi.get(self, "saml2_x509_certs")
+
+    @property
+    @pulumi.getter(name="syncPasswords")
+    def sync_passwords(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult']:
+        return pulumi.get(self, "sync_passwords")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputCommentResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabledResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesListResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleModeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceListResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesListResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuerResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrlResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2Result(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKeyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiterResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaimResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidityResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUriResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpointResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScopeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegrationResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesListResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRoleResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsedResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiatedResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthnResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2IssuerResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrlResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ProviderResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequestResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsedResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 name: str,
+                 type: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationShowOutputResult(dict):
+    def __init__(__self__, *,
+                 category: str,
+                 comment: str,
+                 created_on: str,
+                 enabled: bool,
+                 integration_type: str,
+                 name: str):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "integration_type", integration_type)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="integrationType")
+    def integration_type(self) -> str:
+        return pulumi.get(self, "integration_type")
 
     @property
     @pulumi.getter
@@ -4458,6 +17091,265 @@ class GetStorageIntegrationsStorageIntegrationResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStreamlitsInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str database: Returns records for the current database in use or for a specified database (db_name).
+        :param str schema: Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetStreamlitsLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetStreamlitsStreamlitResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetStreamlitsStreamlitDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetStreamlitsStreamlitShowOutputResult']):
+        """
+        :param Sequence['GetStreamlitsStreamlitDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE STREAMLITS.
+        :param Sequence['GetStreamlitsStreamlitShowOutputArgs'] show_outputs: Holds the output of SHOW STREAMLITS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetStreamlitsStreamlitDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE STREAMLITS.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetStreamlitsStreamlitShowOutputResult']:
+        """
+        Holds the output of SHOW STREAMLITS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetStreamlitsStreamlitDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 default_packages: str,
+                 external_access_integrations: Sequence[str],
+                 external_access_secrets: str,
+                 import_urls: Sequence[str],
+                 main_file: str,
+                 name: str,
+                 query_warehouse: str,
+                 root_location: str,
+                 title: str,
+                 url_id: str,
+                 user_packages: Sequence[str]):
+        pulumi.set(__self__, "default_packages", default_packages)
+        pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        pulumi.set(__self__, "import_urls", import_urls)
+        pulumi.set(__self__, "main_file", main_file)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "root_location", root_location)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "url_id", url_id)
+        pulumi.set(__self__, "user_packages", user_packages)
+
+    @property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> str:
+        return pulumi.get(self, "default_packages")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Sequence[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> str:
+        return pulumi.get(self, "external_access_secrets")
+
+    @property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> Sequence[str]:
+        return pulumi.get(self, "import_urls")
+
+    @property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> str:
+        return pulumi.get(self, "main_file")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> str:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="rootLocation")
+    def root_location(self) -> str:
+        return pulumi.get(self, "root_location")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> str:
+        return pulumi.get(self, "url_id")
+
+    @property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> Sequence[str]:
+        return pulumi.get(self, "user_packages")
+
+
+@pulumi.output_type
+class GetStreamlitsStreamlitShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 database_name: str,
+                 name: str,
+                 owner: str,
+                 owner_role_type: str,
+                 query_warehouse: str,
+                 schema_name: str,
+                 title: str,
+                 url_id: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "url_id", url_id)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> str:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> str:
+        return pulumi.get(self, "url_id")
 
 
 @pulumi.output_type
@@ -4705,18 +17597,287 @@ class GetViewsViewResult(dict):
 @pulumi.output_type
 class GetWarehousesWarehouseResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetWarehousesWarehouseDescribeOutputResult'],
+                 parameters: Sequence['outputs.GetWarehousesWarehouseParameterResult'],
+                 show_outputs: Sequence['outputs.GetWarehousesWarehouseShowOutputResult']):
+        """
+        :param Sequence['GetWarehousesWarehouseDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE WAREHOUSE.
+        :param Sequence['GetWarehousesWarehouseParameterArgs'] parameters: Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+        :param Sequence['GetWarehousesWarehouseShowOutputArgs'] show_outputs: Holds the output of SHOW WAREHOUSES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetWarehousesWarehouseDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE WAREHOUSE.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetWarehousesWarehouseParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetWarehousesWarehouseShowOutputResult']:
+        """
+        Holds the output of SHOW WAREHOUSES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 created_on: str,
+                 kind: str,
+                 name: str):
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseParameterResult(dict):
+    def __init__(__self__, *,
+                 max_concurrency_levels: Sequence['outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevelResult'],
+                 statement_queued_timeout_in_seconds: Sequence['outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult'],
+                 statement_timeout_in_seconds: Sequence['outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult']):
+        pulumi.set(__self__, "max_concurrency_levels", max_concurrency_levels)
+        pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="maxConcurrencyLevels")
+    def max_concurrency_levels(self) -> Sequence['outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevelResult']:
+        return pulumi.get(self, "max_concurrency_levels")
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Sequence['outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Sequence['outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseParameterMaxConcurrencyLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseParameterStatementTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseShowOutputResult(dict):
+    def __init__(__self__, *,
+                 auto_resume: bool,
+                 auto_suspend: int,
+                 available: float,
                  comment: str,
+                 created_on: str,
+                 enable_query_acceleration: bool,
+                 is_current: bool,
+                 is_default: bool,
+                 max_cluster_count: int,
+                 min_cluster_count: int,
                  name: str,
+                 other: float,
+                 owner: str,
+                 owner_role_type: str,
+                 provisioning: float,
+                 query_acceleration_max_scale_factor: int,
+                 queued: int,
+                 quiescing: float,
+                 resource_monitor: str,
+                 resumed_on: str,
+                 running: int,
                  scaling_policy: str,
                  size: str,
+                 started_clusters: int,
                  state: str,
-                 type: str):
+                 type: str,
+                 updated_on: str):
+        pulumi.set(__self__, "auto_resume", auto_resume)
+        pulumi.set(__self__, "auto_suspend", auto_suspend)
+        pulumi.set(__self__, "available", available)
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        pulumi.set(__self__, "is_current", is_current)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "max_cluster_count", max_cluster_count)
+        pulumi.set(__self__, "min_cluster_count", min_cluster_count)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "other", other)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "provisioning", provisioning)
+        pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+        pulumi.set(__self__, "queued", queued)
+        pulumi.set(__self__, "quiescing", quiescing)
+        pulumi.set(__self__, "resource_monitor", resource_monitor)
+        pulumi.set(__self__, "resumed_on", resumed_on)
+        pulumi.set(__self__, "running", running)
         pulumi.set(__self__, "scaling_policy", scaling_policy)
         pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "started_clusters", started_clusters)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> bool:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> int:
+        return pulumi.get(self, "auto_suspend")
+
+    @property
+    @pulumi.getter
+    def available(self) -> float:
+        return pulumi.get(self, "available")
 
     @property
     @pulumi.getter
@@ -4724,9 +17885,89 @@ class GetWarehousesWarehouseResult(dict):
         return pulumi.get(self, "comment")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="enableQueryAcceleration")
+    def enable_query_acceleration(self) -> bool:
+        return pulumi.get(self, "enable_query_acceleration")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="maxClusterCount")
+    def max_cluster_count(self) -> int:
+        return pulumi.get(self, "max_cluster_count")
+
+    @property
+    @pulumi.getter(name="minClusterCount")
+    def min_cluster_count(self) -> int:
+        return pulumi.get(self, "min_cluster_count")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def other(self) -> float:
+        return pulumi.get(self, "other")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter
+    def provisioning(self) -> float:
+        return pulumi.get(self, "provisioning")
+
+    @property
+    @pulumi.getter(name="queryAccelerationMaxScaleFactor")
+    def query_acceleration_max_scale_factor(self) -> int:
+        return pulumi.get(self, "query_acceleration_max_scale_factor")
+
+    @property
+    @pulumi.getter
+    def queued(self) -> int:
+        return pulumi.get(self, "queued")
+
+    @property
+    @pulumi.getter
+    def quiescing(self) -> float:
+        return pulumi.get(self, "quiescing")
+
+    @property
+    @pulumi.getter(name="resourceMonitor")
+    def resource_monitor(self) -> str:
+        return pulumi.get(self, "resource_monitor")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> str:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def running(self) -> int:
+        return pulumi.get(self, "running")
 
     @property
     @pulumi.getter(name="scalingPolicy")
@@ -4739,6 +17980,11 @@ class GetWarehousesWarehouseResult(dict):
         return pulumi.get(self, "size")
 
     @property
+    @pulumi.getter(name="startedClusters")
+    def started_clusters(self) -> int:
+        return pulumi.get(self, "started_clusters")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         return pulumi.get(self, "state")
@@ -4747,5 +17993,10 @@ class GetWarehousesWarehouseResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> str:
+        return pulumi.get(self, "updated_on")
 
 

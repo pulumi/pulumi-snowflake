@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.Saml2Integration instead. &lt;deprecation&gt;
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

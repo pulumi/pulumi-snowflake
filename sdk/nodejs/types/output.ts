@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AccountRoleShowOutput {
+    assignedToUsers: number;
+    comment: string;
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
+    name: string;
+    owner: string;
+}
+
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
@@ -27,9 +40,355 @@ export interface AlertAlertScheduleCron {
     timeZone: string;
 }
 
-export interface DatabaseReplicationConfiguration {
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput {
+    authTypes: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType[];
+    comments: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment[];
+    enableds: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled[];
+    oauthAccessTokenValidities: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity[];
+    oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope[];
+    oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod[];
+    oauthClientIds: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId[];
+    oauthGrants: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant[];
+    oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint[];
+    parentIntegrations: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration[];
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput {
+    authTypes: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType[];
+    comments: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment[];
+    enableds: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled[];
+    oauthAccessTokenValidities: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity[];
+    oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope[];
+    oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod[];
+    oauthClientIds: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId[];
+    oauthGrants: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant[];
+    oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint[];
+    parentIntegrations: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration[];
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
+    authTypes: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType[];
+    comments: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment[];
+    enableds: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled[];
+    oauthAccessTokenValidities: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity[];
+    oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope[];
+    oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod[];
+    oauthClientIds: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId[];
+    oauthGrants: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant[];
+    oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint[];
+    parentIntegrations: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration[];
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
+export interface DatabaseOldReplicationConfiguration {
     accounts: string[];
     ignoreEditionCheck?: boolean;
+}
+
+export interface DatabaseReplication {
+    /**
+     * Entry to enable replication and optionally failover for a given account identifier.
+     */
+    enableToAccounts: outputs.DatabaseReplicationEnableToAccount[];
+    /**
+     * Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
+     */
+    ignoreEditionCheck?: boolean;
+}
+
+export interface DatabaseReplicationEnableToAccount {
+    /**
+     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+     */
+    accountIdentifier: string;
+    /**
+     * Specifies if failover should be enabled for the specified account identifier
+     */
+    withFailover?: boolean;
 }
 
 export interface DynamicTableTargetLag {
@@ -63,6 +422,134 @@ export interface ExternalFunctionHeader {
      * Header value
      */
     value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutput {
+    comments: outputs.ExternalOauthIntegrationDescribeOutputComment[];
+    enableds: outputs.ExternalOauthIntegrationDescribeOutputEnabled[];
+    externalOauthAllowedRolesLists: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList[];
+    externalOauthAnyRoleModes: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode[];
+    externalOauthAudienceLists: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList[];
+    externalOauthBlockedRolesLists: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList[];
+    externalOauthIssuers: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer[];
+    externalOauthJwsKeysUrls: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl[];
+    externalOauthRsaPublicKey2s: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2[];
+    externalOauthRsaPublicKeys: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey[];
+    externalOauthScopeDelimiters: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter[];
+    externalOauthSnowflakeUserMappingAttributes: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute[];
+    externalOauthTokenUserMappingClaims: outputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim[];
+}
+
+export interface ExternalOauthIntegrationDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthIssuer {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2 {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationRelatedParameter {
+    externalOauthAddPrivilegedRolesToBlockedLists: outputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList[];
+}
+
+export interface ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ExternalOauthIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
 }
 
 export interface ExternalTableColumn {
@@ -245,6 +732,55 @@ export interface GetAlertsAlert {
     schemaName: string;
 }
 
+export interface GetCortexSearchServicesCortexSearchService {
+    /**
+     * Comment for the cortex search service.
+     */
+    comment: string;
+    /**
+     * Date and time when the cortex search service was created.
+     */
+    createdOn: string;
+    /**
+     * Database in which the cortex search service is stored.
+     */
+    databaseName: string;
+    /**
+     * Name of the cortex search service.
+     */
+    name: string;
+    /**
+     * Schema in which the cortex search service is stored.
+     */
+    schemaName: string;
+}
+
+export interface GetCortexSearchServicesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetCortexSearchServicesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetDatabaseRolesDatabaseRole {
     /**
      * The comment on the role
@@ -261,21 +797,199 @@ export interface GetDatabaseRolesDatabaseRole {
 }
 
 export interface GetDatabasesDatabase {
+    /**
+     * Holds the output of DESCRIBE DATABASE.
+     */
+    describeOutputs: outputs.GetDatabasesDatabaseDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR DATABASE.
+     */
+    parameters: outputs.GetDatabasesDatabaseParameter[];
+    /**
+     * Holds the output of SHOW DATABASES.
+     */
+    showOutputs: outputs.GetDatabasesDatabaseShowOutput[];
+}
+
+export interface GetDatabasesDatabaseDescribeOutput {
+    createdOn: string;
+    kind: string;
+    name: string;
+}
+
+export interface GetDatabasesDatabaseParameter {
+    catalogs: outputs.GetDatabasesDatabaseParameterCatalog[];
+    dataRetentionTimeInDays: outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.GetDatabasesDatabaseParameterDefaultDdlCollation[];
+    enableConsoleOutputs: outputs.GetDatabasesDatabaseParameterEnableConsoleOutput[];
+    externalVolumes: outputs.GetDatabasesDatabaseParameterExternalVolume[];
+    logLevels: outputs.GetDatabasesDatabaseParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay[];
+    quotedIdentifiersIgnoreCases: outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.GetDatabasesDatabaseParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.GetDatabasesDatabaseParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.GetDatabasesDatabaseParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.GetDatabasesDatabaseParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.GetDatabasesDatabaseParameterUserTaskTimeoutM[];
+}
+
+export interface GetDatabasesDatabaseParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseShowOutput {
     comment: string;
     createdOn: string;
+    droppedOn: string;
     isCurrent: boolean;
     isDefault: boolean;
+    kind: string;
     name: string;
     options: string;
     origin: string;
     owner: string;
-    replicationConfigurations: outputs.GetDatabasesDatabaseReplicationConfiguration[];
+    ownerRoleType: string;
+    resourceGroup: string;
     retentionTime: number;
+    transient: boolean;
 }
 
-export interface GetDatabasesDatabaseReplicationConfiguration {
-    accounts: string[];
-    ignoreEditionCheck: boolean;
+export interface GetDatabasesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetDynamicTablesIn {
@@ -637,6 +1351,34 @@ export interface GetMaterializedViewsMaterializedView {
     schema: string;
 }
 
+export interface GetNetworkPoliciesNetworkPolicy {
+    /**
+     * Holds the output of DESCRIBE NETWORK POLICIES.
+     */
+    describeOutputs: outputs.GetNetworkPoliciesNetworkPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW NETWORK POLICIES.
+     */
+    showOutputs: outputs.GetNetworkPoliciesNetworkPolicyShowOutput[];
+}
+
+export interface GetNetworkPoliciesNetworkPolicyDescribeOutput {
+    allowedIpList: string;
+    allowedNetworkRuleList: string;
+    blockedIpList: string;
+    blockedNetworkRuleList: string;
+}
+
+export interface GetNetworkPoliciesNetworkPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    entriesInAllowedIpList: number;
+    entriesInAllowedNetworkRules: number;
+    entriesInBlockedIpList: number;
+    entriesInBlockedNetworkRules: number;
+    name: string;
+}
+
 export interface GetParametersParameter {
     /**
      * The default value of the parameter
@@ -686,16 +1428,21 @@ export interface GetResourceMonitorsResourceMonitor {
 
 export interface GetRolesRole {
     /**
-     * The comment on the role
+     * Holds the output of SHOW ROLES.
      */
+    showOutputs: outputs.GetRolesRoleShowOutput[];
+}
+
+export interface GetRolesRoleShowOutput {
+    assignedToUsers: number;
     comment: string;
-    /**
-     * Identifier for the role.
-     */
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
     name: string;
-    /**
-     * The owner of the role
-     */
     owner: string;
 }
 
@@ -706,9 +1453,695 @@ export interface GetRowAccessPoliciesRowAccessPolicy {
     schema: string;
 }
 
+export interface GetSchemasIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+}
+
+export interface GetSchemasLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetSchemasSchema {
+    /**
+     * Holds the output of DESCRIBE SCHEMA.
+     */
+    describeOutputs: outputs.GetSchemasSchemaDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR SCHEMA.
+     */
+    parameters: outputs.GetSchemasSchemaParameter[];
+    /**
+     * Holds the output of SHOW SCHEMAS.
+     */
+    showOutputs: outputs.GetSchemasSchemaShowOutput[];
+}
+
+export interface GetSchemasSchemaDescribeOutput {
+    createdOn: string;
+    kind: string;
+    name: string;
+}
+
+export interface GetSchemasSchemaParameter {
+    catalogs: outputs.GetSchemasSchemaParameterCatalog[];
+    dataRetentionTimeInDays: outputs.GetSchemasSchemaParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.GetSchemasSchemaParameterDefaultDdlCollation[];
+    enableConsoleOutputs: outputs.GetSchemasSchemaParameterEnableConsoleOutput[];
+    externalVolumes: outputs.GetSchemasSchemaParameterExternalVolume[];
+    logLevels: outputs.GetSchemasSchemaParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDay[];
+    pipeExecutionPauseds: outputs.GetSchemasSchemaParameterPipeExecutionPaused[];
+    quotedIdentifiersIgnoreCases: outputs.GetSchemasSchemaParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.GetSchemasSchemaParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.GetSchemasSchemaParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.GetSchemasSchemaParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.GetSchemasSchemaParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.GetSchemasSchemaParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.GetSchemasSchemaParameterUserTaskTimeoutM[];
+}
+
+export interface GetSchemasSchemaParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaShowOutput {
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
+    droppedOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    retentionTime: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegration {
+    /**
+     * Holds the output of DESCRIBE SECURITY INTEGRATIONS.
+     */
+    describeOutputs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutput[];
+    /**
+     * Holds the output of SHOW SECURITY INTEGRATIONS.
+     */
+    showOutputs: outputs.GetSecurityIntegrationsSecurityIntegrationShowOutput[];
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
+    allowedEmailPatterns: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern[];
+    allowedUserDomains: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain[];
+    authTypes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType[];
+    blockedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList[];
+    comments: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputComment[];
+    enableds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabled[];
+    externalOauthAllowedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesList[];
+    externalOauthAnyRoleModes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleMode[];
+    externalOauthAudienceLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceList[];
+    externalOauthBlockedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesList[];
+    externalOauthIssuers: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuer[];
+    externalOauthJwsKeysUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrl[];
+    externalOauthRsaPublicKey2s: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2[];
+    externalOauthRsaPublicKeys: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey[];
+    externalOauthScopeDelimiters: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiter[];
+    externalOauthSnowflakeUserMappingAttributes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute[];
+    externalOauthTokenUserMappingClaims: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaim[];
+    networkPolicies: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicy[];
+    oauthAccessTokenValidities: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidity[];
+    oauthAllowNonTlsRedirectUris: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUri[];
+    oauthAllowedAuthorizationEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpoint[];
+    oauthAllowedScopes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScope[];
+    oauthAllowedTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint[];
+    oauthAuthorizationEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientAuthMethods: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod[];
+    oauthClientIds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId[];
+    oauthClientRsaPublicKey2Fps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp[];
+    oauthClientRsaPublicKeyFps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp[];
+    oauthClientTypes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType[];
+    oauthEnforcePkces: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce[];
+    oauthGrants: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant[];
+    oauthIssueRefreshTokens: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken[];
+    oauthRedirectUris: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri[];
+    oauthRefreshTokenValidities: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint[];
+    oauthUseSecondaryRoles: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole[];
+    parentIntegrations: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegration[];
+    preAuthorizedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesList[];
+    runAsRoles: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRole[];
+    saml2DigestMethodsUseds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsed[];
+    saml2EnableSpInitiateds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiated[];
+    saml2ForceAuthns: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthn[];
+    saml2Issuers: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Issuer[];
+    saml2PostLogoutRedirectUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrl[];
+    saml2Providers: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Provider[];
+    saml2RequestedNameidFormats: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormat[];
+    saml2SignRequests: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequest[];
+    saml2SignatureMethodsUseds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsed[];
+    saml2SnowflakeAcsUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
+    saml2SnowflakeIssuerUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
+    saml2SnowflakeMetadatas: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata[];
+    saml2SnowflakeX509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert[];
+    saml2SpInitiatedLoginPageLabels: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
+    saml2SsoUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl[];
+    saml2X509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert[];
+    syncPasswords: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword[];
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAllowedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAnyRoleMode {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthAudienceList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthBlockedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthIssuer {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthJwsKeysUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthRsaPublicKey2 {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthScopeDelimiter {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputExternalOauthTokenUserMappingClaim {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputNetworkPolicy {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAccessTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowNonTlsRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedScope {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputParentIntegration {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputPreAuthorizedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputRunAsRole {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2DigestMethodsUsed {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2EnableSpInitiated {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2ForceAuthn {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Issuer {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Provider {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2RequestedNameidFormat {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignRequest {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SignatureMethodsUsed {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
     name: string;
 }
 
@@ -755,6 +2188,70 @@ export interface GetStorageIntegrationsStorageIntegration {
     enabled: boolean;
     name: string;
     type: string;
+}
+
+export interface GetStreamlitsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetStreamlitsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetStreamlitsStreamlit {
+    /**
+     * Holds the output of DESCRIBE STREAMLITS.
+     */
+    describeOutputs: outputs.GetStreamlitsStreamlitDescribeOutput[];
+    /**
+     * Holds the output of SHOW STREAMLITS.
+     */
+    showOutputs: outputs.GetStreamlitsStreamlitShowOutput[];
+}
+
+export interface GetStreamlitsStreamlitDescribeOutput {
+    defaultPackages: string;
+    externalAccessIntegrations: string[];
+    externalAccessSecrets: string;
+    importUrls: string[];
+    mainFile: string;
+    name: string;
+    queryWarehouse: string;
+    rootLocation: string;
+    title: string;
+    urlId: string;
+    userPackages: string[];
+}
+
+export interface GetStreamlitsStreamlitShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    title: string;
+    urlId: string;
 }
 
 export interface GetStreamsStream {
@@ -804,12 +2301,84 @@ export interface GetViewsView {
 }
 
 export interface GetWarehousesWarehouse {
-    comment: string;
+    /**
+     * Holds the output of DESCRIBE WAREHOUSE.
+     */
+    describeOutputs: outputs.GetWarehousesWarehouseDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR WAREHOUSE.
+     */
+    parameters: outputs.GetWarehousesWarehouseParameter[];
+    /**
+     * Holds the output of SHOW WAREHOUSES.
+     */
+    showOutputs: outputs.GetWarehousesWarehouseShowOutput[];
+}
+
+export interface GetWarehousesWarehouseDescribeOutput {
+    createdOn: string;
+    kind: string;
     name: string;
+}
+
+export interface GetWarehousesWarehouseParameter {
+    maxConcurrencyLevels: outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevel[];
+    statementQueuedTimeoutInSeconds: outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecond[];
+}
+
+export interface GetWarehousesWarehouseParameterMaxConcurrencyLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetWarehousesWarehouseParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetWarehousesWarehouseShowOutput {
+    autoResume: boolean;
+    autoSuspend: number;
+    available: number;
+    comment: string;
+    createdOn: string;
+    enableQueryAcceleration: boolean;
+    isCurrent: boolean;
+    isDefault: boolean;
+    maxClusterCount: number;
+    minClusterCount: number;
+    name: string;
+    other: number;
+    owner: string;
+    ownerRoleType: string;
+    provisioning: number;
+    queryAccelerationMaxScaleFactor: number;
+    queued: number;
+    quiescing: number;
+    resourceMonitor: string;
+    resumedOn: string;
+    running: number;
     scalingPolicy: string;
     size: string;
+    startedClusters: number;
     state: string;
     type: string;
+    updatedOn: string;
 }
 
 export interface GrantOwnershipOn {
@@ -901,7 +2470,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: string;
 }
@@ -910,7 +2479,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: string;
 }
@@ -919,7 +2488,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -953,7 +2522,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: string;
 }
@@ -968,7 +2537,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: string;
 }
@@ -983,82 +2552,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
-     */
-    objectTypePlural: string;
-}
-
-export interface GrantPrivilegesToRoleOnAccountObject {
-    /**
-     * The fully qualified name of the object on which privileges will be granted.
-     */
-    objectName: string;
-    /**
-     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
-     */
-    objectType: string;
-}
-
-export interface GrantPrivilegesToRoleOnSchema {
-    /**
-     * The fully qualified name of the database.
-     */
-    allSchemasInDatabase?: string;
-    /**
-     * The fully qualified name of the database.
-     */
-    futureSchemasInDatabase?: string;
-    /**
-     * The fully qualified name of the schema.
-     */
-    schemaName?: string;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObject {
-    /**
-     * Configures the privilege to be granted on all objects in eihter a database or schema.
-     */
-    all?: outputs.GrantPrivilegesToRoleOnSchemaObjectAll;
-    /**
-     * Configures the privilege to be granted on future objects in eihter a database or schema.
-     */
-    future?: outputs.GrantPrivilegesToRoleOnSchemaObjectFuture;
-    /**
-     * The fully qualified name of the object on which privileges will be granted.
-     */
-    objectName?: string;
-    /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
-     */
-    objectType?: string;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObjectAll {
-    /**
-     * The fully qualified name of the database.
-     */
-    inDatabase?: string;
-    /**
-     * The fully qualified name of the schema.
-     */
-    inSchema?: string;
-    /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
-     */
-    objectTypePlural: string;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
-    /**
-     * The fully qualified name of the database.
-     */
-    inDatabase?: string;
-    /**
-     * The fully qualified name of the schema.
-     */
-    inSchema?: string;
-    /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -1097,6 +2591,351 @@ export interface MaterializedViewTag {
     value: string;
 }
 
+export interface NetworkPolicyDescribeOutput {
+    allowedIpList: string;
+    allowedNetworkRuleList: string;
+    blockedIpList: string;
+    blockedNetworkRuleList: string;
+}
+
+export interface NetworkPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    entriesInAllowedIpList: number;
+    entriesInAllowedNetworkRules: number;
+    entriesInBlockedIpList: number;
+    entriesInBlockedNetworkRules: number;
+    name: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutput {
+    blockedRolesLists: outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList[];
+    comments: outputs.OauthIntegrationForCustomClientsDescribeOutputComment[];
+    enableds: outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled[];
+    networkPolicies: outputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy[];
+    oauthAllowNonTlsRedirectUris: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri[];
+    oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint[];
+    oauthAllowedTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint[];
+    oauthAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientIds: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId[];
+    oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp[];
+    oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp[];
+    oauthClientTypes: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType[];
+    oauthEnforcePkces: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce[];
+    oauthIssueRefreshTokens: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken[];
+    oauthRedirectUris: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri[];
+    oauthRefreshTokenValidities: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint[];
+    oauthUseSecondaryRoles: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole[];
+    preAuthorizedRolesLists: outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList[];
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForCustomClientsShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
+    blockedRolesLists: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList[];
+    comments: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment[];
+    enableds: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled[];
+    networkPolicies: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy[];
+    oauthAllowNonTlsRedirectUris: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri[];
+    oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint[];
+    oauthAllowedTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint[];
+    oauthAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint[];
+    oauthClientIds: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId[];
+    oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp[];
+    oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp[];
+    oauthClientTypes: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType[];
+    oauthEnforcePkces: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce[];
+    oauthIssueRefreshTokens: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken[];
+    oauthRedirectUris: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri[];
+    oauthRefreshTokenValidities: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity[];
+    oauthTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint[];
+    oauthUseSecondaryRoles: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole[];
+    preAuthorizedRolesLists: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList[];
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface OauthIntegrationForPartnerApplicationsShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
 export interface ObjectParameterObjectIdentifier {
     /**
      * Name of the database that the object was created in.
@@ -1123,42 +2962,409 @@ export interface ProcedureArgument {
     type: string;
 }
 
-export interface RoleTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
+export interface RoleShowOutput {
+    assignedToUsers: number;
+    comment: string;
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
+    owner: string;
+}
+
+export interface Saml2IntegrationDescribeOutput {
+    allowedEmailPatterns: outputs.Saml2IntegrationDescribeOutputAllowedEmailPattern[];
+    allowedUserDomains: outputs.Saml2IntegrationDescribeOutputAllowedUserDomain[];
+    comments: outputs.Saml2IntegrationDescribeOutputComment[];
+    saml2DigestMethodsUseds: outputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed[];
+    saml2EnableSpInitiateds: outputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated[];
+    saml2ForceAuthns: outputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn[];
+    saml2Issuers: outputs.Saml2IntegrationDescribeOutputSaml2Issuer[];
+    saml2PostLogoutRedirectUrls: outputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl[];
+    saml2Providers: outputs.Saml2IntegrationDescribeOutputSaml2Provider[];
+    saml2RequestedNameidFormats: outputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat[];
+    saml2SignRequests: outputs.Saml2IntegrationDescribeOutputSaml2SignRequest[];
+    saml2SignatureMethodsUseds: outputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed[];
+    saml2SnowflakeAcsUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
+    saml2SnowflakeIssuerUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
+    saml2SnowflakeMetadatas: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata[];
+    saml2SnowflakeX509Certs: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert[];
+    saml2SpInitiatedLoginPageLabels: outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
+    saml2SsoUrls: outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl[];
+    saml2X509Certs: outputs.Saml2IntegrationDescribeOutputSaml2X509Cert[];
+}
+
+export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
+    default: string;
+    name: string;
+    type: string;
     value: string;
 }
 
-export interface SchemaTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
+export interface Saml2IntegrationDescribeOutputAllowedUserDomain {
+    default: string;
     name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
+    type: string;
     value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2EnableSpInitiated {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2ForceAuthn {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2Issuer {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2Provider {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SignRequest {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2X509Cert {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface Saml2IntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
+}
+
+export interface SchemaDescribeOutput {
+    createdOn: string;
+    kind: string;
+    name: string;
+}
+
+export interface SchemaParameter {
+    catalogs: outputs.SchemaParameterCatalog[];
+    dataRetentionTimeInDays: outputs.SchemaParameterDataRetentionTimeInDay[];
+    defaultDdlCollations: outputs.SchemaParameterDefaultDdlCollation[];
+    enableConsoleOutputs: outputs.SchemaParameterEnableConsoleOutput[];
+    externalVolumes: outputs.SchemaParameterExternalVolume[];
+    logLevels: outputs.SchemaParameterLogLevel[];
+    maxDataExtensionTimeInDays: outputs.SchemaParameterMaxDataExtensionTimeInDay[];
+    pipeExecutionPauseds: outputs.SchemaParameterPipeExecutionPaused[];
+    quotedIdentifiersIgnoreCases: outputs.SchemaParameterQuotedIdentifiersIgnoreCase[];
+    replaceInvalidCharacters: outputs.SchemaParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.SchemaParameterStorageSerializationPolicy[];
+    suspendTaskAfterNumFailures: outputs.SchemaParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.SchemaParameterTaskAutoRetryAttempt[];
+    traceLevels: outputs.SchemaParameterTraceLevel[];
+    userTaskManagedInitialWarehouseSizes: outputs.SchemaParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.SchemaParameterUserTaskTimeoutM[];
+}
+
+export interface SchemaParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    droppedOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    retentionTime: string;
+}
+
+export interface ScimIntegrationDescribeOutput {
+    comments: outputs.ScimIntegrationDescribeOutputComment[];
+    enableds: outputs.ScimIntegrationDescribeOutputEnabled[];
+    networkPolicies: outputs.ScimIntegrationDescribeOutputNetworkPolicy[];
+    runAsRoles: outputs.ScimIntegrationDescribeOutputRunAsRole[];
+    syncPasswords: outputs.ScimIntegrationDescribeOutputSyncPassword[];
+}
+
+export interface ScimIntegrationDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ScimIntegrationDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ScimIntegrationDescribeOutputNetworkPolicy {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ScimIntegrationDescribeOutputRunAsRole {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ScimIntegrationDescribeOutputSyncPassword {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface ScimIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    integrationType: string;
+    name: string;
 }
 
 export interface StageTag {
@@ -1178,6 +3384,33 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface StreamlitDescribeOutput {
+    defaultPackages: string;
+    externalAccessIntegrations: string[];
+    externalAccessSecrets: string;
+    importUrls: string[];
+    mainFile: string;
+    name: string;
+    queryWarehouse: string;
+    rootLocation: string;
+    title: string;
+    urlId: string;
+    userPackages: string[];
+}
+
+export interface StreamlitShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    title: string;
+    urlId: string;
 }
 
 export interface TableColumn {
@@ -1214,7 +3447,7 @@ export interface TableColumn {
      */
     schemaEvolutionRecord: string;
     /**
-     * Column type, e.g. VARIANT
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     type: string;
 }
@@ -1337,6 +3570,66 @@ export interface ViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface WarehouseParameter {
+    maxConcurrencyLevels: outputs.WarehouseParameterMaxConcurrencyLevel[];
+    statementQueuedTimeoutInSeconds: outputs.WarehouseParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.WarehouseParameterStatementTimeoutInSecond[];
+}
+
+export interface WarehouseParameterMaxConcurrencyLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseShowOutput {
+    autoResume: boolean;
+    autoSuspend: number;
+    available: number;
+    comment: string;
+    createdOn: string;
+    enableQueryAcceleration: boolean;
+    isCurrent: boolean;
+    isDefault: boolean;
+    maxClusterCount: number;
+    minClusterCount: number;
+    name: string;
+    other: number;
+    owner: string;
+    ownerRoleType: string;
+    provisioning: number;
+    queryAccelerationMaxScaleFactor: number;
+    queued: number;
+    quiescing: number;
+    resourceMonitor: string;
+    resumedOn: string;
+    running: number;
+    scalingPolicy: string;
+    size: string;
+    startedClusters: number;
+    state: string;
+    type: string;
+    updatedOn: string;
 }
 
 export namespace config {

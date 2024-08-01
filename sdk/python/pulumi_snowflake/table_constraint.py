@@ -106,13 +106,11 @@ class TableConstraintArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -288,13 +286,11 @@ class _TableConstraintState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -520,7 +516,7 @@ class TableConstraint(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -624,7 +620,7 @@ class TableConstraint(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -751,13 +747,11 @@ class TableConstraint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Not used. Will be removed.""")
     def comment(self) -> pulumi.Output[Optional[str]]:
         """
         Comment for the table constraint
         """
-        warnings.warn("""Not used. Will be removed.""", DeprecationWarning)
-        pulumi.log.warn("""comment is deprecated: Not used. Will be removed.""")
-
         return pulumi.get(self, "comment")
 
     @property

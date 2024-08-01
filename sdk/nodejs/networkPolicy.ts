@@ -2,16 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  *
- * ## Import
+ * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
  *
- * ```sh
- * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example policyname
- * ```
+ * ## Minimal
+ *
+ * resource "snowflake.NetworkPolicy" "basic" {
+ *   name = "networkPolicyName"
+ * }
+ *
+ * ## Complete (with every optional set)
+ *
+ * resource "snowflake.NetworkPolicy" "basic" {
+ *   name                      = "networkPolicyName"
+ *   allowedNetworkRuleList = ["<fully qualified network rule id>"]
+ *   blockedNetworkRuleList = ["<fully qualified network rule id>"]
+ *   allowedIpList           = ["192.168.1.0/24"]
+ *   blockedIpList           = ["192.168.1.99"]
+ *   comment                   = "my network policy"
+ * }
  */
 export class NetworkPolicy extends pulumi.CustomResource {
     /**
@@ -50,7 +65,7 @@ export class NetworkPolicy extends pulumi.CustomResource {
      */
     public readonly allowedNetworkRuleLists!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
     public readonly blockedIpLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -62,9 +77,17 @@ export class NetworkPolicy extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     */
+    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.NetworkPolicyDescribeOutput[]>;
+    /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.NetworkPolicyShowOutput[]>;
 
     /**
      * Create a NetworkPolicy resource with the given unique name, arguments, and options.
@@ -84,7 +107,9 @@ export class NetworkPolicy extends pulumi.CustomResource {
             resourceInputs["blockedIpLists"] = state ? state.blockedIpLists : undefined;
             resourceInputs["blockedNetworkRuleLists"] = state ? state.blockedNetworkRuleLists : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as NetworkPolicyArgs | undefined;
             resourceInputs["allowedIpLists"] = args ? args.allowedIpLists : undefined;
@@ -93,6 +118,8 @@ export class NetworkPolicy extends pulumi.CustomResource {
             resourceInputs["blockedNetworkRuleLists"] = args ? args.blockedNetworkRuleLists : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkPolicy.__pulumiType, name, resourceInputs, opts);
@@ -112,7 +139,7 @@ export interface NetworkPolicyState {
      */
     allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
     blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -124,9 +151,17 @@ export interface NetworkPolicyState {
      */
     comment?: pulumi.Input<string>;
     /**
+     * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyDescribeOutput>[]>;
+    /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyShowOutput>[]>;
 }
 
 /**
@@ -142,7 +177,7 @@ export interface NetworkPolicyArgs {
      */
     allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account\n\n\n\n**Do not** add `0.0.0.0/0` to `blockedIpList`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
     blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

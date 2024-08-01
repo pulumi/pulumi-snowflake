@@ -20,22 +20,22 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = new Snowflake.Database("database", new()
+    ///     var test = new Snowflake.Database("test", new()
     ///     {
     ///         Name = "database",
     ///     });
     /// 
-    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     var testSchema = new Snowflake.Schema("test", new()
     ///     {
     ///         Name = "schema",
-    ///         Database = database.Name,
+    ///         Database = test.Name,
     ///     });
     /// 
-    ///     var tag = new Snowflake.Tag("tag", new()
+    ///     var testTag = new Snowflake.Tag("test", new()
     ///     {
     ///         Name = "cost_center",
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
     ///         AllowedValues = new[]
     ///         {
     ///             "finance",
@@ -49,18 +49,18 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
     ///             {
-    ///                 Name = database.Name,
+    ///                 Name = test.Name,
     ///             },
     ///         },
     ///         ObjectType = "DATABASE",
-    ///         TagId = tag.Id,
+    ///         TagId = testTag.Id,
     ///         TagValue = "finance",
     ///     });
     /// 
-    ///     var test = new Snowflake.Table("test", new()
+    ///     var testTable = new Snowflake.Table("test", new()
     ///     {
-    ///         Database = testSnowflakeDatabase.Name,
-    ///         Schema = testSnowflakeSchema.Name,
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
     ///         Name = "TABLE_NAME",
     ///         Comment = "Terraform example table",
     ///         Columns = new[]
@@ -84,13 +84,13 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
     ///             {
-    ///                 Name = test.Name,
-    ///                 Database = testSnowflakeDatabase.Name,
-    ///                 Schema = testSnowflakeSchema.Name,
+    ///                 Name = testTable.Name,
+    ///                 Database = test.Name,
+    ///                 Schema = testSchema.Name,
     ///             },
     ///         },
     ///         ObjectType = "TABLE",
-    ///         TagId = testSnowflakeTag.Id,
+    ///         TagId = testTag.Id,
     ///         TagValue = "engineering",
     ///     });
     /// 
@@ -100,13 +100,13 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.TagAssociationObjectIdentifierArgs
     ///             {
-    ///                 Name = test.Name.Apply(name =&gt; $"{name}.column_name"),
-    ///                 Database = testSnowflakeDatabase.Name,
-    ///                 Schema = testSnowflakeSchema.Name,
+    ///                 Name = testTable.Name.Apply(name =&gt; $"{name}.column_name"),
+    ///                 Database = test.Name,
+    ///                 Schema = testSchema.Name,
     ///             },
     ///         },
     ///         ObjectType = "COLUMN",
-    ///         TagId = testSnowflakeTag.Id,
+    ///         TagId = testTag.Id,
     ///         TagValue = "engineering",
     ///     });
     /// 

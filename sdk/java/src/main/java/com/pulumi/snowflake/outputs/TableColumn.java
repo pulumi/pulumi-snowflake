@@ -56,7 +56,7 @@ public final class TableColumn {
      */
     private @Nullable String schemaEvolutionRecord;
     /**
-     * @return Column type, e.g. VARIANT
+     * @return Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     private String type;
@@ -119,7 +119,7 @@ public final class TableColumn {
         return Optional.ofNullable(this.schemaEvolutionRecord);
     }
     /**
-     * @return Column type, e.g. VARIANT
+     * @return Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public String type() {

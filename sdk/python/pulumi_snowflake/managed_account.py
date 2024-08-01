@@ -22,7 +22,7 @@ class ManagedAccountArgs:
         """
         The set of arguments for constructing a ManagedAccount resource.
         :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
-        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
+        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[str] type: Specifies the type of managed account.
@@ -52,7 +52,7 @@ class ManagedAccountArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Input[str]:
         """
-        Password for the initial user in the managed account.
+        Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         """
         return pulumi.get(self, "admin_password")
 
@@ -113,7 +113,7 @@ class _ManagedAccountState:
         """
         Input properties used for looking up and filtering ManagedAccount resources.
         :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
-        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
+        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] created_on: Date and time when the managed account was created.
@@ -160,7 +160,7 @@ class _ManagedAccountState:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for the initial user in the managed account.
+        Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         """
         return pulumi.get(self, "admin_password")
 
@@ -288,7 +288,7 @@ class ManagedAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
-        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
+        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[str] type: Specifies the type of managed account.
@@ -381,7 +381,7 @@ class ManagedAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
-        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account.
+        :param pulumi.Input[str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] created_on: Date and time when the managed account was created.
@@ -419,7 +419,7 @@ class ManagedAccount(pulumi.CustomResource):
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[str]:
         """
-        Password for the initial user in the managed account.
+        Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         """
         return pulumi.get(self, "admin_password")
 

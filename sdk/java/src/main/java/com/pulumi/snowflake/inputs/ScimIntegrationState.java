@@ -5,7 +5,11 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.ScimIntegrationDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.ScimIntegrationShowOutputArgs;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,29 +20,59 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
     public static final ScimIntegrationState Empty = new ScimIntegrationState();
 
     /**
-     * Date and time when the SCIM integration was created.
+     * Specifies a comment for the integration.
      * 
      */
-    @Import(name="createdOn")
-    private @Nullable Output<String> createdOn;
+    @Import(name="comment")
+    private @Nullable Output<String> comment;
 
     /**
-     * @return Date and time when the SCIM integration was created.
+     * @return Specifies a comment for the integration.
      * 
      */
-    public Optional<Output<String>> createdOn() {
-        return Optional.ofNullable(this.createdOn);
+    public Optional<Output<String>> comment() {
+        return Optional.ofNullable(this.comment);
     }
 
     /**
-     * Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<ScimIntegrationDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    public Optional<Output<List<ScimIntegrationDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
+    }
+
+    /**
+     * Specify whether the security integration is enabled.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return Specify whether the security integration is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +80,14 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+     * Specifies an existing network policy that controls SCIM network traffic.
      * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+     * @return Specifies an existing network policy that controls SCIM network traffic.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -61,43 +95,77 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
-    @Import(name="provisionerRole")
-    private @Nullable Output<String> provisionerRole;
+    @Import(name="runAsRole")
+    private @Nullable Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
-    public Optional<Output<String>> provisionerRole() {
-        return Optional.ofNullable(this.provisionerRole);
+    public Optional<Output<String>> runAsRole() {
+        return Optional.ofNullable(this.runAsRole);
     }
 
     /**
-     * Specifies the client type for the scim integration
+     * Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     @Import(name="scimClient")
     private @Nullable Output<String> scimClient;
 
     /**
-     * @return Specifies the client type for the scim integration
+     * @return Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     public Optional<Output<String>> scimClient() {
         return Optional.ofNullable(this.scimClient);
     }
 
+    /**
+     * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<ScimIntegrationShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    public Optional<Output<List<ScimIntegrationShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
+    }
+
+    /**
+     * Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="syncPassword")
+    private @Nullable Output<String> syncPassword;
+
+    /**
+     * @return Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> syncPassword() {
+        return Optional.ofNullable(this.syncPassword);
+    }
+
     private ScimIntegrationState() {}
 
     private ScimIntegrationState(ScimIntegrationState $) {
-        this.createdOn = $.createdOn;
+        this.comment = $.comment;
+        this.describeOutputs = $.describeOutputs;
+        this.enabled = $.enabled;
         this.name = $.name;
         this.networkPolicy = $.networkPolicy;
-        this.provisionerRole = $.provisionerRole;
+        this.runAsRole = $.runAsRole;
         this.scimClient = $.scimClient;
+        this.showOutputs = $.showOutputs;
+        this.syncPassword = $.syncPassword;
     }
 
     public static Builder builder() {
@@ -119,28 +187,80 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdOn Date and time when the SCIM integration was created.
+         * @param comment Specifies a comment for the integration.
          * 
          * @return builder
          * 
          */
-        public Builder createdOn(@Nullable Output<String> createdOn) {
-            $.createdOn = createdOn;
+        public Builder comment(@Nullable Output<String> comment) {
+            $.comment = comment;
             return this;
         }
 
         /**
-         * @param createdOn Date and time when the SCIM integration was created.
+         * @param comment Specifies a comment for the integration.
          * 
          * @return builder
          * 
          */
-        public Builder createdOn(String createdOn) {
-            return createdOn(Output.of(createdOn));
+        public Builder comment(String comment) {
+            return comment(Output.of(comment));
         }
 
         /**
-         * @param name Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+         * @param describeOutputs Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<ScimIntegrationDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<ScimIntegrationDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(ScimIntegrationDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
+         * @param enabled Specify whether the security integration is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled Specify whether the security integration is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
          * 
          * @return builder
          * 
@@ -151,7 +271,7 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
          * 
          * @return builder
          * 
@@ -161,7 +281,7 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic.
          * 
          * @return builder
          * 
@@ -172,7 +292,7 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic.
          * 
          * @return builder
          * 
@@ -182,28 +302,28 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param provisionerRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
          */
-        public Builder provisionerRole(@Nullable Output<String> provisionerRole) {
-            $.provisionerRole = provisionerRole;
+        public Builder runAsRole(@Nullable Output<String> runAsRole) {
+            $.runAsRole = runAsRole;
             return this;
         }
 
         /**
-         * @param provisionerRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
          */
-        public Builder provisionerRole(String provisionerRole) {
-            return provisionerRole(Output.of(provisionerRole));
+        public Builder runAsRole(String runAsRole) {
+            return runAsRole(Output.of(runAsRole));
         }
 
         /**
-         * @param scimClient Specifies the client type for the scim integration
+         * @param scimClient Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
          * 
          * @return builder
          * 
@@ -214,13 +334,65 @@ public final class ScimIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scimClient Specifies the client type for the scim integration
+         * @param scimClient Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
          * 
          * @return builder
          * 
          */
         public Builder scimClient(String scimClient) {
             return scimClient(Output.of(scimClient));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<ScimIntegrationShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<ScimIntegrationShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(ScimIntegrationShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
+        }
+
+        /**
+         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncPassword(@Nullable Output<String> syncPassword) {
+            $.syncPassword = syncPassword;
+            return this;
+        }
+
+        /**
+         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncPassword(String syncPassword) {
+            return syncPassword(Output.of(syncPassword));
         }
 
         public ScimIntegrationState build() {

@@ -31,7 +31,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "source_failover_group", &snowflake.FailoverGroupArgs{
+//			sourceFailoverGroup, err := snowflake.NewFailoverGroup(ctx, "source_failover_group", &snowflake.FailoverGroupArgs{
 //				Name: pulumi.String("FG1"),
 //				ObjectTypes: pulumi.StringArray{
 //					pulumi.String("WAREHOUSES"),
@@ -64,7 +64,7 @@ import (
 //				FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
 //					OrganizationName:  pulumi.String("..."),
 //					SourceAccountName: pulumi.String("..."),
-//					Name:              pulumi.Any(fg.Name),
+//					Name:              sourceFailoverGroup.Name,
 //				},
 //			})
 //			if err != nil {

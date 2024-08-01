@@ -93,13 +93,11 @@ class TagAssociationArgs:
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -167,13 +165,11 @@ class _TagAssociationState:
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @object_name.setter
@@ -248,28 +244,28 @@ class TagAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database", name="database")
-        schema = snowflake.Schema("schema",
+        test = snowflake.Database("test", name="database")
+        test_schema = snowflake.Schema("test",
             name="schema",
-            database=database.name)
-        tag = snowflake.Tag("tag",
+            database=test.name)
+        test_tag = snowflake.Tag("test",
             name="cost_center",
-            database=database.name,
-            schema=schema.name,
+            database=test.name,
+            schema=test_schema.name,
             allowed_values=[
                 "finance",
                 "engineering",
             ])
         db_association = snowflake.TagAssociation("db_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=database.name,
+                name=test.name,
             )],
             object_type="DATABASE",
-            tag_id=tag.id,
+            tag_id=test_tag.id,
             tag_value="finance")
-        test = snowflake.Table("test",
-            database=test_snowflake_database["name"],
-            schema=test_snowflake_schema["name"],
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
             name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
@@ -284,21 +280,21 @@ class TagAssociation(pulumi.CustomResource):
             ])
         table_association = snowflake.TagAssociation("table_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name,
-                database=test_snowflake_database["name"],
-                schema=test_snowflake_schema["name"],
+                name=test_table.name,
+                database=test.name,
+                schema=test_schema.name,
             )],
             object_type="TABLE",
-            tag_id=test_snowflake_tag["id"],
+            tag_id=test_tag.id,
             tag_value="engineering")
         column_association = snowflake.TagAssociation("column_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name.apply(lambda name: f"{name}.column_name"),
-                database=test_snowflake_database["name"],
-                schema=test_snowflake_schema["name"],
+                name=test_table.name.apply(lambda name: f"{name}.column_name"),
+                database=test.name,
+                schema=test_schema.name,
             )],
             object_type="COLUMN",
-            tag_id=test_snowflake_tag["id"],
+            tag_id=test_tag.id,
             tag_value="engineering")
         ```
 
@@ -332,28 +328,28 @@ class TagAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        database = snowflake.Database("database", name="database")
-        schema = snowflake.Schema("schema",
+        test = snowflake.Database("test", name="database")
+        test_schema = snowflake.Schema("test",
             name="schema",
-            database=database.name)
-        tag = snowflake.Tag("tag",
+            database=test.name)
+        test_tag = snowflake.Tag("test",
             name="cost_center",
-            database=database.name,
-            schema=schema.name,
+            database=test.name,
+            schema=test_schema.name,
             allowed_values=[
                 "finance",
                 "engineering",
             ])
         db_association = snowflake.TagAssociation("db_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=database.name,
+                name=test.name,
             )],
             object_type="DATABASE",
-            tag_id=tag.id,
+            tag_id=test_tag.id,
             tag_value="finance")
-        test = snowflake.Table("test",
-            database=test_snowflake_database["name"],
-            schema=test_snowflake_schema["name"],
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
             name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
@@ -368,21 +364,21 @@ class TagAssociation(pulumi.CustomResource):
             ])
         table_association = snowflake.TagAssociation("table_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name,
-                database=test_snowflake_database["name"],
-                schema=test_snowflake_schema["name"],
+                name=test_table.name,
+                database=test.name,
+                schema=test_schema.name,
             )],
             object_type="TABLE",
-            tag_id=test_snowflake_tag["id"],
+            tag_id=test_tag.id,
             tag_value="engineering")
         column_association = snowflake.TagAssociation("column_association",
             object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name.apply(lambda name: f"{name}.column_name"),
-                database=test_snowflake_database["name"],
-                schema=test_snowflake_schema["name"],
+                name=test_table.name.apply(lambda name: f"{name}.column_name"),
+                database=test.name,
+                schema=test_schema.name,
             )],
             object_type="COLUMN",
-            tag_id=test_snowflake_tag["id"],
+            tag_id=test_tag.id,
             tag_value="engineering")
         ```
 
@@ -490,13 +486,11 @@ class TagAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectName")
+    @_utilities.deprecated("""Use `object_identifier` instead""")
     def object_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the object identifier for the tag association.
         """
-        warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-        pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-
         return pulumi.get(self, "object_name")
 
     @property

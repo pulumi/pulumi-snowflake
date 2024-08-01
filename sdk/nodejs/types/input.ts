@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AccountRoleShowOutput {
+    assignedToUsers?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    grantedRoles?: pulumi.Input<number>;
+    grantedToRoles?: pulumi.Input<number>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    isInherited?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+}
+
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
@@ -27,9 +40,355 @@ export interface AlertAlertScheduleCron {
     timeZone: pulumi.Input<string>;
 }
 
-export interface DatabaseReplicationConfiguration {
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput {
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled>[]>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity>[]>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope>[]>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint>[]>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod>[]>;
+    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId>[]>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant>[]>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity>[]>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint>[]>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration>[]>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput {
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled>[]>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity>[]>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope>[]>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint>[]>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod>[]>;
+    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId>[]>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant>[]>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity>[]>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint>[]>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration>[]>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithClientCredentialsShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled>[]>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity>[]>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope>[]>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint>[]>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod>[]>;
+    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId>[]>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant>[]>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity>[]>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint>[]>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration>[]>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface DatabaseOldReplicationConfiguration {
     accounts: pulumi.Input<pulumi.Input<string>[]>;
     ignoreEditionCheck?: pulumi.Input<boolean>;
+}
+
+export interface DatabaseReplication {
+    /**
+     * Entry to enable replication and optionally failover for a given account identifier.
+     */
+    enableToAccounts: pulumi.Input<pulumi.Input<inputs.DatabaseReplicationEnableToAccount>[]>;
+    /**
+     * Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
+     */
+    ignoreEditionCheck?: pulumi.Input<boolean>;
+}
+
+export interface DatabaseReplicationEnableToAccount {
+    /**
+     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+     */
+    accountIdentifier: pulumi.Input<string>;
+    /**
+     * Specifies if failover should be enabled for the specified account identifier
+     */
+    withFailover?: pulumi.Input<boolean>;
 }
 
 export interface DynamicTableTargetLag {
@@ -63,6 +422,134 @@ export interface ExternalFunctionHeader {
      * Header value
      */
     value: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutput {
+    comments?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputEnabled>[]>;
+    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList>[]>;
+    externalOauthAnyRoleModes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode>[]>;
+    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList>[]>;
+    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList>[]>;
+    externalOauthIssuers?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer>[]>;
+    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl>[]>;
+    externalOauthRsaPublicKey2s?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2>[]>;
+    externalOauthRsaPublicKeys?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey>[]>;
+    externalOauthScopeDelimiters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter>[]>;
+    externalOauthSnowflakeUserMappingAttributes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute>[]>;
+    externalOauthTokenUserMappingClaims?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim>[]>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthIssuer {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2 {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationRelatedParameter {
+    externalOauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList>[]>;
+}
+
+export interface ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalOauthIntegrationShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 export interface ExternalTableColumn {
@@ -145,6 +632,80 @@ export interface FunctionArgument {
      * The argument type
      */
     type: pulumi.Input<string>;
+}
+
+export interface GetCortexSearchServicesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetCortexSearchServicesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetCortexSearchServicesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetCortexSearchServicesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetDatabasesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetDatabasesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
 }
 
 export interface GetDynamicTablesIn {
@@ -393,6 +954,118 @@ export interface GetGrantsGrantsToShareArgs {
     shareName: pulumi.Input<string>;
 }
 
+export interface GetSchemasIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+}
+
+export interface GetSchemasInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: pulumi.Input<string>;
+}
+
+export interface GetSchemasLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSchemasLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetStreamlitsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: string;
+}
+
+export interface GetStreamlitsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database (db_name).
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema (schema_name).
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetStreamlitsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetStreamlitsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GrantOwnershipOn {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
@@ -482,7 +1155,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: pulumi.Input<string>;
 }
@@ -491,7 +1164,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -500,7 +1173,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -534,7 +1207,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
      */
     objectType?: pulumi.Input<string>;
 }
@@ -549,7 +1222,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -564,82 +1237,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS.
-     */
-    objectTypePlural: pulumi.Input<string>;
-}
-
-export interface GrantPrivilegesToRoleOnAccountObject {
-    /**
-     * The fully qualified name of the object on which privileges will be granted.
-     */
-    objectName: pulumi.Input<string>;
-    /**
-     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
-     */
-    objectType: pulumi.Input<string>;
-}
-
-export interface GrantPrivilegesToRoleOnSchema {
-    /**
-     * The fully qualified name of the database.
-     */
-    allSchemasInDatabase?: pulumi.Input<string>;
-    /**
-     * The fully qualified name of the database.
-     */
-    futureSchemasInDatabase?: pulumi.Input<string>;
-    /**
-     * The fully qualified name of the schema.
-     */
-    schemaName?: pulumi.Input<string>;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObject {
-    /**
-     * Configures the privilege to be granted on all objects in eihter a database or schema.
-     */
-    all?: pulumi.Input<inputs.GrantPrivilegesToRoleOnSchemaObjectAll>;
-    /**
-     * Configures the privilege to be granted on future objects in eihter a database or schema.
-     */
-    future?: pulumi.Input<inputs.GrantPrivilegesToRoleOnSchemaObjectFuture>;
-    /**
-     * The fully qualified name of the object on which privileges will be granted.
-     */
-    objectName?: pulumi.Input<string>;
-    /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
-     */
-    objectType?: pulumi.Input<string>;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObjectAll {
-    /**
-     * The fully qualified name of the database.
-     */
-    inDatabase?: pulumi.Input<string>;
-    /**
-     * The fully qualified name of the schema.
-     */
-    inSchema?: pulumi.Input<string>;
-    /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS
-     */
-    objectTypePlural: pulumi.Input<string>;
-}
-
-export interface GrantPrivilegesToRoleOnSchemaObjectFuture {
-    /**
-     * The fully qualified name of the database.
-     */
-    inDatabase?: pulumi.Input<string>;
-    /**
-     * The fully qualified name of the schema.
-     */
-    inSchema?: pulumi.Input<string>;
-    /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | STAGES | STREAMS | TABLES | TASKS | VIEWS
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -676,6 +1274,351 @@ export interface MaterializedViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface NetworkPolicyDescribeOutput {
+    allowedIpList?: pulumi.Input<string>;
+    allowedNetworkRuleList?: pulumi.Input<string>;
+    blockedIpList?: pulumi.Input<string>;
+    blockedNetworkRuleList?: pulumi.Input<string>;
+}
+
+export interface NetworkPolicyShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    entriesInAllowedIpList?: pulumi.Input<number>;
+    entriesInAllowedNetworkRules?: pulumi.Input<number>;
+    entriesInBlockedIpList?: pulumi.Input<number>;
+    entriesInBlockedNetworkRules?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutput {
+    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputEnabled>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy>[]>;
+    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri>[]>;
+    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
+    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint>[]>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint>[]>;
+    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId>[]>;
+    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
+    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
+    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType>[]>;
+    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce>[]>;
+    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken>[]>;
+    oauthRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri>[]>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity>[]>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint>[]>;
+    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole>[]>;
+    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList>[]>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientType {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForCustomClientsShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
+    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy>[]>;
+    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri>[]>;
+    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
+    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint>[]>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint>[]>;
+    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId>[]>;
+    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
+    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
+    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType>[]>;
+    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce>[]>;
+    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken>[]>;
+    oauthRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri>[]>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity>[]>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint>[]>;
+    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole>[]>;
+    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList>[]>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 export interface ObjectParameterObjectIdentifier {
@@ -727,42 +1670,409 @@ export interface ProviderTokenAccessor {
     tokenEndpoint: pulumi.Input<string>;
 }
 
-export interface RoleTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: pulumi.Input<string>;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: pulumi.Input<string>;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: pulumi.Input<string>;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: pulumi.Input<string>;
+export interface RoleShowOutput {
+    assignedToUsers?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    grantedRoles?: pulumi.Input<number>;
+    grantedToRoles?: pulumi.Input<number>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    isInherited?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
 }
 
-export interface SchemaTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: pulumi.Input<string>;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: pulumi.Input<string>;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: pulumi.Input<string>;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
-    value: pulumi.Input<string>;
+export interface Saml2IntegrationDescribeOutput {
+    allowedEmailPatterns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedEmailPattern>[]>;
+    allowedUserDomains?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedUserDomain>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputComment>[]>;
+    saml2DigestMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed>[]>;
+    saml2EnableSpInitiateds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated>[]>;
+    saml2ForceAuthns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn>[]>;
+    saml2Issuers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Issuer>[]>;
+    saml2PostLogoutRedirectUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl>[]>;
+    saml2Providers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Provider>[]>;
+    saml2RequestedNameidFormats?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat>[]>;
+    saml2SignRequests?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignRequest>[]>;
+    saml2SignatureMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed>[]>;
+    saml2SnowflakeAcsUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl>[]>;
+    saml2SnowflakeIssuerUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl>[]>;
+    saml2SnowflakeMetadatas?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata>[]>;
+    saml2SnowflakeX509Certs?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert>[]>;
+    saml2SpInitiatedLoginPageLabels?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel>[]>;
+    saml2SsoUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SsoUrl>[]>;
+    saml2X509Certs?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2X509Cert>[]>;
+}
+
+export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputAllowedUserDomain {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2EnableSpInitiated {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2ForceAuthn {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2Issuer {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2Provider {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SignRequest {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationDescribeOutputSaml2X509Cert {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface Saml2IntegrationShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface SchemaDescribeOutput {
+    createdOn?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface SchemaParameter {
+    catalogs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterCatalog>[]>;
+    dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDataRetentionTimeInDay>[]>;
+    defaultDdlCollations?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultDdlCollation>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterEnableConsoleOutput>[]>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterExternalVolume>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterLogLevel>[]>;
+    maxDataExtensionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterMaxDataExtensionTimeInDay>[]>;
+    pipeExecutionPauseds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterPipeExecutionPaused>[]>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.SchemaParameterQuotedIdentifiersIgnoreCase>[]>;
+    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.SchemaParameterReplaceInvalidCharacter>[]>;
+    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.SchemaParameterStorageSerializationPolicy>[]>;
+    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.SchemaParameterSuspendTaskAfterNumFailure>[]>;
+    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTaskAutoRetryAttempt>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTraceLevel>[]>;
+    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskManagedInitialWarehouseSize>[]>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond>[]>;
+    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskTimeoutM>[]>;
+}
+
+export interface SchemaParameterCatalog {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterDataRetentionTimeInDay {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterDefaultDdlCollation {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterExternalVolume {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterMaxDataExtensionTimeInDay {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterPipeExecutionPaused {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterReplaceInvalidCharacter {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterStorageSerializationPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterSuspendTaskAfterNumFailure {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterTaskAutoRetryAttempt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterUserTaskManagedInitialWarehouseSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterUserTaskMinimumTriggerIntervalInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaParameterUserTaskTimeoutM {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface SchemaShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    droppedOn?: pulumi.Input<string>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    options?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    retentionTime?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationDescribeOutput {
+    comments?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputEnabled>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputNetworkPolicy>[]>;
+    runAsRoles?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputRunAsRole>[]>;
+    syncPasswords?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputSyncPassword>[]>;
+}
+
+export interface ScimIntegrationDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationDescribeOutputNetworkPolicy {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationDescribeOutputRunAsRole {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationDescribeOutputSyncPassword {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ScimIntegrationShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    integrationType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 export interface StageTag {
@@ -782,6 +2092,33 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface StreamlitDescribeOutput {
+    defaultPackages?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    externalAccessSecrets?: pulumi.Input<string>;
+    importUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    mainFile?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    rootLocation?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    urlId?: pulumi.Input<string>;
+    userPackages?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface StreamlitShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    urlId?: pulumi.Input<string>;
 }
 
 export interface TableColumn {
@@ -818,7 +2155,7 @@ export interface TableColumn {
      */
     schemaEvolutionRecord?: pulumi.Input<string>;
     /**
-     * Column type, e.g. VARIANT
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     type: pulumi.Input<string>;
 }
@@ -941,6 +2278,66 @@ export interface ViewTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface WarehouseParameter {
+    maxConcurrencyLevels?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterMaxConcurrencyLevel>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementTimeoutInSecond>[]>;
+}
+
+export interface WarehouseParameterMaxConcurrencyLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface WarehouseParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface WarehouseParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface WarehouseShowOutput {
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspend?: pulumi.Input<number>;
+    available?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enableQueryAcceleration?: pulumi.Input<boolean>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    maxClusterCount?: pulumi.Input<number>;
+    minClusterCount?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    other?: pulumi.Input<number>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    provisioning?: pulumi.Input<number>;
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
+    queued?: pulumi.Input<number>;
+    quiescing?: pulumi.Input<number>;
+    resourceMonitor?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    running?: pulumi.Input<number>;
+    scalingPolicy?: pulumi.Input<string>;
+    size?: pulumi.Input<string>;
+    startedClusters?: pulumi.Input<number>;
+    state?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    updatedOn?: pulumi.Input<string>;
 }
 export namespace config {
 }

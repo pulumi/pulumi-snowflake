@@ -11,35 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetRoles(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetRoles(ctx, &snowflake.GetRolesArgs{
-//				Pattern: pulumi.StringRef("SYSADMIN"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult
@@ -52,17 +26,21 @@ func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getRoles.
 type GetRolesArgs struct {
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
+	// Filters the SHOW GRANTS output by class name.
+	InClass *string `pulumi:"inClass"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
 }
 
 // A collection of values returned by getRoles.
 type GetRolesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
-	// List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+	// Filters the SHOW GRANTS output by class name.
+	InClass *string `pulumi:"inClass"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Holds the aggregated output of all role details queries.
 	Roles []GetRolesRole `pulumi:"roles"`
 }
 
@@ -81,8 +59,10 @@ func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getRoles.
 type GetRolesOutputArgs struct {
-	// Filters the command output by object name.
-	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Filters the SHOW GRANTS output by class name.
+	InClass pulumi.StringPtrInput `pulumi:"inClass"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
 }
 
 func (GetRolesOutputArgs) ElementType() reflect.Type {
@@ -109,12 +89,17 @@ func (o GetRolesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the command output by object name.
-func (o GetRolesResultOutput) Pattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetRolesResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+// Filters the SHOW GRANTS output by class name.
+func (o GetRolesResultOutput) InClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRolesResult) *string { return v.InClass }).(pulumi.StringPtrOutput)
 }
 
-// List of all the roles which you can view across your entire account, including the system-defined roles and any custom roles that exist.
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetRolesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRolesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all role details queries.
 func (o GetRolesResultOutput) Roles() GetRolesRoleArrayOutput {
 	return o.ApplyT(func(v GetRolesResult) []GetRolesRole { return v.Roles }).(GetRolesRoleArrayOutput)
 }

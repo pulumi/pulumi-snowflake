@@ -5,24 +5,51 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaDescribeOutput;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaParameter;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetSchemasSchema {
-    private String comment;
-    private String database;
-    private String name;
+    /**
+     * @return Holds the output of DESCRIBE SCHEMA.
+     * 
+     */
+    private List<GetSchemasSchemaDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR SCHEMA.
+     * 
+     */
+    private List<GetSchemasSchemaParameter> parameters;
+    /**
+     * @return Holds the output of SHOW SCHEMAS.
+     * 
+     */
+    private List<GetSchemasSchemaShowOutput> showOutputs;
 
     private GetSchemasSchema() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE SCHEMA.
+     * 
+     */
+    public List<GetSchemasSchemaDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR SCHEMA.
+     * 
+     */
+    public List<GetSchemasSchemaParameter> parameters() {
+        return this.parameters;
     }
-    public String name() {
-        return this.name;
+    /**
+     * @return Holds the output of SHOW SCHEMAS.
+     * 
+     */
+    public List<GetSchemasSchemaShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -34,46 +61,55 @@ public final class GetSchemasSchema {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String name;
+        private List<GetSchemasSchemaDescribeOutput> describeOutputs;
+        private List<GetSchemasSchemaParameter> parameters;
+        private List<GetSchemasSchemaShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetSchemasSchema defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.name = defaults.name;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetSchemasSchema", "comment");
+        public Builder describeOutputs(List<GetSchemasSchemaDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetSchemasSchema", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetSchemasSchemaDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetSchemasSchema", "name");
+        public Builder parameters(List<GetSchemasSchemaParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "parameters");
             }
-            this.name = name;
+            this.parameters = parameters;
             return this;
+        }
+        public Builder parameters(GetSchemasSchemaParameter... parameters) {
+            return parameters(List.of(parameters));
+        }
+        @CustomType.Setter
+        public Builder showOutputs(List<GetSchemasSchemaShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "showOutputs");
+            }
+            this.showOutputs = showOutputs;
+            return this;
+        }
+        public Builder showOutputs(GetSchemasSchemaShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetSchemasSchema build() {
             final var _resultValue = new GetSchemasSchema();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.name = name;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

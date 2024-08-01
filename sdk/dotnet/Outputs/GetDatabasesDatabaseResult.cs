@@ -13,49 +13,30 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetDatabasesDatabaseResult
     {
-        public readonly string Comment;
-        public readonly string CreatedOn;
-        public readonly bool IsCurrent;
-        public readonly bool IsDefault;
-        public readonly string Name;
-        public readonly string Options;
-        public readonly string Origin;
-        public readonly string Owner;
-        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseReplicationConfigurationResult> ReplicationConfigurations;
-        public readonly int RetentionTime;
+        /// <summary>
+        /// Holds the output of DESCRIBE DATABASE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW PARAMETERS FOR DATABASE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterResult> Parameters;
+        /// <summary>
+        /// Holds the output of SHOW DATABASES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetDatabasesDatabaseResult(
-            string comment,
+            ImmutableArray<Outputs.GetDatabasesDatabaseDescribeOutputResult> describeOutputs,
 
-            string createdOn,
+            ImmutableArray<Outputs.GetDatabasesDatabaseParameterResult> parameters,
 
-            bool isCurrent,
-
-            bool isDefault,
-
-            string name,
-
-            string options,
-
-            string origin,
-
-            string owner,
-
-            ImmutableArray<Outputs.GetDatabasesDatabaseReplicationConfigurationResult> replicationConfigurations,
-
-            int retentionTime)
+            ImmutableArray<Outputs.GetDatabasesDatabaseShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            CreatedOn = createdOn;
-            IsCurrent = isCurrent;
-            IsDefault = isDefault;
-            Name = name;
-            Options = options;
-            Origin = origin;
-            Owner = owner;
-            ReplicationConfigurations = replicationConfigurations;
-            RetentionTime = retentionTime;
+            DescribeOutputs = describeOutputs;
+            Parameters = parameters;
+            ShowOutputs = showOutputs;
         }
     }
 }

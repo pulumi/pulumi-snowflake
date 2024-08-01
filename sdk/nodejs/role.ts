@@ -7,23 +7,22 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.AccountRole instead. <deprecation>
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
+ * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
  *
- * const role = new snowflake.Role("role", {
- *     name: "role1",
- *     comment: "A role.",
- * });
- * ```
+ * ## Minimal
  *
- * ## Import
+ * resource "snowflake.Role" "minimal" {
+ *   name = "roleName"
+ * }
  *
- * ```sh
- * $ pulumi import snowflake:index/role:Role example roleName
- * ```
+ * ## Complete (with every optional set)
+ *
+ * resource "snowflake.Role" "complete" {
+ *   name    = "roleName"
+ *   comment = "my account role"
+ * }
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -56,11 +55,9 @@ export class Role extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
+     * Outputs the result of `SHOW ROLES` for the given role.
      */
-    public readonly tags!: pulumi.Output<outputs.RoleTag[] | undefined>;
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.RoleShowOutput[]>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -77,12 +74,12 @@ export class Role extends pulumi.CustomResource {
             const state = argsOrState as RoleState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Role.__pulumiType, name, resourceInputs, opts);
@@ -96,11 +93,9 @@ export interface RoleState {
     comment?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
+     * Outputs the result of `SHOW ROLES` for the given role.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.RoleShowOutput>[]>;
 }
 
 /**
@@ -109,10 +104,4 @@ export interface RoleState {
 export interface RoleArgs {
     comment?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    /**
-     * Definitions of a tag to associate with the resource.
-     *
-     * @deprecated Use the 'snowflake_tag_association' resource instead.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.RoleTag>[]>;
 }

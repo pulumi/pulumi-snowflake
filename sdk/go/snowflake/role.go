@@ -11,47 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use AccountRole instead. <deprecation>
 //
-// ```go
-// package main
+// The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 //
-// import (
+// ## Minimal
 //
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewRole(ctx, "role", &snowflake.RoleArgs{
-//				Name:    pulumi.String("role1"),
-//				Comment: pulumi.String("A role."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "Role" "minimal" {
+//	  name = "roleName"
 //	}
 //
-// ```
+// ## Complete (with every optional set)
 //
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/role:Role example roleName
-// ```
+//	resource "Role" "complete" {
+//	  name    = "roleName"
+//	  comment = "my account role"
+//	}
 type Role struct {
 	pulumi.CustomResourceState
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	Name    pulumi.StringOutput    `pulumi:"name"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags RoleTagArrayOutput `pulumi:"tags"`
+	// Outputs the result of `SHOW ROLES` for the given role.
+	ShowOutputs RoleShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -86,19 +68,15 @@ func GetRole(ctx *pulumi.Context,
 type roleState struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []RoleTag `pulumi:"tags"`
+	// Outputs the result of `SHOW ROLES` for the given role.
+	ShowOutputs []RoleShowOutput `pulumi:"showOutputs"`
 }
 
 type RoleState struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags RoleTagArrayInput
+	// Outputs the result of `SHOW ROLES` for the given role.
+	ShowOutputs RoleShowOutputArrayInput
 }
 
 func (RoleState) ElementType() reflect.Type {
@@ -108,20 +86,12 @@ func (RoleState) ElementType() reflect.Type {
 type roleArgs struct {
 	Comment *string `pulumi:"comment"`
 	Name    *string `pulumi:"name"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []RoleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	Comment pulumi.StringPtrInput
 	Name    pulumi.StringPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags RoleTagArrayInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {
@@ -219,11 +189,9 @@ func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Definitions of a tag to associate with the resource.
-//
-// Deprecated: Use the 'snowflake_tag_association' resource instead.
-func (o RoleOutput) Tags() RoleTagArrayOutput {
-	return o.ApplyT(func(v *Role) RoleTagArrayOutput { return v.Tags }).(RoleTagArrayOutput)
+// Outputs the result of `SHOW ROLES` for the given role.
+func (o RoleOutput) ShowOutputs() RoleShowOutputArrayOutput {
+	return o.ApplyT(func(v *Role) RoleShowOutputArrayOutput { return v.ShowOutputs }).(RoleShowOutputArrayOutput)
 }
 
 type RoleArrayOutput struct{ *pulumi.OutputState }

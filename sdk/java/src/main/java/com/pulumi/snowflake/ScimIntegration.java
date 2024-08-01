@@ -10,127 +10,153 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.ScimIntegrationArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ScimIntegrationState;
+import com.pulumi.snowflake.outputs.ScimIntegrationDescribeOutput;
+import com.pulumi.snowflake.outputs.ScimIntegrationShowOutput;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ScimIntegration;
- * import com.pulumi.snowflake.ScimIntegrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var aad = new ScimIntegration("aad", ScimIntegrationArgs.builder()
- *             .name("AAD_PROVISIONING")
- *             .networkPolicy("AAD_NETWORK_POLICY")
- *             .provisionerRole("AAD_PROVISIONER")
- *             .scimClient("AZURE")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ * Resource used to manage scim security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-scim).
  * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
+ * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example &#34;name&#34;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/scimIntegration:ScimIntegration")
 public class ScimIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * Date and time when the SCIM integration was created.
+     * Specifies a comment for the integration.
      * 
      */
-    @Export(name="createdOn", refs={String.class}, tree="[0]")
-    private Output<String> createdOn;
+    @Export(name="comment", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Date and time when the SCIM integration was created.
+     * @return Specifies a comment for the integration.
      * 
      */
-    public Output<String> createdOn() {
-        return this.createdOn;
+    public Output<Optional<String>> comment() {
+        return Codegen.optional(this.comment);
     }
     /**
-     * Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,ScimIntegrationDescribeOutput.class}, tree="[0,1]")
+    private Output<List<ScimIntegrationDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    public Output<List<ScimIntegrationDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
+     * Specify whether the security integration is enabled.
+     * 
+     */
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enabled;
+
+    /**
+     * @return Specify whether the security integration is enabled.
+     * 
+     */
+    public Output<Boolean> enabled() {
+        return this.enabled;
+    }
+    /**
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+     * Specifies an existing network policy that controls SCIM network traffic.
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+     * @return Specifies an existing network policy that controls SCIM network traffic.
      * 
      */
     public Output<Optional<String>> networkPolicy() {
         return Codegen.optional(this.networkPolicy);
     }
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
-    @Export(name="provisionerRole", refs={String.class}, tree="[0]")
-    private Output<String> provisionerRole;
+    @Export(name="runAsRole", refs={String.class}, tree="[0]")
+    private Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
-    public Output<String> provisionerRole() {
-        return this.provisionerRole;
+    public Output<String> runAsRole() {
+        return this.runAsRole;
     }
     /**
-     * Specifies the client type for the scim integration
+     * Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     @Export(name="scimClient", refs={String.class}, tree="[0]")
     private Output<String> scimClient;
 
     /**
-     * @return Specifies the client type for the scim integration
+     * @return Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      * 
      */
     public Output<String> scimClient() {
         return this.scimClient;
+    }
+    /**
+     * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,ScimIntegrationShowOutput.class}, tree="[0,1]")
+    private Output<List<ScimIntegrationShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+     * 
+     */
+    public Output<List<ScimIntegrationShowOutput>> showOutputs() {
+        return this.showOutputs;
+    }
+    /**
+     * Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="syncPassword", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> syncPassword;
+
+    /**
+     * @return Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> syncPassword() {
+        return Codegen.optional(this.syncPassword);
     }
 
     /**

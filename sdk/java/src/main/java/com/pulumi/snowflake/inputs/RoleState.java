@@ -5,7 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.RoleTagArgs;
+import com.pulumi.snowflake.inputs.RoleShowOutputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,26 +32,18 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * Outputs the result of `SHOW ROLES` for the given role.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<RoleTagArgs>> tags;
+    @Import(name="showOutputs")
+    private @Nullable Output<List<RoleShowOutputArgs>> showOutputs;
 
     /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @return Outputs the result of `SHOW ROLES` for the given role.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<RoleTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<Output<List<RoleShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
     }
 
     private RoleState() {}
@@ -59,7 +51,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     private RoleState(RoleState $) {
         this.comment = $.comment;
         this.name = $.name;
-        this.tags = $.tags;
+        this.showOutputs = $.showOutputs;
     }
 
     public static Builder builder() {
@@ -99,46 +91,34 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param showOutputs Outputs the result of `SHOW ROLES` for the given role.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<RoleTagArgs>> tags) {
-            $.tags = tags;
+        public Builder showOutputs(@Nullable Output<List<RoleShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
             return this;
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param showOutputs Outputs the result of `SHOW ROLES` for the given role.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<RoleTagArgs> tags) {
-            return tags(Output.of(tags));
+        public Builder showOutputs(List<RoleShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
         }
 
         /**
-         * @param tags Definitions of a tag to associate with the resource.
+         * @param showOutputs Outputs the result of `SHOW ROLES` for the given role.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(RoleTagArgs... tags) {
-            return tags(List.of(tags));
+        public Builder showOutputs(RoleShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         public RoleState build() {

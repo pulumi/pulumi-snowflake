@@ -32,14 +32,14 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Password for the initial user in the managed account.
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     @Import(name="adminPassword", required=true)
     private Output<String> adminPassword;
 
     /**
-     * @return Password for the initial user in the managed account.
+     * @return Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     public Output<String> adminPassword() {
@@ -141,7 +141,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminPassword Password for the initial user in the managed account.
+         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminPassword Password for the initial user in the managed account.
+         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
          * 
          * @return builder
          * 

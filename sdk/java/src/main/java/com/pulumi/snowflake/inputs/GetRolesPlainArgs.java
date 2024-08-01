@@ -15,24 +15,40 @@ public final class GetRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetRolesPlainArgs Empty = new GetRolesPlainArgs();
 
     /**
-     * Filters the command output by object name.
+     * Filters the SHOW GRANTS output by class name.
      * 
      */
-    @Import(name="pattern")
-    private @Nullable String pattern;
+    @Import(name="inClass")
+    private @Nullable String inClass;
 
     /**
-     * @return Filters the command output by object name.
+     * @return Filters the SHOW GRANTS output by class name.
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<String> inClass() {
+        return Optional.ofNullable(this.inClass);
+    }
+
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    @Import(name="like")
+    private @Nullable String like;
+
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
     }
 
     private GetRolesPlainArgs() {}
 
     private GetRolesPlainArgs(GetRolesPlainArgs $) {
-        this.pattern = $.pattern;
+        this.inClass = $.inClass;
+        this.like = $.like;
     }
 
     public static Builder builder() {
@@ -54,13 +70,24 @@ public final class GetRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Filters the command output by object name.
+         * @param inClass Filters the SHOW GRANTS output by class name.
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable String pattern) {
-            $.pattern = pattern;
+        public Builder inClass(@Nullable String inClass) {
+            $.inClass = inClass;
+            return this;
+        }
+
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder like(@Nullable String like) {
+            $.like = like;
             return this;
         }
 

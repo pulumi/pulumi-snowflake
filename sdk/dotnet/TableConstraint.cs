@@ -137,7 +137,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️test|test|table'
+    /// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tableConstraint:TableConstraint")]

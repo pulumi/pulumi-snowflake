@@ -12,6 +12,10 @@ on:
       default_branch:
         type: string
         required: true
+    outputs:
+      version:
+        description: "Provider version being built"
+        value: ${{ jobs.prerequisites.outputs.version }}
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,7 +33,6 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
   SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
   SNOWFLAKE_REGION: ${{ secrets.SNOWFLAKE_REGION }}
@@ -41,10 +44,13 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.provider-version.outputs.version }}
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
     - uses: pulumi/provider-version-action@v1
+      id: provider-version
       with:
         set-env: 'PROVIDER_VERSION'
     - name: Cache examples generation
@@ -90,20 +96,12 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
-    - name: Tar provider binaries
-      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace }}/bin/ pulumi-resource-snowflake
-        pulumi-tfgen-snowflake
-    - name: Upload artifacts
+    - name: Upload bin
+      uses: ./.github/actions/upload-bin
+
+    - name: Upload schema-embed.json
       uses: actions/upload-artifact@v4
       with:
-        name: snowflake-provider.tar.gz
-        path: ${{ github.workspace }}/bin/provider.tar.gz
+        name: schema-embed.json
+        path: provider/cmd/pulumi-resource-snowflake/schema-embed.json
         retention-days: 30
-    - if: failure() && inputs.is_pr
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in building provider prerequisites
-        fields: repo,commit,author,action
-        status: ${{ job.status }}

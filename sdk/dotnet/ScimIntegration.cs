@@ -10,65 +10,72 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
+    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var aad = new Snowflake.ScimIntegration("aad", new()
-    ///     {
-    ///         Name = "AAD_PROVISIONING",
-    ///         NetworkPolicy = "AAD_NETWORK_POLICY",
-    ///         ProvisionerRole = "AAD_PROVISIONER",
-    ///         ScimClient = "AZURE",
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// Resource used to manage scim security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-scim).
     /// 
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example name
+    /// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/scimIntegration:ScimIntegration")]
     public partial class ScimIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Date and time when the SCIM integration was created.
+        /// Specifies a comment for the integration.
         /// </summary>
-        [Output("createdOn")]
-        public Output<string> CreatedOn { get; private set; } = null!;
+        [Output("comment")]
+        public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.ScimIntegrationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify whether the security integration is enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy that controls SCIM network traffic.
         /// </summary>
         [Output("networkPolicy")]
         public Output<string?> NetworkPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
         /// </summary>
-        [Output("provisionerRole")]
-        public Output<string> ProvisionerRole { get; private set; } = null!;
+        [Output("runAsRole")]
+        public Output<string> RunAsRole { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the client type for the scim integration
+        /// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
         /// </summary>
         [Output("scimClient")]
         public Output<string> ScimClient { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.ScimIntegrationShowOutput>> ShowOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        [Output("syncPassword")]
+        public Output<string?> SyncPassword { get; private set; } = null!;
 
 
         /// <summary>
@@ -117,28 +124,46 @@ namespace Pulumi.Snowflake
     public sealed class ScimIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Specifies a comment for the integration.
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Specify whether the security integration is enabled.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy that controls SCIM network traffic.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
         /// </summary>
-        [Input("provisionerRole", required: true)]
-        public Input<string> ProvisionerRole { get; set; } = null!;
+        [Input("runAsRole", required: true)]
+        public Input<string> RunAsRole { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the client type for the scim integration
+        /// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
         /// </summary>
         [Input("scimClient", required: true)]
         public Input<string> ScimClient { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        [Input("syncPassword")]
+        public Input<string>? SyncPassword { get; set; }
 
         public ScimIntegrationArgs()
         {
@@ -149,34 +174,70 @@ namespace Pulumi.Snowflake
     public sealed class ScimIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date and time when the SCIM integration was created.
+        /// Specifies a comment for the integration.
         /// </summary>
-        [Input("createdOn")]
-        public Input<string>? CreatedOn { get; set; }
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.ScimIntegrationDescribeOutputGetArgs>? _describeOutputs;
 
         /// <summary>
-        /// Specifies the name of the SCIM integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        /// Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        /// </summary>
+        public InputList<Inputs.ScimIntegrationDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.ScimIntegrationDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
+
+        /// <summary>
+        /// Specify whether the security integration is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy active for your account. The network policy restricts the list of user IP addresses when exchanging an authorization code for an access or refresh token and when using a refresh token to obtain a new access token. If this parameter is not set, the network policy for the account (if any) is used instead.
+        /// Specifies an existing network policy that controls SCIM network traffic.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM.
+        /// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
         /// </summary>
-        [Input("provisionerRole")]
-        public Input<string>? ProvisionerRole { get; set; }
+        [Input("runAsRole")]
+        public Input<string>? RunAsRole { get; set; }
 
         /// <summary>
-        /// Specifies the client type for the scim integration
+        /// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
         /// </summary>
         [Input("scimClient")]
         public Input<string>? ScimClient { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.ScimIntegrationShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        /// </summary>
+        public InputList<Inputs.ScimIntegrationShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.ScimIntegrationShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        [Input("syncPassword")]
+        public Input<string>? SyncPassword { get; set; }
 
         public ScimIntegrationState()
         {

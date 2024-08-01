@@ -17,21 +17,14 @@ __all__ = ['RoleArgs', 'Role']
 class RoleArgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Role resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if tags is not None:
-            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -50,21 +43,6 @@ class RoleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
-        """
-        Definitions of a tag to associate with the resource.
-        """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -72,20 +50,17 @@ class _RoleState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['RoleShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Role resources.
-        :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if tags is not None:
-            warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @property
     @pulumi.getter
@@ -106,19 +81,16 @@ class _RoleState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleShowOutputArgs']]]]:
         """
-        Definitions of a tag to associate with the resource.
+        Outputs the result of `SHOW ROLES` for the given role.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
+        return pulumi.get(self, "show_outputs")
 
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]):
-        pulumi.set(self, "tags", value)
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 class Role(pulumi.CustomResource):
@@ -128,29 +100,27 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use AccountRole instead. <deprecation>
 
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
+        The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 
-        role = snowflake.Role("role",
-            name="role1",
-            comment="A role.")
-        ```
+        ## Minimal
 
-        ## Import
+        resource "Role" "minimal" {
+          name = "role_name"
+        }
 
-        ```sh
-        $ pulumi import snowflake:index/role:Role example roleName
-        ```
+        ## Complete (with every optional set)
+
+        resource "Role" "complete" {
+          name    = "role_name"
+          comment = "my account role"
+        }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -159,22 +129,22 @@ class Role(pulumi.CustomResource):
                  args: Optional[RoleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use AccountRole instead. <deprecation>
 
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
+        The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 
-        role = snowflake.Role("role",
-            name="role1",
-            comment="A role.")
-        ```
+        ## Minimal
 
-        ## Import
+        resource "Role" "minimal" {
+          name = "role_name"
+        }
 
-        ```sh
-        $ pulumi import snowflake:index/role:Role example roleName
-        ```
+        ## Complete (with every optional set)
+
+        resource "Role" "complete" {
+          name    = "role_name"
+          comment = "my account role"
+        }
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +163,6 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,7 +174,7 @@ class Role(pulumi.CustomResource):
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
-            __props__.__dict__["tags"] = tags
+            __props__.__dict__["show_outputs"] = None
         super(Role, __self__).__init__(
             'snowflake:index/role:Role',
             resource_name,
@@ -218,7 +187,7 @@ class Role(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]]] = None) -> 'Role':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleShowOutputArgs']]]]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -226,7 +195,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -234,7 +203,7 @@ class Role(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["name"] = name
-        __props__.__dict__["tags"] = tags
+        __props__.__dict__["show_outputs"] = show_outputs
         return Role(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,13 +217,10 @@ class Role(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RoleTag']]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.RoleShowOutput']]:
         """
-        Definitions of a tag to associate with the resource.
+        Outputs the result of `SHOW ROLES` for the given role.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "show_outputs")
 

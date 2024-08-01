@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? SchemaEvolutionRecord;
         /// <summary>
-        /// Column type, e.g. VARIANT
+        /// Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         public readonly string Type;
 

@@ -161,13 +161,11 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -176,13 +174,11 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -349,13 +345,11 @@ class _TableState:
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -388,13 +382,11 @@ class _TableState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -420,66 +412,6 @@ class Table(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        schema = snowflake.Schema("schema",
-            database="database",
-            name="schema",
-            data_retention_days=1)
-        sequence = snowflake.Sequence("sequence",
-            database=schema.database,
-            schema=schema.name,
-            name="sequence")
-        table = snowflake.Table("table",
-            database=schema.database,
-            schema=schema.name,
-            name="table",
-            comment="A table.",
-            cluster_bies=["to_date(DATE)"],
-            data_retention_time_in_days=schema.data_retention_time_in_days,
-            change_tracking=False,
-            columns=[
-                snowflake.TableColumnArgs(
-                    name="id",
-                    type="int",
-                    nullable=True,
-                    default=snowflake.TableColumnDefaultArgs(
-                        sequence=sequence.fully_qualified_name,
-                    ),
-                ),
-                snowflake.TableColumnArgs(
-                    name="identity",
-                    type="NUMBER(38,0)",
-                    nullable=True,
-                    identity=snowflake.TableColumnIdentityArgs(
-                        start_num=1,
-                        step_num=3,
-                    ),
-                ),
-                snowflake.TableColumnArgs(
-                    name="data",
-                    type="text",
-                    nullable=False,
-                    collate="en-ci",
-                ),
-                snowflake.TableColumnArgs(
-                    name="DATE",
-                    type="TIMESTAMP_NTZ(9)",
-                ),
-                snowflake.TableColumnArgs(
-                    name="extra",
-                    type="VARIANT",
-                    comment="extra data",
-                ),
-            ],
-            primary_key=snowflake.TablePrimaryKeyArgs(
-                name="my_key",
-                keys=["data"],
-            ))
-        ```
 
         ## Import
 
@@ -510,66 +442,6 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        schema = snowflake.Schema("schema",
-            database="database",
-            name="schema",
-            data_retention_days=1)
-        sequence = snowflake.Sequence("sequence",
-            database=schema.database,
-            schema=schema.name,
-            name="sequence")
-        table = snowflake.Table("table",
-            database=schema.database,
-            schema=schema.name,
-            name="table",
-            comment="A table.",
-            cluster_bies=["to_date(DATE)"],
-            data_retention_time_in_days=schema.data_retention_time_in_days,
-            change_tracking=False,
-            columns=[
-                snowflake.TableColumnArgs(
-                    name="id",
-                    type="int",
-                    nullable=True,
-                    default=snowflake.TableColumnDefaultArgs(
-                        sequence=sequence.fully_qualified_name,
-                    ),
-                ),
-                snowflake.TableColumnArgs(
-                    name="identity",
-                    type="NUMBER(38,0)",
-                    nullable=True,
-                    identity=snowflake.TableColumnIdentityArgs(
-                        start_num=1,
-                        step_num=3,
-                    ),
-                ),
-                snowflake.TableColumnArgs(
-                    name="data",
-                    type="text",
-                    nullable=False,
-                    collate="en-ci",
-                ),
-                snowflake.TableColumnArgs(
-                    name="DATE",
-                    type="TIMESTAMP_NTZ(9)",
-                ),
-                snowflake.TableColumnArgs(
-                    name="extra",
-                    type="VARIANT",
-                    comment="extra data",
-                ),
-            ],
-            primary_key=snowflake.TablePrimaryKeyArgs(
-                name="my_key",
-                keys=["data"],
-            ))
-        ```
 
         ## Import
 
@@ -757,13 +629,11 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
+    @_utilities.deprecated("""Use TableConstraint instead""")
     def primary_key(self) -> pulumi.Output[Optional['outputs.TablePrimaryKey']]:
         """
         Definitions of primary key constraint to create on table
         """
-        warnings.warn("""Use TableConstraint instead""", DeprecationWarning)
-        pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
-
         return pulumi.get(self, "primary_key")
 
     @property
@@ -784,12 +654,10 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TableTag']]]:
         """
         Definitions of a tag to associate with the resource.
         """
-        warnings.warn("""Use the 'snowflake_tag_association' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags is deprecated: Use the 'snowflake_tag_association' resource instead.""")
-
         return pulumi.get(self, "tags")
 

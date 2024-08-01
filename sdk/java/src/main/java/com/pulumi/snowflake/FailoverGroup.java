@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
  *                 .organizationName("...")
  *                 .sourceAccountName("...")
- *                 .name(fg.name())
+ *                 .name(sourceFailoverGroup.name())
  *                 .build())
  *             .build());
  * 

@@ -10,75 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// An External OAuth security integration allows a client to use a third-party authorization server to obtain the access tokens needed to interact with Snowflake.
+    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var azure = new Snowflake.ExternalOauthIntegration("azure", new()
-    ///     {
-    ///         Name = "AZURE_POWERBI",
-    ///         Type = "AZURE",
-    ///         Enabled = true,
-    ///         Issuer = "https://sts.windows.net/00000000-0000-0000-0000-000000000000",
-    ///         SnowflakeUserMappingAttribute = "LOGIN_NAME",
-    ///         JwsKeysUrls = new[]
-    ///         {
-    ///             "https://login.windows.net/common/discovery/keys",
-    ///         },
-    ///         AudienceUrls = new[]
-    ///         {
-    ///             "https://analysis.windows.net/powerbi/connector/Snowflake",
-    ///         },
-    ///         TokenUserMappingClaims = new[]
-    ///         {
-    ///             "upn",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// Resource used to manage external oauth security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
     /// 
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example name
+    /// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalOauthIntegration:ExternalOauthIntegration")]
     public partial class ExternalOauthIntegration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
-        /// </summary>
-        [Output("allowedRoles")]
-        public Output<ImmutableArray<string>> AllowedRoles { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        /// </summary>
-        [Output("anyRoleMode")]
-        public Output<string?> AnyRoleMode { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        /// </summary>
-        [Output("audienceUrls")]
-        public Output<ImmutableArray<string>> AudienceUrls { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        /// </summary>
-        [Output("blockedRoles")]
-        public Output<ImmutableArray<string>> BlockedRoles { get; private set; } = null!;
-
         /// <summary>
         /// Specifies a comment for the OAuth integration.
         /// </summary>
@@ -86,10 +30,10 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time when the External OAUTH integration was created.
+        /// Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         /// </summary>
-        [Output("createdOn")]
-        public Output<string> CreatedOn { get; private set; } = null!;
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.ExternalOauthIntegrationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to initiate operation of the integration or suspend it.
@@ -98,16 +42,82 @@ namespace Pulumi.Snowflake
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the URL to define the OAuth 2.0 authorization server.
+        /// Specifies the list of roles that the client can set as the primary role.
         /// </summary>
-        [Output("issuer")]
-        public Output<string> Issuer { get; private set; } = null!;
+        [Output("externalOauthAllowedRolesLists")]
+        public Output<ImmutableArray<string>> ExternalOauthAllowedRolesLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
         /// </summary>
-        [Output("jwsKeysUrls")]
-        public Output<ImmutableArray<string>> JwsKeysUrls { get; private set; } = null!;
+        [Output("externalOauthAnyRoleMode")]
+        public Output<string?> ExternalOauthAnyRoleMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// </summary>
+        [Output("externalOauthAudienceLists")]
+        public Output<ImmutableArray<string>> ExternalOauthAudienceLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// </summary>
+        [Output("externalOauthBlockedRolesLists")]
+        public Output<ImmutableArray<string>> ExternalOauthBlockedRolesLists { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the URL to define the OAuth 2.0 authorization server.
+        /// </summary>
+        [Output("externalOauthIssuer")]
+        public Output<string> ExternalOauthIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Output("externalOauthJwsKeysUrls")]
+        public Output<ImmutableArray<string>> ExternalOauthJwsKeysUrls { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Output("externalOauthRsaPublicKey")]
+        public Output<string?> ExternalOauthRsaPublicKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Output("externalOauthRsaPublicKey2")]
+        public Output<string?> ExternalOauthRsaPublicKey2 { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the scope delimiter in the authorization token.
+        /// </summary>
+        [Output("externalOauthScopeDelimiter")]
+        public Output<string?> ExternalOauthScopeDelimiter { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Output("externalOauthScopeMappingAttribute")]
+        public Output<string?> ExternalOauthScopeMappingAttribute { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        /// </summary>
+        [Output("externalOauthSnowflakeUserMappingAttribute")]
+        public Output<string> ExternalOauthSnowflakeUserMappingAttribute { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Output("externalOauthTokenUserMappingClaims")]
+        public Output<ImmutableArray<string>> ExternalOauthTokenUserMappingClaims { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+        /// </summary>
+        [Output("externalOauthType")]
+        public Output<string> ExternalOauthType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
@@ -116,46 +126,16 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+        /// Paramteres related to this security integration.
         /// </summary>
-        [Output("rsaPublicKey")]
-        public Output<string?> RsaPublicKey { get; private set; } = null!;
+        [Output("relatedParameters")]
+        public Output<ImmutableArray<Outputs.ExternalOauthIntegrationRelatedParameter>> RelatedParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        /// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         /// </summary>
-        [Output("rsaPublicKey2")]
-        public Output<string?> RsaPublicKey2 { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the scope delimiter in the authorization token.
-        /// </summary>
-        [Output("scopeDelimiter")]
-        public Output<string?> ScopeDelimiter { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the access token claim to map the access token to an account role.
-        /// </summary>
-        [Output("scopeMappingAttribute")]
-        public Output<string?> ScopeMappingAttribute { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        /// </summary>
-        [Output("snowflakeUserMappingAttribute")]
-        public Output<string> SnowflakeUserMappingAttribute { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        /// </summary>
-        [Output("tokenUserMappingClaims")]
-        public Output<ImmutableArray<string>> TokenUserMappingClaims { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        /// </summary>
-        [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.ExternalOauthIntegrationShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -203,48 +183,6 @@ namespace Pulumi.Snowflake
 
     public sealed class ExternalOauthIntegrationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedRoles")]
-        private InputList<string>? _allowedRoles;
-
-        /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
-        /// </summary>
-        public InputList<string> AllowedRoles
-        {
-            get => _allowedRoles ?? (_allowedRoles = new InputList<string>());
-            set => _allowedRoles = value;
-        }
-
-        /// <summary>
-        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        /// </summary>
-        [Input("anyRoleMode")]
-        public Input<string>? AnyRoleMode { get; set; }
-
-        [Input("audienceUrls")]
-        private InputList<string>? _audienceUrls;
-
-        /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        /// </summary>
-        public InputList<string> AudienceUrls
-        {
-            get => _audienceUrls ?? (_audienceUrls = new InputList<string>());
-            set => _audienceUrls = value;
-        }
-
-        [Input("blockedRoles")]
-        private InputList<string>? _blockedRoles;
-
-        /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        /// </summary>
-        public InputList<string> BlockedRoles
-        {
-            get => _blockedRoles ?? (_blockedRoles = new InputList<string>());
-            set => _blockedRoles = value;
-        }
-
         /// <summary>
         /// Specifies a comment for the OAuth integration.
         /// </summary>
@@ -257,77 +195,119 @@ namespace Pulumi.Snowflake
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        [Input("externalOauthAllowedRolesLists")]
+        private InputList<string>? _externalOauthAllowedRolesLists;
+
+        /// <summary>
+        /// Specifies the list of roles that the client can set as the primary role.
+        /// </summary>
+        public InputList<string> ExternalOauthAllowedRolesLists
+        {
+            get => _externalOauthAllowedRolesLists ?? (_externalOauthAllowedRolesLists = new InputList<string>());
+            set => _externalOauthAllowedRolesLists = value;
+        }
+
+        /// <summary>
+        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        /// </summary>
+        [Input("externalOauthAnyRoleMode")]
+        public Input<string>? ExternalOauthAnyRoleMode { get; set; }
+
+        [Input("externalOauthAudienceLists")]
+        private InputList<string>? _externalOauthAudienceLists;
+
+        /// <summary>
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// </summary>
+        public InputList<string> ExternalOauthAudienceLists
+        {
+            get => _externalOauthAudienceLists ?? (_externalOauthAudienceLists = new InputList<string>());
+            set => _externalOauthAudienceLists = value;
+        }
+
+        [Input("externalOauthBlockedRolesLists")]
+        private InputList<string>? _externalOauthBlockedRolesLists;
+
+        /// <summary>
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// </summary>
+        public InputList<string> ExternalOauthBlockedRolesLists
+        {
+            get => _externalOauthBlockedRolesLists ?? (_externalOauthBlockedRolesLists = new InputList<string>());
+            set => _externalOauthBlockedRolesLists = value;
+        }
+
         /// <summary>
         /// Specifies the URL to define the OAuth 2.0 authorization server.
         /// </summary>
-        [Input("issuer", required: true)]
-        public Input<string> Issuer { get; set; } = null!;
+        [Input("externalOauthIssuer", required: true)]
+        public Input<string> ExternalOauthIssuer { get; set; } = null!;
 
-        [Input("jwsKeysUrls")]
-        private InputList<string>? _jwsKeysUrls;
+        [Input("externalOauthJwsKeysUrls")]
+        private InputList<string>? _externalOauthJwsKeysUrls;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         /// </summary>
-        public InputList<string> JwsKeysUrls
+        public InputList<string> ExternalOauthJwsKeysUrls
         {
-            get => _jwsKeysUrls ?? (_jwsKeysUrls = new InputList<string>());
-            set => _jwsKeysUrls = value;
+            get => _externalOauthJwsKeysUrls ?? (_externalOauthJwsKeysUrls = new InputList<string>());
+            set => _externalOauthJwsKeysUrls = value;
         }
+
+        /// <summary>
+        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthRsaPublicKey")]
+        public Input<string>? ExternalOauthRsaPublicKey { get; set; }
+
+        /// <summary>
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthRsaPublicKey2")]
+        public Input<string>? ExternalOauthRsaPublicKey2 { get; set; }
+
+        /// <summary>
+        /// Specifies the scope delimiter in the authorization token.
+        /// </summary>
+        [Input("externalOauthScopeDelimiter")]
+        public Input<string>? ExternalOauthScopeDelimiter { get; set; }
+
+        /// <summary>
+        /// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthScopeMappingAttribute")]
+        public Input<string>? ExternalOauthScopeMappingAttribute { get; set; }
+
+        /// <summary>
+        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        /// </summary>
+        [Input("externalOauthSnowflakeUserMappingAttribute", required: true)]
+        public Input<string> ExternalOauthSnowflakeUserMappingAttribute { get; set; } = null!;
+
+        [Input("externalOauthTokenUserMappingClaims", required: true)]
+        private InputList<string>? _externalOauthTokenUserMappingClaims;
+
+        /// <summary>
+        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        /// </summary>
+        public InputList<string> ExternalOauthTokenUserMappingClaims
+        {
+            get => _externalOauthTokenUserMappingClaims ?? (_externalOauthTokenUserMappingClaims = new InputList<string>());
+            set => _externalOauthTokenUserMappingClaims = value;
+        }
+
+        /// <summary>
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+        /// </summary>
+        [Input("externalOauthType", required: true)]
+        public Input<string> ExternalOauthType { get; set; } = null!;
 
         /// <summary>
         /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        /// </summary>
-        [Input("rsaPublicKey")]
-        public Input<string>? RsaPublicKey { get; set; }
-
-        /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
-        /// </summary>
-        [Input("rsaPublicKey2")]
-        public Input<string>? RsaPublicKey2 { get; set; }
-
-        /// <summary>
-        /// Specifies the scope delimiter in the authorization token.
-        /// </summary>
-        [Input("scopeDelimiter")]
-        public Input<string>? ScopeDelimiter { get; set; }
-
-        /// <summary>
-        /// Specifies the access token claim to map the access token to an account role.
-        /// </summary>
-        [Input("scopeMappingAttribute")]
-        public Input<string>? ScopeMappingAttribute { get; set; }
-
-        /// <summary>
-        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        /// </summary>
-        [Input("snowflakeUserMappingAttribute", required: true)]
-        public Input<string> SnowflakeUserMappingAttribute { get; set; } = null!;
-
-        [Input("tokenUserMappingClaims", required: true)]
-        private InputList<string>? _tokenUserMappingClaims;
-
-        /// <summary>
-        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        /// </summary>
-        public InputList<string> TokenUserMappingClaims
-        {
-            get => _tokenUserMappingClaims ?? (_tokenUserMappingClaims = new InputList<string>());
-            set => _tokenUserMappingClaims = value;
-        }
-
-        /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
 
         public ExternalOauthIntegrationArgs()
         {
@@ -337,59 +317,23 @@ namespace Pulumi.Snowflake
 
     public sealed class ExternalOauthIntegrationState : global::Pulumi.ResourceArgs
     {
-        [Input("allowedRoles")]
-        private InputList<string>? _allowedRoles;
-
-        /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
-        /// </summary>
-        public InputList<string> AllowedRoles
-        {
-            get => _allowedRoles ?? (_allowedRoles = new InputList<string>());
-            set => _allowedRoles = value;
-        }
-
-        /// <summary>
-        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token.
-        /// </summary>
-        [Input("anyRoleMode")]
-        public Input<string>? AnyRoleMode { get; set; }
-
-        [Input("audienceUrls")]
-        private InputList<string>? _audienceUrls;
-
-        /// <summary>
-        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
-        /// </summary>
-        public InputList<string> AudienceUrls
-        {
-            get => _audienceUrls ?? (_audienceUrls = new InputList<string>());
-            set => _audienceUrls = value;
-        }
-
-        [Input("blockedRoles")]
-        private InputList<string>? _blockedRoles;
-
-        /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. Do not include ACCOUNTADMIN, ORGADMIN or SECURITYADMIN as they are already implicitly enforced and will cause in-place updates.
-        /// </summary>
-        public InputList<string> BlockedRoles
-        {
-            get => _blockedRoles ?? (_blockedRoles = new InputList<string>());
-            set => _blockedRoles = value;
-        }
-
         /// <summary>
         /// Specifies a comment for the OAuth integration.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("describeOutputs")]
+        private InputList<Inputs.ExternalOauthIntegrationDescribeOutputGetArgs>? _describeOutputs;
+
         /// <summary>
-        /// Date and time when the External OAUTH integration was created.
+        /// Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         /// </summary>
-        [Input("createdOn")]
-        public Input<string>? CreatedOn { get; set; }
+        public InputList<Inputs.ExternalOauthIntegrationDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.ExternalOauthIntegrationDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
 
         /// <summary>
         /// Specifies whether to initiate operation of the integration or suspend it.
@@ -397,23 +341,113 @@ namespace Pulumi.Snowflake
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("externalOauthAllowedRolesLists")]
+        private InputList<string>? _externalOauthAllowedRolesLists;
+
+        /// <summary>
+        /// Specifies the list of roles that the client can set as the primary role.
+        /// </summary>
+        public InputList<string> ExternalOauthAllowedRolesLists
+        {
+            get => _externalOauthAllowedRolesLists ?? (_externalOauthAllowedRolesLists = new InputList<string>());
+            set => _externalOauthAllowedRolesLists = value;
+        }
+
+        /// <summary>
+        /// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+        /// </summary>
+        [Input("externalOauthAnyRoleMode")]
+        public Input<string>? ExternalOauthAnyRoleMode { get; set; }
+
+        [Input("externalOauthAudienceLists")]
+        private InputList<string>? _externalOauthAudienceLists;
+
+        /// <summary>
+        /// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+        /// </summary>
+        public InputList<string> ExternalOauthAudienceLists
+        {
+            get => _externalOauthAudienceLists ?? (_externalOauthAudienceLists = new InputList<string>());
+            set => _externalOauthAudienceLists = value;
+        }
+
+        [Input("externalOauthBlockedRolesLists")]
+        private InputList<string>? _externalOauthBlockedRolesLists;
+
+        /// <summary>
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// </summary>
+        public InputList<string> ExternalOauthBlockedRolesLists
+        {
+            get => _externalOauthBlockedRolesLists ?? (_externalOauthBlockedRolesLists = new InputList<string>());
+            set => _externalOauthBlockedRolesLists = value;
+        }
+
         /// <summary>
         /// Specifies the URL to define the OAuth 2.0 authorization server.
         /// </summary>
-        [Input("issuer")]
-        public Input<string>? Issuer { get; set; }
+        [Input("externalOauthIssuer")]
+        public Input<string>? ExternalOauthIssuer { get; set; }
 
-        [Input("jwsKeysUrls")]
-        private InputList<string>? _jwsKeysUrls;
+        [Input("externalOauthJwsKeysUrls")]
+        private InputList<string>? _externalOauthJwsKeysUrls;
 
         /// <summary>
-        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3.
+        /// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         /// </summary>
-        public InputList<string> JwsKeysUrls
+        public InputList<string> ExternalOauthJwsKeysUrls
         {
-            get => _jwsKeysUrls ?? (_jwsKeysUrls = new InputList<string>());
-            set => _jwsKeysUrls = value;
+            get => _externalOauthJwsKeysUrls ?? (_externalOauthJwsKeysUrls = new InputList<string>());
+            set => _externalOauthJwsKeysUrls = value;
         }
+
+        /// <summary>
+        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthRsaPublicKey")]
+        public Input<string>? ExternalOauthRsaPublicKey { get; set; }
+
+        /// <summary>
+        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthRsaPublicKey2")]
+        public Input<string>? ExternalOauthRsaPublicKey2 { get; set; }
+
+        /// <summary>
+        /// Specifies the scope delimiter in the authorization token.
+        /// </summary>
+        [Input("externalOauthScopeDelimiter")]
+        public Input<string>? ExternalOauthScopeDelimiter { get; set; }
+
+        /// <summary>
+        /// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+        /// </summary>
+        [Input("externalOauthScopeMappingAttribute")]
+        public Input<string>? ExternalOauthScopeMappingAttribute { get; set; }
+
+        /// <summary>
+        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+        /// </summary>
+        [Input("externalOauthSnowflakeUserMappingAttribute")]
+        public Input<string>? ExternalOauthSnowflakeUserMappingAttribute { get; set; }
+
+        [Input("externalOauthTokenUserMappingClaims")]
+        private InputList<string>? _externalOauthTokenUserMappingClaims;
+
+        /// <summary>
+        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+        /// </summary>
+        public InputList<string> ExternalOauthTokenUserMappingClaims
+        {
+            get => _externalOauthTokenUserMappingClaims ?? (_externalOauthTokenUserMappingClaims = new InputList<string>());
+            set => _externalOauthTokenUserMappingClaims = value;
+        }
+
+        /// <summary>
+        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+        /// </summary>
+        [Input("externalOauthType")]
+        public Input<string>? ExternalOauthType { get; set; }
 
         /// <summary>
         /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
@@ -421,53 +455,29 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-        /// </summary>
-        [Input("rsaPublicKey")]
-        public Input<string>? RsaPublicKey { get; set; }
+        [Input("relatedParameters")]
+        private InputList<Inputs.ExternalOauthIntegrationRelatedParameterGetArgs>? _relatedParameters;
 
         /// <summary>
-        /// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation.
+        /// Paramteres related to this security integration.
         /// </summary>
-        [Input("rsaPublicKey2")]
-        public Input<string>? RsaPublicKey2 { get; set; }
-
-        /// <summary>
-        /// Specifies the scope delimiter in the authorization token.
-        /// </summary>
-        [Input("scopeDelimiter")]
-        public Input<string>? ScopeDelimiter { get; set; }
-
-        /// <summary>
-        /// Specifies the access token claim to map the access token to an account role.
-        /// </summary>
-        [Input("scopeMappingAttribute")]
-        public Input<string>? ScopeMappingAttribute { get; set; }
-
-        /// <summary>
-        /// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record.
-        /// </summary>
-        [Input("snowflakeUserMappingAttribute")]
-        public Input<string>? SnowflakeUserMappingAttribute { get; set; }
-
-        [Input("tokenUserMappingClaims")]
-        private InputList<string>? _tokenUserMappingClaims;
-
-        /// <summary>
-        /// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record.
-        /// </summary>
-        public InputList<string> TokenUserMappingClaims
+        public InputList<Inputs.ExternalOauthIntegrationRelatedParameterGetArgs> RelatedParameters
         {
-            get => _tokenUserMappingClaims ?? (_tokenUserMappingClaims = new InputList<string>());
-            set => _tokenUserMappingClaims = value;
+            get => _relatedParameters ?? (_relatedParameters = new InputList<Inputs.ExternalOauthIntegrationRelatedParameterGetArgs>());
+            set => _relatedParameters = value;
         }
 
+        [Input("showOutputs")]
+        private InputList<Inputs.ExternalOauthIntegrationShowOutputGetArgs>? _showOutputs;
+
         /// <summary>
-        /// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server.
+        /// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputList<Inputs.ExternalOauthIntegrationShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.ExternalOauthIntegrationShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public ExternalOauthIntegrationState()
         {

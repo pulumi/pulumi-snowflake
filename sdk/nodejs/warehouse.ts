@@ -2,9 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+ *
+ * Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -53,18 +59,21 @@ export class Warehouse extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly autoResume!: pulumi.Output<boolean>;
+    public readonly autoResume!: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
-    public readonly autoSuspend!: pulumi.Output<number>;
+    public readonly autoSuspend!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies a comment for the warehouse.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly enableQueryAcceleration!: pulumi.Output<boolean | undefined>;
+    public readonly enableQueryAcceleration!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
@@ -72,19 +81,23 @@ export class Warehouse extends pulumi.CustomResource {
     /**
      * Specifies the maximum number of server clusters for the warehouse.
      */
-    public readonly maxClusterCount!: pulumi.Output<number>;
+    public readonly maxClusterCount!: pulumi.Output<number | undefined>;
     /**
      * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      */
-    public readonly maxConcurrencyLevel!: pulumi.Output<number | undefined>;
+    public readonly maxConcurrencyLevel!: pulumi.Output<number>;
     /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
-    public readonly minClusterCount!: pulumi.Output<number>;
+    public readonly minClusterCount!: pulumi.Output<number | undefined>;
     /**
      * Identifier for the virtual warehouse; must be unique for your account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+     */
+    public /*out*/ readonly parameters!: pulumi.Output<outputs.WarehouseParameter[]>;
     /**
      * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
@@ -92,31 +105,29 @@ export class Warehouse extends pulumi.CustomResource {
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
      */
-    public readonly resourceMonitor!: pulumi.Output<string>;
+    public readonly resourceMonitor!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      */
-    public readonly scalingPolicy!: pulumi.Output<string>;
+    public readonly scalingPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.WarehouseShowOutput[]>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
-    public readonly statementQueuedTimeoutInSeconds!: pulumi.Output<number | undefined>;
+    public readonly statementQueuedTimeoutInSeconds!: pulumi.Output<number>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
-    public readonly statementTimeoutInSeconds!: pulumi.Output<number | undefined>;
+    public readonly statementTimeoutInSeconds!: pulumi.Output<number>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     *
-     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      */
-    public readonly waitForProvisioning!: pulumi.Output<boolean | undefined>;
+    public readonly warehouseSize!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
-     */
-    public readonly warehouseSize!: pulumi.Output<string>;
-    /**
-     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      */
     public readonly warehouseType!: pulumi.Output<string | undefined>;
 
@@ -142,12 +153,13 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
             resourceInputs["minClusterCount"] = state ? state.minClusterCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["queryAccelerationMaxScaleFactor"] = state ? state.queryAccelerationMaxScaleFactor : undefined;
             resourceInputs["resourceMonitor"] = state ? state.resourceMonitor : undefined;
             resourceInputs["scalingPolicy"] = state ? state.scalingPolicy : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
             resourceInputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
-            resourceInputs["waitForProvisioning"] = state ? state.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = state ? state.warehouseSize : undefined;
             resourceInputs["warehouseType"] = state ? state.warehouseType : undefined;
         } else {
@@ -166,9 +178,10 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["scalingPolicy"] = args ? args.scalingPolicy : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
             resourceInputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
-            resourceInputs["waitForProvisioning"] = args ? args.waitForProvisioning : undefined;
             resourceInputs["warehouseSize"] = args ? args.warehouseSize : undefined;
             resourceInputs["warehouseType"] = args ? args.warehouseType : undefined;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Warehouse.__pulumiType, name, resourceInputs, opts);
@@ -180,18 +193,21 @@ export class Warehouse extends pulumi.CustomResource {
  */
 export interface WarehouseState {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<boolean>;
+    autoResume?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
     autoSuspend?: pulumi.Input<number>;
+    /**
+     * Specifies a comment for the warehouse.
+     */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableQueryAcceleration?: pulumi.Input<boolean>;
+    enableQueryAcceleration?: pulumi.Input<string>;
     /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
@@ -213,6 +229,10 @@ export interface WarehouseState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseParameter>[]>;
+    /**
      * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
@@ -221,9 +241,13 @@ export interface WarehouseState {
      */
     resourceMonitor?: pulumi.Input<string>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      */
     scalingPolicy?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseShowOutput>[]>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
@@ -233,17 +257,11 @@ export interface WarehouseState {
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     *
-     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
-     */
-    waitForProvisioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      */
     warehouseSize?: pulumi.Input<string>;
     /**
-     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      */
     warehouseType?: pulumi.Input<string>;
 }
@@ -253,18 +271,21 @@ export interface WarehouseState {
  */
 export interface WarehouseArgs {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it.
+     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<boolean>;
+    autoResume?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
     autoSuspend?: pulumi.Input<number>;
+    /**
+     * Specifies a comment for the warehouse.
+     */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources.
+     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableQueryAcceleration?: pulumi.Input<boolean>;
+    enableQueryAcceleration?: pulumi.Input<string>;
     /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
@@ -294,7 +315,7 @@ export interface WarehouseArgs {
      */
     resourceMonitor?: pulumi.Input<string>;
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      */
     scalingPolicy?: pulumi.Input<string>;
     /**
@@ -306,17 +327,11 @@ export interface WarehouseArgs {
      */
     statementTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies whether the warehouse, after being resized, waits for all the servers to provision before executing any queued or new queries.
-     *
-     * @deprecated This field is deprecated and will be removed in the next major version of the provider. It doesn't do anything and should be removed from your configuration.
-     */
-    waitForProvisioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the size of the virtual warehouse. Larger warehouse sizes 5X-Large and 6X-Large are currently in preview and only available on Amazon Web Services (AWS).
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      */
     warehouseSize?: pulumi.Input<string>;
     /**
-     * Specifies a STANDARD or SNOWPARK-OPTIMIZED warehouse
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      */
     warehouseType?: pulumi.Input<string>;
 }
