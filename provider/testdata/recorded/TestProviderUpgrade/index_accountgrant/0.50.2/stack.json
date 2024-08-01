@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-08-01T14:30:44.10017+03:00",
+      "magic": "d67539568b83836a29ebec33b94681fb04189ea530b5be5631513efd23f2bbbd",
+      "version": "v3.127.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:bJ4BYMNdWAY=:v1:nLQnuG7JuHgiUET+:SQbkJaCVltjOAmvcI505kTP90ZfI5g=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:pulumi:Stack::index_accountgrant9XOe6XgqziGU-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "accountGrantRole": "exampleRole-ebc8075",
+          "roleName": "exampleRole-ebc8075"
+        },
+        "created": "2024-08-01T11:30:40.757596Z",
+        "modified": "2024-08-01T11:30:40.757596Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:providers:snowflake::default",
+        "custom": true,
+        "id": "a1f242f9-6a35-486b-8625-426a72e69e43",
+        "type": "pulumi:providers:snowflake",
+        "created": "2024-08-01T11:30:40.844372Z",
+        "modified": "2024-08-01T11:30:40.844372Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::snowflake:index/role:Role::exampleRole",
+        "custom": true,
+        "id": "exampleRole-ebc8075",
+        "type": "snowflake:index/role:Role",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "exampleRole-ebc8075"
+        },
+        "outputs": {
+          "comment": "",
+          "id": "exampleRole-ebc8075",
+          "name": "exampleRole-ebc8075"
+        },
+        "parent": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:pulumi:Stack::index_accountgrant9XOe6XgqziGU-test",
+        "provider": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:providers:snowflake::default::a1f242f9-6a35-486b-8625-426a72e69e43",
+        "created": "2024-08-01T11:30:43.525732Z",
+        "modified": "2024-08-01T11:30:43.525732Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::snowflake:index/accountGrant:AccountGrant::exampleAccountGrant",
+        "custom": true,
+        "id": "CREATE DATABASE|false|exampleRole-ebc8075",
+        "type": "snowflake:index/accountGrant:AccountGrant",
+        "inputs": {
+          "__defaults": [
+            "enableMultipleGrants",
+            "withGrantOption"
+          ],
+          "enableMultipleGrants": false,
+          "privilege": "CREATE DATABASE",
+          "roles": [
+            "exampleRole-ebc8075"
+          ],
+          "withGrantOption": false
+        },
+        "outputs": {
+          "enableMultipleGrants": false,
+          "id": "CREATE DATABASE|false|exampleRole-ebc8075",
+          "privilege": "CREATE DATABASE",
+          "roles": [
+            "exampleRole-ebc8075"
+          ],
+          "withGrantOption": false
+        },
+        "parent": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:pulumi:Stack::index_accountgrant9XOe6XgqziGU-test",
+        "dependencies": [
+          "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::snowflake:index/role:Role::exampleRole"
+        ],
+        "provider": "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::pulumi:providers:snowflake::default::a1f242f9-6a35-486b-8625-426a72e69e43",
+        "propertyDependencies": {
+          "privilege": [],
+          "roles": [
+            "urn:pulumi:test::index_accountgrant9XOe6XgqziGU::snowflake:index/role:Role::exampleRole"
+          ]
+        },
+        "created": "2024-08-01T11:30:44.092097Z",
+        "modified": "2024-08-01T11:30:44.092097Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-08-01T14:30:57.055918+03:00",
+      "magic": "d67539568b83836a29ebec33b94681fb04189ea530b5be5631513efd23f2bbbd",
+      "version": "v3.127.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:YpYv2oejnyc=:v1:YXz8jrFkMysRnulX:RyYpU5utCoqk2mWTqC2n4uH4fZHWfA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:pulumi:Stack::index_fileformatctuWVrRLuoC6-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-08-01T11:30:52.932174Z",
+        "modified": "2024-08-01T11:30:52.932174Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:providers:snowflake::default",
+        "custom": true,
+        "id": "c7344796-1c6c-42fb-8469-9f1329c78df7",
+        "type": "pulumi:providers:snowflake",
+        "created": "2024-08-01T11:30:53.018244Z",
+        "modified": "2024-08-01T11:30:53.018244Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/database:Database::myDatabase",
+        "custom": true,
+        "id": "myDatabase-6eaf416",
+        "type": "snowflake:index/database:Database",
+        "inputs": {
+          "__defaults": [
+            "comment",
+            "dataRetentionTimeInDays",
+            "isTransient",
+            "name"
+          ],
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "isTransient": false,
+          "name": "myDatabase-6eaf416"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "id": "myDatabase-6eaf416",
+          "isTransient": false,
+          "name": "myDatabase-6eaf416"
+        },
+        "parent": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:pulumi:Stack::index_fileformatctuWVrRLuoC6-test",
+        "provider": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:providers:snowflake::default::c7344796-1c6c-42fb-8469-9f1329c78df7",
+        "created": "2024-08-01T11:30:55.902114Z",
+        "modified": "2024-08-01T11:30:55.902114Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/schema:Schema::mySchema",
+        "custom": true,
+        "id": "myDatabase-6eaf416|mySchema-48a2882",
+        "type": "snowflake:index/schema:Schema",
+        "inputs": {
+          "__defaults": [
+            "dataRetentionDays",
+            "isManaged",
+            "isTransient",
+            "name"
+          ],
+          "dataRetentionDays": -1,
+          "database": "myDatabase-6eaf416",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "mySchema-48a2882"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionDays": -1,
+          "database": "myDatabase-6eaf416",
+          "id": "myDatabase-6eaf416|mySchema-48a2882",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "mySchema-48a2882"
+        },
+        "parent": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:pulumi:Stack::index_fileformatctuWVrRLuoC6-test",
+        "dependencies": [
+          "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/database:Database::myDatabase"
+        ],
+        "provider": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:providers:snowflake::default::c7344796-1c6c-42fb-8469-9f1329c78df7",
+        "propertyDependencies": {
+          "database": [
+            "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/database:Database::myDatabase"
+          ]
+        },
+        "created": "2024-08-01T11:30:56.568685Z",
+        "modified": "2024-08-01T11:30:56.568685Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/fileFormat:FileFormat::myFileFormat",
+        "custom": true,
+        "id": "myDatabase-6eaf416|mySchema-48a2882|myFileFormat-a0a08ac",
+        "type": "snowflake:index/fileFormat:FileFormat",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "database": "myDatabase-6eaf416",
+          "formatType": "CSV",
+          "name": "myFileFormat-a0a08ac",
+          "schema": "mySchema-48a2882"
+        },
+        "outputs": {
+          "binaryFormat": "HEX",
+          "comment": "",
+          "compression": "AUTO",
+          "database": "myDatabase-6eaf416",
+          "dateFormat": "AUTO",
+          "emptyFieldAsNull": false,
+          "encoding": "UTF8",
+          "errorOnColumnCountMismatch": false,
+          "escape": "NONE",
+          "escapeUnenclosedField": "\\",
+          "fieldDelimiter": ",",
+          "fieldOptionallyEnclosedBy": "NONE",
+          "fileExtension": "",
+          "formatType": "CSV",
+          "id": "myDatabase-6eaf416|mySchema-48a2882|myFileFormat-a0a08ac",
+          "name": "myFileFormat-a0a08ac",
+          "nullIfs": [
+            "\\N"
+          ],
+          "parseHeader": false,
+          "recordDelimiter": "\n",
+          "replaceInvalidCharacters": false,
+          "schema": "mySchema-48a2882",
+          "skipBlankLines": false,
+          "skipByteOrderMark": false,
+          "skipHeader": 0,
+          "timeFormat": "AUTO",
+          "timestampFormat": "AUTO",
+          "trimSpace": false
+        },
+        "parent": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:pulumi:Stack::index_fileformatctuWVrRLuoC6-test",
+        "dependencies": [
+          "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/database:Database::myDatabase",
+          "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/schema:Schema::mySchema"
+        ],
+        "provider": "urn:pulumi:test::index_fileformatctuWVrRLuoC6::pulumi:providers:snowflake::default::c7344796-1c6c-42fb-8469-9f1329c78df7",
+        "propertyDependencies": {
+          "database": [
+            "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/database:Database::myDatabase"
+          ],
+          "formatType": [],
+          "schema": [
+            "urn:pulumi:test::index_fileformatctuWVrRLuoC6::snowflake:index/schema:Schema::mySchema"
+          ]
+        },
+        "created": "2024-08-01T11:30:57.047705Z",
+        "modified": "2024-08-01T11:30:57.047705Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-08-01T14:32:12.925625+03:00",
+      "magic": "d67539568b83836a29ebec33b94681fb04189ea530b5be5631513efd23f2bbbd",
+      "version": "v3.127.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:pfY/Wj23XxI=:v1:OVGnIGEX9nH38MPk:npyAprV2+2dQlaJv+VMOLtUsLYCdrw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:pulumi:Stack::index_schemagranteZrLkDzzEsiW-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-08-01T11:32:08.183295Z",
+        "modified": "2024-08-01T11:32:08.183295Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:providers:snowflake::default",
+        "custom": true,
+        "id": "056d4b1b-b49d-4b38-97a5-be92590c30f1",
+        "type": "pulumi:providers:snowflake",
+        "created": "2024-08-01T11:32:08.270031Z",
+        "modified": "2024-08-01T11:32:08.270031Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/role:Role::snowflake-role",
+        "custom": true,
+        "id": "snowflake-role-89dcb90",
+        "type": "snowflake:index/role:Role",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "snowflake-role-89dcb90"
+        },
+        "outputs": {
+          "comment": "",
+          "id": "snowflake-role-89dcb90",
+          "name": "snowflake-role-89dcb90"
+        },
+        "parent": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:pulumi:Stack::index_schemagranteZrLkDzzEsiW-test",
+        "provider": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:providers:snowflake::default::056d4b1b-b49d-4b38-97a5-be92590c30f1",
+        "created": "2024-08-01T11:32:10.744117Z",
+        "modified": "2024-08-01T11:32:10.744117Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/database:Database::snowflake-db",
+        "custom": true,
+        "id": "snowflake-db-1c28262",
+        "type": "snowflake:index/database:Database",
+        "inputs": {
+          "__defaults": [
+            "comment",
+            "dataRetentionTimeInDays",
+            "isTransient",
+            "name"
+          ],
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "isTransient": false,
+          "name": "snowflake-db-1c28262"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "id": "snowflake-db-1c28262",
+          "isTransient": false,
+          "name": "snowflake-db-1c28262"
+        },
+        "parent": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:pulumi:Stack::index_schemagranteZrLkDzzEsiW-test",
+        "provider": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:providers:snowflake::default::056d4b1b-b49d-4b38-97a5-be92590c30f1",
+        "created": "2024-08-01T11:32:11.742096Z",
+        "modified": "2024-08-01T11:32:11.742096Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/schema:Schema::snowflake-schema",
+        "custom": true,
+        "id": "snowflake-db-1c28262|snowflake-schema-22cc1bd",
+        "type": "snowflake:index/schema:Schema",
+        "inputs": {
+          "__defaults": [
+            "dataRetentionDays",
+            "isManaged",
+            "isTransient",
+            "name"
+          ],
+          "dataRetentionDays": -1,
+          "database": "snowflake-db-1c28262",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "snowflake-schema-22cc1bd"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionDays": -1,
+          "database": "snowflake-db-1c28262",
+          "id": "snowflake-db-1c28262|snowflake-schema-22cc1bd",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "snowflake-schema-22cc1bd"
+        },
+        "parent": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:pulumi:Stack::index_schemagranteZrLkDzzEsiW-test",
+        "dependencies": [
+          "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/database:Database::snowflake-db"
+        ],
+        "provider": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:providers:snowflake::default::056d4b1b-b49d-4b38-97a5-be92590c30f1",
+        "propertyDependencies": {
+          "database": [
+            "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/database:Database::snowflake-db"
+          ]
+        },
+        "created": "2024-08-01T11:32:12.418835Z",
+        "modified": "2024-08-01T11:32:12.418835Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/schemaGrant:SchemaGrant::snowflake-schemagrant",
+        "custom": true,
+        "id": "snowflake-db-1c28262|snowflake-schema-22cc1bd|USAGE|false|false|false|snowflake-role-89dcb90|",
+        "type": "snowflake:index/schemaGrant:SchemaGrant",
+        "inputs": {
+          "__defaults": [
+            "enableMultipleGrants",
+            "withGrantOption"
+          ],
+          "databaseName": "snowflake-db-1c28262",
+          "enableMultipleGrants": false,
+          "privilege": "USAGE",
+          "roles": [
+            "snowflake-role-89dcb90"
+          ],
+          "schemaName": "snowflake-schema-22cc1bd",
+          "withGrantOption": false
+        },
+        "outputs": {
+          "databaseName": "snowflake-db-1c28262",
+          "enableMultipleGrants": false,
+          "id": "snowflake-db-1c28262|snowflake-schema-22cc1bd|USAGE|false|false|false|snowflake-role-89dcb90|",
+          "onAll": false,
+          "onFuture": false,
+          "privilege": "USAGE",
+          "roles": [
+            "snowflake-role-89dcb90"
+          ],
+          "schemaName": "snowflake-schema-22cc1bd",
+          "shares": [],
+          "withGrantOption": false
+        },
+        "parent": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:pulumi:Stack::index_schemagranteZrLkDzzEsiW-test",
+        "dependencies": [
+          "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/role:Role::snowflake-role",
+          "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/schema:Schema::snowflake-schema"
+        ],
+        "provider": "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::pulumi:providers:snowflake::default::056d4b1b-b49d-4b38-97a5-be92590c30f1",
+        "propertyDependencies": {
+          "databaseName": [
+            "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/schema:Schema::snowflake-schema"
+          ],
+          "privilege": [],
+          "roles": [
+            "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/role:Role::snowflake-role"
+          ],
+          "schemaName": [
+            "urn:pulumi:test::index_schemagranteZrLkDzzEsiW::snowflake:index/schema:Schema::snowflake-schema"
+          ]
+        },
+        "created": "2024-08-01T11:32:12.916944Z",
+        "modified": "2024-08-01T11:32:12.916944Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-08-01T14:32:41.862608+03:00",
+      "magic": "d67539568b83836a29ebec33b94681fb04189ea530b5be5631513efd23f2bbbd",
+      "version": "v3.127.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Z1ohsHuhkC4=:v1:a/7fWDFEWVauQvnv:ANJUCoLO4ygGZGF88njgXsZJxT3SIA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:pulumi:Stack::index_taskSVRWEQ5iEUc7-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-08-01T11:32:36.490198Z",
+        "modified": "2024-08-01T11:32:36.490198Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:providers:snowflake::default",
+        "custom": true,
+        "id": "223a8fdf-c73d-4ce1-bc1c-d334b5efc31d",
+        "type": "pulumi:providers:snowflake",
+        "created": "2024-08-01T11:32:36.577562Z",
+        "modified": "2024-08-01T11:32:36.577562Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/warehouse:Warehouse::my_warehouse",
+        "custom": true,
+        "id": "my_warehouse-7c76d6a",
+        "type": "snowflake:index/warehouse:Warehouse",
+        "inputs": {
+          "__defaults": [
+            "comment",
+            "enableQueryAcceleration",
+            "maxConcurrencyLevel",
+            "name",
+            "queryAccelerationMaxScaleFactor",
+            "statementQueuedTimeoutInSeconds",
+            "statementTimeoutInSeconds",
+            "warehouseType"
+          ],
+          "autoResume": true,
+          "autoSuspend": 120,
+          "comment": "",
+          "enableQueryAcceleration": false,
+          "maxConcurrencyLevel": 8,
+          "name": "my_warehouse-7c76d6a",
+          "queryAccelerationMaxScaleFactor": 8,
+          "statementQueuedTimeoutInSeconds": 0,
+          "statementTimeoutInSeconds": 172800,
+          "warehouseSize": "SMALL",
+          "warehouseType": "STANDARD"
+        },
+        "outputs": {
+          "autoResume": true,
+          "autoSuspend": 120,
+          "comment": "",
+          "enableQueryAcceleration": false,
+          "id": "my_warehouse-7c76d6a",
+          "maxClusterCount": 0,
+          "maxConcurrencyLevel": 8,
+          "minClusterCount": 0,
+          "name": "my_warehouse-7c76d6a",
+          "resourceMonitor": "null",
+          "scalingPolicy": "",
+          "statementQueuedTimeoutInSeconds": 0,
+          "statementTimeoutInSeconds": 172800,
+          "warehouseSize": "SMALL",
+          "warehouseType": "STANDARD"
+        },
+        "parent": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:pulumi:Stack::index_taskSVRWEQ5iEUc7-test",
+        "provider": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:providers:snowflake::default::223a8fdf-c73d-4ce1-bc1c-d334b5efc31d",
+        "propertyDependencies": {
+          "autoResume": [],
+          "autoSuspend": [],
+          "warehouseSize": []
+        },
+        "created": "2024-08-01T11:32:40.373983Z",
+        "modified": "2024-08-01T11:32:40.373983Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/database:Database::my_database",
+        "custom": true,
+        "id": "my_database-b4ffc89",
+        "type": "snowflake:index/database:Database",
+        "inputs": {
+          "__defaults": [
+            "comment",
+            "dataRetentionTimeInDays",
+            "isTransient",
+            "name"
+          ],
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "isTransient": false,
+          "name": "my_database-b4ffc89"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionTimeInDays": -1,
+          "id": "my_database-b4ffc89",
+          "isTransient": false,
+          "name": "my_database-b4ffc89"
+        },
+        "parent": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:pulumi:Stack::index_taskSVRWEQ5iEUc7-test",
+        "provider": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:providers:snowflake::default::223a8fdf-c73d-4ce1-bc1c-d334b5efc31d",
+        "created": "2024-08-01T11:32:40.420041Z",
+        "modified": "2024-08-01T11:32:40.420041Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/schema:Schema::my_schema",
+        "custom": true,
+        "id": "my_database-b4ffc89|my_schema-45f020d",
+        "type": "snowflake:index/schema:Schema",
+        "inputs": {
+          "__defaults": [
+            "dataRetentionDays",
+            "isManaged",
+            "isTransient",
+            "name"
+          ],
+          "dataRetentionDays": -1,
+          "database": "my_database-b4ffc89",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "my_schema-45f020d"
+        },
+        "outputs": {
+          "comment": "",
+          "dataRetentionDays": -1,
+          "database": "my_database-b4ffc89",
+          "id": "my_database-b4ffc89|my_schema-45f020d",
+          "isManaged": false,
+          "isTransient": false,
+          "name": "my_schema-45f020d"
+        },
+        "parent": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:pulumi:Stack::index_taskSVRWEQ5iEUc7-test",
+        "dependencies": [
+          "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/database:Database::my_database"
+        ],
+        "provider": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:providers:snowflake::default::223a8fdf-c73d-4ce1-bc1c-d334b5efc31d",
+        "propertyDependencies": {
+          "database": [
+            "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/database:Database::my_database"
+          ]
+        },
+        "created": "2024-08-01T11:32:41.172478Z",
+        "modified": "2024-08-01T11:32:41.172478Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/task:Task::my_task",
+        "custom": true,
+        "id": "my_database-b4ffc89|my_schema-45f020d|my_task-6d3df93",
+        "type": "snowflake:index/task:Task",
+        "inputs": {
+          "__defaults": [
+            "allowOverlappingExecution",
+            "enabled",
+            "name",
+            "suspendTaskAfterNumFailures"
+          ],
+          "allowOverlappingExecution": false,
+          "database": "my_database-b4ffc89",
+          "enabled": false,
+          "name": "my_task-6d3df93",
+          "schedule": "USING CRON 0 9 * * * UTC",
+          "schema": "my_schema-45f020d",
+          "sqlStatement": "INSERT INTO my_target_table SELECT * FROM my_source_table;",
+          "suspendTaskAfterNumFailures": 0,
+          "warehouse": "my_warehouse-7c76d6a"
+        },
+        "outputs": {
+          "afters": [],
+          "allowOverlappingExecution": false,
+          "comment": "",
+          "database": "my_database-b4ffc89",
+          "enabled": false,
+          "errorIntegration": "",
+          "id": "my_database-b4ffc89|my_schema-45f020d|my_task-6d3df93",
+          "name": "my_task-6d3df93",
+          "schedule": "USING CRON 0 9 * * * UTC",
+          "schema": "my_schema-45f020d",
+          "sessionParameters": {},
+          "sqlStatement": "INSERT INTO my_target_table SELECT * FROM my_source_table",
+          "suspendTaskAfterNumFailures": 0,
+          "userTaskManagedInitialWarehouseSize": "",
+          "warehouse": "my_warehouse-7c76d6a",
+          "when": ""
+        },
+        "parent": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:pulumi:Stack::index_taskSVRWEQ5iEUc7-test",
+        "dependencies": [
+          "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/database:Database::my_database",
+          "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/schema:Schema::my_schema",
+          "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/warehouse:Warehouse::my_warehouse"
+        ],
+        "provider": "urn:pulumi:test::index_taskSVRWEQ5iEUc7::pulumi:providers:snowflake::default::223a8fdf-c73d-4ce1-bc1c-d334b5efc31d",
+        "propertyDependencies": {
+          "database": [
+            "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/database:Database::my_database"
+          ],
+          "schedule": [],
+          "schema": [
+            "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/schema:Schema::my_schema"
+          ],
+          "sqlStatement": [],
+          "warehouse": [
+            "urn:pulumi:test::index_taskSVRWEQ5iEUc7::snowflake:index/warehouse:Warehouse::my_warehouse"
+          ]
+        },
+        "created": "2024-08-01T11:32:41.853139Z",
+        "modified": "2024-08-01T11:32:41.853139Z"
+      }
+    ]
+  }
+}
