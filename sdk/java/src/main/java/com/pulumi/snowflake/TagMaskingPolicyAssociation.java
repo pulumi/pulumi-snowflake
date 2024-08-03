@@ -83,11 +83,18 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public TagMaskingPolicyAssociation(String name, TagMaskingPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, args == null ? TagMaskingPolicyAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TagMaskingPolicyAssociation(String name, Output<String> id, @Nullable TagMaskingPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TagMaskingPolicyAssociationArgs makeArgs(TagMaskingPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TagMaskingPolicyAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

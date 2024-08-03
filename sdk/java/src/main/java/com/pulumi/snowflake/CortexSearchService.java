@@ -188,11 +188,18 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CortexSearchService(String name, CortexSearchServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/cortexSearchService:CortexSearchService", name, args == null ? CortexSearchServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/cortexSearchService:CortexSearchService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CortexSearchService(String name, Output<String> id, @Nullable CortexSearchServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/cortexSearchService:CortexSearchService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CortexSearchServiceArgs makeArgs(CortexSearchServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CortexSearchServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

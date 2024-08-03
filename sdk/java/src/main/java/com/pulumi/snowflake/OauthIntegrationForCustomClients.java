@@ -347,11 +347,18 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public OauthIntegrationForCustomClients(String name, OauthIntegrationForCustomClientsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients", name, args == null ? OauthIntegrationForCustomClientsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OauthIntegrationForCustomClients(String name, Output<String> id, @Nullable OauthIntegrationForCustomClientsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OauthIntegrationForCustomClientsArgs makeArgs(OauthIntegrationForCustomClientsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OauthIntegrationForCustomClientsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+//
 // Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
 //
 // ## Import
@@ -46,7 +48,7 @@ type Schema struct {
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntOutput `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters SchemaParameterArrayOutput `pulumi:"parameters"`
@@ -131,7 +133,7 @@ type schemaState struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters []SchemaParameter `pulumi:"parameters"`
@@ -184,7 +186,7 @@ type SchemaState struct {
 	LogLevel pulumi.StringPtrInput
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters SchemaParameterArrayInput
@@ -239,7 +241,7 @@ type schemaArgs struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 	Name *string `pulumi:"name"`
 	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
 	PipeExecutionPaused *bool `pulumi:"pipeExecutionPaused"`
@@ -287,7 +289,7 @@ type SchemaArgs struct {
 	LogLevel pulumi.StringPtrInput
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 	Name pulumi.StringPtrInput
 	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
 	PipeExecutionPaused pulumi.BoolPtrInput
@@ -455,7 +457,7 @@ func (o SchemaOutput) MaxDataExtensionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.MaxDataExtensionTimeInDays }).(pulumi.IntOutput)
 }
 
-// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
 func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

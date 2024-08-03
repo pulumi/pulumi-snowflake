@@ -222,11 +222,18 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StorageIntegration(String name, StorageIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/storageIntegration:StorageIntegration", name, args == null ? StorageIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/storageIntegration:StorageIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StorageIntegration(String name, Output<String> id, @Nullable StorageIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/storageIntegration:StorageIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StorageIntegrationArgs makeArgs(StorageIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StorageIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

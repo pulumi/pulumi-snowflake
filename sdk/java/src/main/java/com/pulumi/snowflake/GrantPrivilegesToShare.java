@@ -162,11 +162,18 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public GrantPrivilegesToShare(String name, GrantPrivilegesToShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare", name, args == null ? GrantPrivilegesToShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GrantPrivilegesToShare(String name, Output<String> id, @Nullable GrantPrivilegesToShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GrantPrivilegesToShareArgs makeArgs(GrantPrivilegesToShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GrantPrivilegesToShareArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

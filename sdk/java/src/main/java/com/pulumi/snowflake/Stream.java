@@ -209,11 +209,18 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Stream(String name, StreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/stream:Stream", name, args == null ? StreamArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/stream:Stream", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Stream(String name, Output<String> id, @Nullable StreamState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/stream:Stream", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamArgs makeArgs(StreamArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

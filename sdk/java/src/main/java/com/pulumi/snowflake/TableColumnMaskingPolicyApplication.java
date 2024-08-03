@@ -94,11 +94,18 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * @param options A bag of options that control this resource's behavior.
      */
     public TableColumnMaskingPolicyApplication(String name, TableColumnMaskingPolicyApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, args == null ? TableColumnMaskingPolicyApplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TableColumnMaskingPolicyApplication(String name, Output<String> id, @Nullable TableColumnMaskingPolicyApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TableColumnMaskingPolicyApplicationArgs makeArgs(TableColumnMaskingPolicyApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TableColumnMaskingPolicyApplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

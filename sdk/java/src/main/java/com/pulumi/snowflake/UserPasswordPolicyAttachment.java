@@ -131,11 +131,18 @@ public class UserPasswordPolicyAttachment extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public UserPasswordPolicyAttachment(String name, UserPasswordPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment", name, args == null ? UserPasswordPolicyAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserPasswordPolicyAttachment(String name, Output<String> id, @Nullable UserPasswordPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserPasswordPolicyAttachmentArgs makeArgs(UserPasswordPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPasswordPolicyAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

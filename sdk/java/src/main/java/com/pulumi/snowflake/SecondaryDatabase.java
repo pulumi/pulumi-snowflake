@@ -335,11 +335,18 @@ public class SecondaryDatabase extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SecondaryDatabase(String name, SecondaryDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/secondaryDatabase:SecondaryDatabase", name, args == null ? SecondaryDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/secondaryDatabase:SecondaryDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SecondaryDatabase(String name, Output<String> id, @Nullable SecondaryDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/secondaryDatabase:SecondaryDatabase", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SecondaryDatabaseArgs makeArgs(SecondaryDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecondaryDatabaseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

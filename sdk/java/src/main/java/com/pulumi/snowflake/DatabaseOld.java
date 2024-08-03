@@ -230,11 +230,18 @@ public class DatabaseOld extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatabaseOld(String name, @Nullable DatabaseOldArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/databaseOld:DatabaseOld", name, args == null ? DatabaseOldArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/databaseOld:DatabaseOld", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatabaseOld(String name, Output<String> id, @Nullable DatabaseOldState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/databaseOld:DatabaseOld", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatabaseOldArgs makeArgs(@Nullable DatabaseOldArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatabaseOldArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -340,11 +340,18 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SamlIntegration(String name, SamlIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/samlIntegration:SamlIntegration", name, args == null ? SamlIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/samlIntegration:SamlIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SamlIntegration(String name, Output<String> id, @Nullable SamlIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/samlIntegration:SamlIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SamlIntegrationArgs makeArgs(SamlIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SamlIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

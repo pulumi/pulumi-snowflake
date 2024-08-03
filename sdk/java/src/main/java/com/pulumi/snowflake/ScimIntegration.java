@@ -181,11 +181,18 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ScimIntegration(String name, ScimIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/scimIntegration:ScimIntegration", name, args == null ? ScimIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/scimIntegration:ScimIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScimIntegration(String name, Output<String> id, @Nullable ScimIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/scimIntegration:ScimIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScimIntegrationArgs makeArgs(ScimIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScimIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

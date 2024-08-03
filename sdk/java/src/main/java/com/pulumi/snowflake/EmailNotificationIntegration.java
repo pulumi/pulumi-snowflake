@@ -127,11 +127,18 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailNotificationIntegration(String name, EmailNotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, args == null ? EmailNotificationIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailNotificationIntegration(String name, Output<String> id, @Nullable EmailNotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailNotificationIntegrationArgs makeArgs(EmailNotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailNotificationIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

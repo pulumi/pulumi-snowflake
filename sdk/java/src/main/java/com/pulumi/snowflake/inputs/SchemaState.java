@@ -187,14 +187,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
      * 
      */
     public Optional<Output<String>> name() {
@@ -686,7 +686,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
          * 
          * @return builder
          * 

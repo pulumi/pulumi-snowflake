@@ -212,11 +212,18 @@ public class Sequence extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Sequence(String name, SequenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sequence:Sequence", name, args == null ? SequenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/sequence:Sequence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Sequence(String name, Output<String> id, @Nullable SequenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/sequence:Sequence", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SequenceArgs makeArgs(SequenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SequenceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

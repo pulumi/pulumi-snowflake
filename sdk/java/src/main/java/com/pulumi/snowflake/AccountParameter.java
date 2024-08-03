@@ -115,11 +115,18 @@ public class AccountParameter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountParameter(String name, AccountParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountParameter:AccountParameter", name, args == null ? AccountParameterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/accountParameter:AccountParameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountParameter(String name, Output<String> id, @Nullable AccountParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/accountParameter:AccountParameter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountParameterArgs makeArgs(AccountParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountParameterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
