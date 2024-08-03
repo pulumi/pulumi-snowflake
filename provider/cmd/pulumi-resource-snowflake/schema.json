@@ -21012,7 +21012,7 @@
             }
         },
         "snowflake:index/schema:Schema": {
-            "description": "Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).\n\n## Import\n\nformat is dbName | schemaName\n\n```sh\n$ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'\n```\n\n",
+            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nResource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).\n\n## Import\n\nformat is dbName | schemaName\n\n```sh\n$ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'\n```\n\n",
             "properties": {
                 "catalog": {
                     "type": "string",
@@ -21063,7 +21063,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -21193,7 +21193,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                    "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.\n"
                 },
                 "pipeExecutionPaused": {
                     "type": "boolean",
@@ -21297,7 +21297,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created.\n"
+                        "description": "Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.\n"
                     },
                     "parameters": {
                         "type": "array",
@@ -25230,7 +25230,7 @@
             }
         },
         "snowflake:index/getDatabases:getDatabases": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getDatabases.\n",
                 "properties": {
@@ -25774,7 +25774,7 @@
             }
         },
         "snowflake:index/getNetworkPolicies:getNetworkPolicies": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getNetworkPolicies.\n",
                 "properties": {
@@ -26057,7 +26057,7 @@
             }
         },
         "snowflake:index/getRoles:getRoles": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.\n\n",
+            "description": "!\u003e **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getRoles.\n",
                 "properties": {
@@ -26155,7 +26155,7 @@
             }
         },
         "snowflake:index/getSchemas:getSchemas": {
-            "description": "Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getSchemas.\n",
                 "properties": {
@@ -26233,7 +26233,7 @@
             }
         },
         "snowflake:index/getSecurityIntegrations:getSecurityIntegrations": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getSecurityIntegrations.\n",
                 "properties": {
@@ -26445,7 +26445,7 @@
             }
         },
         "snowflake:index/getStreamlits:getStreamlits": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getStreamlits.\n",
                 "properties": {
@@ -26927,7 +26927,7 @@
             }
         },
         "snowflake:index/getWarehouses:getWarehouses": {
-            "description": "!\u003e **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getWarehouses.\n",
                 "properties": {
