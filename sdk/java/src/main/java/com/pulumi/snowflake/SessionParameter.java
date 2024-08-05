@@ -147,11 +147,18 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SessionParameter(String name, SessionParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sessionParameter:SessionParameter", name, args == null ? SessionParameterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/sessionParameter:SessionParameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SessionParameter(String name, Output<String> id, @Nullable SessionParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/sessionParameter:SessionParameter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SessionParameterArgs makeArgs(SessionParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SessionParameterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

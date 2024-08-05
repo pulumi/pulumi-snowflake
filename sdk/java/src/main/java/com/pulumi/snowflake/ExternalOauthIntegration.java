@@ -322,11 +322,18 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ExternalOauthIntegration(String name, ExternalOauthIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, args == null ? ExternalOauthIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExternalOauthIntegration(String name, Output<String> id, @Nullable ExternalOauthIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExternalOauthIntegrationArgs makeArgs(ExternalOauthIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExternalOauthIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

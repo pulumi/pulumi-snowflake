@@ -206,11 +206,18 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public GrantPrivilegesToAccountRole(String name, GrantPrivilegesToAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, args == null ? GrantPrivilegesToAccountRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GrantPrivilegesToAccountRole(String name, Output<String> id, @Nullable GrantPrivilegesToAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GrantPrivilegesToAccountRoleArgs makeArgs(GrantPrivilegesToAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GrantPrivilegesToAccountRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

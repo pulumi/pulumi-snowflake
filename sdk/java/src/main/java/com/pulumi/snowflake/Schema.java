@@ -21,6 +21,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+ * 
  * Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
  * 
  * ## Import
@@ -189,14 +191,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.maxDataExtensionTimeInDays;
     }
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
      * 
      */
     public Output<String> name() {
@@ -407,11 +409,18 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Schema(String name, SchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/schema:Schema", name, args == null ? SchemaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/schema:Schema", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Schema(String name, Output<String> id, @Nullable SchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/schema:Schema", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SchemaArgs makeArgs(SchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SchemaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -81,11 +81,18 @@ public class UserPublicKeys extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserPublicKeys(String name, @Nullable UserPublicKeysArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/userPublicKeys:UserPublicKeys", name, args == null ? UserPublicKeysArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/userPublicKeys:UserPublicKeys", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserPublicKeys(String name, Output<String> id, @Nullable UserPublicKeysState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/userPublicKeys:UserPublicKeys", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserPublicKeysArgs makeArgs(@Nullable UserPublicKeysArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPublicKeysArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

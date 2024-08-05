@@ -144,11 +144,18 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GrantOwnership(String name, GrantOwnershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantOwnership:GrantOwnership", name, args == null ? GrantOwnershipArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/grantOwnership:GrantOwnership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GrantOwnership(String name, Output<String> id, @Nullable GrantOwnershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/grantOwnership:GrantOwnership", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GrantOwnershipArgs makeArgs(GrantOwnershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GrantOwnershipArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -246,11 +246,18 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TagAssociation(String name, TagAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tagAssociation:TagAssociation", name, args == null ? TagAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/tagAssociation:TagAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TagAssociation(String name, Output<String> id, @Nullable TagAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/tagAssociation:TagAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TagAssociationArgs makeArgs(TagAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TagAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

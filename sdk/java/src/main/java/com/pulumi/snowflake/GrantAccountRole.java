@@ -93,11 +93,18 @@ public class GrantAccountRole extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GrantAccountRole(String name, GrantAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantAccountRole:GrantAccountRole", name, args == null ? GrantAccountRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/grantAccountRole:GrantAccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GrantAccountRole(String name, Output<String> id, @Nullable GrantAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/grantAccountRole:GrantAccountRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GrantAccountRoleArgs makeArgs(GrantAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GrantAccountRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

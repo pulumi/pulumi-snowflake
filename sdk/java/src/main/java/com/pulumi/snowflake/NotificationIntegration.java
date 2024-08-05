@@ -378,11 +378,18 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public NotificationIntegration(String name, NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/notificationIntegration:NotificationIntegration", name, args == null ? NotificationIntegrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/notificationIntegration:NotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotificationIntegration(String name, Output<String> id, @Nullable NotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/notificationIntegration:NotificationIntegration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationIntegrationArgs makeArgs(NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationIntegrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

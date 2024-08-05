@@ -126,11 +126,18 @@ public class DatabaseRole extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatabaseRole(String name, DatabaseRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/databaseRole:DatabaseRole", name, args == null ? DatabaseRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/databaseRole:DatabaseRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatabaseRole(String name, Output<String> id, @Nullable DatabaseRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/databaseRole:DatabaseRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatabaseRoleArgs makeArgs(DatabaseRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatabaseRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

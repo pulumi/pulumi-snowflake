@@ -230,11 +230,18 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiAuthenticationIntegrationWithJwtBearer(String name, ApiAuthenticationIntegrationWithJwtBearerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, args == null ? ApiAuthenticationIntegrationWithJwtBearerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiAuthenticationIntegrationWithJwtBearer(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithJwtBearerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiAuthenticationIntegrationWithJwtBearerArgs makeArgs(ApiAuthenticationIntegrationWithJwtBearerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiAuthenticationIntegrationWithJwtBearerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

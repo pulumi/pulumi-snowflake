@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
+    /// 
     /// Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
     /// 
     /// ## Import
@@ -90,7 +92,7 @@ namespace Pulumi.Snowflake
         public Output<int> MaxDataExtensionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -280,7 +282,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -432,7 +434,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

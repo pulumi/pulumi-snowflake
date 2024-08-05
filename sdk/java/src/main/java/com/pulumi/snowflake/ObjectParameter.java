@@ -215,11 +215,18 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ObjectParameter(String name, ObjectParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/objectParameter:ObjectParameter", name, args == null ? ObjectParameterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/objectParameter:ObjectParameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ObjectParameter(String name, Output<String> id, @Nullable ObjectParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/objectParameter:ObjectParameter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ObjectParameterArgs makeArgs(ObjectParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObjectParameterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

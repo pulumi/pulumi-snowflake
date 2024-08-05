@@ -86,11 +86,18 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountRole(String name, @Nullable AccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountRole:AccountRole", name, args == null ? AccountRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("snowflake:index/accountRole:AccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountRole(String name, Output<String> id, @Nullable AccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("snowflake:index/accountRole:AccountRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountRoleArgs makeArgs(@Nullable AccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
