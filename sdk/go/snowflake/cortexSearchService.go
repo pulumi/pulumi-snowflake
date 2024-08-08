@@ -12,6 +12,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Basic
+//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("some_database"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSchema, err := snowflake.NewSchema(ctx, "test", &snowflake.SchemaArgs{
+//				Database: test.Name,
+//				Name:     pulumi.String("some_schema"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTable, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
+//				Database:       test.Name,
+//				Schema:         testSchema.Name,
+//				Name:           pulumi.String("some_table"),
+//				ChangeTracking: pulumi.Bool(true),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("ID"),
+//						Type: pulumi.String("NUMBER(38,0)"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("SOME_TEXT"),
+//						Type: pulumi.String("VARCHAR"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewCortexSearchService(ctx, "test", &snowflake.CortexSearchServiceArgs{
+//				Database:  test.Name,
+//				Schema:    testSchema.Name,
+//				Name:      pulumi.String("some_name"),
+//				On:        pulumi.String("SOME_TEXT"),
+//				TargetLag: pulumi.String("2 minutes"),
+//				Warehouse: pulumi.String("some_warehouse"),
+//				Query:     pulumi.String("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\""),
+//				Comment:   pulumi.String("some comment"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testTable,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

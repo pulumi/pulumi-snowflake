@@ -15,18 +15,46 @@ import (
 //
 // The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 //
-// ## Minimal
+// ## Example Usage
 //
-//	resource "Role" "minimal" {
-//	  name = "roleName"
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewRole(ctx, "minimal", &snowflake.RoleArgs{
+//				Name: pulumi.String("role_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewRole(ctx, "complete", &snowflake.RoleArgs{
+//				Name:    pulumi.String("role_name"),
+//				Comment: pulumi.String("my account role"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// ## Complete (with every optional set)
+// ```
 //
-//	resource "Role" "complete" {
-//	  name    = "roleName"
-//	  comment = "my account role"
-//	}
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/role:Role example "name"
+// ```
 type Role struct {
 	pulumi.CustomResourceState
 

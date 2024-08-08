@@ -743,11 +743,11 @@ class Warehouse(pulumi.CustomResource):
             max_concurrency_level: Optional[pulumi.Input[int]] = None,
             min_cluster_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]]] = None,
             query_acceleration_max_scale_factor: Optional[pulumi.Input[int]] = None,
             resource_monitor: Optional[pulumi.Input[str]] = None,
             scaling_policy: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseShowOutputArgs']]]]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]]] = None,
             statement_queued_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             statement_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
             warehouse_size: Optional[pulumi.Input[str]] = None,
@@ -768,11 +768,11 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseParameterArgs']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WarehouseShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.

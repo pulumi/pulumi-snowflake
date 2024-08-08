@@ -318,7 +318,7 @@ class Alert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 alert_schedule: Optional[pulumi.Input[pulumi.InputType['AlertAlertScheduleArgs']]] = None,
+                 alert_schedule: Optional[pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
@@ -339,9 +339,9 @@ class Alert(pulumi.CustomResource):
             schema="schema",
             name="alert",
             warehouse="warehouse",
-            alert_schedule=snowflake.AlertAlertScheduleArgs(
-                interval=10,
-            ),
+            alert_schedule={
+                "interval": 10,
+            },
             condition="select 1 as c",
             action="select 1 as c",
             enabled=True,
@@ -359,7 +359,7 @@ class Alert(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[pulumi.InputType['AlertAlertScheduleArgs']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[str] comment: Specifies a comment for the alert.
         :param pulumi.Input[str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[str] database: The database in which to create the alert.
@@ -386,9 +386,9 @@ class Alert(pulumi.CustomResource):
             schema="schema",
             name="alert",
             warehouse="warehouse",
-            alert_schedule=snowflake.AlertAlertScheduleArgs(
-                interval=10,
-            ),
+            alert_schedule={
+                "interval": 10,
+            },
             condition="select 1 as c",
             action="select 1 as c",
             enabled=True,
@@ -419,7 +419,7 @@ class Alert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 alert_schedule: Optional[pulumi.Input[pulumi.InputType['AlertAlertScheduleArgs']]] = None,
+                 alert_schedule: Optional[pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
@@ -466,7 +466,7 @@ class Alert(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[str]] = None,
-            alert_schedule: Optional[pulumi.Input[pulumi.InputType['AlertAlertScheduleArgs']]] = None,
+            alert_schedule: Optional[pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             condition: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
@@ -482,7 +482,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[pulumi.InputType['AlertAlertScheduleArgs']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[str] comment: Specifies a comment for the alert.
         :param pulumi.Input[str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[str] database: The database in which to create the alert.

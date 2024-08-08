@@ -350,16 +350,16 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  always_apply: Optional[pulumi.Input[bool]] = None,
                  always_apply_trigger: Optional[pulumi.Input[str]] = None,
                  on_account: Optional[pulumi.Input[bool]] = None,
-                 on_account_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]] = None,
-                 on_schema: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaArgs']]] = None,
-                 on_schema_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]] = None,
+                 on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
                  privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Import
+        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
-        ### Import examples
+        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
 
         #### Grant all privileges OnAccountObject (Database)
 
@@ -391,9 +391,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] on_account_object: Specifies the account object on which privileges will be granted
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaArgs']] on_schema: Specifies the schema on which privileges will be granted.
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] on_schema_object: Specifies the schema object on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
@@ -404,9 +404,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  args: GrantPrivilegesToAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
+        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
-        ### Import examples
+        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
 
         #### Grant all privileges OnAccountObject (Database)
 
@@ -452,9 +452,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  always_apply: Optional[pulumi.Input[bool]] = None,
                  always_apply_trigger: Optional[pulumi.Input[str]] = None,
                  on_account: Optional[pulumi.Input[bool]] = None,
-                 on_account_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]] = None,
-                 on_schema: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaArgs']]] = None,
-                 on_schema_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]] = None,
+                 on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
                  privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -493,9 +493,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
             always_apply: Optional[pulumi.Input[bool]] = None,
             always_apply_trigger: Optional[pulumi.Input[str]] = None,
             on_account: Optional[pulumi.Input[bool]] = None,
-            on_account_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]] = None,
-            on_schema: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaArgs']]] = None,
-            on_schema_object: Optional[pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]] = None,
+            on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+            on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+            on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
             privileges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             with_grant_option: Optional[pulumi.Input[bool]] = None) -> 'GrantPrivilegesToAccountRole':
         """
@@ -509,9 +509,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] on_account_object: Specifies the account object on which privileges will be granted
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaArgs']] on_schema: Specifies the schema on which privileges will be granted.
-        :param pulumi.Input[pulumi.InputType['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] on_schema_object: Specifies the schema object on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """

@@ -343,7 +343,7 @@ class View(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewTagArgs', 'ViewTagArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -379,7 +379,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewTagArgs', 'ViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -435,7 +435,7 @@ class View(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewTagArgs', 'ViewTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,7 +480,7 @@ class View(pulumi.CustomResource):
             or_replace: Optional[pulumi.Input[bool]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             statement: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]]] = None) -> 'View':
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewTagArgs', 'ViewTagArgsDict']]]]] = None) -> 'View':
         """
         Get an existing View resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -496,7 +496,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewTagArgs']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewTagArgs', 'ViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

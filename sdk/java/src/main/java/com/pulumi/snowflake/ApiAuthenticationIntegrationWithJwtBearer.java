@@ -212,7 +212,7 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiAuthenticationIntegrationWithJwtBearer(String name) {
+    public ApiAuthenticationIntegrationWithJwtBearer(java.lang.String name) {
         this(name, ApiAuthenticationIntegrationWithJwtBearerArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiAuthenticationIntegrationWithJwtBearer(String name, ApiAuthenticationIntegrationWithJwtBearerArgs args) {
+    public ApiAuthenticationIntegrationWithJwtBearer(java.lang.String name, ApiAuthenticationIntegrationWithJwtBearerArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,12 +229,12 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiAuthenticationIntegrationWithJwtBearer(String name, ApiAuthenticationIntegrationWithJwtBearerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiAuthenticationIntegrationWithJwtBearer(java.lang.String name, ApiAuthenticationIntegrationWithJwtBearerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiAuthenticationIntegrationWithJwtBearer(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithJwtBearerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, state, makeResourceOptions(options, id));
+    private ApiAuthenticationIntegrationWithJwtBearer(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithJwtBearerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiAuthenticationIntegrationWithJwtBearerArgs makeArgs(ApiAuthenticationIntegrationWithJwtBearerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -244,7 +244,7 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
         return args == null ? ApiAuthenticationIntegrationWithJwtBearerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -260,7 +260,7 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiAuthenticationIntegrationWithJwtBearer get(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithJwtBearerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiAuthenticationIntegrationWithJwtBearer get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithJwtBearerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiAuthenticationIntegrationWithJwtBearer(name, id, state, options);
     }
 }

@@ -686,7 +686,7 @@ class Database(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  quoted_identifiers_ignore_case: Optional[pulumi.Input[bool]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
-                 replication: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationArgs']]] = None,
+                 replication: Optional[pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']]] = None,
                  storage_serialization_policy: Optional[pulumi.Input[str]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[int]] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -700,70 +700,11 @@ class Database(pulumi.CustomResource):
 
         Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
 
-        ## Minimal
+        ## Import
 
-        resource "Database" "primary" {
-          name = "database_name"
-        }
-
-        ## Complete (with every optional set)
-
-        resource "Database" "primary" {
-          name         = "database_name"
-          is_transient = false
-          comment      = "my standard database"
-
-          data_retention_time_in_days                   = 10
-          data_retention_time_in_days_save              = 10
-          max_data_extension_time_in_days               = 20
-          external_volume                               = "<external_volume_name>"
-          catalog                                       = "<catalog_name>"
-          replace_invalid_characters                    = false
-          default_ddl_collation                         = "en_US"
-          storage_serialization_policy                  = "COMPATIBLE"
-          log_level                                     = "INFO"
-          trace_level                                   = "ALWAYS"
-          suspend_task_after_num_failures               = 10
-          task_auto_retry_attempts                      = 10
-          user_task_managed_initial_warehouse_size      = "LARGE"
-          user_task_timeout_ms                          = 3600000
-          user_task_minimum_trigger_interval_in_seconds = 120
-          quoted_identifiers_ignore_case                = false
-          enable_console_output                         = false
-
-          replication {
-            enable_to_account {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            }
-            ignore_edition_check = true
-          }
-        }
-
-        ## Replication with for_each
-
-        locals {
-          replication_configs = [
-            {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            },
-            {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            },
-          ]
-        }
-
-        resource "Database" "primary" {
-          name     = "database_name"
-          for_each = local.replication_configs
-
-          replication {
-            enable_to_account    = each.value
-            ignore_edition_check = true
-          }
-        }
+        ```sh
+        $ pulumi import snowflake:index/database:Database example 'database_name'
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -779,7 +720,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[pulumi.InputType['DatabaseReplicationArgs']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
+        :param pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
         :param pulumi.Input[str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         :param pulumi.Input[int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
@@ -799,70 +740,11 @@ class Database(pulumi.CustomResource):
 
         Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
 
-        ## Minimal
+        ## Import
 
-        resource "Database" "primary" {
-          name = "database_name"
-        }
-
-        ## Complete (with every optional set)
-
-        resource "Database" "primary" {
-          name         = "database_name"
-          is_transient = false
-          comment      = "my standard database"
-
-          data_retention_time_in_days                   = 10
-          data_retention_time_in_days_save              = 10
-          max_data_extension_time_in_days               = 20
-          external_volume                               = "<external_volume_name>"
-          catalog                                       = "<catalog_name>"
-          replace_invalid_characters                    = false
-          default_ddl_collation                         = "en_US"
-          storage_serialization_policy                  = "COMPATIBLE"
-          log_level                                     = "INFO"
-          trace_level                                   = "ALWAYS"
-          suspend_task_after_num_failures               = 10
-          task_auto_retry_attempts                      = 10
-          user_task_managed_initial_warehouse_size      = "LARGE"
-          user_task_timeout_ms                          = 3600000
-          user_task_minimum_trigger_interval_in_seconds = 120
-          quoted_identifiers_ignore_case                = false
-          enable_console_output                         = false
-
-          replication {
-            enable_to_account {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            }
-            ignore_edition_check = true
-          }
-        }
-
-        ## Replication with for_each
-
-        locals {
-          replication_configs = [
-            {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            },
-            {
-              account_identifier = "<secondary_account_organization_name>.<secondary_account_name>"
-              with_failover      = true
-            },
-          ]
-        }
-
-        resource "Database" "primary" {
-          name     = "database_name"
-          for_each = local.replication_configs
-
-          replication {
-            enable_to_account    = each.value
-            ignore_edition_check = true
-          }
-        }
+        ```sh
+        $ pulumi import snowflake:index/database:Database example 'database_name'
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -891,7 +773,7 @@ class Database(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  quoted_identifiers_ignore_case: Optional[pulumi.Input[bool]] = None,
                  replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
-                 replication: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationArgs']]] = None,
+                 replication: Optional[pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']]] = None,
                  storage_serialization_policy: Optional[pulumi.Input[str]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[int]] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -950,7 +832,7 @@ class Database(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             quoted_identifiers_ignore_case: Optional[pulumi.Input[bool]] = None,
             replace_invalid_characters: Optional[pulumi.Input[bool]] = None,
-            replication: Optional[pulumi.Input[pulumi.InputType['DatabaseReplicationArgs']]] = None,
+            replication: Optional[pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']]] = None,
             storage_serialization_policy: Optional[pulumi.Input[str]] = None,
             suspend_task_after_num_failures: Optional[pulumi.Input[int]] = None,
             task_auto_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -977,7 +859,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[pulumi.InputType['DatabaseReplicationArgs']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
+        :param pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
         :param pulumi.Input[str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         :param pulumi.Input[int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).

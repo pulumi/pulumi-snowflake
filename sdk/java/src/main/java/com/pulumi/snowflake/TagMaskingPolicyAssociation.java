@@ -65,7 +65,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TagMaskingPolicyAssociation(String name) {
+    public TagMaskingPolicyAssociation(java.lang.String name) {
         this(name, TagMaskingPolicyAssociationArgs.Empty);
     }
     /**
@@ -73,7 +73,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TagMaskingPolicyAssociation(String name, TagMaskingPolicyAssociationArgs args) {
+    public TagMaskingPolicyAssociation(java.lang.String name, TagMaskingPolicyAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -82,12 +82,12 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TagMaskingPolicyAssociation(String name, TagMaskingPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TagMaskingPolicyAssociation(java.lang.String name, TagMaskingPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TagMaskingPolicyAssociation(String name, Output<String> id, @Nullable TagMaskingPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, state, makeResourceOptions(options, id));
+    private TagMaskingPolicyAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable TagMaskingPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TagMaskingPolicyAssociationArgs makeArgs(TagMaskingPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -97,7 +97,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
         return args == null ? TagMaskingPolicyAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -113,7 +113,7 @@ public class TagMaskingPolicyAssociation extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TagMaskingPolicyAssociation get(String name, Output<String> id, @Nullable TagMaskingPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TagMaskingPolicyAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable TagMaskingPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TagMaskingPolicyAssociation(name, id, state, options);
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Import
+    /// ## Example Usage
     /// 
     /// ### OnView
     /// 

@@ -36,21 +36,21 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var emailInt = new EmailNotificationIntegration("emailInt", EmailNotificationIntegrationArgs.builder()
  *             .name("notification")
  *             .comment("A notification integration.")
  *             .enabled(true)
- *             .allowedRecipients("john.doe{@literal @}gmail.com")
+ *             .allowedRecipients("john.doe}{@literal @}{@code gmail.com")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -109,7 +109,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailNotificationIntegration(String name) {
+    public EmailNotificationIntegration(java.lang.String name) {
         this(name, EmailNotificationIntegrationArgs.Empty);
     }
     /**
@@ -117,7 +117,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailNotificationIntegration(String name, EmailNotificationIntegrationArgs args) {
+    public EmailNotificationIntegration(java.lang.String name, EmailNotificationIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -126,12 +126,12 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailNotificationIntegration(String name, EmailNotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EmailNotificationIntegration(java.lang.String name, EmailNotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailNotificationIntegration(String name, Output<String> id, @Nullable EmailNotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, state, makeResourceOptions(options, id));
+    private EmailNotificationIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable EmailNotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EmailNotificationIntegrationArgs makeArgs(EmailNotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -141,7 +141,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
         return args == null ? EmailNotificationIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +157,7 @@ public class EmailNotificationIntegration extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailNotificationIntegration get(String name, Output<String> id, @Nullable EmailNotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailNotificationIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailNotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailNotificationIntegration(name, id, state, options);
     }
 }

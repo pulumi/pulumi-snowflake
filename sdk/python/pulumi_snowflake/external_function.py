@@ -589,12 +589,12 @@ class ExternalFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_integration: Optional[pulumi.Input[str]] = None,
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionArgArgs']]]]] = None,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -618,14 +618,14 @@ class ExternalFunction(pulumi.CustomResource):
             database="my_test_db",
             schema="my_test_schema",
             args=[
-                snowflake.ExternalFunctionArgArgs(
-                    name="arg1",
-                    type="varchar",
-                ),
-                snowflake.ExternalFunctionArgArgs(
-                    name="arg2",
-                    type="varchar",
-                ),
+                {
+                    "name": "arg1",
+                    "type": "varchar",
+                },
+                {
+                    "name": "arg2",
+                    "type": "varchar",
+                },
             ],
             return_type="variant",
             return_behavior="IMMUTABLE",
@@ -644,12 +644,12 @@ class ExternalFunction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionArgArgs']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         :param pulumi.Input[str] comment: A description of the external function.
         :param pulumi.Input[str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[str] database: The database in which to create the external function.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
@@ -679,14 +679,14 @@ class ExternalFunction(pulumi.CustomResource):
             database="my_test_db",
             schema="my_test_schema",
             args=[
-                snowflake.ExternalFunctionArgArgs(
-                    name="arg1",
-                    type="varchar",
-                ),
-                snowflake.ExternalFunctionArgArgs(
-                    name="arg2",
-                    type="varchar",
-                ),
+                {
+                    "name": "arg1",
+                    "type": "varchar",
+                },
+                {
+                    "name": "arg2",
+                    "type": "varchar",
+                },
             ],
             return_type="variant",
             return_behavior="IMMUTABLE",
@@ -718,12 +718,12 @@ class ExternalFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_integration: Optional[pulumi.Input[str]] = None,
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionArgArgs']]]]] = None,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -784,13 +784,13 @@ class ExternalFunction(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_integration: Optional[pulumi.Input[str]] = None,
-            args: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionArgArgs']]]]] = None,
+            args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             compression: Optional[pulumi.Input[str]] = None,
             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
-            headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]]] = None,
+            headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
             max_batch_rows: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_input_behavior: Optional[pulumi.Input[str]] = None,
@@ -809,13 +809,13 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionArgArgs']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         :param pulumi.Input[str] comment: A description of the external function.
         :param pulumi.Input[str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[str] created_on: Date and time when the external function was created.
         :param pulumi.Input[str] database: The database in which to create the external function.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalFunctionHeaderArgs']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         :param pulumi.Input[str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
