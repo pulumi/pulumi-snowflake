@@ -15,70 +15,11 @@ import (
 //
 // Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
 //
-// ## Minimal
+// ## Import
 //
-//	resource "Database" "primary" {
-//	  name = "databaseName"
-//	}
-//
-// ## Complete (with every optional set)
-//
-//	resource "Database" "primary" {
-//	  name         = "databaseName"
-//	  isTransient = false
-//	  comment      = "my standard database"
-//
-//	  dataRetentionTimeInDays                   = 10
-//	  dataRetentionTimeInDaysSave              = 10
-//	  maxDataExtensionTimeInDays               = 20
-//	  externalVolume                               = "<external_volume_name>"
-//	  catalog                                       = "<catalog_name>"
-//	  replaceInvalidCharacters                    = false
-//	  defaultDdlCollation                         = "en_US"
-//	  storageSerializationPolicy                  = "COMPATIBLE"
-//	  logLevel                                     = "INFO"
-//	  traceLevel                                   = "ALWAYS"
-//	  suspendTaskAfterNumFailures               = 10
-//	  taskAutoRetryAttempts                      = 10
-//	  userTaskManagedInitialWarehouseSize      = "LARGE"
-//	  userTaskTimeoutMs                          = 3600000
-//	  userTaskMinimumTriggerIntervalInSeconds = 120
-//	  quotedIdentifiersIgnoreCase                = false
-//	  enableConsoleOutput                         = false
-//
-//	  replication {
-//	    enableToAccount {
-//	      accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
-//	      withFailover      = true
-//	    }
-//	    ignoreEditionCheck = true
-//	  }
-//	}
-//
-// ## Replication with forEach
-//
-//	locals {
-//	  replicationConfigs = [
-//	    {
-//	      accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
-//	      withFailover      = true
-//	    },
-//	    {
-//	      accountIdentifier = "<secondary_account_organization_name>.<secondary_account_name>"
-//	      withFailover      = true
-//	    },
-//	  ]
-//	}
-//
-//	resource "Database" "primary" {
-//	  name     = "databaseName"
-//	  forEach = local.replication_configs
-//
-//	  replication {
-//	    enableToAccount    = each.value
-//	    ignoreEditionCheck = true
-//	  }
-//	}
+// ```sh
+// $ pulumi import snowflake:index/database:Database example 'database_name'
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

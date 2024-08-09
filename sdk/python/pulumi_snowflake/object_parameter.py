@@ -193,7 +193,7 @@ class ObjectParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectParameterObjectIdentifierArgs']]]]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  on_account: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -210,9 +210,9 @@ class ObjectParameter(pulumi.CustomResource):
             key="SUSPEND_TASK_AFTER_NUM_FAILURES",
             value="33",
             object_type="DATABASE",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                name=d.name,
-            )])
+            object_identifiers=[{
+                "name": d.name,
+            }])
         s = snowflake.Schema("s",
             name="TEST_SCHEMA",
             database=d.name)
@@ -220,27 +220,27 @@ class ObjectParameter(pulumi.CustomResource):
             key="USER_TASK_TIMEOUT_MS",
             value="500",
             object_type="SCHEMA",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=d.name,
-                name=s.name,
-            )])
+            object_identifiers=[{
+                "database": d.name,
+                "name": s.name,
+            }])
         t = snowflake.Table("t",
             name="TEST_TABLE",
             database=d.name,
             schema=s.name,
-            columns=[snowflake.TableColumnArgs(
-                name="id",
-                type="NUMBER",
-            )])
+            columns=[{
+                "name": "id",
+                "type": "NUMBER",
+            }])
         o3 = snowflake.ObjectParameter("o3",
             key="DATA_RETENTION_TIME_IN_DAYS",
             value="89",
             object_type="TABLE",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=d.name,
-                schema=s.name,
-                name=t.name,
-            )])
+            object_identifiers=[{
+                "database": d.name,
+                "schema": s.name,
+                "name": t.name,
+            }])
         # Setting object parameter at account level
         o4 = snowflake.ObjectParameter("o4",
             key="DATA_RETENTION_TIME_IN_DAYS",
@@ -257,7 +257,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectParameterObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[bool] on_account: If true, the object parameter will be set on the account level.
         :param pulumi.Input[str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -280,9 +280,9 @@ class ObjectParameter(pulumi.CustomResource):
             key="SUSPEND_TASK_AFTER_NUM_FAILURES",
             value="33",
             object_type="DATABASE",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                name=d.name,
-            )])
+            object_identifiers=[{
+                "name": d.name,
+            }])
         s = snowflake.Schema("s",
             name="TEST_SCHEMA",
             database=d.name)
@@ -290,27 +290,27 @@ class ObjectParameter(pulumi.CustomResource):
             key="USER_TASK_TIMEOUT_MS",
             value="500",
             object_type="SCHEMA",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=d.name,
-                name=s.name,
-            )])
+            object_identifiers=[{
+                "database": d.name,
+                "name": s.name,
+            }])
         t = snowflake.Table("t",
             name="TEST_TABLE",
             database=d.name,
             schema=s.name,
-            columns=[snowflake.TableColumnArgs(
-                name="id",
-                type="NUMBER",
-            )])
+            columns=[{
+                "name": "id",
+                "type": "NUMBER",
+            }])
         o3 = snowflake.ObjectParameter("o3",
             key="DATA_RETENTION_TIME_IN_DAYS",
             value="89",
             object_type="TABLE",
-            object_identifiers=[snowflake.ObjectParameterObjectIdentifierArgs(
-                database=d.name,
-                schema=s.name,
-                name=t.name,
-            )])
+            object_identifiers=[{
+                "database": d.name,
+                "schema": s.name,
+                "name": t.name,
+            }])
         # Setting object parameter at account level
         o4 = snowflake.ObjectParameter("o4",
             key="DATA_RETENTION_TIME_IN_DAYS",
@@ -340,7 +340,7 @@ class ObjectParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectParameterObjectIdentifierArgs']]]]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  on_account: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class ObjectParameter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             key: Optional[pulumi.Input[str]] = None,
-            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectParameterObjectIdentifierArgs']]]]] = None,
+            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
             object_type: Optional[pulumi.Input[str]] = None,
             on_account: Optional[pulumi.Input[bool]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'ObjectParameter':
@@ -385,7 +385,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectParameterObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[bool] on_account: If true, the object parameter will be set on the account level.
         :param pulumi.Input[str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

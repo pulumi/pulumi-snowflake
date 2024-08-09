@@ -206,7 +206,7 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Streamlit(String name) {
+    public Streamlit(java.lang.String name) {
         this(name, StreamlitArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Streamlit(String name, StreamlitArgs args) {
+    public Streamlit(java.lang.String name, StreamlitArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Streamlit(String name, StreamlitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/streamlit:Streamlit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Streamlit(java.lang.String name, StreamlitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/streamlit:Streamlit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Streamlit(String name, Output<String> id, @Nullable StreamlitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/streamlit:Streamlit", name, state, makeResourceOptions(options, id));
+    private Streamlit(java.lang.String name, Output<java.lang.String> id, @Nullable StreamlitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/streamlit:Streamlit", name, state, makeResourceOptions(options, id), false);
     }
 
     private static StreamlitArgs makeArgs(StreamlitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return args == null ? StreamlitArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +254,7 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Streamlit get(String name, Output<String> id, @Nullable StreamlitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Streamlit get(java.lang.String name, Output<java.lang.String> id, @Nullable StreamlitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Streamlit(name, id, state, options);
     }
 }

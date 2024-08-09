@@ -106,17 +106,17 @@ class AwaitableGetDynamicTablesResult(GetDynamicTablesResult):
             starts_with=self.starts_with)
 
 
-def get_dynamic_tables(in_: Optional[pulumi.InputType['GetDynamicTablesInArgs']] = None,
-                       like: Optional[pulumi.InputType['GetDynamicTablesLikeArgs']] = None,
-                       limit: Optional[pulumi.InputType['GetDynamicTablesLimitArgs']] = None,
+def get_dynamic_tables(in_: Optional[Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict']] = None,
+                       like: Optional[Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict']] = None,
+                       limit: Optional[Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict']] = None,
                        starts_with: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDynamicTablesResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param pulumi.InputType['GetDynamicTablesInArgs'] in_: IN clause to filter the list of dynamic tables.
-    :param pulumi.InputType['GetDynamicTablesLikeArgs'] like: LIKE clause to filter the list of dynamic tables.
-    :param pulumi.InputType['GetDynamicTablesLimitArgs'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
+    :param Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict'] in_: IN clause to filter the list of dynamic tables.
+    :param Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict'] like: LIKE clause to filter the list of dynamic tables.
+    :param Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
     :param str starts_with: Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
     """
     __args__ = dict()
@@ -137,17 +137,17 @@ def get_dynamic_tables(in_: Optional[pulumi.InputType['GetDynamicTablesInArgs']]
 
 
 @_utilities.lift_output_func(get_dynamic_tables)
-def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[pulumi.InputType['GetDynamicTablesInArgs']]]] = None,
-                              like: Optional[pulumi.Input[Optional[pulumi.InputType['GetDynamicTablesLikeArgs']]]] = None,
-                              limit: Optional[pulumi.Input[Optional[pulumi.InputType['GetDynamicTablesLimitArgs']]]] = None,
+def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict']]]] = None,
+                              like: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict']]]] = None,
+                              limit: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict']]]] = None,
                               starts_with: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDynamicTablesResult]:
     """
     Use this data source to access information about an existing resource.
 
-    :param pulumi.InputType['GetDynamicTablesInArgs'] in_: IN clause to filter the list of dynamic tables.
-    :param pulumi.InputType['GetDynamicTablesLikeArgs'] like: LIKE clause to filter the list of dynamic tables.
-    :param pulumi.InputType['GetDynamicTablesLimitArgs'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
+    :param Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict'] in_: IN clause to filter the list of dynamic tables.
+    :param Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict'] like: LIKE clause to filter the list of dynamic tables.
+    :param Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
     :param str starts_with: Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
     """
     ...

@@ -20,9 +20,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Import
+ * !&gt; **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  * 
- * ### Import examples
+ * &gt; **Note** When granting privileges on applications (for example, the default &#34;SNOWFLAKE&#34; application) use `on_account_object.object_type = &#34;DATABASE&#34;` instead.
  * 
  * #### Grant all privileges OnAccountObject (Database)
  * 
@@ -188,7 +188,7 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GrantPrivilegesToAccountRole(String name) {
+    public GrantPrivilegesToAccountRole(java.lang.String name) {
         this(name, GrantPrivilegesToAccountRoleArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GrantPrivilegesToAccountRole(String name, GrantPrivilegesToAccountRoleArgs args) {
+    public GrantPrivilegesToAccountRole(java.lang.String name, GrantPrivilegesToAccountRoleArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,12 +205,12 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GrantPrivilegesToAccountRole(String name, GrantPrivilegesToAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GrantPrivilegesToAccountRole(java.lang.String name, GrantPrivilegesToAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GrantPrivilegesToAccountRole(String name, Output<String> id, @Nullable GrantPrivilegesToAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, state, makeResourceOptions(options, id));
+    private GrantPrivilegesToAccountRole(java.lang.String name, Output<java.lang.String> id, @Nullable GrantPrivilegesToAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GrantPrivilegesToAccountRoleArgs makeArgs(GrantPrivilegesToAccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -220,7 +220,7 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return args == null ? GrantPrivilegesToAccountRoleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -236,7 +236,7 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GrantPrivilegesToAccountRole get(String name, Output<String> id, @Nullable GrantPrivilegesToAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GrantPrivilegesToAccountRole get(java.lang.String name, Output<java.lang.String> id, @Nullable GrantPrivilegesToAccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GrantPrivilegesToAccountRole(name, id, state, options);
     }
 }

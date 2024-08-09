@@ -11,18 +11,26 @@ import * as utilities from "./utilities";
  *
  * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
  *
- * ## Minimal
+ * ## Example Usage
  *
- * resource "snowflake.AccountRole" "minimal" {
- *   name = "roleName"
- * }
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
  *
- * ## Complete (with every optional set)
+ * //# Minimal
+ * const minimal = new snowflake.AccountRole("minimal", {name: "role_name"});
+ * //# Complete (with every optional set)
+ * const complete = new snowflake.AccountRole("complete", {
+ *     name: "role_name",
+ *     comment: "my account role",
+ * });
+ * ```
  *
- * resource "snowflake.AccountRole" "complete" {
- *   name    = "roleName"
- *   comment = "my account role"
- * }
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountRole:AccountRole example "name"
+ * ```
  */
 export class AccountRole extends pulumi.CustomResource {
     /**

@@ -374,7 +374,7 @@ class MaskingPolicy(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None,
+                 signature: Optional[pulumi.Input[Union['MaskingPolicySignatureArgs', 'MaskingPolicySignatureArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -387,12 +387,12 @@ class MaskingPolicy(pulumi.CustomResource):
             name="EXAMPLE_MASKING_POLICY",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            signature=snowflake.MaskingPolicySignatureArgs(
-                columns=[snowflake.MaskingPolicySignatureColumnArgs(
-                    name="val",
-                    type="VARCHAR",
-                )],
-            ),
+            signature={
+                "columns": [{
+                    "name": "val",
+                    "type": "VARCHAR",
+                }],
+            },
             masking_expression=\"\"\"case 
           when current_role() in ('ROLE_A') then 
             val 
@@ -424,7 +424,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] or_replace: Whether to override a previous masking policy with the same name.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+        :param pulumi.Input[Union['MaskingPolicySignatureArgs', 'MaskingPolicySignatureArgsDict']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
         ...
     @overload
@@ -443,12 +443,12 @@ class MaskingPolicy(pulumi.CustomResource):
             name="EXAMPLE_MASKING_POLICY",
             database="EXAMPLE_DB",
             schema="EXAMPLE_SCHEMA",
-            signature=snowflake.MaskingPolicySignatureArgs(
-                columns=[snowflake.MaskingPolicySignatureColumnArgs(
-                    name="val",
-                    type="VARCHAR",
-                )],
-            ),
+            signature={
+                "columns": [{
+                    "name": "val",
+                    "type": "VARCHAR",
+                }],
+            },
             masking_expression=\"\"\"case 
           when current_role() in ('ROLE_A') then 
             val 
@@ -493,7 +493,7 @@ class MaskingPolicy(pulumi.CustomResource):
                  or_replace: Optional[pulumi.Input[bool]] = None,
                  return_data_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None,
+                 signature: Optional[pulumi.Input[Union['MaskingPolicySignatureArgs', 'MaskingPolicySignatureArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -544,7 +544,7 @@ class MaskingPolicy(pulumi.CustomResource):
             qualified_name: Optional[pulumi.Input[str]] = None,
             return_data_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            signature: Optional[pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']]] = None) -> 'MaskingPolicy':
+            signature: Optional[pulumi.Input[Union['MaskingPolicySignatureArgs', 'MaskingPolicySignatureArgsDict']]] = None) -> 'MaskingPolicy':
         """
         Get an existing MaskingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -562,7 +562,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] qualified_name: Specifies the qualified identifier for the masking policy.
         :param pulumi.Input[str] return_data_type: Specifies the data type to return.
         :param pulumi.Input[str] schema: The schema in which to create the masking policy.
-        :param pulumi.Input[pulumi.InputType['MaskingPolicySignatureArgs']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+        :param pulumi.Input[Union['MaskingPolicySignatureArgs', 'MaskingPolicySignatureArgsDict']] signature: The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

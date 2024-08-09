@@ -550,7 +550,7 @@ class Procedure(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]]] = None,
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedureArgumentArgs', 'ProcedureArgumentArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
@@ -580,7 +580,7 @@ class Procedure(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureArgumentArgs', 'ProcedureArgumentArgsDict']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
@@ -629,7 +629,7 @@ class Procedure(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]]] = None,
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedureArgumentArgs', 'ProcedureArgumentArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
@@ -688,7 +688,7 @@ class Procedure(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]]] = None,
+            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedureArgumentArgs', 'ProcedureArgumentArgsDict']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             execute_as: Optional[pulumi.Input[str]] = None,
@@ -711,7 +711,7 @@ class Procedure(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProcedureArgumentArgs']]]] arguments: List of the arguments for the procedure
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureArgumentArgs', 'ProcedureArgumentArgsDict']]]] arguments: List of the arguments for the procedure
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).

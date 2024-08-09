@@ -22,70 +22,11 @@ import javax.annotation.Nullable;
  * 
  * Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
  * 
- * ## Minimal
+ * ## Import
  * 
- * resource &#34;snowflake.Database&#34; &#34;primary&#34; {
- *   name = &#34;database_name&#34;
- * }
- * 
- * ## Complete (with every optional set)
- * 
- * resource &#34;snowflake.Database&#34; &#34;primary&#34; {
- *   name         = &#34;database_name&#34;
- *   is_transient = false
- *   comment      = &#34;my standard database&#34;
- * 
- *   data_retention_time_in_days                   = 10
- *   data_retention_time_in_days_save              = 10
- *   max_data_extension_time_in_days               = 20
- *   external_volume                               = &#34;&lt;external_volume_name&gt;&#34;
- *   catalog                                       = &#34;&lt;catalog_name&gt;&#34;
- *   replace_invalid_characters                    = false
- *   default_ddl_collation                         = &#34;en_US&#34;
- *   storage_serialization_policy                  = &#34;COMPATIBLE&#34;
- *   log_level                                     = &#34;INFO&#34;
- *   trace_level                                   = &#34;ALWAYS&#34;
- *   suspend_task_after_num_failures               = 10
- *   task_auto_retry_attempts                      = 10
- *   user_task_managed_initial_warehouse_size      = &#34;LARGE&#34;
- *   user_task_timeout_ms                          = 3600000
- *   user_task_minimum_trigger_interval_in_seconds = 120
- *   quoted_identifiers_ignore_case                = false
- *   enable_console_output                         = false
- * 
- *   replication {
- *     enable_to_account {
- *       account_identifier = &#34;&lt;secondary_account_organization_name&gt;.&lt;secondary_account_name&gt;&#34;
- *       with_failover      = true
- *     }
- *     ignore_edition_check = true
- *   }
- * }
- * 
- * ## Replication with for_each
- * 
- * locals {
- *   replication_configs = [
- *     {
- *       account_identifier = &#34;&lt;secondary_account_organization_name&gt;.&lt;secondary_account_name&gt;&#34;
- *       with_failover      = true
- *     },
- *     {
- *       account_identifier = &#34;&lt;secondary_account_organization_name&gt;.&lt;secondary_account_name&gt;&#34;
- *       with_failover      = true
- *     },
- *   ]
- * }
- * 
- * resource &#34;snowflake.Database&#34; &#34;primary&#34; {
- *   name     = &#34;database_name&#34;
- *   for_each = local.replication_configs
- * 
- *   replication {
- *     enable_to_account    = each.value
- *     ignore_edition_check = true
- *   }
- * }
+ * ```sh
+ * $ pulumi import snowflake:index/database:Database example &#39;database_name&#39;
+ * ```
  * 
  */
 @ResourceType(type="snowflake:index/database:Database")
@@ -375,7 +316,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Database(String name) {
+    public Database(java.lang.String name) {
         this(name, DatabaseArgs.Empty);
     }
     /**
@@ -383,7 +324,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Database(String name, @Nullable DatabaseArgs args) {
+    public Database(java.lang.String name, @Nullable DatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -392,12 +333,12 @@ public class Database extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Database(String name, @Nullable DatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/database:Database", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Database(java.lang.String name, @Nullable DatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/database:Database", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Database(String name, Output<String> id, @Nullable DatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/database:Database", name, state, makeResourceOptions(options, id));
+    private Database(java.lang.String name, Output<java.lang.String> id, @Nullable DatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/database:Database", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatabaseArgs makeArgs(@Nullable DatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -407,7 +348,7 @@ public class Database extends com.pulumi.resources.CustomResource {
         return args == null ? DatabaseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -423,7 +364,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Database get(String name, Output<String> id, @Nullable DatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Database get(java.lang.String name, Output<java.lang.String> id, @Nullable DatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Database(name, id, state, options);
     }
 }

@@ -312,7 +312,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExternalTable(String name) {
+    public ExternalTable(java.lang.String name) {
         this(name, ExternalTableArgs.Empty);
     }
     /**
@@ -320,7 +320,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExternalTable(String name, ExternalTableArgs args) {
+    public ExternalTable(java.lang.String name, ExternalTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -329,12 +329,12 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExternalTable(String name, ExternalTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/externalTable:ExternalTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExternalTable(java.lang.String name, ExternalTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/externalTable:ExternalTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExternalTable(String name, Output<String> id, @Nullable ExternalTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/externalTable:ExternalTable", name, state, makeResourceOptions(options, id));
+    private ExternalTable(java.lang.String name, Output<java.lang.String> id, @Nullable ExternalTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/externalTable:ExternalTable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExternalTableArgs makeArgs(ExternalTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -344,7 +344,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return args == null ? ExternalTableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -360,7 +360,7 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExternalTable get(String name, Output<String> id, @Nullable ExternalTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExternalTable get(java.lang.String name, Output<java.lang.String> id, @Nullable ExternalTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExternalTable(name, id, state, options);
     }
 }

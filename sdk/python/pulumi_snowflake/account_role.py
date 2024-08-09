@@ -106,18 +106,25 @@ class AccountRole(pulumi.CustomResource):
 
         The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
         ## Minimal
-
-        resource "AccountRole" "minimal" {
-          name = "role_name"
-        }
-
+        minimal = snowflake.AccountRole("minimal", name="role_name")
         ## Complete (with every optional set)
+        complete = snowflake.AccountRole("complete",
+            name="role_name",
+            comment="my account role")
+        ```
 
-        resource "AccountRole" "complete" {
-          name    = "role_name"
-          comment = "my account role"
-        }
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/accountRole:AccountRole example "name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,18 +140,25 @@ class AccountRole(pulumi.CustomResource):
 
         The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
         ## Minimal
-
-        resource "AccountRole" "minimal" {
-          name = "role_name"
-        }
-
+        minimal = snowflake.AccountRole("minimal", name="role_name")
         ## Complete (with every optional set)
+        complete = snowflake.AccountRole("complete",
+            name="role_name",
+            comment="my account role")
+        ```
 
-        resource "AccountRole" "complete" {
-          name    = "role_name"
-          comment = "my account role"
-        }
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/accountRole:AccountRole example "name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountRoleArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +201,7 @@ class AccountRole(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountRoleShowOutputArgs']]]]] = None) -> 'AccountRole':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict']]]]] = None) -> 'AccountRole':
         """
         Get an existing AccountRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -195,7 +209,7 @@ class AccountRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountRoleShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

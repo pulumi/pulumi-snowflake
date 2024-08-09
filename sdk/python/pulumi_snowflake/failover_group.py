@@ -326,11 +326,11 @@ class FailoverGroup(pulumi.CustomResource):
                  allowed_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 from_replica: Optional[pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']]] = None,
+                 from_replica: Optional[pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']]] = None,
                  ignore_edition_check: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 replication_schedule: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']]] = None,
+                 replication_schedule: Optional[pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -354,19 +354,19 @@ class FailoverGroup(pulumi.CustomResource):
             ],
             allowed_databases=[db.name],
             allowed_integration_types=["SECURITY INTEGRATIONS"],
-            replication_schedule=snowflake.FailoverGroupReplicationScheduleArgs(
-                cron=snowflake.FailoverGroupReplicationScheduleCronArgs(
-                    expression="0 0 10-20 * TUE,THU",
-                    time_zone="UTC",
-                ),
-            ))
+            replication_schedule={
+                "cron": {
+                    "expression": "0 0 10-20 * TUE,THU",
+                    "time_zone": "UTC",
+                },
+            })
         target_failover_group = snowflake.FailoverGroup("target_failover_group",
             name="FG1",
-            from_replica=snowflake.FailoverGroupFromReplicaArgs(
-                organization_name="...",
-                source_account_name="...",
-                name=source_failover_group.name,
-            ))
+            from_replica={
+                "organization_name": "...",
+                "source_account_name": "...",
+                "name": source_failover_group.name,
+            })
         ```
 
         ## Import
@@ -381,11 +381,11 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
-        :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
+        :param pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
         ...
     @overload
@@ -415,19 +415,19 @@ class FailoverGroup(pulumi.CustomResource):
             ],
             allowed_databases=[db.name],
             allowed_integration_types=["SECURITY INTEGRATIONS"],
-            replication_schedule=snowflake.FailoverGroupReplicationScheduleArgs(
-                cron=snowflake.FailoverGroupReplicationScheduleCronArgs(
-                    expression="0 0 10-20 * TUE,THU",
-                    time_zone="UTC",
-                ),
-            ))
+            replication_schedule={
+                "cron": {
+                    "expression": "0 0 10-20 * TUE,THU",
+                    "time_zone": "UTC",
+                },
+            })
         target_failover_group = snowflake.FailoverGroup("target_failover_group",
             name="FG1",
-            from_replica=snowflake.FailoverGroupFromReplicaArgs(
-                organization_name="...",
-                source_account_name="...",
-                name=source_failover_group.name,
-            ))
+            from_replica={
+                "organization_name": "...",
+                "source_account_name": "...",
+                "name": source_failover_group.name,
+            })
         ```
 
         ## Import
@@ -455,11 +455,11 @@ class FailoverGroup(pulumi.CustomResource):
                  allowed_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 from_replica: Optional[pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']]] = None,
+                 from_replica: Optional[pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']]] = None,
                  ignore_edition_check: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 replication_schedule: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']]] = None,
+                 replication_schedule: Optional[pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -492,11 +492,11 @@ class FailoverGroup(pulumi.CustomResource):
             allowed_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            from_replica: Optional[pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']]] = None,
+            from_replica: Optional[pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']]] = None,
             ignore_edition_check: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            replication_schedule: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']]] = None) -> 'FailoverGroup':
+            replication_schedule: Optional[pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']]] = None) -> 'FailoverGroup':
         """
         Get an existing FailoverGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -508,11 +508,11 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_databases: Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
-        :param pulumi.Input[pulumi.InputType['FailoverGroupFromReplicaArgs']] from_replica: Specifies the name of the replica to use as the source for the failover group.
+        :param pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']] from_replica: Specifies the name of the replica to use as the source for the failover group.
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReplicationScheduleArgs']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

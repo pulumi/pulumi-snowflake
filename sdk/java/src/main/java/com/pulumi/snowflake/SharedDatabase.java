@@ -273,7 +273,7 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SharedDatabase(String name) {
+    public SharedDatabase(java.lang.String name) {
         this(name, SharedDatabaseArgs.Empty);
     }
     /**
@@ -281,7 +281,7 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SharedDatabase(String name, SharedDatabaseArgs args) {
+    public SharedDatabase(java.lang.String name, SharedDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -290,12 +290,12 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SharedDatabase(String name, SharedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sharedDatabase:SharedDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SharedDatabase(java.lang.String name, SharedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/sharedDatabase:SharedDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SharedDatabase(String name, Output<String> id, @Nullable SharedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sharedDatabase:SharedDatabase", name, state, makeResourceOptions(options, id));
+    private SharedDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable SharedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/sharedDatabase:SharedDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SharedDatabaseArgs makeArgs(SharedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -305,7 +305,7 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
         return args == null ? SharedDatabaseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -321,7 +321,7 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SharedDatabase get(String name, Output<String> id, @Nullable SharedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SharedDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable SharedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SharedDatabase(name, id, state, options);
     }
 }

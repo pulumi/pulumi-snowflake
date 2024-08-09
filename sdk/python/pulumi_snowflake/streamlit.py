@@ -504,14 +504,14 @@ class Streamlit(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamlitDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]]] = None,
             directory_location: Optional[pulumi.Input[str]] = None,
             external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             main_file: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query_warehouse: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamlitShowOutputArgs']]]]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]]] = None,
             stage: Optional[pulumi.Input[str]] = None,
             title: Optional[pulumi.Input[str]] = None) -> 'Streamlit':
         """
@@ -523,14 +523,14 @@ class Streamlit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the streamlit.
         :param pulumi.Input[str] database: The database in which to create the streamlit
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamlitDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
         :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
         :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
         :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
         :param pulumi.Input[str] schema: The schema in which to create the streamlit.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamlitShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamli.
         :param pulumi.Input[str] stage: The stage in which streamlit files are located.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """

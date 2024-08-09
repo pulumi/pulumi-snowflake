@@ -296,7 +296,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  to_share: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Import
+        ## Example Usage
 
         ### OnView
 
@@ -322,7 +322,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  args: GrantPrivilegesToShareArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
+        ## Example Usage
 
         ### OnView
 

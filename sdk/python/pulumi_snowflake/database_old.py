@@ -297,7 +297,7 @@ class DatabaseOld(pulumi.CustomResource):
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseOldReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use Database or SharedDatabase or SecondaryDatabase instead. <deprecation>
@@ -315,13 +315,13 @@ class DatabaseOld(pulumi.CustomResource):
         with_replication = snowflake.DatabaseOld("with_replication",
             name="testing_2",
             comment="test comment 2",
-            replication_configuration=snowflake.DatabaseOldReplicationConfigurationArgs(
-                accounts=[
+            replication_configuration={
+                "accounts": [
                     "test_account1",
                     "test_account_2",
                 ],
-                ignore_edition_check=True,
-            ))
+                "ignore_edition_check": True,
+            })
         from_replica = snowflake.DatabaseOld("from_replica",
             name="testing_3",
             comment="test comment",
@@ -351,7 +351,7 @@ class DatabaseOld(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
-        :param pulumi.Input[pulumi.InputType['DatabaseOldReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
+        :param pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']] replication_configuration: When set, specifies the configurations for database replication.
         """
         ...
     @overload
@@ -375,13 +375,13 @@ class DatabaseOld(pulumi.CustomResource):
         with_replication = snowflake.DatabaseOld("with_replication",
             name="testing_2",
             comment="test comment 2",
-            replication_configuration=snowflake.DatabaseOldReplicationConfigurationArgs(
-                accounts=[
+            replication_configuration={
+                "accounts": [
                     "test_account1",
                     "test_account_2",
                 ],
-                ignore_edition_check=True,
-            ))
+                "ignore_edition_check": True,
+            })
         from_replica = snowflake.DatabaseOld("from_replica",
             name="testing_3",
             comment="test comment",
@@ -424,7 +424,7 @@ class DatabaseOld(pulumi.CustomResource):
                  from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseOldReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,7 +459,7 @@ class DatabaseOld(pulumi.CustomResource):
             from_share: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             is_transient: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            replication_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseOldReplicationConfigurationArgs']]] = None) -> 'DatabaseOld':
+            replication_configuration: Optional[pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']]] = None) -> 'DatabaseOld':
         """
         Get an existing DatabaseOld resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -474,7 +474,7 @@ class DatabaseOld(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] from_share: Specify a provider and a share in this map to create a database from a share. As of version 0.87.0, the provider field is the account locator.
         :param pulumi.Input[bool] is_transient: Specifies a database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account.
-        :param pulumi.Input[pulumi.InputType['DatabaseOldReplicationConfigurationArgs']] replication_configuration: When set, specifies the configurations for database replication.
+        :param pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']] replication_configuration: When set, specifies the configurations for database replication.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

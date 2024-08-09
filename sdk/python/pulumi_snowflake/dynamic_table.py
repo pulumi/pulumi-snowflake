@@ -549,7 +549,7 @@ class DynamicTable(pulumi.CustomResource):
                  query: Optional[pulumi.Input[str]] = None,
                  refresh_mode: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 target_lag: Optional[pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']]] = None,
+                 target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -564,9 +564,9 @@ class DynamicTable(pulumi.CustomResource):
             name="product",
             database="mydb",
             schema="myschema",
-            target_lag=snowflake.DynamicTableTargetLagArgs(
-                maximum_duration="20 minutes",
-            ),
+            target_lag={
+                "maximum_duration": "20 minutes",
+            },
             warehouse="mywh",
             query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             comment="example comment")
@@ -588,7 +588,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[str] query: Specifies the query to use to populate the dynamic table.
         :param pulumi.Input[str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[str] schema: The schema in which to create the dynamic table.
-        :param pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']] target_lag: Specifies the target lag time for the dynamic table.
+        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
         """
         ...
@@ -609,9 +609,9 @@ class DynamicTable(pulumi.CustomResource):
             name="product",
             database="mydb",
             schema="myschema",
-            target_lag=snowflake.DynamicTableTargetLagArgs(
-                maximum_duration="20 minutes",
-            ),
+            target_lag={
+                "maximum_duration": "20 minutes",
+            },
             warehouse="mywh",
             query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
             comment="example comment")
@@ -646,7 +646,7 @@ class DynamicTable(pulumi.CustomResource):
                  query: Optional[pulumi.Input[str]] = None,
                  refresh_mode: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 target_lag: Optional[pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']]] = None,
+                 target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -719,7 +719,7 @@ class DynamicTable(pulumi.CustomResource):
             rows: Optional[pulumi.Input[int]] = None,
             scheduling_state: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            target_lag: Optional[pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']]] = None,
+            target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
             warehouse: Optional[pulumi.Input[str]] = None) -> 'DynamicTable':
         """
         Get an existing DynamicTable resource's state with the given name, id, and optional extra
@@ -748,7 +748,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[int] rows: Number of rows in the table.
         :param pulumi.Input[str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         :param pulumi.Input[str] schema: The schema in which to create the dynamic table.
-        :param pulumi.Input[pulumi.InputType['DynamicTableTargetLagArgs']] target_lag: Specifies the target lag time for the dynamic table.
+        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[str] warehouse: The warehouse in which to create the dynamic table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

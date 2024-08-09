@@ -360,7 +360,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotificationIntegration(String name) {
+    public NotificationIntegration(java.lang.String name) {
         this(name, NotificationIntegrationArgs.Empty);
     }
     /**
@@ -368,7 +368,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationIntegration(String name, NotificationIntegrationArgs args) {
+    public NotificationIntegration(java.lang.String name, NotificationIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -377,12 +377,12 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationIntegration(String name, NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/notificationIntegration:NotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NotificationIntegration(java.lang.String name, NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/notificationIntegration:NotificationIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotificationIntegration(String name, Output<String> id, @Nullable NotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/notificationIntegration:NotificationIntegration", name, state, makeResourceOptions(options, id));
+    private NotificationIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/notificationIntegration:NotificationIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NotificationIntegrationArgs makeArgs(NotificationIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -392,7 +392,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return args == null ? NotificationIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -408,7 +408,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotificationIntegration get(String name, Output<String> id, @Nullable NotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotificationIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotificationIntegration(name, id, state, options);
     }
 }

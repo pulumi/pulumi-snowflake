@@ -385,7 +385,7 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DynamicTable(String name) {
+    public DynamicTable(java.lang.String name) {
         this(name, DynamicTableArgs.Empty);
     }
     /**
@@ -393,7 +393,7 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DynamicTable(String name, DynamicTableArgs args) {
+    public DynamicTable(java.lang.String name, DynamicTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -402,12 +402,12 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DynamicTable(String name, DynamicTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/dynamicTable:DynamicTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DynamicTable(java.lang.String name, DynamicTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/dynamicTable:DynamicTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DynamicTable(String name, Output<String> id, @Nullable DynamicTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/dynamicTable:DynamicTable", name, state, makeResourceOptions(options, id));
+    private DynamicTable(java.lang.String name, Output<java.lang.String> id, @Nullable DynamicTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/dynamicTable:DynamicTable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DynamicTableArgs makeArgs(DynamicTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -417,7 +417,7 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return args == null ? DynamicTableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -433,7 +433,7 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DynamicTable get(String name, Output<String> id, @Nullable DynamicTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DynamicTable get(java.lang.String name, Output<java.lang.String> id, @Nullable DynamicTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DynamicTable(name, id, state, options);
     }
 }

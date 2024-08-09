@@ -33,7 +33,7 @@ import (
 //				Url:         pulumi.String("s3://com.example.bucket/prefix"),
 //				Database:    pulumi.String("EXAMPLE_DB"),
 //				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
-//				Credentials: pulumi.String(fmt.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey)),
+//				Credentials: pulumi.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey),
 //			})
 //			if err != nil {
 //				return err

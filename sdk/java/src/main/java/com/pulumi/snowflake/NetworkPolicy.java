@@ -22,22 +22,11 @@ import javax.annotation.Nullable;
  * 
  * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
  * 
- * ## Minimal
+ * ## Import
  * 
- * resource &#34;snowflake.NetworkPolicy&#34; &#34;basic&#34; {
- *   name = &#34;network_policy_name&#34;
- * }
- * 
- * ## Complete (with every optional set)
- * 
- * resource &#34;snowflake.NetworkPolicy&#34; &#34;basic&#34; {
- *   name                      = &#34;network_policy_name&#34;
- *   allowed_network_rule_list = [&#34;&lt;fully qualified network rule id&gt;&#34;]
- *   blocked_network_rule_list = [&#34;&lt;fully qualified network rule id&gt;&#34;]
- *   allowed_ip_list           = [&#34;192.168.1.0/24&#34;]
- *   blocked_ip_list           = [&#34;192.168.1.99&#34;]
- *   comment                   = &#34;my network policy&#34;
- * }
+ * ```sh
+ * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example &#34;name&#34;
+ * ```
  * 
  */
 @ResourceType(type="snowflake:index/networkPolicy:NetworkPolicy")
@@ -159,7 +148,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkPolicy(String name) {
+    public NetworkPolicy(java.lang.String name) {
         this(name, NetworkPolicyArgs.Empty);
     }
     /**
@@ -167,7 +156,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkPolicy(String name, @Nullable NetworkPolicyArgs args) {
+    public NetworkPolicy(java.lang.String name, @Nullable NetworkPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,12 +165,12 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkPolicy(String name, @Nullable NetworkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/networkPolicy:NetworkPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkPolicy(java.lang.String name, @Nullable NetworkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/networkPolicy:NetworkPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkPolicy(String name, Output<String> id, @Nullable NetworkPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/networkPolicy:NetworkPolicy", name, state, makeResourceOptions(options, id));
+    private NetworkPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/networkPolicy:NetworkPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkPolicyArgs makeArgs(@Nullable NetworkPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -191,7 +180,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -207,7 +196,7 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkPolicy get(String name, Output<String> id, @Nullable NetworkPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkPolicy(name, id, state, options);
     }
 }

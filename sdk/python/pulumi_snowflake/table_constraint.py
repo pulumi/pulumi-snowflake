@@ -428,7 +428,7 @@ class TableConstraint(pulumi.CustomResource):
                  deferrable: Optional[pulumi.Input[bool]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  enforced: Optional[pulumi.Input[bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input[pulumi.InputType['TableConstraintForeignKeyPropertiesArgs']]] = None,
+                 foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
                  initially: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rely: Optional[pulumi.Input[bool]] = None,
@@ -452,37 +452,37 @@ class TableConstraint(pulumi.CustomResource):
             schema=s.name,
             name="some_table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="col1",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="col2",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="col3",
-                    type="text",
-                    nullable=False,
-                ),
+                {
+                    "name": "col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col3",
+                    "type": "text",
+                    "nullable": False,
+                },
             ])
         fk_t = snowflake.Table("fk_t",
             database=d.name,
             schema=s.name,
             name="fk_table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="fk_col1",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="fk_col2",
-                    type="text",
-                    nullable=False,
-                ),
+                {
+                    "name": "fk_col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "fk_col2",
+                    "type": "text",
+                    "nullable": False,
+                },
             ])
         primary_key = snowflake.TableConstraint("primary_key",
             name="myconstraint",
@@ -495,12 +495,12 @@ class TableConstraint(pulumi.CustomResource):
             type="FOREIGN KEY",
             table_id=t.qualified_name,
             columns=["col2"],
-            foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
-                references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
-                    table_id=fk_t.qualified_name,
-                    columns=["fk_col1"],
-                ),
-            ),
+            foreign_key_properties={
+                "references": {
+                    "table_id": fk_t.qualified_name,
+                    "columns": ["fk_col1"],
+                },
+            },
             enforced=False,
             deferrable=False,
             initially="IMMEDIATE",
@@ -526,7 +526,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         :param pulumi.Input[bool] enforced: Whether the constraint is enforced
-        :param pulumi.Input[pulumi.InputType['TableConstraintForeignKeyPropertiesArgs']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         :param pulumi.Input[str] initially: Whether the constraint is initially deferred or immediate
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
@@ -556,37 +556,37 @@ class TableConstraint(pulumi.CustomResource):
             schema=s.name,
             name="some_table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="col1",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="col2",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="col3",
-                    type="text",
-                    nullable=False,
-                ),
+                {
+                    "name": "col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col3",
+                    "type": "text",
+                    "nullable": False,
+                },
             ])
         fk_t = snowflake.Table("fk_t",
             database=d.name,
             schema=s.name,
             name="fk_table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="fk_col1",
-                    type="text",
-                    nullable=False,
-                ),
-                snowflake.TableColumnArgs(
-                    name="fk_col2",
-                    type="text",
-                    nullable=False,
-                ),
+                {
+                    "name": "fk_col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "fk_col2",
+                    "type": "text",
+                    "nullable": False,
+                },
             ])
         primary_key = snowflake.TableConstraint("primary_key",
             name="myconstraint",
@@ -599,12 +599,12 @@ class TableConstraint(pulumi.CustomResource):
             type="FOREIGN KEY",
             table_id=t.qualified_name,
             columns=["col2"],
-            foreign_key_properties=snowflake.TableConstraintForeignKeyPropertiesArgs(
-                references=snowflake.TableConstraintForeignKeyPropertiesReferencesArgs(
-                    table_id=fk_t.qualified_name,
-                    columns=["fk_col1"],
-                ),
-            ),
+            foreign_key_properties={
+                "references": {
+                    "table_id": fk_t.qualified_name,
+                    "columns": ["fk_col1"],
+                },
+            },
             enforced=False,
             deferrable=False,
             initially="IMMEDIATE",
@@ -643,7 +643,7 @@ class TableConstraint(pulumi.CustomResource):
                  deferrable: Optional[pulumi.Input[bool]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  enforced: Optional[pulumi.Input[bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input[pulumi.InputType['TableConstraintForeignKeyPropertiesArgs']]] = None,
+                 foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
                  initially: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rely: Optional[pulumi.Input[bool]] = None,
@@ -692,7 +692,7 @@ class TableConstraint(pulumi.CustomResource):
             deferrable: Optional[pulumi.Input[bool]] = None,
             enable: Optional[pulumi.Input[bool]] = None,
             enforced: Optional[pulumi.Input[bool]] = None,
-            foreign_key_properties: Optional[pulumi.Input[pulumi.InputType['TableConstraintForeignKeyPropertiesArgs']]] = None,
+            foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
             initially: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rely: Optional[pulumi.Input[bool]] = None,
@@ -711,7 +711,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[bool] deferrable: Whether the constraint is deferrable
         :param pulumi.Input[bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         :param pulumi.Input[bool] enforced: Whether the constraint is enforced
-        :param pulumi.Input[pulumi.InputType['TableConstraintForeignKeyPropertiesArgs']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         :param pulumi.Input[str] initially: Whether the constraint is initially deferred or immediate
         :param pulumi.Input[str] name: Name of constraint
         :param pulumi.Input[bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.

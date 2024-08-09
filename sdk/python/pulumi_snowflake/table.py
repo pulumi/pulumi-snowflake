@@ -401,14 +401,14 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
+                 primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -425,14 +425,14 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
-        :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
+        :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] schema: The schema in which to create the table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -468,14 +468,14 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  change_tracking: Optional[pulumi.Input[bool]] = None,
                  cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
+                 primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,16 +515,16 @@ class Table(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             change_tracking: Optional[pulumi.Input[bool]] = None,
             cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
+            columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             database: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
-            primary_key: Optional[pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']]] = None,
+            primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
             qualified_name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None) -> 'Table':
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -534,16 +534,16 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] columns: Definitions of a column to create in the table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: The database in which to create the table.
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
-        :param pulumi.Input[pulumi.InputType['TablePrimaryKeyArgs']] primary_key: Definitions of primary key constraint to create on table
+        :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[str] qualified_name: Qualified name of the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

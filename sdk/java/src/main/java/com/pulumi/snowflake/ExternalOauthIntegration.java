@@ -304,7 +304,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExternalOauthIntegration(String name) {
+    public ExternalOauthIntegration(java.lang.String name) {
         this(name, ExternalOauthIntegrationArgs.Empty);
     }
     /**
@@ -312,7 +312,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExternalOauthIntegration(String name, ExternalOauthIntegrationArgs args) {
+    public ExternalOauthIntegration(java.lang.String name, ExternalOauthIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -321,12 +321,12 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExternalOauthIntegration(String name, ExternalOauthIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExternalOauthIntegration(java.lang.String name, ExternalOauthIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExternalOauthIntegration(String name, Output<String> id, @Nullable ExternalOauthIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, state, makeResourceOptions(options, id));
+    private ExternalOauthIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable ExternalOauthIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExternalOauthIntegrationArgs makeArgs(ExternalOauthIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -336,7 +336,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return args == null ? ExternalOauthIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -352,7 +352,7 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExternalOauthIntegration get(String name, Output<String> id, @Nullable ExternalOauthIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExternalOauthIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable ExternalOauthIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExternalOauthIntegration(name, id, state, options);
     }
 }

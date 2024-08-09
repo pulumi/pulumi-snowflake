@@ -81,7 +81,7 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountPasswordPolicyAttachment(String name) {
+    public AccountPasswordPolicyAttachment(java.lang.String name) {
         this(name, AccountPasswordPolicyAttachmentArgs.Empty);
     }
     /**
@@ -89,7 +89,7 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountPasswordPolicyAttachment(String name, AccountPasswordPolicyAttachmentArgs args) {
+    public AccountPasswordPolicyAttachment(java.lang.String name, AccountPasswordPolicyAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -98,12 +98,12 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountPasswordPolicyAttachment(String name, AccountPasswordPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccountPasswordPolicyAttachment(java.lang.String name, AccountPasswordPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountPasswordPolicyAttachment(String name, Output<String> id, @Nullable AccountPasswordPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment", name, state, makeResourceOptions(options, id));
+    private AccountPasswordPolicyAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable AccountPasswordPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccountPasswordPolicyAttachmentArgs makeArgs(AccountPasswordPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -113,7 +113,7 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
         return args == null ? AccountPasswordPolicyAttachmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -129,7 +129,7 @@ public class AccountPasswordPolicyAttachment extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountPasswordPolicyAttachment get(String name, Output<String> id, @Nullable AccountPasswordPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountPasswordPolicyAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountPasswordPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountPasswordPolicyAttachment(name, id, state, options);
     }
 }

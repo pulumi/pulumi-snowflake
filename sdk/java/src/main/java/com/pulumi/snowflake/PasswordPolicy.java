@@ -279,7 +279,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PasswordPolicy(String name) {
+    public PasswordPolicy(java.lang.String name) {
         this(name, PasswordPolicyArgs.Empty);
     }
     /**
@@ -287,7 +287,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PasswordPolicy(String name, PasswordPolicyArgs args) {
+    public PasswordPolicy(java.lang.String name, PasswordPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -296,12 +296,12 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PasswordPolicy(String name, PasswordPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/passwordPolicy:PasswordPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PasswordPolicy(java.lang.String name, PasswordPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/passwordPolicy:PasswordPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PasswordPolicy(String name, Output<String> id, @Nullable PasswordPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/passwordPolicy:PasswordPolicy", name, state, makeResourceOptions(options, id));
+    private PasswordPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable PasswordPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/passwordPolicy:PasswordPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PasswordPolicyArgs makeArgs(PasswordPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -311,7 +311,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? PasswordPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -327,7 +327,7 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PasswordPolicy get(String name, Output<String> id, @Nullable PasswordPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PasswordPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable PasswordPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PasswordPolicy(name, id, state, options);
     }
 }

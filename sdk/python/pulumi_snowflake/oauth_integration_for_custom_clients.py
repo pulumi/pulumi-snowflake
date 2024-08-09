@@ -747,7 +747,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForCustomClientsDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_policy: Optional[pulumi.Input[str]] = None,
@@ -761,7 +761,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
             pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForCustomClientsShowOutputArgs']]]]] = None) -> 'OauthIntegrationForCustomClients':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForCustomClients':
         """
         Get an existing OauthIntegrationForCustomClients resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -771,7 +771,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForCustomClientsDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
@@ -783,7 +783,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForCustomClientsShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

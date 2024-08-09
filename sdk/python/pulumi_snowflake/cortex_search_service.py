@@ -341,6 +341,44 @@ class CortexSearchService(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Basic
+        test = snowflake.Database("test", name="some_database")
+        test_schema = snowflake.Schema("test",
+            database=test.name,
+            name="some_schema")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_table",
+            change_tracking=True,
+            columns=[
+                {
+                    "name": "ID",
+                    "type": "NUMBER(38,0)",
+                },
+                {
+                    "name": "SOME_TEXT",
+                    "type": "VARCHAR",
+                },
+            ])
+        test_cortex_search_service = snowflake.CortexSearchService("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_name",
+            on="SOME_TEXT",
+            target_lag="2 minutes",
+            warehouse="some_warehouse",
+            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+            comment="some comment",
+            opts = pulumi.ResourceOptions(depends_on=[test_table]))
+        ```
+
         ## Import
 
         ```sh
@@ -366,6 +404,44 @@ class CortexSearchService(pulumi.CustomResource):
                  args: CortexSearchServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Basic
+        test = snowflake.Database("test", name="some_database")
+        test_schema = snowflake.Schema("test",
+            database=test.name,
+            name="some_schema")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_table",
+            change_tracking=True,
+            columns=[
+                {
+                    "name": "ID",
+                    "type": "NUMBER(38,0)",
+                },
+                {
+                    "name": "SOME_TEXT",
+                    "type": "VARCHAR",
+                },
+            ])
+        test_cortex_search_service = snowflake.CortexSearchService("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_name",
+            on="SOME_TEXT",
+            target_lag="2 minutes",
+            warehouse="some_warehouse",
+            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+            comment="some comment",
+            opts = pulumi.ResourceOptions(depends_on=[test_table]))
+        ```
+
         ## Import
 
         ```sh

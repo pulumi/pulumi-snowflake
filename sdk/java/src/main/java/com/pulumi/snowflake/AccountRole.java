@@ -21,18 +21,53 @@ import javax.annotation.Nullable;
  * 
  * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
  * 
- * ## Minimal
+ * ## Example Usage
  * 
- * resource &#34;snowflake.AccountRole&#34; &#34;minimal&#34; {
- *   name = &#34;role_name&#34;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.AccountRole;
+ * import com.pulumi.snowflake.AccountRoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var minimal = new AccountRole("minimal", AccountRoleArgs.builder()
+ *             .name("role_name")
+ *             .build());
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new AccountRole("complete", AccountRoleArgs.builder()
+ *             .name("role_name")
+ *             .comment("my account role")
+ *             .build());
+ * 
+ *     }
  * }
- * 
- * ## Complete (with every optional set)
- * 
- * resource &#34;snowflake.AccountRole&#34; &#34;complete&#34; {
- *   name    = &#34;role_name&#34;
- *   comment = &#34;my account role&#34;
  * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountRole:AccountRole example &#34;name&#34;
+ * ```
  * 
  */
 @ResourceType(type="snowflake:index/accountRole:AccountRole")
@@ -68,7 +103,7 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountRole(String name) {
+    public AccountRole(java.lang.String name) {
         this(name, AccountRoleArgs.Empty);
     }
     /**
@@ -76,7 +111,7 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountRole(String name, @Nullable AccountRoleArgs args) {
+    public AccountRole(java.lang.String name, @Nullable AccountRoleArgs args) {
         this(name, args, null);
     }
     /**
@@ -85,12 +120,12 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountRole(String name, @Nullable AccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountRole:AccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccountRole(java.lang.String name, @Nullable AccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/accountRole:AccountRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountRole(String name, Output<String> id, @Nullable AccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/accountRole:AccountRole", name, state, makeResourceOptions(options, id));
+    private AccountRole(java.lang.String name, Output<java.lang.String> id, @Nullable AccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/accountRole:AccountRole", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccountRoleArgs makeArgs(@Nullable AccountRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -100,7 +135,7 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
         return args == null ? AccountRoleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -116,7 +151,7 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountRole get(String name, Output<String> id, @Nullable AccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountRole get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountRole(name, id, state, options);
     }
 }
