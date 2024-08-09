@@ -325,7 +325,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TableConstraint(String name) {
+    public TableConstraint(java.lang.String name) {
         this(name, TableConstraintArgs.Empty);
     }
     /**
@@ -333,7 +333,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TableConstraint(String name, TableConstraintArgs args) {
+    public TableConstraint(java.lang.String name, TableConstraintArgs args) {
         this(name, args, null);
     }
     /**
@@ -342,12 +342,12 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TableConstraint(String name, TableConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tableConstraint:TableConstraint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TableConstraint(java.lang.String name, TableConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tableConstraint:TableConstraint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TableConstraint(String name, Output<String> id, @Nullable TableConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tableConstraint:TableConstraint", name, state, makeResourceOptions(options, id));
+    private TableConstraint(java.lang.String name, Output<java.lang.String> id, @Nullable TableConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tableConstraint:TableConstraint", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TableConstraintArgs makeArgs(TableConstraintArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -357,7 +357,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return args == null ? TableConstraintArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -373,7 +373,7 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TableConstraint get(String name, Output<String> id, @Nullable TableConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TableConstraint get(java.lang.String name, Output<java.lang.String> id, @Nullable TableConstraintState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TableConstraint(name, id, state, options);
     }
 }

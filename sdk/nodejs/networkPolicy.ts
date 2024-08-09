@@ -11,22 +11,11 @@ import * as utilities from "./utilities";
  *
  * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
  *
- * ## Minimal
+ * ## Import
  *
- * resource "snowflake.NetworkPolicy" "basic" {
- *   name = "networkPolicyName"
- * }
- *
- * ## Complete (with every optional set)
- *
- * resource "snowflake.NetworkPolicy" "basic" {
- *   name                      = "networkPolicyName"
- *   allowedNetworkRuleList = ["<fully qualified network rule id>"]
- *   blockedNetworkRuleList = ["<fully qualified network rule id>"]
- *   allowedIpList           = ["192.168.1.0/24"]
- *   blockedIpList           = ["192.168.1.99"]
- *   comment                   = "my network policy"
- * }
+ * ```sh
+ * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example "name"
+ * ```
  */
 export class NetworkPolicy extends pulumi.CustomResource {
     /**

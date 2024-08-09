@@ -112,7 +112,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkPolicyAttachment(String name) {
+    public NetworkPolicyAttachment(java.lang.String name) {
         this(name, NetworkPolicyAttachmentArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkPolicyAttachment(String name, NetworkPolicyAttachmentArgs args) {
+    public NetworkPolicyAttachment(java.lang.String name, NetworkPolicyAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,12 +129,12 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkPolicyAttachment(String name, NetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkPolicyAttachment(java.lang.String name, NetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkPolicyAttachment(String name, Output<String> id, @Nullable NetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment", name, state, makeResourceOptions(options, id));
+    private NetworkPolicyAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkPolicyAttachmentArgs makeArgs(NetworkPolicyAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -144,7 +144,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
         return args == null ? NetworkPolicyAttachmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -160,7 +160,7 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkPolicyAttachment get(String name, Output<String> id, @Nullable NetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkPolicyAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPolicyAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkPolicyAttachment(name, id, state, options);
     }
 }

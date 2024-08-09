@@ -175,7 +175,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedAccount(String name) {
+    public ManagedAccount(java.lang.String name) {
         this(name, ManagedAccountArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedAccount(String name, ManagedAccountArgs args) {
+    public ManagedAccount(java.lang.String name, ManagedAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,12 +192,12 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedAccount(String name, ManagedAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/managedAccount:ManagedAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedAccount(java.lang.String name, ManagedAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/managedAccount:ManagedAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedAccount(String name, Output<String> id, @Nullable ManagedAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/managedAccount:ManagedAccount", name, state, makeResourceOptions(options, id));
+    private ManagedAccount(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/managedAccount:ManagedAccount", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedAccountArgs makeArgs(ManagedAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -207,7 +207,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
         return args == null ? ManagedAccountArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -226,7 +226,7 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedAccount get(String name, Output<String> id, @Nullable ManagedAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedAccount(name, id, state, options);
     }
 }

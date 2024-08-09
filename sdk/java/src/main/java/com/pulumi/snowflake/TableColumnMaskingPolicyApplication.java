@@ -76,7 +76,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TableColumnMaskingPolicyApplication(String name) {
+    public TableColumnMaskingPolicyApplication(java.lang.String name) {
         this(name, TableColumnMaskingPolicyApplicationArgs.Empty);
     }
     /**
@@ -84,7 +84,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TableColumnMaskingPolicyApplication(String name, TableColumnMaskingPolicyApplicationArgs args) {
+    public TableColumnMaskingPolicyApplication(java.lang.String name, TableColumnMaskingPolicyApplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -93,12 +93,12 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TableColumnMaskingPolicyApplication(String name, TableColumnMaskingPolicyApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TableColumnMaskingPolicyApplication(java.lang.String name, TableColumnMaskingPolicyApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TableColumnMaskingPolicyApplication(String name, Output<String> id, @Nullable TableColumnMaskingPolicyApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, state, makeResourceOptions(options, id));
+    private TableColumnMaskingPolicyApplication(java.lang.String name, Output<java.lang.String> id, @Nullable TableColumnMaskingPolicyApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TableColumnMaskingPolicyApplicationArgs makeArgs(TableColumnMaskingPolicyApplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -108,7 +108,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
         return args == null ? TableColumnMaskingPolicyApplicationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -124,7 +124,7 @@ public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TableColumnMaskingPolicyApplication get(String name, Output<String> id, @Nullable TableColumnMaskingPolicyApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TableColumnMaskingPolicyApplication get(java.lang.String name, Output<java.lang.String> id, @Nullable TableColumnMaskingPolicyApplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TableColumnMaskingPolicyApplication(name, id, state, options);
     }
 }

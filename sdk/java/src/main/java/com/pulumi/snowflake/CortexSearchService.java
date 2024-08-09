@@ -16,6 +16,84 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.CortexSearchService;
+ * import com.pulumi.snowflake.CortexSearchServiceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Basic
+ *         var test = new Database("test", DatabaseArgs.builder()
+ *             .name("some_database")
+ *             .build());
+ * 
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
+ *             .database(test.name())
+ *             .name("some_schema")
+ *             .build());
+ * 
+ *         var testTable = new Table("testTable", TableArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSchema.name())
+ *             .name("some_table")
+ *             .changeTracking(true)
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("ID")
+ *                     .type("NUMBER(38,0)")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("SOME_TEXT")
+ *                     .type("VARCHAR")
+ *                     .build())
+ *             .build());
+ * 
+ *         var testCortexSearchService = new CortexSearchService("testCortexSearchService", CortexSearchServiceArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSchema.name())
+ *             .name("some_name")
+ *             .on("SOME_TEXT")
+ *             .targetLag("2 minutes")
+ *             .warehouse("some_warehouse")
+ *             .query("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"")
+ *             .comment("some comment")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testTable)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh
@@ -170,7 +248,7 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CortexSearchService(String name) {
+    public CortexSearchService(java.lang.String name) {
         this(name, CortexSearchServiceArgs.Empty);
     }
     /**
@@ -178,7 +256,7 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CortexSearchService(String name, CortexSearchServiceArgs args) {
+    public CortexSearchService(java.lang.String name, CortexSearchServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,12 +265,12 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CortexSearchService(String name, CortexSearchServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/cortexSearchService:CortexSearchService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CortexSearchService(java.lang.String name, CortexSearchServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/cortexSearchService:CortexSearchService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CortexSearchService(String name, Output<String> id, @Nullable CortexSearchServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/cortexSearchService:CortexSearchService", name, state, makeResourceOptions(options, id));
+    private CortexSearchService(java.lang.String name, Output<java.lang.String> id, @Nullable CortexSearchServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/cortexSearchService:CortexSearchService", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CortexSearchServiceArgs makeArgs(CortexSearchServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -202,7 +280,7 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
         return args == null ? CortexSearchServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +296,7 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CortexSearchService get(String name, Output<String> id, @Nullable CortexSearchServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CortexSearchService get(java.lang.String name, Output<java.lang.String> id, @Nullable CortexSearchServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CortexSearchService(name, id, state, options);
     }
 }

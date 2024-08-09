@@ -270,22 +270,11 @@ class NetworkPolicy(pulumi.CustomResource):
 
         Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
 
-        ## Minimal
+        ## Import
 
-        resource "NetworkPolicy" "basic" {
-          name = "network_policy_name"
-        }
-
-        ## Complete (with every optional set)
-
-        resource "NetworkPolicy" "basic" {
-          name                      = "network_policy_name"
-          allowed_network_rule_list = ["<fully qualified network rule id>"]
-          blocked_network_rule_list = ["<fully qualified network rule id>"]
-          allowed_ip_list           = ["192.168.1.0/24"]
-          blocked_ip_list           = ["192.168.1.99"]
-          comment                   = "my network policy"
-        }
+        ```sh
+        $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example "name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,22 +296,11 @@ class NetworkPolicy(pulumi.CustomResource):
 
         Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
 
-        ## Minimal
+        ## Import
 
-        resource "NetworkPolicy" "basic" {
-          name = "network_policy_name"
-        }
-
-        ## Complete (with every optional set)
-
-        resource "NetworkPolicy" "basic" {
-          name                      = "network_policy_name"
-          allowed_network_rule_list = ["<fully qualified network rule id>"]
-          blocked_network_rule_list = ["<fully qualified network rule id>"]
-          allowed_ip_list           = ["192.168.1.0/24"]
-          blocked_ip_list           = ["192.168.1.99"]
-          comment                   = "my network policy"
-        }
+        ```sh
+        $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example "name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -377,9 +355,9 @@ class NetworkPolicy(pulumi.CustomResource):
             blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPolicyDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyDescribeOutputArgs', 'NetworkPolicyDescribeOutputArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPolicyShowOutputArgs']]]]] = None) -> 'NetworkPolicy':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyShowOutputArgs', 'NetworkPolicyShowOutputArgsDict']]]]] = None) -> 'NetworkPolicy':
         """
         Get an existing NetworkPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -392,9 +370,9 @@ class NetworkPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_network_rule_lists: Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
         :param pulumi.Input[str] comment: Specifies a comment for the network policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPolicyDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyDescribeOutputArgs', 'NetworkPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
         :param pulumi.Input[str] name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkPolicyShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyShowOutputArgs', 'NetworkPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

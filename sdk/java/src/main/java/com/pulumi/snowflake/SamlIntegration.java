@@ -322,7 +322,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SamlIntegration(String name) {
+    public SamlIntegration(java.lang.String name) {
         this(name, SamlIntegrationArgs.Empty);
     }
     /**
@@ -330,7 +330,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SamlIntegration(String name, SamlIntegrationArgs args) {
+    public SamlIntegration(java.lang.String name, SamlIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -339,12 +339,12 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SamlIntegration(String name, SamlIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/samlIntegration:SamlIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SamlIntegration(java.lang.String name, SamlIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/samlIntegration:SamlIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SamlIntegration(String name, Output<String> id, @Nullable SamlIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/samlIntegration:SamlIntegration", name, state, makeResourceOptions(options, id));
+    private SamlIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable SamlIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/samlIntegration:SamlIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SamlIntegrationArgs makeArgs(SamlIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -354,7 +354,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
         return args == null ? SamlIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -370,7 +370,7 @@ public class SamlIntegration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SamlIntegration get(String name, Output<String> id, @Nullable SamlIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SamlIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable SamlIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SamlIntegration(name, id, state, options);
     }
 }

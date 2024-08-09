@@ -230,7 +230,7 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -257,9 +257,9 @@ class TagAssociation(pulumi.CustomResource):
                 "engineering",
             ])
         db_association = snowflake.TagAssociation("db_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name,
-            )],
+            object_identifiers=[{
+                "name": test.name,
+            }],
             object_type="DATABASE",
             tag_id=test_tag.id,
             tag_value="finance")
@@ -269,30 +269,30 @@ class TagAssociation(pulumi.CustomResource):
             name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="column1",
-                    type="VARIANT",
-                ),
-                snowflake.TableColumnArgs(
-                    name="column2",
-                    type="VARCHAR(16)",
-                ),
+                {
+                    "name": "column1",
+                    "type": "VARIANT",
+                },
+                {
+                    "name": "column2",
+                    "type": "VARCHAR(16)",
+                },
             ])
         table_association = snowflake.TagAssociation("table_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test_table.name,
-                database=test.name,
-                schema=test_schema.name,
-            )],
+            object_identifiers=[{
+                "name": test_table.name,
+                "database": test.name,
+                "schema": test_schema.name,
+            }],
             object_type="TABLE",
             tag_id=test_tag.id,
             tag_value="engineering")
         column_association = snowflake.TagAssociation("column_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test_table.name.apply(lambda name: f"{name}.column_name"),
-                database=test.name,
-                schema=test_schema.name,
-            )],
+            object_identifiers=[{
+                "name": test_table.name.apply(lambda name: f"{name}.column_name"),
+                "database": test.name,
+                "schema": test_schema.name,
+            }],
             object_type="COLUMN",
             tag_id=test_tag.id,
             tag_value="engineering")
@@ -308,7 +308,7 @@ class TagAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
@@ -341,9 +341,9 @@ class TagAssociation(pulumi.CustomResource):
                 "engineering",
             ])
         db_association = snowflake.TagAssociation("db_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test.name,
-            )],
+            object_identifiers=[{
+                "name": test.name,
+            }],
             object_type="DATABASE",
             tag_id=test_tag.id,
             tag_value="finance")
@@ -353,30 +353,30 @@ class TagAssociation(pulumi.CustomResource):
             name="TABLE_NAME",
             comment="Terraform example table",
             columns=[
-                snowflake.TableColumnArgs(
-                    name="column1",
-                    type="VARIANT",
-                ),
-                snowflake.TableColumnArgs(
-                    name="column2",
-                    type="VARCHAR(16)",
-                ),
+                {
+                    "name": "column1",
+                    "type": "VARIANT",
+                },
+                {
+                    "name": "column2",
+                    "type": "VARCHAR(16)",
+                },
             ])
         table_association = snowflake.TagAssociation("table_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test_table.name,
-                database=test.name,
-                schema=test_schema.name,
-            )],
+            object_identifiers=[{
+                "name": test_table.name,
+                "database": test.name,
+                "schema": test_schema.name,
+            }],
             object_type="TABLE",
             tag_id=test_tag.id,
             tag_value="engineering")
         column_association = snowflake.TagAssociation("column_association",
-            object_identifiers=[snowflake.TagAssociationObjectIdentifierArgs(
-                name=test_table.name.apply(lambda name: f"{name}.column_name"),
-                database=test.name,
-                schema=test_schema.name,
-            )],
+            object_identifiers=[{
+                "name": test_table.name.apply(lambda name: f"{name}.column_name"),
+                "database": test.name,
+                "schema": test_schema.name,
+            }],
             object_type="COLUMN",
             tag_id=test_tag.id,
             tag_value="engineering")
@@ -405,7 +405,7 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -444,7 +444,7 @@ class TagAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]]] = None,
+            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
             object_name: Optional[pulumi.Input[str]] = None,
             object_type: Optional[pulumi.Input[str]] = None,
             skip_validation: Optional[pulumi.Input[bool]] = None,
@@ -457,7 +457,7 @@ class TagAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationObjectIdentifierArgs']]]] object_identifiers: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE INTEGRATION NETWORK POLICY ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT EXTERNAL FUNCTION EXTERNAL TABLE GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.

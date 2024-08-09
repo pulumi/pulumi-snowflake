@@ -119,7 +119,7 @@ class AwaitableGetDatabasesResult(GetDatabasesResult):
 
 
 def get_databases(like: Optional[str] = None,
-                  limit: Optional[pulumi.InputType['GetDatabasesLimitArgs']] = None,
+                  limit: Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']] = None,
                   starts_with: Optional[str] = None,
                   with_describe: Optional[bool] = None,
                   with_parameters: Optional[bool] = None,
@@ -131,7 +131,7 @@ def get_databases(like: Optional[str] = None,
 
 
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetDatabasesLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param bool with_describe: Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
@@ -157,7 +157,7 @@ def get_databases(like: Optional[str] = None,
 
 @_utilities.lift_output_func(get_databases)
 def get_databases_output(like: Optional[pulumi.Input[Optional[str]]] = None,
-                         limit: Optional[pulumi.Input[Optional[pulumi.InputType['GetDatabasesLimitArgs']]]] = None,
+                         limit: Optional[pulumi.Input[Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']]]] = None,
                          starts_with: Optional[pulumi.Input[Optional[str]]] = None,
                          with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                          with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -169,7 +169,7 @@ def get_databases_output(like: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetDatabasesLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param bool with_describe: Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.

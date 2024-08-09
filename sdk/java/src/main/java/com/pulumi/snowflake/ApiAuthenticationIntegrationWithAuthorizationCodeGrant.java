@@ -220,7 +220,7 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(String name) {
+    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(java.lang.String name) {
         this(name, ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs.Empty);
     }
     /**
@@ -228,7 +228,7 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(String name, ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs args) {
+    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(java.lang.String name, ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs args) {
         this(name, args, null);
     }
     /**
@@ -237,12 +237,12 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(String name, ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiAuthenticationIntegrationWithAuthorizationCodeGrant(java.lang.String name, ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiAuthenticationIntegrationWithAuthorizationCodeGrant(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithAuthorizationCodeGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant", name, state, makeResourceOptions(options, id));
+    private ApiAuthenticationIntegrationWithAuthorizationCodeGrant(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithAuthorizationCodeGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs makeArgs(ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -252,7 +252,7 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
         return args == null ? ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -268,7 +268,7 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiAuthenticationIntegrationWithAuthorizationCodeGrant get(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithAuthorizationCodeGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiAuthenticationIntegrationWithAuthorizationCodeGrant get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithAuthorizationCodeGrantState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiAuthenticationIntegrationWithAuthorizationCodeGrant(name, id, state, options);
     }
 }

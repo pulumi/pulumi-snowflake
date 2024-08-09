@@ -126,7 +126,7 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GrantOwnership(String name) {
+    public GrantOwnership(java.lang.String name) {
         this(name, GrantOwnershipArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GrantOwnership(String name, GrantOwnershipArgs args) {
+    public GrantOwnership(java.lang.String name, GrantOwnershipArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,12 +143,12 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GrantOwnership(String name, GrantOwnershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantOwnership:GrantOwnership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GrantOwnership(java.lang.String name, GrantOwnershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantOwnership:GrantOwnership", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GrantOwnership(String name, Output<String> id, @Nullable GrantOwnershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantOwnership:GrantOwnership", name, state, makeResourceOptions(options, id));
+    private GrantOwnership(java.lang.String name, Output<java.lang.String> id, @Nullable GrantOwnershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantOwnership:GrantOwnership", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GrantOwnershipArgs makeArgs(GrantOwnershipArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -158,7 +158,7 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
         return args == null ? GrantOwnershipArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -174,7 +174,7 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GrantOwnership get(String name, Output<String> id, @Nullable GrantOwnershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GrantOwnership get(java.lang.String name, Output<java.lang.String> id, @Nullable GrantOwnershipState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GrantOwnership(name, id, state, options);
     }
 }

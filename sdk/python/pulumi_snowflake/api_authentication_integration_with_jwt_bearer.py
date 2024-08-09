@@ -526,7 +526,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             oauth_access_token_validity: Optional[pulumi.Input[int]] = None,
@@ -537,7 +537,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
             oauth_client_secret: Optional[pulumi.Input[str]] = None,
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
             oauth_token_endpoint: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs']]]]] = None) -> 'ApiAuthenticationIntegrationWithJwtBearer':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict']]]]] = None) -> 'ApiAuthenticationIntegrationWithJwtBearer':
         """
         Get an existing ApiAuthenticationIntegrationWithJwtBearer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -546,7 +546,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[bool] enabled: Specifies whether this security integration is enabled or disabled.
         :param pulumi.Input[str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
         :param pulumi.Input[int] oauth_access_token_validity: Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
@@ -556,7 +556,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         :param pulumi.Input[str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
