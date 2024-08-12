@@ -753,7 +753,7 @@ class Saml2Integration(pulumi.CustomResource):
             allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Saml2IntegrationDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationDescribeOutputArgs', 'Saml2IntegrationDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             saml2_enable_sp_initiated: Optional[pulumi.Input[str]] = None,
@@ -768,7 +768,7 @@ class Saml2Integration(pulumi.CustomResource):
             saml2_sp_initiated_login_page_label: Optional[pulumi.Input[str]] = None,
             saml2_sso_url: Optional[pulumi.Input[str]] = None,
             saml2_x509_cert: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Saml2IntegrationShowOutputArgs']]]]] = None) -> 'Saml2Integration':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationShowOutputArgs', 'Saml2IntegrationShowOutputArgsDict']]]]] = None) -> 'Saml2Integration':
         """
         Get an existing Saml2Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -779,7 +779,7 @@ class Saml2Integration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_email_patterns: A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_domains: A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         :param pulumi.Input[str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Saml2IntegrationDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationDescribeOutputArgs', 'Saml2IntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] saml2_enable_sp_initiated: The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -794,7 +794,7 @@ class Saml2Integration(pulumi.CustomResource):
         :param pulumi.Input[str] saml2_sp_initiated_login_page_label: The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         :param pulumi.Input[str] saml2_sso_url: The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
         :param pulumi.Input[str] saml2_x509_cert: The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['Saml2IntegrationShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationShowOutputArgs', 'Saml2IntegrationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -183,7 +183,7 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OauthIntegrationForPartnerApplications(String name) {
+    public OauthIntegrationForPartnerApplications(java.lang.String name) {
         this(name, OauthIntegrationForPartnerApplicationsArgs.Empty);
     }
     /**
@@ -191,7 +191,7 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OauthIntegrationForPartnerApplications(String name, OauthIntegrationForPartnerApplicationsArgs args) {
+    public OauthIntegrationForPartnerApplications(java.lang.String name, OauthIntegrationForPartnerApplicationsArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,12 +200,12 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OauthIntegrationForPartnerApplications(String name, OauthIntegrationForPartnerApplicationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OauthIntegrationForPartnerApplications(java.lang.String name, OauthIntegrationForPartnerApplicationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OauthIntegrationForPartnerApplications(String name, Output<String> id, @Nullable OauthIntegrationForPartnerApplicationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, state, makeResourceOptions(options, id));
+    private OauthIntegrationForPartnerApplications(java.lang.String name, Output<java.lang.String> id, @Nullable OauthIntegrationForPartnerApplicationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OauthIntegrationForPartnerApplicationsArgs makeArgs(OauthIntegrationForPartnerApplicationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -215,7 +215,7 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
         return args == null ? OauthIntegrationForPartnerApplicationsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +231,7 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OauthIntegrationForPartnerApplications get(String name, Output<String> id, @Nullable OauthIntegrationForPartnerApplicationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OauthIntegrationForPartnerApplications get(java.lang.String name, Output<java.lang.String> id, @Nullable OauthIntegrationForPartnerApplicationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OauthIntegrationForPartnerApplications(name, id, state, options);
     }
 }

@@ -5,6 +5,48 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * //# Basic
+ * const test = new snowflake.Database("test", {name: "some_database"});
+ * const testSchema = new snowflake.Schema("test", {
+ *     database: test.name,
+ *     name: "some_schema",
+ * });
+ * const testTable = new snowflake.Table("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     name: "some_table",
+ *     changeTracking: true,
+ *     columns: [
+ *         {
+ *             name: "ID",
+ *             type: "NUMBER(38,0)",
+ *         },
+ *         {
+ *             name: "SOME_TEXT",
+ *             type: "VARCHAR",
+ *         },
+ *     ],
+ * });
+ * const testCortexSearchService = new snowflake.CortexSearchService("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     name: "some_name",
+ *     on: "SOME_TEXT",
+ *     targetLag: "2 minutes",
+ *     warehouse: "some_warehouse",
+ *     query: "SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"",
+ *     comment: "some comment",
+ * }, {
+ *     dependsOn: [testTable],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

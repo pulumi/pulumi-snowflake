@@ -130,9 +130,9 @@ class AwaitableGetSchemasResult(GetSchemasResult):
             with_parameters=self.with_parameters)
 
 
-def get_schemas(in_: Optional[pulumi.InputType['GetSchemasInArgs']] = None,
+def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']] = None,
                 like: Optional[str] = None,
-                limit: Optional[pulumi.InputType['GetSchemasLimitArgs']] = None,
+                limit: Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']] = None,
                 starts_with: Optional[str] = None,
                 with_describe: Optional[bool] = None,
                 with_parameters: Optional[bool] = None,
@@ -143,9 +143,9 @@ def get_schemas(in_: Optional[pulumi.InputType['GetSchemasInArgs']] = None,
     Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param pulumi.InputType['GetSchemasInArgs'] in_: IN clause to filter the list of streamlits
+    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict'] in_: IN clause to filter the list of streamlits
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetSchemasLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param bool with_describe: Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
@@ -172,9 +172,9 @@ def get_schemas(in_: Optional[pulumi.InputType['GetSchemasInArgs']] = None,
 
 
 @_utilities.lift_output_func(get_schemas)
-def get_schemas_output(in_: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemasInArgs']]]] = None,
+def get_schemas_output(in_: Optional[pulumi.Input[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]]] = None,
                        like: Optional[pulumi.Input[Optional[str]]] = None,
-                       limit: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemasLimitArgs']]]] = None,
+                       limit: Optional[pulumi.Input[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']]]] = None,
                        starts_with: Optional[pulumi.Input[Optional[str]]] = None,
                        with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                        with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -185,9 +185,9 @@ def get_schemas_output(in_: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param pulumi.InputType['GetSchemasInArgs'] in_: IN clause to filter the list of streamlits
+    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict'] in_: IN clause to filter the list of streamlits
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetSchemasLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param bool with_describe: Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.

@@ -453,7 +453,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsDescribeOutputArgs']]]]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsDescribeOutputArgs', 'OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             oauth_client: Optional[pulumi.Input[str]] = None,
@@ -461,7 +461,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
             oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsShowOutputArgs']]]]] = None) -> 'OauthIntegrationForPartnerApplications':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsShowOutputArgs', 'OauthIntegrationForPartnerApplicationsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForPartnerApplications':
         """
         Get an existing OauthIntegrationForPartnerApplications resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -471,14 +471,14 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsDescribeOutputArgs']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsDescribeOutputArgs', 'OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
         :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthIntegrationForPartnerApplicationsShowOutputArgs']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsShowOutputArgs', 'OauthIntegrationForPartnerApplicationsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

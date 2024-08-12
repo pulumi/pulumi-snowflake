@@ -129,7 +129,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SessionParameter(String name) {
+    public SessionParameter(java.lang.String name) {
         this(name, SessionParameterArgs.Empty);
     }
     /**
@@ -137,7 +137,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SessionParameter(String name, SessionParameterArgs args) {
+    public SessionParameter(java.lang.String name, SessionParameterArgs args) {
         this(name, args, null);
     }
     /**
@@ -146,12 +146,12 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SessionParameter(String name, SessionParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sessionParameter:SessionParameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SessionParameter(java.lang.String name, SessionParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/sessionParameter:SessionParameter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SessionParameter(String name, Output<String> id, @Nullable SessionParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/sessionParameter:SessionParameter", name, state, makeResourceOptions(options, id));
+    private SessionParameter(java.lang.String name, Output<java.lang.String> id, @Nullable SessionParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/sessionParameter:SessionParameter", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SessionParameterArgs makeArgs(SessionParameterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -161,7 +161,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
         return args == null ? SessionParameterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +177,7 @@ public class SessionParameter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SessionParameter get(String name, Output<String> id, @Nullable SessionParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SessionParameter get(java.lang.String name, Output<java.lang.String> id, @Nullable SessionParameterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SessionParameter(name, id, state, options);
     }
 }
