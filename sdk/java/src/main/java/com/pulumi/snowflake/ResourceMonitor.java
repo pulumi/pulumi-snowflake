@@ -271,7 +271,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceMonitor(String name) {
+    public ResourceMonitor(java.lang.String name) {
         this(name, ResourceMonitorArgs.Empty);
     }
     /**
@@ -279,7 +279,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceMonitor(String name, @Nullable ResourceMonitorArgs args) {
+    public ResourceMonitor(java.lang.String name, @Nullable ResourceMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,12 +288,12 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceMonitor(String name, @Nullable ResourceMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/resourceMonitor:ResourceMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceMonitor(java.lang.String name, @Nullable ResourceMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/resourceMonitor:ResourceMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceMonitor(String name, Output<String> id, @Nullable ResourceMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/resourceMonitor:ResourceMonitor", name, state, makeResourceOptions(options, id));
+    private ResourceMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/resourceMonitor:ResourceMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceMonitorArgs makeArgs(@Nullable ResourceMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -303,7 +303,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return args == null ? ResourceMonitorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -319,7 +319,7 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceMonitor get(String name, Output<String> id, @Nullable ResourceMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceMonitor(name, id, state, options);
     }
 }

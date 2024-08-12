@@ -106,9 +106,9 @@ class AwaitableGetStreamlitsResult(GetStreamlitsResult):
             with_describe=self.with_describe)
 
 
-def get_streamlits(in_: Optional[pulumi.InputType['GetStreamlitsInArgs']] = None,
+def get_streamlits(in_: Optional[Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict']] = None,
                    like: Optional[str] = None,
-                   limit: Optional[pulumi.InputType['GetStreamlitsLimitArgs']] = None,
+                   limit: Optional[Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict']] = None,
                    with_describe: Optional[bool] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamlitsResult:
     """
@@ -117,9 +117,9 @@ def get_streamlits(in_: Optional[pulumi.InputType['GetStreamlitsInArgs']] = None
     Datasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
 
 
-    :param pulumi.InputType['GetStreamlitsInArgs'] in_: IN clause to filter the list of streamlits
+    :param Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict'] in_: IN clause to filter the list of streamlits
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetStreamlitsLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param bool with_describe: Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
@@ -140,9 +140,9 @@ def get_streamlits(in_: Optional[pulumi.InputType['GetStreamlitsInArgs']] = None
 
 
 @_utilities.lift_output_func(get_streamlits)
-def get_streamlits_output(in_: Optional[pulumi.Input[Optional[pulumi.InputType['GetStreamlitsInArgs']]]] = None,
+def get_streamlits_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict']]]] = None,
                           like: Optional[pulumi.Input[Optional[str]]] = None,
-                          limit: Optional[pulumi.Input[Optional[pulumi.InputType['GetStreamlitsLimitArgs']]]] = None,
+                          limit: Optional[pulumi.Input[Optional[Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict']]]] = None,
                           with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamlitsResult]:
     """
@@ -151,9 +151,9 @@ def get_streamlits_output(in_: Optional[pulumi.Input[Optional[pulumi.InputType['
     Datasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
 
 
-    :param pulumi.InputType['GetStreamlitsInArgs'] in_: IN clause to filter the list of streamlits
+    :param Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict'] in_: IN clause to filter the list of streamlits
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param pulumi.InputType['GetStreamlitsLimitArgs'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param bool with_describe: Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
     """
     ...

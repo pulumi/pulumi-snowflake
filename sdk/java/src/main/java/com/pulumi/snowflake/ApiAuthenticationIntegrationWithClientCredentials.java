@@ -206,7 +206,7 @@ public class ApiAuthenticationIntegrationWithClientCredentials extends com.pulum
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiAuthenticationIntegrationWithClientCredentials(String name) {
+    public ApiAuthenticationIntegrationWithClientCredentials(java.lang.String name) {
         this(name, ApiAuthenticationIntegrationWithClientCredentialsArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class ApiAuthenticationIntegrationWithClientCredentials extends com.pulum
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiAuthenticationIntegrationWithClientCredentials(String name, ApiAuthenticationIntegrationWithClientCredentialsArgs args) {
+    public ApiAuthenticationIntegrationWithClientCredentials(java.lang.String name, ApiAuthenticationIntegrationWithClientCredentialsArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class ApiAuthenticationIntegrationWithClientCredentials extends com.pulum
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiAuthenticationIntegrationWithClientCredentials(String name, ApiAuthenticationIntegrationWithClientCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiAuthenticationIntegrationWithClientCredentials(java.lang.String name, ApiAuthenticationIntegrationWithClientCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiAuthenticationIntegrationWithClientCredentials(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithClientCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", name, state, makeResourceOptions(options, id));
+    private ApiAuthenticationIntegrationWithClientCredentials(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithClientCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiAuthenticationIntegrationWithClientCredentialsArgs makeArgs(ApiAuthenticationIntegrationWithClientCredentialsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class ApiAuthenticationIntegrationWithClientCredentials extends com.pulum
         return args == null ? ApiAuthenticationIntegrationWithClientCredentialsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +254,7 @@ public class ApiAuthenticationIntegrationWithClientCredentials extends com.pulum
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiAuthenticationIntegrationWithClientCredentials get(String name, Output<String> id, @Nullable ApiAuthenticationIntegrationWithClientCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiAuthenticationIntegrationWithClientCredentials get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiAuthenticationIntegrationWithClientCredentialsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiAuthenticationIntegrationWithClientCredentials(name, id, state, options);
     }
 }

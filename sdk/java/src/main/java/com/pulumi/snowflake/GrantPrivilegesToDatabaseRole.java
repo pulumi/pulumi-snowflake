@@ -171,7 +171,7 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GrantPrivilegesToDatabaseRole(String name) {
+    public GrantPrivilegesToDatabaseRole(java.lang.String name) {
         this(name, GrantPrivilegesToDatabaseRoleArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GrantPrivilegesToDatabaseRole(String name, GrantPrivilegesToDatabaseRoleArgs args) {
+    public GrantPrivilegesToDatabaseRole(java.lang.String name, GrantPrivilegesToDatabaseRoleArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,12 +188,12 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GrantPrivilegesToDatabaseRole(String name, GrantPrivilegesToDatabaseRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GrantPrivilegesToDatabaseRole(java.lang.String name, GrantPrivilegesToDatabaseRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GrantPrivilegesToDatabaseRole(String name, Output<String> id, @Nullable GrantPrivilegesToDatabaseRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole", name, state, makeResourceOptions(options, id));
+    private GrantPrivilegesToDatabaseRole(java.lang.String name, Output<java.lang.String> id, @Nullable GrantPrivilegesToDatabaseRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GrantPrivilegesToDatabaseRoleArgs makeArgs(GrantPrivilegesToDatabaseRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -203,7 +203,7 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return args == null ? GrantPrivilegesToDatabaseRoleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -219,7 +219,7 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GrantPrivilegesToDatabaseRole get(String name, Output<String> id, @Nullable GrantPrivilegesToDatabaseRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GrantPrivilegesToDatabaseRole get(java.lang.String name, Output<java.lang.String> id, @Nullable GrantPrivilegesToDatabaseRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GrantPrivilegesToDatabaseRole(name, id, state, options);
     }
 }

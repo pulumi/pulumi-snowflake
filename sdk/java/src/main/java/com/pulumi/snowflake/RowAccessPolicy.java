@@ -158,7 +158,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RowAccessPolicy(String name) {
+    public RowAccessPolicy(java.lang.String name) {
         this(name, RowAccessPolicyArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RowAccessPolicy(String name, RowAccessPolicyArgs args) {
+    public RowAccessPolicy(java.lang.String name, RowAccessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,12 +175,12 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RowAccessPolicy(String name, RowAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/rowAccessPolicy:RowAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RowAccessPolicy(java.lang.String name, RowAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/rowAccessPolicy:RowAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RowAccessPolicy(String name, Output<String> id, @Nullable RowAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/rowAccessPolicy:RowAccessPolicy", name, state, makeResourceOptions(options, id));
+    private RowAccessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RowAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/rowAccessPolicy:RowAccessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RowAccessPolicyArgs makeArgs(RowAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -190,7 +190,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? RowAccessPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -206,7 +206,7 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RowAccessPolicy get(String name, Output<String> id, @Nullable RowAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RowAccessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RowAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RowAccessPolicy(name, id, state, options);
     }
 }

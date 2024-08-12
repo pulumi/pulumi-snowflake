@@ -91,7 +91,7 @@ public class UnsafeExecute extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UnsafeExecute(String name) {
+    public UnsafeExecute(java.lang.String name) {
         this(name, UnsafeExecuteArgs.Empty);
     }
     /**
@@ -99,7 +99,7 @@ public class UnsafeExecute extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UnsafeExecute(String name, UnsafeExecuteArgs args) {
+    public UnsafeExecute(java.lang.String name, UnsafeExecuteArgs args) {
         this(name, args, null);
     }
     /**
@@ -108,12 +108,12 @@ public class UnsafeExecute extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UnsafeExecute(String name, UnsafeExecuteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/unsafeExecute:UnsafeExecute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UnsafeExecute(java.lang.String name, UnsafeExecuteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/unsafeExecute:UnsafeExecute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UnsafeExecute(String name, Output<String> id, @Nullable UnsafeExecuteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/unsafeExecute:UnsafeExecute", name, state, makeResourceOptions(options, id));
+    private UnsafeExecute(java.lang.String name, Output<java.lang.String> id, @Nullable UnsafeExecuteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/unsafeExecute:UnsafeExecute", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UnsafeExecuteArgs makeArgs(UnsafeExecuteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -123,7 +123,7 @@ public class UnsafeExecute extends com.pulumi.resources.CustomResource {
         return args == null ? UnsafeExecuteArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -139,7 +139,7 @@ public class UnsafeExecute extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UnsafeExecute get(String name, Output<String> id, @Nullable UnsafeExecuteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UnsafeExecute get(java.lang.String name, Output<java.lang.String> id, @Nullable UnsafeExecuteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UnsafeExecute(name, id, state, options);
     }
 }
