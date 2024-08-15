@@ -8,7 +8,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.config.inputs.TokenAccessor;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -213,8 +212,8 @@ public final class Config {
  * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
  * 
  */
-    public Optional<Map<String,Object>> params() {
-        return Codegen.objectProp("params", TypeShape.<Map<String,Object>>builder(Map.class).addParameter(String.class).addParameter(Object.class).build()).config(config).get();
+    public Optional<Map<String,String>> params() {
+        return Codegen.objectProp("params", TypeShape.<Map<String,String>>builder(Map.class).addParameter(String.class).addParameter(String.class).build()).config(config).get();
     }
 /**
  * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
@@ -319,8 +318,8 @@ public final class Config {
  * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
  * 
  */
-    public Optional<Map<String,Object>> sessionParams() {
-        return Codegen.objectProp("sessionParams", TypeShape.<Map<String,Object>>builder(Map.class).addParameter(String.class).addParameter(Object.class).build()).config(config).get();
+    public Optional<Map<String,String>> sessionParams() {
+        return Codegen.objectProp("sessionParams", TypeShape.<Map<String,String>>builder(Map.class).addParameter(String.class).addParameter(String.class).build()).config(config).get();
     }
 /**
  * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment

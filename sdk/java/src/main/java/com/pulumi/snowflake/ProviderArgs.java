@@ -9,7 +9,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.inputs.ProviderTokenAccessorArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -492,13 +491,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="params", json=true)
-    private @Nullable Output<Map<String,Object>> params;
+    private @Nullable Output<Map<String,String>> params;
 
     /**
      * @return Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
      * 
      */
-    public Optional<Output<Map<String,Object>>> params() {
+    public Optional<Output<Map<String,String>>> params() {
         return Optional.ofNullable(this.params);
     }
 
@@ -737,7 +736,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     @Deprecated /* Use `params` instead */
     @Import(name="sessionParams", json=true)
-    private @Nullable Output<Map<String,Object>> sessionParams;
+    private @Nullable Output<Map<String,String>> sessionParams;
 
     /**
      * @return Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
@@ -747,7 +746,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use `params` instead */
-    public Optional<Output<Map<String,Object>>> sessionParams() {
+    public Optional<Output<Map<String,String>>> sessionParams() {
         return Optional.ofNullable(this.sessionParams);
     }
 
@@ -1532,7 +1531,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder params(@Nullable Output<Map<String,Object>> params) {
+        public Builder params(@Nullable Output<Map<String,String>> params) {
             $.params = params;
             return this;
         }
@@ -1543,7 +1542,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder params(Map<String,Object> params) {
+        public Builder params(Map<String,String> params) {
             return params(Output.of(params));
         }
 
@@ -1855,7 +1854,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use `params` instead */
-        public Builder sessionParams(@Nullable Output<Map<String,Object>> sessionParams) {
+        public Builder sessionParams(@Nullable Output<Map<String,String>> sessionParams) {
             $.sessionParams = sessionParams;
             return this;
         }
@@ -1870,7 +1869,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use `params` instead */
-        public Builder sessionParams(Map<String,Object> sessionParams) {
+        public Builder sessionParams(Map<String,String> sessionParams) {
             return sessionParams(Output.of(sessionParams));
         }
 

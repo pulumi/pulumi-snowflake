@@ -297,11 +297,11 @@ namespace Pulumi.Snowflake
             set => _oktaUrl.Set(value);
         }
 
-        private static readonly __Value<ImmutableDictionary<string, object>?> _params = new __Value<ImmutableDictionary<string, object>?>(() => __config.GetObject<ImmutableDictionary<string, object>>("params"));
+        private static readonly __Value<ImmutableDictionary<string, string>?> _params = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("params"));
         /// <summary>
         /// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         /// </summary>
-        public static ImmutableDictionary<string, object>? Params
+        public static ImmutableDictionary<string, string>? Params
         {
             get => _params.Get();
             set => _params.Set(value);
@@ -442,11 +442,11 @@ namespace Pulumi.Snowflake
             set => _role.Set(value);
         }
 
-        private static readonly __Value<ImmutableDictionary<string, object>?> _sessionParams = new __Value<ImmutableDictionary<string, object>?>(() => __config.GetObject<ImmutableDictionary<string, object>>("sessionParams"));
+        private static readonly __Value<ImmutableDictionary<string, string>?> _sessionParams = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("sessionParams"));
         /// <summary>
         /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         /// </summary>
-        public static ImmutableDictionary<string, object>? SessionParams
+        public static ImmutableDictionary<string, string>? SessionParams
         {
             get => _sessionParams.Get();
             set => _sessionParams.Set(value);
