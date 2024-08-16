@@ -300,10 +300,10 @@ Object.defineProperty(exports, "oktaUrl", {
 /**
  * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
  */
-export declare const params: {[key: string]: any} | undefined;
+export declare const params: {[key: string]: string} | undefined;
 Object.defineProperty(exports, "params", {
     get() {
-        return __config.getObject<{[key: string]: any}>("params");
+        return __config.getObject<{[key: string]: string}>("params");
     },
     enumerable: true,
 });
@@ -458,10 +458,10 @@ Object.defineProperty(exports, "role", {
 /**
  * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
  */
-export declare const sessionParams: {[key: string]: any} | undefined;
+export declare const sessionParams: {[key: string]: string} | undefined;
 Object.defineProperty(exports, "sessionParams", {
     get() {
-        return __config.getObject<{[key: string]: any}>("sessionParams");
+        return __config.getObject<{[key: string]: string}>("sessionParams");
     },
     enumerable: true,
 });

@@ -112,7 +112,12 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
             schema="security",
             name="default_policy")
         ppa = snowflake.UserPasswordPolicyAttachment("ppa",
-            password_policy_name=pulumi.Output.all(pp.database, pp.schema, pp.name).apply(lambda database, schema, name: f"\\"{database}\\".\\"{schema}\\".\\"{name}\\""),
+            password_policy_name=pulumi.Output.all(
+                database=pp.database,
+                schema=pp.schema,
+                name=pp.name
+        ).apply(lambda resolved_outputs: f"\\"{resolved_outputs['database']}\\".\\"{resolved_outputs['schema']}\\".\\"{resolved_outputs['name']}\\"")
+        ,
             user_name=user.name)
         ```
 
@@ -148,7 +153,12 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
             schema="security",
             name="default_policy")
         ppa = snowflake.UserPasswordPolicyAttachment("ppa",
-            password_policy_name=pulumi.Output.all(pp.database, pp.schema, pp.name).apply(lambda database, schema, name: f"\\"{database}\\".\\"{schema}\\".\\"{name}\\""),
+            password_policy_name=pulumi.Output.all(
+                database=pp.database,
+                schema=pp.schema,
+                name=pp.name
+        ).apply(lambda resolved_outputs: f"\\"{resolved_outputs['database']}\\".\\"{resolved_outputs['schema']}\\".\\"{resolved_outputs['name']}\\"")
+        ,
             user_name=user.name)
         ```
 

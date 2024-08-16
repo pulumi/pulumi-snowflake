@@ -355,7 +355,7 @@ type providerArgs struct {
 	// variable.
 	OktaUrl *string `pulumi:"oktaUrl"`
 	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-	Params map[string]interface{} `pulumi:"params"`
+	Params map[string]string `pulumi:"params"`
 	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
 	// the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode *string `pulumi:"passcode"`
@@ -402,7 +402,7 @@ type providerArgs struct {
 	// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 	//
 	// Deprecated: Use `params` instead
-	SessionParams map[string]interface{} `pulumi:"sessionParams"`
+	SessionParams map[string]string `pulumi:"sessionParams"`
 	// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
 	// variable.
 	Token         *string                `pulumi:"token"`
@@ -511,7 +511,7 @@ type ProviderArgs struct {
 	// variable.
 	OktaUrl pulumi.StringPtrInput
 	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-	Params pulumi.MapInput
+	Params pulumi.StringMapInput
 	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
 	// the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode pulumi.StringPtrInput
@@ -558,7 +558,7 @@ type ProviderArgs struct {
 	// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 	//
 	// Deprecated: Use `params` instead
-	SessionParams pulumi.MapInput
+	SessionParams pulumi.StringMapInput
 	// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
 	// variable.
 	Token         pulumi.StringPtrInput

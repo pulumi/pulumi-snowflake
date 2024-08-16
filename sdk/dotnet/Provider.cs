@@ -469,14 +469,14 @@ namespace Pulumi.Snowflake
         public Input<string>? OktaUrl { get; set; }
 
         [Input("params", json: true)]
-        private InputMap<object>? _params;
+        private InputMap<string>? _params;
 
         /// <summary>
         /// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         /// </summary>
-        public InputMap<object> Params
+        public InputMap<string> Params
         {
-            get => _params ?? (_params = new InputMap<object>());
+            get => _params ?? (_params = new InputMap<string>());
             set => _params = value;
         }
 
@@ -609,15 +609,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Role { get; set; }
 
         [Input("sessionParams", json: true)]
-        private InputMap<object>? _sessionParams;
+        private InputMap<string>? _sessionParams;
 
         /// <summary>
         /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         /// </summary>
         [Obsolete(@"Use `params` instead")]
-        public InputMap<object> SessionParams
+        public InputMap<string> SessionParams
         {
-            get => _sessionParams ?? (_sessionParams = new InputMap<object>());
+            get => _sessionParams ?? (_sessionParams = new InputMap<string>());
             set => _sessionParams = value;
         }
 
