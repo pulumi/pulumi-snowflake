@@ -39,7 +39,7 @@ class ProviderArgs:
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class ProviderArgs:
                  region: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
                  user: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class ProviderArgs:
                sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
                variable.
-        :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
                the `SNOWFLAKE_PASSCODE` environment variable.
         :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
@@ -138,7 +138,7 @@ class ProviderArgs:
                `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
                `SNOWFLAKE_ROLE` environment variable. .
-        :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
                variable.
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
@@ -629,14 +629,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         """
         return pulumi.get(self, "params")
 
     @params.setter
-    def params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "params", value)
 
     @property
@@ -803,14 +803,14 @@ class ProviderArgs:
     @property
     @pulumi.getter(name="sessionParams")
     @_utilities.deprecated("""Use `params` instead""")
-    def session_params(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def session_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         """
         return pulumi.get(self, "session_params")
 
     @session_params.setter
-    def session_params(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def session_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "session_params", value)
 
     @property
@@ -917,7 +917,7 @@ class Provider(pulumi.ProviderResource):
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -930,7 +930,7 @@ class Provider(pulumi.ProviderResource):
                  region: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
                  user: Optional[pulumi.Input[str]] = None,
@@ -995,7 +995,7 @@ class Provider(pulumi.ProviderResource):
                sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
                variable.
-        :param pulumi.Input[Mapping[str, Any]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] passcode: Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
                the `SNOWFLAKE_PASSCODE` environment variable.
         :param pulumi.Input[bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
@@ -1023,7 +1023,7 @@ class Provider(pulumi.ProviderResource):
                `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
                `SNOWFLAKE_ROLE` environment variable. .
-        :param pulumi.Input[Mapping[str, Any]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] session_params: Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
                variable.
         :param pulumi.Input[str] user: Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
@@ -1085,7 +1085,7 @@ class Provider(pulumi.ProviderResource):
                  oauth_refresh_token: Optional[pulumi.Input[str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[bool]] = None,
                  okta_url: Optional[pulumi.Input[str]] = None,
-                 params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  passcode: Optional[pulumi.Input[str]] = None,
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -1098,7 +1098,7 @@ class Provider(pulumi.ProviderResource):
                  region: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 session_params: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 session_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
                  user: Optional[pulumi.Input[str]] = None,

@@ -374,7 +374,7 @@ export interface ProviderArgs {
     /**
      * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
      */
-    params?: pulumi.Input<{[key: string]: any}>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
      * the `SNOWFLAKE_PASSCODE` environment variable.
@@ -447,7 +447,7 @@ export interface ProviderArgs {
      *
      * @deprecated Use `params` instead
      */
-    sessionParams?: pulumi.Input<{[key: string]: any}>;
+    sessionParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
      * variable.
