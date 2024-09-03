@@ -17562,7 +17562,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax\n"
+                    "description": "The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)\n"
                 },
                 "toShare": {
                     "type": "string",
@@ -17609,7 +17609,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax\n"
+                    "description": "The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)\n"
                 },
                 "toShare": {
                     "type": "string",
@@ -17659,7 +17659,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax\n"
+                        "description": "The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)\n"
                     },
                     "toShare": {
                         "type": "string",
@@ -17811,7 +17811,7 @@
             }
         },
         "snowflake:index/maskingPolicy:MaskingPolicy": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.MaskingPolicy(\"test\", {\n    name: \"EXAMPLE_MASKING_POLICY\",\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    signature: {\n        columns: [{\n            name: \"val\",\n            type: \"VARCHAR\",\n        }],\n    },\n    maskingExpression: `case \n  when current_role() in ('ROLE_A') then \n    val \n  when is_role_in_session( 'ROLE_B' ) then \n    'ABC123'\n  else\n    '******'\nend\n`,\n    returnDataType: \"VARCHAR\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.MaskingPolicy(\"test\",\n    name=\"EXAMPLE_MASKING_POLICY\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    signature={\n        \"columns\": [{\n            \"name\": \"val\",\n            \"type\": \"VARCHAR\",\n        }],\n    },\n    masking_expression=\"\"\"case \n  when current_role() in ('ROLE_A') then \n    val \n  when is_role_in_session( 'ROLE_B' ) then \n    'ABC123'\n  else\n    '******'\nend\n\"\"\",\n    return_data_type=\"VARCHAR\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.MaskingPolicy(\"test\", new()\n    {\n        Name = \"EXAMPLE_MASKING_POLICY\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs\n        {\n            Columns = new[]\n            {\n                new Snowflake.Inputs.MaskingPolicySignatureColumnArgs\n                {\n                    Name = \"val\",\n                    Type = \"VARCHAR\",\n                },\n            },\n        },\n        MaskingExpression = @\"case \n  when current_role() in ('ROLE_A') then \n    val \n  when is_role_in_session( 'ROLE_B' ) then \n    'ABC123'\n  else\n    '******'\nend\n\",\n        ReturnDataType = \"VARCHAR\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"test\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tName:     pulumi.String(\"EXAMPLE_MASKING_POLICY\"),\n\t\t\tDatabase: pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:   pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tSignature: \u0026snowflake.MaskingPolicySignatureArgs{\n\t\t\t\tColumns: snowflake.MaskingPolicySignatureColumnArray{\n\t\t\t\t\t\u0026snowflake.MaskingPolicySignatureColumnArgs{\n\t\t\t\t\t\tName: pulumi.String(\"val\"),\n\t\t\t\t\t\tType: pulumi.String(\"VARCHAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tMaskingExpression: pulumi.String(`case \n  when current_role() in ('ROLE_A') then \n    val \n  when is_role_in_session( 'ROLE_B' ) then \n    'ABC123'\n  else\n    '******'\nend\n`),\n\t\t\tReturnDataType: pulumi.String(\"VARCHAR\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MaskingPolicy(\"test\", MaskingPolicyArgs.builder()\n            .name(\"EXAMPLE_MASKING_POLICY\")\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .signature(MaskingPolicySignatureArgs.builder()\n                .columns(MaskingPolicySignatureColumnArgs.builder()\n                    .name(\"val\")\n                    .type(\"VARCHAR\")\n                    .build())\n                .build())\n            .maskingExpression(\"\"\"\ncase \n  when current_role() in ('ROLE_A') then \n    val \n  when is_role_in_session( 'ROLE_B' ) then \n    'ABC123'\n  else\n    '******'\nend\n            \"\"\")\n            .returnDataType(\"VARCHAR\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:MaskingPolicy\n    properties:\n      name: EXAMPLE_MASKING_POLICY\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      signature:\n        columns:\n          - name: val\n            type: VARCHAR\n      maskingExpression: \"case \\n  when current_role() in ('ROLE_A') then \\n    val \\n  when is_role_in_session( 'ROLE_B' ) then \\n    'ABC123'\\n  else\\n    '******'\\nend\\n\"\n      returnDataType: VARCHAR\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst test = new snowflake.MaskingPolicy(\"test\", {\n    name: \"EXAMPLE_MASKING_POLICY\",\n    database: \"EXAMPLE_DB\",\n    schema: \"EXAMPLE_SCHEMA\",\n    signature: {\n        columns: [{\n            name: \"val\",\n            type: \"VARCHAR\",\n        }],\n    },\n    maskingExpression: `case\n  when current_role() in ('ROLE_A') then\n    val\n  when is_role_in_session( 'ROLE_B' ) then\n    'ABC123'\n  else\n    '******'\nend\n`,\n    returnDataType: \"VARCHAR\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ntest = snowflake.MaskingPolicy(\"test\",\n    name=\"EXAMPLE_MASKING_POLICY\",\n    database=\"EXAMPLE_DB\",\n    schema=\"EXAMPLE_SCHEMA\",\n    signature={\n        \"columns\": [{\n            \"name\": \"val\",\n            \"type\": \"VARCHAR\",\n        }],\n    },\n    masking_expression=\"\"\"case\n  when current_role() in ('ROLE_A') then\n    val\n  when is_role_in_session( 'ROLE_B' ) then\n    'ABC123'\n  else\n    '******'\nend\n\"\"\",\n    return_data_type=\"VARCHAR\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Snowflake.MaskingPolicy(\"test\", new()\n    {\n        Name = \"EXAMPLE_MASKING_POLICY\",\n        Database = \"EXAMPLE_DB\",\n        Schema = \"EXAMPLE_SCHEMA\",\n        Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs\n        {\n            Columns = new[]\n            {\n                new Snowflake.Inputs.MaskingPolicySignatureColumnArgs\n                {\n                    Name = \"val\",\n                    Type = \"VARCHAR\",\n                },\n            },\n        },\n        MaskingExpression = @\"case\n  when current_role() in ('ROLE_A') then\n    val\n  when is_role_in_session( 'ROLE_B' ) then\n    'ABC123'\n  else\n    '******'\nend\n\",\n        ReturnDataType = \"VARCHAR\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.NewMaskingPolicy(ctx, \"test\", \u0026snowflake.MaskingPolicyArgs{\n\t\t\tName:     pulumi.String(\"EXAMPLE_MASKING_POLICY\"),\n\t\t\tDatabase: pulumi.String(\"EXAMPLE_DB\"),\n\t\t\tSchema:   pulumi.String(\"EXAMPLE_SCHEMA\"),\n\t\t\tSignature: \u0026snowflake.MaskingPolicySignatureArgs{\n\t\t\t\tColumns: snowflake.MaskingPolicySignatureColumnArray{\n\t\t\t\t\t\u0026snowflake.MaskingPolicySignatureColumnArgs{\n\t\t\t\t\t\tName: pulumi.String(\"val\"),\n\t\t\t\t\t\tType: pulumi.String(\"VARCHAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tMaskingExpression: pulumi.String(`case\n  when current_role() in ('ROLE_A') then\n    val\n  when is_role_in_session( 'ROLE_B' ) then\n    'ABC123'\n  else\n    '******'\nend\n`),\n\t\t\tReturnDataType: pulumi.String(\"VARCHAR\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.MaskingPolicy;\nimport com.pulumi.snowflake.MaskingPolicyArgs;\nimport com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new MaskingPolicy(\"test\", MaskingPolicyArgs.builder()\n            .name(\"EXAMPLE_MASKING_POLICY\")\n            .database(\"EXAMPLE_DB\")\n            .schema(\"EXAMPLE_SCHEMA\")\n            .signature(MaskingPolicySignatureArgs.builder()\n                .columns(MaskingPolicySignatureColumnArgs.builder()\n                    .name(\"val\")\n                    .type(\"VARCHAR\")\n                    .build())\n                .build())\n            .maskingExpression(\"\"\"\ncase\n  when current_role() in ('ROLE_A') then\n    val\n  when is_role_in_session( 'ROLE_B' ) then\n    'ABC123'\n  else\n    '******'\nend\n            \"\"\")\n            .returnDataType(\"VARCHAR\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: snowflake:MaskingPolicy\n    properties:\n      name: EXAMPLE_MASKING_POLICY\n      database: EXAMPLE_DB\n      schema: EXAMPLE_SCHEMA\n      signature:\n        columns:\n          - name: val\n            type: VARCHAR\n      maskingExpression: |\n        case\n          when current_role() in ('ROLE_A') then\n            val\n          when is_role_in_session( 'ROLE_B' ) then\n            'ABC123'\n          else\n            '******'\n        end\n      returnDataType: VARCHAR\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n",
             "properties": {
                 "comment": {
                     "type": "string",
@@ -18360,7 +18360,7 @@
                 },
                 "mode": {
                     "type": "string",
-                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n"
                 },
                 "name": {
                     "type": "string",
@@ -18376,14 +18376,14 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n"
                 },
                 "valueLists": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n"
                 }
             },
             "required": [
@@ -18407,7 +18407,7 @@
                 },
                 "mode": {
                     "type": "string",
-                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                    "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
@@ -18422,7 +18422,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                    "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n",
                     "willReplaceOnChanges": true
                 },
                 "valueLists": {
@@ -18430,7 +18430,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                    "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n"
                 }
             },
             "requiredInputs": [
@@ -18454,7 +18454,7 @@
                     },
                     "mode": {
                         "type": "string",
-                        "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                        "description": "Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n",
                         "willReplaceOnChanges": true
                     },
                     "name": {
@@ -18473,7 +18473,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n",
+                        "description": "Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n",
                         "willReplaceOnChanges": true
                     },
                     "valueLists": {
@@ -18481,7 +18481,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.\n"
+                        "description": "Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.\n"
                     }
                 },
                 "type": "object"
@@ -19665,7 +19665,7 @@
             }
         },
         "snowflake:index/pipe:Pipe": {
-            "description": "\u003e **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.\n\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  pipe:\n    type: snowflake:Pipe\n    properties:\n      database: db\n      schema: schema\n      name: pipe\n      comment: A pipe.\n      copyStatement: copy into mytable from @mystage\n      autoIngest: false\n      awsSnsTopicArn: '...'\n      notificationChannel: '...'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | pipe name\n\n```sh\n$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'\n```\n\n",
+            "description": "\u003e **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  pipe:\n    type: snowflake:Pipe\n    properties:\n      database: db\n      schema: schema\n      name: pipe\n      comment: A pipe.\n      copyStatement: copy into mytable from @mystage\n      autoIngest: false\n      awsSnsTopicArn: '...'\n      notificationChannel: '...'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nformat is database name | schema name | pipe name\n\n```sh\n$ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'\n```\n\n",
             "properties": {
                 "autoIngest": {
                     "type": "boolean",
@@ -24046,7 +24046,7 @@
             }
         },
         "snowflake:index/unsafeExecute:UnsafeExecute": {
-            "description": "!\u003e **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.\n\n\u003e **Note** This resource will be included in the V1 (check here.\n\n\u003e **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.\n\n\u003e **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.\n\nExperimental resource allowing execution of ANY SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.\n\n",
+            "description": "!\u003e **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.\n\n\u003e **Note** This resource will be included in the V1 (check here) but may be slightly modified before. Design decisions and changes will be listed in the migration guide.\n\n\u003e **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.\n\n\u003e **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.\n\nExperimental resource allowing execution of ANY SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.\n\n",
             "properties": {
                 "execute": {
                     "type": "string",
@@ -26839,7 +26839,7 @@
                 "properties": {
                     "pattern": {
                         "type": "string",
-                        "description": "Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters\n"
+                        "description": "Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)\n"
                     }
                 },
                 "type": "object",
@@ -26855,7 +26855,7 @@
                         "type": "string"
                     },
                     "pattern": {
-                        "description": "Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters\n",
+                        "description": "Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)\n",
                         "type": "string"
                     },
                     "users": {
