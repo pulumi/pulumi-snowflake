@@ -393,10 +393,10 @@ class MaskingPolicy(pulumi.CustomResource):
                     "type": "VARCHAR",
                 }],
             },
-            masking_expression=\"\"\"case 
-          when current_role() in ('ROLE_A') then 
-            val 
-          when is_role_in_session( 'ROLE_B' ) then 
+            masking_expression=\"\"\"case
+          when current_role() in ('ROLE_A') then
+            val
+          when is_role_in_session( 'ROLE_B' ) then
             'ABC123'
           else
             '******'
@@ -449,10 +449,10 @@ class MaskingPolicy(pulumi.CustomResource):
                     "type": "VARCHAR",
                 }],
             },
-            masking_expression=\"\"\"case 
-          when current_role() in ('ROLE_A') then 
-            val 
-          when is_role_in_session( 'ROLE_B' ) then 
+            masking_expression=\"\"\"case
+          when current_role() in ('ROLE_A') then
+            val
+          when is_role_in_session( 'ROLE_B' ) then
             'ABC123'
           else
             '******'

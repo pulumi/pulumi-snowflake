@@ -66,7 +66,7 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onView!: pulumi.Output<string | undefined>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
      */
     public readonly privileges!: pulumi.Output<string[]>;
     /**
@@ -146,7 +146,7 @@ export interface GrantPrivilegesToShareState {
      */
     onView?: pulumi.Input<string>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -184,7 +184,7 @@ export interface GrantPrivilegesToShareArgs {
      */
     onView?: pulumi.Input<string>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
      */
     privileges: pulumi.Input<pulumi.Input<string>[]>;
     /**

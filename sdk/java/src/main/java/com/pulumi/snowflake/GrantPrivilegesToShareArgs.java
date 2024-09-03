@@ -108,14 +108,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
      * 
      */
     @Import(name="privileges", required=true)
     private Output<List<String>> privileges;
 
     /**
-     * @return The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * @return The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
      * 
      */
     public Output<List<String>> privileges() {
@@ -295,7 +295,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
          * 
          * @return builder
          * 

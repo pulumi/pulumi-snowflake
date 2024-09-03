@@ -24,7 +24,7 @@ class GrantPrivilegesToShareArgs:
                  on_view: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToShare resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
@@ -52,7 +52,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter
     def privileges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         """
         return pulumi.get(self, "privileges")
 
@@ -164,7 +164,7 @@ class _GrantPrivilegesToShareState:
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
         :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
         """
         if on_all_tables_in_schema is not None:
@@ -260,7 +260,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter
     def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         """
         return pulumi.get(self, "privileges")
 
@@ -312,7 +312,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
         :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
         """
         ...
@@ -405,7 +405,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
         :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -474,7 +474,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter
     def privileges(self) -> pulumi.Output[Sequence[str]]:
         """
-        The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         """
         return pulumi.get(self, "privileges")
 

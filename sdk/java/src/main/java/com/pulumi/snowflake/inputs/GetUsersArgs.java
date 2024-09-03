@@ -15,14 +15,14 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUsersArgs Empty = new GetUsersArgs();
 
     /**
-     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * @return Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
      * 
      */
     public Output<String> pattern() {
@@ -54,7 +54,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+         * @param pattern Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+         * @param pattern Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
          * 
          * @return builder
          * 

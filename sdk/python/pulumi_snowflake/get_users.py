@@ -45,7 +45,7 @@ class GetUsersResult:
     @pulumi.getter
     def pattern(self) -> str:
         """
-        Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+        Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
         """
         return pulumi.get(self, "pattern")
 
@@ -82,7 +82,7 @@ def get_users(pattern: Optional[str] = None,
     ```
 
 
-    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
     """
     __args__ = dict()
     __args__['pattern'] = pattern
@@ -109,6 +109,6 @@ def get_users_output(pattern: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
     """
     ...

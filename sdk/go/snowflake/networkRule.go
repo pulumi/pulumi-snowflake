@@ -59,7 +59,7 @@ type NetworkRule struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -67,9 +67,9 @@ type NetworkRule struct {
 	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema in which to create the network rule.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	ValueLists pulumi.StringArrayOutput `pulumi:"valueLists"`
 }
 
@@ -122,7 +122,7 @@ type networkRuleState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database *string `pulumi:"database"`
-	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Mode *string `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name *string `pulumi:"name"`
@@ -130,9 +130,9 @@ type networkRuleState struct {
 	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema in which to create the network rule.
 	Schema *string `pulumi:"schema"`
-	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Type *string `pulumi:"type"`
-	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	ValueLists []string `pulumi:"valueLists"`
 }
 
@@ -141,7 +141,7 @@ type NetworkRuleState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the network rule.
 	Database pulumi.StringPtrInput
-	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Mode pulumi.StringPtrInput
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringPtrInput
@@ -149,9 +149,9 @@ type NetworkRuleState struct {
 	QualifiedName pulumi.StringPtrInput
 	// The schema in which to create the network rule.
 	Schema pulumi.StringPtrInput
-	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Type pulumi.StringPtrInput
-	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	ValueLists pulumi.StringArrayInput
 }
 
@@ -164,15 +164,15 @@ type networkRuleArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database string `pulumi:"database"`
-	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Mode string `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the network rule.
 	Schema string `pulumi:"schema"`
-	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Type string `pulumi:"type"`
-	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	ValueLists []string `pulumi:"valueLists"`
 }
 
@@ -182,15 +182,15 @@ type NetworkRuleArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the network rule.
 	Database pulumi.StringInput
-	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Mode pulumi.StringInput
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the network rule.
 	Schema pulumi.StringInput
-	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	Type pulumi.StringInput
-	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+	// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 	ValueLists pulumi.StringArrayInput
 }
 
@@ -291,7 +291,7 @@ func (o NetworkRuleOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 func (o NetworkRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -311,12 +311,12 @@ func (o NetworkRuleOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 func (o NetworkRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+// Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
 func (o NetworkRuleOutput) ValueLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringArrayOutput { return v.ValueLists }).(pulumi.StringArrayOutput)
 }
