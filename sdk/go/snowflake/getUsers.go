@@ -48,7 +48,7 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -56,7 +56,7 @@ type GetUsersArgs struct {
 type GetUsersResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
 	Pattern string `pulumi:"pattern"`
 	// The users in the database
 	Users []GetUsersUser `pulumi:"users"`
@@ -77,7 +77,7 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
-	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+	// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -105,7 +105,7 @@ func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
 func (o GetUsersResultOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Pattern }).(pulumi.StringOutput)
 }

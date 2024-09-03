@@ -58,7 +58,7 @@ namespace Pulumi.Snowflake
         public Output<string?> OnView { get; private set; } = null!;
 
         /// <summary>
-        /// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        /// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         /// </summary>
         [Output("privileges")]
         public Output<ImmutableArray<string>> Privileges { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _privileges;
 
         /// <summary>
-        /// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        /// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         /// </summary>
         public InputList<string> Privileges
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _privileges;
 
         /// <summary>
-        /// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+        /// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
         /// </summary>
         public InputList<string> Privileges
         {

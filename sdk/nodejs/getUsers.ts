@@ -31,7 +31,7 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetUsersArgs {
     /**
-     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
      */
     pattern: string;
 }
@@ -45,7 +45,7 @@ export interface GetUsersResult {
      */
     readonly id: string;
     /**
-     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
      */
     readonly pattern: string;
     /**
@@ -74,7 +74,7 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetUsersOutputArgs {
     /**
-     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
      */
     pattern: pulumi.Input<string>;
 }

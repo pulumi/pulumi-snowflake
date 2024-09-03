@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .maskingExpression("""
- * case 
- *   when current_role() in ('ROLE_A') then 
- *     val 
- *   when is_role_in_session( 'ROLE_B' ) then 
+ * case
+ *   when current_role() in ('ROLE_A') then
+ *     val
+ *   when is_role_in_session( 'ROLE_B' ) then
  *     'ABC123'
  *   else
  *     '******'

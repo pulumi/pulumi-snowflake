@@ -97,14 +97,14 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * @return Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     public Output<String> mode() {
@@ -153,28 +153,28 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * @return Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     @Export(name="valueLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> valueLists;
 
     /**
-     * @return Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * @return Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see [https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters) for details.
      * 
      */
     public Output<List<String>> valueLists() {

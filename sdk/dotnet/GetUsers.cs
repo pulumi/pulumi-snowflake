@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
     public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
         /// </summary>
         [Input("pattern", required: true)]
         public string Pattern { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
     public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+        /// Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : [https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters](https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters)
         /// </summary>
         public readonly string Pattern;
         /// <summary>

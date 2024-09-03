@@ -34,7 +34,7 @@ type GrantPrivilegesToShare struct {
 	OnTag pulumi.StringPtrOutput `pulumi:"onTag"`
 	// The fully qualified name of the view on which privileges will be granted.
 	OnView pulumi.StringPtrOutput `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 	Privileges pulumi.StringArrayOutput `pulumi:"privileges"`
 	// The fully qualified name of the share on which privileges will be granted.
 	ToShare pulumi.StringOutput `pulumi:"toShare"`
@@ -88,7 +88,7 @@ type grantPrivilegesToShareState struct {
 	OnTag *string `pulumi:"onTag"`
 	// The fully qualified name of the view on which privileges will be granted.
 	OnView *string `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 	Privileges []string `pulumi:"privileges"`
 	// The fully qualified name of the share on which privileges will be granted.
 	ToShare *string `pulumi:"toShare"`
@@ -107,7 +107,7 @@ type GrantPrivilegesToShareState struct {
 	OnTag pulumi.StringPtrInput
 	// The fully qualified name of the view on which privileges will be granted.
 	OnView pulumi.StringPtrInput
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 	Privileges pulumi.StringArrayInput
 	// The fully qualified name of the share on which privileges will be granted.
 	ToShare pulumi.StringPtrInput
@@ -130,7 +130,7 @@ type grantPrivilegesToShareArgs struct {
 	OnTag *string `pulumi:"onTag"`
 	// The fully qualified name of the view on which privileges will be granted.
 	OnView *string `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 	Privileges []string `pulumi:"privileges"`
 	// The fully qualified name of the share on which privileges will be granted.
 	ToShare string `pulumi:"toShare"`
@@ -150,7 +150,7 @@ type GrantPrivilegesToShareArgs struct {
 	OnTag pulumi.StringPtrInput
 	// The fully qualified name of the view on which privileges will be granted.
 	OnView pulumi.StringPtrInput
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 	Privileges pulumi.StringArrayInput
 	// The fully qualified name of the share on which privileges will be granted.
 	ToShare pulumi.StringInput
@@ -273,7 +273,7 @@ func (o GrantPrivilegesToShareOutput) OnView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnView }).(pulumi.StringPtrOutput)
 }
 
-// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+// The privileges to grant on the share. See available list of privileges: [https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax)
 func (o GrantPrivilegesToShareOutput) Privileges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringArrayOutput { return v.Privileges }).(pulumi.StringArrayOutput)
 }
