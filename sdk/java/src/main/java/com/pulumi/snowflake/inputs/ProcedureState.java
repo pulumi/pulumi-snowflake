@@ -79,6 +79,21 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * The handler method for Java / Python procedures.
      * 
      */
@@ -273,6 +288,7 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.database = $.database;
         this.executeAs = $.executeAs;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.handler = $.handler;
         this.imports = $.imports;
         this.language = $.language;
@@ -397,6 +413,27 @@ public final class ProcedureState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder executeAs(String executeAs) {
             return executeAs(Output.of(executeAs));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**

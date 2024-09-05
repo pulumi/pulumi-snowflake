@@ -12,39 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewRowAccessPolicy(ctx, "example_row_access_policy", &snowflake.RowAccessPolicyArgs{
-//				Name:     pulumi.String("EXAMPLE_ROW_ACCESS_POLICY"),
-//				Database: pulumi.String("EXAMPLE_DB"),
-//				Schema:   pulumi.String("EXAMPLE_SCHEMA"),
-//				Signature: pulumi.StringMap{
-//					"A": pulumi.String("VARCHAR"),
-//					"B": pulumi.String("VARCHAR"),
-//				},
-//				RowAccessExpression: pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | policy name
@@ -59,6 +26,8 @@ type RowAccessPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the row access policy.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
@@ -115,6 +84,8 @@ type rowAccessPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the row access policy.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name *string `pulumi:"name"`
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
@@ -130,6 +101,8 @@ type RowAccessPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the row access policy.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
 	Name pulumi.StringPtrInput
 	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
@@ -270,6 +243,11 @@ func (o RowAccessPolicyOutput) Comment() pulumi.StringPtrOutput {
 // The database in which to create the row access policy.
 func (o RowAccessPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o RowAccessPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.

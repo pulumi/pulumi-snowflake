@@ -12,40 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewAccountParameter(ctx, "p", &snowflake.AccountParameterArgs{
-//				Key:   pulumi.String("ALLOW_ID_TOKEN"),
-//				Value: pulumi.String("true"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewAccountParameter(ctx, "p2", &snowflake.AccountParameterArgs{
-//				Key:   pulumi.String("CLIENT_ENCRYPTION_KEY_SIZE"),
-//				Value: pulumi.String("256"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

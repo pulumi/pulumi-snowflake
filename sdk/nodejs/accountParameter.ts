@@ -5,22 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const p = new snowflake.AccountParameter("p", {
- *     key: "ALLOW_ID_TOKEN",
- *     value: "true",
- * });
- * const p2 = new snowflake.AccountParameter("p2", {
- *     key: "CLIENT_ENCRYPTION_KEY_SIZE",
- *     value: "256",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

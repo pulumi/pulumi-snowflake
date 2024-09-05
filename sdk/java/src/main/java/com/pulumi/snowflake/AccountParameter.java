@@ -14,47 +14,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.AccountParameter;
- * import com.pulumi.snowflake.AccountParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var p = new AccountParameter("p", AccountParameterArgs.builder()
- *             .key("ALLOW_ID_TOKEN")
- *             .value("true")
- *             .build());
- * 
- *         var p2 = new AccountParameter("p2", AccountParameterArgs.builder()
- *             .key("CLIENT_ENCRYPTION_KEY_SIZE")
- *             .value("256")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh

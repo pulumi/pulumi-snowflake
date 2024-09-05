@@ -10,42 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var database = new Snowflake.Database("database", new()
-    ///     {
-    ///         Name = "database",
-    ///     });
-    /// 
-    ///     var schema = new Snowflake.Schema("schema", new()
-    ///     {
-    ///         Name = "schema",
-    ///         Database = database.Name,
-    ///     });
-    /// 
-    ///     var tag = new Snowflake.Tag("tag", new()
-    ///     {
-    ///         Name = "cost_center",
-    ///         Database = database.Name,
-    ///         Schema = schema.Name,
-    ///         AllowedValues = new[]
-    ///         {
-    ///             "finance",
-    ///             "engineering",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | tag name
@@ -74,6 +38,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
@@ -200,6 +170,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the tag; must be unique for the database in which the tag is created.

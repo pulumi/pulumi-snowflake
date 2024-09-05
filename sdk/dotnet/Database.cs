@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-    /// 
-    /// Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -48,6 +44,12 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultDdlCollation { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        /// </summary>
+        [Output("dropPublicSchemaOnCreation")]
+        public Output<bool?> DropPublicSchemaOnCreation { get; private set; } = null!;
+
+        /// <summary>
         /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         /// </summary>
         [Output("enableConsoleOutput")]
@@ -58,6 +60,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("externalVolume")]
         public Output<string> ExternalVolume { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
@@ -78,7 +86,7 @@ namespace Pulumi.Snowflake
         public Output<int> MaxDataExtensionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        /// Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -214,6 +222,12 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
+        /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        /// </summary>
+        [Input("dropPublicSchemaOnCreation")]
+        public Input<bool>? DropPublicSchemaOnCreation { get; set; }
+
+        /// <summary>
         /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         /// </summary>
         [Input("enableConsoleOutput")]
@@ -244,7 +258,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        /// Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -342,6 +356,12 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
+        /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        /// </summary>
+        [Input("dropPublicSchemaOnCreation")]
+        public Input<bool>? DropPublicSchemaOnCreation { get; set; }
+
+        /// <summary>
         /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         /// </summary>
         [Input("enableConsoleOutput")]
@@ -352,6 +372,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
@@ -372,7 +398,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        /// Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -5,55 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const task = new snowflake.Task("task", {
- *     comment: "my task",
- *     database: "database",
- *     schema: "schema",
- *     warehouse: "warehouse",
- *     name: "task",
- *     schedule: "10 MINUTE",
- *     sqlStatement: "select * from foo;",
- *     sessionParameters: {
- *         foo: "bar",
- *     },
- *     userTaskTimeoutMs: 10000,
- *     afters: "preceding_task",
- *     when: "foo AND bar",
- *     enabled: true,
- * });
- * const serverlessTask = new snowflake.Task("serverless_task", {
- *     comment: "my serverless task",
- *     database: "db",
- *     schema: "schema",
- *     name: "serverless_task",
- *     schedule: "10 MINUTE",
- *     sqlStatement: "select * from foo;",
- *     sessionParameters: {
- *         foo: "bar",
- *     },
- *     userTaskTimeoutMs: 10000,
- *     userTaskManagedInitialWarehouseSize: "XSMALL",
- *     afters: [task.name],
- *     when: "foo AND bar",
- *     enabled: true,
- * });
- * const testTask = new snowflake.Task("test_task", {
- *     comment: "task with allow_overlapping_execution",
- *     database: "database",
- *     schema: "schema",
- *     name: "test_task",
- *     sqlStatement: "select 1 as c;",
- *     allowOverlappingExecution: true,
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | task name
@@ -115,6 +66,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly errorIntegration!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -174,6 +129,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
@@ -211,6 +167,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
             resourceInputs["when"] = args ? args.when : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Task.__pulumiType, name, resourceInputs, opts);
@@ -245,6 +202,10 @@ export interface TaskState {
      * Specifies the name of the notification integration used for error notifications.
      */
     errorIntegration?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
      */

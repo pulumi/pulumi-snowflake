@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-//
-// Resource used to manage api authentication security integration objects with client credentials. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
-//
 // ## Import
 //
 // ```sh
@@ -30,7 +26,9 @@ type ApiAuthenticationIntegrationWithClientCredentials struct {
 	DescribeOutputs ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrOutput `pulumi:"oauthAccessTokenValidity"`
@@ -95,7 +93,9 @@ type apiAuthenticationIntegrationWithClientCredentialsState struct {
 	DescribeOutputs []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int `pulumi:"oauthAccessTokenValidity"`
@@ -122,7 +122,9 @@ type ApiAuthenticationIntegrationWithClientCredentialsState struct {
 	DescribeOutputs ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArrayInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -151,7 +153,7 @@ type apiAuthenticationIntegrationWithClientCredentialsArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int `pulumi:"oauthAccessTokenValidity"`
@@ -175,7 +177,7 @@ type ApiAuthenticationIntegrationWithClientCredentialsArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -297,7 +299,14 @@ func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) Enabled() pulum
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringOutput {
+		return v.FullyQualifiedName
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

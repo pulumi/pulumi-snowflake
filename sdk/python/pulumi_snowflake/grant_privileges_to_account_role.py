@@ -357,9 +357,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+        ## Import
 
-        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
+        ### Import examples
 
         #### Grant all privileges OnAccountObject (Database)
 
@@ -404,9 +404,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  args: GrantPrivilegesToAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+        ## Import
 
-        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
+        ### Import examples
 
         #### Grant all privileges OnAccountObject (Database)
 

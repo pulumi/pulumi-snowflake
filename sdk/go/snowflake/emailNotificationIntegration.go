@@ -12,37 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewEmailNotificationIntegration(ctx, "email_int", &snowflake.EmailNotificationIntegrationArgs{
-//				Name:    pulumi.String("notification"),
-//				Comment: pulumi.String("A notification integration."),
-//				Enabled: pulumi.Bool(true),
-//				AllowedRecipients: pulumi.StringArray{
-//					pulumi.String("john.doe@gmail.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -56,7 +25,9 @@ type EmailNotificationIntegration struct {
 	// A comment for the email integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	Enabled pulumi.BoolOutput      `pulumi:"enabled"`
-	Name    pulumi.StringOutput    `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	Name               pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewEmailNotificationIntegration registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +68,9 @@ type emailNotificationIntegrationState struct {
 	// A comment for the email integration.
 	Comment *string `pulumi:"comment"`
 	Enabled *bool   `pulumi:"enabled"`
-	Name    *string `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	Name               *string `pulumi:"name"`
 }
 
 type EmailNotificationIntegrationState struct {
@@ -106,7 +79,9 @@ type EmailNotificationIntegrationState struct {
 	// A comment for the email integration.
 	Comment pulumi.StringPtrInput
 	Enabled pulumi.BoolPtrInput
-	Name    pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 }
 
 func (EmailNotificationIntegrationState) ElementType() reflect.Type {
@@ -231,6 +206,11 @@ func (o EmailNotificationIntegrationOutput) Comment() pulumi.StringPtrOutput {
 
 func (o EmailNotificationIntegrationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EmailNotificationIntegration) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o EmailNotificationIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailNotificationIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 func (o EmailNotificationIntegrationOutput) Name() pulumi.StringOutput {

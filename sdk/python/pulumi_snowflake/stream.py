@@ -183,6 +183,7 @@ class _StreamState:
                  append_only: Optional[pulumi.Input[bool]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  insert_only: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on_stage: Optional[pulumi.Input[str]] = None,
@@ -196,6 +197,7 @@ class _StreamState:
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[str] database: The database in which to create the stream.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
@@ -211,6 +213,8 @@ class _StreamState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if insert_only is not None:
             pulumi.set(__self__, "insert_only", insert_only)
         if name is not None:
@@ -263,6 +267,18 @@ class _StreamState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter(name="insertOnly")
@@ -378,8 +394,6 @@ class Stream(pulumi.CustomResource):
                  show_initial_rows: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database name | schema name | stream name
@@ -408,8 +422,6 @@ class Stream(pulumi.CustomResource):
                  args: StreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database name | schema name | stream name
@@ -466,6 +478,7 @@ class Stream(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["show_initial_rows"] = show_initial_rows
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["owner"] = None
         super(Stream, __self__).__init__(
             'snowflake:index/stream:Stream',
@@ -480,6 +493,7 @@ class Stream(pulumi.CustomResource):
             append_only: Optional[pulumi.Input[bool]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             insert_only: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             on_stage: Optional[pulumi.Input[str]] = None,
@@ -498,6 +512,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[bool] append_only: Type of the stream that will be created.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
         :param pulumi.Input[str] database: The database in which to create the stream.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] insert_only: Create an insert only stream type.
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
         :param pulumi.Input[str] on_stage: Specifies an identifier for the stage the stream will monitor.
@@ -514,6 +529,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["append_only"] = append_only
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["insert_only"] = insert_only
         __props__.__dict__["name"] = name
         __props__.__dict__["on_stage"] = on_stage
@@ -547,6 +563,14 @@ class Stream(pulumi.CustomResource):
         The database in which to create the stream.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="insertOnly")

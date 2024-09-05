@@ -7,35 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const test = new snowflake.MaskingPolicy("test", {
- *     name: "EXAMPLE_MASKING_POLICY",
- *     database: "EXAMPLE_DB",
- *     schema: "EXAMPLE_SCHEMA",
- *     signature: {
- *         columns: [{
- *             name: "val",
- *             type: "VARCHAR",
- *         }],
- *     },
- *     maskingExpression: `case 
- *   when current_role() in ('ROLE_A') then 
- *     val 
- *   when is_role_in_session( 'ROLE_B' ) then 
- *     'ABC123'
- *   else
- *     '******'
- * end
- * `,
- *     returnDataType: "VARCHAR",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | policy name
@@ -85,6 +56,10 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly exemptOtherPolicies!: pulumi.Output<boolean | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Prevent overwriting a previous masking policy with the same name.
      */
     public readonly ifNotExists!: pulumi.Output<boolean | undefined>;
@@ -100,10 +75,6 @@ export class MaskingPolicy extends pulumi.CustomResource {
      * Whether to override a previous masking policy with the same name.
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the qualified identifier for the masking policy.
-     */
-    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
     /**
      * Specifies the data type to return.
      */
@@ -133,11 +104,11 @@ export class MaskingPolicy extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["exemptOtherPolicies"] = state ? state.exemptOtherPolicies : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["ifNotExists"] = state ? state.ifNotExists : undefined;
             resourceInputs["maskingExpression"] = state ? state.maskingExpression : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["orReplace"] = state ? state.orReplace : undefined;
-            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["returnDataType"] = state ? state.returnDataType : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["signature"] = state ? state.signature : undefined;
@@ -168,7 +139,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
             resourceInputs["returnDataType"] = args ? args.returnDataType : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["signature"] = args ? args.signature : undefined;
-            resourceInputs["qualifiedName"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaskingPolicy.__pulumiType, name, resourceInputs, opts);
@@ -192,6 +163,10 @@ export interface MaskingPolicyState {
      */
     exemptOtherPolicies?: pulumi.Input<boolean>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Prevent overwriting a previous masking policy with the same name.
      */
     ifNotExists?: pulumi.Input<boolean>;
@@ -207,10 +182,6 @@ export interface MaskingPolicyState {
      * Whether to override a previous masking policy with the same name.
      */
     orReplace?: pulumi.Input<boolean>;
-    /**
-     * Specifies the qualified identifier for the masking policy.
-     */
-    qualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the data type to return.
      */

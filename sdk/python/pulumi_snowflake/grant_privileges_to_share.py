@@ -18,6 +18,7 @@ class GrantPrivilegesToShareArgs:
                  to_share: pulumi.Input[str],
                  on_all_tables_in_schema: Optional[pulumi.Input[str]] = None,
                  on_database: Optional[pulumi.Input[str]] = None,
+                 on_function: Optional[pulumi.Input[str]] = None,
                  on_schema: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  on_tag: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class GrantPrivilegesToShareArgs:
         :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
         :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
@@ -39,6 +41,8 @@ class GrantPrivilegesToShareArgs:
             pulumi.set(__self__, "on_all_tables_in_schema", on_all_tables_in_schema)
         if on_database is not None:
             pulumi.set(__self__, "on_database", on_database)
+        if on_function is not None:
+            pulumi.set(__self__, "on_function", on_function)
         if on_schema is not None:
             pulumi.set(__self__, "on_schema", on_schema)
         if on_table is not None:
@@ -97,6 +101,18 @@ class GrantPrivilegesToShareArgs:
         pulumi.set(self, "on_database", value)
 
     @property
+    @pulumi.getter(name="onFunction")
+    def on_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the function on which privileges will be granted.
+        """
+        return pulumi.get(self, "on_function")
+
+    @on_function.setter
+    def on_function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_function", value)
+
+    @property
     @pulumi.getter(name="onSchema")
     def on_schema(self) -> Optional[pulumi.Input[str]]:
         """
@@ -150,6 +166,7 @@ class _GrantPrivilegesToShareState:
     def __init__(__self__, *,
                  on_all_tables_in_schema: Optional[pulumi.Input[str]] = None,
                  on_database: Optional[pulumi.Input[str]] = None,
+                 on_function: Optional[pulumi.Input[str]] = None,
                  on_schema: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  on_tag: Optional[pulumi.Input[str]] = None,
@@ -160,6 +177,7 @@ class _GrantPrivilegesToShareState:
         Input properties used for looking up and filtering GrantPrivilegesToShare resources.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
         :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
@@ -171,6 +189,8 @@ class _GrantPrivilegesToShareState:
             pulumi.set(__self__, "on_all_tables_in_schema", on_all_tables_in_schema)
         if on_database is not None:
             pulumi.set(__self__, "on_database", on_database)
+        if on_function is not None:
+            pulumi.set(__self__, "on_function", on_function)
         if on_schema is not None:
             pulumi.set(__self__, "on_schema", on_schema)
         if on_table is not None:
@@ -207,6 +227,18 @@ class _GrantPrivilegesToShareState:
     @on_database.setter
     def on_database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "on_database", value)
+
+    @property
+    @pulumi.getter(name="onFunction")
+    def on_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified name of the function on which privileges will be granted.
+        """
+        return pulumi.get(self, "on_function")
+
+    @on_function.setter
+    def on_function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_function", value)
 
     @property
     @pulumi.getter(name="onSchema")
@@ -288,6 +320,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  on_all_tables_in_schema: Optional[pulumi.Input[str]] = None,
                  on_database: Optional[pulumi.Input[str]] = None,
+                 on_function: Optional[pulumi.Input[str]] = None,
                  on_schema: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  on_tag: Optional[pulumi.Input[str]] = None,
@@ -296,7 +329,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  to_share: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
+        ## Import
 
         ### OnView
 
@@ -308,6 +341,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
         :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
@@ -322,7 +356,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  args: GrantPrivilegesToShareArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
+        ## Import
 
         ### OnView
 
@@ -347,6 +381,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  on_all_tables_in_schema: Optional[pulumi.Input[str]] = None,
                  on_database: Optional[pulumi.Input[str]] = None,
+                 on_function: Optional[pulumi.Input[str]] = None,
                  on_schema: Optional[pulumi.Input[str]] = None,
                  on_table: Optional[pulumi.Input[str]] = None,
                  on_tag: Optional[pulumi.Input[str]] = None,
@@ -364,6 +399,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
 
             __props__.__dict__["on_all_tables_in_schema"] = on_all_tables_in_schema
             __props__.__dict__["on_database"] = on_database
+            __props__.__dict__["on_function"] = on_function
             __props__.__dict__["on_schema"] = on_schema
             __props__.__dict__["on_table"] = on_table
             __props__.__dict__["on_tag"] = on_tag
@@ -386,6 +422,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             on_all_tables_in_schema: Optional[pulumi.Input[str]] = None,
             on_database: Optional[pulumi.Input[str]] = None,
+            on_function: Optional[pulumi.Input[str]] = None,
             on_schema: Optional[pulumi.Input[str]] = None,
             on_table: Optional[pulumi.Input[str]] = None,
             on_tag: Optional[pulumi.Input[str]] = None,
@@ -401,6 +438,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
         :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
         :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
         :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
@@ -414,6 +452,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
 
         __props__.__dict__["on_all_tables_in_schema"] = on_all_tables_in_schema
         __props__.__dict__["on_database"] = on_database
+        __props__.__dict__["on_function"] = on_function
         __props__.__dict__["on_schema"] = on_schema
         __props__.__dict__["on_table"] = on_table
         __props__.__dict__["on_tag"] = on_tag
@@ -437,6 +476,14 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         The fully qualified name of the database on which privileges will be granted.
         """
         return pulumi.get(self, "on_database")
+
+    @property
+    @pulumi.getter(name="onFunction")
+    def on_function(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully qualified name of the function on which privileges will be granted.
+        """
+        return pulumi.get(self, "on_function")
 
     @property
     @pulumi.getter(name="onSchema")

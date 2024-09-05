@@ -7,16 +7,12 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
- *
  * ## Import
  *
- * format is database name | schema name | streamlit name
+ * format is <database_name>.<schema_name>.<streamlit_name>
  *
  * ```sh
- * $ pulumi import snowflake:index/streamlit:Streamlit example 'dbName|schemaName|streamlitName'
+ * $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
  * ```
  */
 export class Streamlit extends pulumi.CustomResource {
@@ -68,6 +64,10 @@ export class Streamlit extends pulumi.CustomResource {
      */
     public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
      */
     public readonly mainFile!: pulumi.Output<string>;
@@ -84,7 +84,7 @@ export class Streamlit extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamlitShowOutput[]>;
     /**
@@ -114,6 +114,7 @@ export class Streamlit extends pulumi.CustomResource {
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["directoryLocation"] = state ? state.directoryLocation : undefined;
             resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["mainFile"] = state ? state.mainFile : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queryWarehouse"] = state ? state.queryWarehouse : undefined;
@@ -146,6 +147,7 @@ export class Streamlit extends pulumi.CustomResource {
             resourceInputs["stage"] = args ? args.stage : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -178,6 +180,10 @@ export interface StreamlitState {
      */
     externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
      */
     mainFile?: pulumi.Input<string>;
@@ -194,7 +200,7 @@ export interface StreamlitState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamlitShowOutput>[]>;
     /**

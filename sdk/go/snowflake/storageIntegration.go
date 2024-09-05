@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // ```sh
@@ -31,7 +29,9 @@ type StorageIntegration struct {
 	// Date and time when the storage integration was created.
 	CreatedOn pulumi.StringOutput  `pulumi:"createdOn"`
 	Enabled   pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Name      pulumi.StringOutput  `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	Name               pulumi.StringOutput `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayOutput `pulumi:"storageAllowedLocations"`
 	// The external ID that Snowflake will use when assuming the AWS role.
@@ -94,7 +94,9 @@ type storageIntegrationState struct {
 	// Date and time when the storage integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
 	Enabled   *bool   `pulumi:"enabled"`
-	Name      *string `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	Name               *string `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations []string `pulumi:"storageAllowedLocations"`
 	// The external ID that Snowflake will use when assuming the AWS role.
@@ -122,7 +124,9 @@ type StorageIntegrationState struct {
 	// Date and time when the storage integration was created.
 	CreatedOn pulumi.StringPtrInput
 	Enabled   pulumi.BoolPtrInput
-	Name      pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayInput
 	// The external ID that Snowflake will use when assuming the AWS role.
@@ -289,6 +293,11 @@ func (o StorageIntegrationOutput) CreatedOn() pulumi.StringOutput {
 
 func (o StorageIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o StorageIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 func (o StorageIntegrationOutput) Name() pulumi.StringOutput {

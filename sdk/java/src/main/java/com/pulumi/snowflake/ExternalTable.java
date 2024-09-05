@@ -19,55 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ExternalTable;
- * import com.pulumi.snowflake.ExternalTableArgs;
- * import com.pulumi.snowflake.inputs.ExternalTableColumnArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()
- *             .database("db")
- *             .schema("schema")
- *             .name("external_table")
- *             .comment("External table")
- *             .fileFormat("TYPE = CSV FIELD_DELIMITER = '|'")
- *             .columns(            
- *                 ExternalTableColumnArgs.builder()
- *                     .name("id")
- *                     .type("int")
- *                     .build(),
- *                 ExternalTableColumnArgs.builder()
- *                     .name("data")
- *                     .type("text")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | external table name
@@ -176,6 +127,20 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
      */
     public Output<String> fileFormat() {
         return this.fileFormat;
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies a location for the external table.

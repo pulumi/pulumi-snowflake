@@ -10,30 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var attach = new Snowflake.NetworkPolicyAttachment("attach", new()
-    ///     {
-    ///         NetworkPolicyName = "policy",
-    ///         SetForAccount = false,
-    ///         Users = new[]
-    ///         {
-    ///             "user1",
-    ///             "user2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

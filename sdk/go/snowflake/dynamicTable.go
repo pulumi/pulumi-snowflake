@@ -12,41 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
-//			_, err := snowflake.NewDynamicTable(ctx, "dt", &snowflake.DynamicTableArgs{
-//				Name:     pulumi.String("product"),
-//				Database: pulumi.String("mydb"),
-//				Schema:   pulumi.String("myschema"),
-//				TargetLag: &snowflake.DynamicTableTargetLagArgs{
-//					MaximumDuration: pulumi.String("20 minutes"),
-//				},
-//				Warehouse: pulumi.String("mywh"),
-//				Query:     pulumi.String("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\""),
-//				Comment:   pulumi.String("example comment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -69,6 +34,8 @@ type DynamicTable struct {
 	DataTimestamp pulumi.StringOutput `pulumi:"dataTimestamp"`
 	// The database in which to create the dynamic table.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
 	Initialize pulumi.StringPtrOutput `pulumi:"initialize"`
 	// TRUE if the dynamic table has been cloned, else FALSE.
@@ -160,6 +127,8 @@ type dynamicTableState struct {
 	DataTimestamp *string `pulumi:"dataTimestamp"`
 	// The database in which to create the dynamic table.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
 	Initialize *string `pulumi:"initialize"`
 	// TRUE if the dynamic table has been cloned, else FALSE.
@@ -207,6 +176,8 @@ type DynamicTableState struct {
 	DataTimestamp pulumi.StringPtrInput
 	// The database in which to create the dynamic table.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
 	Initialize pulumi.StringPtrInput
 	// TRUE if the dynamic table has been cloned, else FALSE.
@@ -410,6 +381,11 @@ func (o DynamicTableOutput) DataTimestamp() pulumi.StringOutput {
 // The database in which to create the dynamic table.
 func (o DynamicTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o DynamicTableOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.

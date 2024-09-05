@@ -20,6 +20,8 @@ type PasswordPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database this password policy belongs to.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
 	History pulumi.IntPtrOutput `pulumi:"history"`
 	// Prevent overwriting a previous password policy with the same name.
@@ -48,8 +50,6 @@ type PasswordPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to override a previous password policy with the same name.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
-	// The qualified name for the password policy.
-	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema this password policy belongs to.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
@@ -94,6 +94,8 @@ type passwordPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// The database this password policy belongs to.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
 	History *int `pulumi:"history"`
 	// Prevent overwriting a previous password policy with the same name.
@@ -122,8 +124,6 @@ type passwordPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Whether to override a previous password policy with the same name.
 	OrReplace *bool `pulumi:"orReplace"`
-	// The qualified name for the password policy.
-	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema this password policy belongs to.
 	Schema *string `pulumi:"schema"`
 }
@@ -133,6 +133,8 @@ type PasswordPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// The database this password policy belongs to.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
 	History pulumi.IntPtrInput
 	// Prevent overwriting a previous password policy with the same name.
@@ -161,8 +163,6 @@ type PasswordPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Whether to override a previous password policy with the same name.
 	OrReplace pulumi.BoolPtrInput
-	// The qualified name for the password policy.
-	QualifiedName pulumi.StringPtrInput
 	// The schema this password policy belongs to.
 	Schema pulumi.StringPtrInput
 }
@@ -343,6 +343,11 @@ func (o PasswordPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o PasswordPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PasswordPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
 // Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
 func (o PasswordPolicyOutput) History() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.IntPtrOutput { return v.History }).(pulumi.IntPtrOutput)
@@ -411,11 +416,6 @@ func (o PasswordPolicyOutput) Name() pulumi.StringOutput {
 // Whether to override a previous password policy with the same name.
 func (o PasswordPolicyOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PasswordPolicy) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
-}
-
-// The qualified name for the password policy.
-func (o PasswordPolicyOutput) QualifiedName() pulumi.StringOutput {
-	return o.ApplyT(func(v *PasswordPolicy) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // The schema this password policy belongs to.

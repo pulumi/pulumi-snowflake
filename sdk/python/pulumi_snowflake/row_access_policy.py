@@ -116,6 +116,7 @@ class _RowAccessPolicyState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  row_access_expression: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -124,6 +125,7 @@ class _RowAccessPolicyState:
         Input properties used for looking up and filtering RowAccessPolicy resources.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] database: The database in which to create the row access policy.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
@@ -133,6 +135,8 @@ class _RowAccessPolicyState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if row_access_expression is not None:
@@ -165,6 +169,18 @@ class _RowAccessPolicyState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -228,23 +244,6 @@ class RowAccessPolicy(pulumi.CustomResource):
                  signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_row_access_policy = snowflake.RowAccessPolicy("example_row_access_policy",
-            name="EXAMPLE_ROW_ACCESS_POLICY",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            signature={
-                "A": "VARCHAR",
-                "B": "VARCHAR",
-            },
-            row_access_expression="case when current_role() in ('ANALYST') then true else false end")
-        ```
-
         ## Import
 
         format is database name | schema name | policy name
@@ -269,23 +268,6 @@ class RowAccessPolicy(pulumi.CustomResource):
                  args: RowAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_row_access_policy = snowflake.RowAccessPolicy("example_row_access_policy",
-            name="EXAMPLE_ROW_ACCESS_POLICY",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            signature={
-                "A": "VARCHAR",
-                "B": "VARCHAR",
-            },
-            row_access_expression="case when current_role() in ('ANALYST') then true else false end")
-        ```
-
         ## Import
 
         format is database name | schema name | policy name
@@ -338,6 +320,7 @@ class RowAccessPolicy(pulumi.CustomResource):
             if signature is None and not opts.urn:
                 raise TypeError("Missing required property 'signature'")
             __props__.__dict__["signature"] = signature
+            __props__.__dict__["fully_qualified_name"] = None
         super(RowAccessPolicy, __self__).__init__(
             'snowflake:index/rowAccessPolicy:RowAccessPolicy',
             resource_name,
@@ -350,6 +333,7 @@ class RowAccessPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             row_access_expression: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
@@ -363,6 +347,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
         :param pulumi.Input[str] database: The database in which to create the row access policy.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
         :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
         :param pulumi.Input[str] schema: The schema in which to create the row access policy.
@@ -374,6 +359,7 @@ class RowAccessPolicy(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["row_access_expression"] = row_access_expression
         __props__.__dict__["schema"] = schema
@@ -395,6 +381,14 @@ class RowAccessPolicy(pulumi.CustomResource):
         The database in which to create the row access policy.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

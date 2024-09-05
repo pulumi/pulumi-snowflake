@@ -12,41 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNetworkRule(ctx, "rule", &snowflake.NetworkRuleArgs{
-//				Name:     pulumi.String("rule"),
-//				Database: pulumi.String("EXAMPLE_DB"),
-//				Schema:   pulumi.String("EXAMPLE_SCHEMA"),
-//				Comment:  pulumi.String("A rule."),
-//				Type:     pulumi.String("IPV4"),
-//				Mode:     pulumi.String("INGRESS"),
-//				ValueLists: pulumi.StringArray{
-//					pulumi.String("192.168.0.100/24"),
-//					pulumi.String("29.254.123.20"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -59,12 +24,12 @@ type NetworkRule struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Qualified name of the network rule.
-	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema in which to create the network rule.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
@@ -122,12 +87,12 @@ type networkRuleState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the network rule.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
 	Mode *string `pulumi:"mode"`
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name *string `pulumi:"name"`
-	// Qualified name of the network rule.
-	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema in which to create the network rule.
 	Schema *string `pulumi:"schema"`
 	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
@@ -141,12 +106,12 @@ type NetworkRuleState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the network rule.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
 	Mode pulumi.StringPtrInput
 	// Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 	Name pulumi.StringPtrInput
-	// Qualified name of the network rule.
-	QualifiedName pulumi.StringPtrInput
 	// The schema in which to create the network rule.
 	Schema pulumi.StringPtrInput
 	// Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
@@ -291,6 +256,11 @@ func (o NetworkRuleOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o NetworkRuleOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
 // Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
 func (o NetworkRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
@@ -299,11 +269,6 @@ func (o NetworkRuleOutput) Mode() pulumi.StringOutput {
 // Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
 func (o NetworkRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Qualified name of the network rule.
-func (o NetworkRuleOutput) QualifiedName() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkRule) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // The schema in which to create the network rule.

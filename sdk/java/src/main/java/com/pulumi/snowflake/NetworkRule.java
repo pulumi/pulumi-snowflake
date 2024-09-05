@@ -16,49 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.NetworkRule;
- * import com.pulumi.snowflake.NetworkRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var rule = new NetworkRule("rule", NetworkRuleArgs.builder()
- *             .name("rule")
- *             .database("EXAMPLE_DB")
- *             .schema("EXAMPLE_SCHEMA")
- *             .comment("A rule.")
- *             .type("IPV4")
- *             .mode("INGRESS")
- *             .valueLists(            
- *                 "192.168.0.100/24",
- *                 "29.254.123.20")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -97,6 +54,20 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
      * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
      * 
      */
@@ -123,20 +94,6 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
-    }
-    /**
-     * Qualified name of the network rule.
-     * 
-     */
-    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedName;
-
-    /**
-     * @return Qualified name of the network rule.
-     * 
-     */
-    public Output<String> qualifiedName() {
-        return this.qualifiedName;
     }
     /**
      * The schema in which to create the network rule.

@@ -7,25 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * //# Minimal
- * const minimal = new snowflake.AccountRole("minimal", {name: "role_name"});
- * //# Complete (with every optional set)
- * const complete = new snowflake.AccountRole("complete", {
- *     name: "role_name",
- *     comment: "my account role",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -61,6 +42,13 @@ export class AccountRole extends pulumi.CustomResource {
     }
 
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW ROLES` for the given role.
@@ -81,12 +69,14 @@ export class AccountRole extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountRoleState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as AccountRoleArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,6 +89,13 @@ export class AccountRole extends pulumi.CustomResource {
  */
 export interface AccountRoleState {
     comment?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     */
     name?: pulumi.Input<string>;
     /**
      * Outputs the result of `SHOW ROLES` for the given role.
@@ -111,5 +108,8 @@ export interface AccountRoleState {
  */
 export interface AccountRoleArgs {
     comment?: pulumi.Input<string>;
+    /**
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     */
     name?: pulumi.Input<string>;
 }

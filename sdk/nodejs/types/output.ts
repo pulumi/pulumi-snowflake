@@ -391,6 +391,21 @@ export interface DatabaseReplicationEnableToAccount {
     withFailover?: boolean;
 }
 
+export interface DatabaseRoleShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    grantedDatabaseRoles: number;
+    grantedToDatabaseRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+}
+
 export interface DynamicTableTargetLag {
     /**
      * Specifies whether the target lag time is downstream.
@@ -783,17 +798,35 @@ export interface GetCortexSearchServicesLimit {
 
 export interface GetDatabaseRolesDatabaseRole {
     /**
-     * The comment on the role
+     * Holds the output of SHOW DATABASE ROLES.
      */
+    showOutputs: outputs.GetDatabaseRolesDatabaseRoleShowOutput[];
+}
+
+export interface GetDatabaseRolesDatabaseRoleShowOutput {
     comment: string;
-    /**
-     * Identifier for the role.
-     */
+    createdOn: string;
+    databaseName: string;
+    grantedDatabaseRoles: number;
+    grantedToDatabaseRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
     name: string;
-    /**
-     * The owner of the role
-     */
     owner: string;
+    ownerRoleType: string;
+}
+
+export interface GetDatabaseRolesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetDatabasesDatabase {
@@ -2218,7 +2251,7 @@ export interface GetStreamlitsLimit {
 
 export interface GetStreamlitsStreamlit {
     /**
-     * Holds the output of DESCRIBE STREAMLITS.
+     * Holds the output of DESCRIBE STREAMLIT.
      */
     describeOutputs: outputs.GetStreamlitsStreamlitDescribeOutput[];
     /**
@@ -2277,27 +2310,688 @@ export interface GetTasksTask {
     warehouse: string;
 }
 
+export interface GetUsersLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetUsersUser {
+    /**
+     * Holds the output of DESCRIBE USER.
+     */
+    describeOutputs: outputs.GetUsersUserDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR USER.
+     */
+    parameters: outputs.GetUsersUserParameter[];
+    /**
+     * Holds the output of SHOW USERS.
+     */
+    showOutputs: outputs.GetUsersUserShowOutput[];
+}
+
+export interface GetUsersUserDescribeOutput {
     comment: string;
+    customLandingPageUrl: string;
+    customLandingPageUrlFlushNextUiLoad: boolean;
+    daysToExpiry: number;
     defaultNamespace: string;
     defaultRole: string;
-    defaultSecondaryRoles: string[];
+    defaultSecondaryRoles: string;
     defaultWarehouse: string;
     disabled: boolean;
     displayName: string;
     email: string;
+    extAuthnDuo: boolean;
+    extAuthnUid: string;
     firstName: string;
-    hasRsaPublicKey: boolean;
+    hasMfa: boolean;
     lastName: string;
     loginName: string;
+    middleName: string;
+    minsToBypassMfa: number;
+    minsToBypassNetworkPolicy: number;
+    minsToUnlock: number;
+    mustChangePassword: boolean;
     name: string;
+    password: string;
+    passwordLastSetTime: string;
+    rsaPublicKey: string;
+    rsaPublicKey2: string;
+    rsaPublicKey2Fp: string;
+    rsaPublicKeyFp: string;
+    snowflakeLock: boolean;
+    snowflakeSupport: boolean;
+}
+
+export interface GetUsersUserParameter {
+    abortDetachedQueries: outputs.GetUsersUserParameterAbortDetachedQuery[];
+    autocommits: outputs.GetUsersUserParameterAutocommit[];
+    binaryInputFormats: outputs.GetUsersUserParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.GetUsersUserParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.GetUsersUserParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.GetUsersUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.GetUsersUserParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.GetUsersUserParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.GetUsersUserParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.GetUsersUserParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.GetUsersUserParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.GetUsersUserParameterDateInputFormat[];
+    dateOutputFormats: outputs.GetUsersUserParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.GetUsersUserParameterEnableUnloadPhysicalTypeOptimization[];
+    enableUnredactedQuerySyntaxErrors: outputs.GetUsersUserParameterEnableUnredactedQuerySyntaxError[];
+    errorOnNondeterministicMerges: outputs.GetUsersUserParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.GetUsersUserParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.GetUsersUserParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.GetUsersUserParameterGeometryOutputFormat[];
+    jdbcTreatDecimalAsInts: outputs.GetUsersUserParameterJdbcTreatDecimalAsInt[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.GetUsersUserParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.GetUsersUserParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.GetUsersUserParameterJsonIndent[];
+    lockTimeouts: outputs.GetUsersUserParameterLockTimeout[];
+    logLevels: outputs.GetUsersUserParameterLogLevel[];
+    multiStatementCounts: outputs.GetUsersUserParameterMultiStatementCount[];
+    networkPolicies: outputs.GetUsersUserParameterNetworkPolicy[];
+    noorderSequenceAsDefaults: outputs.GetUsersUserParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.GetUsersUserParameterOdbcTreatDecimalAsInt[];
+    preventUnloadToInternalStages: outputs.GetUsersUserParameterPreventUnloadToInternalStage[];
+    queryTags: outputs.GetUsersUserParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.GetUsersUserParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.GetUsersUserParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.GetUsersUserParameterS3StageVpceDnsName[];
+    searchPaths: outputs.GetUsersUserParameterSearchPath[];
+    simulatedDataSharingConsumers: outputs.GetUsersUserParameterSimulatedDataSharingConsumer[];
+    statementQueuedTimeoutInSeconds: outputs.GetUsersUserParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.GetUsersUserParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.GetUsersUserParameterStrictJsonOutput[];
+    timeInputFormats: outputs.GetUsersUserParameterTimeInputFormat[];
+    timeOutputFormats: outputs.GetUsersUserParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.GetUsersUserParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.GetUsersUserParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.GetUsersUserParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.GetUsersUserParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.GetUsersUserParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.GetUsersUserParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.GetUsersUserParameterTimestampTzOutputFormat[];
+    timezones: outputs.GetUsersUserParameterTimezone[];
+    traceLevels: outputs.GetUsersUserParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.GetUsersUserParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.GetUsersUserParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.GetUsersUserParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.GetUsersUserParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.GetUsersUserParameterUseCachedResult[];
+    weekOfYearPolicies: outputs.GetUsersUserParameterWeekOfYearPolicy[];
+    weekStarts: outputs.GetUsersUserParameterWeekStart[];
+}
+
+export interface GetUsersUserParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterEnableUnredactedQuerySyntaxError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterJdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterNetworkPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterSimulatedDataSharingConsumer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserShowOutput {
+    comment: string;
+    createdOn: string;
+    daysToExpiry: string;
+    defaultNamespace: string;
+    defaultRole: string;
+    defaultSecondaryRoles: string;
+    defaultWarehouse: string;
+    disabled: boolean;
+    displayName: string;
+    email: string;
+    expiresAtTime: string;
+    extAuthnDuo: boolean;
+    extAuthnUid: string;
+    firstName: string;
+    hasMfa: boolean;
+    hasPassword: boolean;
+    hasRsaPublicKey: boolean;
+    lastName: string;
+    lastSuccessLogin: string;
+    lockedUntilTime: string;
+    loginName: string;
+    minsToBypassMfa: string;
+    minsToUnlock: string;
+    mustChangePassword: boolean;
+    name: string;
+    owner: string;
+    snowflakeLock: boolean;
+    type: string;
+}
+
+export interface GetViewsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetViewsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetViewsView {
+    /**
+     * Holds the output of DESCRIBE VIEW.
+     */
+    describeOutputs: outputs.GetViewsViewDescribeOutput[];
+    /**
+     * Holds the output of SHOW VIEWS.
+     */
+    showOutputs: outputs.GetViewsViewShowOutput[];
+}
+
+export interface GetViewsViewDescribeOutput {
+    check: string;
     comment: string;
-    database: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    isPrimary: boolean;
+    isUnique: boolean;
+    kind: string;
     name: string;
-    schema: string;
+    policyName: string;
+    privacyDomain: string;
+    type: string;
+}
+
+export interface GetViewsViewShowOutput {
+    changeTracking: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    isMaterialized: boolean;
+    isSecure: boolean;
+    kind: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    reserved: string;
+    schemaName: string;
+    text: string;
 }
 
 export interface GetWarehousesWarehouse {
@@ -2470,7 +3164,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
      */
     objectType?: string;
 }
@@ -2479,7 +3173,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: string;
 }
@@ -2488,7 +3182,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
      */
     objectTypePlural: string;
 }
@@ -2522,7 +3216,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
      */
     objectType?: string;
 }
@@ -2537,7 +3231,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: string;
 }
@@ -2552,7 +3246,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
      */
     objectTypePlural: string;
 }
@@ -3553,23 +4247,670 @@ export interface TagAssociationObjectIdentifier {
     schema?: string;
 }
 
-export interface ViewTag {
-    /**
-     * Name of the database that the tag was created in.
-     */
-    database?: string;
-    /**
-     * Tag name, e.g. department.
-     */
-    name: string;
-    /**
-     * Name of the schema that the tag was created in.
-     */
-    schema?: string;
-    /**
-     * Tag value, e.g. marketing_info.
-     */
+export interface UserParameter {
+    abortDetachedQueries: outputs.UserParameterAbortDetachedQuery[];
+    autocommits: outputs.UserParameterAutocommit[];
+    binaryInputFormats: outputs.UserParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.UserParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.UserParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.UserParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.UserParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.UserParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.UserParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.UserParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.UserParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.UserParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.UserParameterDateInputFormat[];
+    dateOutputFormats: outputs.UserParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.UserParameterEnableUnloadPhysicalTypeOptimization[];
+    enableUnredactedQuerySyntaxErrors: outputs.UserParameterEnableUnredactedQuerySyntaxError[];
+    errorOnNondeterministicMerges: outputs.UserParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.UserParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.UserParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.UserParameterGeometryOutputFormat[];
+    jdbcTreatDecimalAsInts: outputs.UserParameterJdbcTreatDecimalAsInt[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.UserParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.UserParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.UserParameterJsonIndent[];
+    lockTimeouts: outputs.UserParameterLockTimeout[];
+    logLevels: outputs.UserParameterLogLevel[];
+    multiStatementCounts: outputs.UserParameterMultiStatementCount[];
+    networkPolicies: outputs.UserParameterNetworkPolicy[];
+    noorderSequenceAsDefaults: outputs.UserParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.UserParameterOdbcTreatDecimalAsInt[];
+    preventUnloadToInternalStages: outputs.UserParameterPreventUnloadToInternalStage[];
+    queryTags: outputs.UserParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.UserParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.UserParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.UserParameterS3StageVpceDnsName[];
+    searchPaths: outputs.UserParameterSearchPath[];
+    simulatedDataSharingConsumers: outputs.UserParameterSimulatedDataSharingConsumer[];
+    statementQueuedTimeoutInSeconds: outputs.UserParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.UserParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.UserParameterStrictJsonOutput[];
+    timeInputFormats: outputs.UserParameterTimeInputFormat[];
+    timeOutputFormats: outputs.UserParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.UserParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.UserParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.UserParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.UserParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.UserParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.UserParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.UserParameterTimestampTzOutputFormat[];
+    timezones: outputs.UserParameterTimezone[];
+    traceLevels: outputs.UserParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.UserParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.UserParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.UserParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.UserParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.UserParameterUseCachedResult[];
+    weekOfYearPolicies: outputs.UserParameterWeekOfYearPolicy[];
+    weekStarts: outputs.UserParameterWeekStart[];
+}
+
+export interface UserParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
     value: string;
+}
+
+export interface UserParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterEnableUnredactedQuerySyntaxError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterJdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterNetworkPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterSimulatedDataSharingConsumer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserShowOutput {
+    comment: string;
+    createdOn: string;
+    daysToExpiry: string;
+    defaultNamespace: string;
+    defaultRole: string;
+    defaultSecondaryRoles: string;
+    defaultWarehouse: string;
+    disabled: boolean;
+    displayName: string;
+    email: string;
+    expiresAtTime: string;
+    extAuthnDuo: boolean;
+    extAuthnUid: string;
+    firstName: string;
+    hasMfa: boolean;
+    hasPassword: boolean;
+    hasRsaPublicKey: boolean;
+    lastName: string;
+    lastSuccessLogin: string;
+    lockedUntilTime: string;
+    loginName: string;
+    minsToBypassMfa: string;
+    minsToUnlock: string;
+    mustChangePassword: boolean;
+    name: string;
+    owner: string;
+    snowflakeLock: boolean;
+    type: string;
+}
+
+export interface ViewAggregationPolicy {
+    /**
+     * Defines which columns uniquely identify an entity within the view.
+     */
+    entityKeys?: string[];
+    /**
+     * Aggregation policy name.
+     */
+    policyName: string;
+}
+
+export interface ViewColumn {
+    /**
+     * Specifies affected column name.
+     */
+    columnName: string;
+    /**
+     * Specifies a comment for the column.
+     */
+    comment?: string;
+    maskingPolicy?: outputs.ViewColumnMaskingPolicy;
+    projectionPolicy?: outputs.ViewColumnProjectionPolicy;
+}
+
+export interface ViewColumnMaskingPolicy {
+    /**
+     * Specifies the masking policy to set on a column.
+     */
+    policyName: string;
+    /**
+     * Specifies the arguments to pass into the conditional masking policy SQL expression. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+     */
+    usings?: string[];
+}
+
+export interface ViewColumnProjectionPolicy {
+    /**
+     * Specifies the projection policy to set on a column.
+     */
+    policyName: string;
+}
+
+export interface ViewDataMetricFunction {
+    /**
+     * Identifier of the data metric function to add to the table or view or drop from the table or view. This function identifier must be provided without arguments in parenthesis.
+     */
+    functionName: string;
+    /**
+     * The table or view columns on which to associate the data metric function. The data types of the columns must match the data types of the columns specified in the data metric function definition.
+     */
+    ons: string[];
+    /**
+     * The status of the metrics association. Valid values are: `STARTED` | `SUSPENDED`. When status of a data metric function is changed, it is being reassigned with `DROP DATA METRIC FUNCTION` and `ADD DATA METRIC FUNCTION`, and then its status is changed by `MODIFY DATA METRIC FUNCTION`
+     */
+    scheduleStatus: string;
+}
+
+export interface ViewDataMetricSchedule {
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field is not managed by the provider. Please consider using taint metadata argument.
+     */
+    minutes?: number;
+    /**
+     * Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
+     */
+    usingCron?: string;
+}
+
+export interface ViewDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    isPrimary: boolean;
+    isUnique: boolean;
+    kind: string;
+    name: string;
+    policyName: string;
+    privacyDomain: string;
+    type: string;
+}
+
+export interface ViewRowAccessPolicy {
+    /**
+     * Defines which columns are affected by the policy.
+     */
+    ons: string[];
+    /**
+     * Row access policy name.
+     */
+    policyName: string;
+}
+
+export interface ViewShowOutput {
+    changeTracking: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    isMaterialized: boolean;
+    isSecure: boolean;
+    kind: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    reserved: string;
+    schemaName: string;
+    text: string;
 }
 
 export interface WarehouseParameter {

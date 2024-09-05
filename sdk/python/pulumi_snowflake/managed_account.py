@@ -105,6 +105,7 @@ class _ManagedAccountState:
                  cloud: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  locator: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -117,6 +118,7 @@ class _ManagedAccountState:
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] created_on: Date and time when the managed account was created.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] locator: Display name of the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[str] region: Snowflake Region in which the managed account is located.
@@ -133,6 +135,8 @@ class _ManagedAccountState:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
             pulumi.set(__self__, "created_on", created_on)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if locator is not None:
             pulumi.set(__self__, "locator", locator)
         if name is not None:
@@ -203,6 +207,18 @@ class _ManagedAccountState:
     @created_on.setter
     def created_on(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -277,8 +293,6 @@ class ManagedAccount(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         ```sh
@@ -300,8 +314,6 @@ class ManagedAccount(pulumi.CustomResource):
                  args: ManagedAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         ```sh
@@ -348,6 +360,7 @@ class ManagedAccount(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["cloud"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["locator"] = None
             __props__.__dict__["region"] = None
             __props__.__dict__["url"] = None
@@ -368,6 +381,7 @@ class ManagedAccount(pulumi.CustomResource):
             cloud: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             locator: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
@@ -385,6 +399,7 @@ class ManagedAccount(pulumi.CustomResource):
         :param pulumi.Input[str] cloud: Cloud in which the managed account is located.
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[str] created_on: Date and time when the managed account was created.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] locator: Display name of the managed account.
         :param pulumi.Input[str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[str] region: Snowflake Region in which the managed account is located.
@@ -400,6 +415,7 @@ class ManagedAccount(pulumi.CustomResource):
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["locator"] = locator
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
@@ -446,6 +462,14 @@ class ManagedAccount(pulumi.CustomResource):
         Date and time when the managed account was created.
         """
         return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

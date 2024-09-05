@@ -279,6 +279,7 @@ class _FunctionState:
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_secure: Optional[pulumi.Input[bool]] = None,
@@ -297,6 +298,7 @@ class _FunctionState:
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgumentArgs']]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
@@ -317,6 +319,8 @@ class _FunctionState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if handler is not None:
             pulumi.set(__self__, "handler", handler)
         if imports is not None:
@@ -379,6 +383,18 @@ class _FunctionState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -560,8 +576,6 @@ class Function(pulumi.CustomResource):
                  target_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
@@ -596,8 +610,6 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
@@ -670,6 +682,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
             __props__.__dict__["target_path"] = target_path
+            __props__.__dict__["fully_qualified_name"] = None
         super(Function, __self__).__init__(
             'snowflake:index/function:Function',
             resource_name,
@@ -683,6 +696,7 @@ class Function(pulumi.CustomResource):
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionArgumentArgs', 'FunctionArgumentArgsDict']]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             handler: Optional[pulumi.Input[str]] = None,
             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_secure: Optional[pulumi.Input[bool]] = None,
@@ -706,6 +720,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionArgumentArgs', 'FunctionArgumentArgsDict']]]] arguments: List of the arguments for the function
         :param pulumi.Input[str] comment: Specifies a comment for the function.
         :param pulumi.Input[str] database: The database in which to create the function. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] handler: The handler method for Java / Python function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[bool] is_secure: Specifies that the function is secure.
@@ -727,6 +742,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["handler"] = handler
         __props__.__dict__["imports"] = imports
         __props__.__dict__["is_secure"] = is_secure
@@ -765,6 +781,14 @@ class Function(pulumi.CustomResource):
         The database in which to create the function. Don't use the | character.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

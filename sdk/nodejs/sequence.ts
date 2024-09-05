@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const test = new snowflake.Database("test", {name: "things"});
- * const testSchema = new snowflake.Schema("test_schema", {
- *     name: "things",
- *     database: test.name,
- * });
- * const testSequence = new snowflake.Sequence("test_sequence", {
- *     database: test.name,
- *     schema: testSchema.name,
- *     name: "thing_counter",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | sequence name
@@ -68,7 +50,7 @@ export class Sequence extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the sequence.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -148,7 +130,7 @@ export interface SequenceState {
      */
     database?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the sequence.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**

@@ -7,46 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.Database or snowflake.SharedDatabase or snowflake.SecondaryDatabase instead. <deprecation>
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const simple = new snowflake.DatabaseOld("simple", {
- *     name: "testing",
- *     comment: "test comment",
- *     dataRetentionTimeInDays: 3,
- * });
- * const withReplication = new snowflake.DatabaseOld("with_replication", {
- *     name: "testing_2",
- *     comment: "test comment 2",
- *     replicationConfiguration: {
- *         accounts: [
- *             "test_account1",
- *             "test_account_2",
- *         ],
- *         ignoreEditionCheck: true,
- *     },
- * });
- * const fromReplica = new snowflake.DatabaseOld("from_replica", {
- *     name: "testing_3",
- *     comment: "test comment",
- *     dataRetentionTimeInDays: 3,
- *     fromReplica: "\"org1\".\"account1\".\"primary_db_name\"",
- * });
- * const fromShare = new snowflake.DatabaseOld("from_share", {
- *     name: "testing_4",
- *     comment: "test comment",
- *     fromShare: {
- *         provider: "account1_locator",
- *         share: "share1",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

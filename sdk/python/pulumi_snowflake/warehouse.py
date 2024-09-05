@@ -42,7 +42,7 @@ class WarehouseArgs:
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
@@ -184,7 +184,7 @@ class WarehouseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -284,6 +284,7 @@ class _WarehouseState:
                  auto_suspend: Optional[pulumi.Input[int]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  initially_suspended: Optional[pulumi.Input[bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[int]] = None,
@@ -304,11 +305,12 @@ class _WarehouseState:
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -327,6 +329,8 @@ class _WarehouseState:
             pulumi.set(__self__, "comment", comment)
         if enable_query_acceleration is not None:
             pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if initially_suspended is not None:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
@@ -405,6 +409,18 @@ class _WarehouseState:
         pulumi.set(self, "enable_query_acceleration", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter(name="initiallySuspended")
     def initially_suspended(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -456,7 +472,7 @@ class _WarehouseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -596,22 +612,6 @@ class Warehouse(pulumi.CustomResource):
                  warehouse_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        warehouse = snowflake.Warehouse("warehouse",
-            name="test",
-            comment="foo",
-            warehouse_size="small")
-        ```
-
         ## Import
 
         ```sh
@@ -628,7 +628,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
@@ -644,22 +644,6 @@ class Warehouse(pulumi.CustomResource):
                  args: Optional[WarehouseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        warehouse = snowflake.Warehouse("warehouse",
-            name="test",
-            comment="foo",
-            warehouse_size="small")
-        ```
-
         ## Import
 
         ```sh
@@ -722,6 +706,7 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
             __props__.__dict__["warehouse_size"] = warehouse_size
             __props__.__dict__["warehouse_type"] = warehouse_type
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["parameters"] = None
             __props__.__dict__["show_outputs"] = None
         super(Warehouse, __self__).__init__(
@@ -738,6 +723,7 @@ class Warehouse(pulumi.CustomResource):
             auto_suspend: Optional[pulumi.Input[int]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             enable_query_acceleration: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             initially_suspended: Optional[pulumi.Input[bool]] = None,
             max_cluster_count: Optional[pulumi.Input[int]] = None,
             max_concurrency_level: Optional[pulumi.Input[int]] = None,
@@ -763,11 +749,12 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account.
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -786,6 +773,7 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["auto_suspend"] = auto_suspend
         __props__.__dict__["comment"] = comment
         __props__.__dict__["enable_query_acceleration"] = enable_query_acceleration
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["initially_suspended"] = initially_suspended
         __props__.__dict__["max_cluster_count"] = max_cluster_count
         __props__.__dict__["max_concurrency_level"] = max_concurrency_level
@@ -835,6 +823,14 @@ class Warehouse(pulumi.CustomResource):
         return pulumi.get(self, "enable_query_acceleration")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter(name="initiallySuspended")
     def initially_suspended(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -870,7 +866,7 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the virtual warehouse; must be unique for your account.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 

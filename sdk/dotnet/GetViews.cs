@@ -12,49 +12,15 @@ namespace Pulumi.Snowflake
     public static class GetViews
     {
         /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetViews.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
         /// </summary>
-        public static Task<GetViewsResult> InvokeAsync(GetViewsArgs args, InvokeOptions? options = null)
+        public static Task<GetViewsResult> InvokeAsync(GetViewsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetViews.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
         /// </summary>
-        public static Output<GetViewsResult> Invoke(GetViewsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetViewsResult> Invoke(GetViewsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsInvokeArgs(), options.WithDefaults());
     }
 
@@ -62,16 +28,34 @@ namespace Pulumi.Snowflake
     public sealed class GetViewsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of views
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetViewsInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the views from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Inputs.GetViewsLimitArgs? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public string? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
 
         public GetViewsArgs()
         {
@@ -82,16 +66,34 @@ namespace Pulumi.Snowflake
     public sealed class GetViewsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of views
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetViewsInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the views from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Input<Inputs.GetViewsLimitInputArgs>? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public Input<string>? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
 
         public GetViewsInvokeArgs()
         {
@@ -104,36 +106,57 @@ namespace Pulumi.Snowflake
     public sealed class GetViewsResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schema from which to return the views from.
+        /// IN clause to filter the list of views
         /// </summary>
-        public readonly string Schema;
+        public readonly Outputs.GetViewsInResult? In;
         /// <summary>
-        /// The views in the schema
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        public readonly Outputs.GetViewsLimitResult? Limit;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        public readonly string? StartsWith;
+        /// <summary>
+        /// Holds the aggregated output of all views details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetViewsViewResult> Views;
+        /// <summary>
+        /// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetViewsResult(
-            string database,
-
             string id,
 
-            string schema,
+            Outputs.GetViewsInResult? @in,
 
-            ImmutableArray<Outputs.GetViewsViewResult> views)
+            string? like,
+
+            Outputs.GetViewsLimitResult? limit,
+
+            string? startsWith,
+
+            ImmutableArray<Outputs.GetViewsViewResult> views,
+
+            bool? withDescribe)
         {
-            Database = database;
             Id = id;
-            Schema = schema;
+            In = @in;
+            Like = like;
+            Limit = limit;
+            StartsWith = startsWith;
             Views = views;
+            WithDescribe = withDescribe;
         }
     }
 }

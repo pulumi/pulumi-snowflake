@@ -281,6 +281,7 @@ class _TaskState:
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_integration: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
@@ -299,6 +300,7 @@ class _TaskState:
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[str] schema: The schema in which to create the task.
@@ -322,6 +324,8 @@ class _TaskState:
             pulumi.set(__self__, "enabled", enabled)
         if error_integration is not None:
             pulumi.set(__self__, "error_integration", error_integration)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schedule is not None:
@@ -414,6 +418,18 @@ class _TaskState:
     @error_integration.setter
     def error_integration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_integration", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -559,52 +575,6 @@ class Task(pulumi.CustomResource):
                  when: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        task = snowflake.Task("task",
-            comment="my task",
-            database="database",
-            schema="schema",
-            warehouse="warehouse",
-            name="task",
-            schedule="10 MINUTE",
-            sql_statement="select * from foo;",
-            session_parameters={
-                "foo": "bar",
-            },
-            user_task_timeout_ms=10000,
-            afters="preceding_task",
-            when="foo AND bar",
-            enabled=True)
-        serverless_task = snowflake.Task("serverless_task",
-            comment="my serverless task",
-            database="db",
-            schema="schema",
-            name="serverless_task",
-            schedule="10 MINUTE",
-            sql_statement="select * from foo;",
-            session_parameters={
-                "foo": "bar",
-            },
-            user_task_timeout_ms=10000,
-            user_task_managed_initial_warehouse_size="XSMALL",
-            afters=[task.name],
-            when="foo AND bar",
-            enabled=True)
-        test_task = snowflake.Task("test_task",
-            comment="task with allow_overlapping_execution",
-            database="database",
-            schema="schema",
-            name="test_task",
-            sql_statement="select 1 as c;",
-            allow_overlapping_execution=True,
-            enabled=True)
-        ```
-
         ## Import
 
         format is database name | schema name | task name
@@ -639,52 +609,6 @@ class Task(pulumi.CustomResource):
                  args: TaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        task = snowflake.Task("task",
-            comment="my task",
-            database="database",
-            schema="schema",
-            warehouse="warehouse",
-            name="task",
-            schedule="10 MINUTE",
-            sql_statement="select * from foo;",
-            session_parameters={
-                "foo": "bar",
-            },
-            user_task_timeout_ms=10000,
-            afters="preceding_task",
-            when="foo AND bar",
-            enabled=True)
-        serverless_task = snowflake.Task("serverless_task",
-            comment="my serverless task",
-            database="db",
-            schema="schema",
-            name="serverless_task",
-            schedule="10 MINUTE",
-            sql_statement="select * from foo;",
-            session_parameters={
-                "foo": "bar",
-            },
-            user_task_timeout_ms=10000,
-            user_task_managed_initial_warehouse_size="XSMALL",
-            afters=[task.name],
-            when="foo AND bar",
-            enabled=True)
-        test_task = snowflake.Task("test_task",
-            comment="task with allow_overlapping_execution",
-            database="database",
-            schema="schema",
-            name="test_task",
-            sql_statement="select 1 as c;",
-            allow_overlapping_execution=True,
-            enabled=True)
-        ```
-
         ## Import
 
         format is database name | schema name | task name
@@ -755,6 +679,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
             __props__.__dict__["warehouse"] = warehouse
             __props__.__dict__["when"] = when
+            __props__.__dict__["fully_qualified_name"] = None
         super(Task, __self__).__init__(
             'snowflake:index/task:Task',
             resource_name,
@@ -771,6 +696,7 @@ class Task(pulumi.CustomResource):
             database: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             error_integration: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
@@ -794,6 +720,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the task.
         :param pulumi.Input[bool] enabled: Specifies if the task should be started (enabled) after creation or should remain suspended (default).
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
         :param pulumi.Input[str] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
         :param pulumi.Input[str] schema: The schema in which to create the task.
@@ -815,6 +742,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["database"] = database
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["error_integration"] = error_integration
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["schema"] = schema
@@ -874,6 +802,14 @@ class Task(pulumi.CustomResource):
         Specifies the name of the notification integration used for error notifications.
         """
         return pulumi.get(self, "error_integration")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

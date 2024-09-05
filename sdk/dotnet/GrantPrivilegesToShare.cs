@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
+    /// ## Import
     /// 
     /// ### OnView
     /// 
@@ -32,6 +32,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("onDatabase")]
         public Output<string?> OnDatabase { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified name of the function on which privileges will be granted.
+        /// </summary>
+        [Output("onFunction")]
+        public Output<string?> OnFunction { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified name of the schema on which privileges will be granted.
@@ -128,6 +134,12 @@ namespace Pulumi.Snowflake
         public Input<string>? OnDatabase { get; set; }
 
         /// <summary>
+        /// The fully qualified name of the function on which privileges will be granted.
+        /// </summary>
+        [Input("onFunction")]
+        public Input<string>? OnFunction { get; set; }
+
+        /// <summary>
         /// The fully qualified name of the schema on which privileges will be granted.
         /// </summary>
         [Input("onSchema")]
@@ -188,6 +200,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("onDatabase")]
         public Input<string>? OnDatabase { get; set; }
+
+        /// <summary>
+        /// The fully qualified name of the function on which privileges will be granted.
+        /// </summary>
+        [Input("onFunction")]
+        public Input<string>? OnFunction { get; set; }
 
         /// <summary>
         /// The fully qualified name of the schema on which privileges will be granted.

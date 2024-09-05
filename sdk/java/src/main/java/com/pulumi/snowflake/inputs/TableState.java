@@ -112,6 +112,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
@@ -165,21 +180,6 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Qualified name of the table.
-     * 
-     */
-    @Import(name="qualifiedName")
-    private @Nullable Output<String> qualifiedName;
-
-    /**
-     * @return Qualified name of the table.
-     * 
-     */
-    public Optional<Output<String>> qualifiedName() {
-        return Optional.ofNullable(this.qualifiedName);
-    }
-
-    /**
      * The schema in which to create the table.
      * 
      */
@@ -226,10 +226,10 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.database = $.database;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.owner = $.owner;
         this.primaryKey = $.primaryKey;
-        this.qualifiedName = $.qualifiedName;
         this.schema = $.schema;
         this.tags = $.tags;
     }
@@ -399,6 +399,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param name Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
          * 
          * @return builder
@@ -467,27 +488,6 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Use snowflake.TableConstraint instead */
         public Builder primaryKey(TablePrimaryKeyArgs primaryKey) {
             return primaryKey(Output.of(primaryKey));
-        }
-
-        /**
-         * @param qualifiedName Qualified name of the table.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
-            $.qualifiedName = qualifiedName;
-            return this;
-        }
-
-        /**
-         * @param qualifiedName Qualified name of the table.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(String qualifiedName) {
-            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

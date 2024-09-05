@@ -10,47 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Snowflake.MaskingPolicy("test", new()
-    ///     {
-    ///         Name = "EXAMPLE_MASKING_POLICY",
-    ///         Database = "EXAMPLE_DB",
-    ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Signature = new Snowflake.Inputs.MaskingPolicySignatureArgs
-    ///         {
-    ///             Columns = new[]
-    ///             {
-    ///                 new Snowflake.Inputs.MaskingPolicySignatureColumnArgs
-    ///                 {
-    ///                     Name = "val",
-    ///                     Type = "VARCHAR",
-    ///                 },
-    ///             },
-    ///         },
-    ///         MaskingExpression = @"case 
-    ///   when current_role() in ('ROLE_A') then 
-    ///     val 
-    ///   when is_role_in_session( 'ROLE_B' ) then 
-    ///     'ABC123'
-    ///   else
-    ///     '******'
-    /// end
-    /// ",
-    ///         ReturnDataType = "VARCHAR",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | policy name
@@ -81,6 +40,12 @@ namespace Pulumi.Snowflake
         public Output<bool?> ExemptOtherPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Prevent overwriting a previous masking policy with the same name.
         /// </summary>
         [Output("ifNotExists")]
@@ -103,12 +68,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the qualified identifier for the masking policy.
-        /// </summary>
-        [Output("qualifiedName")]
-        public Output<string> QualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the data type to return.
@@ -261,6 +220,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? ExemptOtherPolicies { get; set; }
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
         /// Prevent overwriting a previous masking policy with the same name.
         /// </summary>
         [Input("ifNotExists")]
@@ -283,12 +248,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
-
-        /// <summary>
-        /// Specifies the qualified identifier for the masking policy.
-        /// </summary>
-        [Input("qualifiedName")]
-        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the data type to return.

@@ -10,37 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Snowflake.Database("test", new()
-    ///     {
-    ///         Name = "things",
-    ///     });
-    /// 
-    ///     var testSchema = new Snowflake.Schema("test_schema", new()
-    ///     {
-    ///         Name = "things",
-    ///         Database = test.Name,
-    ///     });
-    /// 
-    ///     var testSequence = new Snowflake.Sequence("test_sequence", new()
-    ///     {
-    ///         Database = test.Name,
-    ///         Schema = testSchema.Name,
-    ///         Name = "thing_counter",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | sequence name
@@ -65,7 +34,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the sequence.
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -203,7 +172,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the sequence.
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }

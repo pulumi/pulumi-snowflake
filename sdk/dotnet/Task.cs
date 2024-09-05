@@ -10,71 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var task = new Snowflake.Task("task", new()
-    ///     {
-    ///         Comment = "my task",
-    ///         Database = "database",
-    ///         Schema = "schema",
-    ///         Warehouse = "warehouse",
-    ///         Name = "task",
-    ///         Schedule = "10 MINUTE",
-    ///         SqlStatement = "select * from foo;",
-    ///         SessionParameters = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///         UserTaskTimeoutMs = 10000,
-    ///         Afters = "preceding_task",
-    ///         When = "foo AND bar",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    ///     var serverlessTask = new Snowflake.Task("serverless_task", new()
-    ///     {
-    ///         Comment = "my serverless task",
-    ///         Database = "db",
-    ///         Schema = "schema",
-    ///         Name = "serverless_task",
-    ///         Schedule = "10 MINUTE",
-    ///         SqlStatement = "select * from foo;",
-    ///         SessionParameters = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///         UserTaskTimeoutMs = 10000,
-    ///         UserTaskManagedInitialWarehouseSize = "XSMALL",
-    ///         Afters = new[]
-    ///         {
-    ///             task.Name,
-    ///         },
-    ///         When = "foo AND bar",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    ///     var testTask = new Snowflake.Task("test_task", new()
-    ///     {
-    ///         Comment = "task with allow_overlapping_execution",
-    ///         Database = "database",
-    ///         Schema = "schema",
-    ///         Name = "test_task",
-    ///         SqlStatement = "select 1 as c;",
-    ///         AllowOverlappingExecution = true,
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | task name
@@ -121,6 +56,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("errorIntegration")]
         public Output<string?> ErrorIntegration { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
@@ -385,6 +326,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.

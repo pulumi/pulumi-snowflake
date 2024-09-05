@@ -51,6 +51,20 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
      * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
@@ -245,20 +259,6 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> orReplace() {
         return Codegen.optional(this.orReplace);
-    }
-    /**
-     * The qualified name for the password policy.
-     * 
-     */
-    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedName;
-
-    /**
-     * @return The qualified name for the password policy.
-     * 
-     */
-    public Output<String> qualifiedName() {
-        return this.qualifiedName;
     }
     /**
      * The schema this password policy belongs to.

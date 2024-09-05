@@ -7,27 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const alert = new snowflake.Alert("alert", {
- *     database: "database",
- *     schema: "schema",
- *     name: "alert",
- *     warehouse: "warehouse",
- *     alertSchedule: {
- *         interval: 10,
- *     },
- *     condition: "select 1 as c",
- *     action: "select 1 as c",
- *     enabled: true,
- *     comment: "my alert",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | alert name
@@ -89,6 +68,10 @@ export class Alert extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -120,6 +103,7 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["condition"] = state ? state.condition : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["warehouse"] = state ? state.warehouse : undefined;
@@ -149,6 +133,7 @@ export class Alert extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Alert.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +168,10 @@ export interface AlertState {
      * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      */

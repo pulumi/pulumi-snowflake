@@ -11,44 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
-//				Name:    pulumi.String("share_name"),
-//				Comment: pulumi.String("cool comment"),
-//				Accounts: pulumi.StringArray{
-//					pulumi.String("organizationName.accountName"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewDatabase(ctx, "example", &snowflake.DatabaseArgs{
-//				Name: pulumi.String("test"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -61,6 +23,8 @@ type Share struct {
 	Accounts pulumi.StringArrayOutput `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -99,6 +63,8 @@ type shareState struct {
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name *string `pulumi:"name"`
 }
@@ -108,6 +74,8 @@ type ShareState struct {
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name pulumi.StringPtrInput
 }
@@ -230,6 +198,11 @@ func (o ShareOutput) Accounts() pulumi.StringArrayOutput {
 // Specifies a comment for the managed account.
 func (o ShareOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ShareOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the share; must be unique for the account in which the share is created.

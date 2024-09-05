@@ -12,41 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewPasswordPolicy(ctx, "default", &snowflake.PasswordPolicyArgs{
-//				Database: pulumi.String("prod"),
-//				Schema:   pulumi.String("security"),
-//				Name:     pulumi.String("default_policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewAccountPasswordPolicyAttachment(ctx, "attachment", &snowflake.AccountPasswordPolicyAttachmentArgs{
-//				PasswordPolicy: _default.QualifiedName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type AccountPasswordPolicyAttachment struct {
 	pulumi.CustomResourceState
 

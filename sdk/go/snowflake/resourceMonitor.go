@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewResourceMonitor(ctx, "monitor", &snowflake.ResourceMonitorArgs{
-//				Name:           pulumi.String("monitor"),
-//				CreditQuota:    pulumi.Int(100),
-//				Frequency:      pulumi.String("DAILY"),
-//				StartTimestamp: pulumi.String("2020-12-07 00:00"),
-//				EndTimestamp:   pulumi.String("2021-12-07 00:00"),
-//				NotifyTriggers: pulumi.IntArray{
-//					pulumi.Int(40),
-//					pulumi.Int(50),
-//				},
-//				SuspendTriggers:          pulumi.IntArray(50),
-//				SuspendImmediateTriggers: pulumi.IntArray(90),
-//				NotifyUsers: pulumi.StringArray{
-//					pulumi.String("USERONE"),
-//					pulumi.String("USERTWO"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is the resource monitor name
@@ -67,6 +27,8 @@ type ResourceMonitor struct {
 	EndTimestamp pulumi.StringPtrOutput `pulumi:"endTimestamp"`
 	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
@@ -129,6 +91,8 @@ type resourceMonitorState struct {
 	EndTimestamp *string `pulumi:"endTimestamp"`
 	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency *string `pulumi:"frequency"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Identifier for the resource monitor; must be unique for your account.
 	Name *string `pulumi:"name"`
 	// A list of percentage thresholds at which to send an alert to subscribed users.
@@ -162,6 +126,8 @@ type ResourceMonitorState struct {
 	EndTimestamp pulumi.StringPtrInput
 	// The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 	Frequency pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Identifier for the resource monitor; must be unique for your account.
 	Name pulumi.StringPtrInput
 	// A list of percentage thresholds at which to send an alert to subscribed users.
@@ -359,6 +325,11 @@ func (o ResourceMonitorOutput) EndTimestamp() pulumi.StringPtrOutput {
 // The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
 func (o ResourceMonitorOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ResourceMonitorOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Identifier for the resource monitor; must be unique for your account.

@@ -12,85 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-//
-// Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// basic resource
-//			_, err := snowflake.NewOauthIntegrationForCustomClients(ctx, "basic", &snowflake.OauthIntegrationForCustomClientsArgs{
-//				Name:             pulumi.String("saml_integration"),
-//				OauthClientType:  pulumi.String("CONFIDENTIAL"),
-//				OauthRedirectUri: pulumi.String("https://example.com"),
-//				BlockedRolesLists: pulumi.StringArray{
-//					pulumi.String("ACCOUNTADMIN"),
-//					pulumi.String("SECURITYADMIN"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "rsa.pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "rsa2.pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// resource with all fields set
-//			_, err = snowflake.NewOauthIntegrationForCustomClients(ctx, "complete", &snowflake.OauthIntegrationForCustomClientsArgs{
-//				Name:                        pulumi.String("saml_integration"),
-//				OauthClientType:             pulumi.String("CONFIDENTIAL"),
-//				OauthRedirectUri:            pulumi.String("https://example.com"),
-//				Enabled:                     pulumi.String("true"),
-//				OauthAllowNonTlsRedirectUri: pulumi.String("true"),
-//				OauthEnforcePkce:            pulumi.String("true"),
-//				OauthUseSecondaryRoles:      pulumi.String("NONE"),
-//				PreAuthorizedRolesLists: pulumi.StringArray{
-//					pulumi.String("role_id1"),
-//					pulumi.String("role_id2"),
-//				},
-//				BlockedRolesLists: pulumi.StringArray{
-//					pulumi.String("ACCOUNTADMIN"),
-//					pulumi.String("SECURITYADMIN"),
-//					pulumi.String("role_id1"),
-//					pulumi.String("role_id2"),
-//				},
-//				OauthIssueRefreshTokens:   pulumi.String("true"),
-//				OauthRefreshTokenValidity: pulumi.Int(87600),
-//				NetworkPolicy:             pulumi.String("network_policy_id"),
-//				OauthClientRsaPublicKey:   pulumi.String(invokeFile.Result),
-//				OauthClientRsaPublicKey2:  pulumi.String(invokeFile1.Result),
-//				Comment:                   pulumi.String("my oauth integration"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -107,7 +28,9 @@ type OauthIntegrationForCustomClients struct {
 	DescribeOutputs OauthIntegrationForCustomClientsDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
@@ -180,7 +103,9 @@ type oauthIntegrationForCustomClientsState struct {
 	DescribeOutputs []OauthIntegrationForCustomClientsDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled *string `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -215,7 +140,9 @@ type OauthIntegrationForCustomClientsState struct {
 	DescribeOutputs OauthIntegrationForCustomClientsDescribeOutputArrayInput
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
 	NetworkPolicy pulumi.StringPtrInput
@@ -252,7 +179,7 @@ type oauthIntegrationForCustomClientsArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled *string `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -284,7 +211,7 @@ type OauthIntegrationForCustomClientsArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
 	NetworkPolicy pulumi.StringPtrInput
@@ -417,7 +344,12 @@ func (o OauthIntegrationForCustomClientsOutput) Enabled() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringPtrOutput { return v.Enabled }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o OauthIntegrationForCustomClientsOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o OauthIntegrationForCustomClientsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

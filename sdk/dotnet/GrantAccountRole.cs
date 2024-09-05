@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

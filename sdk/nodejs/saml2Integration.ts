@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage saml2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
- *
  * ## Import
  *
  * ```sh
@@ -66,7 +62,11 @@ export class Saml2Integration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,6 +140,7 @@ export class Saml2Integration extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["saml2EnableSpInitiated"] = state ? state.saml2EnableSpInitiated : undefined;
             resourceInputs["saml2ForceAuthn"] = state ? state.saml2ForceAuthn : undefined;
@@ -186,6 +187,7 @@ export class Saml2Integration extends pulumi.CustomResource {
             resourceInputs["saml2SsoUrl"] = args ? args.saml2SsoUrl : undefined;
             resourceInputs["saml2X509Cert"] = args ? args.saml2X509Cert : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -218,7 +220,11 @@ export interface Saml2IntegrationState {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -296,7 +302,7 @@ export interface Saml2IntegrationArgs {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

@@ -324,7 +324,9 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+        ## Import
+
+        ### Import examples
 
         #### Grant all privileges OnDatabase
 
@@ -368,7 +370,9 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  args: GrantPrivilegesToDatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+        ## Import
+
+        ### Import examples
 
         #### Grant all privileges OnDatabase
 

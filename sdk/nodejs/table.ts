@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * format is database name | schema name | table name
@@ -70,6 +68,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -83,10 +85,6 @@ export class Table extends pulumi.CustomResource {
      * @deprecated Use snowflake.TableConstraint instead
      */
     public readonly primaryKey!: pulumi.Output<outputs.TablePrimaryKey | undefined>;
-    /**
-     * Qualified name of the table.
-     */
-    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
     /**
      * The schema in which to create the table.
      */
@@ -117,10 +115,10 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -144,8 +142,8 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
-            resourceInputs["qualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Table.__pulumiType, name, resourceInputs, opts);
@@ -181,6 +179,10 @@ export interface TableState {
      */
     database?: pulumi.Input<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
     name?: pulumi.Input<string>;
@@ -194,10 +196,6 @@ export interface TableState {
      * @deprecated Use snowflake.TableConstraint instead
      */
     primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
-    /**
-     * Qualified name of the table.
-     */
-    qualifiedName?: pulumi.Input<string>;
     /**
      * The schema in which to create the table.
      */

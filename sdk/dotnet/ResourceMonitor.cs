@@ -10,40 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var monitor = new Snowflake.ResourceMonitor("monitor", new()
-    ///     {
-    ///         Name = "monitor",
-    ///         CreditQuota = 100,
-    ///         Frequency = "DAILY",
-    ///         StartTimestamp = "2020-12-07 00:00",
-    ///         EndTimestamp = "2021-12-07 00:00",
-    ///         NotifyTriggers = new[]
-    ///         {
-    ///             40,
-    ///             50,
-    ///         },
-    ///         SuspendTriggers = 50,
-    ///         SuspendImmediateTriggers = 90,
-    ///         NotifyUsers = new[]
-    ///         {
-    ///             "USERONE",
-    ///             "USERTWO",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is the resource monitor name
@@ -72,6 +38,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the resource monitor; must be unique for your account.
@@ -314,6 +286,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Identifier for the resource monitor; must be unique for your account.

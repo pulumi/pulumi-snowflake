@@ -12,56 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the password policy to use for a certain user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
-//				Name: pulumi.String("USER_NAME"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			pp, err := snowflake.NewPasswordPolicy(ctx, "pp", &snowflake.PasswordPolicyArgs{
-//				Database: pulumi.String("prod"),
-//				Schema:   pulumi.String("security"),
-//				Name:     pulumi.String("default_policy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewUserPasswordPolicyAttachment(ctx, "ppa", &snowflake.UserPasswordPolicyAttachmentArgs{
-//				PasswordPolicyName: pulumi.All(pp.Database, pp.Schema, pp.Name).ApplyT(func(_args []interface{}) (string, error) {
-//					database := _args[0].(string)
-//					schema := _args[1].(string)
-//					name := _args[2].(string)
-//					return fmt.Sprintf("\"%v\".\"%v\".\"%v\"", database, schema, name), nil
-//				}).(pulumi.StringOutput),
-//				UserName: user.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

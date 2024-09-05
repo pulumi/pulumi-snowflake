@@ -12,51 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := snowflake.NewDatabase(ctx, "database", &snowflake.DatabaseArgs{
-//				Name: pulumi.String("database"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
-//				Name:     pulumi.String("schema"),
-//				Database: database.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTag(ctx, "tag", &snowflake.TagArgs{
-//				Name:     pulumi.String("cost_center"),
-//				Database: database.Name,
-//				Schema:   schema.Name,
-//				AllowedValues: pulumi.StringArray{
-//					pulumi.String("finance"),
-//					pulumi.String("engineering"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | tag name
@@ -73,6 +28,8 @@ type Tag struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the tag.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the tag.
@@ -121,6 +78,8 @@ type tagState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the tag.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the tag.
@@ -134,6 +93,8 @@ type TagState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the tag.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the tag.
@@ -271,6 +232,11 @@ func (o TagOutput) Comment() pulumi.StringPtrOutput {
 // The database in which to create the tag.
 func (o TagOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o TagOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the tag; must be unique for the database in which the tag is created.

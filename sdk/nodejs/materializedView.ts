@@ -7,24 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const view = new snowflake.MaterializedView("view", {
- *     database: "db",
- *     schema: "schema",
- *     name: "view",
- *     warehouse: "warehouse",
- *     comment: "comment",
- *     statement: "select * from foo;\n",
- *     orReplace: false,
- *     isSecure: false,
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | view name
@@ -69,6 +51,10 @@ export class MaterializedView extends pulumi.CustomResource {
      * The database in which to create the view. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * Specifies that the view is secure.
      */
@@ -115,6 +101,7 @@ export class MaterializedView extends pulumi.CustomResource {
             const state = argsOrState as MaterializedViewState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["isSecure"] = state ? state.isSecure : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["orReplace"] = state ? state.orReplace : undefined;
@@ -145,6 +132,7 @@ export class MaterializedView extends pulumi.CustomResource {
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaterializedView.__pulumiType, name, resourceInputs, opts);
@@ -163,6 +151,10 @@ export interface MaterializedViewState {
      * The database in which to create the view. Don't use the | character.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies that the view is secure.
      */

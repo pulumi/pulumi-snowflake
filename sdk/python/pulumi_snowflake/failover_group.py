@@ -173,6 +173,7 @@ class _FailoverGroupState:
                  allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  from_replica: Optional[pulumi.Input['FailoverGroupFromReplicaArgs']] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  ignore_edition_check: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -184,6 +185,7 @@ class _FailoverGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input['FailoverGroupFromReplicaArgs'] from_replica: Specifies the name of the replica to use as the source for the failover group.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
@@ -199,6 +201,8 @@ class _FailoverGroupState:
             pulumi.set(__self__, "allowed_shares", allowed_shares)
         if from_replica is not None:
             pulumi.set(__self__, "from_replica", from_replica)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if ignore_edition_check is not None:
             pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
         if name is not None:
@@ -269,6 +273,18 @@ class _FailoverGroupState:
         pulumi.set(self, "from_replica", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter(name="ignoreEditionCheck")
     def ignore_edition_check(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -333,42 +349,6 @@ class FailoverGroup(pulumi.CustomResource):
                  replication_schedule: Optional[pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db = snowflake.Database("db", name="db1")
-        source_failover_group = snowflake.FailoverGroup("source_failover_group",
-            name="FG1",
-            object_types=[
-                "WAREHOUSES",
-                "DATABASES",
-                "INTEGRATIONS",
-                "ROLES",
-            ],
-            allowed_accounts=[
-                "<org_name>.<target_account_name1>",
-                "<org_name>.<target_account_name2>",
-            ],
-            allowed_databases=[db.name],
-            allowed_integration_types=["SECURITY INTEGRATIONS"],
-            replication_schedule={
-                "cron": {
-                    "expression": "0 0 10-20 * TUE,THU",
-                    "time_zone": "UTC",
-                },
-            })
-        target_failover_group = snowflake.FailoverGroup("target_failover_group",
-            name="FG1",
-            from_replica={
-                "organization_name": "...",
-                "source_account_name": "...",
-                "name": source_failover_group.name,
-            })
-        ```
-
         ## Import
 
         ```sh
@@ -394,42 +374,6 @@ class FailoverGroup(pulumi.CustomResource):
                  args: Optional[FailoverGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db = snowflake.Database("db", name="db1")
-        source_failover_group = snowflake.FailoverGroup("source_failover_group",
-            name="FG1",
-            object_types=[
-                "WAREHOUSES",
-                "DATABASES",
-                "INTEGRATIONS",
-                "ROLES",
-            ],
-            allowed_accounts=[
-                "<org_name>.<target_account_name1>",
-                "<org_name>.<target_account_name2>",
-            ],
-            allowed_databases=[db.name],
-            allowed_integration_types=["SECURITY INTEGRATIONS"],
-            replication_schedule={
-                "cron": {
-                    "expression": "0 0 10-20 * TUE,THU",
-                    "time_zone": "UTC",
-                },
-            })
-        target_failover_group = snowflake.FailoverGroup("target_failover_group",
-            name="FG1",
-            from_replica={
-                "organization_name": "...",
-                "source_account_name": "...",
-                "name": source_failover_group.name,
-            })
-        ```
-
         ## Import
 
         ```sh
@@ -478,6 +422,7 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["object_types"] = object_types
             __props__.__dict__["replication_schedule"] = replication_schedule
+            __props__.__dict__["fully_qualified_name"] = None
         super(FailoverGroup, __self__).__init__(
             'snowflake:index/failoverGroup:FailoverGroup',
             resource_name,
@@ -493,6 +438,7 @@ class FailoverGroup(pulumi.CustomResource):
             allowed_integration_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             allowed_shares: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             from_replica: Optional[pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             ignore_edition_check: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             object_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -509,6 +455,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_integration_types: Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_shares: Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         :param pulumi.Input[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict']] from_replica: Specifies the name of the replica to use as the source for the failover group.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] ignore_edition_check: Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
@@ -523,6 +470,7 @@ class FailoverGroup(pulumi.CustomResource):
         __props__.__dict__["allowed_integration_types"] = allowed_integration_types
         __props__.__dict__["allowed_shares"] = allowed_shares
         __props__.__dict__["from_replica"] = from_replica
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["ignore_edition_check"] = ignore_edition_check
         __props__.__dict__["name"] = name
         __props__.__dict__["object_types"] = object_types
@@ -568,6 +516,14 @@ class FailoverGroup(pulumi.CustomResource):
         Specifies the name of the replica to use as the source for the failover group.
         """
         return pulumi.get(self, "from_replica")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="ignoreEditionCheck")

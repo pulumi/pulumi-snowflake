@@ -62,6 +62,21 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Create an insert only stream type.
      * 
      */
@@ -187,6 +202,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         this.appendOnly = $.appendOnly;
         this.comment = $.comment;
         this.database = $.database;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.insertOnly = $.insertOnly;
         this.name = $.name;
         this.onStage = $.onStage;
@@ -276,6 +292,27 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**

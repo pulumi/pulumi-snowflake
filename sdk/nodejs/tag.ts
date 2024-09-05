@@ -5,28 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const database = new snowflake.Database("database", {name: "database"});
- * const schema = new snowflake.Schema("schema", {
- *     name: "schema",
- *     database: database.name,
- * });
- * const tag = new snowflake.Tag("tag", {
- *     name: "cost_center",
- *     database: database.name,
- *     schema: schema.name,
- *     allowedValues: [
- *         "finance",
- *         "engineering",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | tag name
@@ -76,6 +54,10 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -100,6 +82,7 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["allowedValues"] = state ? state.allowedValues : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
@@ -115,6 +98,7 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Tag.__pulumiType, name, resourceInputs, opts);
@@ -137,6 +121,10 @@ export interface TagState {
      * The database in which to create the tag.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
      */

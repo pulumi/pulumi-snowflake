@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage api authentication security integration objects with client credentials. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
- *
  * ## Import
  *
  * ```sh
@@ -58,7 +54,11 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,6 +110,7 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauthAccessTokenValidity"] = state ? state.oauthAccessTokenValidity : undefined;
             resourceInputs["oauthAllowedScopes"] = state ? state.oauthAllowedScopes : undefined;
@@ -141,6 +142,7 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthTokenEndpoint"] = args ? args.oauthTokenEndpoint : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -165,7 +167,11 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,7 +221,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

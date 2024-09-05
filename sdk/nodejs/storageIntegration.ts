@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * ```sh
@@ -56,6 +54,10 @@ export class StorageIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -104,6 +106,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["storageAllowedLocations"] = state ? state.storageAllowedLocations : undefined;
             resourceInputs["storageAwsExternalId"] = state ? state.storageAwsExternalId : undefined;
@@ -135,6 +138,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["azureConsentUrl"] = undefined /*out*/;
             resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["storageAwsExternalId"] = undefined /*out*/;
             resourceInputs["storageAwsIamUserArn"] = undefined /*out*/;
             resourceInputs["storageGcpServiceAccount"] = undefined /*out*/;
@@ -163,6 +167,10 @@ export interface StorageIntegrationState {
      */
     createdOn?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.

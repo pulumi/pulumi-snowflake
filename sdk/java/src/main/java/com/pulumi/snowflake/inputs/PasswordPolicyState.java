@@ -48,6 +48,21 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
@@ -258,21 +273,6 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The qualified name for the password policy.
-     * 
-     */
-    @Import(name="qualifiedName")
-    private @Nullable Output<String> qualifiedName;
-
-    /**
-     * @return The qualified name for the password policy.
-     * 
-     */
-    public Optional<Output<String>> qualifiedName() {
-        return Optional.ofNullable(this.qualifiedName);
-    }
-
-    /**
      * The schema this password policy belongs to.
      * 
      */
@@ -292,6 +292,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     private PasswordPolicyState(PasswordPolicyState $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.history = $.history;
         this.ifNotExists = $.ifNotExists;
         this.lockoutTimeMins = $.lockoutTimeMins;
@@ -306,7 +307,6 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         this.minUpperCaseChars = $.minUpperCaseChars;
         this.name = $.name;
         this.orReplace = $.orReplace;
-        this.qualifiedName = $.qualifiedName;
         this.schema = $.schema;
     }
 
@@ -368,6 +368,27 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**
@@ -662,27 +683,6 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          */
         public Builder orReplace(Boolean orReplace) {
             return orReplace(Output.of(orReplace));
-        }
-
-        /**
-         * @param qualifiedName The qualified name for the password policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
-            $.qualifiedName = qualifiedName;
-            return this;
-        }
-
-        /**
-         * @param qualifiedName The qualified name for the password policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(String qualifiedName) {
-            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

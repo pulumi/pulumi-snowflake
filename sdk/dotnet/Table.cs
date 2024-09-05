@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | table name
@@ -60,6 +58,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         /// </summary>
         [Output("name")]
@@ -76,12 +80,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("primaryKey")]
         public Output<Outputs.TablePrimaryKey?> PrimaryKey { get; private set; } = null!;
-
-        /// <summary>
-        /// Qualified name of the table.
-        /// </summary>
-        [Output("qualifiedName")]
-        public Output<string> QualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// The schema in which to create the table.
@@ -277,6 +275,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
         /// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         /// </summary>
         [Input("name")]
@@ -293,12 +297,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("primaryKey")]
         public Input<Inputs.TablePrimaryKeyGetArgs>? PrimaryKey { get; set; }
-
-        /// <summary>
-        /// Qualified name of the table.
-        /// </summary>
-        [Input("qualifiedName")]
-        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// The schema in which to create the table.

@@ -10,34 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var rule = new Snowflake.NetworkRule("rule", new()
-    ///     {
-    ///         Name = "rule",
-    ///         Database = "EXAMPLE_DB",
-    ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Comment = "A rule.",
-    ///         Type = "IPV4",
-    ///         Mode = "INGRESS",
-    ///         ValueLists = new[]
-    ///         {
-    ///             "192.168.0.100/24",
-    ///             "29.254.123.20",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -60,6 +32,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         /// </summary>
         [Output("mode")]
@@ -70,12 +48,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Qualified name of the network rule.
-        /// </summary>
-        [Output("qualifiedName")]
-        public Output<string> QualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// The schema in which to create the network rule.
@@ -210,6 +182,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
         /// Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         /// </summary>
         [Input("mode")]
@@ -220,12 +198,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Qualified name of the network rule.
-        /// </summary>
-        [Input("qualifiedName")]
-        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// The schema in which to create the network rule.

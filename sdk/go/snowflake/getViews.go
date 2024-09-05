@@ -11,32 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetViews(ctx, &snowflake.GetViewsArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOption) (*GetViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetViewsResult
@@ -49,22 +24,34 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of views
+	In *GetViewsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetViewsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getViews.
 type GetViewsResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The schema from which to return the views from.
-	Schema string `pulumi:"schema"`
-	// The views in the schema
+	// IN clause to filter the list of views
+	In *GetViewsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetViewsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Holds the aggregated output of all views details queries.
 	Views []GetViewsView `pulumi:"views"`
+	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi.InvokeOption) GetViewsResultOutput {
@@ -82,10 +69,16 @@ func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getViews.
 type GetViewsOutputArgs struct {
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the views from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of views
+	In GetViewsInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetViewsLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetViewsOutputArgs) ElementType() reflect.Type {
@@ -107,24 +100,39 @@ func (o GetViewsResultOutput) ToGetViewsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The database from which to return the schemas from.
-func (o GetViewsResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetViewsResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetViewsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the views from.
-func (o GetViewsResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetViewsResult) string { return v.Schema }).(pulumi.StringOutput)
+// IN clause to filter the list of views
+func (o GetViewsResultOutput) In() GetViewsInPtrOutput {
+	return o.ApplyT(func(v GetViewsResult) *GetViewsIn { return v.In }).(GetViewsInPtrOutput)
 }
 
-// The views in the schema
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetViewsResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetViewsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetViewsResultOutput) Limit() GetViewsLimitPtrOutput {
+	return o.ApplyT(func(v GetViewsResult) *GetViewsLimit { return v.Limit }).(GetViewsLimitPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetViewsResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetViewsResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all views details queries.
 func (o GetViewsResultOutput) Views() GetViewsViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsView { return v.Views }).(GetViewsViewArrayOutput)
+}
+
+// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetViewsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetViewsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

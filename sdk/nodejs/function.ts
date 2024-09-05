@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
@@ -57,6 +55,10 @@ export class Function extends pulumi.CustomResource {
      * The database in which to create the function. Don't use the | character.
      */
     public readonly database!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * The handler method for Java / Python function.
      */
@@ -126,6 +128,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["handler"] = state ? state.handler : undefined;
             resourceInputs["imports"] = state ? state.imports : undefined;
             resourceInputs["isSecure"] = state ? state.isSecure : undefined;
@@ -169,6 +172,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["targetPath"] = args ? args.targetPath : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Function.__pulumiType, name, resourceInputs, opts);
@@ -191,6 +195,10 @@ export interface FunctionState {
      * The database in which to create the function. Don't use the | character.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The handler method for Java / Python function.
      */

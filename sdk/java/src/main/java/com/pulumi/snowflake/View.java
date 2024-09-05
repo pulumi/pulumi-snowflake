@@ -10,7 +10,13 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.ViewArgs;
 import com.pulumi.snowflake.inputs.ViewState;
-import com.pulumi.snowflake.outputs.ViewTag;
+import com.pulumi.snowflake.outputs.ViewAggregationPolicy;
+import com.pulumi.snowflake.outputs.ViewColumn;
+import com.pulumi.snowflake.outputs.ViewDataMetricFunction;
+import com.pulumi.snowflake.outputs.ViewDataMetricSchedule;
+import com.pulumi.snowflake.outputs.ViewDescribeOutput;
+import com.pulumi.snowflake.outputs.ViewRowAccessPolicy;
+import com.pulumi.snowflake.outputs.ViewShowOutput;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -18,60 +24,57 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.View;
- * import com.pulumi.snowflake.ViewArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var view = new View("view", ViewArgs.builder()
- *             .database("database")
- *             .schema("schema")
- *             .name("view")
- *             .comment("comment")
- *             .statement("""
- * select * from foo;
- *             """)
- *             .orReplace(false)
- *             .isSecure(false)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
- * format is database name | schema name | view name
- * 
  * ```sh
- * $ pulumi import snowflake:index/view:View example &#39;dbName|schemaName|viewName&#39;
+ * $ pulumi import snowflake:index/view:View example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;view_name&gt;&#34;&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/view:View")
 public class View extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the aggregation policy to set on a view.
+     * 
+     */
+    @Export(name="aggregationPolicy", refs={ViewAggregationPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ ViewAggregationPolicy> aggregationPolicy;
+
+    /**
+     * @return Specifies the aggregation policy to set on a view.
+     * 
+     */
+    public Output<Optional<ViewAggregationPolicy>> aggregationPolicy() {
+        return Codegen.optional(this.aggregationPolicy);
+    }
+    /**
+     * Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="changeTracking", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> changeTracking;
+
+    /**
+     * @return Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> changeTracking() {
+        return Codegen.optional(this.changeTracking);
+    }
+    /**
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * 
+     */
+    @Export(name="columns", refs={List.class,ViewColumn.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ViewColumn>> columns;
+
+    /**
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * 
+     */
+    public Output<Optional<List<ViewColumn>>> columns() {
+        return Codegen.optional(this.columns);
+    }
     /**
      * Specifies a comment for the view.
      * 
@@ -87,94 +90,170 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
      * 
      */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
     /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
      * 
      */
     public Output<Optional<Boolean>> copyGrants() {
         return Codegen.optional(this.copyGrants);
     }
     /**
-     * The timestamp at which the view was created.
+     * Data metric functions used for the view.
      * 
      */
-    @Export(name="createdOn", refs={String.class}, tree="[0]")
-    private Output<String> createdOn;
+    @Export(name="dataMetricFunctions", refs={List.class,ViewDataMetricFunction.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ViewDataMetricFunction>> dataMetricFunctions;
 
     /**
-     * @return The timestamp at which the view was created.
+     * @return Data metric functions used for the view.
      * 
      */
-    public Output<String> createdOn() {
-        return this.createdOn;
+    public Output<Optional<List<ViewDataMetricFunction>>> dataMetricFunctions() {
+        return Codegen.optional(this.dataMetricFunctions);
     }
     /**
-     * The database in which to create the view. Don&#39;t use the | character.
+     * Specifies the schedule to run the data metric functions periodically.
+     * 
+     */
+    @Export(name="dataMetricSchedule", refs={ViewDataMetricSchedule.class}, tree="[0]")
+    private Output</* @Nullable */ ViewDataMetricSchedule> dataMetricSchedule;
+
+    /**
+     * @return Specifies the schedule to run the data metric functions periodically.
+     * 
+     */
+    public Output<Optional<ViewDataMetricSchedule>> dataMetricSchedule() {
+        return Codegen.optional(this.dataMetricSchedule);
+    }
+    /**
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Don&#39;t use the | character.
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> database() {
         return this.database;
     }
-    @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> isSecure;
+    /**
+     * Outputs the result of `DESCRIBE VIEW` for the given view.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,ViewDescribeOutput.class}, tree="[0,1]")
+    private Output<List<ViewDescribeOutput>> describeOutputs;
 
-    public Output<Optional<Boolean>> isSecure() {
-        return Codegen.optional(this.isSecure);
+    /**
+     * @return Outputs the result of `DESCRIBE VIEW` for the given view.
+     * 
+     */
+    public Output<List<ViewDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
+     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="isRecursive", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> isRecursive;
+
+    /**
+     * @return Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> isRecursive() {
+        return Codegen.optional(this.isRecursive);
+    }
+    @Export(name="isSecure", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> isSecure;
+
+    public Output<Optional<String>> isSecure() {
+        return Codegen.optional(this.isSecure);
+    }
+    @Export(name="isTemporary", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> isTemporary;
+
+    public Output<Optional<String>> isTemporary() {
+        return Codegen.optional(this.isTemporary);
+    }
+    /**
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Overwrites the View if it exists.
+     * Specifies the row access policy to set on a view.
      * 
      */
-    @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> orReplace;
+    @Export(name="rowAccessPolicy", refs={ViewRowAccessPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ ViewRowAccessPolicy> rowAccessPolicy;
 
     /**
-     * @return Overwrites the View if it exists.
+     * @return Specifies the row access policy to set on a view.
      * 
      */
-    public Output<Optional<Boolean>> orReplace() {
-        return Codegen.optional(this.orReplace);
+    public Output<Optional<ViewRowAccessPolicy>> rowAccessPolicy() {
+        return Codegen.optional(this.rowAccessPolicy);
     }
     /**
-     * The schema in which to create the view. Don&#39;t use the | character.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Don&#39;t use the | character.
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> schema() {
         return this.schema;
+    }
+    /**
+     * Outputs the result of `SHOW VIEW` for the given view.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,ViewShowOutput.class}, tree="[0,1]")
+    private Output<List<ViewShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW VIEW` for the given view.
+     * 
+     */
+    public Output<List<ViewShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
     /**
      * Specifies the query used to create the view.
@@ -189,24 +268,6 @@ public class View extends com.pulumi.resources.CustomResource {
      */
     public Output<String> statement() {
         return this.statement;
-    }
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Export(name="tags", refs={List.class,ViewTag.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ViewTag>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     */
-    public Output<Optional<List<ViewTag>>> tags() {
-        return Codegen.optional(this.tags);
     }
 
     /**

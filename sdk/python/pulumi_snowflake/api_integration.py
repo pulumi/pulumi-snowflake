@@ -223,6 +223,7 @@ class _ApiIntegrationState:
                  comment: Optional[pulumi.Input[str]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  google_audience: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -239,6 +240,7 @@ class _ApiIntegrationState:
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
@@ -272,6 +274,8 @@ class _ApiIntegrationState:
             pulumi.set(__self__, "created_on", created_on)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if google_audience is not None:
             pulumi.set(__self__, "google_audience", google_audience)
         if name is not None:
@@ -449,6 +453,18 @@ class _ApiIntegrationState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter(name="googleAudience")
     def google_audience(self) -> Optional[pulumi.Input[str]]:
         """
@@ -492,33 +508,6 @@ class ApiIntegration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        aws = snowflake.ApiIntegration("aws",
-            name="aws_integration",
-            api_provider="aws_api_gateway",
-            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
-            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
-            enabled=True)
-        azure = snowflake.ApiIntegration("azure",
-            name="azure_integration",
-            api_provider="azure_api_management",
-            azure_tenant_id="00000000-0000-0000-0000-000000000000",
-            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
-            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
-            enabled=True)
-        gcp = snowflake.ApiIntegration("gcp",
-            name="gcp_integration",
-            api_provider="google_api_gateway",
-            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
-            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
-            enabled=True)
-        ```
-
         ## Import
 
         ```sh
@@ -546,33 +535,6 @@ class ApiIntegration(pulumi.CustomResource):
                  args: ApiIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        aws = snowflake.ApiIntegration("aws",
-            name="aws_integration",
-            api_provider="aws_api_gateway",
-            api_aws_role_arn="arn:aws:iam::000000000001:/role/test",
-            api_allowed_prefixes=["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
-            enabled=True)
-        azure = snowflake.ApiIntegration("azure",
-            name="azure_integration",
-            api_provider="azure_api_management",
-            azure_tenant_id="00000000-0000-0000-0000-000000000000",
-            azure_ad_application_id="11111111-1111-1111-1111-111111111111",
-            api_allowed_prefixes=["https://apim-hello-world.azure-api.net/"],
-            enabled=True)
-        gcp = snowflake.ApiIntegration("gcp",
-            name="gcp_integration",
-            api_provider="google_api_gateway",
-            google_audience="api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
-            api_allowed_prefixes=["https://gateway-id-123456.uc.gateway.dev/"],
-            enabled=True)
-        ```
-
         ## Import
 
         ```sh
@@ -636,6 +598,7 @@ class ApiIntegration(pulumi.CustomResource):
             __props__.__dict__["azure_consent_url"] = None
             __props__.__dict__["azure_multi_tenant_app_name"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["fully_qualified_name"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiIntegration, __self__).__init__(
@@ -663,6 +626,7 @@ class ApiIntegration(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             google_audience: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ApiIntegration':
         """
@@ -684,6 +648,7 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[str] created_on: Date and time when the API integration was created.
         :param pulumi.Input[bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
@@ -706,6 +671,7 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["google_audience"] = google_audience
         __props__.__dict__["name"] = name
         return ApiIntegration(resource_name, opts=opts, __props__=__props__)
@@ -820,6 +786,14 @@ class ApiIntegration(pulumi.CustomResource):
         Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="googleAudience")

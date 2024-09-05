@@ -12,54 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaskingPolicy(ctx, "test", &snowflake.MaskingPolicyArgs{
-//				Name:     pulumi.String("EXAMPLE_MASKING_POLICY"),
-//				Database: pulumi.String("EXAMPLE_DB"),
-//				Schema:   pulumi.String("EXAMPLE_SCHEMA"),
-//				Signature: &snowflake.MaskingPolicySignatureArgs{
-//					Columns: snowflake.MaskingPolicySignatureColumnArray{
-//						&snowflake.MaskingPolicySignatureColumnArgs{
-//							Name: pulumi.String("val"),
-//							Type: pulumi.String("VARCHAR"),
-//						},
-//					},
-//				},
-//				MaskingExpression: pulumi.String(`case
-//	  when current_role() in ('ROLE_A') then
-//	    val
-//	  when is_role_in_session( 'ROLE_B' ) then
-//	    'ABC123'
-//	  else
-//	    '******'
-//
-// end
-// `),
-//
-//				ReturnDataType: pulumi.String("VARCHAR"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | policy name
@@ -76,6 +28,8 @@ type MaskingPolicy struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
 	ExemptOtherPolicies pulumi.BoolPtrOutput `pulumi:"exemptOtherPolicies"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Prevent overwriting a previous masking policy with the same name.
 	IfNotExists pulumi.BoolPtrOutput `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
@@ -84,8 +38,6 @@ type MaskingPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to override a previous masking policy with the same name.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
-	// Specifies the qualified identifier for the masking policy.
-	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringOutput `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy.
@@ -145,6 +97,8 @@ type maskingPolicyState struct {
 	Database *string `pulumi:"database"`
 	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
 	ExemptOtherPolicies *bool `pulumi:"exemptOtherPolicies"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Prevent overwriting a previous masking policy with the same name.
 	IfNotExists *bool `pulumi:"ifNotExists"`
 	// Specifies the SQL expression that transforms the data.
@@ -153,8 +107,6 @@ type maskingPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Whether to override a previous masking policy with the same name.
 	OrReplace *bool `pulumi:"orReplace"`
-	// Specifies the qualified identifier for the masking policy.
-	QualifiedName *string `pulumi:"qualifiedName"`
 	// Specifies the data type to return.
 	ReturnDataType *string `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy.
@@ -170,6 +122,8 @@ type MaskingPolicyState struct {
 	Database pulumi.StringPtrInput
 	// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
 	ExemptOtherPolicies pulumi.BoolPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Prevent overwriting a previous masking policy with the same name.
 	IfNotExists pulumi.BoolPtrInput
 	// Specifies the SQL expression that transforms the data.
@@ -178,8 +132,6 @@ type MaskingPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Whether to override a previous masking policy with the same name.
 	OrReplace pulumi.BoolPtrInput
-	// Specifies the qualified identifier for the masking policy.
-	QualifiedName pulumi.StringPtrInput
 	// Specifies the data type to return.
 	ReturnDataType pulumi.StringPtrInput
 	// The schema in which to create the masking policy.
@@ -341,6 +293,11 @@ func (o MaskingPolicyOutput) ExemptOtherPolicies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.ExemptOtherPolicies }).(pulumi.BoolPtrOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o MaskingPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
 // Prevent overwriting a previous masking policy with the same name.
 func (o MaskingPolicyOutput) IfNotExists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.IfNotExists }).(pulumi.BoolPtrOutput)
@@ -359,11 +316,6 @@ func (o MaskingPolicyOutput) Name() pulumi.StringOutput {
 // Whether to override a previous masking policy with the same name.
 func (o MaskingPolicyOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the qualified identifier for the masking policy.
-func (o MaskingPolicyOutput) QualifiedName() pulumi.StringOutput {
-	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the data type to return.

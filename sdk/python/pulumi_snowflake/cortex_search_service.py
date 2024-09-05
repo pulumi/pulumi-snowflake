@@ -164,6 +164,7 @@ class _CortexSearchServiceState:
                  comment: Optional[pulumi.Input[str]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  on: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -176,6 +177,7 @@ class _CortexSearchServiceState:
         :param pulumi.Input[str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[str] database: The database in which to create the Cortex search service.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[str] query: Specifies the query to use to populate the Cortex search service.
@@ -191,6 +193,8 @@ class _CortexSearchServiceState:
             pulumi.set(__self__, "created_on", created_on)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if on is not None:
@@ -251,6 +255,18 @@ class _CortexSearchServiceState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -341,44 +357,6 @@ class CortexSearchService(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ## Basic
-        test = snowflake.Database("test", name="some_database")
-        test_schema = snowflake.Schema("test",
-            database=test.name,
-            name="some_schema")
-        test_table = snowflake.Table("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="some_table",
-            change_tracking=True,
-            columns=[
-                {
-                    "name": "ID",
-                    "type": "NUMBER(38,0)",
-                },
-                {
-                    "name": "SOME_TEXT",
-                    "type": "VARCHAR",
-                },
-            ])
-        test_cortex_search_service = snowflake.CortexSearchService("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="some_name",
-            on="SOME_TEXT",
-            target_lag="2 minutes",
-            warehouse="some_warehouse",
-            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
-            comment="some comment",
-            opts = pulumi.ResourceOptions(depends_on=[test_table]))
-        ```
-
         ## Import
 
         ```sh
@@ -404,44 +382,6 @@ class CortexSearchService(pulumi.CustomResource):
                  args: CortexSearchServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ## Basic
-        test = snowflake.Database("test", name="some_database")
-        test_schema = snowflake.Schema("test",
-            database=test.name,
-            name="some_schema")
-        test_table = snowflake.Table("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="some_table",
-            change_tracking=True,
-            columns=[
-                {
-                    "name": "ID",
-                    "type": "NUMBER(38,0)",
-                },
-                {
-                    "name": "SOME_TEXT",
-                    "type": "VARCHAR",
-                },
-            ])
-        test_cortex_search_service = snowflake.CortexSearchService("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="some_name",
-            on="SOME_TEXT",
-            target_lag="2 minutes",
-            warehouse="some_warehouse",
-            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
-            comment="some comment",
-            opts = pulumi.ResourceOptions(depends_on=[test_table]))
-        ```
-
         ## Import
 
         ```sh
@@ -503,6 +443,7 @@ class CortexSearchService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["fully_qualified_name"] = None
         super(CortexSearchService, __self__).__init__(
             'snowflake:index/cortexSearchService:CortexSearchService',
             resource_name,
@@ -517,6 +458,7 @@ class CortexSearchService(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             on: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
@@ -534,6 +476,7 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[str] database: The database in which to create the Cortex search service.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[str] query: Specifies the query to use to populate the Cortex search service.
@@ -549,6 +492,7 @@ class CortexSearchService(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["on"] = on
         __props__.__dict__["query"] = query
@@ -588,6 +532,14 @@ class CortexSearchService(pulumi.CustomResource):
         The database in which to create the Cortex search service.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

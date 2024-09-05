@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * ```sh
@@ -62,6 +60,10 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Display name of the managed account.
      */
     public /*out*/ readonly locator!: pulumi.Output<string>;
@@ -100,6 +102,7 @@ export class ManagedAccount extends pulumi.CustomResource {
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["locator"] = state ? state.locator : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
@@ -120,6 +123,7 @@ export class ManagedAccount extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["cloud"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["locator"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -155,6 +159,10 @@ export interface ManagedAccountState {
      * Date and time when the managed account was created.
      */
     createdOn?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Display name of the managed account.
      */

@@ -9,14 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// Applies a masking policy to a table column.
-    /// 
-    /// Only one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.
-    /// Using two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
-    /// 
-    /// When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication")]
     public partial class TableColumnMaskingPolicyApplication : global::Pulumi.CustomResource
     {

@@ -77,6 +77,21 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      * 
      */
@@ -173,6 +188,7 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.database = $.database;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.on = $.on;
         this.query = $.query;
@@ -291,6 +307,27 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**

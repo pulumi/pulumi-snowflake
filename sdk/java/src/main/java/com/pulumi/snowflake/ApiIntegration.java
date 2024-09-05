@@ -17,62 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ApiIntegration;
- * import com.pulumi.snowflake.ApiIntegrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var aws = new ApiIntegration("aws", ApiIntegrationArgs.builder()
- *             .name("aws_integration")
- *             .apiProvider("aws_api_gateway")
- *             .apiAwsRoleArn("arn:aws:iam::000000000001:/role/test")
- *             .apiAllowedPrefixes("https://123456.execute-api.us-west-2.amazonaws.com/prod/")
- *             .enabled(true)
- *             .build());
- * 
- *         var azure = new ApiIntegration("azure", ApiIntegrationArgs.builder()
- *             .name("azure_integration")
- *             .apiProvider("azure_api_management")
- *             .azureTenantId("00000000-0000-0000-0000-000000000000")
- *             .azureAdApplicationId("11111111-1111-1111-1111-111111111111")
- *             .apiAllowedPrefixes("https://apim-hello-world.azure-api.net/")
- *             .enabled(true)
- *             .build());
- * 
- *         var gcp = new ApiIntegration("gcp", ApiIntegrationArgs.builder()
- *             .name("gcp_integration")
- *             .apiProvider("google_api_gateway")
- *             .googleAudience("api-gateway-id-123456.apigateway.gcp-project.cloud.goog")
- *             .apiAllowedPrefixes("https://gateway-id-123456.uc.gateway.dev/")
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -267,6 +211,20 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.

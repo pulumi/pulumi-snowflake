@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const _default = new snowflake.PasswordPolicy("default", {
- *     database: "prod",
- *     schema: "security",
- *     name: "default_policy",
- * });
- * const attachment = new snowflake.AccountPasswordPolicyAttachment("attachment", {passwordPolicy: _default.qualifiedName});
- * ```
- */
 export class AccountPasswordPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing AccountPasswordPolicyAttachment resource's state with the given name, ID, and optional extra

@@ -47,6 +47,21 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The fully qualified name of the function on which privileges will be granted.
+     * 
+     */
+    @Import(name="onFunction")
+    private @Nullable Output<String> onFunction;
+
+    /**
+     * @return The fully qualified name of the function on which privileges will be granted.
+     * 
+     */
+    public Optional<Output<String>> onFunction() {
+        return Optional.ofNullable(this.onFunction);
+    }
+
+    /**
      * The fully qualified name of the schema on which privileges will be granted.
      * 
      */
@@ -141,6 +156,7 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     private GrantPrivilegesToShareState(GrantPrivilegesToShareState $) {
         this.onAllTablesInSchema = $.onAllTablesInSchema;
         this.onDatabase = $.onDatabase;
+        this.onFunction = $.onFunction;
         this.onSchema = $.onSchema;
         this.onTable = $.onTable;
         this.onTag = $.onTag;
@@ -207,6 +223,27 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
          */
         public Builder onDatabase(String onDatabase) {
             return onDatabase(Output.of(onDatabase));
+        }
+
+        /**
+         * @param onFunction The fully qualified name of the function on which privileges will be granted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onFunction(@Nullable Output<String> onFunction) {
+            $.onFunction = onFunction;
+            return this;
+        }
+
+        /**
+         * @param onFunction The fully qualified name of the function on which privileges will be granted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onFunction(String onFunction) {
+            return onFunction(Output.of(onFunction));
         }
 
         /**

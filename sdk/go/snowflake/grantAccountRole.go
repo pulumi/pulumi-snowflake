@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

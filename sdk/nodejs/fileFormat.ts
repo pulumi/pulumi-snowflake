@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const exampleFileFormat = new snowflake.FileFormat("example_file_format", {
- *     name: "EXAMPLE_FILE_FORMAT",
- *     database: "EXAMPLE_DB",
- *     schema: "EXAMPLE_SCHEMA",
- *     formatType: "CSV",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | file format name
@@ -132,6 +118,10 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly formatType!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Boolean that specifies whether UTF-8 encoding errors produce error conditions.
      */
     public readonly ignoreUtf8Errors!: pulumi.Output<boolean | undefined>;
@@ -232,6 +222,7 @@ export class FileFormat extends pulumi.CustomResource {
             resourceInputs["fieldOptionallyEnclosedBy"] = state ? state.fieldOptionallyEnclosedBy : undefined;
             resourceInputs["fileExtension"] = state ? state.fileExtension : undefined;
             resourceInputs["formatType"] = state ? state.formatType : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["ignoreUtf8Errors"] = state ? state.ignoreUtf8Errors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nullIfs"] = state ? state.nullIfs : undefined;
@@ -296,6 +287,7 @@ export class FileFormat extends pulumi.CustomResource {
             resourceInputs["timeFormat"] = args ? args.timeFormat : undefined;
             resourceInputs["timestampFormat"] = args ? args.timestampFormat : undefined;
             resourceInputs["trimSpace"] = args ? args.trimSpace : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileFormat.__pulumiType, name, resourceInputs, opts);
@@ -382,6 +374,10 @@ export interface FileFormatState {
      * Specifies the format of the input files (for data loading) or output files (for data unloading).
      */
     formatType?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Boolean that specifies whether UTF-8 encoding errors produce error conditions.
      */

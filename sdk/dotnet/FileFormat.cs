@@ -10,27 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleFileFormat = new Snowflake.FileFormat("example_file_format", new()
-    ///     {
-    ///         Name = "EXAMPLE_FILE_FORMAT",
-    ///         Database = "EXAMPLE_DB",
-    ///         Schema = "EXAMPLE_SCHEMA",
-    ///         FormatType = "CSV",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | file format name
@@ -155,6 +134,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("formatType")]
         public Output<string> FormatType { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
@@ -647,6 +632,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("formatType")]
         public Input<string>? FormatType { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Boolean that specifies whether UTF-8 encoding errors produce error conditions.

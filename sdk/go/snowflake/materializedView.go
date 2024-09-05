@@ -12,39 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewMaterializedView(ctx, "view", &snowflake.MaterializedViewArgs{
-//				Database:  pulumi.String("db"),
-//				Schema:    pulumi.String("schema"),
-//				Name:      pulumi.String("view"),
-//				Warehouse: pulumi.String("warehouse"),
-//				Comment:   pulumi.String("comment"),
-//				Statement: pulumi.String("select * from foo;\n"),
-//				OrReplace: pulumi.Bool(false),
-//				IsSecure:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | view name
@@ -59,6 +26,8 @@ type MaterializedView struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
@@ -123,6 +92,8 @@ type materializedViewState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the view. Don't use the | character.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
@@ -146,6 +117,8 @@ type MaterializedViewState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
@@ -310,6 +283,11 @@ func (o MaterializedViewOutput) Comment() pulumi.StringPtrOutput {
 // The database in which to create the view. Don't use the | character.
 func (o MaterializedViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o MaterializedViewOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies that the view is secure.

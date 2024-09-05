@@ -12,16 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-//
-// Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
-//
 // ## Import
 //
-// format is database name | schema name | streamlit name
+// format is <database_name>.<schema_name>.<streamlit_name>
 //
 // ```sh
-// $ pulumi import snowflake:index/streamlit:Streamlit example 'dbName|schemaName|streamlitName'
+// $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
 // ```
 type Streamlit struct {
 	pulumi.CustomResourceState
@@ -36,6 +32,8 @@ type Streamlit struct {
 	DirectoryLocation pulumi.StringPtrOutput `pulumi:"directoryLocation"`
 	// External access integrations connected to the Streamlit.
 	ExternalAccessIntegrations pulumi.StringArrayOutput `pulumi:"externalAccessIntegrations"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
 	MainFile pulumi.StringOutput `pulumi:"mainFile"`
 	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
@@ -44,7 +42,7 @@ type Streamlit struct {
 	QueryWarehouse pulumi.StringPtrOutput `pulumi:"queryWarehouse"`
 	// The schema in which to create the streamlit.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs StreamlitShowOutputArrayOutput `pulumi:"showOutputs"`
 	// The stage in which streamlit files are located.
 	Stage pulumi.StringOutput `pulumi:"stage"`
@@ -104,6 +102,8 @@ type streamlitState struct {
 	DirectoryLocation *string `pulumi:"directoryLocation"`
 	// External access integrations connected to the Streamlit.
 	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
 	MainFile *string `pulumi:"mainFile"`
 	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
@@ -112,7 +112,7 @@ type streamlitState struct {
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
 	// The schema in which to create the streamlit.
 	Schema *string `pulumi:"schema"`
-	// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs []StreamlitShowOutput `pulumi:"showOutputs"`
 	// The stage in which streamlit files are located.
 	Stage *string `pulumi:"stage"`
@@ -131,6 +131,8 @@ type StreamlitState struct {
 	DirectoryLocation pulumi.StringPtrInput
 	// External access integrations connected to the Streamlit.
 	ExternalAccessIntegrations pulumi.StringArrayInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
 	MainFile pulumi.StringPtrInput
 	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
@@ -139,7 +141,7 @@ type StreamlitState struct {
 	QueryWarehouse pulumi.StringPtrInput
 	// The schema in which to create the streamlit.
 	Schema pulumi.StringPtrInput
-	// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs StreamlitShowOutputArrayInput
 	// The stage in which streamlit files are located.
 	Stage pulumi.StringPtrInput
@@ -310,6 +312,11 @@ func (o StreamlitOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringArrayOutput { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o StreamlitOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
 // Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
 func (o StreamlitOutput) MainFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.MainFile }).(pulumi.StringOutput)
@@ -330,7 +337,7 @@ func (o StreamlitOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 func (o StreamlitOutput) ShowOutputs() StreamlitShowOutputArrayOutput {
 	return o.ApplyT(func(v *Streamlit) StreamlitShowOutputArrayOutput { return v.ShowOutputs }).(StreamlitShowOutputArrayOutput)
 }

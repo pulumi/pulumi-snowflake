@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const aws = new snowflake.ApiIntegration("aws", {
- *     name: "aws_integration",
- *     apiProvider: "aws_api_gateway",
- *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
- *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
- *     enabled: true,
- * });
- * const azure = new snowflake.ApiIntegration("azure", {
- *     name: "azure_integration",
- *     apiProvider: "azure_api_management",
- *     azureTenantId: "00000000-0000-0000-0000-000000000000",
- *     azureAdApplicationId: "11111111-1111-1111-1111-111111111111",
- *     apiAllowedPrefixes: ["https://apim-hello-world.azure-api.net/"],
- *     enabled: true,
- * });
- * const gcp = new snowflake.ApiIntegration("gcp", {
- *     name: "gcp_integration",
- *     apiProvider: "google_api_gateway",
- *     googleAudience: "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
- *     apiAllowedPrefixes: ["https://gateway-id-123456.uc.gateway.dev/"],
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -121,6 +91,10 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
     public readonly googleAudience!: pulumi.Output<string | undefined>;
@@ -157,6 +131,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["googleAudience"] = state ? state.googleAudience : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -184,6 +159,7 @@ export class ApiIntegration extends pulumi.CustomResource {
             resourceInputs["azureConsentUrl"] = undefined /*out*/;
             resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };
@@ -247,6 +223,10 @@ export interface ApiIntegrationState {
      * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */

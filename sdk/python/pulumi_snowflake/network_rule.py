@@ -131,9 +131,9 @@ class _NetworkRuleState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 qualified_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -141,9 +141,9 @@ class _NetworkRuleState:
         Input properties used for looking up and filtering NetworkRule resources.
         :param pulumi.Input[str] comment: Specifies a comment for the network rule.
         :param pulumi.Input[str] database: The database in which to create the network rule.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] mode: Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         :param pulumi.Input[str] name: Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
-        :param pulumi.Input[str] qualified_name: Qualified name of the network rule.
         :param pulumi.Input[str] schema: The schema in which to create the network rule.
         :param pulumi.Input[str] type: Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] value_lists: Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
@@ -152,12 +152,12 @@ class _NetworkRuleState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if type is not None:
@@ -190,6 +190,18 @@ class _NetworkRuleState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,18 +224,6 @@ class _NetworkRuleState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Qualified name of the network rule.
-        """
-        return pulumi.get(self, "qualified_name")
-
-    @qualified_name.setter
-    def qualified_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "qualified_name", value)
 
     @property
     @pulumi.getter
@@ -276,25 +276,6 @@ class NetworkRule(pulumi.CustomResource):
                  value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        rule = snowflake.NetworkRule("rule",
-            name="rule",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            comment="A rule.",
-            type="IPV4",
-            mode="INGRESS",
-            value_lists=[
-                "192.168.0.100/24",
-                "29.254.123.20",
-            ])
-        ```
-
         ## Import
 
         ```sh
@@ -318,25 +299,6 @@ class NetworkRule(pulumi.CustomResource):
                  args: NetworkRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        rule = snowflake.NetworkRule("rule",
-            name="rule",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            comment="A rule.",
-            type="IPV4",
-            mode="INGRESS",
-            value_lists=[
-                "192.168.0.100/24",
-                "29.254.123.20",
-            ])
-        ```
-
         ## Import
 
         ```sh
@@ -391,7 +353,7 @@ class NetworkRule(pulumi.CustomResource):
             if value_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'value_lists'")
             __props__.__dict__["value_lists"] = value_lists
-            __props__.__dict__["qualified_name"] = None
+            __props__.__dict__["fully_qualified_name"] = None
         super(NetworkRule, __self__).__init__(
             'snowflake:index/networkRule:NetworkRule',
             resource_name,
@@ -404,9 +366,9 @@ class NetworkRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            qualified_name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'NetworkRule':
@@ -419,9 +381,9 @@ class NetworkRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the network rule.
         :param pulumi.Input[str] database: The database in which to create the network rule.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] mode: Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         :param pulumi.Input[str] name: Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
-        :param pulumi.Input[str] qualified_name: Qualified name of the network rule.
         :param pulumi.Input[str] schema: The schema in which to create the network rule.
         :param pulumi.Input[str] type: Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] value_lists: Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
@@ -432,9 +394,9 @@ class NetworkRule(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
-        __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["type"] = type
         __props__.__dict__["value_lists"] = value_lists
@@ -457,6 +419,14 @@ class NetworkRule(pulumi.CustomResource):
         return pulumi.get(self, "database")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter
     def mode(self) -> pulumi.Output[str]:
         """
@@ -471,14 +441,6 @@ class NetworkRule(pulumi.CustomResource):
         Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> pulumi.Output[str]:
-        """
-        Qualified name of the network rule.
-        """
-        return pulumi.get(self, "qualified_name")
 
     @property
     @pulumi.getter

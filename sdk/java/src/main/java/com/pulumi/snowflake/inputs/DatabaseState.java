@@ -79,6 +79,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
+     * 
+     */
+    @Import(name="dropPublicSchemaOnCreation")
+    private @Nullable Output<Boolean> dropPublicSchemaOnCreation;
+
+    /**
+     * @return Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
+     * 
+     */
+    public Optional<Output<Boolean>> dropPublicSchemaOnCreation() {
+        return Optional.ofNullable(this.dropPublicSchemaOnCreation);
+    }
+
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      * 
      */
@@ -106,6 +121,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> externalVolume() {
         return Optional.ofNullable(this.externalVolume);
+    }
+
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
     }
 
     /**
@@ -154,14 +184,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+     * @return Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -325,8 +355,10 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.defaultDdlCollation = $.defaultDdlCollation;
+        this.dropPublicSchemaOnCreation = $.dropPublicSchemaOnCreation;
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.isTransient = $.isTransient;
         this.logLevel = $.logLevel;
         this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
@@ -446,6 +478,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dropPublicSchemaOnCreation Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dropPublicSchemaOnCreation(@Nullable Output<Boolean> dropPublicSchemaOnCreation) {
+            $.dropPublicSchemaOnCreation = dropPublicSchemaOnCreation;
+            return this;
+        }
+
+        /**
+         * @param dropPublicSchemaOnCreation Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dropPublicSchemaOnCreation(Boolean dropPublicSchemaOnCreation) {
+            return dropPublicSchemaOnCreation(Output.of(dropPublicSchemaOnCreation));
+        }
+
+        /**
          * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures.
          * 
          * @return builder
@@ -485,6 +538,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder externalVolume(String externalVolume) {
             return externalVolume(Output.of(externalVolume));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**
@@ -551,7 +625,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -562,7 +636,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for Database Replication and Failover), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 

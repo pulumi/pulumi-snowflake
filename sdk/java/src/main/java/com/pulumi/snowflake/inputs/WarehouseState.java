@@ -81,6 +81,21 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
@@ -141,14 +156,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier for the virtual warehouse; must be unique for your account.
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the virtual warehouse; must be unique for your account.
+     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -297,6 +312,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         this.autoSuspend = $.autoSuspend;
         this.comment = $.comment;
         this.enableQueryAcceleration = $.enableQueryAcceleration;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.initiallySuspended = $.initiallySuspended;
         this.maxClusterCount = $.maxClusterCount;
         this.maxConcurrencyLevel = $.maxConcurrencyLevel;
@@ -416,6 +432,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param initiallySuspended Specifies whether the warehouse is created initially in the ‘Suspended’ state.
          * 
          * @return builder
@@ -500,7 +537,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account.
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -511,7 +548,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account.
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 

@@ -10,52 +10,17 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.DatabaseRoleArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.DatabaseRoleState;
+import com.pulumi.snowflake.outputs.DatabaseRoleShowOutput;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.DatabaseRole;
- * import com.pulumi.snowflake.DatabaseRoleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dbRole = new DatabaseRole("dbRole", DatabaseRoleArgs.builder()
- *             .database("database")
- *             .name("role_1")
- *             .comment("my db role")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/databaseRole:DatabaseRole example &#39;dbName|roleName&#39;
+ * $ pulumi import snowflake:index/databaseRole:DatabaseRole example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;database_role_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -76,32 +41,60 @@ public class DatabaseRole extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the database role.
+     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the database role.
+     * @return The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Specifies the identifier for the database role.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
+     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database role.
+     * @return Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,DatabaseRoleShowOutput.class}, tree="[0,1]")
+    private Output<List<DatabaseRoleShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+     * 
+     */
+    public Output<List<DatabaseRoleShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

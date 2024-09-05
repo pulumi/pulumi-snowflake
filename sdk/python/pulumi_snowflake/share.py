@@ -72,17 +72,21 @@ class _ShareState:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -111,6 +115,18 @@ class _ShareState:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -133,20 +149,6 @@ class Share(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Share("test",
-            name="share_name",
-            comment="cool comment",
-            accounts=["organizationName.accountName"])
-        example = snowflake.Database("example", name="test",
-        opts = pulumi.ResourceOptions(depends_on=[test]))
-        ```
-
         ## Import
 
         ```sh
@@ -166,20 +168,6 @@ class Share(pulumi.CustomResource):
                  args: Optional[ShareArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Share("test",
-            name="share_name",
-            comment="cool comment",
-            accounts=["organizationName.accountName"])
-        example = snowflake.Database("example", name="test",
-        opts = pulumi.ResourceOptions(depends_on=[test]))
-        ```
-
         ## Import
 
         ```sh
@@ -216,6 +204,7 @@ class Share(pulumi.CustomResource):
             __props__.__dict__["accounts"] = accounts
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
+            __props__.__dict__["fully_qualified_name"] = None
         super(Share, __self__).__init__(
             'snowflake:index/share:Share',
             resource_name,
@@ -228,6 +217,7 @@ class Share(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
@@ -238,6 +228,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[str] comment: Specifies a comment for the managed account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -246,6 +237,7 @@ class Share(pulumi.CustomResource):
 
         __props__.__dict__["accounts"] = accounts
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         return Share(resource_name, opts=opts, __props__=__props__)
 
@@ -264,6 +256,14 @@ class Share(pulumi.CustomResource):
         Specifies a comment for the managed account.
         """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter
