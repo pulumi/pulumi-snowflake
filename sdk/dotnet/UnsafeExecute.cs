@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// !&gt; **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
     /// 
-    /// &gt; **Note** This resource will be included in the V1 (check here.
+    /// &gt; **Note** This resource will be included in the V1 (check here) but may be slightly modified before. Design decisions and changes will be listed in the migration guide.
     /// 
     /// &gt; **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.
     /// 
