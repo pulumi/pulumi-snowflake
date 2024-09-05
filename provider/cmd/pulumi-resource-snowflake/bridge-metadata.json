@@ -242,7 +242,12 @@
                 }
             },
             "snowflake_database_role": {
-                "current": "snowflake:index/databaseRole:DatabaseRole"
+                "current": "snowflake:index/databaseRole:DatabaseRole",
+                "fields": {
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_dynamic_table": {
                 "current": "snowflake:index/dynamicTable:DynamicTable",
@@ -1145,7 +1150,188 @@
             "snowflake_user": {
                 "current": "snowflake:index/user:User",
                 "fields": {
-                    "default_secondary_roles": {
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "abort_detached_query": {
+                                    "maxItemsOne": false
+                                },
+                                "autocommit": {
+                                    "maxItemsOne": false
+                                },
+                                "binary_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "binary_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "client_memory_limit": {
+                                    "maxItemsOne": false
+                                },
+                                "client_metadata_request_use_connection_ctx": {
+                                    "maxItemsOne": false
+                                },
+                                "client_prefetch_threads": {
+                                    "maxItemsOne": false
+                                },
+                                "client_result_chunk_size": {
+                                    "maxItemsOne": false
+                                },
+                                "client_result_column_case_insensitive": {
+                                    "maxItemsOne": false
+                                },
+                                "client_session_keep_alive": {
+                                    "maxItemsOne": false
+                                },
+                                "client_session_keep_alive_heartbeat_frequency": {
+                                    "maxItemsOne": false
+                                },
+                                "client_timestamp_type_mapping": {
+                                    "maxItemsOne": false
+                                },
+                                "date_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "date_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "enable_unload_physical_type_optimization": {
+                                    "maxItemsOne": false
+                                },
+                                "enable_unredacted_query_syntax_error": {
+                                    "maxItemsOne": false
+                                },
+                                "error_on_nondeterministic_merge": {
+                                    "maxItemsOne": false
+                                },
+                                "error_on_nondeterministic_update": {
+                                    "maxItemsOne": false
+                                },
+                                "geography_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "geometry_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "jdbc_treat_decimal_as_int": {
+                                    "maxItemsOne": false
+                                },
+                                "jdbc_treat_timestamp_ntz_as_utc": {
+                                    "maxItemsOne": false
+                                },
+                                "jdbc_use_session_timezone": {
+                                    "maxItemsOne": false
+                                },
+                                "json_indent": {
+                                    "maxItemsOne": false
+                                },
+                                "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_level": {
+                                    "maxItemsOne": false
+                                },
+                                "multi_statement_count": {
+                                    "maxItemsOne": false
+                                },
+                                "network_policy": {
+                                    "maxItemsOne": false
+                                },
+                                "noorder_sequence_as_default": {
+                                    "maxItemsOne": false
+                                },
+                                "odbc_treat_decimal_as_int": {
+                                    "maxItemsOne": false
+                                },
+                                "prevent_unload_to_internal_stages": {
+                                    "maxItemsOne": false
+                                },
+                                "query_tag": {
+                                    "maxItemsOne": false
+                                },
+                                "quoted_identifiers_ignore_case": {
+                                    "maxItemsOne": false
+                                },
+                                "rows_per_resultset": {
+                                    "maxItemsOne": false
+                                },
+                                "s3_stage_vpce_dns_name": {
+                                    "maxItemsOne": false
+                                },
+                                "search_path": {
+                                    "maxItemsOne": false
+                                },
+                                "simulated_data_sharing_consumer": {
+                                    "maxItemsOne": false
+                                },
+                                "statement_queued_timeout_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "statement_timeout_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "strict_json_output": {
+                                    "maxItemsOne": false
+                                },
+                                "time_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "time_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_day_is_always_24h": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_ltz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_ntz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_type_mapping": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_tz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timezone": {
+                                    "maxItemsOne": false
+                                },
+                                "trace_level": {
+                                    "maxItemsOne": false
+                                },
+                                "transaction_abort_on_error": {
+                                    "maxItemsOne": false
+                                },
+                                "transaction_default_isolation_level": {
+                                    "maxItemsOne": false
+                                },
+                                "two_digit_century_start": {
+                                    "maxItemsOne": false
+                                },
+                                "unsupported_ddl_action": {
+                                    "maxItemsOne": false
+                                },
+                                "use_cached_result": {
+                                    "maxItemsOne": false
+                                },
+                                "week_of_year_policy": {
+                                    "maxItemsOne": false
+                                },
+                                "week_start": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
                         "maxItemsOne": false
                     }
                 }
@@ -1159,7 +1345,63 @@
             "snowflake_view": {
                 "current": "snowflake:index/view:View",
                 "fields": {
-                    "tag": {
+                    "aggregation_policy": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "entity_key": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "column": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "masking_policy": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "using": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "projection_policy": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "data_metric_function": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "on": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "data_metric_schedule": {
+                        "maxItemsOne": true
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "row_access_policy": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "on": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
                         "maxItemsOne": false
                     }
                 }
@@ -1236,7 +1478,17 @@
                 "current": "snowflake:index/getDatabaseRoles:getDatabaseRoles",
                 "fields": {
                     "database_roles": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "limit": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -1917,11 +2169,198 @@
             "snowflake_users": {
                 "current": "snowflake:index/getUsers:getUsers",
                 "fields": {
+                    "limit": {
+                        "maxItemsOne": true
+                    },
                     "users": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
-                                "default_secondary_roles": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "abort_detached_query": {
+                                                "maxItemsOne": false
+                                            },
+                                            "autocommit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_memory_limit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_metadata_request_use_connection_ctx": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_prefetch_threads": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_chunk_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_column_case_insensitive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive_heartbeat_frequency": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unload_physical_type_optimization": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unredacted_query_syntax_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_merge": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_update": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geography_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geometry_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_treat_decimal_as_int": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_treat_timestamp_ntz_as_utc": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_use_session_timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "json_indent": {
+                                                "maxItemsOne": false
+                                            },
+                                            "lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "multi_statement_count": {
+                                                "maxItemsOne": false
+                                            },
+                                            "network_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "noorder_sequence_as_default": {
+                                                "maxItemsOne": false
+                                            },
+                                            "odbc_treat_decimal_as_int": {
+                                                "maxItemsOne": false
+                                            },
+                                            "prevent_unload_to_internal_stages": {
+                                                "maxItemsOne": false
+                                            },
+                                            "query_tag": {
+                                                "maxItemsOne": false
+                                            },
+                                            "quoted_identifiers_ignore_case": {
+                                                "maxItemsOne": false
+                                            },
+                                            "rows_per_resultset": {
+                                                "maxItemsOne": false
+                                            },
+                                            "s3_stage_vpce_dns_name": {
+                                                "maxItemsOne": false
+                                            },
+                                            "search_path": {
+                                                "maxItemsOne": false
+                                            },
+                                            "simulated_data_sharing_consumer": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_queued_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "strict_json_output": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_day_is_always_24h": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ltz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ntz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_tz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "trace_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_abort_on_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_default_isolation_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "two_digit_century_start": {
+                                                "maxItemsOne": false
+                                            },
+                                            "unsupported_ddl_action": {
+                                                "maxItemsOne": false
+                                            },
+                                            "use_cached_result": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_of_year_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_start": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -1932,8 +2371,24 @@
             "snowflake_views": {
                 "current": "snowflake:index/getViews:getViews",
                 "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
                     "views": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
