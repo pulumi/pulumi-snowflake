@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
+ * > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
  *
  * ## Import
  *
