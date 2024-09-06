@@ -360,7 +360,7 @@ class Pipe(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
+        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
 
         ## Import
 
@@ -389,7 +389,7 @@ class Pipe(pulumi.CustomResource):
                  args: PipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring HCL meta-argument.
+        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
 
         ## Import
 
