@@ -63,6 +63,21 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Prevent overwriting a previous masking policy with the same name.
      * 
      */
@@ -123,21 +138,6 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the qualified identifier for the masking policy.
-     * 
-     */
-    @Import(name="qualifiedName")
-    private @Nullable Output<String> qualifiedName;
-
-    /**
-     * @return Specifies the qualified identifier for the masking policy.
-     * 
-     */
-    public Optional<Output<String>> qualifiedName() {
-        return Optional.ofNullable(this.qualifiedName);
-    }
-
-    /**
      * Specifies the data type to return.
      * 
      */
@@ -188,11 +188,11 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         this.comment = $.comment;
         this.database = $.database;
         this.exemptOtherPolicies = $.exemptOtherPolicies;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.ifNotExists = $.ifNotExists;
         this.maskingExpression = $.maskingExpression;
         this.name = $.name;
         this.orReplace = $.orReplace;
-        this.qualifiedName = $.qualifiedName;
         this.returnDataType = $.returnDataType;
         this.schema = $.schema;
         this.signature = $.signature;
@@ -280,6 +280,27 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param ifNotExists Prevent overwriting a previous masking policy with the same name.
          * 
          * @return builder
@@ -361,27 +382,6 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder orReplace(Boolean orReplace) {
             return orReplace(Output.of(orReplace));
-        }
-
-        /**
-         * @param qualifiedName Specifies the qualified identifier for the masking policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
-            $.qualifiedName = qualifiedName;
-            return this;
-        }
-
-        /**
-         * @param qualifiedName Specifies the qualified identifier for the masking policy.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(String qualifiedName) {
-            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

@@ -5,10 +5,14 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetUsersLimit;
 import com.pulumi.snowflake.outputs.GetUsersUser;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUsersResult {
@@ -18,15 +22,35 @@ public final class GetUsersResult {
      */
     private String id;
     /**
-     * @return Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    private String pattern;
+    private @Nullable String like;
     /**
-     * @return The users in the database
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetUsersLimit limit;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return Holds the aggregated output of all user details queries.
      * 
      */
     private List<GetUsersUser> users;
+    /**
+     * @return Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
+    /**
+     * @return Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withParameters;
 
     private GetUsersResult() {}
     /**
@@ -37,18 +61,46 @@ public final class GetUsersResult {
         return this.id;
     }
     /**
-     * @return Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public String pattern() {
-        return this.pattern;
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
     }
     /**
-     * @return The users in the database
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetUsersLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return Holds the aggregated output of all user details queries.
      * 
      */
     public List<GetUsersUser> users() {
         return this.users;
+    }
+    /**
+     * @return Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
+    }
+    /**
+     * @return Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
     }
 
     public static Builder builder() {
@@ -61,14 +113,22 @@ public final class GetUsersResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private String pattern;
+        private @Nullable String like;
+        private @Nullable GetUsersLimit limit;
+        private @Nullable String startsWith;
         private List<GetUsersUser> users;
+        private @Nullable Boolean withDescribe;
+        private @Nullable Boolean withParameters;
         public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
+    	      this.startsWith = defaults.startsWith;
     	      this.users = defaults.users;
+    	      this.withDescribe = defaults.withDescribe;
+    	      this.withParameters = defaults.withParameters;
         }
 
         @CustomType.Setter
@@ -80,11 +140,21 @@ public final class GetUsersResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(String pattern) {
-            if (pattern == null) {
-              throw new MissingRequiredPropertyException("GetUsersResult", "pattern");
-            }
-            this.pattern = pattern;
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetUsersLimit limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+
+            this.startsWith = startsWith;
             return this;
         }
         @CustomType.Setter
@@ -98,11 +168,27 @@ public final class GetUsersResult {
         public Builder users(GetUsersUser... users) {
             return users(List.of(users));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withParameters(@Nullable Boolean withParameters) {
+
+            this.withParameters = withParameters;
+            return this;
+        }
         public GetUsersResult build() {
             final var _resultValue = new GetUsersResult();
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
+            _resultValue.startsWith = startsWith;
             _resultValue.users = users;
+            _resultValue.withDescribe = withDescribe;
+            _resultValue.withParameters = withParameters;
             return _resultValue;
         }
     }

@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage scim security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-scim).
- *
  * ## Import
  *
  * ```sh
@@ -58,7 +54,11 @@ export class ScimIntegration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -98,6 +98,7 @@ export class ScimIntegration extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkPolicy"] = state ? state.networkPolicy : undefined;
             resourceInputs["runAsRole"] = state ? state.runAsRole : undefined;
@@ -123,6 +124,7 @@ export class ScimIntegration extends pulumi.CustomResource {
             resourceInputs["scimClient"] = args ? args.scimClient : undefined;
             resourceInputs["syncPassword"] = args ? args.syncPassword : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,7 +149,11 @@ export interface ScimIntegrationState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,7 +191,7 @@ export interface ScimIntegrationArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

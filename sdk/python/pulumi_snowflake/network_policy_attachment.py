@@ -132,21 +132,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        attach = snowflake.NetworkPolicyAttachment("attach",
-            network_policy_name="policy",
-            set_for_account=False,
-            users=[
-                "user1",
-                "user2",
-            ])
-        ```
-
         ## Import
 
         ```sh
@@ -166,21 +151,6 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
                  args: NetworkPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        attach = snowflake.NetworkPolicyAttachment("attach",
-            network_policy_name="policy",
-            set_for_account=False,
-            users=[
-                "user1",
-                "user2",
-            ])
-        ```
-
         ## Import
 
         ```sh

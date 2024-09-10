@@ -12,39 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
-//				Name:                        pulumi.String("notification"),
-//				Comment:                     pulumi.String("A notification integration."),
-//				Enabled:                     pulumi.Bool(true),
-//				Type:                        pulumi.String("QUEUE"),
-//				Direction:                   pulumi.String("OUTBOUND"),
-//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
-//				AzureStorageQueuePrimaryUri: pulumi.String("..."),
-//				AzureTenantId:               pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -90,6 +57,8 @@ type NotificationIntegration struct {
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrOutput `pulumi:"direction"`
 	Enabled   pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount pulumi.StringOutput `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -175,6 +144,8 @@ type notificationIntegrationState struct {
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction *string `pulumi:"direction"`
 	Enabled   *bool   `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount *string `pulumi:"gcpPubsubServiceAccount"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -228,6 +199,8 @@ type NotificationIntegrationState struct {
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrInput
 	Enabled   pulumi.BoolPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount pulumi.StringPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -486,6 +459,11 @@ func (o NotificationIntegrationOutput) Direction() pulumi.StringPtrOutput {
 
 func (o NotificationIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o NotificationIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // The GCP service account identifier that Snowflake will use when assuming the GCP role

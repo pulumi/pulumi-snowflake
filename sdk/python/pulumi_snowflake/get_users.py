@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetUsersResult',
@@ -22,16 +23,28 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, pattern=None, users=None):
+    def __init__(__self__, id=None, like=None, limit=None, starts_with=None, users=None, with_describe=None, with_parameters=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pattern and not isinstance(pattern, str):
-            raise TypeError("Expected argument 'pattern' to be a str")
-        pulumi.set(__self__, "pattern", pattern)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if limit and not isinstance(limit, dict):
+            raise TypeError("Expected argument 'limit' to be a dict")
+        pulumi.set(__self__, "limit", limit)
+        if starts_with and not isinstance(starts_with, str):
+            raise TypeError("Expected argument 'starts_with' to be a str")
+        pulumi.set(__self__, "starts_with", starts_with)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
+        if with_parameters and not isinstance(with_parameters, bool):
+            raise TypeError("Expected argument 'with_parameters' to be a bool")
+        pulumi.set(__self__, "with_parameters", with_parameters)
 
     @property
     @pulumi.getter
@@ -43,19 +56,51 @@ class GetUsersResult:
 
     @property
     @pulumi.getter
-    def pattern(self) -> str:
+    def like(self) -> Optional[str]:
         """
-        Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "pattern")
+        return pulumi.get(self, "like")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.GetUsersLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
+        return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
-        The users in the database
+        Holds the aggregated output of all user details queries.
         """
         return pulumi.get(self, "users")
+
+    @property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[bool]:
+        """
+        Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
+
+    @property
+    @pulumi.getter(name="withParameters")
+    def with_parameters(self) -> Optional[bool]:
+        """
+        Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_parameters")
 
 
 class AwaitableGetUsersResult(GetUsersResult):
@@ -65,50 +110,68 @@ class AwaitableGetUsersResult(GetUsersResult):
             yield self
         return GetUsersResult(
             id=self.id,
-            pattern=self.pattern,
-            users=self.users)
+            like=self.like,
+            limit=self.limit,
+            starts_with=self.starts_with,
+            users=self.users,
+            with_describe=self.with_describe,
+            with_parameters=self.with_parameters)
 
 
-def get_users(pattern: Optional[str] = None,
+def get_users(like: Optional[str] = None,
+              limit: Optional[Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict']] = None,
+              starts_with: Optional[str] = None,
+              with_describe: Optional[bool] = None,
+              with_parameters: Optional[bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_users(pattern="user1")
-    ```
+    Datasource used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command cannot be called, so you have to set `with_describe = false`. Only `parameters` output is not affected by the lack of privileges.
 
 
-    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+    :param bool with_parameters: Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['pattern'] = pattern
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
         id=pulumi.get(__ret__, 'id'),
-        pattern=pulumi.get(__ret__, 'pattern'),
-        users=pulumi.get(__ret__, 'users'))
+        like=pulumi.get(__ret__, 'like'),
+        limit=pulumi.get(__ret__, 'limit'),
+        starts_with=pulumi.get(__ret__, 'starts_with'),
+        users=pulumi.get(__ret__, 'users'),
+        with_describe=pulumi.get(__ret__, 'with_describe'),
+        with_parameters=pulumi.get(__ret__, 'with_parameters'))
 
 
 @_utilities.lift_output_func(get_users)
-def get_users_output(pattern: Optional[pulumi.Input[str]] = None,
+def get_users_output(like: Optional[pulumi.Input[Optional[str]]] = None,
+                     limit: Optional[pulumi.Input[Optional[Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict']]]] = None,
+                     starts_with: Optional[pulumi.Input[Optional[str]]] = None,
+                     with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
+                     with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_users(pattern="user1")
-    ```
+    Datasource used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command cannot be called, so you have to set `with_describe = false`. Only `parameters` output is not affected by the lack of privileges.
 
 
-    :param str pattern: Users pattern for which to return metadata. Please refer to LIKE keyword from snowflake documentation : https://docs.snowflake.com/en/sql-reference/sql/show-users.html#parameters
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+    :param bool with_parameters: Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     ...

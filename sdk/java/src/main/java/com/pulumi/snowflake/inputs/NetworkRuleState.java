@@ -47,6 +47,21 @@ public final class NetworkRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
      * 
      */
@@ -74,21 +89,6 @@ public final class NetworkRuleState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
-    }
-
-    /**
-     * Qualified name of the network rule.
-     * 
-     */
-    @Import(name="qualifiedName")
-    private @Nullable Output<String> qualifiedName;
-
-    /**
-     * @return Qualified name of the network rule.
-     * 
-     */
-    public Optional<Output<String>> qualifiedName() {
-        return Optional.ofNullable(this.qualifiedName);
     }
 
     /**
@@ -141,9 +141,9 @@ public final class NetworkRuleState extends com.pulumi.resources.ResourceArgs {
     private NetworkRuleState(NetworkRuleState $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.mode = $.mode;
         this.name = $.name;
-        this.qualifiedName = $.qualifiedName;
         this.schema = $.schema;
         this.type = $.type;
         this.valueLists = $.valueLists;
@@ -210,6 +210,27 @@ public final class NetworkRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param mode Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
          * 
          * @return builder
@@ -249,27 +270,6 @@ public final class NetworkRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param qualifiedName Qualified name of the network rule.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(@Nullable Output<String> qualifiedName) {
-            $.qualifiedName = qualifiedName;
-            return this;
-        }
-
-        /**
-         * @param qualifiedName Qualified name of the network rule.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder qualifiedName(String qualifiedName) {
-            return qualifiedName(Output.of(qualifiedName));
         }
 
         /**

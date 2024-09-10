@@ -147,16 +147,7 @@ class UnsafeExecute(pulumi.CustomResource):
                  revert: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        !> **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
-
-        > **Note** This resource will be included in the V1 (check here) but may be slightly modified before. Design decisions and changes will be listed in the migration guide.
-
-        > **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.
-
-        > **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.
-
-        Experimental resource allowing execution of ANY SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
-
+        Create a UnsafeExecute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] execute: SQL statement to execute. Forces recreation of resource on change.
@@ -170,16 +161,7 @@ class UnsafeExecute(pulumi.CustomResource):
                  args: UnsafeExecuteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
-
-        > **Note** This resource will be included in the V1 (check here) but may be slightly modified before. Design decisions and changes will be listed in the migration guide.
-
-        > **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may brake other resources if used incorrectly.
-
-        > **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `query_results` being empty.
-
-        Experimental resource allowing execution of ANY SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
-
+        Create a UnsafeExecute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UnsafeExecuteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

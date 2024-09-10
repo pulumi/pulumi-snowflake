@@ -19,80 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- * 
- * Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.OauthIntegrationForCustomClients;
- * import com.pulumi.snowflake.OauthIntegrationForCustomClientsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // basic resource
- *         var basic = new OauthIntegrationForCustomClients("basic", OauthIntegrationForCustomClientsArgs.builder()
- *             .name("saml_integration")
- *             .oauthClientType("CONFIDENTIAL")
- *             .oauthRedirectUri("https://example.com")
- *             .blockedRolesLists(            
- *                 "ACCOUNTADMIN",
- *                 "SECURITYADMIN")
- *             .build());
- * 
- *         // resource with all fields set
- *         var complete = new OauthIntegrationForCustomClients("complete", OauthIntegrationForCustomClientsArgs.builder()
- *             .name("saml_integration")
- *             .oauthClientType("CONFIDENTIAL")
- *             .oauthRedirectUri("https://example.com")
- *             .enabled("true")
- *             .oauthAllowNonTlsRedirectUri("true")
- *             .oauthEnforcePkce("true")
- *             .oauthUseSecondaryRoles("NONE")
- *             .preAuthorizedRolesLists(            
- *                 "role_id1",
- *                 "role_id2")
- *             .blockedRolesLists(            
- *                 "ACCOUNTADMIN",
- *                 "SECURITYADMIN",
- *                 "role_id1",
- *                 "role_id2")
- *             .oauthIssueRefreshTokens("true")
- *             .oauthRefreshTokenValidity(87600)
- *             .networkPolicy("network_policy_id")
- *             .oauthClientRsaPublicKey(StdFunctions.file(FileArgs.builder()
- *                 .input("rsa.pub")
- *                 .build()).result())
- *             .oauthClientRsaPublicKey2(StdFunctions.file(FileArgs.builder()
- *                 .input("rsa2.pub")
- *                 .build()).result())
- *             .comment("my oauth integration")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -159,14 +85,28 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return Codegen.optional(this.enabled);
     }
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {

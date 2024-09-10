@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | stream name
@@ -40,6 +38,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Create an insert only stream type.
@@ -220,6 +224,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Create an insert only stream type.

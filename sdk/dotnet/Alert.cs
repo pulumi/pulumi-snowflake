@@ -10,35 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var alert = new Snowflake.Alert("alert", new()
-    ///     {
-    ///         Database = "database",
-    ///         Schema = "schema",
-    ///         Name = "alert",
-    ///         Warehouse = "warehouse",
-    ///         AlertSchedule = new Snowflake.Inputs.AlertAlertScheduleArgs
-    ///         {
-    ///             Interval = 10,
-    ///         },
-    ///         Condition = "select 1 as c",
-    ///         Action = "select 1 as c",
-    ///         Enabled = true,
-    ///         Comment = "my alert",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | alert name
@@ -85,6 +56,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
@@ -247,6 +224,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.

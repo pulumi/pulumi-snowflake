@@ -6,19 +6,17 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesDatabaseRole;
+import com.pulumi.snowflake.outputs.GetDatabaseRolesLimit;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDatabaseRolesResult {
     /**
-     * @return The database from which to return the database roles from.
-     * 
-     */
-    private String database;
-    /**
-     * @return Lists all the database roles in a specified database.
+     * @return Holds the aggregated output of all database role details queries.
      * 
      */
     private List<GetDatabaseRolesDatabaseRole> databaseRoles;
@@ -27,17 +25,25 @@ public final class GetDatabaseRolesResult {
      * 
      */
     private String id;
-
-    private GetDatabaseRolesResult() {}
     /**
      * @return The database from which to return the database roles from.
      * 
      */
-    public String database() {
-        return this.database;
-    }
+    private String inDatabase;
     /**
-     * @return Lists all the database roles in a specified database.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetDatabaseRolesLimit limit;
+
+    private GetDatabaseRolesResult() {}
+    /**
+     * @return Holds the aggregated output of all database role details queries.
      * 
      */
     public List<GetDatabaseRolesDatabaseRole> databaseRoles() {
@@ -50,6 +56,27 @@ public final class GetDatabaseRolesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The database from which to return the database roles from.
+     * 
+     */
+    public String inDatabase() {
+        return this.inDatabase;
+    }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetDatabaseRolesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -60,25 +87,21 @@ public final class GetDatabaseRolesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private List<GetDatabaseRolesDatabaseRole> databaseRoles;
         private String id;
+        private String inDatabase;
+        private @Nullable String like;
+        private @Nullable GetDatabaseRolesLimit limit;
         public Builder() {}
         public Builder(GetDatabaseRolesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.databaseRoles = defaults.databaseRoles;
     	      this.id = defaults.id;
+    	      this.inDatabase = defaults.inDatabase;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetDatabaseRolesResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder databaseRoles(List<GetDatabaseRolesDatabaseRole> databaseRoles) {
             if (databaseRoles == null) {
@@ -98,11 +121,33 @@ public final class GetDatabaseRolesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder inDatabase(String inDatabase) {
+            if (inDatabase == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseRolesResult", "inDatabase");
+            }
+            this.inDatabase = inDatabase;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetDatabaseRolesLimit limit) {
+
+            this.limit = limit;
+            return this;
+        }
         public GetDatabaseRolesResult build() {
             final var _resultValue = new GetDatabaseRolesResult();
-            _resultValue.database = database;
             _resultValue.databaseRoles = databaseRoles;
             _resultValue.id = id;
+            _resultValue.inDatabase = inDatabase;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
             return _resultValue;
         }
     }

@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetStreamlitsStreamlitResult
     {
         /// <summary>
-        /// Holds the output of DESCRIBE STREAMLITS.
+        /// Holds the output of DESCRIBE STREAMLIT.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamlitsStreamlitDescribeOutputResult> DescribeOutputs;
         /// <summary>

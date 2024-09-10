@@ -10,62 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.Database or snowflake.SharedDatabase or snowflake.SecondaryDatabase instead. &lt;deprecation&gt;
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var simple = new Snowflake.DatabaseOld("simple", new()
-    ///     {
-    ///         Name = "testing",
-    ///         Comment = "test comment",
-    ///         DataRetentionTimeInDays = 3,
-    ///     });
-    /// 
-    ///     var withReplication = new Snowflake.DatabaseOld("with_replication", new()
-    ///     {
-    ///         Name = "testing_2",
-    ///         Comment = "test comment 2",
-    ///         ReplicationConfiguration = new Snowflake.Inputs.DatabaseOldReplicationConfigurationArgs
-    ///         {
-    ///             Accounts = new[]
-    ///             {
-    ///                 "test_account1",
-    ///                 "test_account_2",
-    ///             },
-    ///             IgnoreEditionCheck = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var fromReplica = new Snowflake.DatabaseOld("from_replica", new()
-    ///     {
-    ///         Name = "testing_3",
-    ///         Comment = "test comment",
-    ///         DataRetentionTimeInDays = 3,
-    ///         FromReplica = "\"org1\".\"account1\".\"primary_db_name\"",
-    ///     });
-    /// 
-    ///     var fromShare = new Snowflake.DatabaseOld("from_share", new()
-    ///     {
-    ///         Name = "testing_4",
-    ///         Comment = "test comment",
-    ///         FromShare = 
-    ///         {
-    ///             { "provider", "account1_locator" },
-    ///             { "share", "share1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

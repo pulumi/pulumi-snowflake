@@ -20,57 +20,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.ExternalFunction;
- * import com.pulumi.snowflake.ExternalFunctionArgs;
- * import com.pulumi.snowflake.inputs.ExternalFunctionArgArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testExtFunc = new ExternalFunction("testExtFunc", ExternalFunctionArgs.builder()
- *             .name("my_function")
- *             .database("my_test_db")
- *             .schema("my_test_schema")
- *             .args(            
- *                 ExternalFunctionArgArgs.builder()
- *                     .name("arg1")
- *                     .type("varchar")
- *                     .build(),
- *                 ExternalFunctionArgArgs.builder()
- *                     .name("arg2")
- *                     .type("varchar")
- *                     .build())
- *             .returnType("variant")
- *             .returnBehavior("IMMUTABLE")
- *             .apiIntegration("api_integration_name")
- *             .urlOfProxyAndResource("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
@@ -179,6 +128,20 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.

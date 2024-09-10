@@ -164,22 +164,6 @@ class SessionParameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        s = snowflake.SessionParameter("s",
-            key="AUTOCOMMIT",
-            value="false",
-            user="TEST_USER")
-        s2 = snowflake.SessionParameter("s2",
-            key="BINARY_OUTPUT_FORMAT",
-            value="BASE64",
-            on_account=True)
-        ```
-
         ## Import
 
         ```sh
@@ -200,22 +184,6 @@ class SessionParameter(pulumi.CustomResource):
                  args: SessionParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        s = snowflake.SessionParameter("s",
-            key="AUTOCOMMIT",
-            value="false",
-            user="TEST_USER")
-        s2 = snowflake.SessionParameter("s2",
-            key="BINARY_OUTPUT_FORMAT",
-            value="BASE64",
-            on_account=True)
-        ```
-
         ## Import
 
         ```sh

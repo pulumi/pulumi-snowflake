@@ -12,46 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalTable(ctx, "external_table", &snowflake.ExternalTableArgs{
-//				Database:   pulumi.String("db"),
-//				Schema:     pulumi.String("schema"),
-//				Name:       pulumi.String("external_table"),
-//				Comment:    pulumi.String("External table"),
-//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
-//				Columns: snowflake.ExternalTableColumnArray{
-//					&snowflake.ExternalTableColumnArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("int"),
-//					},
-//					&snowflake.ExternalTableColumnArgs{
-//						Name: pulumi.String("data"),
-//						Type: pulumi.String("text"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | external table name
@@ -76,6 +36,8 @@ type ExternalTable struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringOutput `pulumi:"fileFormat"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies a location for the external table.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
@@ -157,6 +119,8 @@ type externalTableState struct {
 	Database *string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat *string `pulumi:"fileFormat"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies a location for the external table.
 	Location *string `pulumi:"location"`
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
@@ -194,6 +158,8 @@ type ExternalTableState struct {
 	Database pulumi.StringPtrInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies a location for the external table.
 	Location pulumi.StringPtrInput
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
@@ -411,6 +377,11 @@ func (o ExternalTableOutput) Database() pulumi.StringOutput {
 // Specifies the file format for the external table.
 func (o ExternalTableOutput) FileFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FileFormat }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ExternalTableOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies a location for the external table.

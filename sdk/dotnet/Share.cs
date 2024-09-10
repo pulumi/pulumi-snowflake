@@ -10,40 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Snowflake.Share("test", new()
-    ///     {
-    ///         Name = "share_name",
-    ///         Comment = "cool comment",
-    ///         Accounts = new[]
-    ///         {
-    ///             "organizationName.accountName",
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Snowflake.Database("example", new()
-    ///     {
-    ///         Name = "test",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -64,6 +30,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the share; must be unique for the account in which the share is created.
@@ -166,6 +138,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the share; must be unique for the account in which the share is created.

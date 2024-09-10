@@ -10,16 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-    /// 
-    /// Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
-    /// 
     /// ## Import
     /// 
-    /// format is database name | schema name | streamlit name
+    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;streamlit_name&gt;
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/streamlit:Streamlit example 'dbName|schemaName|streamlitName'
+    /// $ pulumi import snowflake:index/streamlit:Streamlit example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;streamlit_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/streamlit:Streamlit")]
@@ -56,6 +52,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ExternalAccessIntegrations { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
         /// </summary>
         [Output("mainFile")]
@@ -80,7 +82,7 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        /// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.StreamlitShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -260,6 +262,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
         /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
         /// </summary>
         [Input("mainFile")]
@@ -287,7 +295,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.StreamlitShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        /// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         /// </summary>
         public InputList<Inputs.StreamlitShowOutputGetArgs> ShowOutputs
         {

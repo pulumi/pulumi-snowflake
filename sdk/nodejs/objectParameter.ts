@@ -7,61 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const d = new snowflake.Database("d", {name: "TEST_DB"});
- * const o = new snowflake.ObjectParameter("o", {
- *     key: "SUSPEND_TASK_AFTER_NUM_FAILURES",
- *     value: "33",
- *     objectType: "DATABASE",
- *     objectIdentifiers: [{
- *         name: d.name,
- *     }],
- * });
- * const s = new snowflake.Schema("s", {
- *     name: "TEST_SCHEMA",
- *     database: d.name,
- * });
- * const o2 = new snowflake.ObjectParameter("o2", {
- *     key: "USER_TASK_TIMEOUT_MS",
- *     value: "500",
- *     objectType: "SCHEMA",
- *     objectIdentifiers: [{
- *         database: d.name,
- *         name: s.name,
- *     }],
- * });
- * const t = new snowflake.Table("t", {
- *     name: "TEST_TABLE",
- *     database: d.name,
- *     schema: s.name,
- *     columns: [{
- *         name: "id",
- *         type: "NUMBER",
- *     }],
- * });
- * const o3 = new snowflake.ObjectParameter("o3", {
- *     key: "DATA_RETENTION_TIME_IN_DAYS",
- *     value: "89",
- *     objectType: "TABLE",
- *     objectIdentifiers: [{
- *         database: d.name,
- *         schema: s.name,
- *         name: t.name,
- *     }],
- * });
- * // Setting object parameter at account level
- * const o4 = new snowflake.ObjectParameter("o4", {
- *     key: "DATA_RETENTION_TIME_IN_DAYS",
- *     value: "89",
- *     onAccount: true,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

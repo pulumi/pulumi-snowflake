@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * format is database name | schema name | stream name
@@ -56,6 +54,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Create an insert only stream type.
      */
     public readonly insertOnly!: pulumi.Output<boolean | undefined>;
@@ -104,6 +106,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["appendOnly"] = state ? state.appendOnly : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["insertOnly"] = state ? state.insertOnly : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["onStage"] = state ? state.onStage : undefined;
@@ -130,6 +133,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["onView"] = args ? args.onView : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["showInitialRows"] = args ? args.showInitialRows : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,6 +157,10 @@ export interface StreamState {
      * The database in which to create the stream.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Create an insert only stream type.
      */

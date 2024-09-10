@@ -12,35 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewFileFormat(ctx, "example_file_format", &snowflake.FileFormatArgs{
-//				Name:       pulumi.String("EXAMPLE_FILE_FORMAT"),
-//				Database:   pulumi.String("EXAMPLE_DB"),
-//				Schema:     pulumi.String("EXAMPLE_SCHEMA"),
-//				FormatType: pulumi.String("CSV"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | file format name
@@ -89,6 +60,8 @@ type FileFormat struct {
 	FileExtension pulumi.StringPtrOutput `pulumi:"fileExtension"`
 	// Specifies the format of the input files (for data loading) or output files (for data unloading).
 	FormatType pulumi.StringOutput `pulumi:"formatType"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors pulumi.BoolPtrOutput `pulumi:"ignoreUtf8Errors"`
 	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
@@ -202,6 +175,8 @@ type fileFormatState struct {
 	FileExtension *string `pulumi:"fileExtension"`
 	// Specifies the format of the input files (for data loading) or output files (for data unloading).
 	FormatType *string `pulumi:"formatType"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors *bool `pulumi:"ignoreUtf8Errors"`
 	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
@@ -277,6 +252,8 @@ type FileFormatState struct {
 	FileExtension pulumi.StringPtrInput
 	// Specifies the format of the input files (for data loading) or output files (for data unloading).
 	FormatType pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Boolean that specifies whether UTF-8 encoding errors produce error conditions.
 	IgnoreUtf8Errors pulumi.BoolPtrInput
 	// Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
@@ -648,6 +625,11 @@ func (o FileFormatOutput) FileExtension() pulumi.StringPtrOutput {
 // Specifies the format of the input files (for data loading) or output files (for data unloading).
 func (o FileFormatOutput) FormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileFormat) pulumi.StringOutput { return v.FormatType }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o FileFormatOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileFormat) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Boolean that specifies whether UTF-8 encoding errors produce error conditions.

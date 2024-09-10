@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
- *
  * ## Import
  *
  * ```sh
@@ -62,7 +58,11 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public readonly enabled!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -104,6 +104,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauthClient"] = state ? state.oauthClient : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = state ? state.oauthIssueRefreshTokens : undefined;
@@ -129,6 +130,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,7 +159,11 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -200,7 +206,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

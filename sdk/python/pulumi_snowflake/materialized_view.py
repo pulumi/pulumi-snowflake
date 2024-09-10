@@ -170,6 +170,7 @@ class _MaterializedViewState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  is_secure: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  or_replace: Optional[pulumi.Input[bool]] = None,
@@ -181,6 +182,7 @@ class _MaterializedViewState:
         Input properties used for looking up and filtering MaterializedView resources.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
@@ -193,6 +195,8 @@ class _MaterializedViewState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if is_secure is not None:
             pulumi.set(__self__, "is_secure", is_secure)
         if name is not None:
@@ -234,6 +238,18 @@ class _MaterializedViewState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter(name="isSecure")
@@ -337,23 +353,6 @@ class MaterializedView(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        view = snowflake.MaterializedView("view",
-            database="db",
-            schema="schema",
-            name="view",
-            warehouse="warehouse",
-            comment="comment",
-            statement="select * from foo;\\n",
-            or_replace=False,
-            is_secure=False)
-        ```
-
         ## Import
 
         format is database name | schema name | view name
@@ -381,23 +380,6 @@ class MaterializedView(pulumi.CustomResource):
                  args: MaterializedViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        view = snowflake.MaterializedView("view",
-            database="db",
-            schema="schema",
-            name="view",
-            warehouse="warehouse",
-            comment="comment",
-            statement="select * from foo;\\n",
-            or_replace=False,
-            is_secure=False)
-        ```
-
         ## Import
 
         format is database name | schema name | view name
@@ -456,6 +438,7 @@ class MaterializedView(pulumi.CustomResource):
             if warehouse is None and not opts.urn:
                 raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
+            __props__.__dict__["fully_qualified_name"] = None
         super(MaterializedView, __self__).__init__(
             'snowflake:index/materializedView:MaterializedView',
             resource_name,
@@ -468,6 +451,7 @@ class MaterializedView(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             is_secure: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             or_replace: Optional[pulumi.Input[bool]] = None,
@@ -484,6 +468,7 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[str] database: The database in which to create the view. Don't use the | character.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
         :param pulumi.Input[bool] or_replace: Overwrites the View if it exists.
@@ -498,6 +483,7 @@ class MaterializedView(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["is_secure"] = is_secure
         __props__.__dict__["name"] = name
         __props__.__dict__["or_replace"] = or_replace
@@ -522,6 +508,14 @@ class MaterializedView(pulumi.CustomResource):
         The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="isSecure")

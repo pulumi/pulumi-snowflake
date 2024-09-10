@@ -17,10 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- * 
- * A shared database creates a database from a share provided by another Snowflake account. For more information about shares, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
- * 
  * ## Import
  * 
  * ```sh
@@ -115,6 +111,20 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
         return this.fromShare;
     }
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      * 
      */
@@ -129,14 +139,14 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
         return this.logLevel;
     }
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account.
+     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {

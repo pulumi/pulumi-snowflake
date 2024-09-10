@@ -12,48 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewExternalFunction(ctx, "test_ext_func", &snowflake.ExternalFunctionArgs{
-//				Name:     pulumi.String("my_function"),
-//				Database: pulumi.String("my_test_db"),
-//				Schema:   pulumi.String("my_test_schema"),
-//				Args: snowflake.ExternalFunctionArgArray{
-//					&snowflake.ExternalFunctionArgArgs{
-//						Name: pulumi.String("arg1"),
-//						Type: pulumi.String("varchar"),
-//					},
-//					&snowflake.ExternalFunctionArgArgs{
-//						Name: pulumi.String("arg2"),
-//						Type: pulumi.String("varchar"),
-//					},
-//				},
-//				ReturnType:            pulumi.String("variant"),
-//				ReturnBehavior:        pulumi.String("IMMUTABLE"),
-//				ApiIntegration:        pulumi.String("api_integration_name"),
-//				UrlOfProxyAndResource: pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
@@ -78,6 +36,8 @@ type ExternalFunction struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the external function.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Allows users to specify key-value metadata that is sent with every request as HTTP headers.
 	Headers ExternalFunctionHeaderArrayOutput `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
@@ -164,6 +124,8 @@ type externalFunctionState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the external function.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Allows users to specify key-value metadata that is sent with every request as HTTP headers.
 	Headers []ExternalFunctionHeader `pulumi:"headers"`
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
@@ -203,6 +165,8 @@ type ExternalFunctionState struct {
 	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the external function.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Allows users to specify key-value metadata that is sent with every request as HTTP headers.
 	Headers ExternalFunctionHeaderArrayInput
 	// This specifies the maximum number of rows in each batch sent to the proxy service.
@@ -426,6 +390,11 @@ func (o ExternalFunctionOutput) CreatedOn() pulumi.StringOutput {
 // The database in which to create the external function.
 func (o ExternalFunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ExternalFunctionOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalFunction) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Allows users to specify key-value metadata that is sent with every request as HTTP headers.

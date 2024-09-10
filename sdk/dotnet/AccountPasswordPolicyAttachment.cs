@@ -9,34 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Snowflake.PasswordPolicy("default", new()
-    ///     {
-    ///         Database = "prod",
-    ///         Schema = "security",
-    ///         Name = "default_policy",
-    ///     });
-    /// 
-    ///     var attachment = new Snowflake.AccountPasswordPolicyAttachment("attachment", new()
-    ///     {
-    ///         PasswordPolicy = @default.QualifiedName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment")]
     public partial class AccountPasswordPolicyAttachment : global::Pulumi.CustomResource
     {

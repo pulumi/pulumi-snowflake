@@ -165,8 +165,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
@@ -189,8 +187,6 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  args: GrantDatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)

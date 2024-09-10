@@ -49,7 +49,7 @@ class ExternalOauthIntegrationArgs:
         :param pulumi.Input[str] external_oauth_rsa_public_key2: Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
         :param pulumi.Input[str] external_oauth_scope_delimiter: Specifies the scope delimiter in the authorization token.
         :param pulumi.Input[str] external_oauth_scope_mapping_attribute: Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "external_oauth_issuer", external_oauth_issuer)
@@ -263,7 +263,7 @@ class ExternalOauthIntegrationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -291,6 +291,7 @@ class _ExternalOauthIntegrationState:
                  external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
                  external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_oauth_type: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]] = None):
@@ -312,7 +313,8 @@ class _ExternalOauthIntegrationState:
         :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
         :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]] related_parameters: Paramteres related to this security integration.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
@@ -348,6 +350,8 @@ class _ExternalOauthIntegrationState:
             pulumi.set(__self__, "external_oauth_token_user_mapping_claims", external_oauth_token_user_mapping_claims)
         if external_oauth_type is not None:
             pulumi.set(__self__, "external_oauth_type", external_oauth_type)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if related_parameters is not None:
@@ -548,10 +552,22 @@ class _ExternalOauthIntegrationState:
         pulumi.set(self, "external_oauth_type", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -607,10 +623,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage external oauth security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
-
         ## Import
 
         ```sh
@@ -634,7 +646,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
         :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         ...
     @overload
@@ -643,10 +655,6 @@ class ExternalOauthIntegration(pulumi.CustomResource):
                  args: ExternalOauthIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage external oauth security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
-
         ## Import
 
         ```sh
@@ -720,6 +728,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             __props__.__dict__["external_oauth_type"] = external_oauth_type
             __props__.__dict__["name"] = name
             __props__.__dict__["describe_outputs"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["related_parameters"] = None
             __props__.__dict__["show_outputs"] = None
         super(ExternalOauthIntegration, __self__).__init__(
@@ -748,6 +757,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[str]] = None,
             external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_oauth_type: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]]] = None) -> 'ExternalOauthIntegration':
@@ -774,7 +784,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_oauth_token_user_mapping_claims: Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
         :param pulumi.Input[str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
-        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]] related_parameters: Paramteres related to this security integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
@@ -798,6 +809,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         __props__.__dict__["external_oauth_snowflake_user_mapping_attribute"] = external_oauth_snowflake_user_mapping_attribute
         __props__.__dict__["external_oauth_token_user_mapping_claims"] = external_oauth_token_user_mapping_claims
         __props__.__dict__["external_oauth_type"] = external_oauth_type
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["related_parameters"] = related_parameters
         __props__.__dict__["show_outputs"] = show_outputs
@@ -932,10 +944,18 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         return pulumi.get(self, "external_oauth_type")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 

@@ -12,38 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewStage(ctx, "example_stage", &snowflake.StageArgs{
-//				Name:        pulumi.String("EXAMPLE_STAGE"),
-//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
-//				Database:    pulumi.String("EXAMPLE_DB"),
-//				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
-//				Credentials: pulumi.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | stage name
@@ -70,6 +38,8 @@ type Stage struct {
 	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
 	// Specifies the file format for the stage.
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the stage.
@@ -145,6 +115,8 @@ type stageState struct {
 	Encryption *string `pulumi:"encryption"`
 	// Specifies the file format for the stage.
 	FileFormat *string `pulumi:"fileFormat"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the stage.
@@ -178,6 +150,8 @@ type StageState struct {
 	Encryption pulumi.StringPtrInput
 	// Specifies the file format for the stage.
 	FileFormat pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the stage.
@@ -390,6 +364,11 @@ func (o StageOutput) Encryption() pulumi.StringPtrOutput {
 // Specifies the file format for the stage.
 func (o StageOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o StageOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.

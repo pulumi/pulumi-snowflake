@@ -10,41 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var externalTable = new Snowflake.ExternalTable("external_table", new()
-    ///     {
-    ///         Database = "db",
-    ///         Schema = "schema",
-    ///         Name = "external_table",
-    ///         Comment = "External table",
-    ///         FileFormat = "TYPE = CSV FIELD_DELIMITER = '|'",
-    ///         Columns = new[]
-    ///         {
-    ///             new Snowflake.Inputs.ExternalTableColumnArgs
-    ///             {
-    ///                 Name = "id",
-    ///                 Type = "int",
-    ///             },
-    ///             new Snowflake.Inputs.ExternalTableColumnArgs
-    ///             {
-    ///                 Name = "data",
-    ///                 Type = "text",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | external table name
@@ -97,6 +62,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("fileFormat")]
         public Output<string> FileFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a location for the external table.
@@ -362,6 +333,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies a location for the external table.

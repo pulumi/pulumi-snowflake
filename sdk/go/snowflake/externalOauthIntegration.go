@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-//
-// Resource used to manage external oauth security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-external).
-//
 // ## Import
 //
 // ```sh
@@ -56,7 +52,9 @@ type ExternalOauthIntegration struct {
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayOutput `pulumi:"externalOauthTokenUserMappingClaims"`
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringOutput `pulumi:"externalOauthType"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Paramteres related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayOutput `pulumi:"relatedParameters"`
@@ -141,7 +139,9 @@ type externalOauthIntegrationState struct {
 	ExternalOauthTokenUserMappingClaims []string `pulumi:"externalOauthTokenUserMappingClaims"`
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType *string `pulumi:"externalOauthType"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Paramteres related to this security integration.
 	RelatedParameters []ExternalOauthIntegrationRelatedParameter `pulumi:"relatedParameters"`
@@ -182,7 +182,9 @@ type ExternalOauthIntegrationState struct {
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayInput
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringPtrInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Paramteres related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayInput
@@ -225,7 +227,7 @@ type externalOauthIntegrationArgs struct {
 	ExternalOauthTokenUserMappingClaims []string `pulumi:"externalOauthTokenUserMappingClaims"`
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType string `pulumi:"externalOauthType"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 }
 
@@ -261,7 +263,7 @@ type ExternalOauthIntegrationArgs struct {
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayInput
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 }
 
@@ -438,7 +440,12 @@ func (o ExternalOauthIntegrationOutput) ExternalOauthType() pulumi.StringOutput 
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.ExternalOauthType }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ExternalOauthIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o ExternalOauthIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

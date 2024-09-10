@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;procedure_name&gt;(&lt;arg types, separated with ','&gt;)
@@ -46,6 +44,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("executeAs")]
         public Output<string?> ExecuteAs { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// The handler method for Java / Python procedures.
@@ -316,6 +320,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("executeAs")]
         public Input<string>? ExecuteAs { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// The handler method for Java / Python procedures.

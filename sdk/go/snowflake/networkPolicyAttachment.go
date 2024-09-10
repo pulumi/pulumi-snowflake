@@ -12,37 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNetworkPolicyAttachment(ctx, "attach", &snowflake.NetworkPolicyAttachmentArgs{
-//				NetworkPolicyName: pulumi.String("policy"),
-//				SetForAccount:     pulumi.Bool(false),
-//				Users: pulumi.StringArray{
-//					pulumi.String("user1"),
-//					pulumi.String("user2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

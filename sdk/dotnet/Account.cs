@@ -10,39 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// The account resource allows you to create and manage Snowflake accounts.
-    /// 
-    /// !&gt; **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-    /// 
-    /// &gt; **Note** ORGADMIN priviliges are required for this resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ac1 = new Snowflake.Account("ac1", new()
-    ///     {
-    ///         Name = "SNOWFLAKE_TEST_ACCOUNT",
-    ///         AdminName = "John Doe",
-    ///         AdminPassword = "Abcd1234!",
-    ///         Email = "john.doe@snowflake.com",
-    ///         FirstName = "John",
-    ///         LastName = "Doe",
-    ///         MustChangePassword = true,
-    ///         Edition = "STANDARD",
-    ///         Comment = "Snowflake Test Account",
-    ///         Region = "AWS_US_WEST_2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -93,6 +60,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("firstName")]
         public Output<string?> FirstName { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of days to wait before dropping the account. The default is 3 days.
@@ -407,6 +380,12 @@ namespace Pulumi.Snowflake
                 _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the number of days to wait before dropping the account. The default is 3 days.

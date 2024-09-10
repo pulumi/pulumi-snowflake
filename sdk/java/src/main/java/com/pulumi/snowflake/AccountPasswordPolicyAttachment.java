@@ -13,53 +13,6 @@ import com.pulumi.snowflake.inputs.AccountPasswordPolicyAttachmentState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.PasswordPolicy;
- * import com.pulumi.snowflake.PasswordPolicyArgs;
- * import com.pulumi.snowflake.AccountPasswordPolicyAttachment;
- * import com.pulumi.snowflake.AccountPasswordPolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new PasswordPolicy("default", PasswordPolicyArgs.builder()
- *             .database("prod")
- *             .schema("security")
- *             .name("default_policy")
- *             .build());
- * 
- *         var attachment = new AccountPasswordPolicyAttachment("attachment", AccountPasswordPolicyAttachmentArgs.builder()
- *             .passwordPolicy(default_.qualifiedName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- */
 @ResourceType(type="snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment")
 public class AccountPasswordPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**

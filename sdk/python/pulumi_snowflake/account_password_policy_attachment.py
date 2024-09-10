@@ -66,21 +66,7 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
                  password_policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        default = snowflake.PasswordPolicy("default",
-            database="prod",
-            schema="security",
-            name="default_policy")
-        attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
-        ```
-
+        Create a AccountPasswordPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password_policy: Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
@@ -92,21 +78,7 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
                  args: AccountPasswordPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        default = snowflake.PasswordPolicy("default",
-            database="prod",
-            schema="security",
-            name="default_policy")
-        attachment = snowflake.AccountPasswordPolicyAttachment("attachment", password_policy=default.qualified_name)
-        ```
-
+        Create a AccountPasswordPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountPasswordPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

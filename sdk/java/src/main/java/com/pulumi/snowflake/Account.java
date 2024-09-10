@@ -18,56 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * The account resource allows you to create and manage Snowflake accounts.
- * 
- * !&gt; **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
- * 
- * &gt; **Note** ORGADMIN priviliges are required for this resource
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Account;
- * import com.pulumi.snowflake.AccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var ac1 = new Account("ac1", AccountArgs.builder()
- *             .name("SNOWFLAKE_TEST_ACCOUNT")
- *             .adminName("John Doe")
- *             .adminPassword("Abcd1234!")
- *             .email("john.doe}{@literal @}{@code snowflake.com")
- *             .firstName("John")
- *             .lastName("Doe")
- *             .mustChangePassword(true)
- *             .edition("STANDARD")
- *             .comment("Snowflake Test Account")
- *             .region("AWS_US_WEST_2")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -174,6 +124,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> firstName() {
         return Codegen.optional(this.firstName);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies the number of days to wait before dropping the account. The default is 3 days.

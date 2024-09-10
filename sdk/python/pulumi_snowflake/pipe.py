@@ -169,6 +169,7 @@ class _PipeState:
                  copy_statement: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  error_integration: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_channel: Optional[pulumi.Input[str]] = None,
@@ -182,6 +183,7 @@ class _PipeState:
         :param pulumi.Input[str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[str] database: The database in which to create the pipe.
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -200,6 +202,8 @@ class _PipeState:
             pulumi.set(__self__, "database", database)
         if error_integration is not None:
             pulumi.set(__self__, "error_integration", error_integration)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if integration is not None:
             pulumi.set(__self__, "integration", integration)
         if name is not None:
@@ -284,6 +288,18 @@ class _PipeState:
         pulumi.set(self, "error_integration", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -360,8 +376,6 @@ class Pipe(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
-
         ## Import
 
         format is database name | schema name | pipe name
@@ -389,8 +403,6 @@ class Pipe(pulumi.CustomResource):
                  args: PipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
-
         ## Import
 
         format is database name | schema name | pipe name
@@ -447,6 +459,7 @@ class Pipe(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["notification_channel"] = None
             __props__.__dict__["owner"] = None
         super(Pipe, __self__).__init__(
@@ -465,6 +478,7 @@ class Pipe(pulumi.CustomResource):
             copy_statement: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             error_integration: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             integration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_channel: Optional[pulumi.Input[str]] = None,
@@ -483,6 +497,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[str] database: The database in which to create the pipe.
         :param pulumi.Input[str] error_integration: Specifies the name of the notification integration used for error notifications.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -499,6 +514,7 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["copy_statement"] = copy_statement
         __props__.__dict__["database"] = database
         __props__.__dict__["error_integration"] = error_integration
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["integration"] = integration
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_channel"] = notification_channel
@@ -553,6 +569,14 @@ class Pipe(pulumi.CustomResource):
         Specifies the name of the notification integration used for error notifications.
         """
         return pulumi.get(self, "error_integration")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

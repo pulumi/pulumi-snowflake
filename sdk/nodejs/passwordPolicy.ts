@@ -44,6 +44,10 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      */
     public readonly history!: pulumi.Output<number | undefined>;
@@ -100,10 +104,6 @@ export class PasswordPolicy extends pulumi.CustomResource {
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
-     * The qualified name for the password policy.
-     */
-    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
-    /**
      * The schema this password policy belongs to.
      */
     public readonly schema!: pulumi.Output<string>;
@@ -123,6 +123,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             const state = argsOrState as PasswordPolicyState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["history"] = state ? state.history : undefined;
             resourceInputs["ifNotExists"] = state ? state.ifNotExists : undefined;
             resourceInputs["lockoutTimeMins"] = state ? state.lockoutTimeMins : undefined;
@@ -137,7 +138,6 @@ export class PasswordPolicy extends pulumi.CustomResource {
             resourceInputs["minUpperCaseChars"] = state ? state.minUpperCaseChars : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["orReplace"] = state ? state.orReplace : undefined;
-            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
         } else {
             const args = argsOrState as PasswordPolicyArgs | undefined;
@@ -164,7 +164,7 @@ export class PasswordPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["orReplace"] = args ? args.orReplace : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["qualifiedName"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PasswordPolicy.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +183,10 @@ export interface PasswordPolicyState {
      * The database this password policy belongs to.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      */
@@ -239,10 +243,6 @@ export interface PasswordPolicyState {
      * Whether to override a previous password policy with the same name.
      */
     orReplace?: pulumi.Input<boolean>;
-    /**
-     * The qualified name for the password policy.
-     */
-    qualifiedName?: pulumi.Input<string>;
     /**
      * The schema this password policy belongs to.
      */

@@ -11,10 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-//
-// Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
-//
 // ## Import
 //
 // ```sh
@@ -35,7 +31,9 @@ type NetworkPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
 	DescribeOutputs NetworkPolicyDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
 	ShowOutputs NetworkPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -83,7 +81,9 @@ type networkPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
 	DescribeOutputs []NetworkPolicyDescribeOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
 	ShowOutputs []NetworkPolicyShowOutput `pulumi:"showOutputs"`
@@ -102,7 +102,9 @@ type NetworkPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
 	DescribeOutputs NetworkPolicyDescribeOutputArrayInput
-	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
 	ShowOutputs NetworkPolicyShowOutputArrayInput
@@ -123,7 +125,7 @@ type networkPolicyArgs struct {
 	BlockedNetworkRuleLists []string `pulumi:"blockedNetworkRuleLists"`
 	// Specifies a comment for the network policy.
 	Comment *string `pulumi:"comment"`
-	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 }
 
@@ -139,7 +141,7 @@ type NetworkPolicyArgs struct {
 	BlockedNetworkRuleLists pulumi.StringArrayInput
 	// Specifies a comment for the network policy.
 	Comment pulumi.StringPtrInput
-	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 }
 
@@ -260,7 +262,12 @@ func (o NetworkPolicyOutput) DescribeOutputs() NetworkPolicyDescribeOutputArrayO
 	return o.ApplyT(func(v *NetworkPolicy) NetworkPolicyDescribeOutputArrayOutput { return v.DescribeOutputs }).(NetworkPolicyDescribeOutputArrayOutput)
 }
 
-// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o NetworkPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o NetworkPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

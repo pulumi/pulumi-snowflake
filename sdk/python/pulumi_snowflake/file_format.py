@@ -614,6 +614,7 @@ class _FileFormatState:
                  field_optionally_enclosed_by: Optional[pulumi.Input[str]] = None,
                  file_extension: Optional[pulumi.Input[str]] = None,
                  format_type: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -652,6 +653,7 @@ class _FileFormatState:
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
@@ -708,6 +710,8 @@ class _FileFormatState:
             pulumi.set(__self__, "file_extension", file_extension)
         if format_type is not None:
             pulumi.set(__self__, "format_type", format_type)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if ignore_utf8_errors is not None:
             pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
         if name is not None:
@@ -972,6 +976,18 @@ class _FileFormatState:
         pulumi.set(self, "format_type", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter(name="ignoreUtf8Errors")
     def ignore_utf8_errors(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1219,19 +1235,6 @@ class FileFormat(pulumi.CustomResource):
                  trim_space: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_file_format = snowflake.FileFormat("example_file_format",
-            name="EXAMPLE_FILE_FORMAT",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            format_type="CSV")
-        ```
-
         ## Import
 
         format is database name | schema name | file format name
@@ -1286,19 +1289,6 @@ class FileFormat(pulumi.CustomResource):
                  args: FileFormatArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_file_format = snowflake.FileFormat("example_file_format",
-            name="EXAMPLE_FILE_FORMAT",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            format_type="CSV")
-        ```
-
         ## Import
 
         format is database name | schema name | file format name
@@ -1409,6 +1399,7 @@ class FileFormat(pulumi.CustomResource):
             __props__.__dict__["time_format"] = time_format
             __props__.__dict__["timestamp_format"] = timestamp_format
             __props__.__dict__["trim_space"] = trim_space
+            __props__.__dict__["fully_qualified_name"] = None
         super(FileFormat, __self__).__init__(
             'snowflake:index/fileFormat:FileFormat',
             resource_name,
@@ -1438,6 +1429,7 @@ class FileFormat(pulumi.CustomResource):
             field_optionally_enclosed_by: Optional[pulumi.Input[str]] = None,
             file_extension: Optional[pulumi.Input[str]] = None,
             format_type: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             ignore_utf8_errors: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1481,6 +1473,7 @@ class FileFormat(pulumi.CustomResource):
         :param pulumi.Input[str] field_optionally_enclosed_by: Character used to enclose strings.
         :param pulumi.Input[str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] ignore_utf8_errors: Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         :param pulumi.Input[str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] null_ifs: String used to convert to and from SQL NULL.
@@ -1522,6 +1515,7 @@ class FileFormat(pulumi.CustomResource):
         __props__.__dict__["field_optionally_enclosed_by"] = field_optionally_enclosed_by
         __props__.__dict__["file_extension"] = file_extension
         __props__.__dict__["format_type"] = format_type
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["ignore_utf8_errors"] = ignore_utf8_errors
         __props__.__dict__["name"] = name
         __props__.__dict__["null_ifs"] = null_ifs
@@ -1692,6 +1686,14 @@ class FileFormat(pulumi.CustomResource):
         Specifies the format of the input files (for data loading) or output files (for data unloading).
         """
         return pulumi.get(self, "format_type")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="ignoreUtf8Errors")

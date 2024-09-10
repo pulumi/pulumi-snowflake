@@ -5,26 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const rule = new snowflake.NetworkRule("rule", {
- *     name: "rule",
- *     database: "EXAMPLE_DB",
- *     schema: "EXAMPLE_SCHEMA",
- *     comment: "A rule.",
- *     type: "IPV4",
- *     mode: "INGRESS",
- *     valueLists: [
- *         "192.168.0.100/24",
- *         "29.254.123.20",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -68,6 +48,10 @@ export class NetworkRule extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
      */
     public readonly mode!: pulumi.Output<string>;
@@ -75,10 +59,6 @@ export class NetworkRule extends pulumi.CustomResource {
      * Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Qualified name of the network rule.
-     */
-    public /*out*/ readonly qualifiedName!: pulumi.Output<string>;
     /**
      * The schema in which to create the network rule.
      */
@@ -107,9 +87,9 @@ export class NetworkRule extends pulumi.CustomResource {
             const state = argsOrState as NetworkRuleState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["qualifiedName"] = state ? state.qualifiedName : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["valueLists"] = state ? state.valueLists : undefined;
@@ -137,7 +117,7 @@ export class NetworkRule extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["valueLists"] = args ? args.valueLists : undefined;
-            resourceInputs["qualifiedName"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkRule.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +137,10 @@ export interface NetworkRuleState {
      */
     database?: pulumi.Input<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
      */
     mode?: pulumi.Input<string>;
@@ -164,10 +148,6 @@ export interface NetworkRuleState {
      * Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Qualified name of the network rule.
-     */
-    qualifiedName?: pulumi.Input<string>;
     /**
      * The schema in which to create the network rule.
      */

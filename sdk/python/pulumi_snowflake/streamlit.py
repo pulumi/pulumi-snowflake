@@ -185,6 +185,7 @@ class _StreamlitState:
                  describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]] = None,
                  directory_location: Optional[pulumi.Input[str]] = None,
                  external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  main_file: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_warehouse: Optional[pulumi.Input[str]] = None,
@@ -199,11 +200,12 @@ class _StreamlitState:
         :param pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
         :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
         :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
         :param pulumi.Input[str] schema: The schema in which to create the streamlit.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] stage: The stage in which streamlit files are located.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
@@ -217,6 +219,8 @@ class _StreamlitState:
             pulumi.set(__self__, "directory_location", directory_location)
         if external_access_integrations is not None:
             pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if main_file is not None:
             pulumi.set(__self__, "main_file", main_file)
         if name is not None:
@@ -293,6 +297,18 @@ class _StreamlitState:
         pulumi.set(self, "external_access_integrations", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter(name="mainFile")
     def main_file(self) -> Optional[pulumi.Input[str]]:
         """
@@ -344,7 +360,7 @@ class _StreamlitState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -394,16 +410,12 @@ class Streamlit(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
-
         ## Import
 
-        format is database name | schema name | streamlit name
+        format is <database_name>.<schema_name>.<streamlit_name>
 
         ```sh
-        $ pulumi import snowflake:index/streamlit:Streamlit example 'dbName|schemaName|streamlitName'
+        $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -426,16 +438,12 @@ class Streamlit(pulumi.CustomResource):
                  args: StreamlitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
-
         ## Import
 
-        format is database name | schema name | streamlit name
+        format is <database_name>.<schema_name>.<streamlit_name>
 
         ```sh
-        $ pulumi import snowflake:index/streamlit:Streamlit example 'dbName|schemaName|streamlitName'
+        $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -491,6 +499,7 @@ class Streamlit(pulumi.CustomResource):
             __props__.__dict__["stage"] = stage
             __props__.__dict__["title"] = title
             __props__.__dict__["describe_outputs"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
         super(Streamlit, __self__).__init__(
             'snowflake:index/streamlit:Streamlit',
@@ -507,6 +516,7 @@ class Streamlit(pulumi.CustomResource):
             describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]]] = None,
             directory_location: Optional[pulumi.Input[str]] = None,
             external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             main_file: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query_warehouse: Optional[pulumi.Input[str]] = None,
@@ -526,11 +536,12 @@ class Streamlit(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
         :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
         :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
         :param pulumi.Input[str] schema: The schema in which to create the streamlit.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] stage: The stage in which streamlit files are located.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
@@ -543,6 +554,7 @@ class Streamlit(pulumi.CustomResource):
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["directory_location"] = directory_location
         __props__.__dict__["external_access_integrations"] = external_access_integrations
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["main_file"] = main_file
         __props__.__dict__["name"] = name
         __props__.__dict__["query_warehouse"] = query_warehouse
@@ -593,6 +605,14 @@ class Streamlit(pulumi.CustomResource):
         return pulumi.get(self, "external_access_integrations")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter(name="mainFile")
     def main_file(self) -> pulumi.Output[str]:
         """
@@ -628,7 +648,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.StreamlitShowOutput']]:
         """
-        Outputs the result of `SHOW STREAMLIT` for the given streamli.
+        Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         """
         return pulumi.get(self, "show_outputs")
 

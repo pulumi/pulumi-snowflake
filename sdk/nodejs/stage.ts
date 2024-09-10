@@ -7,21 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const exampleStage = new snowflake.Stage("example_stage", {
- *     name: "EXAMPLE_STAGE",
- *     url: "s3://com.example.bucket/prefix",
- *     database: "EXAMPLE_DB",
- *     schema: "EXAMPLE_SCHEMA",
- *     credentials: `AWS_KEY_ID='${exampleAwsKeyId}' AWS_SECRET_KEY='${exampleAwsSecretKey}'`,
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | stage name
@@ -91,6 +76,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -138,6 +127,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["directory"] = state ? state.directory : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["snowflakeIamUser"] = state ? state.snowflakeIamUser : undefined;
@@ -166,6 +156,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["storageIntegration"] = args ? args.storageIntegration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -210,6 +201,10 @@ export interface StageState {
      * Specifies the file format for the stage.
      */
     fileFormat?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */

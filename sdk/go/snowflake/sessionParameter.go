@@ -12,42 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewSessionParameter(ctx, "s", &snowflake.SessionParameterArgs{
-//				Key:   pulumi.String("AUTOCOMMIT"),
-//				Value: pulumi.String("false"),
-//				User:  pulumi.String("TEST_USER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewSessionParameter(ctx, "s2", &snowflake.SessionParameterArgs{
-//				Key:       pulumi.String("BINARY_OUTPUT_FORMAT"),
-//				Value:     pulumi.String("BASE64"),
-//				OnAccount: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

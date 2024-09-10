@@ -142,6 +142,21 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
@@ -217,14 +232,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     @Import(name="pipeExecutionPaused")
     private @Nullable Output<Boolean> pipeExecutionPaused;
 
     /**
-     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     public Optional<Output<Boolean>> pipeExecutionPaused() {
@@ -407,6 +422,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         this.describeOutputs = $.describeOutputs;
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.isTransient = $.isTransient;
         this.logLevel = $.logLevel;
         this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
@@ -623,6 +639,27 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param isTransient Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
@@ -738,7 +775,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
          * 
          * @return builder
          * 
@@ -749,7 +786,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
          * 
          * @return builder
          * 

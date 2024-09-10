@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const s = new snowflake.SessionParameter("s", {
- *     key: "AUTOCOMMIT",
- *     value: "false",
- *     user: "TEST_USER",
- * });
- * const s2 = new snowflake.SessionParameter("s2", {
- *     key: "BINARY_OUTPUT_FORMAT",
- *     value: "BASE64",
- *     onAccount: true,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

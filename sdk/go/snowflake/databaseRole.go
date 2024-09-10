@@ -12,48 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewDatabaseRole(ctx, "db_role", &snowflake.DatabaseRoleArgs{
-//				Database: pulumi.String("database"),
-//				Name:     pulumi.String("role_1"),
-//				Comment:  pulumi.String("my db role"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+// $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
 // ```
 type DatabaseRole struct {
 	pulumi.CustomResourceState
 
 	// Specifies a comment for the database role.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the database role.
+	// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies the identifier for the database role.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+	ShowOutputs DatabaseRoleShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
 // NewDatabaseRole registers a new resource with the given unique name, arguments, and options.
@@ -91,19 +67,27 @@ func GetDatabaseRole(ctx *pulumi.Context,
 type databaseRoleState struct {
 	// Specifies a comment for the database role.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the database role.
+	// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database *string `pulumi:"database"`
-	// Specifies the identifier for the database role.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
+	// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+	ShowOutputs []DatabaseRoleShowOutput `pulumi:"showOutputs"`
 }
 
 type DatabaseRoleState struct {
 	// Specifies a comment for the database role.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the database role.
+	// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database pulumi.StringPtrInput
-	// Specifies the identifier for the database role.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
+	// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+	ShowOutputs DatabaseRoleShowOutputArrayInput
 }
 
 func (DatabaseRoleState) ElementType() reflect.Type {
@@ -113,9 +97,9 @@ func (DatabaseRoleState) ElementType() reflect.Type {
 type databaseRoleArgs struct {
 	// Specifies a comment for the database role.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the database role.
+	// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the database role.
+	// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
 }
 
@@ -123,9 +107,9 @@ type databaseRoleArgs struct {
 type DatabaseRoleArgs struct {
 	// Specifies a comment for the database role.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the database role.
+	// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database pulumi.StringInput
-	// Specifies the identifier for the database role.
+	// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
 }
 
@@ -221,14 +205,24 @@ func (o DatabaseRoleOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseRole) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the database role.
+// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o DatabaseRoleOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabaseRole) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the database role.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o DatabaseRoleOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseRole) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o DatabaseRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabaseRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+func (o DatabaseRoleOutput) ShowOutputs() DatabaseRoleShowOutputArrayOutput {
+	return o.ApplyT(func(v *DatabaseRole) DatabaseRoleShowOutputArrayOutput { return v.ShowOutputs }).(DatabaseRoleShowOutputArrayOutput)
 }
 
 type DatabaseRoleArrayOutput struct{ *pulumi.OutputState }

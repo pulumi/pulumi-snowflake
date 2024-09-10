@@ -10,36 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.AccountRole instead. &lt;deprecation&gt;
-    /// 
-    /// The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //# Minimal
-    ///     var minimal = new Snowflake.Role("minimal", new()
-    ///     {
-    ///         Name = "role_name",
-    ///     });
-    /// 
-    ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.Role("complete", new()
-    ///     {
-    ///         Name = "role_name",
-    ///         Comment = "my account role",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -52,6 +22,15 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -110,6 +89,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -124,6 +106,15 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
+        /// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

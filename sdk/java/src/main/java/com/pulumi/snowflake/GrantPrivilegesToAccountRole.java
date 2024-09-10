@@ -20,9 +20,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+ * ## Import
  * 
- * &gt; **Note** When granting privileges on applications (for example, the default &#34;SNOWFLAKE&#34; application) use `on_account_object.object_type = &#34;DATABASE&#34;` instead.
+ * ### Import examples
  * 
  * #### Grant all privileges OnAccountObject (Database)
  * 

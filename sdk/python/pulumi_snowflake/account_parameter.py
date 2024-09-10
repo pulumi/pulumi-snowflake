@@ -98,20 +98,6 @@ class AccountParameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        p = snowflake.AccountParameter("p",
-            key="ALLOW_ID_TOKEN",
-            value="true")
-        p2 = snowflake.AccountParameter("p2",
-            key="CLIENT_ENCRYPTION_KEY_SIZE",
-            value="256")
-        ```
-
         ## Import
 
         ```sh
@@ -130,20 +116,6 @@ class AccountParameter(pulumi.CustomResource):
                  args: AccountParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        p = snowflake.AccountParameter("p",
-            key="ALLOW_ID_TOKEN",
-            value="true")
-        p2 = snowflake.AccountParameter("p2",
-            key="CLIENT_ENCRYPTION_KEY_SIZE",
-            value="256")
-        ```
-
         ## Import
 
         ```sh

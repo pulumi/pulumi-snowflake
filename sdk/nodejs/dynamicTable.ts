@@ -7,26 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
- * const dt = new snowflake.DynamicTable("dt", {
- *     name: "product",
- *     database: "mydb",
- *     schema: "myschema",
- *     targetLag: {
- *         maximumDuration: "20 minutes",
- *     },
- *     warehouse: "mywh",
- *     query: "SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"",
- *     comment: "example comment",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -89,6 +69,10 @@ export class DynamicTable extends pulumi.CustomResource {
      * The database in which to create the dynamic table.
      */
     public readonly database!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
@@ -170,6 +154,7 @@ export class DynamicTable extends pulumi.CustomResource {
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["dataTimestamp"] = state ? state.dataTimestamp : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["initialize"] = state ? state.initialize : undefined;
             resourceInputs["isClone"] = state ? state.isClone : undefined;
             resourceInputs["isReplica"] = state ? state.isReplica : undefined;
@@ -217,6 +202,7 @@ export class DynamicTable extends pulumi.CustomResource {
             resourceInputs["clusterBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["dataTimestamp"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["isClone"] = undefined /*out*/;
             resourceInputs["isReplica"] = undefined /*out*/;
             resourceInputs["lastSuspendedOn"] = undefined /*out*/;
@@ -262,6 +248,10 @@ export interface DynamicTableState {
      * The database in which to create the dynamic table.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */

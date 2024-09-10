@@ -5,48 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * //# Basic
- * const test = new snowflake.Database("test", {name: "some_database"});
- * const testSchema = new snowflake.Schema("test", {
- *     database: test.name,
- *     name: "some_schema",
- * });
- * const testTable = new snowflake.Table("test", {
- *     database: test.name,
- *     schema: testSchema.name,
- *     name: "some_table",
- *     changeTracking: true,
- *     columns: [
- *         {
- *             name: "ID",
- *             type: "NUMBER(38,0)",
- *         },
- *         {
- *             name: "SOME_TEXT",
- *             type: "VARCHAR",
- *         },
- *     ],
- * });
- * const testCortexSearchService = new snowflake.CortexSearchService("test", {
- *     database: test.name,
- *     schema: testSchema.name,
- *     name: "some_name",
- *     on: "SOME_TEXT",
- *     targetLag: "2 minutes",
- *     warehouse: "some_warehouse",
- *     query: "SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"",
- *     comment: "some comment",
- * }, {
- *     dependsOn: [testTable],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -98,6 +56,10 @@ export class CortexSearchService extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -139,6 +101,7 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["on"] = state ? state.on : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
@@ -175,6 +138,7 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["targetLag"] = args ? args.targetLag : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CortexSearchService.__pulumiType, name, resourceInputs, opts);
@@ -201,6 +165,10 @@ export interface CortexSearchServiceState {
      * The database in which to create the Cortex search service.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */

@@ -16,84 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Database;
- * import com.pulumi.snowflake.DatabaseArgs;
- * import com.pulumi.snowflake.Schema;
- * import com.pulumi.snowflake.SchemaArgs;
- * import com.pulumi.snowflake.Table;
- * import com.pulumi.snowflake.TableArgs;
- * import com.pulumi.snowflake.inputs.TableColumnArgs;
- * import com.pulumi.snowflake.CortexSearchService;
- * import com.pulumi.snowflake.CortexSearchServiceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         //# Basic
- *         var test = new Database("test", DatabaseArgs.builder()
- *             .name("some_database")
- *             .build());
- * 
- *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
- *             .database(test.name())
- *             .name("some_schema")
- *             .build());
- * 
- *         var testTable = new Table("testTable", TableArgs.builder()
- *             .database(test.name())
- *             .schema(testSchema.name())
- *             .name("some_table")
- *             .changeTracking(true)
- *             .columns(            
- *                 TableColumnArgs.builder()
- *                     .name("ID")
- *                     .type("NUMBER(38,0)")
- *                     .build(),
- *                 TableColumnArgs.builder()
- *                     .name("SOME_TEXT")
- *                     .type("VARCHAR")
- *                     .build())
- *             .build());
- * 
- *         var testCortexSearchService = new CortexSearchService("testCortexSearchService", CortexSearchServiceArgs.builder()
- *             .database(test.name())
- *             .schema(testSchema.name())
- *             .name("some_name")
- *             .on("SOME_TEXT")
- *             .targetLag("2 minutes")
- *             .warehouse("some_warehouse")
- *             .query("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"")
- *             .comment("some comment")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testTable)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -158,6 +80,20 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.

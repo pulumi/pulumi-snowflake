@@ -12,41 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use OauthIntegrationForCustomClients or OauthIntegrationForPartnerApplications instead. <deprecation>
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewOauthIntegration(ctx, "tableau_desktop", &snowflake.OauthIntegrationArgs{
-//				Name:                      pulumi.String("TABLEAU_DESKTOP"),
-//				OauthClient:               pulumi.String("TABLEAU_DESKTOP"),
-//				Enabled:                   pulumi.Bool(true),
-//				OauthIssueRefreshTokens:   pulumi.Bool(true),
-//				OauthRefreshTokenValidity: pulumi.Int(3600),
-//				BlockedRolesLists: pulumi.StringArray{
-//					pulumi.String("SYSADMIN"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

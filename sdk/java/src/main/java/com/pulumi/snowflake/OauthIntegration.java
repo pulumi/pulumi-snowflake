@@ -18,48 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.OauthIntegrationForCustomClients or snowflake.OauthIntegrationForPartnerApplications instead. &lt;deprecation&gt;
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.OauthIntegration;
- * import com.pulumi.snowflake.OauthIntegrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var tableauDesktop = new OauthIntegration("tableauDesktop", OauthIntegrationArgs.builder()
- *             .name("TABLEAU_DESKTOP")
- *             .oauthClient("TABLEAU_DESKTOP")
- *             .enabled(true)
- *             .oauthIssueRefreshTokens(true)
- *             .oauthRefreshTokenValidity(3600)
- *             .blockedRolesLists("SYSADMIN")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh

@@ -108,6 +108,21 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      * 
      */
@@ -123,14 +138,14 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account.
+     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -281,6 +296,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
         this.fromShare = $.fromShare;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.logLevel = $.logLevel;
         this.name = $.name;
         this.quotedIdentifiersIgnoreCase = $.quotedIdentifiersIgnoreCase;
@@ -439,6 +455,27 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
          * 
          * @return builder
@@ -460,7 +497,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account.
+         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -471,7 +508,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account.
+         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 

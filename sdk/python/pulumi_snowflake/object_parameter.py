@@ -199,55 +199,6 @@ class ObjectParameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        d = snowflake.Database("d", name="TEST_DB")
-        o = snowflake.ObjectParameter("o",
-            key="SUSPEND_TASK_AFTER_NUM_FAILURES",
-            value="33",
-            object_type="DATABASE",
-            object_identifiers=[{
-                "name": d.name,
-            }])
-        s = snowflake.Schema("s",
-            name="TEST_SCHEMA",
-            database=d.name)
-        o2 = snowflake.ObjectParameter("o2",
-            key="USER_TASK_TIMEOUT_MS",
-            value="500",
-            object_type="SCHEMA",
-            object_identifiers=[{
-                "database": d.name,
-                "name": s.name,
-            }])
-        t = snowflake.Table("t",
-            name="TEST_TABLE",
-            database=d.name,
-            schema=s.name,
-            columns=[{
-                "name": "id",
-                "type": "NUMBER",
-            }])
-        o3 = snowflake.ObjectParameter("o3",
-            key="DATA_RETENTION_TIME_IN_DAYS",
-            value="89",
-            object_type="TABLE",
-            object_identifiers=[{
-                "database": d.name,
-                "schema": s.name,
-                "name": t.name,
-            }])
-        # Setting object parameter at account level
-        o4 = snowflake.ObjectParameter("o4",
-            key="DATA_RETENTION_TIME_IN_DAYS",
-            value="89",
-            on_account=True)
-        ```
-
         ## Import
 
         ```sh
@@ -269,55 +220,6 @@ class ObjectParameter(pulumi.CustomResource):
                  args: ObjectParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        d = snowflake.Database("d", name="TEST_DB")
-        o = snowflake.ObjectParameter("o",
-            key="SUSPEND_TASK_AFTER_NUM_FAILURES",
-            value="33",
-            object_type="DATABASE",
-            object_identifiers=[{
-                "name": d.name,
-            }])
-        s = snowflake.Schema("s",
-            name="TEST_SCHEMA",
-            database=d.name)
-        o2 = snowflake.ObjectParameter("o2",
-            key="USER_TASK_TIMEOUT_MS",
-            value="500",
-            object_type="SCHEMA",
-            object_identifiers=[{
-                "database": d.name,
-                "name": s.name,
-            }])
-        t = snowflake.Table("t",
-            name="TEST_TABLE",
-            database=d.name,
-            schema=s.name,
-            columns=[{
-                "name": "id",
-                "type": "NUMBER",
-            }])
-        o3 = snowflake.ObjectParameter("o3",
-            key="DATA_RETENTION_TIME_IN_DAYS",
-            value="89",
-            object_type="TABLE",
-            object_identifiers=[{
-                "database": d.name,
-                "schema": s.name,
-                "name": t.name,
-            }])
-        # Setting object parameter at account level
-        o4 = snowflake.ObjectParameter("o4",
-            key="DATA_RETENTION_TIME_IN_DAYS",
-            value="89",
-            on_account=True)
-        ```
-
         ## Import
 
         ```sh

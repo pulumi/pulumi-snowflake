@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// ## Import
 //
 // ### OnView
 //
@@ -26,6 +26,8 @@ type GrantPrivilegesToShare struct {
 	OnAllTablesInSchema pulumi.StringPtrOutput `pulumi:"onAllTablesInSchema"`
 	// The fully qualified name of the database on which privileges will be granted.
 	OnDatabase pulumi.StringPtrOutput `pulumi:"onDatabase"`
+	// The fully qualified name of the function on which privileges will be granted.
+	OnFunction pulumi.StringPtrOutput `pulumi:"onFunction"`
 	// The fully qualified name of the schema on which privileges will be granted.
 	OnSchema pulumi.StringPtrOutput `pulumi:"onSchema"`
 	// The fully qualified name of the table on which privileges will be granted.
@@ -80,6 +82,8 @@ type grantPrivilegesToShareState struct {
 	OnAllTablesInSchema *string `pulumi:"onAllTablesInSchema"`
 	// The fully qualified name of the database on which privileges will be granted.
 	OnDatabase *string `pulumi:"onDatabase"`
+	// The fully qualified name of the function on which privileges will be granted.
+	OnFunction *string `pulumi:"onFunction"`
 	// The fully qualified name of the schema on which privileges will be granted.
 	OnSchema *string `pulumi:"onSchema"`
 	// The fully qualified name of the table on which privileges will be granted.
@@ -99,6 +103,8 @@ type GrantPrivilegesToShareState struct {
 	OnAllTablesInSchema pulumi.StringPtrInput
 	// The fully qualified name of the database on which privileges will be granted.
 	OnDatabase pulumi.StringPtrInput
+	// The fully qualified name of the function on which privileges will be granted.
+	OnFunction pulumi.StringPtrInput
 	// The fully qualified name of the schema on which privileges will be granted.
 	OnSchema pulumi.StringPtrInput
 	// The fully qualified name of the table on which privileges will be granted.
@@ -122,6 +128,8 @@ type grantPrivilegesToShareArgs struct {
 	OnAllTablesInSchema *string `pulumi:"onAllTablesInSchema"`
 	// The fully qualified name of the database on which privileges will be granted.
 	OnDatabase *string `pulumi:"onDatabase"`
+	// The fully qualified name of the function on which privileges will be granted.
+	OnFunction *string `pulumi:"onFunction"`
 	// The fully qualified name of the schema on which privileges will be granted.
 	OnSchema *string `pulumi:"onSchema"`
 	// The fully qualified name of the table on which privileges will be granted.
@@ -142,6 +150,8 @@ type GrantPrivilegesToShareArgs struct {
 	OnAllTablesInSchema pulumi.StringPtrInput
 	// The fully qualified name of the database on which privileges will be granted.
 	OnDatabase pulumi.StringPtrInput
+	// The fully qualified name of the function on which privileges will be granted.
+	OnFunction pulumi.StringPtrInput
 	// The fully qualified name of the schema on which privileges will be granted.
 	OnSchema pulumi.StringPtrInput
 	// The fully qualified name of the table on which privileges will be granted.
@@ -251,6 +261,11 @@ func (o GrantPrivilegesToShareOutput) OnAllTablesInSchema() pulumi.StringPtrOutp
 // The fully qualified name of the database on which privileges will be granted.
 func (o GrantPrivilegesToShareOutput) OnDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the function on which privileges will be granted.
+func (o GrantPrivilegesToShareOutput) OnFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnFunction }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified name of the schema on which privileges will be granted.

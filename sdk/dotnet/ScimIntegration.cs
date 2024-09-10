@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-    /// 
-    /// Resource used to manage scim security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-scim).
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -42,7 +38,13 @@ namespace Pulumi.Snowflake
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -136,7 +138,7 @@ namespace Pulumi.Snowflake
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -198,7 +200,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

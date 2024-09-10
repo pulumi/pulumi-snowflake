@@ -10,34 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.OauthIntegrationForCustomClients or snowflake.OauthIntegrationForPartnerApplications instead. &lt;deprecation&gt;
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tableauDesktop = new Snowflake.OauthIntegration("tableau_desktop", new()
-    ///     {
-    ///         Name = "TABLEAU_DESKTOP",
-    ///         OauthClient = "TABLEAU_DESKTOP",
-    ///         Enabled = true,
-    ///         OauthIssueRefreshTokens = true,
-    ///         OauthRefreshTokenValidity = 3600,
-    ///         BlockedRolesLists = new[]
-    ///         {
-    ///             "SYSADMIN",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

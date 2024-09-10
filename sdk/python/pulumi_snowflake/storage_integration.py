@@ -158,6 +158,7 @@ class _StorageIntegrationState:
                  comment: Optional[pulumi.Input[str]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_aws_external_id: Optional[pulumi.Input[str]] = None,
@@ -173,6 +174,7 @@ class _StorageIntegrationState:
         :param pulumi.Input[str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
         :param pulumi.Input[str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
@@ -192,6 +194,8 @@ class _StorageIntegrationState:
             pulumi.set(__self__, "created_on", created_on)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_allowed_locations is not None:
@@ -275,6 +279,18 @@ class _StorageIntegrationState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -402,8 +418,6 @@ class StorageIntegration(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         ```sh
@@ -423,8 +437,6 @@ class StorageIntegration(pulumi.CustomResource):
                  args: StorageIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         ```sh
@@ -482,6 +494,7 @@ class StorageIntegration(pulumi.CustomResource):
             __props__.__dict__["azure_consent_url"] = None
             __props__.__dict__["azure_multi_tenant_app_name"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["storage_aws_external_id"] = None
             __props__.__dict__["storage_aws_iam_user_arn"] = None
             __props__.__dict__["storage_gcp_service_account"] = None
@@ -501,6 +514,7 @@ class StorageIntegration(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_aws_external_id: Optional[pulumi.Input[str]] = None,
@@ -521,6 +535,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
         :param pulumi.Input[str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
@@ -538,6 +553,7 @@ class StorageIntegration(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["storage_allowed_locations"] = storage_allowed_locations
         __props__.__dict__["storage_aws_external_id"] = storage_aws_external_id
@@ -588,6 +604,14 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

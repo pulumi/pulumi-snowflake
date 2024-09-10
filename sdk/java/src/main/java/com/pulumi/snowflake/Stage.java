@@ -17,45 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Stage;
- * import com.pulumi.snowflake.StageArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
- *             .name("EXAMPLE_STAGE")
- *             .url("s3://com.example.bucket/prefix")
- *             .database("EXAMPLE_DB")
- *             .schema("EXAMPLE_SCHEMA")
- *             .credentials(String.format("AWS_KEY_ID='%s' AWS_SECRET_KEY='%s'", exampleAwsKeyId,exampleAwsSecretKey))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | stage name
@@ -178,6 +139,20 @@ public class Stage extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.

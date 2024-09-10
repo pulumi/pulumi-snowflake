@@ -98,29 +98,6 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Specifies the password policy to use for a certain user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        user = snowflake.User("user", name="USER_NAME")
-        pp = snowflake.PasswordPolicy("pp",
-            database="prod",
-            schema="security",
-            name="default_policy")
-        ppa = snowflake.UserPasswordPolicyAttachment("ppa",
-            password_policy_name=pulumi.Output.all(
-                database=pp.database,
-                schema=pp.schema,
-                name=pp.name
-        ).apply(lambda resolved_outputs: f"\\"{resolved_outputs['database']}\\".\\"{resolved_outputs['schema']}\\".\\"{resolved_outputs['name']}\\"")
-        ,
-            user_name=user.name)
-        ```
-
         ## Import
 
         ```sh
@@ -139,29 +116,6 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
                  args: UserPasswordPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies the password policy to use for a certain user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        user = snowflake.User("user", name="USER_NAME")
-        pp = snowflake.PasswordPolicy("pp",
-            database="prod",
-            schema="security",
-            name="default_policy")
-        ppa = snowflake.UserPasswordPolicyAttachment("ppa",
-            password_policy_name=pulumi.Output.all(
-                database=pp.database,
-                schema=pp.schema,
-                name=pp.name
-        ).apply(lambda resolved_outputs: f"\\"{resolved_outputs['database']}\\".\\"{resolved_outputs['schema']}\\".\\"{resolved_outputs['name']}\\"")
-        ,
-            user_name=user.name)
-        ```
-
         ## Import
 
         ```sh

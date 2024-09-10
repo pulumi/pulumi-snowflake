@@ -5,8 +5,11 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetDatabaseRolesLimit;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,21 +20,53 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
      * The database from which to return the database roles from.
      * 
      */
-    @Import(name="database", required=true)
-    private String database;
+    @Import(name="inDatabase", required=true)
+    private String inDatabase;
 
     /**
      * @return The database from which to return the database roles from.
      * 
      */
-    public String database() {
-        return this.database;
+    public String inDatabase() {
+        return this.inDatabase;
+    }
+
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    @Import(name="like")
+    private @Nullable String like;
+
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable GetDatabaseRolesLimit limit;
+
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetDatabaseRolesLimit> limit() {
+        return Optional.ofNullable(this.limit);
     }
 
     private GetDatabaseRolesPlainArgs() {}
 
     private GetDatabaseRolesPlainArgs(GetDatabaseRolesPlainArgs $) {
-        this.database = $.database;
+        this.inDatabase = $.inDatabase;
+        this.like = $.like;
+        this.limit = $.limit;
     }
 
     public static Builder builder() {
@@ -53,19 +88,41 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param database The database from which to return the database roles from.
+         * @param inDatabase The database from which to return the database roles from.
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            $.database = database;
+        public Builder inDatabase(String inDatabase) {
+            $.inDatabase = inDatabase;
+            return this;
+        }
+
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder like(@Nullable String like) {
+            $.like = like;
+            return this;
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable GetDatabaseRolesLimit limit) {
+            $.limit = limit;
             return this;
         }
 
         public GetDatabaseRolesPlainArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetDatabaseRolesPlainArgs", "database");
+            if ($.inDatabase == null) {
+                throw new MissingRequiredPropertyException("GetDatabaseRolesPlainArgs", "inDatabase");
             }
             return $;
         }

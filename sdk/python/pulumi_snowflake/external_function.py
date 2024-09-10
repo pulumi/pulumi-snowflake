@@ -297,6 +297,7 @@ class _ExternalFunctionState:
                  context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  created_on: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
                  max_batch_rows: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -317,6 +318,7 @@ class _ExternalFunctionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[str] created_on: Date and time when the external function was created.
         :param pulumi.Input[str] database: The database in which to create the external function.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
@@ -343,6 +345,8 @@ class _ExternalFunctionState:
             pulumi.set(__self__, "created_on", created_on)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if max_batch_rows is not None:
@@ -449,6 +453,18 @@ class _ExternalFunctionState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -607,32 +623,6 @@ class ExternalFunction(pulumi.CustomResource):
                  url_of_proxy_and_resource: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test_ext_func = snowflake.ExternalFunction("test_ext_func",
-            name="my_function",
-            database="my_test_db",
-            schema="my_test_schema",
-            args=[
-                {
-                    "name": "arg1",
-                    "type": "varchar",
-                },
-                {
-                    "name": "arg2",
-                    "type": "varchar",
-                },
-            ],
-            return_type="variant",
-            return_behavior="IMMUTABLE",
-            api_integration="api_integration_name",
-            url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
-        ```
-
         ## Import
 
         format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
@@ -668,32 +658,6 @@ class ExternalFunction(pulumi.CustomResource):
                  args: ExternalFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test_ext_func = snowflake.ExternalFunction("test_ext_func",
-            name="my_function",
-            database="my_test_db",
-            schema="my_test_schema",
-            args=[
-                {
-                    "name": "arg1",
-                    "type": "varchar",
-                },
-                {
-                    "name": "arg2",
-                    "type": "varchar",
-                },
-            ],
-            return_type="variant",
-            return_behavior="IMMUTABLE",
-            api_integration="api_integration_name",
-            url_of_proxy_and_resource="https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func")
-        ```
-
         ## Import
 
         format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
@@ -773,6 +737,7 @@ class ExternalFunction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'url_of_proxy_and_resource'")
             __props__.__dict__["url_of_proxy_and_resource"] = url_of_proxy_and_resource
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["fully_qualified_name"] = None
         super(ExternalFunction, __self__).__init__(
             'snowflake:index/externalFunction:ExternalFunction',
             resource_name,
@@ -790,6 +755,7 @@ class ExternalFunction(pulumi.CustomResource):
             context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             created_on: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
             max_batch_rows: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -815,6 +781,7 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[str] created_on: Date and time when the external function was created.
         :param pulumi.Input[str] database: The database in which to create the external function.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
         :param pulumi.Input[str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
@@ -838,6 +805,7 @@ class ExternalFunction(pulumi.CustomResource):
         __props__.__dict__["context_headers"] = context_headers
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["headers"] = headers
         __props__.__dict__["max_batch_rows"] = max_batch_rows
         __props__.__dict__["name"] = name
@@ -906,6 +874,14 @@ class ExternalFunction(pulumi.CustomResource):
         The database in which to create the external function.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

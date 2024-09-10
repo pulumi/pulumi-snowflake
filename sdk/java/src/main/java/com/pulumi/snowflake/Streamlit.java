@@ -18,16 +18,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- * 
- * Resource used to manage streamlits objects. For more information, check [streamlit documentation](https://docs.snowflake.com/en/sql-reference/commands-streamlit).
- * 
  * ## Import
  * 
- * format is database name | schema name | streamlit name
+ * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;streamlit_name&gt;
  * 
  * ```sh
- * $ pulumi import snowflake:index/streamlit:Streamlit example &#39;dbName|schemaName|streamlitName&#39;
+ * $ pulumi import snowflake:index/streamlit:Streamlit example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;streamlit_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -104,6 +100,20 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalAccessIntegrations);
     }
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
      * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
      * 
      */
@@ -160,14 +170,14 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      * 
      */
     @Export(name="showOutputs", refs={List.class,StreamlitShowOutput.class}, tree="[0,1]")
     private Output<List<StreamlitShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * @return Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      * 
      */
     public Output<List<StreamlitShowOutput>> showOutputs() {

@@ -186,6 +186,7 @@ class _DynamicTableState:
                  created_on: Optional[pulumi.Input[str]] = None,
                  data_timestamp: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  initialize: Optional[pulumi.Input[str]] = None,
                  is_clone: Optional[pulumi.Input[bool]] = None,
                  is_replica: Optional[pulumi.Input[bool]] = None,
@@ -210,6 +211,7 @@ class _DynamicTableState:
         :param pulumi.Input[str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
@@ -240,6 +242,8 @@ class _DynamicTableState:
             pulumi.set(__self__, "data_timestamp", data_timestamp)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if initialize is not None:
             pulumi.set(__self__, "initialize", initialize)
         if is_clone is not None:
@@ -354,6 +358,18 @@ class _DynamicTableState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -553,25 +569,6 @@ class DynamicTable(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
-        dt = snowflake.DynamicTable("dt",
-            name="product",
-            database="mydb",
-            schema="myschema",
-            target_lag={
-                "maximum_duration": "20 minutes",
-            },
-            warehouse="mywh",
-            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
-            comment="example comment")
-        ```
-
         ## Import
 
         ```sh
@@ -598,25 +595,6 @@ class DynamicTable(pulumi.CustomResource):
                  args: DynamicTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
-        dt = snowflake.DynamicTable("dt",
-            name="product",
-            database="mydb",
-            schema="myschema",
-            target_lag={
-                "maximum_duration": "20 minutes",
-            },
-            warehouse="mywh",
-            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
-            comment="example comment")
-        ```
-
         ## Import
 
         ```sh
@@ -682,6 +660,7 @@ class DynamicTable(pulumi.CustomResource):
             __props__.__dict__["cluster_by"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["data_timestamp"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["is_clone"] = None
             __props__.__dict__["is_replica"] = None
             __props__.__dict__["last_suspended_on"] = None
@@ -706,6 +685,7 @@ class DynamicTable(pulumi.CustomResource):
             created_on: Optional[pulumi.Input[str]] = None,
             data_timestamp: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             initialize: Optional[pulumi.Input[str]] = None,
             is_clone: Optional[pulumi.Input[bool]] = None,
             is_replica: Optional[pulumi.Input[bool]] = None,
@@ -735,6 +715,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[str] database: The database in which to create the dynamic table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         :param pulumi.Input[bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
@@ -762,6 +743,7 @@ class DynamicTable(pulumi.CustomResource):
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["data_timestamp"] = data_timestamp
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["initialize"] = initialize
         __props__.__dict__["is_clone"] = is_clone
         __props__.__dict__["is_replica"] = is_replica
@@ -834,6 +816,14 @@ class DynamicTable(pulumi.CustomResource):
         The database in which to create the dynamic table.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

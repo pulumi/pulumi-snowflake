@@ -10,28 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleStage = new Snowflake.Stage("example_stage", new()
-    ///     {
-    ///         Name = "EXAMPLE_STAGE",
-    ///         Url = "s3://com.example.bucket/prefix",
-    ///         Database = "EXAMPLE_DB",
-    ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Credentials = $"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | stage name
@@ -90,6 +68,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("fileFormat")]
         public Output<string?> FileFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
@@ -343,6 +327,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.

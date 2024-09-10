@@ -379,23 +379,6 @@ class OauthIntegration(pulumi.CustomResource):
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use OauthIntegrationForCustomClients or OauthIntegrationForPartnerApplications instead. <deprecation>
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        tableau_desktop = snowflake.OauthIntegration("tableau_desktop",
-            name="TABLEAU_DESKTOP",
-            oauth_client="TABLEAU_DESKTOP",
-            enabled=True,
-            oauth_issue_refresh_tokens=True,
-            oauth_refresh_token_validity=3600,
-            blocked_roles_lists=["SYSADMIN"])
-        ```
-
         ## Import
 
         ```sh
@@ -422,23 +405,6 @@ class OauthIntegration(pulumi.CustomResource):
                  args: OauthIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use OauthIntegrationForCustomClients or OauthIntegrationForPartnerApplications instead. <deprecation>
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        tableau_desktop = snowflake.OauthIntegration("tableau_desktop",
-            name="TABLEAU_DESKTOP",
-            oauth_client="TABLEAU_DESKTOP",
-            enabled=True,
-            oauth_issue_refresh_tokens=True,
-            oauth_refresh_token_validity=3600,
-            blocked_roles_lists=["SYSADMIN"])
-        ```
-
         ## Import
 
         ```sh

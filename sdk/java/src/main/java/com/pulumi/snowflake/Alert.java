@@ -17,52 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Alert;
- * import com.pulumi.snowflake.AlertArgs;
- * import com.pulumi.snowflake.inputs.AlertAlertScheduleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var alert = new Alert("alert", AlertArgs.builder()
- *             .database("database")
- *             .schema("schema")
- *             .name("alert")
- *             .warehouse("warehouse")
- *             .alertSchedule(AlertAlertScheduleArgs.builder()
- *                 .interval(10)
- *                 .build())
- *             .condition("select 1 as c")
- *             .action("select 1 as c")
- *             .enabled(true)
- *             .comment("my alert")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | alert name
@@ -157,6 +111,20 @@ public class Alert extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.

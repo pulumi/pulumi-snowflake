@@ -304,6 +304,21 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Boolean that specifies whether UTF-8 encoding errors produce error conditions.
      * 
      */
@@ -580,6 +595,7 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         this.fieldOptionallyEnclosedBy = $.fieldOptionallyEnclosedBy;
         this.fileExtension = $.fileExtension;
         this.formatType = $.formatType;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.ignoreUtf8Errors = $.ignoreUtf8Errors;
         this.name = $.name;
         this.nullIfs = $.nullIfs;
@@ -1014,6 +1030,27 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder formatType(String formatType) {
             return formatType(Output.of(formatType));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**
