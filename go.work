@@ -1,0 +1,9 @@
+go 1.22.4
+
+use (
+	// ../pulumi-terraform-bridge
+	// ../pulumi-terraform-bridge/dynamic
+	// ../pulumi-terraform-bridge/dynamic/internal/shim
+	// ../pulumi-terraform-bridge/pf
+	./provider
+)
