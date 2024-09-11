@@ -20,6 +20,7 @@ class DatabaseArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  default_ddl_collation: Optional[pulumi.Input[str]] = None,
+                 drop_public_schema_on_creation: Optional[pulumi.Input[bool]] = None,
                  enable_console_output: Optional[pulumi.Input[bool]] = None,
                  external_volume: Optional[pulumi.Input[str]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
@@ -42,12 +43,13 @@ class DatabaseArgs:
         :param pulumi.Input[str] comment: Specifies a comment for the database.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[bool] drop_public_schema_on_creation: Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         :param pulumi.Input[bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         :param pulumi.Input[int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input['DatabaseReplicationArgs'] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -67,6 +69,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if drop_public_schema_on_creation is not None:
+            pulumi.set(__self__, "drop_public_schema_on_creation", drop_public_schema_on_creation)
         if enable_console_output is not None:
             pulumi.set(__self__, "enable_console_output", enable_console_output)
         if external_volume is not None:
@@ -149,6 +153,18 @@ class DatabaseArgs:
         pulumi.set(self, "default_ddl_collation", value)
 
     @property
+    @pulumi.getter(name="dropPublicSchemaOnCreation")
+    def drop_public_schema_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        """
+        return pulumi.get(self, "drop_public_schema_on_creation")
+
+    @drop_public_schema_on_creation.setter
+    def drop_public_schema_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "drop_public_schema_on_creation", value)
+
+    @property
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -212,7 +228,7 @@ class DatabaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -348,8 +364,10 @@ class _DatabaseState:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  default_ddl_collation: Optional[pulumi.Input[str]] = None,
+                 drop_public_schema_on_creation: Optional[pulumi.Input[bool]] = None,
                  enable_console_output: Optional[pulumi.Input[bool]] = None,
                  external_volume: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
                  max_data_extension_time_in_days: Optional[pulumi.Input[int]] = None,
@@ -370,12 +388,14 @@ class _DatabaseState:
         :param pulumi.Input[str] comment: Specifies a comment for the database.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[bool] drop_public_schema_on_creation: Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         :param pulumi.Input[bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         :param pulumi.Input[int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input['DatabaseReplicationArgs'] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -395,10 +415,14 @@ class _DatabaseState:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if drop_public_schema_on_creation is not None:
+            pulumi.set(__self__, "drop_public_schema_on_creation", drop_public_schema_on_creation)
         if enable_console_output is not None:
             pulumi.set(__self__, "enable_console_output", enable_console_output)
         if external_volume is not None:
             pulumi.set(__self__, "external_volume", external_volume)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if is_transient is not None:
             pulumi.set(__self__, "is_transient", is_transient)
         if log_level is not None:
@@ -477,6 +501,18 @@ class _DatabaseState:
         pulumi.set(self, "default_ddl_collation", value)
 
     @property
+    @pulumi.getter(name="dropPublicSchemaOnCreation")
+    def drop_public_schema_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        """
+        return pulumi.get(self, "drop_public_schema_on_creation")
+
+    @drop_public_schema_on_creation.setter
+    def drop_public_schema_on_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "drop_public_schema_on_creation", value)
+
+    @property
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -499,6 +535,18 @@ class _DatabaseState:
     @external_volume.setter
     def external_volume(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "external_volume", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter(name="isTransient")
@@ -540,7 +588,7 @@ class _DatabaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -678,6 +726,7 @@ class Database(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  default_ddl_collation: Optional[pulumi.Input[str]] = None,
+                 drop_public_schema_on_creation: Optional[pulumi.Input[bool]] = None,
                  enable_console_output: Optional[pulumi.Input[bool]] = None,
                  external_volume: Optional[pulumi.Input[str]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
@@ -696,10 +745,6 @@ class Database(pulumi.CustomResource):
                  user_task_timeout_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
-
         ## Import
 
         ```sh
@@ -712,12 +757,13 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the database.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[bool] drop_public_schema_on_creation: Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         :param pulumi.Input[bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         :param pulumi.Input[int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -736,10 +782,6 @@ class Database(pulumi.CustomResource):
                  args: Optional[DatabaseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
-
         ## Import
 
         ```sh
@@ -765,6 +807,7 @@ class Database(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  default_ddl_collation: Optional[pulumi.Input[str]] = None,
+                 drop_public_schema_on_creation: Optional[pulumi.Input[bool]] = None,
                  enable_console_output: Optional[pulumi.Input[bool]] = None,
                  external_volume: Optional[pulumi.Input[str]] = None,
                  is_transient: Optional[pulumi.Input[bool]] = None,
@@ -794,6 +837,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
             __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+            __props__.__dict__["drop_public_schema_on_creation"] = drop_public_schema_on_creation
             __props__.__dict__["enable_console_output"] = enable_console_output
             __props__.__dict__["external_volume"] = external_volume
             __props__.__dict__["is_transient"] = is_transient
@@ -810,6 +854,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["user_task_managed_initial_warehouse_size"] = user_task_managed_initial_warehouse_size
             __props__.__dict__["user_task_minimum_trigger_interval_in_seconds"] = user_task_minimum_trigger_interval_in_seconds
             __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
+            __props__.__dict__["fully_qualified_name"] = None
         super(Database, __self__).__init__(
             'snowflake:index/database:Database',
             resource_name,
@@ -824,8 +869,10 @@ class Database(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             default_ddl_collation: Optional[pulumi.Input[str]] = None,
+            drop_public_schema_on_creation: Optional[pulumi.Input[bool]] = None,
             enable_console_output: Optional[pulumi.Input[bool]] = None,
             external_volume: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             is_transient: Optional[pulumi.Input[bool]] = None,
             log_level: Optional[pulumi.Input[str]] = None,
             max_data_extension_time_in_days: Optional[pulumi.Input[int]] = None,
@@ -851,12 +898,14 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the database.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[bool] drop_public_schema_on_creation: Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         :param pulumi.Input[bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
         :param pulumi.Input[str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         :param pulumi.Input[int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        :param pulumi.Input[str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[Union['DatabaseReplicationArgs', 'DatabaseReplicationArgsDict']] replication: Configures replication for a given database. When specified, this database will be promoted to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.
@@ -876,8 +925,10 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
         __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+        __props__.__dict__["drop_public_schema_on_creation"] = drop_public_schema_on_creation
         __props__.__dict__["enable_console_output"] = enable_console_output
         __props__.__dict__["external_volume"] = external_volume
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["is_transient"] = is_transient
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["max_data_extension_time_in_days"] = max_data_extension_time_in_days
@@ -927,6 +978,14 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "default_ddl_collation")
 
     @property
+    @pulumi.getter(name="dropPublicSchemaOnCreation")
+    def drop_public_schema_on_creation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+        """
+        return pulumi.get(self, "drop_public_schema_on_creation")
+
+    @property
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Output[bool]:
         """
@@ -941,6 +1000,14 @@ class Database(pulumi.CustomResource):
         The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="isTransient")
@@ -970,7 +1037,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 

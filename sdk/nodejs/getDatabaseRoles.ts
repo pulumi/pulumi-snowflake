@@ -7,22 +7,15 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const dbRoles = snowflake.getDatabaseRoles({
- *     database: "MYDB",
- * });
- * ```
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  */
 export function getDatabaseRoles(args: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", {
-        "database": args.database,
+        "inDatabase": args.inDatabase,
+        "like": args.like,
+        "limit": args.limit,
     }, opts);
 }
 
@@ -33,7 +26,15 @@ export interface GetDatabaseRolesArgs {
     /**
      * The database from which to return the database roles from.
      */
-    database: string;
+    inDatabase: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetDatabaseRolesLimit;
 }
 
 /**
@@ -41,29 +42,28 @@ export interface GetDatabaseRolesArgs {
  */
 export interface GetDatabaseRolesResult {
     /**
-     * The database from which to return the database roles from.
-     */
-    readonly database: string;
-    /**
-     * Lists all the database roles in a specified database.
+     * Holds the aggregated output of all database role details queries.
      */
     readonly databaseRoles: outputs.GetDatabaseRolesDatabaseRole[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The database from which to return the database roles from.
+     */
+    readonly inDatabase: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetDatabaseRolesLimit;
 }
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const dbRoles = snowflake.getDatabaseRoles({
- *     database: "MYDB",
- * });
- * ```
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  */
 export function getDatabaseRolesOutput(args: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseRoles(a, opts))
@@ -76,5 +76,13 @@ export interface GetDatabaseRolesOutputArgs {
     /**
      * The database from which to return the database roles from.
      */
-    database: pulumi.Input<string>;
+    inDatabase: pulumi.Input<string>;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetDatabaseRolesLimitArgs>;
 }

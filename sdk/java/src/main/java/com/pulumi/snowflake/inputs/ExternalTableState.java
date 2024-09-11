@@ -125,6 +125,21 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies a location for the external table.
      * 
      */
@@ -277,6 +292,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         this.copyGrants = $.copyGrants;
         this.database = $.database;
         this.fileFormat = $.fileFormat;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.location = $.location;
         this.name = $.name;
         this.owner = $.owner;
@@ -461,6 +477,27 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder fileFormat(String fileFormat) {
             return fileFormat(Output.of(fileFormat));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
         /**

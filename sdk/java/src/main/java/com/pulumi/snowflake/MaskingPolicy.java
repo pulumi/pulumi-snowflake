@@ -17,61 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.MaskingPolicy;
- * import com.pulumi.snowflake.MaskingPolicyArgs;
- * import com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new MaskingPolicy("test", MaskingPolicyArgs.builder()
- *             .name("EXAMPLE_MASKING_POLICY")
- *             .database("EXAMPLE_DB")
- *             .schema("EXAMPLE_SCHEMA")
- *             .signature(MaskingPolicySignatureArgs.builder()
- *                 .columns(MaskingPolicySignatureColumnArgs.builder()
- *                     .name("val")
- *                     .type("VARCHAR")
- *                     .build())
- *                 .build())
- *             .maskingExpression("""
- * case 
- *   when current_role() in ('ROLE_A') then 
- *     val 
- *   when is_role_in_session( 'ROLE_B' ) then 
- *     'ABC123'
- *   else
- *     '******'
- * end
- *             """)
- *             .returnDataType("VARCHAR")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | policy name
@@ -124,6 +69,20 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> exemptOtherPolicies() {
         return Codegen.optional(this.exemptOtherPolicies);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Prevent overwriting a previous masking policy with the same name.
@@ -180,20 +139,6 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> orReplace() {
         return Codegen.optional(this.orReplace);
-    }
-    /**
-     * Specifies the qualified identifier for the masking policy.
-     * 
-     */
-    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedName;
-
-    /**
-     * @return Specifies the qualified identifier for the masking policy.
-     * 
-     */
-    public Output<String> qualifiedName() {
-        return this.qualifiedName;
     }
     /**
      * Specifies the data type to return.

@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * ## Import
  * 
  * ### OnView
  * 
@@ -54,6 +54,20 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<String>> onDatabase() {
         return Codegen.optional(this.onDatabase);
+    }
+    /**
+     * The fully qualified name of the function on which privileges will be granted.
+     * 
+     */
+    @Export(name="onFunction", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> onFunction;
+
+    /**
+     * @return The fully qualified name of the function on which privileges will be granted.
+     * 
+     */
+    public Output<Optional<String>> onFunction() {
+        return Codegen.optional(this.onFunction);
     }
     /**
      * The fully qualified name of the schema on which privileges will be granted.

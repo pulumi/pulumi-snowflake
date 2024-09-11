@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use AccountRole instead. <deprecation>
-//
-// The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Minimal
-//			_, err := snowflake.NewRole(ctx, "minimal", &snowflake.RoleArgs{
-//				Name: pulumi.String("role_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// # Complete (with every optional set)
-//			_, err = snowflake.NewRole(ctx, "complete", &snowflake.RoleArgs{
-//				Name:    pulumi.String("role_name"),
-//				Comment: pulumi.String("my account role"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -59,7 +20,10 @@ type Role struct {
 	pulumi.CustomResourceState
 
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	Name    pulumi.StringOutput    `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW ROLES` for the given role.
 	ShowOutputs RoleShowOutputArrayOutput `pulumi:"showOutputs"`
 }
@@ -95,14 +59,20 @@ func GetRole(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
 	Comment *string `pulumi:"comment"`
-	Name    *string `pulumi:"name"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW ROLES` for the given role.
 	ShowOutputs []RoleShowOutput `pulumi:"showOutputs"`
 }
 
 type RoleState struct {
 	Comment pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW ROLES` for the given role.
 	ShowOutputs RoleShowOutputArrayInput
 }
@@ -113,13 +83,15 @@ func (RoleState) ElementType() reflect.Type {
 
 type roleArgs struct {
 	Comment *string `pulumi:"comment"`
-	Name    *string `pulumi:"name"`
+	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	Comment pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Name pulumi.StringPtrInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {
@@ -213,6 +185,12 @@ func (o RoleOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o RoleOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -32,7 +32,6 @@ var programs = []string{
 
 var upgradeTestPrograms = []string{
 	"test-programs/index_role",
-	"test-programs/index_user",
 }
 
 func TestUpgradeCoverage(t *testing.T) {

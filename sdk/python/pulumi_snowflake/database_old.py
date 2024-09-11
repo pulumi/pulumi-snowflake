@@ -300,42 +300,6 @@ class DatabaseOld(pulumi.CustomResource):
                  replication_configuration: Optional[pulumi.Input[Union['DatabaseOldReplicationConfigurationArgs', 'DatabaseOldReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use Database or SharedDatabase or SecondaryDatabase instead. <deprecation>
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        simple = snowflake.DatabaseOld("simple",
-            name="testing",
-            comment="test comment",
-            data_retention_time_in_days=3)
-        with_replication = snowflake.DatabaseOld("with_replication",
-            name="testing_2",
-            comment="test comment 2",
-            replication_configuration={
-                "accounts": [
-                    "test_account1",
-                    "test_account_2",
-                ],
-                "ignore_edition_check": True,
-            })
-        from_replica = snowflake.DatabaseOld("from_replica",
-            name="testing_3",
-            comment="test comment",
-            data_retention_time_in_days=3,
-            from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.DatabaseOld("from_share",
-            name="testing_4",
-            comment="test comment",
-            from_share={
-                "provider": "account1_locator",
-                "share": "share1",
-            })
-        ```
-
         ## Import
 
         ```sh
@@ -360,42 +324,6 @@ class DatabaseOld(pulumi.CustomResource):
                  args: Optional[DatabaseOldArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use Database or SharedDatabase or SecondaryDatabase instead. <deprecation>
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        simple = snowflake.DatabaseOld("simple",
-            name="testing",
-            comment="test comment",
-            data_retention_time_in_days=3)
-        with_replication = snowflake.DatabaseOld("with_replication",
-            name="testing_2",
-            comment="test comment 2",
-            replication_configuration={
-                "accounts": [
-                    "test_account1",
-                    "test_account_2",
-                ],
-                "ignore_edition_check": True,
-            })
-        from_replica = snowflake.DatabaseOld("from_replica",
-            name="testing_3",
-            comment="test comment",
-            data_retention_time_in_days=3,
-            from_replica="\\"org1\\".\\"account1\\".\\"primary_db_name\\"")
-        from_share = snowflake.DatabaseOld("from_share",
-            name="testing_4",
-            comment="test comment",
-            from_share={
-                "provider": "account1_locator",
-                "share": "share1",
-            })
-        ```
-
         ## Import
 
         ```sh

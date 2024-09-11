@@ -7,16 +7,12 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
- *
  * ## Import
  *
- * format is dbName | schemaName
+ * format is <database_name>.<schema_name>
  *
  * ```sh
- * $ pulumi import snowflake:index/schema:Schema example 'dbName|schemaName'
+ * $ pulumi import snowflake:index/schema:Schema example '"<database_name>"."<schema_name>"'
  * ```
  */
 export class Schema extends pulumi.CustomResource {
@@ -80,6 +76,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly externalVolume!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly isTransient!: pulumi.Output<string | undefined>;
@@ -100,7 +100,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public /*out*/ readonly parameters!: pulumi.Output<outputs.SchemaParameter[]>;
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      */
     public readonly pipeExecutionPaused!: pulumi.Output<boolean>;
     /**
@@ -169,6 +169,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
             resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["isTransient"] = state ? state.isTransient : undefined;
             resourceInputs["logLevel"] = state ? state.logLevel : undefined;
             resourceInputs["maxDataExtensionTimeInDays"] = state ? state.maxDataExtensionTimeInDays : undefined;
@@ -214,6 +215,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
             resourceInputs["withManagedAccess"] = args ? args.withManagedAccess : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
@@ -259,6 +261,10 @@ export interface SchemaState {
      */
     externalVolume?: pulumi.Input<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isTransient?: pulumi.Input<string>;
@@ -279,7 +285,7 @@ export interface SchemaState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.SchemaParameter>[]>;
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      */
     pipeExecutionPaused?: pulumi.Input<boolean>;
     /**
@@ -377,7 +383,7 @@ export interface SchemaArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, see [PIPE*EXECUTION*PAUSED](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      */
     pipeExecutionPaused?: pulumi.Input<boolean>;
     /**

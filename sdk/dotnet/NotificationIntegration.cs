@@ -10,31 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var integration = new Snowflake.NotificationIntegration("integration", new()
-    ///     {
-    ///         Name = "notification",
-    ///         Comment = "A notification integration.",
-    ///         Enabled = true,
-    ///         Type = "QUEUE",
-    ///         Direction = "OUTBOUND",
-    ///         NotificationProvider = "AZURE_STORAGE_QUEUE",
-    ///         AzureStorageQueuePrimaryUri = "...",
-    ///         AzureTenantId = "...",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -124,6 +99,12 @@ namespace Pulumi.Snowflake
 
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// The GCP service account identifier that Snowflake will use when assuming the GCP role
@@ -370,6 +351,12 @@ namespace Pulumi.Snowflake
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// The GCP service account identifier that Snowflake will use when assuming the GCP role

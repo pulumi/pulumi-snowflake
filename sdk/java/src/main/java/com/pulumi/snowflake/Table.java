@@ -21,11 +21,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | table name
@@ -122,6 +117,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
+    }
+    /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      * 
      */
@@ -166,20 +175,6 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<TablePrimaryKey>> primaryKey() {
         return Codegen.optional(this.primaryKey);
-    }
-    /**
-     * Qualified name of the table.
-     * 
-     */
-    @Export(name="qualifiedName", refs={String.class}, tree="[0]")
-    private Output<String> qualifiedName;
-
-    /**
-     * @return Qualified name of the table.
-     * 
-     */
-    public Output<String> qualifiedName() {
-        return this.qualifiedName;
     }
     /**
      * The schema in which to create the table.

@@ -5,42 +5,55 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetViewsIn;
+import com.pulumi.snowflake.outputs.GetViewsLimit;
 import com.pulumi.snowflake.outputs.GetViewsView;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetViewsResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The schema from which to return the views from.
+     * @return IN clause to filter the list of views
      * 
      */
-    private String schema;
+    private @Nullable GetViewsIn in;
     /**
-     * @return The views in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetViewsLimit limit;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return Holds the aggregated output of all views details queries.
      * 
      */
     private List<GetViewsView> views;
-
-    private GetViewsResult() {}
     /**
-     * @return The database from which to return the schemas from.
+     * @return Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    public String database() {
-        return this.database;
-    }
+    private @Nullable Boolean withDescribe;
+
+    private GetViewsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,18 +62,46 @@ public final class GetViewsResult {
         return this.id;
     }
     /**
-     * @return The schema from which to return the views from.
+     * @return IN clause to filter the list of views
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<GetViewsIn> in() {
+        return Optional.ofNullable(this.in);
     }
     /**
-     * @return The views in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetViewsLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return Holds the aggregated output of all views details queries.
      * 
      */
     public List<GetViewsView> views() {
         return this.views;
+    }
+    /**
+     * @return Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -72,27 +113,25 @@ public final class GetViewsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private String id;
-        private String schema;
+        private @Nullable GetViewsIn in;
+        private @Nullable String like;
+        private @Nullable GetViewsLimit limit;
+        private @Nullable String startsWith;
         private List<GetViewsView> views;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetViewsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
-    	      this.schema = defaults.schema;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
+    	      this.startsWith = defaults.startsWith;
     	      this.views = defaults.views;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetViewsResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -102,11 +141,27 @@ public final class GetViewsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetViewsResult", "schema");
-            }
-            this.schema = schema;
+        public Builder in(@Nullable GetViewsIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetViewsLimit limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+
+            this.startsWith = startsWith;
             return this;
         }
         @CustomType.Setter
@@ -120,12 +175,21 @@ public final class GetViewsResult {
         public Builder views(GetViewsView... views) {
             return views(List.of(views));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
         public GetViewsResult build() {
             final var _resultValue = new GetViewsResult();
-            _resultValue.database = database;
             _resultValue.id = id;
-            _resultValue.schema = schema;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
+            _resultValue.startsWith = startsWith;
             _resultValue.views = views;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

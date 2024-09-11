@@ -14,29 +14,14 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetDatabaseRolesDatabaseRoleResult
     {
         /// <summary>
-        /// The comment on the role
+        /// Holds the output of SHOW DATABASE ROLES.
         /// </summary>
-        public readonly string Comment;
-        /// <summary>
-        /// Identifier for the role.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The owner of the role
-        /// </summary>
-        public readonly string Owner;
+        public readonly ImmutableArray<Outputs.GetDatabaseRolesDatabaseRoleShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
-        private GetDatabaseRolesDatabaseRoleResult(
-            string comment,
-
-            string name,
-
-            string owner)
+        private GetDatabaseRolesDatabaseRoleResult(ImmutableArray<Outputs.GetDatabaseRolesDatabaseRoleShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Name = name;
-            Owner = owner;
+            ShowOutputs = showOutputs;
         }
     }
 }

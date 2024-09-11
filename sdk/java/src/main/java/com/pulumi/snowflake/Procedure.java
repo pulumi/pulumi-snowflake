@@ -18,11 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;procedure_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
@@ -89,6 +84,20 @@ public class Procedure extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> executeAs() {
         return Codegen.optional(this.executeAs);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * The handler method for Java / Python procedures.

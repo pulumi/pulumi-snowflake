@@ -234,6 +234,7 @@ class _AccountState:
                  edition: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  grace_period_in_days: Optional[pulumi.Input[int]] = None,
                  is_org_admin: Optional[pulumi.Input[bool]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
@@ -250,6 +251,7 @@ class _AccountState:
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[bool] is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
@@ -272,6 +274,8 @@ class _AccountState:
             pulumi.set(__self__, "email", email)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if grace_period_in_days is not None:
             pulumi.set(__self__, "grace_period_in_days", grace_period_in_days)
         if is_org_admin is not None:
@@ -370,6 +374,18 @@ class _AccountState:
     @first_name.setter
     def first_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter(name="gracePeriodInDays")
@@ -476,31 +492,6 @@ class Account(pulumi.CustomResource):
                  region_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The account resource allows you to create and manage Snowflake accounts.
-
-        !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-
-        > **Note** ORGADMIN priviliges are required for this resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ac1 = snowflake.Account("ac1",
-            name="SNOWFLAKE_TEST_ACCOUNT",
-            admin_name="John Doe",
-            admin_password="Abcd1234!",
-            email="john.doe@snowflake.com",
-            first_name="John",
-            last_name="Doe",
-            must_change_password=True,
-            edition="STANDARD",
-            comment="Snowflake Test Account",
-            region="AWS_US_WEST_2")
-        ```
-
         ## Import
 
         ```sh
@@ -530,31 +521,6 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The account resource allows you to create and manage Snowflake accounts.
-
-        !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-
-        > **Note** ORGADMIN priviliges are required for this resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        ac1 = snowflake.Account("ac1",
-            name="SNOWFLAKE_TEST_ACCOUNT",
-            admin_name="John Doe",
-            admin_password="Abcd1234!",
-            email="john.doe@snowflake.com",
-            first_name="John",
-            last_name="Doe",
-            must_change_password=True,
-            edition="STANDARD",
-            comment="Snowflake Test Account",
-            region="AWS_US_WEST_2")
-        ```
-
         ## Import
 
         ```sh
@@ -617,6 +583,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["region_group"] = region_group
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["is_org_admin"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword", "adminRsaPublicKey", "email", "firstName", "lastName"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -637,6 +604,7 @@ class Account(pulumi.CustomResource):
             edition: Optional[pulumi.Input[str]] = None,
             email: Optional[pulumi.Input[str]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             grace_period_in_days: Optional[pulumi.Input[int]] = None,
             is_org_admin: Optional[pulumi.Input[bool]] = None,
             last_name: Optional[pulumi.Input[str]] = None,
@@ -658,6 +626,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] edition: [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
         :param pulumi.Input[str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
         :param pulumi.Input[str] first_name: First name of the initial administrative user of the account
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] grace_period_in_days: Specifies the number of days to wait before dropping the account. The default is 3 days.
         :param pulumi.Input[bool] is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
         :param pulumi.Input[str] last_name: Last name of the initial administrative user of the account
@@ -677,6 +646,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["edition"] = edition
         __props__.__dict__["email"] = email
         __props__.__dict__["first_name"] = first_name
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["grace_period_in_days"] = grace_period_in_days
         __props__.__dict__["is_org_admin"] = is_org_admin
         __props__.__dict__["last_name"] = last_name
@@ -741,6 +711,14 @@ class Account(pulumi.CustomResource):
         First name of the initial administrative user of the account
         """
         return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter(name="gracePeriodInDays")

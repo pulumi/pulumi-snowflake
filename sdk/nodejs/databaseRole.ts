@@ -2,26 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const dbRole = new snowflake.DatabaseRole("db_role", {
- *     database: "database",
- *     name: "role_1",
- *     comment: "my db role",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+ * $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
  * ```
  */
 export class DatabaseRole extends pulumi.CustomResource {
@@ -57,13 +46,21 @@ export class DatabaseRole extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the database role.
+     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the database role.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.DatabaseRoleShowOutput[]>;
 
     /**
      * Create a DatabaseRole resource with the given unique name, arguments, and options.
@@ -80,7 +77,9 @@ export class DatabaseRole extends pulumi.CustomResource {
             const state = argsOrState as DatabaseRoleState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as DatabaseRoleArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -89,6 +88,8 @@ export class DatabaseRole extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatabaseRole.__pulumiType, name, resourceInputs, opts);
@@ -104,13 +105,21 @@ export interface DatabaseRoleState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the database role.
+     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     database?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database role.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.DatabaseRoleShowOutput>[]>;
 }
 
 /**
@@ -122,11 +131,11 @@ export interface DatabaseRoleArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the database role.
+     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database role.
+     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
 }

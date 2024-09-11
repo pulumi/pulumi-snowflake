@@ -94,6 +94,21 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
      * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
      * 
      */
@@ -154,14 +169,14 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<StreamlitShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW STREAMLIT` for the given streamli.
+     * @return Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      * 
      */
     public Optional<Output<List<StreamlitShowOutputArgs>>> showOutputs() {
@@ -206,6 +221,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         this.describeOutputs = $.describeOutputs;
         this.directoryLocation = $.directoryLocation;
         this.externalAccessIntegrations = $.externalAccessIntegrations;
+        this.fullyQualifiedName = $.fullyQualifiedName;
         this.mainFile = $.mainFile;
         this.name = $.name;
         this.queryWarehouse = $.queryWarehouse;
@@ -359,6 +375,27 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
          * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
          * 
          * @return builder
@@ -443,7 +480,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamli.
+         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamlit.
          * 
          * @return builder
          * 
@@ -454,7 +491,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamli.
+         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamlit.
          * 
          * @return builder
          * 
@@ -464,7 +501,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamli.
+         * @param showOutputs Outputs the result of `SHOW STREAMLIT` for the given streamlit.
          * 
          * @return builder
          * 

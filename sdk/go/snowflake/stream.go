@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // format is database name | schema name | stream name
@@ -30,6 +28,8 @@ type Stream struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the stream.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Create an insert only stream type.
 	InsertOnly pulumi.BoolPtrOutput `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
@@ -90,6 +90,8 @@ type streamState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the stream.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Create an insert only stream type.
 	InsertOnly *bool `pulumi:"insertOnly"`
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
@@ -115,6 +117,8 @@ type StreamState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the stream.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Create an insert only stream type.
 	InsertOnly pulumi.BoolPtrInput
 	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created.
@@ -284,6 +288,11 @@ func (o StreamOutput) Comment() pulumi.StringPtrOutput {
 // The database in which to create the stream.
 func (o StreamOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o StreamOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Create an insert only stream type.

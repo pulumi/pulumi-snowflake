@@ -7,33 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const testExtFunc = new snowflake.ExternalFunction("test_ext_func", {
- *     name: "my_function",
- *     database: "my_test_db",
- *     schema: "my_test_schema",
- *     args: [
- *         {
- *             name: "arg1",
- *             type: "varchar",
- *         },
- *         {
- *             name: "arg2",
- *             type: "varchar",
- *         },
- *     ],
- *     returnType: "variant",
- *     returnBehavior: "IMMUTABLE",
- *     apiIntegration: "api_integration_name",
- *     urlOfProxyAndResource: "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
- * });
- * ```
- *
  * ## Import
  *
  * format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
@@ -99,6 +72,10 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      */
     public readonly headers!: pulumi.Output<outputs.ExternalFunctionHeader[] | undefined>;
@@ -163,6 +140,7 @@ export class ExternalFunction extends pulumi.CustomResource {
             resourceInputs["contextHeaders"] = state ? state.contextHeaders : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["headers"] = state ? state.headers : undefined;
             resourceInputs["maxBatchRows"] = state ? state.maxBatchRows : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -212,6 +190,7 @@ export class ExternalFunction extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["urlOfProxyAndResource"] = args ? args.urlOfProxyAndResource : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExternalFunction.__pulumiType, name, resourceInputs, opts);
@@ -250,6 +229,10 @@ export interface ExternalFunctionState {
      * The database in which to create the external function.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      */

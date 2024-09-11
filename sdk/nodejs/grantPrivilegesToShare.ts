@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * ## Import
  *
  * ### OnView
  *
@@ -50,6 +50,10 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onDatabase!: pulumi.Output<string | undefined>;
     /**
+     * The fully qualified name of the function on which privileges will be granted.
+     */
+    public readonly onFunction!: pulumi.Output<string | undefined>;
+    /**
      * The fully qualified name of the schema on which privileges will be granted.
      */
     public readonly onSchema!: pulumi.Output<string | undefined>;
@@ -89,6 +93,7 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
             const state = argsOrState as GrantPrivilegesToShareState | undefined;
             resourceInputs["onAllTablesInSchema"] = state ? state.onAllTablesInSchema : undefined;
             resourceInputs["onDatabase"] = state ? state.onDatabase : undefined;
+            resourceInputs["onFunction"] = state ? state.onFunction : undefined;
             resourceInputs["onSchema"] = state ? state.onSchema : undefined;
             resourceInputs["onTable"] = state ? state.onTable : undefined;
             resourceInputs["onTag"] = state ? state.onTag : undefined;
@@ -105,6 +110,7 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
             }
             resourceInputs["onAllTablesInSchema"] = args ? args.onAllTablesInSchema : undefined;
             resourceInputs["onDatabase"] = args ? args.onDatabase : undefined;
+            resourceInputs["onFunction"] = args ? args.onFunction : undefined;
             resourceInputs["onSchema"] = args ? args.onSchema : undefined;
             resourceInputs["onTable"] = args ? args.onTable : undefined;
             resourceInputs["onTag"] = args ? args.onTag : undefined;
@@ -129,6 +135,10 @@ export interface GrantPrivilegesToShareState {
      * The fully qualified name of the database on which privileges will be granted.
      */
     onDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the function on which privileges will be granted.
+     */
+    onFunction?: pulumi.Input<string>;
     /**
      * The fully qualified name of the schema on which privileges will be granted.
      */
@@ -167,6 +177,10 @@ export interface GrantPrivilegesToShareArgs {
      * The fully qualified name of the database on which privileges will be granted.
      */
     onDatabase?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the function on which privileges will be granted.
+     */
+    onFunction?: pulumi.Input<string>;
     /**
      * The fully qualified name of the schema on which privileges will be granted.
      */

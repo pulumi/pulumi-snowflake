@@ -10,43 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testExtFunc = new Snowflake.ExternalFunction("test_ext_func", new()
-    ///     {
-    ///         Name = "my_function",
-    ///         Database = "my_test_db",
-    ///         Schema = "my_test_schema",
-    ///         Args = new[]
-    ///         {
-    ///             new Snowflake.Inputs.ExternalFunctionArgArgs
-    ///             {
-    ///                 Name = "arg1",
-    ///                 Type = "varchar",
-    ///             },
-    ///             new Snowflake.Inputs.ExternalFunctionArgArgs
-    ///             {
-    ///                 Name = "arg2",
-    ///                 Type = "varchar",
-    ///             },
-    ///         },
-    ///         ReturnType = "variant",
-    ///         ReturnBehavior = "IMMUTABLE",
-    ///         ApiIntegration = "api_integration_name",
-    ///         UrlOfProxyAndResource = "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with ','&gt;)
@@ -99,6 +62,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Allows users to specify key-value metadata that is sent with every request as HTTP headers.
@@ -393,6 +362,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.ExternalFunctionHeaderGetArgs>? _headers;

@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
- *
  * ## Import
  *
  * format is database name | schema name | pipe name
@@ -68,6 +66,10 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly errorIntegration!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies an integration for the pipe.
      */
     public readonly integration!: pulumi.Output<string | undefined>;
@@ -107,6 +109,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["copyStatement"] = state ? state.copyStatement : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["integration"] = state ? state.integration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
@@ -132,6 +135,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["integration"] = args ? args.integration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["notificationChannel"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         }
@@ -168,6 +172,10 @@ export interface PipeState {
      * Specifies the name of the notification integration used for error notifications.
      */
     errorIntegration?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies an integration for the pipe.
      */

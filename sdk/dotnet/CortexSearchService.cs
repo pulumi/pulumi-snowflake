@@ -10,70 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //# Basic
-    ///     var test = new Snowflake.Database("test", new()
-    ///     {
-    ///         Name = "some_database",
-    ///     });
-    /// 
-    ///     var testSchema = new Snowflake.Schema("test", new()
-    ///     {
-    ///         Database = test.Name,
-    ///         Name = "some_schema",
-    ///     });
-    /// 
-    ///     var testTable = new Snowflake.Table("test", new()
-    ///     {
-    ///         Database = test.Name,
-    ///         Schema = testSchema.Name,
-    ///         Name = "some_table",
-    ///         ChangeTracking = true,
-    ///         Columns = new[]
-    ///         {
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "ID",
-    ///                 Type = "NUMBER(38,0)",
-    ///             },
-    ///             new Snowflake.Inputs.TableColumnArgs
-    ///             {
-    ///                 Name = "SOME_TEXT",
-    ///                 Type = "VARCHAR",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testCortexSearchService = new Snowflake.CortexSearchService("test", new()
-    ///     {
-    ///         Database = test.Name,
-    ///         Schema = testSchema.Name,
-    ///         Name = "some_name",
-    ///         On = "SOME_TEXT",
-    ///         TargetLag = "2 minutes",
-    ///         Warehouse = "some_warehouse",
-    ///         Query = "SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"",
-    ///         Comment = "some comment",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testTable,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -106,6 +42,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
@@ -286,6 +228,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.

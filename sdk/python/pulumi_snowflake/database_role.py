@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DatabaseRoleArgs', 'DatabaseRole']
 
@@ -19,9 +21,9 @@ class DatabaseRoleArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabaseRole resource.
-        :param pulumi.Input[str] database: The database in which to create the database role.
+        :param pulumi.Input[str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[str] name: Specifies the identifier for the database role.
+        :param pulumi.Input[str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         pulumi.set(__self__, "database", database)
         if comment is not None:
@@ -33,7 +35,7 @@ class DatabaseRoleArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the database role.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -57,7 +59,7 @@ class DatabaseRoleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the database role.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -71,19 +73,27 @@ class _DatabaseRoleState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatabaseRole resources.
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[str] database: The database in which to create the database role.
-        :param pulumi.Input[str] name: Specifies the identifier for the database role.
+        :param pulumi.Input[str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @property
     @pulumi.getter
@@ -101,7 +111,7 @@ class _DatabaseRoleState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the database role.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -110,16 +120,40 @@ class _DatabaseRoleState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the database role.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 class DatabaseRole(pulumi.CustomResource):
@@ -132,29 +166,17 @@ class DatabaseRole(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db_role = snowflake.DatabaseRole("db_role",
-            database="database",
-            name="role_1",
-            comment="my db role")
-        ```
-
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[str] database: The database in which to create the database role.
-        :param pulumi.Input[str] name: Specifies the identifier for the database role.
+        :param pulumi.Input[str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         ...
     @overload
@@ -163,22 +185,10 @@ class DatabaseRole(pulumi.CustomResource):
                  args: DatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        db_role = snowflake.DatabaseRole("db_role",
-            database="database",
-            name="role_1",
-            comment="my db role")
-        ```
-
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/databaseRole:DatabaseRole example 'dbName|roleName'
+        $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,6 +223,8 @@ class DatabaseRole(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
+            __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(DatabaseRole, __self__).__init__(
             'snowflake:index/databaseRole:DatabaseRole',
             resource_name,
@@ -225,7 +237,9 @@ class DatabaseRole(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'DatabaseRole':
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]]] = None) -> 'DatabaseRole':
         """
         Get an existing DatabaseRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -234,8 +248,10 @@ class DatabaseRole(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[str] database: The database in which to create the database role.
-        :param pulumi.Input[str] name: Specifies the identifier for the database role.
+        :param pulumi.Input[str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,7 +259,9 @@ class DatabaseRole(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["show_outputs"] = show_outputs
         return DatabaseRole(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -258,15 +276,31 @@ class DatabaseRole(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the database role.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the database role.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.DatabaseRoleShowOutput']]:
+        """
+        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        """
+        return pulumi.get(self, "show_outputs")
 

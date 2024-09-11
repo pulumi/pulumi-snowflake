@@ -13,20 +13,6 @@ import com.pulumi.snowflake.inputs.TableColumnMaskingPolicyApplicationState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Applies a masking policy to a table column.
- * 
- * Only one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.
- * Using two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
- * 
- * When using this resource to manage a table column&#39;s masking policy make sure to ignore changes to the column&#39;s masking policy in the table definition, otherwise the two resources would conflict. See example below.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- */
 @ResourceType(type="snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication")
 public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.CustomResource {
     /**

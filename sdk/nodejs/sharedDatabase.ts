@@ -5,10 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * A shared database creates a database from a share provided by another Snowflake account. For more information about shares, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro).
- *
  * ## Import
  *
  * ```sh
@@ -68,11 +64,15 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly fromShare!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
     public readonly logLevel!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -131,6 +131,7 @@ export class SharedDatabase extends pulumi.CustomResource {
             resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
             resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
             resourceInputs["fromShare"] = state ? state.fromShare : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["logLevel"] = state ? state.logLevel : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["quotedIdentifiersIgnoreCase"] = state ? state.quotedIdentifiersIgnoreCase : undefined;
@@ -164,6 +165,7 @@ export class SharedDatabase extends pulumi.CustomResource {
             resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
             resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args ? args.userTaskMinimumTriggerIntervalInSeconds : undefined;
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SharedDatabase.__pulumiType, name, resourceInputs, opts);
@@ -199,11 +201,15 @@ export interface SharedDatabaseState {
      */
     fromShare?: pulumi.Input<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -277,7 +283,7 @@ export interface SharedDatabaseArgs {
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account.
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

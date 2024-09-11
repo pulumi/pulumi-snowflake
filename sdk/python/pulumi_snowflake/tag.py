@@ -103,6 +103,7 @@ class _TagState:
                  allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
@@ -110,6 +111,7 @@ class _TagState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] database: The database in which to create the tag.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         :param pulumi.Input[str] schema: The schema in which to create the tag.
         """
@@ -119,6 +121,8 @@ class _TagState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schema is not None:
@@ -161,6 +165,18 @@ class _TagState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -197,26 +213,6 @@ class Tag(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        database = snowflake.Database("database", name="database")
-        schema = snowflake.Schema("schema",
-            name="schema",
-            database=database.name)
-        tag = snowflake.Tag("tag",
-            name="cost_center",
-            database=database.name,
-            schema=schema.name,
-            allowed_values=[
-                "finance",
-                "engineering",
-            ])
-        ```
-
         ## Import
 
         format is database name | schema name | tag name
@@ -240,26 +236,6 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        database = snowflake.Database("database", name="database")
-        schema = snowflake.Schema("schema",
-            name="schema",
-            database=database.name)
-        tag = snowflake.Tag("tag",
-            name="cost_center",
-            database=database.name,
-            schema=schema.name,
-            allowed_values=[
-                "finance",
-                "engineering",
-            ])
-        ```
-
         ## Import
 
         format is database name | schema name | tag name
@@ -306,6 +282,7 @@ class Tag(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["fully_qualified_name"] = None
         super(Tag, __self__).__init__(
             'snowflake:index/tag:Tag',
             resource_name,
@@ -319,6 +296,7 @@ class Tag(pulumi.CustomResource):
             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None) -> 'Tag':
         """
@@ -331,6 +309,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
         :param pulumi.Input[str] database: The database in which to create the tag.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
         :param pulumi.Input[str] schema: The schema in which to create the tag.
         """
@@ -341,6 +320,7 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["allowed_values"] = allowed_values
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
         return Tag(resource_name, opts=opts, __props__=__props__)
@@ -368,6 +348,14 @@ class Tag(pulumi.CustomResource):
         The database in which to create the tag.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

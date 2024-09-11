@@ -5,31 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const monitor = new snowflake.ResourceMonitor("monitor", {
- *     name: "monitor",
- *     creditQuota: 100,
- *     frequency: "DAILY",
- *     startTimestamp: "2020-12-07 00:00",
- *     endTimestamp: "2021-12-07 00:00",
- *     notifyTriggers: [
- *         40,
- *         50,
- *     ],
- *     suspendTriggers: 50,
- *     suspendImmediateTriggers: 90,
- *     notifyUsers: [
- *         "USERONE",
- *         "USERTWO",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * format is the resource monitor name
@@ -78,6 +53,10 @@ export class ResourceMonitor extends pulumi.CustomResource {
      * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      */
     public readonly frequency!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * Identifier for the resource monitor; must be unique for your account.
      */
@@ -139,6 +118,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["creditQuota"] = state ? state.creditQuota : undefined;
             resourceInputs["endTimestamp"] = state ? state.endTimestamp : undefined;
             resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
             resourceInputs["notifyUsers"] = state ? state.notifyUsers : undefined;
@@ -164,6 +144,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["suspendTrigger"] = args ? args.suspendTrigger : undefined;
             resourceInputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
             resourceInputs["warehouses"] = args ? args.warehouses : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceMonitor.__pulumiType, name, resourceInputs, opts);
@@ -186,6 +167,10 @@ export interface ResourceMonitorState {
      * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
      */
     frequency?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Identifier for the resource monitor; must be unique for your account.
      */

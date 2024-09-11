@@ -5,22 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const test = new snowflake.Share("test", {
- *     name: "share_name",
- *     comment: "cool comment",
- *     accounts: ["organizationName.accountName"],
- * });
- * const example = new snowflake.Database("example", {name: "test"}, {
- *     dependsOn: [test],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -64,6 +48,10 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -83,12 +71,14 @@ export class Share extends pulumi.CustomResource {
             const state = argsOrState as ShareState | undefined;
             resourceInputs["accounts"] = state ? state.accounts : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
             resourceInputs["accounts"] = args ? args.accounts : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Share.__pulumiType, name, resourceInputs, opts);
@@ -107,6 +97,10 @@ export interface ShareState {
      * Specifies a comment for the managed account.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      */

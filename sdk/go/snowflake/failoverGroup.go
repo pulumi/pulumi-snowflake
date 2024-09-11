@@ -11,71 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			db, err := snowflake.NewDatabase(ctx, "db", &snowflake.DatabaseArgs{
-//				Name: pulumi.String("db1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sourceFailoverGroup, err := snowflake.NewFailoverGroup(ctx, "source_failover_group", &snowflake.FailoverGroupArgs{
-//				Name: pulumi.String("FG1"),
-//				ObjectTypes: pulumi.StringArray{
-//					pulumi.String("WAREHOUSES"),
-//					pulumi.String("DATABASES"),
-//					pulumi.String("INTEGRATIONS"),
-//					pulumi.String("ROLES"),
-//				},
-//				AllowedAccounts: pulumi.StringArray{
-//					pulumi.String("<org_name>.<target_account_name1>"),
-//					pulumi.String("<org_name>.<target_account_name2>"),
-//				},
-//				AllowedDatabases: pulumi.StringArray{
-//					db.Name,
-//				},
-//				AllowedIntegrationTypes: pulumi.StringArray{
-//					pulumi.String("SECURITY INTEGRATIONS"),
-//				},
-//				ReplicationSchedule: &snowflake.FailoverGroupReplicationScheduleArgs{
-//					Cron: &snowflake.FailoverGroupReplicationScheduleCronArgs{
-//						Expression: pulumi.String("0 0 10-20 * TUE,THU"),
-//						TimeZone:   pulumi.String("UTC"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewFailoverGroup(ctx, "target_failover_group", &snowflake.FailoverGroupArgs{
-//				Name: pulumi.String("FG1"),
-//				FromReplica: &snowflake.FailoverGroupFromReplicaArgs{
-//					OrganizationName:  pulumi.String("..."),
-//					SourceAccountName: pulumi.String("..."),
-//					Name:              sourceFailoverGroup.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -94,6 +29,8 @@ type FailoverGroup struct {
 	AllowedShares pulumi.StringArrayOutput `pulumi:"allowedShares"`
 	// Specifies the name of the replica to use as the source for the failover group.
 	FromReplica FailoverGroupFromReplicaPtrOutput `pulumi:"fromReplica"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrOutput `pulumi:"ignoreEditionCheck"`
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
@@ -144,6 +81,8 @@ type failoverGroupState struct {
 	AllowedShares []string `pulumi:"allowedShares"`
 	// Specifies the name of the replica to use as the source for the failover group.
 	FromReplica *FailoverGroupFromReplica `pulumi:"fromReplica"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck *bool `pulumi:"ignoreEditionCheck"`
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
@@ -165,6 +104,8 @@ type FailoverGroupState struct {
 	AllowedShares pulumi.StringArrayInput
 	// Specifies the name of the replica to use as the source for the failover group.
 	FromReplica FailoverGroupFromReplicaPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrInput
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
@@ -332,6 +273,11 @@ func (o FailoverGroupOutput) AllowedShares() pulumi.StringArrayOutput {
 // Specifies the name of the replica to use as the source for the failover group.
 func (o FailoverGroupOutput) FromReplica() FailoverGroupFromReplicaPtrOutput {
 	return o.ApplyT(func(v *FailoverGroup) FailoverGroupFromReplicaPtrOutput { return v.FromReplica }).(FailoverGroupFromReplicaPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o FailoverGroupOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FailoverGroup) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Allows replicating objects to accounts on lower editions.

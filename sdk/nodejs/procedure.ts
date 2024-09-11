@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
  * ## Import
  *
  * format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
@@ -61,6 +59,10 @@ export class Procedure extends pulumi.CustomResource {
      * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     public readonly executeAs!: pulumi.Output<string | undefined>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * The handler method for Java / Python procedures.
      */
@@ -129,6 +131,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["executeAs"] = state ? state.executeAs : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["handler"] = state ? state.handler : undefined;
             resourceInputs["imports"] = state ? state.imports : undefined;
             resourceInputs["language"] = state ? state.language : undefined;
@@ -171,6 +174,7 @@ export class Procedure extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["secure"] = args ? args.secure : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Procedure.__pulumiType, name, resourceInputs, opts);
@@ -197,6 +201,10 @@ export interface ProcedureState {
      * Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
      */
     executeAs?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The handler method for Java / Python procedures.
      */

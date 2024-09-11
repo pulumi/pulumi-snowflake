@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStreamlitsStreamlit {
     /**
-     * @return Holds the output of DESCRIBE STREAMLITS.
+     * @return Holds the output of DESCRIBE STREAMLIT.
      * 
      */
     private List<GetStreamlitsStreamlitDescribeOutput> describeOutputs;
@@ -25,7 +25,7 @@ public final class GetStreamlitsStreamlit {
 
     private GetStreamlitsStreamlit() {}
     /**
-     * @return Holds the output of DESCRIBE STREAMLITS.
+     * @return Holds the output of DESCRIBE STREAMLIT.
      * 
      */
     public List<GetStreamlitsStreamlitDescribeOutput> describeOutputs() {

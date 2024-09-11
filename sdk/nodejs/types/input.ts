@@ -391,6 +391,21 @@ export interface DatabaseReplicationEnableToAccount {
     withFailover?: pulumi.Input<boolean>;
 }
 
+export interface DatabaseRoleShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    grantedDatabaseRoles?: pulumi.Input<number>;
+    grantedToDatabaseRoles?: pulumi.Input<number>;
+    grantedToRoles?: pulumi.Input<number>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    isInherited?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+}
+
 export interface DynamicTableTargetLag {
     /**
      * Specifies whether the target lag time is downstream.
@@ -676,6 +691,28 @@ export interface GetCortexSearchServicesLimit {
 }
 
 export interface GetCortexSearchServicesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetDatabaseRolesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetDatabaseRolesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
@@ -1066,6 +1103,80 @@ export interface GetStreamlitsLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetUsersLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetUsersLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetViewsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetViewsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetViewsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetViewsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GrantOwnershipOn {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
@@ -1155,7 +1266,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
      */
     objectType?: pulumi.Input<string>;
 }
@@ -1164,7 +1275,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -1173,7 +1284,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -1207,7 +1318,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
      */
     objectType?: pulumi.Input<string>;
 }
@@ -1222,7 +1333,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -1237,7 +1348,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2261,23 +2372,670 @@ export interface TagAssociationObjectIdentifier {
     schema?: pulumi.Input<string>;
 }
 
-export interface ViewTag {
+export interface UserParameter {
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.UserParameterAbortDetachedQuery>[]>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.UserParameterAutocommit>[]>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryInputFormat>[]>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryOutputFormat>[]>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMemoryLimit>[]>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMetadataRequestUseConnectionCtx>[]>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.UserParameterClientPrefetchThread>[]>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultChunkSize>[]>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultColumnCaseInsensitive>[]>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAlife>[]>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterClientTimestampTypeMapping>[]>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateInputFormat>[]>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateOutputFormat>[]>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnloadPhysicalTypeOptimization>[]>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnredactedQuerySyntaxError>[]>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicMerge>[]>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicUpdate>[]>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeographyOutputFormat>[]>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeometryOutputFormat>[]>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatDecimalAsInt>[]>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatTimestampNtzAsUtc>[]>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcUseSessionTimezone>[]>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.UserParameterJsonIndent>[]>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.UserParameterLockTimeout>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterLogLevel>[]>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.UserParameterMultiStatementCount>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterNetworkPolicy>[]>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.UserParameterNoorderSequenceAsDefault>[]>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterOdbcTreatDecimalAsInt>[]>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.UserParameterPreventUnloadToInternalStage>[]>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.UserParameterQueryTag>[]>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.UserParameterQuotedIdentifiersIgnoreCase>[]>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.UserParameterRowsPerResultset>[]>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.UserParameterS3StageVpceDnsName>[]>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.UserParameterSearchPath>[]>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.UserParameterSimulatedDataSharingConsumer>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementTimeoutInSecond>[]>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.UserParameterStrictJsonOutput>[]>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeInputFormat>[]>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeOutputFormat>[]>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampDayIsAlways24h>[]>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampInputFormat>[]>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampLtzOutputFormat>[]>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampNtzOutputFormat>[]>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampOutputFormat>[]>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTypeMapping>[]>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTzOutputFormat>[]>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.UserParameterTimezone>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTraceLevel>[]>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionAbortOnError>[]>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionDefaultIsolationLevel>[]>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterTwoDigitCenturyStart>[]>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.UserParameterUnsupportedDdlAction>[]>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.UserParameterUseCachedResult>[]>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekOfYearPolicy>[]>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekStart>[]>;
+}
+
+export interface UserParameterAbortDetachedQuery {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterAutocommit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterBinaryInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterBinaryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientMemoryLimit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientPrefetchThread {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientResultChunkSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientResultColumnCaseInsensitive {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientSessionKeepAlife {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterClientTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterDateInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterDateOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterEnableUnloadPhysicalTypeOptimization {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterEnableUnredactedQuerySyntaxError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterErrorOnNondeterministicMerge {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterErrorOnNondeterministicUpdate {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterGeographyOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterGeometryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterJdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterJdbcTreatTimestampNtzAsUtc {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterJsonIndent {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterLockTimeout {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterMultiStatementCount {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterNetworkPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterNoorderSequenceAsDefault {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterOdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterQueryTag {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterRowsPerResultset {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterS3StageVpceDnsName {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterSearchPath {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterSimulatedDataSharingConsumer {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterStrictJsonOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimeInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimeOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampDayIsAlways24h {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampLtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampNtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimestampTzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTransactionAbortOnError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTransactionDefaultIsolationLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterTwoDigitCenturyStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterUnsupportedDdlAction {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterUseCachedResult {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterWeekOfYearPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserParameterWeekStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface UserShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    daysToExpiry?: pulumi.Input<string>;
+    defaultNamespace?: pulumi.Input<string>;
+    defaultRole?: pulumi.Input<string>;
+    defaultSecondaryRoles?: pulumi.Input<string>;
+    defaultWarehouse?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean>;
+    displayName?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
+    expiresAtTime?: pulumi.Input<string>;
+    extAuthnDuo?: pulumi.Input<boolean>;
+    extAuthnUid?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
+    hasMfa?: pulumi.Input<boolean>;
+    hasPassword?: pulumi.Input<boolean>;
+    hasRsaPublicKey?: pulumi.Input<boolean>;
+    lastName?: pulumi.Input<string>;
+    lastSuccessLogin?: pulumi.Input<string>;
+    lockedUntilTime?: pulumi.Input<string>;
+    loginName?: pulumi.Input<string>;
+    minsToBypassMfa?: pulumi.Input<string>;
+    minsToUnlock?: pulumi.Input<string>;
+    mustChangePassword?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    snowflakeLock?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface ViewAggregationPolicy {
     /**
-     * Name of the database that the tag was created in.
+     * Defines which columns uniquely identify an entity within the view.
      */
-    database?: pulumi.Input<string>;
+    entityKeys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Tag name, e.g. department.
+     * Aggregation policy name.
      */
-    name: pulumi.Input<string>;
+    policyName: pulumi.Input<string>;
+}
+
+export interface ViewColumn {
     /**
-     * Name of the schema that the tag was created in.
+     * Specifies affected column name.
      */
-    schema?: pulumi.Input<string>;
+    columnName: pulumi.Input<string>;
     /**
-     * Tag value, e.g. marketing_info.
+     * Specifies a comment for the column.
      */
-    value: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    maskingPolicy?: pulumi.Input<inputs.ViewColumnMaskingPolicy>;
+    projectionPolicy?: pulumi.Input<inputs.ViewColumnProjectionPolicy>;
+}
+
+export interface ViewColumnMaskingPolicy {
+    /**
+     * Specifies the masking policy to set on a column.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * Specifies the arguments to pass into the conditional masking policy SQL expression. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+     */
+    usings?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ViewColumnProjectionPolicy {
+    /**
+     * Specifies the projection policy to set on a column.
+     */
+    policyName: pulumi.Input<string>;
+}
+
+export interface ViewDataMetricFunction {
+    /**
+     * Identifier of the data metric function to add to the table or view or drop from the table or view. This function identifier must be provided without arguments in parenthesis.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * The table or view columns on which to associate the data metric function. The data types of the columns must match the data types of the columns specified in the data metric function definition.
+     */
+    ons: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The status of the metrics association. Valid values are: `STARTED` | `SUSPENDED`. When status of a data metric function is changed, it is being reassigned with `DROP DATA METRIC FUNCTION` and `ADD DATA METRIC FUNCTION`, and then its status is changed by `MODIFY DATA METRIC FUNCTION`
+     */
+    scheduleStatus: pulumi.Input<string>;
+}
+
+export interface ViewDataMetricSchedule {
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field is not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
+     */
+    minutes?: pulumi.Input<number>;
+    /**
+     * Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
+     */
+    usingCron?: pulumi.Input<string>;
+}
+
+export interface ViewDescribeOutput {
+    check?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    default?: pulumi.Input<string>;
+    expression?: pulumi.Input<string>;
+    isNullable?: pulumi.Input<boolean>;
+    isPrimary?: pulumi.Input<boolean>;
+    isUnique?: pulumi.Input<boolean>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
+    privacyDomain?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface ViewRowAccessPolicy {
+    /**
+     * Defines which columns are affected by the policy.
+     */
+    ons: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Row access policy name.
+     */
+    policyName: pulumi.Input<string>;
+}
+
+export interface ViewShowOutput {
+    changeTracking?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    isMaterialized?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    reserved?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    text?: pulumi.Input<string>;
 }
 
 export interface WarehouseParameter {

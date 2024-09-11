@@ -10,32 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRowAccessPolicy = new Snowflake.RowAccessPolicy("example_row_access_policy", new()
-    ///     {
-    ///         Name = "EXAMPLE_ROW_ACCESS_POLICY",
-    ///         Database = "EXAMPLE_DB",
-    ///         Schema = "EXAMPLE_SCHEMA",
-    ///         Signature = 
-    ///         {
-    ///             { "A", "VARCHAR" },
-    ///             { "B", "VARCHAR" },
-    ///         },
-    ///         RowAccessExpression = "case when current_role() in ('ANALYST') then true else false end",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | policy name
@@ -58,6 +32,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
@@ -190,6 +170,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.

@@ -132,8 +132,6 @@ class GrantAccountRole(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
@@ -155,8 +153,6 @@ class GrantAccountRole(pulumi.CustomResource):
                  args: GrantAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)

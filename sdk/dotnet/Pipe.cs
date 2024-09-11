@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replace_triggered_by HCL meta-argument.
-    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | pipe name
@@ -58,6 +56,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("errorIntegration")]
         public Output<string?> ErrorIntegration { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies an integration for the pipe.
@@ -232,6 +236,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Specifies an integration for the pipe.

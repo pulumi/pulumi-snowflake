@@ -7,31 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const externalTable = new snowflake.ExternalTable("external_table", {
- *     database: "db",
- *     schema: "schema",
- *     name: "external_table",
- *     comment: "External table",
- *     fileFormat: "TYPE = CSV FIELD_DELIMITER = '|'",
- *     columns: [
- *         {
- *             name: "id",
- *             type: "int",
- *         },
- *         {
- *             name: "data",
- *             type: "text",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | external table name
@@ -97,6 +72,10 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies a location for the external table.
      */
     public readonly location!: pulumi.Output<string>;
@@ -155,6 +134,7 @@ export class ExternalTable extends pulumi.CustomResource {
             resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
@@ -196,6 +176,7 @@ export class ExternalTable extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tableFormat"] = args ? args.tableFormat : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -235,6 +216,10 @@ export interface ExternalTableState {
      * Specifies the file format for the external table.
      */
     fileFormat?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies a location for the external table.
      */

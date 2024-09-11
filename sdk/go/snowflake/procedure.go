@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
@@ -32,6 +30,8 @@ type Procedure struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
 	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
@@ -110,6 +110,8 @@ type procedureState struct {
 	Database *string `pulumi:"database"`
 	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs *string `pulumi:"executeAs"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The handler method for Java / Python procedures.
 	Handler *string `pulumi:"handler"`
 	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
@@ -147,6 +149,8 @@ type ProcedureState struct {
 	Database pulumi.StringPtrInput
 	// Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 	ExecuteAs pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// The handler method for Java / Python procedures.
 	Handler pulumi.StringPtrInput
 	// Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
@@ -359,6 +363,11 @@ func (o ProcedureOutput) Database() pulumi.StringOutput {
 // Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
 func (o ProcedureOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Procedure) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ProcedureOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Procedure) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // The handler method for Java / Python procedures.

@@ -238,66 +238,6 @@ class TagAssociation(pulumi.CustomResource):
                  tag_value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Database("test", name="database")
-        test_schema = snowflake.Schema("test",
-            name="schema",
-            database=test.name)
-        test_tag = snowflake.Tag("test",
-            name="cost_center",
-            database=test.name,
-            schema=test_schema.name,
-            allowed_values=[
-                "finance",
-                "engineering",
-            ])
-        db_association = snowflake.TagAssociation("db_association",
-            object_identifiers=[{
-                "name": test.name,
-            }],
-            object_type="DATABASE",
-            tag_id=test_tag.id,
-            tag_value="finance")
-        test_table = snowflake.Table("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="TABLE_NAME",
-            comment="Terraform example table",
-            columns=[
-                {
-                    "name": "column1",
-                    "type": "VARIANT",
-                },
-                {
-                    "name": "column2",
-                    "type": "VARCHAR(16)",
-                },
-            ])
-        table_association = snowflake.TagAssociation("table_association",
-            object_identifiers=[{
-                "name": test_table.name,
-                "database": test.name,
-                "schema": test_schema.name,
-            }],
-            object_type="TABLE",
-            tag_id=test_tag.id,
-            tag_value="engineering")
-        column_association = snowflake.TagAssociation("column_association",
-            object_identifiers=[{
-                "name": test_table.name.apply(lambda name: f"{name}.column_name"),
-                "database": test.name,
-                "schema": test_schema.name,
-            }],
-            object_type="COLUMN",
-            tag_id=test_tag.id,
-            tag_value="engineering")
-        ```
-
         ## Import
 
         format is dbName.schemaName.tagName or dbName.schemaName.tagName
@@ -322,66 +262,6 @@ class TagAssociation(pulumi.CustomResource):
                  args: TagAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Database("test", name="database")
-        test_schema = snowflake.Schema("test",
-            name="schema",
-            database=test.name)
-        test_tag = snowflake.Tag("test",
-            name="cost_center",
-            database=test.name,
-            schema=test_schema.name,
-            allowed_values=[
-                "finance",
-                "engineering",
-            ])
-        db_association = snowflake.TagAssociation("db_association",
-            object_identifiers=[{
-                "name": test.name,
-            }],
-            object_type="DATABASE",
-            tag_id=test_tag.id,
-            tag_value="finance")
-        test_table = snowflake.Table("test",
-            database=test.name,
-            schema=test_schema.name,
-            name="TABLE_NAME",
-            comment="Terraform example table",
-            columns=[
-                {
-                    "name": "column1",
-                    "type": "VARIANT",
-                },
-                {
-                    "name": "column2",
-                    "type": "VARCHAR(16)",
-                },
-            ])
-        table_association = snowflake.TagAssociation("table_association",
-            object_identifiers=[{
-                "name": test_table.name,
-                "database": test.name,
-                "schema": test_schema.name,
-            }],
-            object_type="TABLE",
-            tag_id=test_tag.id,
-            tag_value="engineering")
-        column_association = snowflake.TagAssociation("column_association",
-            object_identifiers=[{
-                "name": test_table.name.apply(lambda name: f"{name}.column_name"),
-                "database": test.name,
-                "schema": test_schema.name,
-            }],
-            object_type="COLUMN",
-            tag_id=test_tag.id,
-            tag_value="engineering")
-        ```
-
         ## Import
 
         format is dbName.schemaName.tagName or dbName.schemaName.tagName

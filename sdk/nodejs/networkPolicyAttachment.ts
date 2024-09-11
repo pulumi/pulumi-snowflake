@@ -5,22 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const attach = new snowflake.NetworkPolicyAttachment("attach", {
- *     networkPolicyName: "policy",
- *     setForAccount: false,
- *     users: [
- *         "user1",
- *         "user2",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

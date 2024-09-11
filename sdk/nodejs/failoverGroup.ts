@@ -7,44 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const db = new snowflake.Database("db", {name: "db1"});
- * const sourceFailoverGroup = new snowflake.FailoverGroup("source_failover_group", {
- *     name: "FG1",
- *     objectTypes: [
- *         "WAREHOUSES",
- *         "DATABASES",
- *         "INTEGRATIONS",
- *         "ROLES",
- *     ],
- *     allowedAccounts: [
- *         "<org_name>.<target_account_name1>",
- *         "<org_name>.<target_account_name2>",
- *     ],
- *     allowedDatabases: [db.name],
- *     allowedIntegrationTypes: ["SECURITY INTEGRATIONS"],
- *     replicationSchedule: {
- *         cron: {
- *             expression: "0 0 10-20 * TUE,THU",
- *             timeZone: "UTC",
- *         },
- *     },
- * });
- * const targetFailoverGroup = new snowflake.FailoverGroup("target_failover_group", {
- *     name: "FG1",
- *     fromReplica: {
- *         organizationName: "...",
- *         sourceAccountName: "...",
- *         name: sourceFailoverGroup.name,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -100,6 +62,10 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly fromReplica!: pulumi.Output<outputs.FailoverGroupFromReplica | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Allows replicating objects to accounts on lower editions.
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
@@ -134,6 +100,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["allowedIntegrationTypes"] = state ? state.allowedIntegrationTypes : undefined;
             resourceInputs["allowedShares"] = state ? state.allowedShares : undefined;
             resourceInputs["fromReplica"] = state ? state.fromReplica : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["ignoreEditionCheck"] = state ? state.ignoreEditionCheck : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["objectTypes"] = state ? state.objectTypes : undefined;
@@ -149,6 +116,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["objectTypes"] = args ? args.objectTypes : undefined;
             resourceInputs["replicationSchedule"] = args ? args.replicationSchedule : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
@@ -179,6 +147,10 @@ export interface FailoverGroupState {
      * Specifies the name of the replica to use as the source for the failover group.
      */
     fromReplica?: pulumi.Input<inputs.FailoverGroupFromReplica>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Allows replicating objects to accounts on lower editions.
      */

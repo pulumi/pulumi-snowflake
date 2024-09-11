@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // format is database name | schema name | table name
@@ -36,6 +34,8 @@ type Table struct {
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the table.
@@ -44,8 +44,6 @@ type Table struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrOutput `pulumi:"primaryKey"`
-	// Qualified name of the table.
-	QualifiedName pulumi.StringOutput `pulumi:"qualifiedName"`
 	// The schema in which to create the table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
@@ -105,6 +103,8 @@ type tableState struct {
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the table.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the table.
@@ -113,8 +113,6 @@ type tableState struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey *TablePrimaryKey `pulumi:"primaryKey"`
-	// Qualified name of the table.
-	QualifiedName *string `pulumi:"qualifiedName"`
 	// The schema in which to create the table.
 	Schema *string `pulumi:"schema"`
 	// Definitions of a tag to associate with the resource.
@@ -136,6 +134,8 @@ type TableState struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the table.
@@ -144,8 +144,6 @@ type TableState struct {
 	//
 	// Deprecated: Use TableConstraint instead
 	PrimaryKey TablePrimaryKeyPtrInput
-	// Qualified name of the table.
-	QualifiedName pulumi.StringPtrInput
 	// The schema in which to create the table.
 	Schema pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
@@ -330,6 +328,11 @@ func (o TableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o TableOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
 // Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -345,11 +348,6 @@ func (o TableOutput) Owner() pulumi.StringOutput {
 // Deprecated: Use TableConstraint instead
 func (o TableOutput) PrimaryKey() TablePrimaryKeyPtrOutput {
 	return o.ApplyT(func(v *Table) TablePrimaryKeyPtrOutput { return v.PrimaryKey }).(TablePrimaryKeyPtrOutput)
-}
-
-// Qualified name of the table.
-func (o TableOutput) QualifiedName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.QualifiedName }).(pulumi.StringOutput)
 }
 
 // The schema in which to create the table.

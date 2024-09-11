@@ -7,24 +7,18 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getViews({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
  */
-export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
+export function getViews(args?: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getViews:getViews", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -33,13 +27,25 @@ export function getViews(args: GetViewsArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetViewsArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of views
      */
-    database: string;
+    in?: inputs.GetViewsIn;
     /**
-     * The schema from which to return the views from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetViewsLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: string;
+    /**
+     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -47,36 +53,38 @@ export interface GetViewsArgs {
  */
 export interface GetViewsResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The schema from which to return the views from.
+     * IN clause to filter the list of views
      */
-    readonly schema: string;
+    readonly in?: outputs.GetViewsIn;
     /**
-     * The views in the schema
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetViewsLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    readonly startsWith?: string;
+    /**
+     * Holds the aggregated output of all views details queries.
      */
     readonly views: outputs.GetViewsView[];
+    /**
+     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    readonly withDescribe?: boolean;
 }
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getViews({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
  */
-export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewsResult> {
+export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewsResult> {
     return pulumi.output(args).apply((a: any) => getViews(a, opts))
 }
 
@@ -85,11 +93,23 @@ export function getViewsOutput(args: GetViewsOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetViewsOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of views
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetViewsInArgs>;
     /**
-     * The schema from which to return the views from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetViewsLimitArgs>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: pulumi.Input<string>;
+    /**
+     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean>;
 }

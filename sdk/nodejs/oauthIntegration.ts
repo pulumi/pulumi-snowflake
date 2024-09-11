@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use snowflake.OauthIntegrationForCustomClients or snowflake.OauthIntegrationForPartnerApplications instead. <deprecation>
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const tableauDesktop = new snowflake.OauthIntegration("tableau_desktop", {
- *     name: "TABLEAU_DESKTOP",
- *     oauthClient: "TABLEAU_DESKTOP",
- *     enabled: true,
- *     oauthIssueRefreshTokens: true,
- *     oauthRefreshTokenValidity: 3600,
- *     blockedRolesLists: ["SYSADMIN"],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

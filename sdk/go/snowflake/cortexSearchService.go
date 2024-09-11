@@ -12,74 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Basic
-//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
-//				Name: pulumi.String("some_database"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testSchema, err := snowflake.NewSchema(ctx, "test", &snowflake.SchemaArgs{
-//				Database: test.Name,
-//				Name:     pulumi.String("some_schema"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testTable, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
-//				Database:       test.Name,
-//				Schema:         testSchema.Name,
-//				Name:           pulumi.String("some_table"),
-//				ChangeTracking: pulumi.Bool(true),
-//				Columns: snowflake.TableColumnArray{
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("ID"),
-//						Type: pulumi.String("NUMBER(38,0)"),
-//					},
-//					&snowflake.TableColumnArgs{
-//						Name: pulumi.String("SOME_TEXT"),
-//						Type: pulumi.String("VARCHAR"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewCortexSearchService(ctx, "test", &snowflake.CortexSearchServiceArgs{
-//				Database:  test.Name,
-//				Schema:    testSchema.Name,
-//				Name:      pulumi.String("some_name"),
-//				On:        pulumi.String("SOME_TEXT"),
-//				TargetLag: pulumi.String("2 minutes"),
-//				Warehouse: pulumi.String("some_warehouse"),
-//				Query:     pulumi.String("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\""),
-//				Comment:   pulumi.String("some comment"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testTable,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -96,6 +28,8 @@ type CortexSearchService struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -166,6 +100,8 @@ type cortexSearchServiceState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name *string `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -189,6 +125,8 @@ type CortexSearchServiceState struct {
 	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name pulumi.StringPtrInput
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -355,6 +293,11 @@ func (o CortexSearchServiceOutput) CreatedOn() pulumi.StringOutput {
 // The database in which to create the Cortex search service.
 func (o CortexSearchServiceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o CortexSearchServiceOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.

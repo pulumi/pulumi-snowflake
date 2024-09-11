@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const exampleRowAccessPolicy = new snowflake.RowAccessPolicy("example_row_access_policy", {
- *     name: "EXAMPLE_ROW_ACCESS_POLICY",
- *     database: "EXAMPLE_DB",
- *     schema: "EXAMPLE_SCHEMA",
- *     signature: {
- *         A: "VARCHAR",
- *         B: "VARCHAR",
- *     },
- *     rowAccessExpression: "case when current_role() in ('ANALYST') then true else false end",
- * });
- * ```
- *
  * ## Import
  *
  * format is database name | schema name | policy name
@@ -68,6 +50,10 @@ export class RowAccessPolicy extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -99,6 +85,7 @@ export class RowAccessPolicy extends pulumi.CustomResource {
             const state = argsOrState as RowAccessPolicyState | undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["rowAccessExpression"] = state ? state.rowAccessExpression : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
@@ -123,6 +110,7 @@ export class RowAccessPolicy extends pulumi.CustomResource {
             resourceInputs["rowAccessExpression"] = args ? args.rowAccessExpression : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["signature"] = args ? args.signature : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RowAccessPolicy.__pulumiType, name, resourceInputs, opts);
@@ -141,6 +129,10 @@ export interface RowAccessPolicyState {
      * The database in which to create the row access policy.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
      */

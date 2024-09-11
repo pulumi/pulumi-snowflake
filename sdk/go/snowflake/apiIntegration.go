@@ -12,63 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewApiIntegration(ctx, "aws", &snowflake.ApiIntegrationArgs{
-//				Name:          pulumi.String("aws_integration"),
-//				ApiProvider:   pulumi.String("aws_api_gateway"),
-//				ApiAwsRoleArn: pulumi.String("arn:aws:iam::000000000001:/role/test"),
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://123456.execute-api.us-west-2.amazonaws.com/prod/"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewApiIntegration(ctx, "azure", &snowflake.ApiIntegrationArgs{
-//				Name:                 pulumi.String("azure_integration"),
-//				ApiProvider:          pulumi.String("azure_api_management"),
-//				AzureTenantId:        pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				AzureAdApplicationId: pulumi.String("11111111-1111-1111-1111-111111111111"),
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://apim-hello-world.azure-api.net/"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewApiIntegration(ctx, "gcp", &snowflake.ApiIntegrationArgs{
-//				Name:           pulumi.String("gcp_integration"),
-//				ApiProvider:    pulumi.String("google_api_gateway"),
-//				GoogleAudience: pulumi.String("api-gateway-id-123456.apigateway.gcp-project.cloud.goog"),
-//				ApiAllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("https://gateway-id-123456.uc.gateway.dev/"),
-//				},
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -104,6 +47,8 @@ type ApiIntegration struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
 	GoogleAudience pulumi.StringPtrOutput `pulumi:"googleAudience"`
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
@@ -180,6 +125,8 @@ type apiIntegrationState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled *bool `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
 	GoogleAudience *string `pulumi:"googleAudience"`
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
@@ -214,6 +161,8 @@ type ApiIntegrationState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 	Enabled pulumi.BoolPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
 	GoogleAudience pulumi.StringPtrInput
 	// Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
@@ -434,6 +383,11 @@ func (o ApiIntegrationOutput) CreatedOn() pulumi.StringOutput {
 // Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
 func (o ApiIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ApiIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.

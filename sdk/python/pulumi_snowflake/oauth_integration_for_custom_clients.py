@@ -38,7 +38,7 @@ class OauthIntegrationForCustomClientsArgs:
         :param pulumi.Input[str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_enforce_pkce: Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -139,7 +139,7 @@ class OauthIntegrationForCustomClientsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -257,6 +257,7 @@ class _OauthIntegrationForCustomClientsState:
                  comment: Optional[pulumi.Input[str]] = None,
                  describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]] = None,
                  enabled: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
                  oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -276,7 +277,8 @@ class _OauthIntegrationForCustomClientsState:
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
@@ -296,6 +298,8 @@ class _OauthIntegrationForCustomClientsState:
             pulumi.set(__self__, "describe_outputs", describe_outputs)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_policy is not None:
@@ -372,10 +376,22 @@ class _OauthIntegrationForCustomClientsState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -544,53 +560,6 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-        import pulumi_std as std
-
-        # basic resource
-        basic = snowflake.OauthIntegrationForCustomClients("basic",
-            name="saml_integration",
-            oauth_client_type="CONFIDENTIAL",
-            oauth_redirect_uri="https://example.com",
-            blocked_roles_lists=[
-                "ACCOUNTADMIN",
-                "SECURITYADMIN",
-            ])
-        # resource with all fields set
-        complete = snowflake.OauthIntegrationForCustomClients("complete",
-            name="saml_integration",
-            oauth_client_type="CONFIDENTIAL",
-            oauth_redirect_uri="https://example.com",
-            enabled="true",
-            oauth_allow_non_tls_redirect_uri="true",
-            oauth_enforce_pkce="true",
-            oauth_use_secondary_roles="NONE",
-            pre_authorized_roles_lists=[
-                "role_id1",
-                "role_id2",
-            ],
-            blocked_roles_lists=[
-                "ACCOUNTADMIN",
-                "SECURITYADMIN",
-                "role_id1",
-                "role_id2",
-            ],
-            oauth_issue_refresh_tokens="true",
-            oauth_refresh_token_validity=87600,
-            network_policy="network_policy_id",
-            oauth_client_rsa_public_key=std.file(input="rsa.pub").result,
-            oauth_client_rsa_public_key2=std.file(input="rsa2.pub").result,
-            comment="my oauth integration")
-        ```
-
         ## Import
 
         ```sh
@@ -602,7 +571,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
@@ -620,53 +589,6 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  args: OauthIntegrationForCustomClientsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
-
-        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-        import pulumi_std as std
-
-        # basic resource
-        basic = snowflake.OauthIntegrationForCustomClients("basic",
-            name="saml_integration",
-            oauth_client_type="CONFIDENTIAL",
-            oauth_redirect_uri="https://example.com",
-            blocked_roles_lists=[
-                "ACCOUNTADMIN",
-                "SECURITYADMIN",
-            ])
-        # resource with all fields set
-        complete = snowflake.OauthIntegrationForCustomClients("complete",
-            name="saml_integration",
-            oauth_client_type="CONFIDENTIAL",
-            oauth_redirect_uri="https://example.com",
-            enabled="true",
-            oauth_allow_non_tls_redirect_uri="true",
-            oauth_enforce_pkce="true",
-            oauth_use_secondary_roles="NONE",
-            pre_authorized_roles_lists=[
-                "role_id1",
-                "role_id2",
-            ],
-            blocked_roles_lists=[
-                "ACCOUNTADMIN",
-                "SECURITYADMIN",
-                "role_id1",
-                "role_id2",
-            ],
-            oauth_issue_refresh_tokens="true",
-            oauth_refresh_token_validity=87600,
-            network_policy="network_policy_id",
-            oauth_client_rsa_public_key=std.file(input="rsa.pub").result,
-            oauth_client_rsa_public_key2=std.file(input="rsa2.pub").result,
-            comment="my oauth integration")
-        ```
-
         ## Import
 
         ```sh
@@ -734,6 +656,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
             __props__.__dict__["pre_authorized_roles_lists"] = pre_authorized_roles_lists
             __props__.__dict__["describe_outputs"] = None
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
         super(OauthIntegrationForCustomClients, __self__).__init__(
             'snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients',
@@ -749,6 +672,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_policy: Optional[pulumi.Input[str]] = None,
             oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -773,7 +697,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
         :param pulumi.Input[str] oauth_allow_non_tls_redirect_uri: If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
@@ -793,6 +718,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["network_policy"] = network_policy
         __props__.__dict__["oauth_allow_non_tls_redirect_uri"] = oauth_allow_non_tls_redirect_uri
@@ -841,10 +767,18 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 

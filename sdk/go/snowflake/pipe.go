@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note** Right now, changes for the `integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the replaceTriggeredBy HCL meta-argument.
-//
 // ## Import
 //
 // format is database name | schema name | pipe name
@@ -36,6 +34,8 @@ type Pipe struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrOutput `pulumi:"integration"`
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -99,6 +99,8 @@ type pipeState struct {
 	Database *string `pulumi:"database"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration *string `pulumi:"errorIntegration"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -124,6 +126,8 @@ type PipeState struct {
 	Database pulumi.StringPtrInput
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
 	// Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
@@ -298,6 +302,11 @@ func (o PipeOutput) Database() pulumi.StringOutput {
 // Specifies the name of the notification integration used for error notifications.
 func (o PipeOutput) ErrorIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o PipeOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies an integration for the pipe.

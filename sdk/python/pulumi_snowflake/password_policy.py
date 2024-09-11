@@ -294,6 +294,7 @@ class _PasswordPolicyState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  history: Optional[pulumi.Input[int]] = None,
                  if_not_exists: Optional[pulumi.Input[bool]] = None,
                  lockout_time_mins: Optional[pulumi.Input[int]] = None,
@@ -308,12 +309,12 @@ class _PasswordPolicyState:
                  min_upper_case_chars: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  or_replace: Optional[pulumi.Input[bool]] = None,
-                 qualified_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PasswordPolicy resources.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[str] database: The database this password policy belongs to.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -328,13 +329,14 @@ class _PasswordPolicyState:
         :param pulumi.Input[int] min_upper_case_chars: Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[str] name: Identifier for the password policy; must be unique for your account.
         :param pulumi.Input[bool] or_replace: Whether to override a previous password policy with the same name.
-        :param pulumi.Input[str] qualified_name: The qualified name for the password policy.
         :param pulumi.Input[str] schema: The schema this password policy belongs to.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if history is not None:
             pulumi.set(__self__, "history", history)
         if if_not_exists is not None:
@@ -363,8 +365,6 @@ class _PasswordPolicyState:
             pulumi.set(__self__, "name", name)
         if or_replace is not None:
             pulumi.set(__self__, "or_replace", or_replace)
-        if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
 
@@ -391,6 +391,18 @@ class _PasswordPolicyState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -561,18 +573,6 @@ class _PasswordPolicyState:
         pulumi.set(self, "or_replace", value)
 
     @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The qualified name for the password policy.
-        """
-        return pulumi.get(self, "qualified_name")
-
-    @qualified_name.setter
-    def qualified_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "qualified_name", value)
-
-    @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
@@ -702,7 +702,7 @@ class PasswordPolicy(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            __props__.__dict__["qualified_name"] = None
+            __props__.__dict__["fully_qualified_name"] = None
         super(PasswordPolicy, __self__).__init__(
             'snowflake:index/passwordPolicy:PasswordPolicy',
             resource_name,
@@ -715,6 +715,7 @@ class PasswordPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             history: Optional[pulumi.Input[int]] = None,
             if_not_exists: Optional[pulumi.Input[bool]] = None,
             lockout_time_mins: Optional[pulumi.Input[int]] = None,
@@ -729,7 +730,6 @@ class PasswordPolicy(pulumi.CustomResource):
             min_upper_case_chars: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             or_replace: Optional[pulumi.Input[bool]] = None,
-            qualified_name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None) -> 'PasswordPolicy':
         """
         Get an existing PasswordPolicy resource's state with the given name, id, and optional extra
@@ -740,6 +740,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[str] database: The database this password policy belongs to.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] history: Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         :param pulumi.Input[bool] if_not_exists: Prevent overwriting a previous password policy with the same name.
         :param pulumi.Input[int] lockout_time_mins: Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
@@ -754,7 +755,6 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] min_upper_case_chars: Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         :param pulumi.Input[str] name: Identifier for the password policy; must be unique for your account.
         :param pulumi.Input[bool] or_replace: Whether to override a previous password policy with the same name.
-        :param pulumi.Input[str] qualified_name: The qualified name for the password policy.
         :param pulumi.Input[str] schema: The schema this password policy belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -763,6 +763,7 @@ class PasswordPolicy(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["history"] = history
         __props__.__dict__["if_not_exists"] = if_not_exists
         __props__.__dict__["lockout_time_mins"] = lockout_time_mins
@@ -777,7 +778,6 @@ class PasswordPolicy(pulumi.CustomResource):
         __props__.__dict__["min_upper_case_chars"] = min_upper_case_chars
         __props__.__dict__["name"] = name
         __props__.__dict__["or_replace"] = or_replace
-        __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["schema"] = schema
         return PasswordPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -796,6 +796,14 @@ class PasswordPolicy(pulumi.CustomResource):
         The database this password policy belongs to.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter
@@ -908,14 +916,6 @@ class PasswordPolicy(pulumi.CustomResource):
         Whether to override a previous password policy with the same name.
         """
         return pulumi.get(self, "or_replace")
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> pulumi.Output[str]:
-        """
-        The qualified name for the password policy.
-        """
-        return pulumi.get(self, "qualified_name")
 
     @property
     @pulumi.getter

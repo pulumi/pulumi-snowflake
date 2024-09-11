@@ -241,6 +241,7 @@ class _ResourceMonitorState:
                  credit_quota: Optional[pulumi.Input[int]] = None,
                  end_timestamp: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -256,6 +257,7 @@ class _ResourceMonitorState:
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
@@ -273,6 +275,8 @@ class _ResourceMonitorState:
             pulumi.set(__self__, "end_timestamp", end_timestamp)
         if frequency is not None:
             pulumi.set(__self__, "frequency", frequency)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notify_triggers is not None:
@@ -335,6 +339,18 @@ class _ResourceMonitorState:
     @frequency.setter
     def frequency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -479,30 +495,6 @@ class ResourceMonitor(pulumi.CustomResource):
                  warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        monitor = snowflake.ResourceMonitor("monitor",
-            name="monitor",
-            credit_quota=100,
-            frequency="DAILY",
-            start_timestamp="2020-12-07 00:00",
-            end_timestamp="2021-12-07 00:00",
-            notify_triggers=[
-                40,
-                50,
-            ],
-            suspend_triggers=50,
-            suspend_immediate_triggers=90,
-            notify_users=[
-                "USERONE",
-                "USERTWO",
-            ])
-        ```
-
         ## Import
 
         format is the resource monitor name
@@ -534,30 +526,6 @@ class ResourceMonitor(pulumi.CustomResource):
                  args: Optional[ResourceMonitorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        monitor = snowflake.ResourceMonitor("monitor",
-            name="monitor",
-            credit_quota=100,
-            frequency="DAILY",
-            start_timestamp="2020-12-07 00:00",
-            end_timestamp="2021-12-07 00:00",
-            notify_triggers=[
-                40,
-                50,
-            ],
-            suspend_triggers=50,
-            suspend_immediate_triggers=90,
-            notify_users=[
-                "USERONE",
-                "USERTWO",
-            ])
-        ```
-
         ## Import
 
         format is the resource monitor name
@@ -616,6 +584,7 @@ class ResourceMonitor(pulumi.CustomResource):
             __props__.__dict__["suspend_trigger"] = suspend_trigger
             __props__.__dict__["suspend_triggers"] = suspend_triggers
             __props__.__dict__["warehouses"] = warehouses
+            __props__.__dict__["fully_qualified_name"] = None
         super(ResourceMonitor, __self__).__init__(
             'snowflake:index/resourceMonitor:ResourceMonitor',
             resource_name,
@@ -629,6 +598,7 @@ class ResourceMonitor(pulumi.CustomResource):
             credit_quota: Optional[pulumi.Input[int]] = None,
             end_timestamp: Optional[pulumi.Input[str]] = None,
             frequency: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -649,6 +619,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
@@ -667,6 +638,7 @@ class ResourceMonitor(pulumi.CustomResource):
         __props__.__dict__["credit_quota"] = credit_quota
         __props__.__dict__["end_timestamp"] = end_timestamp
         __props__.__dict__["frequency"] = frequency
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["notify_triggers"] = notify_triggers
         __props__.__dict__["notify_users"] = notify_users
@@ -702,6 +674,14 @@ class ResourceMonitor(pulumi.CustomResource):
         The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
         """
         return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

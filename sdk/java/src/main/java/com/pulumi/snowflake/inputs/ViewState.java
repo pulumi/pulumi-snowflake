@@ -5,7 +5,13 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.ViewTagArgs;
+import com.pulumi.snowflake.inputs.ViewAggregationPolicyArgs;
+import com.pulumi.snowflake.inputs.ViewColumnArgs;
+import com.pulumi.snowflake.inputs.ViewDataMetricFunctionArgs;
+import com.pulumi.snowflake.inputs.ViewDataMetricScheduleArgs;
+import com.pulumi.snowflake.inputs.ViewDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.ViewRowAccessPolicyArgs;
+import com.pulumi.snowflake.inputs.ViewShowOutputArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +23,51 @@ import javax.annotation.Nullable;
 public final class ViewState extends com.pulumi.resources.ResourceArgs {
 
     public static final ViewState Empty = new ViewState();
+
+    /**
+     * Specifies the aggregation policy to set on a view.
+     * 
+     */
+    @Import(name="aggregationPolicy")
+    private @Nullable Output<ViewAggregationPolicyArgs> aggregationPolicy;
+
+    /**
+     * @return Specifies the aggregation policy to set on a view.
+     * 
+     */
+    public Optional<Output<ViewAggregationPolicyArgs>> aggregationPolicy() {
+        return Optional.ofNullable(this.aggregationPolicy);
+    }
+
+    /**
+     * Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="changeTracking")
+    private @Nullable Output<String> changeTracking;
+
+    /**
+     * @return Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> changeTracking() {
+        return Optional.ofNullable(this.changeTracking);
+    }
+
+    /**
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * 
+     */
+    @Import(name="columns")
+    private @Nullable Output<List<ViewColumnArgs>> columns;
+
+    /**
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * 
+     */
+    public Optional<Output<List<ViewColumnArgs>>> columns() {
+        return Optional.ofNullable(this.columns);
+    }
 
     /**
      * Specifies a comment for the view.
@@ -34,14 +85,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
      * 
      */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
     /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
      * 
      */
     public Optional<Output<Boolean>> copyGrants() {
@@ -49,51 +100,118 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp at which the view was created.
+     * Data metric functions used for the view.
      * 
      */
-    @Import(name="createdOn")
-    private @Nullable Output<String> createdOn;
+    @Import(name="dataMetricFunctions")
+    private @Nullable Output<List<ViewDataMetricFunctionArgs>> dataMetricFunctions;
 
     /**
-     * @return The timestamp at which the view was created.
+     * @return Data metric functions used for the view.
      * 
      */
-    public Optional<Output<String>> createdOn() {
-        return Optional.ofNullable(this.createdOn);
+    public Optional<Output<List<ViewDataMetricFunctionArgs>>> dataMetricFunctions() {
+        return Optional.ofNullable(this.dataMetricFunctions);
     }
 
     /**
-     * The database in which to create the view. Don&#39;t use the | character.
+     * Specifies the schedule to run the data metric functions periodically.
+     * 
+     */
+    @Import(name="dataMetricSchedule")
+    private @Nullable Output<ViewDataMetricScheduleArgs> dataMetricSchedule;
+
+    /**
+     * @return Specifies the schedule to run the data metric functions periodically.
+     * 
+     */
+    public Optional<Output<ViewDataMetricScheduleArgs>> dataMetricSchedule() {
+        return Optional.ofNullable(this.dataMetricSchedule);
+    }
+
+    /**
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the view. Don&#39;t use the | character.
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
     }
 
-    @Import(name="isSecure")
-    private @Nullable Output<Boolean> isSecure;
+    /**
+     * Outputs the result of `DESCRIBE VIEW` for the given view.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<ViewDescribeOutputArgs>> describeOutputs;
 
-    public Optional<Output<Boolean>> isSecure() {
-        return Optional.ofNullable(this.isSecure);
+    /**
+     * @return Outputs the result of `DESCRIBE VIEW` for the given view.
+     * 
+     */
+    public Optional<Output<List<ViewDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
     }
 
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Import(name="fullyQualifiedName")
+    private @Nullable Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Optional<Output<String>> fullyQualifiedName() {
+        return Optional.ofNullable(this.fullyQualifiedName);
+    }
+
+    /**
+     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="isRecursive")
+    private @Nullable Output<String> isRecursive;
+
+    /**
+     * @return Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> isRecursive() {
+        return Optional.ofNullable(this.isRecursive);
+    }
+
+    @Import(name="isSecure")
+    private @Nullable Output<String> isSecure;
+
+    public Optional<Output<String>> isSecure() {
+        return Optional.ofNullable(this.isSecure);
+    }
+
+    @Import(name="isTemporary")
+    private @Nullable Output<String> isTemporary;
+
+    public Optional<Output<String>> isTemporary() {
+        return Optional.ofNullable(this.isTemporary);
+    }
+
+    /**
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -101,33 +219,48 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Overwrites the View if it exists.
+     * Specifies the row access policy to set on a view.
      * 
      */
-    @Import(name="orReplace")
-    private @Nullable Output<Boolean> orReplace;
+    @Import(name="rowAccessPolicy")
+    private @Nullable Output<ViewRowAccessPolicyArgs> rowAccessPolicy;
 
     /**
-     * @return Overwrites the View if it exists.
+     * @return Specifies the row access policy to set on a view.
      * 
      */
-    public Optional<Output<Boolean>> orReplace() {
-        return Optional.ofNullable(this.orReplace);
+    public Optional<Output<ViewRowAccessPolicyArgs>> rowAccessPolicy() {
+        return Optional.ofNullable(this.rowAccessPolicy);
     }
 
     /**
-     * The schema in which to create the view. Don&#39;t use the | character.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Don&#39;t use the | character.
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
+    }
+
+    /**
+     * Outputs the result of `SHOW VIEW` for the given view.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<ViewShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW VIEW` for the given view.
+     * 
+     */
+    public Optional<Output<List<ViewShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
     }
 
     /**
@@ -145,42 +278,27 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.statement);
     }
 
-    /**
-     * Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    @Import(name="tags")
-    private @Nullable Output<List<ViewTagArgs>> tags;
-
-    /**
-     * @return Definitions of a tag to associate with the resource.
-     * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
-     * 
-     */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-    public Optional<Output<List<ViewTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private ViewState() {}
 
     private ViewState(ViewState $) {
+        this.aggregationPolicy = $.aggregationPolicy;
+        this.changeTracking = $.changeTracking;
+        this.columns = $.columns;
         this.comment = $.comment;
         this.copyGrants = $.copyGrants;
-        this.createdOn = $.createdOn;
+        this.dataMetricFunctions = $.dataMetricFunctions;
+        this.dataMetricSchedule = $.dataMetricSchedule;
         this.database = $.database;
+        this.describeOutputs = $.describeOutputs;
+        this.fullyQualifiedName = $.fullyQualifiedName;
+        this.isRecursive = $.isRecursive;
         this.isSecure = $.isSecure;
+        this.isTemporary = $.isTemporary;
         this.name = $.name;
-        this.orReplace = $.orReplace;
+        this.rowAccessPolicy = $.rowAccessPolicy;
         this.schema = $.schema;
+        this.showOutputs = $.showOutputs;
         this.statement = $.statement;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -199,6 +317,79 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ViewState defaults) {
             $ = new ViewState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aggregationPolicy Specifies the aggregation policy to set on a view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregationPolicy(@Nullable Output<ViewAggregationPolicyArgs> aggregationPolicy) {
+            $.aggregationPolicy = aggregationPolicy;
+            return this;
+        }
+
+        /**
+         * @param aggregationPolicy Specifies the aggregation policy to set on a view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregationPolicy(ViewAggregationPolicyArgs aggregationPolicy) {
+            return aggregationPolicy(Output.of(aggregationPolicy));
+        }
+
+        /**
+         * @param changeTracking Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder changeTracking(@Nullable Output<String> changeTracking) {
+            $.changeTracking = changeTracking;
+            return this;
+        }
+
+        /**
+         * @param changeTracking Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder changeTracking(String changeTracking) {
+            return changeTracking(Output.of(changeTracking));
+        }
+
+        /**
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder columns(@Nullable Output<List<ViewColumnArgs>> columns) {
+            $.columns = columns;
+            return this;
+        }
+
+        /**
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder columns(List<ViewColumnArgs> columns) {
+            return columns(Output.of(columns));
+        }
+
+        /**
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder columns(ViewColumnArgs... columns) {
+            return columns(List.of(columns));
         }
 
         /**
@@ -223,7 +414,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
          * 
          * @return builder
          * 
@@ -234,7 +425,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
          * 
          * @return builder
          * 
@@ -244,28 +435,59 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdOn The timestamp at which the view was created.
+         * @param dataMetricFunctions Data metric functions used for the view.
          * 
          * @return builder
          * 
          */
-        public Builder createdOn(@Nullable Output<String> createdOn) {
-            $.createdOn = createdOn;
+        public Builder dataMetricFunctions(@Nullable Output<List<ViewDataMetricFunctionArgs>> dataMetricFunctions) {
+            $.dataMetricFunctions = dataMetricFunctions;
             return this;
         }
 
         /**
-         * @param createdOn The timestamp at which the view was created.
+         * @param dataMetricFunctions Data metric functions used for the view.
          * 
          * @return builder
          * 
          */
-        public Builder createdOn(String createdOn) {
-            return createdOn(Output.of(createdOn));
+        public Builder dataMetricFunctions(List<ViewDataMetricFunctionArgs> dataMetricFunctions) {
+            return dataMetricFunctions(Output.of(dataMetricFunctions));
         }
 
         /**
-         * @param database The database in which to create the view. Don&#39;t use the | character.
+         * @param dataMetricFunctions Data metric functions used for the view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataMetricFunctions(ViewDataMetricFunctionArgs... dataMetricFunctions) {
+            return dataMetricFunctions(List.of(dataMetricFunctions));
+        }
+
+        /**
+         * @param dataMetricSchedule Specifies the schedule to run the data metric functions periodically.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataMetricSchedule(@Nullable Output<ViewDataMetricScheduleArgs> dataMetricSchedule) {
+            $.dataMetricSchedule = dataMetricSchedule;
+            return this;
+        }
+
+        /**
+         * @param dataMetricSchedule Specifies the schedule to run the data metric functions periodically.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataMetricSchedule(ViewDataMetricScheduleArgs dataMetricSchedule) {
+            return dataMetricSchedule(Output.of(dataMetricSchedule));
+        }
+
+        /**
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -276,7 +498,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Don&#39;t use the | character.
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -285,17 +507,99 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
             return database(Output.of(database));
         }
 
-        public Builder isSecure(@Nullable Output<Boolean> isSecure) {
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<ViewDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<ViewDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(ViewDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(@Nullable Output<String> fullyQualifiedName) {
+            $.fullyQualifiedName = fullyQualifiedName;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedName(String fullyQualifiedName) {
+            return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
+         * @param isRecursive Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isRecursive(@Nullable Output<String> isRecursive) {
+            $.isRecursive = isRecursive;
+            return this;
+        }
+
+        /**
+         * @param isRecursive Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isRecursive(String isRecursive) {
+            return isRecursive(Output.of(isRecursive));
+        }
+
+        public Builder isSecure(@Nullable Output<String> isSecure) {
             $.isSecure = isSecure;
             return this;
         }
 
-        public Builder isSecure(Boolean isSecure) {
+        public Builder isSecure(String isSecure) {
             return isSecure(Output.of(isSecure));
         }
 
+        public Builder isTemporary(@Nullable Output<String> isTemporary) {
+            $.isTemporary = isTemporary;
+            return this;
+        }
+
+        public Builder isTemporary(String isTemporary) {
+            return isTemporary(Output.of(isTemporary));
+        }
+
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -306,7 +610,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Don&#39;t use the | character.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -316,28 +620,28 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orReplace Overwrites the View if it exists.
+         * @param rowAccessPolicy Specifies the row access policy to set on a view.
          * 
          * @return builder
          * 
          */
-        public Builder orReplace(@Nullable Output<Boolean> orReplace) {
-            $.orReplace = orReplace;
+        public Builder rowAccessPolicy(@Nullable Output<ViewRowAccessPolicyArgs> rowAccessPolicy) {
+            $.rowAccessPolicy = rowAccessPolicy;
             return this;
         }
 
         /**
-         * @param orReplace Overwrites the View if it exists.
+         * @param rowAccessPolicy Specifies the row access policy to set on a view.
          * 
          * @return builder
          * 
          */
-        public Builder orReplace(Boolean orReplace) {
-            return orReplace(Output.of(orReplace));
+        public Builder rowAccessPolicy(ViewRowAccessPolicyArgs rowAccessPolicy) {
+            return rowAccessPolicy(Output.of(rowAccessPolicy));
         }
 
         /**
-         * @param schema The schema in which to create the view. Don&#39;t use the | character.
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -348,13 +652,44 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Don&#39;t use the | character.
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<ViewShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<ViewShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW VIEW` for the given view.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(ViewShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         /**
@@ -376,49 +711,6 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder statement(String statement) {
             return statement(Output.of(statement));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(@Nullable Output<List<ViewTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(List<ViewTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags Definitions of a tag to associate with the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
-         * 
-         */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
-        public Builder tags(ViewTagArgs... tags) {
-            return tags(List.of(tags));
         }
 
         public ViewState build() {

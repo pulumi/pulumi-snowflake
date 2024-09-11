@@ -5,66 +5,51 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetUsersUserDescribeOutput;
+import com.pulumi.snowflake.outputs.GetUsersUserParameter;
+import com.pulumi.snowflake.outputs.GetUsersUserShowOutput;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetUsersUser {
-    private String comment;
-    private String defaultNamespace;
-    private String defaultRole;
-    private List<String> defaultSecondaryRoles;
-    private String defaultWarehouse;
-    private Boolean disabled;
-    private String displayName;
-    private String email;
-    private String firstName;
-    private Boolean hasRsaPublicKey;
-    private String lastName;
-    private String loginName;
-    private String name;
+    /**
+     * @return Holds the output of DESCRIBE USER.
+     * 
+     */
+    private List<GetUsersUserDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR USER.
+     * 
+     */
+    private List<GetUsersUserParameter> parameters;
+    /**
+     * @return Holds the output of SHOW USERS.
+     * 
+     */
+    private List<GetUsersUserShowOutput> showOutputs;
 
     private GetUsersUser() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE USER.
+     * 
+     */
+    public List<GetUsersUserDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String defaultNamespace() {
-        return this.defaultNamespace;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR USER.
+     * 
+     */
+    public List<GetUsersUserParameter> parameters() {
+        return this.parameters;
     }
-    public String defaultRole() {
-        return this.defaultRole;
-    }
-    public List<String> defaultSecondaryRoles() {
-        return this.defaultSecondaryRoles;
-    }
-    public String defaultWarehouse() {
-        return this.defaultWarehouse;
-    }
-    public Boolean disabled() {
-        return this.disabled;
-    }
-    public String displayName() {
-        return this.displayName;
-    }
-    public String email() {
-        return this.email;
-    }
-    public String firstName() {
-        return this.firstName;
-    }
-    public Boolean hasRsaPublicKey() {
-        return this.hasRsaPublicKey;
-    }
-    public String lastName() {
-        return this.lastName;
-    }
-    public String loginName() {
-        return this.loginName;
-    }
-    public String name() {
-        return this.name;
+    /**
+     * @return Holds the output of SHOW USERS.
+     * 
+     */
+    public List<GetUsersUserShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -76,159 +61,55 @@ public final class GetUsersUser {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String defaultNamespace;
-        private String defaultRole;
-        private List<String> defaultSecondaryRoles;
-        private String defaultWarehouse;
-        private Boolean disabled;
-        private String displayName;
-        private String email;
-        private String firstName;
-        private Boolean hasRsaPublicKey;
-        private String lastName;
-        private String loginName;
-        private String name;
+        private List<GetUsersUserDescribeOutput> describeOutputs;
+        private List<GetUsersUserParameter> parameters;
+        private List<GetUsersUserShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetUsersUser defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.defaultNamespace = defaults.defaultNamespace;
-    	      this.defaultRole = defaults.defaultRole;
-    	      this.defaultSecondaryRoles = defaults.defaultSecondaryRoles;
-    	      this.defaultWarehouse = defaults.defaultWarehouse;
-    	      this.disabled = defaults.disabled;
-    	      this.displayName = defaults.displayName;
-    	      this.email = defaults.email;
-    	      this.firstName = defaults.firstName;
-    	      this.hasRsaPublicKey = defaults.hasRsaPublicKey;
-    	      this.lastName = defaults.lastName;
-    	      this.loginName = defaults.loginName;
-    	      this.name = defaults.name;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "comment");
+        public Builder describeOutputs(List<GetUsersUserDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
+        }
+        public Builder describeOutputs(GetUsersUserDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder defaultNamespace(String defaultNamespace) {
-            if (defaultNamespace == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "defaultNamespace");
+        public Builder parameters(List<GetUsersUserParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "parameters");
             }
-            this.defaultNamespace = defaultNamespace;
+            this.parameters = parameters;
             return this;
+        }
+        public Builder parameters(GetUsersUserParameter... parameters) {
+            return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder defaultRole(String defaultRole) {
-            if (defaultRole == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "defaultRole");
+        public Builder showOutputs(List<GetUsersUserShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "showOutputs");
             }
-            this.defaultRole = defaultRole;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder defaultSecondaryRoles(List<String> defaultSecondaryRoles) {
-            if (defaultSecondaryRoles == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "defaultSecondaryRoles");
-            }
-            this.defaultSecondaryRoles = defaultSecondaryRoles;
-            return this;
-        }
-        public Builder defaultSecondaryRoles(String... defaultSecondaryRoles) {
-            return defaultSecondaryRoles(List.of(defaultSecondaryRoles));
-        }
-        @CustomType.Setter
-        public Builder defaultWarehouse(String defaultWarehouse) {
-            if (defaultWarehouse == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "defaultWarehouse");
-            }
-            this.defaultWarehouse = defaultWarehouse;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder disabled(Boolean disabled) {
-            if (disabled == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "disabled");
-            }
-            this.disabled = disabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "displayName");
-            }
-            this.displayName = displayName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder email(String email) {
-            if (email == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "email");
-            }
-            this.email = email;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder firstName(String firstName) {
-            if (firstName == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "firstName");
-            }
-            this.firstName = firstName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder hasRsaPublicKey(Boolean hasRsaPublicKey) {
-            if (hasRsaPublicKey == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "hasRsaPublicKey");
-            }
-            this.hasRsaPublicKey = hasRsaPublicKey;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder lastName(String lastName) {
-            if (lastName == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "lastName");
-            }
-            this.lastName = lastName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder loginName(String loginName) {
-            if (loginName == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "loginName");
-            }
-            this.loginName = loginName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetUsersUser", "name");
-            }
-            this.name = name;
-            return this;
+        public Builder showOutputs(GetUsersUserShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetUsersUser build() {
             final var _resultValue = new GetUsersUser();
-            _resultValue.comment = comment;
-            _resultValue.defaultNamespace = defaultNamespace;
-            _resultValue.defaultRole = defaultRole;
-            _resultValue.defaultSecondaryRoles = defaultSecondaryRoles;
-            _resultValue.defaultWarehouse = defaultWarehouse;
-            _resultValue.disabled = disabled;
-            _resultValue.displayName = displayName;
-            _resultValue.email = email;
-            _resultValue.firstName = firstName;
-            _resultValue.hasRsaPublicKey = hasRsaPublicKey;
-            _resultValue.lastName = lastName;
-            _resultValue.loginName = loginName;
-            _resultValue.name = name;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

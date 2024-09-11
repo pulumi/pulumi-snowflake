@@ -128,7 +128,7 @@ class _SequenceState:
         Input properties used for looking up and filtering Sequence resources.
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
         :param pulumi.Input[int] next_value: The increment sequence interval.
@@ -180,7 +180,7 @@ class _SequenceState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the sequence.
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -262,22 +262,6 @@ class Sequence(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Database("test", name="things")
-        test_schema = snowflake.Schema("test_schema",
-            name="things",
-            database=test.name)
-        test_sequence = snowflake.Sequence("test_sequence",
-            database=test.name,
-            schema=test_schema.name,
-            name="thing_counter")
-        ```
-
         ## Import
 
         format is database name | schema name | sequence name
@@ -302,22 +286,6 @@ class Sequence(pulumi.CustomResource):
                  args: SequenceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        test = snowflake.Database("test", name="things")
-        test_schema = snowflake.Schema("test_schema",
-            name="things",
-            database=test.name)
-        test_sequence = snowflake.Sequence("test_sequence",
-            database=test.name,
-            schema=test_schema.name,
-            name="thing_counter")
-        ```
-
         ## Import
 
         format is database name | schema name | sequence name
@@ -395,7 +363,7 @@ class Sequence(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the sequence.
         :param pulumi.Input[str] database: The database in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the sequence.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[int] increment: The amount the sequence will increase by each time it is used
         :param pulumi.Input[str] name: Specifies the name for the sequence.
         :param pulumi.Input[int] next_value: The increment sequence interval.
@@ -436,7 +404,7 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[str]:
         """
-        The fully qualified name of the sequence.
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

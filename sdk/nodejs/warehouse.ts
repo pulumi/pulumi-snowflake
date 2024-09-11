@@ -7,23 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const warehouse = new snowflake.Warehouse("warehouse", {
- *     name: "test",
- *     comment: "foo",
- *     warehouseSize: "small",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -75,6 +58,10 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly enableQueryAcceleration!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     public readonly initiallySuspended!: pulumi.Output<boolean | undefined>;
@@ -91,7 +78,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly minClusterCount!: pulumi.Output<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account.
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -148,6 +135,7 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["autoSuspend"] = state ? state.autoSuspend : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["enableQueryAcceleration"] = state ? state.enableQueryAcceleration : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
             resourceInputs["maxClusterCount"] = state ? state.maxClusterCount : undefined;
             resourceInputs["maxConcurrencyLevel"] = state ? state.maxConcurrencyLevel : undefined;
@@ -180,6 +168,7 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
             resourceInputs["warehouseSize"] = args ? args.warehouseSize : undefined;
             resourceInputs["warehouseType"] = args ? args.warehouseType : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
@@ -209,6 +198,10 @@ export interface WarehouseState {
      */
     enableQueryAcceleration?: pulumi.Input<string>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     initiallySuspended?: pulumi.Input<boolean>;
@@ -225,7 +218,7 @@ export interface WarehouseState {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account.
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -303,7 +296,7 @@ export interface WarehouseArgs {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account.
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

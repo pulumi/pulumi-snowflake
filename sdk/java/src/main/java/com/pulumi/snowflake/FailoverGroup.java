@@ -19,75 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Database;
- * import com.pulumi.snowflake.DatabaseArgs;
- * import com.pulumi.snowflake.FailoverGroup;
- * import com.pulumi.snowflake.FailoverGroupArgs;
- * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleArgs;
- * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleCronArgs;
- * import com.pulumi.snowflake.inputs.FailoverGroupFromReplicaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var db = new Database("db", DatabaseArgs.builder()
- *             .name("db1")
- *             .build());
- * 
- *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()
- *             .name("FG1")
- *             .objectTypes(            
- *                 "WAREHOUSES",
- *                 "DATABASES",
- *                 "INTEGRATIONS",
- *                 "ROLES")
- *             .allowedAccounts(            
- *                 "<org_name>.<target_account_name1>",
- *                 "<org_name>.<target_account_name2>")
- *             .allowedDatabases(db.name())
- *             .allowedIntegrationTypes("SECURITY INTEGRATIONS")
- *             .replicationSchedule(FailoverGroupReplicationScheduleArgs.builder()
- *                 .cron(FailoverGroupReplicationScheduleCronArgs.builder()
- *                     .expression("0 0 10-20 * TUE,THU")
- *                     .timeZone("UTC")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()
- *             .name("FG1")
- *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
- *                 .organizationName("...")
- *                 .sourceAccountName("...")
- *                 .name(sourceFailoverGroup.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -166,6 +97,20 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FailoverGroupFromReplica>> fromReplica() {
         return Codegen.optional(this.fromReplica);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Allows replicating objects to accounts on lower editions.

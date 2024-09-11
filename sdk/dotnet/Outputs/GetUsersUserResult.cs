@@ -13,61 +13,30 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetUsersUserResult
     {
-        public readonly string Comment;
-        public readonly string DefaultNamespace;
-        public readonly string DefaultRole;
-        public readonly ImmutableArray<string> DefaultSecondaryRoles;
-        public readonly string DefaultWarehouse;
-        public readonly bool Disabled;
-        public readonly string DisplayName;
-        public readonly string Email;
-        public readonly string FirstName;
-        public readonly bool HasRsaPublicKey;
-        public readonly string LastName;
-        public readonly string LoginName;
-        public readonly string Name;
+        /// <summary>
+        /// Holds the output of DESCRIBE USER.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUsersUserDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW PARAMETERS FOR USER.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUsersUserParameterResult> Parameters;
+        /// <summary>
+        /// Holds the output of SHOW USERS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUsersUserShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetUsersUserResult(
-            string comment,
+            ImmutableArray<Outputs.GetUsersUserDescribeOutputResult> describeOutputs,
 
-            string defaultNamespace,
+            ImmutableArray<Outputs.GetUsersUserParameterResult> parameters,
 
-            string defaultRole,
-
-            ImmutableArray<string> defaultSecondaryRoles,
-
-            string defaultWarehouse,
-
-            bool disabled,
-
-            string displayName,
-
-            string email,
-
-            string firstName,
-
-            bool hasRsaPublicKey,
-
-            string lastName,
-
-            string loginName,
-
-            string name)
+            ImmutableArray<Outputs.GetUsersUserShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            DefaultNamespace = defaultNamespace;
-            DefaultRole = defaultRole;
-            DefaultSecondaryRoles = defaultSecondaryRoles;
-            DefaultWarehouse = defaultWarehouse;
-            Disabled = disabled;
-            DisplayName = displayName;
-            Email = email;
-            FirstName = firstName;
-            HasRsaPublicKey = hasRsaPublicKey;
-            LastName = lastName;
-            LoginName = loginName;
-            Name = name;
+            DescribeOutputs = describeOutputs;
+            Parameters = parameters;
+            ShowOutputs = showOutputs;
         }
     }
 }

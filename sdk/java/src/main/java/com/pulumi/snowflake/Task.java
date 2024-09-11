@@ -19,77 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Task;
- * import com.pulumi.snowflake.TaskArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var task = new Task("task", TaskArgs.builder()
- *             .comment("my task")
- *             .database("database")
- *             .schema("schema")
- *             .warehouse("warehouse")
- *             .name("task")
- *             .schedule("10 MINUTE")
- *             .sqlStatement("select * from foo;")
- *             .sessionParameters(Map.of("foo", "bar"))
- *             .userTaskTimeoutMs(10000)
- *             .afters("preceding_task")
- *             .when("foo AND bar")
- *             .enabled(true)
- *             .build());
- * 
- *         var serverlessTask = new Task("serverlessTask", TaskArgs.builder()
- *             .comment("my serverless task")
- *             .database("db")
- *             .schema("schema")
- *             .name("serverless_task")
- *             .schedule("10 MINUTE")
- *             .sqlStatement("select * from foo;")
- *             .sessionParameters(Map.of("foo", "bar"))
- *             .userTaskTimeoutMs(10000)
- *             .userTaskManagedInitialWarehouseSize("XSMALL")
- *             .afters(task.name())
- *             .when("foo AND bar")
- *             .enabled(true)
- *             .build());
- * 
- *         var testTask = new Task("testTask", TaskArgs.builder()
- *             .comment("task with allow_overlapping_execution")
- *             .database("database")
- *             .schema("schema")
- *             .name("test_task")
- *             .sqlStatement("select 1 as c;")
- *             .allowOverlappingExecution(true)
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | task name
@@ -184,6 +113,20 @@ public class Task extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> errorIntegration() {
         return Codegen.optional(this.errorIntegration);
+    }
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
+    private Output<String> fullyQualifiedName;
+
+    /**
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * 
+     */
+    public Output<String> fullyQualifiedName() {
+        return this.fullyQualifiedName;
     }
     /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created.

@@ -12,47 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The account resource allows you to create and manage Snowflake accounts.
-//
-// !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
-//
-// > **Note** ORGADMIN priviliges are required for this resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewAccount(ctx, "ac1", &snowflake.AccountArgs{
-//				Name:               pulumi.String("SNOWFLAKE_TEST_ACCOUNT"),
-//				AdminName:          pulumi.String("John Doe"),
-//				AdminPassword:      pulumi.String("Abcd1234!"),
-//				Email:              pulumi.String("john.doe@snowflake.com"),
-//				FirstName:          pulumi.String("John"),
-//				LastName:           pulumi.String("Doe"),
-//				MustChangePassword: pulumi.Bool(true),
-//				Edition:            pulumi.String("STANDARD"),
-//				Comment:            pulumi.String("Snowflake Test Account"),
-//				Region:             pulumi.String("AWS_US_WEST_2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -75,6 +34,8 @@ type Account struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the number of days to wait before dropping the account. The default is 3 days.
 	GracePeriodInDays pulumi.IntPtrOutput `pulumi:"gracePeriodInDays"`
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
@@ -167,6 +128,8 @@ type accountState struct {
 	Email *string `pulumi:"email"`
 	// First name of the initial administrative user of the account
 	FirstName *string `pulumi:"firstName"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the number of days to wait before dropping the account. The default is 3 days.
 	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
@@ -198,6 +161,8 @@ type AccountState struct {
 	Email pulumi.StringPtrInput
 	// First name of the initial administrative user of the account
 	FirstName pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the number of days to wait before dropping the account. The default is 3 days.
 	GracePeriodInDays pulumi.IntPtrInput
 	// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
@@ -397,6 +362,11 @@ func (o AccountOutput) Email() pulumi.StringOutput {
 // First name of the initial administrative user of the account
 func (o AccountOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o AccountOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the number of days to wait before dropping the account. The default is 3 days.

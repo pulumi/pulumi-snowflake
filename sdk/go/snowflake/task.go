@@ -12,78 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			task, err := snowflake.NewTask(ctx, "task", &snowflake.TaskArgs{
-//				Comment:      pulumi.String("my task"),
-//				Database:     pulumi.String("database"),
-//				Schema:       pulumi.String("schema"),
-//				Warehouse:    pulumi.String("warehouse"),
-//				Name:         pulumi.String("task"),
-//				Schedule:     pulumi.String("10 MINUTE"),
-//				SqlStatement: pulumi.String("select * from foo;"),
-//				SessionParameters: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//				UserTaskTimeoutMs: pulumi.Int(10000),
-//				Afters:            pulumi.StringArray("preceding_task"),
-//				When:              pulumi.String("foo AND bar"),
-//				Enabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTask(ctx, "serverless_task", &snowflake.TaskArgs{
-//				Comment:      pulumi.String("my serverless task"),
-//				Database:     pulumi.String("db"),
-//				Schema:       pulumi.String("schema"),
-//				Name:         pulumi.String("serverless_task"),
-//				Schedule:     pulumi.String("10 MINUTE"),
-//				SqlStatement: pulumi.String("select * from foo;"),
-//				SessionParameters: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//				UserTaskTimeoutMs:                   pulumi.Int(10000),
-//				UserTaskManagedInitialWarehouseSize: pulumi.String("XSMALL"),
-//				Afters: pulumi.StringArray{
-//					task.Name,
-//				},
-//				When:    pulumi.String("foo AND bar"),
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewTask(ctx, "test_task", &snowflake.TaskArgs{
-//				Comment:                   pulumi.String("task with allow_overlapping_execution"),
-//				Database:                  pulumi.String("database"),
-//				Schema:                    pulumi.String("schema"),
-//				Name:                      pulumi.String("test_task"),
-//				SqlStatement:              pulumi.String("select 1 as c;"),
-//				AllowOverlappingExecution: pulumi.Bool(true),
-//				Enabled:                   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | task name
@@ -106,6 +34,8 @@ type Task struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -179,6 +109,8 @@ type taskState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration *string `pulumi:"errorIntegration"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name *string `pulumi:"name"`
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -214,6 +146,8 @@ type TaskState struct {
 	Enabled pulumi.BoolPtrInput
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the task; must be unique for the database and schema in which the task is created.
 	Name pulumi.StringPtrInput
 	// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflict with after)
@@ -426,6 +360,11 @@ func (o TaskOutput) Enabled() pulumi.BoolPtrOutput {
 // Specifies the name of the notification integration used for error notifications.
 func (o TaskOutput) ErrorIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o TaskOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the task; must be unique for the database and schema in which the task is created.

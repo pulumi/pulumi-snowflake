@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
- *
  * ## Import
  *
  * ```sh
@@ -62,6 +58,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly defaultDdlCollation!: pulumi.Output<string>;
     /**
+     * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+     */
+    public readonly dropPublicSchemaOnCreation!: pulumi.Output<boolean | undefined>;
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
     public readonly enableConsoleOutput!: pulumi.Output<boolean>;
@@ -69,6 +69,10 @@ export class Database extends pulumi.CustomResource {
      * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
     public readonly externalVolume!: pulumi.Output<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
      * Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
@@ -82,7 +86,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly maxDataExtensionTimeInDays!: pulumi.Output<number>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -143,8 +147,10 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
             resourceInputs["defaultDdlCollation"] = state ? state.defaultDdlCollation : undefined;
+            resourceInputs["dropPublicSchemaOnCreation"] = state ? state.dropPublicSchemaOnCreation : undefined;
             resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
             resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["isTransient"] = state ? state.isTransient : undefined;
             resourceInputs["logLevel"] = state ? state.logLevel : undefined;
             resourceInputs["maxDataExtensionTimeInDays"] = state ? state.maxDataExtensionTimeInDays : undefined;
@@ -165,6 +171,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
             resourceInputs["defaultDdlCollation"] = args ? args.defaultDdlCollation : undefined;
+            resourceInputs["dropPublicSchemaOnCreation"] = args ? args.dropPublicSchemaOnCreation : undefined;
             resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
             resourceInputs["externalVolume"] = args ? args.externalVolume : undefined;
             resourceInputs["isTransient"] = args ? args.isTransient : undefined;
@@ -181,6 +188,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
             resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args ? args.userTaskMinimumTriggerIntervalInSeconds : undefined;
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -208,6 +216,10 @@ export interface DatabaseState {
      */
     defaultDdlCollation?: pulumi.Input<string>;
     /**
+     * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+     */
+    dropPublicSchemaOnCreation?: pulumi.Input<boolean>;
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
@@ -215,6 +227,10 @@ export interface DatabaseState {
      * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
     externalVolume?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
      */
@@ -228,7 +244,7 @@ export interface DatabaseState {
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -294,6 +310,10 @@ export interface DatabaseArgs {
      */
     defaultDdlCollation?: pulumi.Input<string>;
     /**
+     * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
+     */
+    dropPublicSchemaOnCreation?: pulumi.Input<boolean>;
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
@@ -314,7 +334,7 @@ export interface DatabaseArgs {
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database.
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

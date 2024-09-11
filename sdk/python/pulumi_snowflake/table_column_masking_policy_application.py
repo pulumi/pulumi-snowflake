@@ -130,13 +130,7 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
                  table: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Applies a masking policy to a table column.
-
-        Only one masking policy may be applied per table column, hence only one `TableColumnMaskingPolicyApplication` resources may be present per table column.
-        Using two or more `TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
-
-        When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
-
+        Create a TableColumnMaskingPolicyApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] column: The column to apply the masking policy to.
@@ -150,13 +144,7 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
                  args: TableColumnMaskingPolicyApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Applies a masking policy to a table column.
-
-        Only one masking policy may be applied per table column, hence only one `TableColumnMaskingPolicyApplication` resources may be present per table column.
-        Using two or more `TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
-
-        When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
-
+        Create a TableColumnMaskingPolicyApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TableColumnMaskingPolicyApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

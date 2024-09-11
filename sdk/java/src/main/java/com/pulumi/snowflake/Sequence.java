@@ -16,56 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.snowflake.Database;
- * import com.pulumi.snowflake.DatabaseArgs;
- * import com.pulumi.snowflake.Schema;
- * import com.pulumi.snowflake.SchemaArgs;
- * import com.pulumi.snowflake.Sequence;
- * import com.pulumi.snowflake.SequenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()
- *             .name("things")
- *             .build());
- * 
- *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
- *             .name("things")
- *             .database(test.name())
- *             .build());
- * 
- *         var testSequence = new Sequence("testSequence", SequenceArgs.builder()
- *             .database(test.name())
- *             .schema(testSchema.name())
- *             .name("thing_counter")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * format is database name | schema name | sequence name
@@ -106,14 +56,14 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * The fully qualified name of the sequence.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return The fully qualified name of the sequence.
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

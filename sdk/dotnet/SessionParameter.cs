@@ -10,33 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var s = new Snowflake.SessionParameter("s", new()
-    ///     {
-    ///         Key = "AUTOCOMMIT",
-    ///         Value = "false",
-    ///         User = "TEST_USER",
-    ///     });
-    /// 
-    ///     var s2 = new Snowflake.SessionParameter("s2", new()
-    ///     {
-    ///         Key = "BINARY_OUTPUT_FORMAT",
-    ///         Value = "BASE64",
-    ///         OnAccount = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

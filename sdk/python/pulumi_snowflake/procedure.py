@@ -284,6 +284,7 @@ class _ProcedureState:
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  execute_as: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
@@ -302,6 +303,7 @@ class _ProcedureState:
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -323,6 +325,8 @@ class _ProcedureState:
             pulumi.set(__self__, "database", database)
         if execute_as is not None:
             pulumi.set(__self__, "execute_as", execute_as)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if handler is not None:
             pulumi.set(__self__, "handler", handler)
         if imports is not None:
@@ -398,6 +402,18 @@ class _ProcedureState:
     @execute_as.setter
     def execute_as(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execute_as", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -568,8 +584,6 @@ class Procedure(pulumi.CustomResource):
                  statement: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
@@ -604,8 +618,6 @@ class Procedure(pulumi.CustomResource):
                  args: ProcedureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is <database_name>.<schema_name>.<procedure_name>(<arg types, separated with ','>)
@@ -678,6 +690,7 @@ class Procedure(pulumi.CustomResource):
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
+            __props__.__dict__["fully_qualified_name"] = None
         super(Procedure, __self__).__init__(
             'snowflake:index/procedure:Procedure',
             resource_name,
@@ -692,6 +705,7 @@ class Procedure(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             execute_as: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             handler: Optional[pulumi.Input[str]] = None,
             imports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             language: Optional[pulumi.Input[str]] = None,
@@ -715,6 +729,7 @@ class Procedure(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the procedure.
         :param pulumi.Input[str] database: The database in which to create the procedure. Don't use the | character.
         :param pulumi.Input[str] execute_as: Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] handler: The handler method for Java / Python procedures.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] imports: Imports for Java / Python procedures. For Java this a list of jar files, for Python this is a list of Python files.
         :param pulumi.Input[str] language: Specifies the language of the stored procedure code.
@@ -736,6 +751,7 @@ class Procedure(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["execute_as"] = execute_as
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["handler"] = handler
         __props__.__dict__["imports"] = imports
         __props__.__dict__["language"] = language
@@ -781,6 +797,14 @@ class Procedure(pulumi.CustomResource):
         Sets execution context. Allowed values are CALLER and OWNER (consult a proper section in the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#id1)). For more information see [caller's rights and owner's rights](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights).
         """
         return pulumi.get(self, "execute_as")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

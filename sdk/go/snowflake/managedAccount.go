@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // ```sh
@@ -32,6 +30,8 @@ type ManagedAccount struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the managed account was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Display name of the managed account.
 	Locator pulumi.StringOutput `pulumi:"locator"`
 	// Identifier for the managed account; must be unique for your account.
@@ -97,6 +97,8 @@ type managedAccountState struct {
 	Comment *string `pulumi:"comment"`
 	// Date and time when the managed account was created.
 	CreatedOn *string `pulumi:"createdOn"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Display name of the managed account.
 	Locator *string `pulumi:"locator"`
 	// Identifier for the managed account; must be unique for your account.
@@ -120,6 +122,8 @@ type ManagedAccountState struct {
 	Comment pulumi.StringPtrInput
 	// Date and time when the managed account was created.
 	CreatedOn pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// Display name of the managed account.
 	Locator pulumi.StringPtrInput
 	// Identifier for the managed account; must be unique for your account.
@@ -273,6 +277,11 @@ func (o ManagedAccountOutput) Comment() pulumi.StringPtrOutput {
 // Date and time when the managed account was created.
 func (o ManagedAccountOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ManagedAccountOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // Display name of the managed account.

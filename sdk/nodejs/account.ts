@@ -5,32 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The account resource allows you to create and manage Snowflake accounts.
- *
- * !> **Warning** This resource cannot be destroyed!!! The only way to delete accounts is to go through [Snowflake Support](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts.html#deleting-an-account)
- *
- * > **Note** ORGADMIN priviliges are required for this resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const ac1 = new snowflake.Account("ac1", {
- *     name: "SNOWFLAKE_TEST_ACCOUNT",
- *     adminName: "John Doe",
- *     adminPassword: "Abcd1234!",
- *     email: "john.doe@snowflake.com",
- *     firstName: "John",
- *     lastName: "Doe",
- *     mustChangePassword: true,
- *     edition: "STANDARD",
- *     comment: "Snowflake Test Account",
- *     region: "AWS_US_WEST_2",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -94,6 +68,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firstName!: pulumi.Output<string | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * Specifies the number of days to wait before dropping the account. The default is 3 days.
      */
     public readonly gracePeriodInDays!: pulumi.Output<number | undefined>;
@@ -142,6 +120,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["gracePeriodInDays"] = state ? state.gracePeriodInDays : undefined;
             resourceInputs["isOrgAdmin"] = state ? state.isOrgAdmin : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
@@ -173,6 +152,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionGroup"] = args ? args.regionGroup : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["isOrgAdmin"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -214,6 +194,10 @@ export interface AccountState {
      * First name of the initial administrative user of the account
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * Specifies the number of days to wait before dropping the account. The default is 3 days.
      */

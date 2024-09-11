@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // format is <database_name>.<schema_name>.<function_name>(<arg types, separated with ','>)
@@ -30,6 +28,8 @@ type Function struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the function. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The handler method for Java / Python function.
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
@@ -106,6 +106,8 @@ type functionState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the function. Don't use the | character.
 	Database *string `pulumi:"database"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The handler method for Java / Python function.
 	Handler *string `pulumi:"handler"`
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
@@ -141,6 +143,8 @@ type FunctionState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the function. Don't use the | character.
 	Database pulumi.StringPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
 	// The handler method for Java / Python function.
 	Handler pulumi.StringPtrInput
 	// Imports for Java / Python functions. For Java this a list of jar files, for Python this is a list of Python files.
@@ -344,6 +348,11 @@ func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 // The database in which to create the function. Don't use the | character.
 func (o FunctionOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o FunctionOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
 // The handler method for Java / Python function.

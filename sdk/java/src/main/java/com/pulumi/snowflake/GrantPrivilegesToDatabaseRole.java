@@ -19,7 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+ * ## Import
+ * 
+ * ### Import examples
  * 
  * #### Grant all privileges OnDatabase
  * 

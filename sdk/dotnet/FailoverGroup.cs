@@ -10,68 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Snowflake = Pulumi.Snowflake;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var db = new Snowflake.Database("db", new()
-    ///     {
-    ///         Name = "db1",
-    ///     });
-    /// 
-    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("source_failover_group", new()
-    ///     {
-    ///         Name = "FG1",
-    ///         ObjectTypes = new[]
-    ///         {
-    ///             "WAREHOUSES",
-    ///             "DATABASES",
-    ///             "INTEGRATIONS",
-    ///             "ROLES",
-    ///         },
-    ///         AllowedAccounts = new[]
-    ///         {
-    ///             "&lt;org_name&gt;.&lt;target_account_name1&gt;",
-    ///             "&lt;org_name&gt;.&lt;target_account_name2&gt;",
-    ///         },
-    ///         AllowedDatabases = new[]
-    ///         {
-    ///             db.Name,
-    ///         },
-    ///         AllowedIntegrationTypes = new[]
-    ///         {
-    ///             "SECURITY INTEGRATIONS",
-    ///         },
-    ///         ReplicationSchedule = new Snowflake.Inputs.FailoverGroupReplicationScheduleArgs
-    ///         {
-    ///             Cron = new Snowflake.Inputs.FailoverGroupReplicationScheduleCronArgs
-    ///             {
-    ///                 Expression = "0 0 10-20 * TUE,THU",
-    ///                 TimeZone = "UTC",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("target_failover_group", new()
-    ///     {
-    ///         Name = "FG1",
-    ///         FromReplica = new Snowflake.Inputs.FailoverGroupFromReplicaArgs
-    ///         {
-    ///             OrganizationName = "...",
-    ///             SourceAccountName = "...",
-    ///             Name = sourceFailoverGroup.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -110,6 +48,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("fromReplica")]
         public Output<Outputs.FailoverGroupFromReplica?> FromReplica { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// Allows replicating objects to accounts on lower editions.
@@ -326,6 +270,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("fromReplica")]
         public Input<Inputs.FailoverGroupFromReplicaGetArgs>? FromReplica { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
         /// Allows replicating objects to accounts on lower editions.

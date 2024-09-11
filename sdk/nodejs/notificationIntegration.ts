@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const integration = new snowflake.NotificationIntegration("integration", {
- *     name: "notification",
- *     comment: "A notification integration.",
- *     enabled: true,
- *     type: "QUEUE",
- *     direction: "OUTBOUND",
- *     notificationProvider: "AZURE_STORAGE_QUEUE",
- *     azureStorageQueuePrimaryUri: "...",
- *     azureTenantId: "...",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -121,6 +103,10 @@ export class NotificationIntegration extends pulumi.CustomResource {
     public readonly direction!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
      * The GCP service account identifier that Snowflake will use when assuming the GCP role
      */
     public /*out*/ readonly gcpPubsubServiceAccount!: pulumi.Output<string>;
@@ -171,6 +157,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["direction"] = state ? state.direction : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["gcpPubsubServiceAccount"] = state ? state.gcpPubsubServiceAccount : undefined;
             resourceInputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
             resourceInputs["gcpPubsubTopicName"] = state ? state.gcpPubsubTopicName : undefined;
@@ -201,6 +188,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
             resourceInputs["awsSqsExternalId"] = undefined /*out*/;
             resourceInputs["awsSqsIamUserArn"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["gcpPubsubServiceAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -275,6 +263,10 @@ export interface NotificationIntegrationState {
      */
     direction?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The GCP service account identifier that Snowflake will use when assuming the GCP role
      */

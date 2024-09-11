@@ -7,59 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **V1 release candidate** This resource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. Please follow the migration guide to use it.
- *
- * Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- * import * as std from "@pulumi/std";
- *
- * // basic resource
- * const basic = new snowflake.OauthIntegrationForCustomClients("basic", {
- *     name: "saml_integration",
- *     oauthClientType: "CONFIDENTIAL",
- *     oauthRedirectUri: "https://example.com",
- *     blockedRolesLists: [
- *         "ACCOUNTADMIN",
- *         "SECURITYADMIN",
- *     ],
- * });
- * // resource with all fields set
- * const complete = new snowflake.OauthIntegrationForCustomClients("complete", {
- *     name: "saml_integration",
- *     oauthClientType: "CONFIDENTIAL",
- *     oauthRedirectUri: "https://example.com",
- *     enabled: "true",
- *     oauthAllowNonTlsRedirectUri: "true",
- *     oauthEnforcePkce: "true",
- *     oauthUseSecondaryRoles: "NONE",
- *     preAuthorizedRolesLists: [
- *         "role_id1",
- *         "role_id2",
- *     ],
- *     blockedRolesLists: [
- *         "ACCOUNTADMIN",
- *         "SECURITYADMIN",
- *         "role_id1",
- *         "role_id2",
- *     ],
- *     oauthIssueRefreshTokens: "true",
- *     oauthRefreshTokenValidity: 87600,
- *     networkPolicy: "network_policy_id",
- *     oauthClientRsaPublicKey: std.file({
- *         input: "rsa.pub",
- *     }).then(invoke => invoke.result),
- *     oauthClientRsaPublicKey2: std.file({
- *         input: "rsa2.pub",
- *     }).then(invoke => invoke.result),
- *     comment: "my oauth integration",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -111,7 +58,11 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    /**
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -174,6 +125,7 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkPolicy"] = state ? state.networkPolicy : undefined;
             resourceInputs["oauthAllowNonTlsRedirectUri"] = state ? state.oauthAllowNonTlsRedirectUri : undefined;
@@ -214,6 +166,7 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
             resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
             resourceInputs["preAuthorizedRolesLists"] = args ? args.preAuthorizedRolesLists : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -242,7 +195,11 @@ export interface OauthIntegrationForCustomClientsState {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -306,7 +263,7 @@ export interface OauthIntegrationForCustomClientsArgs {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**

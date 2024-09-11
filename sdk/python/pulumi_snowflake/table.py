@@ -195,10 +195,10 @@ class _TableState:
                  comment: Optional[pulumi.Input[str]] = None,
                  data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-                 qualified_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
@@ -209,10 +209,10 @@ class _TableState:
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[str] qualified_name: Qualified name of the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -228,6 +228,8 @@ class _TableState:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner is not None:
@@ -237,8 +239,6 @@ class _TableState:
             pulumi.log.warn("""primary_key is deprecated: Use TableConstraint instead""")
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
-        if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
@@ -320,6 +320,18 @@ class _TableState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -355,18 +367,6 @@ class _TableState:
     @primary_key.setter
     def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
         pulumi.set(self, "primary_key", value)
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Qualified name of the table.
-        """
-        return pulumi.get(self, "qualified_name")
-
-    @qualified_name.setter
-    def qualified_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "qualified_name", value)
 
     @property
     @pulumi.getter
@@ -411,8 +411,6 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database name | schema name | table name
@@ -441,8 +439,6 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
         ## Import
 
         format is database name | schema name | table name
@@ -501,8 +497,8 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["owner"] = None
-            __props__.__dict__["qualified_name"] = None
         super(Table, __self__).__init__(
             'snowflake:index/table:Table',
             resource_name,
@@ -519,10 +515,10 @@ class Table(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             data_retention_time_in_days: Optional[pulumi.Input[int]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
-            qualified_name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None) -> 'Table':
         """
@@ -538,10 +534,10 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the table.
         :param pulumi.Input[int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[str] database: The database in which to create the table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[str] owner: Name of the role that owns the table.
         :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']] primary_key: Definitions of primary key constraint to create on table
-        :param pulumi.Input[str] qualified_name: Qualified name of the table.
         :param pulumi.Input[str] schema: The schema in which to create the table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         """
@@ -555,10 +551,10 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
         __props__.__dict__["database"] = database
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["primary_key"] = primary_key
-        __props__.__dict__["qualified_name"] = qualified_name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["tags"] = tags
         return Table(resource_name, opts=opts, __props__=__props__)
@@ -612,6 +608,14 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "database")
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -635,14 +639,6 @@ class Table(pulumi.CustomResource):
         Definitions of primary key constraint to create on table
         """
         return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> pulumi.Output[str]:
-        """
-        Qualified name of the table.
-        """
-        return pulumi.get(self, "qualified_name")
 
     @property
     @pulumi.getter

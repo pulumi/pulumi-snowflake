@@ -28,6 +28,12 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Output("fullyQualifiedName")]
+        public Output<string> FullyQualifiedName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         /// </summary>
         [Output("history")]
@@ -110,12 +116,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
-
-        /// <summary>
-        /// The qualified name for the password policy.
-        /// </summary>
-        [Output("qualifiedName")]
-        public Output<string> QualifiedName { get; private set; } = null!;
 
         /// <summary>
         /// The schema this password policy belongs to.
@@ -292,6 +292,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// </summary>
+        [Input("fullyQualifiedName")]
+        public Input<string>? FullyQualifiedName { get; set; }
+
+        /// <summary>
         /// Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         /// </summary>
         [Input("history")]
@@ -374,12 +380,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
-
-        /// <summary>
-        /// The qualified name for the password policy.
-        /// </summary>
-        [Input("qualifiedName")]
-        public Input<string>? QualifiedName { get; set; }
 
         /// <summary>
         /// The schema this password policy belongs to.

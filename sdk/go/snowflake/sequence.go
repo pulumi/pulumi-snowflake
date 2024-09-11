@@ -12,47 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
-//				Name: pulumi.String("things"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testSchema, err := snowflake.NewSchema(ctx, "test_schema", &snowflake.SchemaArgs{
-//				Name:     pulumi.String("things"),
-//				Database: test.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.NewSequence(ctx, "test_sequence", &snowflake.SequenceArgs{
-//				Database: test.Name,
-//				Schema:   testSchema.Name,
-//				Name:     pulumi.String("thing_counter"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // format is database name | schema name | sequence name
@@ -67,7 +26,7 @@ type Sequence struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// The fully qualified name of the sequence.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrOutput `pulumi:"increment"`
@@ -121,7 +80,7 @@ type sequenceState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database *string `pulumi:"database"`
-	// The fully qualified name of the sequence.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The amount the sequence will increase by each time it is used
 	Increment *int `pulumi:"increment"`
@@ -140,7 +99,7 @@ type SequenceState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringPtrInput
-	// The fully qualified name of the sequence.
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrInput
@@ -286,7 +245,7 @@ func (o SequenceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the sequence.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o SequenceOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

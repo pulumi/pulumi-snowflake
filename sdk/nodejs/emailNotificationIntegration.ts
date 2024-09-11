@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const emailInt = new snowflake.EmailNotificationIntegration("email_int", {
- *     name: "notification",
- *     comment: "A notification integration.",
- *     enabled: true,
- *     allowedRecipients: ["john.doe@gmail.com"],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -62,6 +48,10 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -80,6 +70,7 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
             resourceInputs["allowedRecipients"] = state ? state.allowedRecipients : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EmailNotificationIntegrationArgs | undefined;
@@ -90,6 +81,7 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailNotificationIntegration.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +101,10 @@ export interface EmailNotificationIntegrationState {
      */
     comment?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     */
+    fullyQualifiedName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
 }
 

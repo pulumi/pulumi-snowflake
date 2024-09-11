@@ -270,6 +270,7 @@ class _ExternalTableState:
                  copy_grants: Optional[pulumi.Input[bool]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -288,6 +289,7 @@ class _ExternalTableState:
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] location: Specifies a location for the external table.
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
@@ -312,6 +314,8 @@ class _ExternalTableState:
             pulumi.set(__self__, "database", database)
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -417,6 +421,18 @@ class _ExternalTableState:
     @file_format.setter
     def file_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_format", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
 
     @property
     @pulumi.getter
@@ -550,30 +566,6 @@ class ExternalTable(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        external_table = snowflake.ExternalTable("external_table",
-            database="db",
-            schema="schema",
-            name="external_table",
-            comment="External table",
-            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
-            columns=[
-                {
-                    "name": "id",
-                    "type": "int",
-                },
-                {
-                    "name": "data",
-                    "type": "text",
-                },
-            ])
-        ```
-
         ## Import
 
         format is database name | schema name | external table name
@@ -607,30 +599,6 @@ class ExternalTable(pulumi.CustomResource):
                  args: ExternalTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        external_table = snowflake.ExternalTable("external_table",
-            database="db",
-            schema="schema",
-            name="external_table",
-            comment="External table",
-            file_format="TYPE = CSV FIELD_DELIMITER = '|'",
-            columns=[
-                {
-                    "name": "id",
-                    "type": "int",
-                },
-                {
-                    "name": "data",
-                    "type": "text",
-                },
-            ])
-        ```
-
         ## Import
 
         format is database name | schema name | external table name
@@ -703,6 +671,7 @@ class ExternalTable(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["table_format"] = table_format
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["owner"] = None
         super(ExternalTable, __self__).__init__(
             'snowflake:index/externalTable:ExternalTable',
@@ -721,6 +690,7 @@ class ExternalTable(pulumi.CustomResource):
             copy_grants: Optional[pulumi.Input[bool]] = None,
             database: Optional[pulumi.Input[str]] = None,
             file_format: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -744,6 +714,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] location: Specifies a location for the external table.
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
@@ -765,6 +736,7 @@ class ExternalTable(pulumi.CustomResource):
         __props__.__dict__["copy_grants"] = copy_grants
         __props__.__dict__["database"] = database
         __props__.__dict__["file_format"] = file_format
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
@@ -831,6 +803,14 @@ class ExternalTable(pulumi.CustomResource):
         Specifies the file format for the external table.
         """
         return pulumi.get(self, "file_format")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

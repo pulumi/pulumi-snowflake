@@ -12,69 +12,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewView(ctx, "view", &snowflake.ViewArgs{
-//				Database:  pulumi.String("database"),
-//				Schema:    pulumi.String("schema"),
-//				Name:      pulumi.String("view"),
-//				Comment:   pulumi.String("comment"),
-//				Statement: pulumi.String("select * from foo;\n"),
-//				OrReplace: pulumi.Bool(false),
-//				IsSecure:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
-// format is database name | schema name | view name
-//
 // ```sh
-// $ pulumi import snowflake:index/view:View example 'dbName|schemaName|viewName'
+// $ pulumi import snowflake:index/view:View example '"<database_name>"."<schema_name>"."<view_name>"'
 // ```
 type View struct {
 	pulumi.CustomResourceState
 
+	// Specifies the aggregation policy to set on a view.
+	AggregationPolicy ViewAggregationPolicyPtrOutput `pulumi:"aggregationPolicy"`
+	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	ChangeTracking pulumi.StringPtrOutput `pulumi:"changeTracking"`
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	Columns ViewColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
-	// The timestamp at which the view was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// The database in which to create the view. Don't use the | character.
-	Database pulumi.StringOutput  `pulumi:"database"`
-	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Data metric functions used for the view.
+	DataMetricFunctions ViewDataMetricFunctionArrayOutput `pulumi:"dataMetricFunctions"`
+	// Specifies the schedule to run the data metric functions periodically.
+	DataMetricSchedule ViewDataMetricSchedulePtrOutput `pulumi:"dataMetricSchedule"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	Database pulumi.StringOutput `pulumi:"database"`
+	// Outputs the result of `DESCRIBE VIEW` for the given view.
+	DescribeOutputs ViewDescribeOutputArrayOutput `pulumi:"describeOutputs"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
+	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsRecursive pulumi.StringPtrOutput `pulumi:"isRecursive"`
+	IsSecure    pulumi.StringPtrOutput `pulumi:"isSecure"`
+	IsTemporary pulumi.StringPtrOutput `pulumi:"isTemporary"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Overwrites the View if it exists.
-	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Specifies the row access policy to set on a view.
+	RowAccessPolicy ViewRowAccessPolicyPtrOutput `pulumi:"rowAccessPolicy"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Outputs the result of `SHOW VIEW` for the given view.
+	ShowOutputs ViewShowOutputArrayOutput `pulumi:"showOutputs"`
 	// Specifies the query used to create the view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags ViewTagArrayOutput `pulumi:"tags"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -116,51 +95,77 @@ func GetView(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering View resources.
 type viewState struct {
+	// Specifies the aggregation policy to set on a view.
+	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
+	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	ChangeTracking *string `pulumi:"changeTracking"`
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The timestamp at which the view was created.
-	CreatedOn *string `pulumi:"createdOn"`
-	// The database in which to create the view. Don't use the | character.
+	// Data metric functions used for the view.
+	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
+	// Specifies the schedule to run the data metric functions periodically.
+	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database *string `pulumi:"database"`
-	IsSecure *bool   `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Outputs the result of `DESCRIBE VIEW` for the given view.
+	DescribeOutputs []ViewDescribeOutput `pulumi:"describeOutputs"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
+	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsRecursive *string `pulumi:"isRecursive"`
+	IsSecure    *string `pulumi:"isSecure"`
+	IsTemporary *string `pulumi:"isTemporary"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
-	// Overwrites the View if it exists.
-	OrReplace *bool `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Specifies the row access policy to set on a view.
+	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema *string `pulumi:"schema"`
+	// Outputs the result of `SHOW VIEW` for the given view.
+	ShowOutputs []ViewShowOutput `pulumi:"showOutputs"`
 	// Specifies the query used to create the view.
 	Statement *string `pulumi:"statement"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []ViewTag `pulumi:"tags"`
 }
 
 type ViewState struct {
+	// Specifies the aggregation policy to set on a view.
+	AggregationPolicy ViewAggregationPolicyPtrInput
+	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	ChangeTracking pulumi.StringPtrInput
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants pulumi.BoolPtrInput
-	// The timestamp at which the view was created.
-	CreatedOn pulumi.StringPtrInput
-	// The database in which to create the view. Don't use the | character.
+	// Data metric functions used for the view.
+	DataMetricFunctions ViewDataMetricFunctionArrayInput
+	// Specifies the schedule to run the data metric functions periodically.
+	DataMetricSchedule ViewDataMetricSchedulePtrInput
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database pulumi.StringPtrInput
-	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Outputs the result of `DESCRIBE VIEW` for the given view.
+	DescribeOutputs ViewDescribeOutputArrayInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	FullyQualifiedName pulumi.StringPtrInput
+	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsRecursive pulumi.StringPtrInput
+	IsSecure    pulumi.StringPtrInput
+	IsTemporary pulumi.StringPtrInput
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
-	// Overwrites the View if it exists.
-	OrReplace pulumi.BoolPtrInput
-	// The schema in which to create the view. Don't use the | character.
+	// Specifies the row access policy to set on a view.
+	RowAccessPolicy ViewRowAccessPolicyPtrInput
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringPtrInput
+	// Outputs the result of `SHOW VIEW` for the given view.
+	ShowOutputs ViewShowOutputArrayInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringPtrInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags ViewTagArrayInput
 }
 
 func (ViewState) ElementType() reflect.Type {
@@ -168,48 +173,66 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
+	// Specifies the aggregation policy to set on a view.
+	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
+	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	ChangeTracking *string `pulumi:"changeTracking"`
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the view. Don't use the | character.
+	// Data metric functions used for the view.
+	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
+	// Specifies the schedule to run the data metric functions periodically.
+	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database string `pulumi:"database"`
-	IsSecure *bool  `pulumi:"isSecure"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsRecursive *string `pulumi:"isRecursive"`
+	IsSecure    *string `pulumi:"isSecure"`
+	IsTemporary *string `pulumi:"isTemporary"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name *string `pulumi:"name"`
-	// Overwrites the View if it exists.
-	OrReplace *bool `pulumi:"orReplace"`
-	// The schema in which to create the view. Don't use the | character.
+	// Specifies the row access policy to set on a view.
+	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags []ViewTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
+	// Specifies the aggregation policy to set on a view.
+	AggregationPolicy ViewAggregationPolicyPtrInput
+	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	ChangeTracking pulumi.StringPtrInput
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the view. Don't use the | character.
+	// Data metric functions used for the view.
+	DataMetricFunctions ViewDataMetricFunctionArrayInput
+	// Specifies the schedule to run the data metric functions periodically.
+	DataMetricSchedule ViewDataMetricSchedulePtrInput
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Database pulumi.StringInput
-	IsSecure pulumi.BoolPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsRecursive pulumi.StringPtrInput
+	IsSecure    pulumi.StringPtrInput
+	IsTemporary pulumi.StringPtrInput
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Name pulumi.StringPtrInput
-	// Overwrites the View if it exists.
-	OrReplace pulumi.BoolPtrInput
-	// The schema in which to create the view. Don't use the | character.
+	// Specifies the row access policy to set on a view.
+	RowAccessPolicy ViewRowAccessPolicyPtrInput
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
-	// Definitions of a tag to associate with the resource.
-	//
-	// Deprecated: Use the 'snowflake_tag_association' resource instead.
-	Tags ViewTagArrayInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {
@@ -299,55 +322,92 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
+// Specifies the aggregation policy to set on a view.
+func (o ViewOutput) AggregationPolicy() ViewAggregationPolicyPtrOutput {
+	return o.ApplyT(func(v *View) ViewAggregationPolicyPtrOutput { return v.AggregationPolicy }).(ViewAggregationPolicyPtrOutput)
+}
+
+// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o ViewOutput) ChangeTracking() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.ChangeTracking }).(pulumi.StringPtrOutput)
+}
+
+// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+func (o ViewOutput) Columns() ViewColumnArrayOutput {
+	return o.ApplyT(func(v *View) ViewColumnArrayOutput { return v.Columns }).(ViewColumnArrayOutput)
+}
+
 // Specifies a comment for the view.
 func (o ViewOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause. OR REPLACE must be set when COPY GRANTS is set.
+// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 func (o ViewOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp at which the view was created.
-func (o ViewOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+// Data metric functions used for the view.
+func (o ViewOutput) DataMetricFunctions() ViewDataMetricFunctionArrayOutput {
+	return o.ApplyT(func(v *View) ViewDataMetricFunctionArrayOutput { return v.DataMetricFunctions }).(ViewDataMetricFunctionArrayOutput)
 }
 
-// The database in which to create the view. Don't use the | character.
+// Specifies the schedule to run the data metric functions periodically.
+func (o ViewOutput) DataMetricSchedule() ViewDataMetricSchedulePtrOutput {
+	return o.ApplyT(func(v *View) ViewDataMetricSchedulePtrOutput { return v.DataMetricSchedule }).(ViewDataMetricSchedulePtrOutput)
+}
+
+// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-func (o ViewOutput) IsSecure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
+// Outputs the result of `DESCRIBE VIEW` for the given view.
+func (o ViewOutput) DescribeOutputs() ViewDescribeOutputArrayOutput {
+	return o.ApplyT(func(v *View) ViewDescribeOutputArrayOutput { return v.DescribeOutputs }).(ViewDescribeOutputArrayOutput)
 }
 
-// Specifies the identifier for the view; must be unique for the schema in which the view is created. Don't use the | character.
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+func (o ViewOutput) FullyQualifiedName() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
+}
+
+// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o ViewOutput) IsRecursive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsRecursive }).(pulumi.StringPtrOutput)
+}
+
+func (o ViewOutput) IsSecure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsSecure }).(pulumi.StringPtrOutput)
+}
+
+func (o ViewOutput) IsTemporary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsTemporary }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Overwrites the View if it exists.
-func (o ViewOutput) OrReplace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
+// Specifies the row access policy to set on a view.
+func (o ViewOutput) RowAccessPolicy() ViewRowAccessPolicyPtrOutput {
+	return o.ApplyT(func(v *View) ViewRowAccessPolicyPtrOutput { return v.RowAccessPolicy }).(ViewRowAccessPolicyPtrOutput)
 }
 
-// The schema in which to create the view. Don't use the | character.
+// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 func (o ViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `SHOW VIEW` for the given view.
+func (o ViewOutput) ShowOutputs() ViewShowOutputArrayOutput {
+	return o.ApplyT(func(v *View) ViewShowOutputArrayOutput { return v.ShowOutputs }).(ViewShowOutputArrayOutput)
 }
 
 // Specifies the query used to create the view.
 func (o ViewOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
-}
-
-// Definitions of a tag to associate with the resource.
-//
-// Deprecated: Use the 'snowflake_tag_association' resource instead.
-func (o ViewOutput) Tags() ViewTagArrayOutput {
-	return o.ApplyT(func(v *View) ViewTagArrayOutput { return v.Tags }).(ViewTagArrayOutput)
 }
 
 type ViewArrayOutput struct{ *pulumi.OutputState }

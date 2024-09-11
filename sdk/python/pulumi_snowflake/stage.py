@@ -258,6 +258,7 @@ class _StageState:
                  directory: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  snowflake_iam_user: Optional[pulumi.Input[str]] = None,
@@ -274,6 +275,7 @@ class _StageState:
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
@@ -297,6 +299,8 @@ class _StageState:
             pulumi.set(__self__, "encryption", encryption)
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schema is not None:
@@ -410,6 +414,18 @@ class _StageState:
         pulumi.set(self, "file_format", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -504,20 +520,6 @@ class Stage(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_stage = snowflake.Stage("example_stage",
-            name="EXAMPLE_STAGE",
-            url="s3://com.example.bucket/prefix",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
-        ```
-
         ## Import
 
         format is database name | schema name | stage name
@@ -550,20 +552,6 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        example_stage = snowflake.Stage("example_stage",
-            name="EXAMPLE_STAGE",
-            url="s3://com.example.bucket/prefix",
-            database="EXAMPLE_DB",
-            schema="EXAMPLE_SCHEMA",
-            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
-        ```
-
         ## Import
 
         format is database name | schema name | stage name
@@ -628,6 +616,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["storage_integration"] = storage_integration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
+            __props__.__dict__["fully_qualified_name"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Stage, __self__).__init__(
@@ -648,6 +637,7 @@ class Stage(pulumi.CustomResource):
             directory: Optional[pulumi.Input[str]] = None,
             encryption: Optional[pulumi.Input[str]] = None,
             file_format: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             snowflake_iam_user: Optional[pulumi.Input[str]] = None,
@@ -669,6 +659,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
         :param pulumi.Input[str] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
@@ -688,6 +679,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["directory"] = directory
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["file_format"] = file_format
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["snowflake_iam_user"] = snowflake_iam_user
@@ -759,6 +751,14 @@ class Stage(pulumi.CustomResource):
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter

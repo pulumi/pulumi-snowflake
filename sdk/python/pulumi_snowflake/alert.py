@@ -169,6 +169,7 @@ class _AlertState:
                  condition: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  warehouse: Optional[pulumi.Input[str]] = None):
@@ -180,6 +181,7 @@ class _AlertState:
         :param pulumi.Input[str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[str] database: The database in which to create the alert.
         :param pulumi.Input[bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         :param pulumi.Input[str] schema: The schema in which to create the alert.
         :param pulumi.Input[str] warehouse: The warehouse the alert will use.
@@ -196,6 +198,8 @@ class _AlertState:
             pulumi.set(__self__, "database", database)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if fully_qualified_name is not None:
+            pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schema is not None:
@@ -276,6 +280,18 @@ class _AlertState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -328,26 +344,6 @@ class Alert(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        alert = snowflake.Alert("alert",
-            database="database",
-            schema="schema",
-            name="alert",
-            warehouse="warehouse",
-            alert_schedule={
-                "interval": 10,
-            },
-            condition="select 1 as c",
-            action="select 1 as c",
-            enabled=True,
-            comment="my alert")
-        ```
-
         ## Import
 
         format is database name | schema name | alert name
@@ -375,26 +371,6 @@ class Alert(pulumi.CustomResource):
                  args: AlertArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_snowflake as snowflake
-
-        alert = snowflake.Alert("alert",
-            database="database",
-            schema="schema",
-            name="alert",
-            warehouse="warehouse",
-            alert_schedule={
-                "interval": 10,
-            },
-            condition="select 1 as c",
-            action="select 1 as c",
-            enabled=True,
-            comment="my alert")
-        ```
-
         ## Import
 
         format is database name | schema name | alert name
@@ -455,6 +431,7 @@ class Alert(pulumi.CustomResource):
             if warehouse is None and not opts.urn:
                 raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
+            __props__.__dict__["fully_qualified_name"] = None
         super(Alert, __self__).__init__(
             'snowflake:index/alert:Alert',
             resource_name,
@@ -471,6 +448,7 @@ class Alert(pulumi.CustomResource):
             condition: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             warehouse: Optional[pulumi.Input[str]] = None) -> 'Alert':
@@ -487,6 +465,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[str] database: The database in which to create the alert.
         :param pulumi.Input[bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         :param pulumi.Input[str] schema: The schema in which to create the alert.
         :param pulumi.Input[str] warehouse: The warehouse the alert will use.
@@ -501,6 +480,7 @@ class Alert(pulumi.CustomResource):
         __props__.__dict__["condition"] = condition
         __props__.__dict__["database"] = database
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["warehouse"] = warehouse
@@ -553,6 +533,14 @@ class Alert(pulumi.CustomResource):
         Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Output[str]:
+        """
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        """
+        return pulumi.get(self, "fully_qualified_name")
 
     @property
     @pulumi.getter
