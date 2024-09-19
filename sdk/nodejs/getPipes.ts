@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPipes(args: GetPipesArgs, opts?: pulumi.InvokeOptions): Promise<GetPipesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getPipes:getPipes", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetPipesResult {
  * ```
  */
 export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipesResult> {
-    return pulumi.output(args).apply((a: any) => getPipes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getPipes:getPipes", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

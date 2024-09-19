@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getSystemGetSnowflakePlatformInfo(opts?: pulumi.InvokeOptions): Promise<GetSystemGetSnowflakePlatformInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", {
     }, opts);
@@ -29,5 +28,7 @@ export interface GetSystemGetSnowflakePlatformInfoResult {
     readonly id: string;
 }
 export function getSystemGetSnowflakePlatformInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetSnowflakePlatformInfoResult> {
-    return pulumi.output(getSystemGetSnowflakePlatformInfo(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", {
+    }, opts);
 }

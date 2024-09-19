@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getAlerts(args?: GetAlertsArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getAlerts:getAlerts", {
         "database": args.database,
@@ -87,7 +86,13 @@ export interface GetAlertsResult {
  * ```
  */
 export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsResult> {
-    return pulumi.output(args).apply((a: any) => getAlerts(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getAlerts:getAlerts", {
+        "database": args.database,
+        "pattern": args.pattern,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  */
 export function getCortexSearchServices(args?: GetCortexSearchServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetCortexSearchServicesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", {
         "in": args.in,
@@ -130,7 +129,14 @@ export interface GetCortexSearchServicesResult {
  * ```
  */
 export function getCortexSearchServicesOutput(args?: GetCortexSearchServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCortexSearchServicesResult> {
-    return pulumi.output(args).apply((a: any) => getCortexSearchServices(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getCortexSearchServices:getCortexSearchServices", {
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+    }, opts);
 }
 
 /**

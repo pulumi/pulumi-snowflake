@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  */
 export function getViews(args?: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getViews:getViews", {
         "in": args.in,
@@ -85,7 +84,15 @@ export interface GetViewsResult {
  * Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
  */
 export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewsResult> {
-    return pulumi.output(args).apply((a: any) => getViews(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getViews:getViews", {
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
+    }, opts);
 }
 
 /**

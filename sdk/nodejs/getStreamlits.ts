@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  */
 export function getStreamlits(args?: GetStreamlitsArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamlitsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getStreamlits:getStreamlits", {
         "in": args.in,
@@ -80,7 +79,14 @@ export interface GetStreamlitsResult {
  * Datasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
  */
 export function getStreamlitsOutput(args?: GetStreamlitsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamlitsResult> {
-    return pulumi.output(args).apply((a: any) => getStreamlits(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getStreamlits:getStreamlits", {
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "withDescribe": args.withDescribe,
+    }, opts);
 }
 
 /**

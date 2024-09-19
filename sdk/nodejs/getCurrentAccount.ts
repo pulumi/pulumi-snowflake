@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurrentAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getCurrentAccount:getCurrentAccount", {
     }, opts);
@@ -65,5 +64,7 @@ export interface GetCurrentAccountResult {
  * ```
  */
 export function getCurrentAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentAccountResult> {
-    return pulumi.output(getCurrentAccount(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", {
+    }, opts);
 }

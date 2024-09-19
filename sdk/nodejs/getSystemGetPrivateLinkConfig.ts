@@ -61,7 +61,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Promise<GetSystemGetPrivateLinkConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {
     }, opts);
@@ -169,5 +168,7 @@ export interface GetSystemGetPrivateLinkConfigResult {
  * ```
  */
 export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
-    return pulumi.output(getSystemGetPrivateLinkConfig(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {
+    }, opts);
 }

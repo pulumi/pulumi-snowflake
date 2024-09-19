@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getAccounts(args?: GetAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getAccounts:getAccounts", {
         "pattern": args.pattern,
@@ -43,7 +42,11 @@ export interface GetAccountsResult {
     readonly pattern?: string;
 }
 export function getAccountsOutput(args?: GetAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountsResult> {
-    return pulumi.output(args).apply((a: any) => getAccounts(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getAccounts:getAccounts", {
+        "pattern": args.pattern,
+    }, opts);
 }
 
 /**

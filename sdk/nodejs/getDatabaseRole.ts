@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDatabaseRole(args: GetDatabaseRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabaseRole:getDatabaseRole", {
         "database": args.database,
@@ -79,7 +78,11 @@ export interface GetDatabaseRoleResult {
  * ```
  */
 export function getDatabaseRoleOutput(args: GetDatabaseRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRoleResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getDatabaseRole:getDatabaseRole", {
+        "database": args.database,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -69,14 +69,20 @@ type GetTasksResult struct {
 
 func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi.InvokeOption) GetTasksResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTasksResult, error) {
+		ApplyT(func(v interface{}) (GetTasksResultOutput, error) {
 			args := v.(GetTasksArgs)
-			r, err := GetTasks(ctx, &args, opts...)
-			var s GetTasksResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTasksResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getTasks:getTasks", args, &rv, "", opts...)
+			if err != nil {
+				return GetTasksResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTasksResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTasksResultOutput), nil
+			}
+			return output, nil
 		}).(GetTasksResultOutput)
 }
 

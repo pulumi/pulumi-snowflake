@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getFailoverGroups(args?: GetFailoverGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getFailoverGroups:getFailoverGroups", {
         "inAccount": args.inAccount,
@@ -43,7 +42,11 @@ export interface GetFailoverGroupsResult {
     readonly inAccount?: string;
 }
 export function getFailoverGroupsOutput(args?: GetFailoverGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getFailoverGroups(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getFailoverGroups:getFailoverGroups", {
+        "inAccount": args.inAccount,
+    }, opts);
 }
 
 /**

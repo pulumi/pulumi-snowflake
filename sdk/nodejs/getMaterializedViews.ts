@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getMaterializedViews(args: GetMaterializedViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaterializedViewsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getMaterializedViews:getMaterializedViews", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetMaterializedViewsResult {
  * ```
  */
 export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaterializedViewsResult> {
-    return pulumi.output(args).apply((a: any) => getMaterializedViews(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getMaterializedViews:getMaterializedViews", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

@@ -69,14 +69,20 @@ type GetExternalFunctionsResult struct {
 
 func GetExternalFunctionsOutput(ctx *pulumi.Context, args GetExternalFunctionsOutputArgs, opts ...pulumi.InvokeOption) GetExternalFunctionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetExternalFunctionsResult, error) {
+		ApplyT(func(v interface{}) (GetExternalFunctionsResultOutput, error) {
 			args := v.(GetExternalFunctionsArgs)
-			r, err := GetExternalFunctions(ctx, &args, opts...)
-			var s GetExternalFunctionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetExternalFunctionsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getExternalFunctions:getExternalFunctions", args, &rv, "", opts...)
+			if err != nil {
+				return GetExternalFunctionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetExternalFunctionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetExternalFunctionsResultOutput), nil
+			}
+			return output, nil
 		}).(GetExternalFunctionsResultOutput)
 }
 

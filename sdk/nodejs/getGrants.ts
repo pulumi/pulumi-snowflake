@@ -133,7 +133,6 @@ import * as utilities from "./utilities";
  */
 export function getGrants(args?: GetGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getGrants:getGrants", {
         "futureGrantsIn": args.futureGrantsIn,
@@ -329,7 +328,15 @@ export interface GetGrantsResult {
  * ```
  */
 export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantsResult> {
-    return pulumi.output(args).apply((a: any) => getGrants(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getGrants:getGrants", {
+        "futureGrantsIn": args.futureGrantsIn,
+        "futureGrantsTo": args.futureGrantsTo,
+        "grantsOf": args.grantsOf,
+        "grantsOn": args.grantsOn,
+        "grantsTo": args.grantsTo,
+    }, opts);
 }
 
 /**
