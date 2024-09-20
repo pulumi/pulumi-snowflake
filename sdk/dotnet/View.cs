@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
         public Output<string?> ChangeTracking { get; private set; } = null!;
 
         /// <summary>
-        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         /// </summary>
         [Output("columns")]
         public Output<ImmutableArray<Outputs.ViewColumn>> Columns { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ViewColumnArgs>? _columns;
 
         /// <summary>
-        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         /// </summary>
         public InputList<Inputs.ViewColumnArgs> Columns
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ViewColumnGetArgs>? _columns;
 
         /// <summary>
-        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        /// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         /// </summary>
         public InputList<Inputs.ViewColumnGetArgs> Columns
         {

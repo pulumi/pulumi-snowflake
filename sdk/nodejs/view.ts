@@ -50,7 +50,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly changeTracking!: pulumi.Output<string | undefined>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     public readonly columns!: pulumi.Output<outputs.ViewColumn[] | undefined>;
     /**
@@ -187,7 +187,7 @@ export interface ViewState {
      */
     changeTracking?: pulumi.Input<string>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
     /**
@@ -259,7 +259,7 @@ export interface ViewArgs {
      */
     changeTracking?: pulumi.Input<string>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
     /**

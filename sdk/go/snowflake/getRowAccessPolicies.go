@@ -11,32 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetRowAccessPolicies(ctx, &snowflake.GetRowAccessPoliciesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRowAccessPoliciesResult
@@ -49,22 +26,30 @@ func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, o
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesArgs struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the row access policy from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of row access policies
+	In *GetRowAccessPoliciesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetRowAccessPoliciesLimit `pulumi:"limit"`
+	// Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getRowAccessPolicies.
 type GetRowAccessPoliciesResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The row access policy in the schema
+	// IN clause to filter the list of row access policies
+	In *GetRowAccessPoliciesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetRowAccessPoliciesLimit `pulumi:"limit"`
+	// Holds the aggregated output of all views details queries.
 	RowAccessPolicies []GetRowAccessPoliciesRowAccessPolicy `pulumi:"rowAccessPolicies"`
-	// The schema from which to return the row access policy from.
-	Schema string `pulumi:"schema"`
+	// Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRowAccessPoliciesResultOutput {
@@ -82,10 +67,14 @@ func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOu
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesOutputArgs struct {
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the row access policy from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of row access policies
+	In GetRowAccessPoliciesInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetRowAccessPoliciesLimitPtrInput `pulumi:"limit"`
+	// Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetRowAccessPoliciesOutputArgs) ElementType() reflect.Type {
@@ -107,24 +96,34 @@ func (o GetRowAccessPoliciesResultOutput) ToGetRowAccessPoliciesResultOutputWith
 	return o
 }
 
-// The database from which to return the schemas from.
-func (o GetRowAccessPoliciesResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetRowAccessPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The row access policy in the schema
+// IN clause to filter the list of row access policies
+func (o GetRowAccessPoliciesResultOutput) In() GetRowAccessPoliciesInPtrOutput {
+	return o.ApplyT(func(v GetRowAccessPoliciesResult) *GetRowAccessPoliciesIn { return v.In }).(GetRowAccessPoliciesInPtrOutput)
+}
+
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetRowAccessPoliciesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRowAccessPoliciesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetRowAccessPoliciesResultOutput) Limit() GetRowAccessPoliciesLimitPtrOutput {
+	return o.ApplyT(func(v GetRowAccessPoliciesResult) *GetRowAccessPoliciesLimit { return v.Limit }).(GetRowAccessPoliciesLimitPtrOutput)
+}
+
+// Holds the aggregated output of all views details queries.
 func (o GetRowAccessPoliciesResultOutput) RowAccessPolicies() GetRowAccessPoliciesRowAccessPolicyArrayOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) []GetRowAccessPoliciesRowAccessPolicy { return v.RowAccessPolicies }).(GetRowAccessPoliciesRowAccessPolicyArrayOutput)
 }
 
-// The schema from which to return the row access policy from.
-func (o GetRowAccessPoliciesResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
+// Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetRowAccessPoliciesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRowAccessPoliciesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

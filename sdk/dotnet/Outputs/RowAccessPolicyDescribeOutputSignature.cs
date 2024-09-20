@@ -11,14 +11,19 @@ namespace Pulumi.Snowflake.Outputs
 {
 
     [OutputType]
-    public sealed class MaskingPolicySignature
+    public sealed class RowAccessPolicyDescribeOutputSignature
     {
-        public readonly ImmutableArray<Outputs.MaskingPolicySignatureColumn> Columns;
+        public readonly string? Name;
+        public readonly string? Type;
 
         [OutputConstructor]
-        private MaskingPolicySignature(ImmutableArray<Outputs.MaskingPolicySignatureColumn> columns)
+        private RowAccessPolicyDescribeOutputSignature(
+            string? name,
+
+            string? type)
         {
-            Columns = columns;
+            Name = name;
+            Type = type;
         }
     }
 }

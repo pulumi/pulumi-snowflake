@@ -1369,12 +1369,73 @@ export interface GetGrantsGrantsToShare {
     shareName: string;
 }
 
+export interface GetMaskingPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetMaskingPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetMaskingPoliciesMaskingPolicy {
+    /**
+     * Holds the output of DESCRIBE MASKING POLICY.
+     */
+    describeOutputs: outputs.GetMaskingPoliciesMaskingPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW MASKING POLICIES.
+     */
+    showOutputs: outputs.GetMaskingPoliciesMaskingPolicyShowOutput[];
+}
+
+export interface GetMaskingPoliciesMaskingPolicyDescribeOutput {
+    body: string;
+    name: string;
+    returnType: string;
+    signatures: outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputSignature[];
+}
+
+export interface GetMaskingPoliciesMaskingPolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface GetMaskingPoliciesMaskingPolicyShowOutput {
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
+    exemptOtherPolicies: boolean;
     kind: string;
     name: string;
-    schema: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface GetMaterializedViewsMaterializedView {
@@ -1453,10 +1514,26 @@ export interface GetProceduresProcedure {
 }
 
 export interface GetResourceMonitorsResourceMonitor {
+    /**
+     * Holds the output of SHOW RESOURCE MONITORS.
+     */
+    showOutputs: outputs.GetResourceMonitorsResourceMonitorShowOutput[];
+}
+
+export interface GetResourceMonitorsResourceMonitorShowOutput {
     comment: string;
-    creditQuota: string;
+    createdOn: string;
+    creditQuota: number;
+    endTime: string;
     frequency: string;
+    level: string;
     name: string;
+    owner: string;
+    remainingCredits: number;
+    startTime: string;
+    suspendAt: number;
+    suspendImmediateAt: number;
+    usedCredits: number;
 }
 
 export interface GetRolesRole {
@@ -1479,11 +1556,73 @@ export interface GetRolesRoleShowOutput {
     owner: string;
 }
 
+export interface GetRowAccessPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetRowAccessPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetRowAccessPoliciesRowAccessPolicy {
-    comment: string;
-    database: string;
+    /**
+     * Holds the output of DESCRIBE ROW ACCESS POLICY.
+     */
+    describeOutputs: outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW ROW ACCESS POLICIES.
+     */
+    showOutputs: outputs.GetRowAccessPoliciesRowAccessPolicyShowOutput[];
+}
+
+export interface GetRowAccessPoliciesRowAccessPolicyDescribeOutput {
+    body: string;
     name: string;
-    schema: string;
+    returnType: string;
+    signatures: outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignature[];
+}
+
+export interface GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface GetRowAccessPoliciesRowAccessPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface GetSchemasIn {
@@ -3251,19 +3390,39 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     objectTypePlural: string;
 }
 
-export interface MaskingPolicySignature {
-    columns: outputs.MaskingPolicySignatureColumn[];
-}
-
-export interface MaskingPolicySignatureColumn {
+export interface MaskingPolicyArgument {
     /**
-     * Specifies the column name to mask.
+     * The argument name
      */
     name: string;
     /**
-     * Specifies the column type to mask.
+     * The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     type: string;
+}
+
+export interface MaskingPolicyDescribeOutput {
+    body: string;
+    name: string;
+    returnType: string;
+    signatures: outputs.MaskingPolicyDescribeOutputSignature[];
+}
+
+export interface MaskingPolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface MaskingPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    exemptOtherPolicies: boolean;
+    kind: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface MaterializedViewTag {
@@ -3656,6 +3815,22 @@ export interface ProcedureArgument {
     type: string;
 }
 
+export interface ResourceMonitorShowOutput {
+    comment: string;
+    createdOn: string;
+    creditQuota: number;
+    endTime: string;
+    frequency: string;
+    level: string;
+    name: string;
+    owner: string;
+    remainingCredits: number;
+    startTime: string;
+    suspendAt: number;
+    suspendImmediateAt: number;
+    usedCredits: number;
+}
+
 export interface RoleShowOutput {
     assignedToUsers: number;
     comment: string;
@@ -3667,6 +3842,41 @@ export interface RoleShowOutput {
     isInherited: boolean;
     name: string;
     owner: string;
+}
+
+export interface RowAccessPolicyArgument {
+    /**
+     * The argument name
+     */
+    name: string;
+    /**
+     * The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     */
+    type: string;
+}
+
+export interface RowAccessPolicyDescribeOutput {
+    body: string;
+    name: string;
+    returnType: string;
+    signatures: outputs.RowAccessPolicyDescribeOutputSignature[];
+}
+
+export interface RowAccessPolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface RowAccessPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface Saml2IntegrationDescribeOutput {

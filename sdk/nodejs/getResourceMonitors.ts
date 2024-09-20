@@ -7,20 +7,27 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getResourceMonitors({});
- * ```
+ * Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
  */
-export function getResourceMonitors(opts?: pulumi.InvokeOptions): Promise<GetResourceMonitorsResult> {
+export function getResourceMonitors(args?: GetResourceMonitorsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceMonitorsResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getResourceMonitors:getResourceMonitors", {
+        "like": args.like,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getResourceMonitors.
+ */
+export interface GetResourceMonitorsArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: string;
 }
 
 /**
@@ -32,20 +39,29 @@ export interface GetResourceMonitorsResult {
      */
     readonly id: string;
     /**
-     * The resource monitors in the database
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Holds the aggregated output of all resource monitor details queries.
      */
     readonly resourceMonitors: outputs.GetResourceMonitorsResourceMonitor[];
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getResourceMonitors({});
- * ```
+ * Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
  */
-export function getResourceMonitorsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceMonitorsResult> {
-    return pulumi.output(getResourceMonitors(opts))
+export function getResourceMonitorsOutput(args?: GetResourceMonitorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceMonitorsResult> {
+    return pulumi.output(args).apply((a: any) => getResourceMonitors(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResourceMonitors.
+ */
+export interface GetResourceMonitorsOutputArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    like?: pulumi.Input<string>;
 }

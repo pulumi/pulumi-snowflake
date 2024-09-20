@@ -62,14 +62,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.changeTracking);
     }
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     @Export(name="columns", refs={List.class,ViewColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ViewColumn>> columns;
 
     /**
-     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     public Output<Optional<List<ViewColumn>>> columns() {

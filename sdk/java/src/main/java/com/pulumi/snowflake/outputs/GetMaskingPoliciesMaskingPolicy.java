@@ -5,32 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetMaskingPoliciesMaskingPolicyDescribeOutput;
+import com.pulumi.snowflake.outputs.GetMaskingPoliciesMaskingPolicyShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetMaskingPoliciesMaskingPolicy {
-    private String comment;
-    private String database;
-    private String kind;
-    private String name;
-    private String schema;
+    /**
+     * @return Holds the output of DESCRIBE MASKING POLICY.
+     * 
+     */
+    private List<GetMaskingPoliciesMaskingPolicyDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW MASKING POLICIES.
+     * 
+     */
+    private List<GetMaskingPoliciesMaskingPolicyShowOutput> showOutputs;
 
     private GetMaskingPoliciesMaskingPolicy() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE MASKING POLICY.
+     * 
+     */
+    public List<GetMaskingPoliciesMaskingPolicyDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
-    }
-    public String kind() {
-        return this.kind;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
+    /**
+     * @return Holds the output of SHOW MASKING POLICIES.
+     * 
+     */
+    public List<GetMaskingPoliciesMaskingPolicyShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +48,41 @@ public final class GetMaskingPoliciesMaskingPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String kind;
-        private String name;
-        private String schema;
+        private List<GetMaskingPoliciesMaskingPolicyDescribeOutput> describeOutputs;
+        private List<GetMaskingPoliciesMaskingPolicyShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetMaskingPoliciesMaskingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.kind = defaults.kind;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "comment");
+        public Builder describeOutputs(List<GetMaskingPoliciesMaskingPolicyDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetMaskingPoliciesMaskingPolicyDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder kind(String kind) {
-            if (kind == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "kind");
+        public Builder showOutputs(List<GetMaskingPoliciesMaskingPolicyShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "showOutputs");
             }
-            this.kind = kind;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesMaskingPolicy", "schema");
-            }
-            this.schema = schema;
-            return this;
+        public Builder showOutputs(GetMaskingPoliciesMaskingPolicyShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetMaskingPoliciesMaskingPolicy build() {
             final var _resultValue = new GetMaskingPoliciesMaskingPolicy();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.kind = kind;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

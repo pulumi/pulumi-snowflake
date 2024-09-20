@@ -9,28 +9,28 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class MaskingPolicySignatureColumn {
+public final class MaskingPolicyArgument {
     /**
-     * @return Specifies the column name to mask.
+     * @return The argument name
      * 
      */
     private String name;
     /**
-     * @return Specifies the column type to mask.
+     * @return The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     private String type;
 
-    private MaskingPolicySignatureColumn() {}
+    private MaskingPolicyArgument() {}
     /**
-     * @return Specifies the column name to mask.
+     * @return The argument name
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Specifies the column type to mask.
+     * @return The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public String type() {
@@ -41,7 +41,7 @@ public final class MaskingPolicySignatureColumn {
         return new Builder();
     }
 
-    public static Builder builder(MaskingPolicySignatureColumn defaults) {
+    public static Builder builder(MaskingPolicyArgument defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -49,7 +49,7 @@ public final class MaskingPolicySignatureColumn {
         private String name;
         private String type;
         public Builder() {}
-        public Builder(MaskingPolicySignatureColumn defaults) {
+        public Builder(MaskingPolicyArgument defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
@@ -58,7 +58,7 @@ public final class MaskingPolicySignatureColumn {
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
-              throw new MissingRequiredPropertyException("MaskingPolicySignatureColumn", "name");
+              throw new MissingRequiredPropertyException("MaskingPolicyArgument", "name");
             }
             this.name = name;
             return this;
@@ -66,13 +66,13 @@ public final class MaskingPolicySignatureColumn {
         @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
-              throw new MissingRequiredPropertyException("MaskingPolicySignatureColumn", "type");
+              throw new MissingRequiredPropertyException("MaskingPolicyArgument", "type");
             }
             this.type = type;
             return this;
         }
-        public MaskingPolicySignatureColumn build() {
-            final var _resultValue = new MaskingPolicySignatureColumn();
+        public MaskingPolicyArgument build() {
+            final var _resultValue = new MaskingPolicyArgument();
             _resultValue.name = name;
             _resultValue.type = type;
             return _resultValue;

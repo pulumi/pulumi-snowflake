@@ -8,31 +8,33 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RowAccessPolicyArgs', 'RowAccessPolicy']
 
 @pulumi.input_type
 class RowAccessPolicyArgs:
     def __init__(__self__, *,
+                 arguments: pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]],
+                 body: pulumi.Input[str],
                  database: pulumi.Input[str],
-                 row_access_expression: pulumi.Input[str],
                  schema: pulumi.Input[str],
-                 signature: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RowAccessPolicy resource.
-        :param pulumi.Input[str] database: The database in which to create the row access policy.
-        :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        :param pulumi.Input[str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[str] database: The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
+        pulumi.set(__self__, "arguments", arguments)
+        pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "row_access_expression", row_access_expression)
         pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "signature", signature)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
@@ -40,9 +42,33 @@ class RowAccessPolicyArgs:
 
     @property
     @pulumi.getter
+    def arguments(self) -> pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]]:
+        """
+        List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[str]:
+        """
+        Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the row access policy.
+        The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -51,40 +77,16 @@ class RowAccessPolicyArgs:
         pulumi.set(self, "database", value)
 
     @property
-    @pulumi.getter(name="rowAccessExpression")
-    def row_access_expression(self) -> pulumi.Input[str]:
-        """
-        Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        """
-        return pulumi.get(self, "row_access_expression")
-
-    @row_access_expression.setter
-    def row_access_expression(self, value: pulumi.Input[str]):
-        pulumi.set(self, "row_access_expression", value)
-
-    @property
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        The schema in which to create the row access policy.
+        The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
     def schema(self, value: pulumi.Input[str]):
         pulumi.set(self, "schema", value)
-
-    @property
-    @pulumi.getter
-    def signature(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
-        """
-        return pulumi.get(self, "signature")
-
-    @signature.setter
-    def signature(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "signature", value)
 
     @property
     @pulumi.getter
@@ -102,7 +104,7 @@ class RowAccessPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -114,37 +116,69 @@ class RowAccessPolicyArgs:
 @pulumi.input_type
 class _RowAccessPolicyState:
     def __init__(__self__, *,
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputArgs']]]] = None,
                  fully_qualified_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 row_access_expression: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering RowAccessPolicy resources.
+        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        :param pulumi.Input[str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
-        :param pulumi.Input[str] database: The database in which to create the row access policy.
+        :param pulumi.Input[str] database: The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
-        :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if row_access_expression is not None:
-            pulumi.set(__self__, "row_access_expression", row_access_expression)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
-        if signature is not None:
-            pulumi.set(__self__, "signature", signature)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]]]:
+        """
+        List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
 
     @property
     @pulumi.getter
@@ -162,13 +196,25 @@ class _RowAccessPolicyState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the row access policy.
+        The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
 
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
@@ -186,7 +232,7 @@ class _RowAccessPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -195,22 +241,10 @@ class _RowAccessPolicyState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="rowAccessExpression")
-    def row_access_expression(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        """
-        return pulumi.get(self, "row_access_expression")
-
-    @row_access_expression.setter
-    def row_access_expression(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "row_access_expression", value)
-
-    @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema in which to create the row access policy.
+        The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "schema")
 
@@ -219,16 +253,16 @@ class _RowAccessPolicyState:
         pulumi.set(self, "schema", value)
 
     @property
-    @pulumi.getter
-    def signature(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]]]:
         """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         """
-        return pulumi.get(self, "signature")
+        return pulumi.get(self, "show_outputs")
 
-    @signature.setter
-    def signature(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "signature", value)
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 class RowAccessPolicy(pulumi.CustomResource):
@@ -236,30 +270,28 @@ class RowAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 row_access_expression: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ## Import
 
-        format is database name | schema name | policy name
-
         ```sh
-        $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+        $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"<database_name>"."<schema_name>"."<row_access_policy_name>"'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        :param pulumi.Input[str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
-        :param pulumi.Input[str] database: The database in which to create the row access policy.
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
-        :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[str] database: The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         ...
     @overload
@@ -270,10 +302,8 @@ class RowAccessPolicy(pulumi.CustomResource):
         """
         ## Import
 
-        format is database name | schema name | policy name
-
         ```sh
-        $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+        $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"<database_name>"."<schema_name>"."<row_access_policy_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -291,12 +321,12 @@ class RowAccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 row_access_expression: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,21 +336,23 @@ class RowAccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RowAccessPolicyArgs.__new__(RowAccessPolicyArgs)
 
+            if arguments is None and not opts.urn:
+                raise TypeError("Missing required property 'arguments'")
+            __props__.__dict__["arguments"] = arguments
+            if body is None and not opts.urn:
+                raise TypeError("Missing required property 'body'")
+            __props__.__dict__["body"] = body
             __props__.__dict__["comment"] = comment
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
-            if row_access_expression is None and not opts.urn:
-                raise TypeError("Missing required property 'row_access_expression'")
-            __props__.__dict__["row_access_expression"] = row_access_expression
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
-            if signature is None and not opts.urn:
-                raise TypeError("Missing required property 'signature'")
-            __props__.__dict__["signature"] = signature
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(RowAccessPolicy, __self__).__init__(
             'snowflake:index/rowAccessPolicy:RowAccessPolicy',
             resource_name,
@@ -331,13 +363,15 @@ class RowAccessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]]] = None,
+            body: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyDescribeOutputArgs', 'RowAccessPolicyDescribeOutputArgsDict']]]]] = None,
             fully_qualified_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            row_access_expression: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            signature: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RowAccessPolicy':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyShowOutputArgs', 'RowAccessPolicyShowOutputArgsDict']]]]] = None) -> 'RowAccessPolicy':
         """
         Get an existing RowAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -345,26 +379,46 @@ class RowAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        :param pulumi.Input[str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[str] comment: Specifies a comment for the row access policy.
-        :param pulumi.Input[str] database: The database in which to create the row access policy.
+        :param pulumi.Input[str] database: The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyDescribeOutputArgs', 'RowAccessPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
-        :param pulumi.Input[str] row_access_expression: Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        :param pulumi.Input[str] schema: The schema in which to create the row access policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] signature: Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyShowOutputArgs', 'RowAccessPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RowAccessPolicyState.__new__(_RowAccessPolicyState)
 
+        __props__.__dict__["arguments"] = arguments
+        __props__.__dict__["body"] = body
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
-        __props__.__dict__["row_access_expression"] = row_access_expression
         __props__.__dict__["schema"] = schema
-        __props__.__dict__["signature"] = signature
+        __props__.__dict__["show_outputs"] = show_outputs
         return RowAccessPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> pulumi.Output[Sequence['outputs.RowAccessPolicyArgument']]:
+        """
+        List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Output[str]:
+        """
+        Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        """
+        return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
@@ -378,9 +432,17 @@ class RowAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the row access policy.
+        The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.RowAccessPolicyDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+        """
+        return pulumi.get(self, "describe_outputs")
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
@@ -394,31 +456,23 @@ class RowAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="rowAccessExpression")
-    def row_access_expression(self) -> pulumi.Output[str]:
-        """
-        Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        """
-        return pulumi.get(self, "row_access_expression")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema in which to create the row access policy.
+        The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "schema")
 
     @property
-    @pulumi.getter
-    def signature(self) -> pulumi.Output[Mapping[str, str]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.RowAccessPolicyShowOutput']]:
         """
-        Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         """
-        return pulumi.get(self, "signature")
+        return pulumi.get(self, "show_outputs")
 

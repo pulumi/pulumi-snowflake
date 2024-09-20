@@ -13,25 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetRowAccessPoliciesRowAccessPolicyResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Name;
-        public readonly string Schema;
+        /// <summary>
+        /// Holds the output of DESCRIBE ROW ACCESS POLICY.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW ROW ACCESS POLICIES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetRowAccessPoliciesRowAccessPolicyResult(
-            string comment,
+            ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string name,
-
-            string schema)
+            ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Name = name;
-            Schema = schema;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

@@ -97,8 +97,10 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs',
-    'MaskingPolicySignatureArgs',
-    'MaskingPolicySignatureColumnArgs',
+    'MaskingPolicyArgumentArgs',
+    'MaskingPolicyDescribeOutputArgs',
+    'MaskingPolicyDescribeOutputSignatureArgs',
+    'MaskingPolicyShowOutputArgs',
     'MaterializedViewTagArgs',
     'NetworkPolicyDescribeOutputArgs',
     'NetworkPolicyShowOutputArgs',
@@ -147,7 +149,12 @@ __all__ = [
     'ObjectParameterObjectIdentifierArgs',
     'ProcedureArgumentArgs',
     'ProviderTokenAccessorArgs',
+    'ResourceMonitorShowOutputArgs',
     'RoleShowOutputArgs',
+    'RowAccessPolicyArgumentArgs',
+    'RowAccessPolicyDescribeOutputArgs',
+    'RowAccessPolicyDescribeOutputSignatureArgs',
+    'RowAccessPolicyShowOutputArgs',
     'Saml2IntegrationDescribeOutputArgs',
     'Saml2IntegrationDescribeOutputAllowedEmailPatternArgs',
     'Saml2IntegrationDescribeOutputAllowedUserDomainArgs',
@@ -294,6 +301,10 @@ __all__ = [
     'GetGrantsGrantsOnArgs',
     'GetGrantsGrantsToArgs',
     'GetGrantsGrantsToShareArgs',
+    'GetMaskingPoliciesInArgs',
+    'GetMaskingPoliciesLimitArgs',
+    'GetRowAccessPoliciesInArgs',
+    'GetRowAccessPoliciesLimitArgs',
     'GetSchemasInArgs',
     'GetSchemasLimitArgs',
     'GetStreamlitsInArgs',
@@ -5420,29 +5431,13 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
 
 
 @pulumi.input_type
-class MaskingPolicySignatureArgs:
-    def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]):
-        pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]:
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['MaskingPolicySignatureColumnArgs']]]):
-        pulumi.set(self, "columns", value)
-
-
-@pulumi.input_type
-class MaskingPolicySignatureColumnArgs:
+class MaskingPolicyArgumentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Specifies the column name to mask.
-        :param pulumi.Input[str] type: Specifies the column type to mask.
+        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] type: The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -5451,7 +5446,7 @@ class MaskingPolicySignatureColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the column name to mask.
+        The argument name
         """
         return pulumi.get(self, "name")
 
@@ -5463,13 +5458,208 @@ class MaskingPolicySignatureColumnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the column type to mask.
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MaskingPolicyDescribeOutputArgs:
+    def __init__(__self__, *,
+                 body: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 return_type: Optional[pulumi.Input[str]] = None,
+                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgs']]]] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signatures is not None:
+            pulumi.set(__self__, "signatures", signatures)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "return_type")
+
+    @return_type.setter
+    def return_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "return_type", value)
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgs']]]]:
+        return pulumi.get(self, "signatures")
+
+    @signatures.setter
+    def signatures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgs']]]]):
+        pulumi.set(self, "signatures", value)
+
+
+@pulumi.input_type
+class MaskingPolicyDescribeOutputSignatureArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MaskingPolicyShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 exempt_other_policies: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if exempt_other_policies is not None:
+            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "exempt_other_policies")
+
+    @exempt_other_policies.setter
+    def exempt_other_policies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exempt_other_policies", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
 
 @pulumi.input_type
@@ -8491,6 +8681,167 @@ class ProviderTokenAccessorArgs:
 
 
 @pulumi.input_type
+class ResourceMonitorShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 credit_quota: Optional[pulumi.Input[float]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 remaining_credits: Optional[pulumi.Input[float]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 suspend_at: Optional[pulumi.Input[int]] = None,
+                 suspend_immediate_at: Optional[pulumi.Input[int]] = None,
+                 used_credits: Optional[pulumi.Input[float]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if credit_quota is not None:
+            pulumi.set(__self__, "credit_quota", credit_quota)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if remaining_credits is not None:
+            pulumi.set(__self__, "remaining_credits", remaining_credits)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if suspend_at is not None:
+            pulumi.set(__self__, "suspend_at", suspend_at)
+        if suspend_immediate_at is not None:
+            pulumi.set(__self__, "suspend_immediate_at", suspend_immediate_at)
+        if used_credits is not None:
+            pulumi.set(__self__, "used_credits", used_credits)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="creditQuota")
+    def credit_quota(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "credit_quota")
+
+    @credit_quota.setter
+    def credit_quota(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "credit_quota", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="remainingCredits")
+    def remaining_credits(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "remaining_credits")
+
+    @remaining_credits.setter
+    def remaining_credits(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "remaining_credits", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="suspendAt")
+    def suspend_at(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "suspend_at")
+
+    @suspend_at.setter
+    def suspend_at(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_at", value)
+
+    @property
+    @pulumi.getter(name="suspendImmediateAt")
+    def suspend_immediate_at(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "suspend_immediate_at")
+
+    @suspend_immediate_at.setter
+    def suspend_immediate_at(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend_immediate_at", value)
+
+    @property
+    @pulumi.getter(name="usedCredits")
+    def used_credits(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "used_credits")
+
+    @used_credits.setter
+    def used_credits(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "used_credits", value)
+
+
+@pulumi.input_type
 class RoleShowOutputArgs:
     def __init__(__self__, *,
                  assigned_to_users: Optional[pulumi.Input[int]] = None,
@@ -8613,6 +8964,238 @@ class RoleShowOutputArgs:
     @owner.setter
     def owner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "owner", value)
+
+
+@pulumi.input_type
+class RowAccessPolicyArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The argument name
+        :param pulumi.Input[str] type: The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The argument name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RowAccessPolicyDescribeOutputArgs:
+    def __init__(__self__, *,
+                 body: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 return_type: Optional[pulumi.Input[str]] = None,
+                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgs']]]] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signatures is not None:
+            pulumi.set(__self__, "signatures", signatures)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "return_type")
+
+    @return_type.setter
+    def return_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "return_type", value)
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgs']]]]:
+        return pulumi.get(self, "signatures")
+
+    @signatures.setter
+    def signatures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgs']]]]):
+        pulumi.set(self, "signatures", value)
+
+
+@pulumi.input_type
+class RowAccessPolicyDescribeOutputSignatureArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RowAccessPolicyShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
 
 
 @pulumi.input_type
@@ -19260,6 +19843,256 @@ class GetGrantsGrantsToShareArgs:
     @share_name.setter
     def share_name(self, value: str):
         pulumi.set(self, "share_name", value)
+
+
+@pulumi.input_type
+class GetMaskingPoliciesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class GetMaskingPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
+
+
+@pulumi.input_type
+class GetRowAccessPoliciesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class GetRowAccessPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
 
 
 @pulumi.input_type

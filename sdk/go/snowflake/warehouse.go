@@ -47,7 +47,7 @@ type Warehouse struct {
 	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
 	ScalingPolicy pulumi.StringPtrOutput `pulumi:"scalingPolicy"`
-	// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs WarehouseShowOutputArrayOutput `pulumi:"showOutputs"`
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntOutput `pulumi:"statementQueuedTimeoutInSeconds"`
@@ -117,7 +117,7 @@ type warehouseState struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
-	// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs []WarehouseShowOutput `pulumi:"showOutputs"`
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
@@ -158,7 +158,7 @@ type WarehouseState struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
 	ScalingPolicy pulumi.StringPtrInput
-	// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs WarehouseShowOutputArrayInput
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
@@ -402,7 +402,7 @@ func (o WarehouseOutput) ScalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.ScalingPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 func (o WarehouseOutput) ShowOutputs() WarehouseShowOutputArrayOutput {
 	return o.ApplyT(func(v *Warehouse) WarehouseShowOutputArrayOutput { return v.ShowOutputs }).(WarehouseShowOutputArrayOutput)
 }

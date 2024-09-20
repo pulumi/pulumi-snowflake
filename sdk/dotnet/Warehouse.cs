@@ -104,7 +104,7 @@ namespace Pulumi.Snowflake
         public Output<string?> ScalingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+        /// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.WarehouseShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.WarehouseShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+        /// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
         /// </summary>
         public InputList<Inputs.WarehouseShowOutputGetArgs> ShowOutputs
         {

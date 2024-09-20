@@ -7,24 +7,19 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getMaskingPolicies({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
  */
-export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetMaskingPoliciesResult> {
+export function getMaskingPolicies(args?: GetMaskingPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetMaskingPoliciesResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -33,13 +28,21 @@ export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.I
  */
 export interface GetMaskingPoliciesArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of masking policies
      */
-    database: string;
+    in?: inputs.GetMaskingPoliciesIn;
     /**
-     * The schema from which to return the maskingPolicies from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetMaskingPoliciesLimit;
+    /**
+     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -47,36 +50,36 @@ export interface GetMaskingPoliciesArgs {
  */
 export interface GetMaskingPoliciesResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The maskingPolicies in the schema
+     * IN clause to filter the list of masking policies
+     */
+    readonly in?: outputs.GetMaskingPoliciesIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetMaskingPoliciesLimit;
+    /**
+     * Holds the aggregated output of all views details queries.
      */
     readonly maskingPolicies: outputs.GetMaskingPoliciesMaskingPolicy[];
     /**
-     * The schema from which to return the maskingPolicies from.
+     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    readonly schema: string;
+    readonly withDescribe?: boolean;
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getMaskingPolicies({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
  */
-export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
+export function getMaskingPoliciesOutput(args?: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
     return pulumi.output(args).apply((a: any) => getMaskingPolicies(a, opts))
 }
 
@@ -85,11 +88,19 @@ export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opt
  */
 export interface GetMaskingPoliciesOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of masking policies
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetMaskingPoliciesInArgs>;
     /**
-     * The schema from which to return the maskingPolicies from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetMaskingPoliciesLimitArgs>;
+    /**
+     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean>;
 }

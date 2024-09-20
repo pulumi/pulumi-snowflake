@@ -24,7 +24,7 @@ type View struct {
 	AggregationPolicy ViewAggregationPolicyPtrOutput `pulumi:"aggregationPolicy"`
 	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrOutput `pulumi:"changeTracking"`
-	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -99,7 +99,7 @@ type viewState struct {
 	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
 	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking *string `pulumi:"changeTracking"`
-	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
@@ -136,7 +136,7 @@ type ViewState struct {
 	AggregationPolicy ViewAggregationPolicyPtrInput
 	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrInput
-	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type viewArgs struct {
 	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
 	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking *string `pulumi:"changeTracking"`
-	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`
@@ -209,7 +209,7 @@ type ViewArgs struct {
 	AggregationPolicy ViewAggregationPolicyPtrInput
 	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrInput
-	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
 	Comment pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o ViewOutput) ChangeTracking() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.ChangeTracking }).(pulumi.StringPtrOutput)
 }
 
-// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 func (o ViewOutput) Columns() ViewColumnArrayOutput {
 	return o.ApplyT(func(v *View) ViewColumnArrayOutput { return v.Columns }).(ViewColumnArrayOutput)
 }

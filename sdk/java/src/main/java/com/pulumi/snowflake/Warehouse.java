@@ -226,14 +226,14 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scalingPolicy);
     }
     /**
-     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      * 
      */
     @Export(name="showOutputs", refs={List.class,WarehouseShowOutput.class}, tree="[0,1]")
     private Output<List<WarehouseShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * @return Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      * 
      */
     public Output<List<WarehouseShowOutput>> showOutputs() {
