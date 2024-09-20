@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getCurrentRole(opts?: pulumi.InvokeOptions): Promise<GetCurrentRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getCurrentRole:getCurrentRole", {
     }, opts);
@@ -25,5 +24,7 @@ export interface GetCurrentRoleResult {
     readonly name: string;
 }
 export function getCurrentRoleOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentRoleResult> {
-    return pulumi.output(getCurrentRole(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getCurrentRole:getCurrentRole", {
+    }, opts);
 }

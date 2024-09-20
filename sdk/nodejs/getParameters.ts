@@ -35,7 +35,6 @@ import * as utilities from "./utilities";
  */
 export function getParameters(args?: GetParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getParameters:getParameters", {
         "objectName": args.objectName,
@@ -133,7 +132,15 @@ export interface GetParametersResult {
  * ```
  */
 export function getParametersOutput(args?: GetParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersResult> {
-    return pulumi.output(args).apply((a: any) => getParameters(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getParameters:getParameters", {
+        "objectName": args.objectName,
+        "objectType": args.objectType,
+        "parameterType": args.parameterType,
+        "pattern": args.pattern,
+        "user": args.user,
+    }, opts);
 }
 
 /**

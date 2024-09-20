@@ -69,14 +69,20 @@ type GetMaterializedViewsResult struct {
 
 func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOutputArgs, opts ...pulumi.InvokeOption) GetMaterializedViewsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMaterializedViewsResult, error) {
+		ApplyT(func(v interface{}) (GetMaterializedViewsResultOutput, error) {
 			args := v.(GetMaterializedViewsArgs)
-			r, err := GetMaterializedViews(ctx, &args, opts...)
-			var s GetMaterializedViewsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMaterializedViewsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getMaterializedViews:getMaterializedViews", args, &rv, "", opts...)
+			if err != nil {
+				return GetMaterializedViewsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMaterializedViewsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMaterializedViewsResultOutput), nil
+			}
+			return output, nil
 		}).(GetMaterializedViewsResultOutput)
 }
 

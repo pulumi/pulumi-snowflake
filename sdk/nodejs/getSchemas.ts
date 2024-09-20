@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  */
 export function getSchemas(args?: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSchemas:getSchemas", {
         "in": args.in,
@@ -98,7 +97,16 @@ export interface GetSchemasResult {
  * Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
 export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
-    return pulumi.output(args).apply((a: any) => getSchemas(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getSchemas:getSchemas", {
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
+        "withParameters": args.withParameters,
+    }, opts);
 }
 
 /**

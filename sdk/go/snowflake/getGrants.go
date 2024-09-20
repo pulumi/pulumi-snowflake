@@ -244,14 +244,20 @@ type GetGrantsResult struct {
 
 func GetGrantsOutput(ctx *pulumi.Context, args GetGrantsOutputArgs, opts ...pulumi.InvokeOption) GetGrantsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetGrantsResult, error) {
+		ApplyT(func(v interface{}) (GetGrantsResultOutput, error) {
 			args := v.(GetGrantsArgs)
-			r, err := GetGrants(ctx, &args, opts...)
-			var s GetGrantsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetGrantsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getGrants:getGrants", args, &rv, "", opts...)
+			if err != nil {
+				return GetGrantsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetGrantsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetGrantsResultOutput), nil
+			}
+			return output, nil
 		}).(GetGrantsResultOutput)
 }
 

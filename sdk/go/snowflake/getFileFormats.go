@@ -69,14 +69,20 @@ type GetFileFormatsResult struct {
 
 func GetFileFormatsOutput(ctx *pulumi.Context, args GetFileFormatsOutputArgs, opts ...pulumi.InvokeOption) GetFileFormatsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFileFormatsResult, error) {
+		ApplyT(func(v interface{}) (GetFileFormatsResultOutput, error) {
 			args := v.(GetFileFormatsArgs)
-			r, err := GetFileFormats(ctx, &args, opts...)
-			var s GetFileFormatsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetFileFormatsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getFileFormats:getFileFormats", args, &rv, "", opts...)
+			if err != nil {
+				return GetFileFormatsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetFileFormatsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetFileFormatsResultOutput), nil
+			}
+			return output, nil
 		}).(GetFileFormatsResultOutput)
 }
 

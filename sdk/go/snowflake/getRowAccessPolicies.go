@@ -69,14 +69,20 @@ type GetRowAccessPoliciesResult struct {
 
 func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRowAccessPoliciesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRowAccessPoliciesResult, error) {
+		ApplyT(func(v interface{}) (GetRowAccessPoliciesResultOutput, error) {
 			args := v.(GetRowAccessPoliciesArgs)
-			r, err := GetRowAccessPolicies(ctx, &args, opts...)
-			var s GetRowAccessPoliciesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRowAccessPoliciesResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args, &rv, "", opts...)
+			if err != nil {
+				return GetRowAccessPoliciesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRowAccessPoliciesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRowAccessPoliciesResultOutput), nil
+			}
+			return output, nil
 		}).(GetRowAccessPoliciesResultOutput)
 }
 

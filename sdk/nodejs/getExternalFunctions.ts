@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalFunctionsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getExternalFunctions:getExternalFunctions", {
         "database": args.database,
@@ -78,7 +77,12 @@ export interface GetExternalFunctionsResult {
  * ```
  */
 export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
-    return pulumi.output(args).apply((a: any) => getExternalFunctions(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getExternalFunctions:getExternalFunctions", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

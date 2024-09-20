@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getShares(args?: GetSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetSharesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getShares:getShares", {
         "pattern": args.pattern,
@@ -69,7 +68,11 @@ export interface GetSharesResult {
  * ```
  */
 export function getSharesOutput(args?: GetSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharesResult> {
-    return pulumi.output(args).apply((a: any) => getShares(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getShares:getShares", {
+        "pattern": args.pattern,
+    }, opts);
 }
 
 /**

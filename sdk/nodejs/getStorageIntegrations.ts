@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getStorageIntegrations(opts?: pulumi.InvokeOptions): Promise<GetStorageIntegrationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", {
     }, opts);
@@ -47,5 +46,7 @@ export interface GetStorageIntegrationsResult {
  * ```
  */
 export function getStorageIntegrationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageIntegrationsResult> {
-    return pulumi.output(getStorageIntegrations(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", {
+    }, opts);
 }

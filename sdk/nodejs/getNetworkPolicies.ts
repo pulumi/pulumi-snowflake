@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  */
 export function getNetworkPolicies(args?: GetNetworkPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPoliciesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getNetworkPolicies:getNetworkPolicies", {
         "like": args.like,
@@ -62,7 +61,12 @@ export interface GetNetworkPoliciesResult {
  * Datasource used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
  */
 export function getNetworkPoliciesOutput(args?: GetNetworkPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPoliciesResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkPolicies(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getNetworkPolicies:getNetworkPolicies", {
+        "like": args.like,
+        "withDescribe": args.withDescribe,
+    }, opts);
 }
 
 /**

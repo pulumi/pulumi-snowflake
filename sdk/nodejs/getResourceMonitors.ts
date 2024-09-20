@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getResourceMonitors(opts?: pulumi.InvokeOptions): Promise<GetResourceMonitorsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getResourceMonitors:getResourceMonitors", {
     }, opts);
@@ -47,5 +46,7 @@ export interface GetResourceMonitorsResult {
  * ```
  */
 export function getResourceMonitorsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceMonitorsResult> {
-    return pulumi.output(getResourceMonitors(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getResourceMonitors:getResourceMonitors", {
+    }, opts);
 }
