@@ -12,15 +12,25 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is database name | schema name | policy name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'
+    /// $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;masking_policy_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/maskingPolicy:MaskingPolicy")]
     public partial class MaskingPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        /// </summary>
+        [Output("arguments")]
+        public Output<ImmutableArray<Outputs.MaskingPolicyArgument>> Arguments { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Output("body")]
+        public Output<string> Body { get; private set; } = null!;
+
         /// <summary>
         /// Specifies a comment for the masking policy.
         /// </summary>
@@ -28,16 +38,22 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the masking policy.
+        /// The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.MaskingPolicyDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("exemptOtherPolicies")]
-        public Output<bool?> ExemptOtherPolicies { get; private set; } = null!;
+        public Output<string?> ExemptOtherPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -46,46 +62,28 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Prevent overwriting a previous masking policy with the same name.
-        /// </summary>
-        [Output("ifNotExists")]
-        public Output<bool?> IfNotExists { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the SQL expression that transforms the data.
-        /// </summary>
-        [Output("maskingExpression")]
-        public Output<string> MaskingExpression { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to override a previous masking policy with the same name.
-        /// </summary>
-        [Output("orReplace")]
-        public Output<bool?> OrReplace { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the data type to return.
+        /// The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         [Output("returnDataType")]
         public Output<string> ReturnDataType { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the masking policy.
+        /// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+        /// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
         /// </summary>
-        [Output("signature")]
-        public Output<Outputs.MaskingPolicySignature> Signature { get; private set; } = null!;
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.MaskingPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,6 +131,24 @@ namespace Pulumi.Snowflake
 
     public sealed class MaskingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("arguments", required: true)]
+        private InputList<Inputs.MaskingPolicyArgumentArgs>? _arguments;
+
+        /// <summary>
+        /// List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        /// </summary>
+        public InputList<Inputs.MaskingPolicyArgumentArgs> Arguments
+        {
+            get => _arguments ?? (_arguments = new InputList<Inputs.MaskingPolicyArgumentArgs>());
+            set => _arguments = value;
+        }
+
+        /// <summary>
+        /// Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Input("body", required: true)]
+        public Input<string> Body { get; set; } = null!;
+
         /// <summary>
         /// Specifies a comment for the masking policy.
         /// </summary>
@@ -140,58 +156,34 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the masking policy.
+        /// The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("exemptOtherPolicies")]
-        public Input<bool>? ExemptOtherPolicies { get; set; }
+        public Input<string>? ExemptOtherPolicies { get; set; }
 
         /// <summary>
-        /// Prevent overwriting a previous masking policy with the same name.
-        /// </summary>
-        [Input("ifNotExists")]
-        public Input<bool>? IfNotExists { get; set; }
-
-        /// <summary>
-        /// Specifies the SQL expression that transforms the data.
-        /// </summary>
-        [Input("maskingExpression", required: true)]
-        public Input<string> MaskingExpression { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to override a previous masking policy with the same name.
-        /// </summary>
-        [Input("orReplace")]
-        public Input<bool>? OrReplace { get; set; }
-
-        /// <summary>
-        /// Specifies the data type to return.
+        /// The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         [Input("returnDataType", required: true)]
         public Input<string> ReturnDataType { get; set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the masking policy.
+        /// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
-
-        /// <summary>
-        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
-        /// </summary>
-        [Input("signature", required: true)]
-        public Input<Inputs.MaskingPolicySignatureArgs> Signature { get; set; } = null!;
 
         public MaskingPolicyArgs()
         {
@@ -201,6 +193,24 @@ namespace Pulumi.Snowflake
 
     public sealed class MaskingPolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("arguments")]
+        private InputList<Inputs.MaskingPolicyArgumentGetArgs>? _arguments;
+
+        /// <summary>
+        /// List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        /// </summary>
+        public InputList<Inputs.MaskingPolicyArgumentGetArgs> Arguments
+        {
+            get => _arguments ?? (_arguments = new InputList<Inputs.MaskingPolicyArgumentGetArgs>());
+            set => _arguments = value;
+        }
+
+        /// <summary>
+        /// Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Input("body")]
+        public Input<string>? Body { get; set; }
+
         /// <summary>
         /// Specifies a comment for the masking policy.
         /// </summary>
@@ -208,16 +218,28 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the masking policy.
+        /// The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
+        [Input("describeOutputs")]
+        private InputList<Inputs.MaskingPolicyDescribeOutputGetArgs>? _describeOutputs;
+
         /// <summary>
-        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+        /// Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
+        /// </summary>
+        public InputList<Inputs.MaskingPolicyDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.MaskingPolicyDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
+
+        /// <summary>
+        /// Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("exemptOtherPolicies")]
-        public Input<bool>? ExemptOtherPolicies { get; set; }
+        public Input<string>? ExemptOtherPolicies { get; set; }
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -226,46 +248,34 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Prevent overwriting a previous masking policy with the same name.
-        /// </summary>
-        [Input("ifNotExists")]
-        public Input<bool>? IfNotExists { get; set; }
-
-        /// <summary>
-        /// Specifies the SQL expression that transforms the data.
-        /// </summary>
-        [Input("maskingExpression")]
-        public Input<string>? MaskingExpression { get; set; }
-
-        /// <summary>
-        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+        /// Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to override a previous masking policy with the same name.
-        /// </summary>
-        [Input("orReplace")]
-        public Input<bool>? OrReplace { get; set; }
-
-        /// <summary>
-        /// Specifies the data type to return.
+        /// The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         [Input("returnDataType")]
         public Input<string>? ReturnDataType { get; set; }
 
         /// <summary>
-        /// The schema in which to create the masking policy.
+        /// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
+        [Input("showOutputs")]
+        private InputList<Inputs.MaskingPolicyShowOutputGetArgs>? _showOutputs;
+
         /// <summary>
-        /// The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+        /// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
         /// </summary>
-        [Input("signature")]
-        public Input<Inputs.MaskingPolicySignatureGetArgs>? Signature { get; set; }
+        public InputList<Inputs.MaskingPolicyShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.MaskingPolicyShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public MaskingPolicyState()
         {

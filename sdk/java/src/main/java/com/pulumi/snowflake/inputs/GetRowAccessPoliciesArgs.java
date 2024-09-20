@@ -5,9 +5,13 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetRowAccessPoliciesInArgs;
+import com.pulumi.snowflake.inputs.GetRowAccessPoliciesLimitArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeArgs {
@@ -15,40 +19,72 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
     public static final GetRowAccessPoliciesArgs Empty = new GetRowAccessPoliciesArgs();
 
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of row access policies
      * 
      */
-    @Import(name="database", required=true)
-    private Output<String> database;
+    @Import(name="in")
+    private @Nullable Output<GetRowAccessPoliciesInArgs> in;
 
     /**
-     * @return The database from which to return the schemas from.
+     * @return IN clause to filter the list of row access policies
      * 
      */
-    public Output<String> database() {
-        return this.database;
+    public Optional<Output<GetRowAccessPoliciesInArgs>> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * The schema from which to return the row access policy from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="schema", required=true)
-    private Output<String> schema;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return The schema from which to return the row access policy from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Output<GetRowAccessPoliciesLimitArgs> limit;
+
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<Output<GetRowAccessPoliciesLimitArgs>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
+
+    /**
+     * @return Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetRowAccessPoliciesArgs() {}
 
     private GetRowAccessPoliciesArgs(GetRowAccessPoliciesArgs $) {
-        this.database = $.database;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.limit = $.limit;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -70,54 +106,90 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of row access policies
          * 
          * @return builder
          * 
          */
-        public Builder database(Output<String> database) {
-            $.database = database;
+        public Builder in(@Nullable Output<GetRowAccessPoliciesInArgs> in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of row access policies
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            return database(Output.of(database));
+        public Builder in(GetRowAccessPoliciesInArgs in) {
+            return in(Output.of(in));
         }
 
         /**
-         * @param schema The schema from which to return the row access policy from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(Output<String> schema) {
-            $.schema = schema;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the row access policy from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            return schema(Output.of(schema));
+        public Builder like(String like) {
+            return like(Output.of(like));
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Output<GetRowAccessPoliciesLimitArgs> limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(GetRowAccessPoliciesLimitArgs limit) {
+            return limit(Output.of(limit));
+        }
+
+        /**
+         * @param withDescribe Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
+            return this;
+        }
+
+        /**
+         * @param withDescribe Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
         }
 
         public GetRowAccessPoliciesArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetRowAccessPoliciesArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetRowAccessPoliciesArgs", "schema");
-            }
             return $;
         }
     }

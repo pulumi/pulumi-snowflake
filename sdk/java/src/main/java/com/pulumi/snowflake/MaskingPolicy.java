@@ -10,24 +10,52 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.MaskingPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.MaskingPolicyState;
-import com.pulumi.snowflake.outputs.MaskingPolicySignature;
-import java.lang.Boolean;
+import com.pulumi.snowflake.outputs.MaskingPolicyArgument;
+import com.pulumi.snowflake.outputs.MaskingPolicyDescribeOutput;
+import com.pulumi.snowflake.outputs.MaskingPolicyShowOutput;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Import
  * 
- * format is database name | schema name | policy name
- * 
  * ```sh
- * $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example &#39;dbName|schemaName|policyName&#39;
+ * $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;masking_policy_name&gt;&#34;&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/maskingPolicy:MaskingPolicy")
 public class MaskingPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * 
+     */
+    @Export(name="arguments", refs={List.class,MaskingPolicyArgument.class}, tree="[0,1]")
+    private Output<List<MaskingPolicyArgument>> arguments;
+
+    /**
+     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * 
+     */
+    public Output<List<MaskingPolicyArgument>> arguments() {
+        return this.arguments;
+    }
+    /**
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    @Export(name="body", refs={String.class}, tree="[0]")
+    private Output<String> body;
+
+    /**
+     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    public Output<String> body() {
+        return this.body;
+    }
     /**
      * Specifies a comment for the masking policy.
      * 
@@ -43,31 +71,45 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the masking policy.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the masking policy.
+     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
      * 
      */
-    @Export(name="exemptOtherPolicies", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> exemptOtherPolicies;
+    @Export(name="describeOutputs", refs={List.class,MaskingPolicyDescribeOutput.class}, tree="[0,1]")
+    private Output<List<MaskingPolicyDescribeOutput>> describeOutputs;
 
     /**
-     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * @return Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
      * 
      */
-    public Output<Optional<Boolean>> exemptOtherPolicies() {
+    public Output<List<MaskingPolicyDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
+     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="exemptOtherPolicies", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> exemptOtherPolicies;
+
+    /**
+     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> exemptOtherPolicies() {
         return Codegen.optional(this.exemptOtherPolicies);
     }
     /**
@@ -85,102 +127,60 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Prevent overwriting a previous masking policy with the same name.
-     * 
-     */
-    @Export(name="ifNotExists", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> ifNotExists;
-
-    /**
-     * @return Prevent overwriting a previous masking policy with the same name.
-     * 
-     */
-    public Output<Optional<Boolean>> ifNotExists() {
-        return Codegen.optional(this.ifNotExists);
-    }
-    /**
-     * Specifies the SQL expression that transforms the data.
-     * 
-     */
-    @Export(name="maskingExpression", refs={String.class}, tree="[0]")
-    private Output<String> maskingExpression;
-
-    /**
-     * @return Specifies the SQL expression that transforms the data.
-     * 
-     */
-    public Output<String> maskingExpression() {
-        return this.maskingExpression;
-    }
-    /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Whether to override a previous masking policy with the same name.
-     * 
-     */
-    @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> orReplace;
-
-    /**
-     * @return Whether to override a previous masking policy with the same name.
-     * 
-     */
-    public Output<Optional<Boolean>> orReplace() {
-        return Codegen.optional(this.orReplace);
-    }
-    /**
-     * Specifies the data type to return.
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Export(name="returnDataType", refs={String.class}, tree="[0]")
     private Output<String> returnDataType;
 
     /**
-     * @return Specifies the data type to return.
+     * @return The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> returnDataType() {
         return this.returnDataType;
     }
     /**
-     * The schema in which to create the masking policy.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the masking policy.
+     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+     * Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
      * 
      */
-    @Export(name="signature", refs={MaskingPolicySignature.class}, tree="[0]")
-    private Output<MaskingPolicySignature> signature;
+    @Export(name="showOutputs", refs={List.class,MaskingPolicyShowOutput.class}, tree="[0,1]")
+    private Output<List<MaskingPolicyShowOutput>> showOutputs;
 
     /**
-     * @return The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
+     * @return Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
      * 
      */
-    public Output<MaskingPolicySignature> signature() {
-        return this.signature;
+    public Output<List<MaskingPolicyShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

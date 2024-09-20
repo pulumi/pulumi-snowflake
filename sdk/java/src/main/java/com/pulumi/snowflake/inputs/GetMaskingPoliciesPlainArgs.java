@@ -4,9 +4,13 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetMaskingPoliciesIn;
+import com.pulumi.snowflake.inputs.GetMaskingPoliciesLimit;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -14,40 +18,72 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
     public static final GetMaskingPoliciesPlainArgs Empty = new GetMaskingPoliciesPlainArgs();
 
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of masking policies
      * 
      */
-    @Import(name="database", required=true)
-    private String database;
+    @Import(name="in")
+    private @Nullable GetMaskingPoliciesIn in;
 
     /**
-     * @return The database from which to return the schemas from.
+     * @return IN clause to filter the list of masking policies
      * 
      */
-    public String database() {
-        return this.database;
+    public Optional<GetMaskingPoliciesIn> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * The schema from which to return the maskingPolicies from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="schema", required=true)
-    private String schema;
+    @Import(name="like")
+    private @Nullable String like;
 
     /**
-     * @return The schema from which to return the maskingPolicies from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable GetMaskingPoliciesLimit limit;
+
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetMaskingPoliciesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Boolean withDescribe;
+
+    /**
+     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetMaskingPoliciesPlainArgs() {}
 
     private GetMaskingPoliciesPlainArgs(GetMaskingPoliciesPlainArgs $) {
-        this.database = $.database;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.limit = $.limit;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -69,34 +105,50 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of masking policies
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            $.database = database;
+        public Builder in(@Nullable GetMaskingPoliciesIn in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the maskingPolicies from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            $.schema = schema;
+        public Builder like(@Nullable String like) {
+            $.like = like;
+            return this;
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable GetMaskingPoliciesLimit limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param withDescribe Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+            $.withDescribe = withDescribe;
             return this;
         }
 
         public GetMaskingPoliciesPlainArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetMaskingPoliciesPlainArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetMaskingPoliciesPlainArgs", "schema");
-            }
             return $;
         }
     }

@@ -5,42 +5,50 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetMaskingPoliciesIn;
+import com.pulumi.snowflake.outputs.GetMaskingPoliciesLimit;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesMaskingPolicy;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetMaskingPoliciesResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The maskingPolicies in the schema
+     * @return IN clause to filter the list of masking policies
+     * 
+     */
+    private @Nullable GetMaskingPoliciesIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetMaskingPoliciesLimit limit;
+    /**
+     * @return Holds the aggregated output of all views details queries.
      * 
      */
     private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
     /**
-     * @return The schema from which to return the maskingPolicies from.
+     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    private String schema;
+    private @Nullable Boolean withDescribe;
 
     private GetMaskingPoliciesResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    public String database() {
-        return this.database;
-    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,18 +57,39 @@ public final class GetMaskingPoliciesResult {
         return this.id;
     }
     /**
-     * @return The maskingPolicies in the schema
+     * @return IN clause to filter the list of masking policies
+     * 
+     */
+    public Optional<GetMaskingPoliciesIn> in() {
+        return Optional.ofNullable(this.in);
+    }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetMaskingPoliciesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Holds the aggregated output of all views details queries.
      * 
      */
     public List<GetMaskingPoliciesMaskingPolicy> maskingPolicies() {
         return this.maskingPolicies;
     }
     /**
-     * @return The schema from which to return the maskingPolicies from.
+     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -72,33 +101,47 @@ public final class GetMaskingPoliciesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private String id;
+        private @Nullable GetMaskingPoliciesIn in;
+        private @Nullable String like;
+        private @Nullable GetMaskingPoliciesLimit limit;
         private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
-        private String schema;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetMaskingPoliciesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
     	      this.maskingPolicies = defaults.maskingPolicies;
-    	      this.schema = defaults.schema;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder in(@Nullable GetMaskingPoliciesIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetMaskingPoliciesLimit limit) {
+
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
@@ -113,19 +156,19 @@ public final class GetMaskingPoliciesResult {
             return maskingPolicies(List.of(maskingPolicies));
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetMaskingPoliciesResult", "schema");
-            }
-            this.schema = schema;
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
             return this;
         }
         public GetMaskingPoliciesResult build() {
             final var _resultValue = new GetMaskingPoliciesResult();
-            _resultValue.database = database;
             _resultValue.id = id;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
             _resultValue.maskingPolicies = maskingPolicies;
-            _resultValue.schema = schema;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

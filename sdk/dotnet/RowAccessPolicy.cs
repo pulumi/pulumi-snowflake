@@ -12,15 +12,25 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is database name | schema name | policy name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'
+    /// $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;row_access_policy_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/rowAccessPolicy:RowAccessPolicy")]
     public partial class RowAccessPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        /// </summary>
+        [Output("arguments")]
+        public Output<ImmutableArray<Outputs.RowAccessPolicyArgument>> Arguments { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Output("body")]
+        public Output<string> Body { get; private set; } = null!;
+
         /// <summary>
         /// Specifies a comment for the row access policy.
         /// </summary>
@@ -28,10 +38,16 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the row access policy.
+        /// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.RowAccessPolicyDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -40,28 +56,22 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        /// </summary>
-        [Output("rowAccessExpression")]
-        public Output<string> RowAccessExpression { get; private set; } = null!;
-
-        /// <summary>
-        /// The schema in which to create the row access policy.
+        /// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        /// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         /// </summary>
-        [Output("signature")]
-        public Output<ImmutableDictionary<string, string>> Signature { get; private set; } = null!;
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.RowAccessPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,6 +119,24 @@ namespace Pulumi.Snowflake
 
     public sealed class RowAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("arguments", required: true)]
+        private InputList<Inputs.RowAccessPolicyArgumentArgs>? _arguments;
+
+        /// <summary>
+        /// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        /// </summary>
+        public InputList<Inputs.RowAccessPolicyArgumentArgs> Arguments
+        {
+            get => _arguments ?? (_arguments = new InputList<Inputs.RowAccessPolicyArgumentArgs>());
+            set => _arguments = value;
+        }
+
+        /// <summary>
+        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Input("body", required: true)]
+        public Input<string> Body { get; set; } = null!;
+
         /// <summary>
         /// Specifies a comment for the row access policy.
         /// </summary>
@@ -116,40 +144,22 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the row access policy.
+        /// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        /// </summary>
-        [Input("rowAccessExpression", required: true)]
-        public Input<string> RowAccessExpression { get; set; } = null!;
-
-        /// <summary>
-        /// The schema in which to create the row access policy.
+        /// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
-
-        [Input("signature", required: true)]
-        private InputMap<string>? _signature;
-
-        /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
-        /// </summary>
-        public InputMap<string> Signature
-        {
-            get => _signature ?? (_signature = new InputMap<string>());
-            set => _signature = value;
-        }
 
         public RowAccessPolicyArgs()
         {
@@ -159,6 +169,24 @@ namespace Pulumi.Snowflake
 
     public sealed class RowAccessPolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("arguments")]
+        private InputList<Inputs.RowAccessPolicyArgumentGetArgs>? _arguments;
+
+        /// <summary>
+        /// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+        /// </summary>
+        public InputList<Inputs.RowAccessPolicyArgumentGetArgs> Arguments
+        {
+            get => _arguments ?? (_arguments = new InputList<Inputs.RowAccessPolicyArgumentGetArgs>());
+            set => _arguments = value;
+        }
+
+        /// <summary>
+        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// </summary>
+        [Input("body")]
+        public Input<string>? Body { get; set; }
+
         /// <summary>
         /// Specifies a comment for the row access policy.
         /// </summary>
@@ -166,10 +194,22 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the row access policy.
+        /// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.RowAccessPolicyDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+        /// </summary>
+        public InputList<Inputs.RowAccessPolicyDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.RowAccessPolicyDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -178,33 +218,27 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+        /// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-        /// </summary>
-        [Input("rowAccessExpression")]
-        public Input<string>? RowAccessExpression { get; set; }
-
-        /// <summary>
-        /// The schema in which to create the row access policy.
+        /// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
-        [Input("signature")]
-        private InputMap<string>? _signature;
+        [Input("showOutputs")]
+        private InputList<Inputs.RowAccessPolicyShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+        /// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
         /// </summary>
-        public InputMap<string> Signature
+        public InputList<Inputs.RowAccessPolicyShowOutputGetArgs> ShowOutputs
         {
-            get => _signature ?? (_signature = new InputMap<string>());
-            set => _signature = value;
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.RowAccessPolicyShowOutputGetArgs>());
+            set => _showOutputs = value;
         }
 
         public RowAccessPolicyState()

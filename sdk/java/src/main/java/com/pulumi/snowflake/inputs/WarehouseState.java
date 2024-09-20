@@ -231,14 +231,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<WarehouseShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * @return Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      * 
      */
     public Optional<Output<List<WarehouseShowOutputArgs>>> showOutputs() {
@@ -652,7 +652,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+         * @param showOutputs Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+         * @param showOutputs Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+         * @param showOutputs Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
          * 
          * @return builder
          * 

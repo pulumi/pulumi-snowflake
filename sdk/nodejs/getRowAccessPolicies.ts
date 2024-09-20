@@ -7,23 +7,18 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getRowAccessPolicies({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
  */
-export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRowAccessPoliciesResult> {
+export function getRowAccessPolicies(args?: GetRowAccessPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRowAccessPoliciesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -32,13 +27,21 @@ export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulu
  */
 export interface GetRowAccessPoliciesArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of row access policies
      */
-    database: string;
+    in?: inputs.GetRowAccessPoliciesIn;
     /**
-     * The schema from which to return the row access policy from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetRowAccessPoliciesLimit;
+    /**
+     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -46,40 +49,43 @@ export interface GetRowAccessPoliciesArgs {
  */
 export interface GetRowAccessPoliciesResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The row access policy in the schema
+     * IN clause to filter the list of row access policies
+     */
+    readonly in?: outputs.GetRowAccessPoliciesIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetRowAccessPoliciesLimit;
+    /**
+     * Holds the aggregated output of all views details queries.
      */
     readonly rowAccessPolicies: outputs.GetRowAccessPoliciesRowAccessPolicy[];
     /**
-     * The schema from which to return the row access policy from.
+     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    readonly schema: string;
+    readonly withDescribe?: boolean;
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getRowAccessPolicies({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Datasource used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
  */
-export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRowAccessPoliciesResult> {
+export function getRowAccessPoliciesOutput(args?: GetRowAccessPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRowAccessPoliciesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -88,11 +94,19 @@ export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs,
  */
 export interface GetRowAccessPoliciesOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of row access policies
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetRowAccessPoliciesInArgs>;
     /**
-     * The schema from which to return the row access policy from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetRowAccessPoliciesLimitArgs>;
+    /**
+     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean>;
 }

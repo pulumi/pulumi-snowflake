@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ResourceMonitorArgs', 'ResourceMonitor']
 
@@ -20,28 +22,20 @@ class ResourceMonitorArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 suspend_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 suspend_trigger: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ResourceMonitor resource.
-        :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
+        :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        :param pulumi.Input[int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         if credit_quota is not None:
             pulumi.set(__self__, "credit_quota", credit_quota)
@@ -55,32 +49,18 @@ class ResourceMonitorArgs:
             pulumi.set(__self__, "notify_triggers", notify_triggers)
         if notify_users is not None:
             pulumi.set(__self__, "notify_users", notify_users)
-        if set_for_account is not None:
-            pulumi.set(__self__, "set_for_account", set_for_account)
         if start_timestamp is not None:
             pulumi.set(__self__, "start_timestamp", start_timestamp)
         if suspend_immediate_trigger is not None:
             pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
-        if suspend_immediate_triggers is not None:
-            warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
-            pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
-        if suspend_immediate_triggers is not None:
-            pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_trigger is not None:
             pulumi.set(__self__, "suspend_trigger", suspend_trigger)
-        if suspend_triggers is not None:
-            warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
-            pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
-        if suspend_triggers is not None:
-            pulumi.set(__self__, "suspend_triggers", suspend_triggers)
-        if warehouses is not None:
-            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
     def credit_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of credits allocated monthly to the resource monitor.
+        The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         """
         return pulumi.get(self, "credit_quota")
 
@@ -104,7 +84,7 @@ class ResourceMonitorArgs:
     @pulumi.getter
     def frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "frequency")
 
@@ -116,7 +96,7 @@ class ResourceMonitorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the resource monitor; must be unique for your account.
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -128,7 +108,7 @@ class ResourceMonitorArgs:
     @pulumi.getter(name="notifyTriggers")
     def notify_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of percentage thresholds at which to send an alert to subscribed users.
+        Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         """
         return pulumi.get(self, "notify_triggers")
 
@@ -140,7 +120,7 @@ class ResourceMonitorArgs:
     @pulumi.getter(name="notifyUsers")
     def notify_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the list of users to receive email notifications on resource monitors.
+        Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         """
         return pulumi.get(self, "notify_users")
 
@@ -149,22 +129,10 @@ class ResourceMonitorArgs:
         pulumi.set(self, "notify_users", value)
 
     @property
-    @pulumi.getter(name="setForAccount")
-    def set_for_account(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-        """
-        return pulumi.get(self, "set_for_account")
-
-    @set_for_account.setter
-    def set_for_account(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "set_for_account", value)
-
-    @property
     @pulumi.getter(name="startTimestamp")
     def start_timestamp(self) -> Optional[pulumi.Input[str]]:
         """
-        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "start_timestamp")
 
@@ -176,7 +144,7 @@ class ResourceMonitorArgs:
     @pulumi.getter(name="suspendImmediateTrigger")
     def suspend_immediate_trigger(self) -> Optional[pulumi.Input[int]]:
         """
-        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_immediate_trigger")
 
@@ -185,54 +153,16 @@ class ResourceMonitorArgs:
         pulumi.set(self, "suspend_immediate_trigger", value)
 
     @property
-    @pulumi.getter(name="suspendImmediateTriggers")
-    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
-    def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_immediate_triggers")
-
-    @suspend_immediate_triggers.setter
-    def suspend_immediate_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "suspend_immediate_triggers", value)
-
-    @property
     @pulumi.getter(name="suspendTrigger")
     def suspend_trigger(self) -> Optional[pulumi.Input[int]]:
         """
-        The number that represents the percentage threshold at which to suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_trigger")
 
     @suspend_trigger.setter
     def suspend_trigger(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "suspend_trigger", value)
-
-    @property
-    @pulumi.getter(name="suspendTriggers")
-    @_utilities.deprecated("""Use suspend_trigger instead""")
-    def suspend_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_triggers")
-
-    @suspend_triggers.setter
-    def suspend_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "suspend_triggers", value)
-
-    @property
-    @pulumi.getter
-    def warehouses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of warehouses to apply the resource monitor to.
-        """
-        return pulumi.get(self, "warehouses")
-
-    @warehouses.setter
-    def warehouses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "warehouses", value)
 
 
 @pulumi.input_type
@@ -245,29 +175,23 @@ class _ResourceMonitorState:
                  name: Optional[pulumi.Input[str]] = None,
                  notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 set_for_account: Optional[pulumi.Input[bool]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 suspend_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 suspend_trigger: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ResourceMonitor resources.
-        :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
+        :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
+        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        :param pulumi.Input[int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         if credit_quota is not None:
             pulumi.set(__self__, "credit_quota", credit_quota)
@@ -283,32 +207,20 @@ class _ResourceMonitorState:
             pulumi.set(__self__, "notify_triggers", notify_triggers)
         if notify_users is not None:
             pulumi.set(__self__, "notify_users", notify_users)
-        if set_for_account is not None:
-            pulumi.set(__self__, "set_for_account", set_for_account)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
         if start_timestamp is not None:
             pulumi.set(__self__, "start_timestamp", start_timestamp)
         if suspend_immediate_trigger is not None:
             pulumi.set(__self__, "suspend_immediate_trigger", suspend_immediate_trigger)
-        if suspend_immediate_triggers is not None:
-            warnings.warn("""Use suspend_immediate_trigger instead""", DeprecationWarning)
-            pulumi.log.warn("""suspend_immediate_triggers is deprecated: Use suspend_immediate_trigger instead""")
-        if suspend_immediate_triggers is not None:
-            pulumi.set(__self__, "suspend_immediate_triggers", suspend_immediate_triggers)
         if suspend_trigger is not None:
             pulumi.set(__self__, "suspend_trigger", suspend_trigger)
-        if suspend_triggers is not None:
-            warnings.warn("""Use suspend_trigger instead""", DeprecationWarning)
-            pulumi.log.warn("""suspend_triggers is deprecated: Use suspend_trigger instead""")
-        if suspend_triggers is not None:
-            pulumi.set(__self__, "suspend_triggers", suspend_triggers)
-        if warehouses is not None:
-            pulumi.set(__self__, "warehouses", warehouses)
 
     @property
     @pulumi.getter(name="creditQuota")
     def credit_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of credits allocated monthly to the resource monitor.
+        The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         """
         return pulumi.get(self, "credit_quota")
 
@@ -332,7 +244,7 @@ class _ResourceMonitorState:
     @pulumi.getter
     def frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "frequency")
 
@@ -356,7 +268,7 @@ class _ResourceMonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the resource monitor; must be unique for your account.
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -368,7 +280,7 @@ class _ResourceMonitorState:
     @pulumi.getter(name="notifyTriggers")
     def notify_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        A list of percentage thresholds at which to send an alert to subscribed users.
+        Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         """
         return pulumi.get(self, "notify_triggers")
 
@@ -380,7 +292,7 @@ class _ResourceMonitorState:
     @pulumi.getter(name="notifyUsers")
     def notify_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the list of users to receive email notifications on resource monitors.
+        Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         """
         return pulumi.get(self, "notify_users")
 
@@ -389,22 +301,22 @@ class _ResourceMonitorState:
         pulumi.set(self, "notify_users", value)
 
     @property
-    @pulumi.getter(name="setForAccount")
-    def set_for_account(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]:
         """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
+        Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
         """
-        return pulumi.get(self, "set_for_account")
+        return pulumi.get(self, "show_outputs")
 
-    @set_for_account.setter
-    def set_for_account(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "set_for_account", value)
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
     @property
     @pulumi.getter(name="startTimestamp")
     def start_timestamp(self) -> Optional[pulumi.Input[str]]:
         """
-        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "start_timestamp")
 
@@ -416,7 +328,7 @@ class _ResourceMonitorState:
     @pulumi.getter(name="suspendImmediateTrigger")
     def suspend_immediate_trigger(self) -> Optional[pulumi.Input[int]]:
         """
-        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_immediate_trigger")
 
@@ -425,54 +337,16 @@ class _ResourceMonitorState:
         pulumi.set(self, "suspend_immediate_trigger", value)
 
     @property
-    @pulumi.getter(name="suspendImmediateTriggers")
-    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
-    def suspend_immediate_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_immediate_triggers")
-
-    @suspend_immediate_triggers.setter
-    def suspend_immediate_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "suspend_immediate_triggers", value)
-
-    @property
     @pulumi.getter(name="suspendTrigger")
     def suspend_trigger(self) -> Optional[pulumi.Input[int]]:
         """
-        The number that represents the percentage threshold at which to suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_trigger")
 
     @suspend_trigger.setter
     def suspend_trigger(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "suspend_trigger", value)
-
-    @property
-    @pulumi.getter(name="suspendTriggers")
-    @_utilities.deprecated("""Use suspend_trigger instead""")
-    def suspend_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_triggers")
-
-    @suspend_triggers.setter
-    def suspend_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "suspend_triggers", value)
-
-    @property
-    @pulumi.getter
-    def warehouses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of warehouses to apply the resource monitor to.
-        """
-        return pulumi.get(self, "warehouses")
-
-    @warehouses.setter
-    def warehouses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "warehouses", value)
 
 
 class ResourceMonitor(pulumi.CustomResource):
@@ -486,13 +360,9 @@ class ResourceMonitor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  suspend_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ## Import
@@ -505,19 +375,15 @@ class ResourceMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
+        :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        :param pulumi.Input[int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         ...
     @overload
@@ -555,13 +421,9 @@ class ResourceMonitor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 set_for_account: Optional[pulumi.Input[bool]] = None,
                  start_timestamp: Optional[pulumi.Input[str]] = None,
                  suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  suspend_trigger: Optional[pulumi.Input[int]] = None,
-                 suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -577,14 +439,11 @@ class ResourceMonitor(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notify_triggers"] = notify_triggers
             __props__.__dict__["notify_users"] = notify_users
-            __props__.__dict__["set_for_account"] = set_for_account
             __props__.__dict__["start_timestamp"] = start_timestamp
             __props__.__dict__["suspend_immediate_trigger"] = suspend_immediate_trigger
-            __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
             __props__.__dict__["suspend_trigger"] = suspend_trigger
-            __props__.__dict__["suspend_triggers"] = suspend_triggers
-            __props__.__dict__["warehouses"] = warehouses
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(ResourceMonitor, __self__).__init__(
             'snowflake:index/resourceMonitor:ResourceMonitor',
             resource_name,
@@ -602,13 +461,10 @@ class ResourceMonitor(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            set_for_account: Optional[pulumi.Input[bool]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]]] = None,
             start_timestamp: Optional[pulumi.Input[str]] = None,
             suspend_immediate_trigger: Optional[pulumi.Input[int]] = None,
-            suspend_immediate_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-            suspend_trigger: Optional[pulumi.Input[int]] = None,
-            suspend_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-            warehouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ResourceMonitor':
+            suspend_trigger: Optional[pulumi.Input[int]] = None) -> 'ResourceMonitor':
         """
         Get an existing ResourceMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -616,20 +472,17 @@ class ResourceMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] credit_quota: The number of credits allocated monthly to the resource monitor.
+        :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
-        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: A list of percentage thresholds at which to send an alert to subscribed users.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users to receive email notifications on resource monitors.
-        :param pulumi.Input[bool] set_for_account: Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
-        :param pulumi.Input[int] suspend_immediate_trigger: The number that represents the percentage threshold at which to immediately suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_immediate_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[int] suspend_trigger: The number that represents the percentage threshold at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] suspend_triggers: A list of percentage thresholds at which to suspend all warehouses.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] warehouses: A list of warehouses to apply the resource monitor to.
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
+        :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        :param pulumi.Input[int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        :param pulumi.Input[int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -642,20 +495,17 @@ class ResourceMonitor(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["notify_triggers"] = notify_triggers
         __props__.__dict__["notify_users"] = notify_users
-        __props__.__dict__["set_for_account"] = set_for_account
+        __props__.__dict__["show_outputs"] = show_outputs
         __props__.__dict__["start_timestamp"] = start_timestamp
         __props__.__dict__["suspend_immediate_trigger"] = suspend_immediate_trigger
-        __props__.__dict__["suspend_immediate_triggers"] = suspend_immediate_triggers
         __props__.__dict__["suspend_trigger"] = suspend_trigger
-        __props__.__dict__["suspend_triggers"] = suspend_triggers
-        __props__.__dict__["warehouses"] = warehouses
         return ResourceMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="creditQuota")
-    def credit_quota(self) -> pulumi.Output[int]:
+    def credit_quota(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of credits allocated monthly to the resource monitor.
+        The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         """
         return pulumi.get(self, "credit_quota")
 
@@ -669,9 +519,9 @@ class ResourceMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Output[str]:
+    def frequency(self) -> pulumi.Output[Optional[str]]:
         """
-        The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+        The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "frequency")
 
@@ -687,7 +537,7 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the resource monitor; must be unique for your account.
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -695,7 +545,7 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter(name="notifyTriggers")
     def notify_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
-        A list of percentage thresholds at which to send an alert to subscribed users.
+        Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         """
         return pulumi.get(self, "notify_triggers")
 
@@ -703,23 +553,23 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter(name="notifyUsers")
     def notify_users(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the list of users to receive email notifications on resource monitors.
+        Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         """
         return pulumi.get(self, "notify_users")
 
     @property
-    @pulumi.getter(name="setForAccount")
-    def set_for_account(self) -> pulumi.Output[Optional[bool]]:
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.ResourceMonitorShowOutput']]:
         """
-        Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
+        Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
         """
-        return pulumi.get(self, "set_for_account")
+        return pulumi.get(self, "show_outputs")
 
     @property
     @pulumi.getter(name="startTimestamp")
-    def start_timestamp(self) -> pulumi.Output[str]:
+    def start_timestamp(self) -> pulumi.Output[Optional[str]]:
         """
-        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "start_timestamp")
 
@@ -727,41 +577,15 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter(name="suspendImmediateTrigger")
     def suspend_immediate_trigger(self) -> pulumi.Output[Optional[int]]:
         """
-        The number that represents the percentage threshold at which to immediately suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_immediate_trigger")
-
-    @property
-    @pulumi.getter(name="suspendImmediateTriggers")
-    @_utilities.deprecated("""Use suspend_immediate_trigger instead""")
-    def suspend_immediate_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_immediate_triggers")
 
     @property
     @pulumi.getter(name="suspendTrigger")
     def suspend_trigger(self) -> pulumi.Output[Optional[int]]:
         """
-        The number that represents the percentage threshold at which to suspend all warehouses.
+        Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_trigger")
-
-    @property
-    @pulumi.getter(name="suspendTriggers")
-    @_utilities.deprecated("""Use suspend_trigger instead""")
-    def suspend_triggers(self) -> pulumi.Output[Optional[Sequence[int]]]:
-        """
-        A list of percentage thresholds at which to suspend all warehouses.
-        """
-        return pulumi.get(self, "suspend_triggers")
-
-    @property
-    @pulumi.getter
-    def warehouses(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A list of warehouses to apply the resource monitor to.
-        """
-        return pulumi.get(self, "warehouses")
 

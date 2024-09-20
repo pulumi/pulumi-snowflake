@@ -98,7 +98,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly scalingPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.WarehouseShowOutput[]>;
     /**
@@ -238,7 +238,7 @@ export interface WarehouseState {
      */
     scalingPolicy?: pulumi.Input<string>;
     /**
-     * Outputs the result of `SHOW WAREHOUSE` for the given warehouse.
+     * Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseShowOutput>[]>;
     /**
