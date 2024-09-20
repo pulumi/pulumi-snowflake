@@ -6,9 +6,9 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.pulumi.snowflake.inputs.MaskingPolicySignatureArgs;
-import java.lang.Boolean;
+import com.pulumi.snowflake.inputs.MaskingPolicyArgumentArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +17,36 @@ import javax.annotation.Nullable;
 public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MaskingPolicyArgs Empty = new MaskingPolicyArgs();
+
+    /**
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * 
+     */
+    @Import(name="arguments", required=true)
+    private Output<List<MaskingPolicyArgumentArgs>> arguments;
+
+    /**
+     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * 
+     */
+    public Output<List<MaskingPolicyArgumentArgs>> arguments() {
+        return this.arguments;
+    }
+
+    /**
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    @Import(name="body", required=true)
+    private Output<String> body;
+
+    /**
+     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    public Output<String> body() {
+        return this.body;
+    }
 
     /**
      * Specifies a comment for the masking policy.
@@ -34,14 +64,14 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the masking policy.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the masking policy.
+     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> database() {
@@ -49,59 +79,29 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="exemptOtherPolicies")
-    private @Nullable Output<Boolean> exemptOtherPolicies;
+    private @Nullable Output<String> exemptOtherPolicies;
 
     /**
-     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
-    public Optional<Output<Boolean>> exemptOtherPolicies() {
+    public Optional<Output<String>> exemptOtherPolicies() {
         return Optional.ofNullable(this.exemptOtherPolicies);
     }
 
     /**
-     * Prevent overwriting a previous masking policy with the same name.
-     * 
-     */
-    @Import(name="ifNotExists")
-    private @Nullable Output<Boolean> ifNotExists;
-
-    /**
-     * @return Prevent overwriting a previous masking policy with the same name.
-     * 
-     */
-    public Optional<Output<Boolean>> ifNotExists() {
-        return Optional.ofNullable(this.ifNotExists);
-    }
-
-    /**
-     * Specifies the SQL expression that transforms the data.
-     * 
-     */
-    @Import(name="maskingExpression", required=true)
-    private Output<String> maskingExpression;
-
-    /**
-     * @return Specifies the SQL expression that transforms the data.
-     * 
-     */
-    public Output<String> maskingExpression() {
-        return this.maskingExpression;
-    }
-
-    /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,29 +109,14 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to override a previous masking policy with the same name.
-     * 
-     */
-    @Import(name="orReplace")
-    private @Nullable Output<Boolean> orReplace;
-
-    /**
-     * @return Whether to override a previous masking policy with the same name.
-     * 
-     */
-    public Optional<Output<Boolean>> orReplace() {
-        return Optional.ofNullable(this.orReplace);
-    }
-
-    /**
-     * Specifies the data type to return.
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Import(name="returnDataType", required=true)
     private Output<String> returnDataType;
 
     /**
-     * @return Specifies the data type to return.
+     * @return The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> returnDataType() {
@@ -139,48 +124,31 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the masking policy.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the masking policy.
+     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
 
-    /**
-     * The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
-     * 
-     */
-    @Import(name="signature", required=true)
-    private Output<MaskingPolicySignatureArgs> signature;
-
-    /**
-     * @return The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
-     * 
-     */
-    public Output<MaskingPolicySignatureArgs> signature() {
-        return this.signature;
-    }
-
     private MaskingPolicyArgs() {}
 
     private MaskingPolicyArgs(MaskingPolicyArgs $) {
+        this.arguments = $.arguments;
+        this.body = $.body;
         this.comment = $.comment;
         this.database = $.database;
         this.exemptOtherPolicies = $.exemptOtherPolicies;
-        this.ifNotExists = $.ifNotExists;
-        this.maskingExpression = $.maskingExpression;
         this.name = $.name;
-        this.orReplace = $.orReplace;
         this.returnDataType = $.returnDataType;
         this.schema = $.schema;
-        this.signature = $.signature;
     }
 
     public static Builder builder() {
@@ -199,6 +167,58 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MaskingPolicyArgs defaults) {
             $ = new MaskingPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arguments(Output<List<MaskingPolicyArgumentArgs>> arguments) {
+            $.arguments = arguments;
+            return this;
+        }
+
+        /**
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arguments(List<MaskingPolicyArgumentArgs> arguments) {
+            return arguments(Output.of(arguments));
+        }
+
+        /**
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arguments(MaskingPolicyArgumentArgs... arguments) {
+            return arguments(List.of(arguments));
+        }
+
+        /**
+         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder body(Output<String> body) {
+            $.body = body;
+            return this;
+        }
+
+        /**
+         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder body(String body) {
+            return body(Output.of(body));
         }
 
         /**
@@ -223,7 +243,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the masking policy.
+         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -234,7 +254,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the masking policy.
+         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -244,70 +264,28 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder exemptOtherPolicies(@Nullable Output<Boolean> exemptOtherPolicies) {
+        public Builder exemptOtherPolicies(@Nullable Output<String> exemptOtherPolicies) {
             $.exemptOtherPolicies = exemptOtherPolicies;
             return this;
         }
 
         /**
-         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
          */
-        public Builder exemptOtherPolicies(Boolean exemptOtherPolicies) {
+        public Builder exemptOtherPolicies(String exemptOtherPolicies) {
             return exemptOtherPolicies(Output.of(exemptOtherPolicies));
         }
 
         /**
-         * @param ifNotExists Prevent overwriting a previous masking policy with the same name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ifNotExists(@Nullable Output<Boolean> ifNotExists) {
-            $.ifNotExists = ifNotExists;
-            return this;
-        }
-
-        /**
-         * @param ifNotExists Prevent overwriting a previous masking policy with the same name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ifNotExists(Boolean ifNotExists) {
-            return ifNotExists(Output.of(ifNotExists));
-        }
-
-        /**
-         * @param maskingExpression Specifies the SQL expression that transforms the data.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder maskingExpression(Output<String> maskingExpression) {
-            $.maskingExpression = maskingExpression;
-            return this;
-        }
-
-        /**
-         * @param maskingExpression Specifies the SQL expression that transforms the data.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder maskingExpression(String maskingExpression) {
-            return maskingExpression(Output.of(maskingExpression));
-        }
-
-        /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -318,7 +296,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.
+         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -328,28 +306,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orReplace Whether to override a previous masking policy with the same name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder orReplace(@Nullable Output<Boolean> orReplace) {
-            $.orReplace = orReplace;
-            return this;
-        }
-
-        /**
-         * @param orReplace Whether to override a previous masking policy with the same name.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder orReplace(Boolean orReplace) {
-            return orReplace(Output.of(orReplace));
-        }
-
-        /**
-         * @param returnDataType Specifies the data type to return.
+         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -360,7 +317,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnDataType Specifies the data type to return.
+         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -370,7 +327,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the masking policy.
+         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -381,7 +338,7 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the masking policy.
+         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
          * 
          * @return builder
          * 
@@ -390,42 +347,21 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
             return schema(Output.of(schema));
         }
 
-        /**
-         * @param signature The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder signature(Output<MaskingPolicySignatureArgs> signature) {
-            $.signature = signature;
-            return this;
-        }
-
-        /**
-         * @param signature The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder signature(MaskingPolicySignatureArgs signature) {
-            return signature(Output.of(signature));
-        }
-
         public MaskingPolicyArgs build() {
+            if ($.arguments == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "arguments");
+            }
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "body");
+            }
             if ($.database == null) {
                 throw new MissingRequiredPropertyException("MaskingPolicyArgs", "database");
-            }
-            if ($.maskingExpression == null) {
-                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "maskingExpression");
             }
             if ($.returnDataType == null) {
                 throw new MissingRequiredPropertyException("MaskingPolicyArgs", "returnDataType");
             }
             if ($.schema == null) {
                 throw new MissingRequiredPropertyException("MaskingPolicyArgs", "schema");
-            }
-            if ($.signature == null) {
-                throw new MissingRequiredPropertyException("MaskingPolicyArgs", "signature");
             }
             return $;
         }

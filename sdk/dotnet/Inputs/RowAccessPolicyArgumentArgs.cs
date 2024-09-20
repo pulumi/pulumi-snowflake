@@ -10,23 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake.Inputs
 {
 
-    public sealed class MaskingPolicySignatureColumnGetArgs : global::Pulumi.ResourceArgs
+    public sealed class RowAccessPolicyArgumentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the column name to mask.
+        /// The argument name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the column type to mask.
+        /// The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        public MaskingPolicySignatureColumnGetArgs()
+        public RowAccessPolicyArgumentArgs()
         {
         }
-        public static new MaskingPolicySignatureColumnGetArgs Empty => new MaskingPolicySignatureColumnGetArgs();
+        public static new RowAccessPolicyArgumentArgs Empty => new RowAccessPolicyArgumentArgs();
     }
 }

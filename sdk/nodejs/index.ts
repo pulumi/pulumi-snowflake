@@ -220,7 +220,7 @@ export const getProcedures: typeof import("./getProcedures").getProcedures = nul
 export const getProceduresOutput: typeof import("./getProcedures").getProceduresOutput = null as any;
 utilities.lazyLoad(exports, ["getProcedures","getProceduresOutput"], () => require("./getProcedures"));
 
-export { GetResourceMonitorsResult } from "./getResourceMonitors";
+export { GetResourceMonitorsArgs, GetResourceMonitorsResult, GetResourceMonitorsOutputArgs } from "./getResourceMonitors";
 export const getResourceMonitors: typeof import("./getResourceMonitors").getResourceMonitors = null as any;
 export const getResourceMonitorsOutput: typeof import("./getResourceMonitors").getResourceMonitorsOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceMonitors","getResourceMonitorsOutput"], () => require("./getResourceMonitors"));

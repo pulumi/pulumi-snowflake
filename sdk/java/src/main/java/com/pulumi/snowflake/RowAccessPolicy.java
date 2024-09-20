@@ -10,23 +10,52 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.RowAccessPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.RowAccessPolicyState;
+import com.pulumi.snowflake.outputs.RowAccessPolicyArgument;
+import com.pulumi.snowflake.outputs.RowAccessPolicyDescribeOutput;
+import com.pulumi.snowflake.outputs.RowAccessPolicyShowOutput;
 import java.lang.String;
-import java.util.Map;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Import
  * 
- * format is database name | schema name | policy name
- * 
  * ```sh
- * $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example &#39;dbName|schemaName|policyName&#39;
+ * $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;row_access_policy_name&gt;&#34;&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/rowAccessPolicy:RowAccessPolicy")
 public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * 
+     */
+    @Export(name="arguments", refs={List.class,RowAccessPolicyArgument.class}, tree="[0,1]")
+    private Output<List<RowAccessPolicyArgument>> arguments;
+
+    /**
+     * @return List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * 
+     */
+    public Output<List<RowAccessPolicyArgument>> arguments() {
+        return this.arguments;
+    }
+    /**
+     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    @Export(name="body", refs={String.class}, tree="[0]")
+    private Output<String> body;
+
+    /**
+     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * 
+     */
+    public Output<String> body() {
+        return this.body;
+    }
     /**
      * Specifies a comment for the row access policy.
      * 
@@ -42,18 +71,32 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the row access policy.
+     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the row access policy.
+     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,RowAccessPolicyDescribeOutput.class}, tree="[0,1]")
+    private Output<List<RowAccessPolicyDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
+     * 
+     */
+    public Output<List<RowAccessPolicyDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
     }
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -70,60 +113,46 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.
+     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-     * 
-     */
-    @Export(name="rowAccessExpression", refs={String.class}, tree="[0]")
-    private Output<String> rowAccessExpression;
-
-    /**
-     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression.
-     * 
-     */
-    public Output<String> rowAccessExpression() {
-        return this.rowAccessExpression;
-    }
-    /**
-     * The schema in which to create the row access policy.
+     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the row access policy.
+     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+     * Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
      * 
      */
-    @Export(name="signature", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> signature;
+    @Export(name="showOutputs", refs={List.class,RowAccessPolicyShowOutput.class}, tree="[0,1]")
+    private Output<List<RowAccessPolicyShowOutput>> showOutputs;
 
     /**
-     * @return Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.
+     * @return Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
      * 
      */
-    public Output<Map<String,String>> signature() {
-        return this.signature;
+    public Output<List<RowAccessPolicyShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
 
     /**

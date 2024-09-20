@@ -5,28 +5,25 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetResourceMonitorsResourceMonitorShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetResourceMonitorsResourceMonitor {
-    private String comment;
-    private String creditQuota;
-    private String frequency;
-    private String name;
+    /**
+     * @return Holds the output of SHOW RESOURCE MONITORS.
+     * 
+     */
+    private List<GetResourceMonitorsResourceMonitorShowOutput> showOutputs;
 
     private GetResourceMonitorsResourceMonitor() {}
-    public String comment() {
-        return this.comment;
-    }
-    public String creditQuota() {
-        return this.creditQuota;
-    }
-    public String frequency() {
-        return this.frequency;
-    }
-    public String name() {
-        return this.name;
+    /**
+     * @return Holds the output of SHOW RESOURCE MONITORS.
+     * 
+     */
+    public List<GetResourceMonitorsResourceMonitorShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -38,57 +35,27 @@ public final class GetResourceMonitorsResourceMonitor {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String creditQuota;
-        private String frequency;
-        private String name;
+        private List<GetResourceMonitorsResourceMonitorShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetResourceMonitorsResourceMonitor defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.creditQuota = defaults.creditQuota;
-    	      this.frequency = defaults.frequency;
-    	      this.name = defaults.name;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "comment");
+        public Builder showOutputs(List<GetResourceMonitorsResourceMonitorShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "showOutputs");
             }
-            this.comment = comment;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder creditQuota(String creditQuota) {
-            if (creditQuota == null) {
-              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "creditQuota");
-            }
-            this.creditQuota = creditQuota;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder frequency(String frequency) {
-            if (frequency == null) {
-              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "frequency");
-            }
-            this.frequency = frequency;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetResourceMonitorsResourceMonitor", "name");
-            }
-            this.name = name;
-            return this;
+        public Builder showOutputs(GetResourceMonitorsResourceMonitorShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetResourceMonitorsResourceMonitor build() {
             final var _resultValue = new GetResourceMonitorsResourceMonitor();
-            _resultValue.comment = comment;
-            _resultValue.creditQuota = creditQuota;
-            _resultValue.frequency = frequency;
-            _resultValue.name = name;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

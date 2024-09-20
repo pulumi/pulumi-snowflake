@@ -11,19 +11,19 @@ namespace Pulumi.Snowflake.Outputs
 {
 
     [OutputType]
-    public sealed class MaskingPolicySignatureColumn
+    public sealed class MaskingPolicyArgument
     {
         /// <summary>
-        /// Specifies the column name to mask.
+        /// The argument name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the column type to mask.
+        /// The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private MaskingPolicySignatureColumn(
+        private MaskingPolicyArgument(
             string name,
 
             string type)

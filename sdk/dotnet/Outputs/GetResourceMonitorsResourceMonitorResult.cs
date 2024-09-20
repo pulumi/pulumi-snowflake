@@ -13,25 +13,15 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetResourceMonitorsResourceMonitorResult
     {
-        public readonly string Comment;
-        public readonly string CreditQuota;
-        public readonly string Frequency;
-        public readonly string Name;
+        /// <summary>
+        /// Holds the output of SHOW RESOURCE MONITORS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetResourceMonitorsResourceMonitorShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
-        private GetResourceMonitorsResourceMonitorResult(
-            string comment,
-
-            string creditQuota,
-
-            string frequency,
-
-            string name)
+        private GetResourceMonitorsResourceMonitorResult(ImmutableArray<Outputs.GetResourceMonitorsResourceMonitorShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            CreditQuota = creditQuota;
-            Frequency = frequency;
-            Name = name;
+            ShowOutputs = showOutputs;
         }
     }
 }

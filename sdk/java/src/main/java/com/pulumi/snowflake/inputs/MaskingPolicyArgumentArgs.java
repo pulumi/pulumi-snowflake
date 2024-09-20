@@ -10,19 +10,19 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources.ResourceArgs {
+public final class MaskingPolicyArgumentArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final MaskingPolicySignatureColumnArgs Empty = new MaskingPolicySignatureColumnArgs();
+    public static final MaskingPolicyArgumentArgs Empty = new MaskingPolicyArgumentArgs();
 
     /**
-     * Specifies the column name to mask.
+     * The argument name
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the column name to mask.
+     * @return The argument name
      * 
      */
     public Output<String> name() {
@@ -30,23 +30,23 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the column type to mask.
+     * The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the column type to mask.
+     * @return The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> type() {
         return this.type;
     }
 
-    private MaskingPolicySignatureColumnArgs() {}
+    private MaskingPolicyArgumentArgs() {}
 
-    private MaskingPolicySignatureColumnArgs(MaskingPolicySignatureColumnArgs $) {
+    private MaskingPolicyArgumentArgs(MaskingPolicyArgumentArgs $) {
         this.name = $.name;
         this.type = $.type;
     }
@@ -54,23 +54,23 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(MaskingPolicySignatureColumnArgs defaults) {
+    public static Builder builder(MaskingPolicyArgumentArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private MaskingPolicySignatureColumnArgs $;
+        private MaskingPolicyArgumentArgs $;
 
         public Builder() {
-            $ = new MaskingPolicySignatureColumnArgs();
+            $ = new MaskingPolicyArgumentArgs();
         }
 
-        public Builder(MaskingPolicySignatureColumnArgs defaults) {
-            $ = new MaskingPolicySignatureColumnArgs(Objects.requireNonNull(defaults));
+        public Builder(MaskingPolicyArgumentArgs defaults) {
+            $ = new MaskingPolicyArgumentArgs(Objects.requireNonNull(defaults));
         }
 
         /**
-         * @param name Specifies the column name to mask.
+         * @param name The argument name
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the column name to mask.
+         * @param name The argument name
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type Specifies the column type to mask.
+         * @param type The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type Specifies the column type to mask.
+         * @param type The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -111,12 +111,12 @@ public final class MaskingPolicySignatureColumnArgs extends com.pulumi.resources
             return type(Output.of(type));
         }
 
-        public MaskingPolicySignatureColumnArgs build() {
+        public MaskingPolicyArgumentArgs build() {
             if ($.name == null) {
-                throw new MissingRequiredPropertyException("MaskingPolicySignatureColumnArgs", "name");
+                throw new MissingRequiredPropertyException("MaskingPolicyArgumentArgs", "name");
             }
             if ($.type == null) {
-                throw new MissingRequiredPropertyException("MaskingPolicySignatureColumnArgs", "type");
+                throw new MissingRequiredPropertyException("MaskingPolicyArgumentArgs", "type");
             }
             return $;
         }

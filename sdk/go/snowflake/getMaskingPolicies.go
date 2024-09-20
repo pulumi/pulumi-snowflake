@@ -11,32 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetMaskingPolicies(ctx, &snowflake.GetMaskingPoliciesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
 func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts ...pulumi.InvokeOption) (*GetMaskingPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaskingPoliciesResult
@@ -49,22 +26,30 @@ func GetMaskingPolicies(ctx *pulumi.Context, args *GetMaskingPoliciesArgs, opts 
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesArgs struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the maskingPolicies from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of masking policies
+	In *GetMaskingPoliciesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetMaskingPoliciesLimit `pulumi:"limit"`
+	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getMaskingPolicies.
 type GetMaskingPoliciesResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The maskingPolicies in the schema
+	// IN clause to filter the list of masking policies
+	In *GetMaskingPoliciesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetMaskingPoliciesLimit `pulumi:"limit"`
+	// Holds the aggregated output of all views details queries.
 	MaskingPolicies []GetMaskingPoliciesMaskingPolicy `pulumi:"maskingPolicies"`
-	// The schema from which to return the maskingPolicies from.
-	Schema string `pulumi:"schema"`
+	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetMaskingPoliciesResultOutput {
@@ -88,10 +73,14 @@ func GetMaskingPoliciesOutput(ctx *pulumi.Context, args GetMaskingPoliciesOutput
 
 // A collection of arguments for invoking getMaskingPolicies.
 type GetMaskingPoliciesOutputArgs struct {
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the maskingPolicies from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of masking policies
+	In GetMaskingPoliciesInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetMaskingPoliciesLimitPtrInput `pulumi:"limit"`
+	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetMaskingPoliciesOutputArgs) ElementType() reflect.Type {
@@ -113,24 +102,34 @@ func (o GetMaskingPoliciesResultOutput) ToGetMaskingPoliciesResultOutputWithCont
 	return o
 }
 
-// The database from which to return the schemas from.
-func (o GetMaskingPoliciesResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetMaskingPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The maskingPolicies in the schema
+// IN clause to filter the list of masking policies
+func (o GetMaskingPoliciesResultOutput) In() GetMaskingPoliciesInPtrOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) *GetMaskingPoliciesIn { return v.In }).(GetMaskingPoliciesInPtrOutput)
+}
+
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetMaskingPoliciesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetMaskingPoliciesResultOutput) Limit() GetMaskingPoliciesLimitPtrOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) *GetMaskingPoliciesLimit { return v.Limit }).(GetMaskingPoliciesLimitPtrOutput)
+}
+
+// Holds the aggregated output of all views details queries.
 func (o GetMaskingPoliciesResultOutput) MaskingPolicies() GetMaskingPoliciesMaskingPolicyArrayOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) []GetMaskingPoliciesMaskingPolicy { return v.MaskingPolicies }).(GetMaskingPoliciesMaskingPolicyArrayOutput)
 }
 
-// The schema from which to return the maskingPolicies from.
-func (o GetMaskingPoliciesResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMaskingPoliciesResult) string { return v.Schema }).(pulumi.StringOutput)
+// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetMaskingPoliciesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetMaskingPoliciesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

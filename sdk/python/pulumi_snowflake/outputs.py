@@ -98,8 +98,10 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
-    'MaskingPolicySignature',
-    'MaskingPolicySignatureColumn',
+    'MaskingPolicyArgument',
+    'MaskingPolicyDescribeOutput',
+    'MaskingPolicyDescribeOutputSignature',
+    'MaskingPolicyShowOutput',
     'MaterializedViewTag',
     'NetworkPolicyDescribeOutput',
     'NetworkPolicyShowOutput',
@@ -147,7 +149,12 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsShowOutput',
     'ObjectParameterObjectIdentifier',
     'ProcedureArgument',
+    'ResourceMonitorShowOutput',
     'RoleShowOutput',
+    'RowAccessPolicyArgument',
+    'RowAccessPolicyDescribeOutput',
+    'RowAccessPolicyDescribeOutputSignature',
+    'RowAccessPolicyShowOutput',
     'Saml2IntegrationDescribeOutput',
     'Saml2IntegrationDescribeOutputAllowedEmailPattern',
     'Saml2IntegrationDescribeOutputAllowedUserDomain',
@@ -326,7 +333,12 @@ __all__ = [
     'GetGrantsGrantsOnResult',
     'GetGrantsGrantsToResult',
     'GetGrantsGrantsToShareResult',
+    'GetMaskingPoliciesInResult',
+    'GetMaskingPoliciesLimitResult',
     'GetMaskingPoliciesMaskingPolicyResult',
+    'GetMaskingPoliciesMaskingPolicyDescribeOutputResult',
+    'GetMaskingPoliciesMaskingPolicyDescribeOutputSignatureResult',
+    'GetMaskingPoliciesMaskingPolicyShowOutputResult',
     'GetMaterializedViewsMaterializedViewResult',
     'GetNetworkPoliciesNetworkPolicyResult',
     'GetNetworkPoliciesNetworkPolicyDescribeOutputResult',
@@ -335,9 +347,15 @@ __all__ = [
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
+    'GetResourceMonitorsResourceMonitorShowOutputResult',
     'GetRolesRoleResult',
     'GetRolesRoleShowOutputResult',
+    'GetRowAccessPoliciesInResult',
+    'GetRowAccessPoliciesLimitResult',
     'GetRowAccessPoliciesRowAccessPolicyResult',
+    'GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult',
+    'GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignatureResult',
+    'GetRowAccessPoliciesRowAccessPolicyShowOutputResult',
     'GetSchemasInResult',
     'GetSchemasLimitResult',
     'GetSchemasSchemaResult',
@@ -4841,25 +4859,13 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
 
 
 @pulumi.output_type
-class MaskingPolicySignature(dict):
-    def __init__(__self__, *,
-                 columns: Sequence['outputs.MaskingPolicySignatureColumn']):
-        pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Sequence['outputs.MaskingPolicySignatureColumn']:
-        return pulumi.get(self, "columns")
-
-
-@pulumi.output_type
-class MaskingPolicySignatureColumn(dict):
+class MaskingPolicyArgument(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
         """
-        :param str name: Specifies the column name to mask.
-        :param str type: Specifies the column type to mask.
+        :param str name: The argument name
+        :param str type: The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -4868,7 +4874,7 @@ class MaskingPolicySignatureColumn(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the column name to mask.
+        The argument name
         """
         return pulumi.get(self, "name")
 
@@ -4876,9 +4882,186 @@ class MaskingPolicySignatureColumn(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the column type to mask.
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MaskingPolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "returnType":
+            suggest = "return_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaskingPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaskingPolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaskingPolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional[str] = None,
+                 name: Optional[str] = None,
+                 return_type: Optional[str] = None,
+                 signatures: Optional[Sequence['outputs.MaskingPolicyDescribeOutputSignature']] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signatures is not None:
+            pulumi.set(__self__, "signatures", signatures)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> Optional[str]:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Optional[Sequence['outputs.MaskingPolicyDescribeOutputSignature']]:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class MaskingPolicyDescribeOutputSignature(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MaskingPolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "exemptOtherPolicies":
+            suggest = "exempt_other_policies"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaskingPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaskingPolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaskingPolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 exempt_other_policies: Optional[bool] = None,
+                 kind: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 schema_name: Optional[str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if exempt_other_policies is not None:
+            pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> Optional[bool]:
+        return pulumi.get(self, "exempt_other_policies")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -7114,6 +7297,146 @@ class ProcedureArgument(dict):
 
 
 @pulumi.output_type
+class ResourceMonitorShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "creditQuota":
+            suggest = "credit_quota"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "remainingCredits":
+            suggest = "remaining_credits"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "suspendAt":
+            suggest = "suspend_at"
+        elif key == "suspendImmediateAt":
+            suggest = "suspend_immediate_at"
+        elif key == "usedCredits":
+            suggest = "used_credits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceMonitorShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceMonitorShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceMonitorShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 credit_quota: Optional[float] = None,
+                 end_time: Optional[str] = None,
+                 frequency: Optional[str] = None,
+                 level: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 remaining_credits: Optional[float] = None,
+                 start_time: Optional[str] = None,
+                 suspend_at: Optional[int] = None,
+                 suspend_immediate_at: Optional[int] = None,
+                 used_credits: Optional[float] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if credit_quota is not None:
+            pulumi.set(__self__, "credit_quota", credit_quota)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if remaining_credits is not None:
+            pulumi.set(__self__, "remaining_credits", remaining_credits)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if suspend_at is not None:
+            pulumi.set(__self__, "suspend_at", suspend_at)
+        if suspend_immediate_at is not None:
+            pulumi.set(__self__, "suspend_immediate_at", suspend_immediate_at)
+        if used_credits is not None:
+            pulumi.set(__self__, "used_credits", used_credits)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="creditQuota")
+    def credit_quota(self) -> Optional[float]:
+        return pulumi.get(self, "credit_quota")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="remainingCredits")
+    def remaining_credits(self) -> Optional[float]:
+        return pulumi.get(self, "remaining_credits")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="suspendAt")
+    def suspend_at(self) -> Optional[int]:
+        return pulumi.get(self, "suspend_at")
+
+    @property
+    @pulumi.getter(name="suspendImmediateAt")
+    def suspend_immediate_at(self) -> Optional[int]:
+        return pulumi.get(self, "suspend_immediate_at")
+
+    @property
+    @pulumi.getter(name="usedCredits")
+    def used_credits(self) -> Optional[float]:
+        return pulumi.get(self, "used_credits")
+
+
+@pulumi.output_type
 class RoleShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7225,6 +7548,210 @@ class RoleShowOutput(dict):
     @pulumi.getter
     def owner(self) -> Optional[str]:
         return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class RowAccessPolicyArgument(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The argument name
+        :param str type: The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The argument name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RowAccessPolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "returnType":
+            suggest = "return_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RowAccessPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RowAccessPolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RowAccessPolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional[str] = None,
+                 name: Optional[str] = None,
+                 return_type: Optional[str] = None,
+                 signatures: Optional[Sequence['outputs.RowAccessPolicyDescribeOutputSignature']] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signatures is not None:
+            pulumi.set(__self__, "signatures", signatures)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> Optional[str]:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Optional[Sequence['outputs.RowAccessPolicyDescribeOutputSignature']]:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class RowAccessPolicyDescribeOutputSignature(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RowAccessPolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RowAccessPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RowAccessPolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RowAccessPolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 name: Optional[str] = None,
+                 options: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 schema_name: Optional[str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[str]:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -17495,18 +18022,204 @@ class GetGrantsGrantsToShareResult(dict):
 
 
 @pulumi.output_type
+class GetMaskingPoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetMaskingPoliciesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetMaskingPoliciesMaskingPolicyResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetMaskingPoliciesMaskingPolicyShowOutputResult']):
+        """
+        :param Sequence['GetMaskingPoliciesMaskingPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE MASKING POLICY.
+        :param Sequence['GetMaskingPoliciesMaskingPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW MASKING POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE MASKING POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetMaskingPoliciesMaskingPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW MASKING POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetMaskingPoliciesMaskingPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 body: str,
+                 name: str,
+                 return_type: str,
+                 signatures: Sequence['outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputSignatureResult']):
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "signatures", signatures)
+
+    @property
+    @pulumi.getter
+    def body(self) -> str:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> str:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Sequence['outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputSignatureResult']:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class GetMaskingPoliciesMaskingPolicyDescribeOutputSignatureResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetMaskingPoliciesMaskingPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
                  comment: str,
-                 database: str,
+                 created_on: str,
+                 database_name: str,
+                 exempt_other_policies: bool,
                  kind: str,
                  name: str,
-                 schema: str):
+                 owner: str,
+                 owner_role_type: str,
+                 schema_name: str):
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "exempt_other_policies", exempt_other_policies)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
 
     @property
     @pulumi.getter
@@ -17514,9 +18227,19 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
         return pulumi.get(self, "comment")
 
     @property
-    @pulumi.getter
-    def database(self) -> str:
-        return pulumi.get(self, "database")
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="exemptOtherPolicies")
+    def exempt_other_policies(self) -> bool:
+        return pulumi.get(self, "exempt_other_policies")
 
     @property
     @pulumi.getter
@@ -17530,8 +18253,18 @@ class GetMaskingPoliciesMaskingPolicyResult(dict):
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
-        return pulumi.get(self, "schema")
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -17835,14 +18568,50 @@ class GetProceduresProcedureResult(dict):
 @pulumi.output_type
 class GetResourceMonitorsResourceMonitorResult(dict):
     def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetResourceMonitorsResourceMonitorShowOutputResult']):
+        """
+        :param Sequence['GetResourceMonitorsResourceMonitorShowOutputArgs'] show_outputs: Holds the output of SHOW RESOURCE MONITORS.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetResourceMonitorsResourceMonitorShowOutputResult']:
+        """
+        Holds the output of SHOW RESOURCE MONITORS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetResourceMonitorsResourceMonitorShowOutputResult(dict):
+    def __init__(__self__, *,
                  comment: str,
-                 credit_quota: str,
+                 created_on: str,
+                 credit_quota: float,
+                 end_time: str,
                  frequency: str,
-                 name: str):
+                 level: str,
+                 name: str,
+                 owner: str,
+                 remaining_credits: float,
+                 start_time: str,
+                 suspend_at: int,
+                 suspend_immediate_at: int,
+                 used_credits: float):
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "credit_quota", credit_quota)
+        pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "remaining_credits", remaining_credits)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "suspend_at", suspend_at)
+        pulumi.set(__self__, "suspend_immediate_at", suspend_immediate_at)
+        pulumi.set(__self__, "used_credits", used_credits)
 
     @property
     @pulumi.getter
@@ -17850,9 +18619,19 @@ class GetResourceMonitorsResourceMonitorResult(dict):
         return pulumi.get(self, "comment")
 
     @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
     @pulumi.getter(name="creditQuota")
-    def credit_quota(self) -> str:
+    def credit_quota(self) -> float:
         return pulumi.get(self, "credit_quota")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter
@@ -17861,8 +18640,43 @@ class GetResourceMonitorsResourceMonitorResult(dict):
 
     @property
     @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="remainingCredits")
+    def remaining_credits(self) -> float:
+        return pulumi.get(self, "remaining_credits")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="suspendAt")
+    def suspend_at(self) -> int:
+        return pulumi.get(self, "suspend_at")
+
+    @property
+    @pulumi.getter(name="suspendImmediateAt")
+    def suspend_immediate_at(self) -> int:
+        return pulumi.get(self, "suspend_immediate_at")
+
+    @property
+    @pulumi.getter(name="usedCredits")
+    def used_credits(self) -> float:
+        return pulumi.get(self, "used_credits")
 
 
 @pulumi.output_type
@@ -17959,26 +18773,171 @@ class GetRolesRoleShowOutputResult(dict):
 
 
 @pulumi.output_type
+class GetRowAccessPoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetRowAccessPoliciesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetRowAccessPoliciesRowAccessPolicyResult(dict):
     def __init__(__self__, *,
-                 comment: str,
-                 database: str,
+                 describe_outputs: Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyShowOutputResult']):
+        """
+        :param Sequence['GetRowAccessPoliciesRowAccessPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE ROW ACCESS POLICY.
+        :param Sequence['GetRowAccessPoliciesRowAccessPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW ROW ACCESS POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE ROW ACCESS POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW ROW ACCESS POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetRowAccessPoliciesRowAccessPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 body: str,
                  name: str,
-                 schema: str):
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+                 return_type: str,
+                 signatures: Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignatureResult']):
+        pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "signatures", signatures)
 
     @property
     @pulumi.getter
-    def comment(self) -> str:
-        return pulumi.get(self, "comment")
+    def body(self) -> str:
+        return pulumi.get(self, "body")
 
     @property
     @pulumi.getter
-    def database(self) -> str:
-        return pulumi.get(self, "database")
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> str:
+        return pulumi.get(self, "return_type")
+
+    @property
+    @pulumi.getter
+    def signatures(self) -> Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignatureResult']:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class GetRowAccessPoliciesRowAccessPolicyDescribeOutputSignatureResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -17987,8 +18946,76 @@ class GetRowAccessPoliciesRowAccessPolicyResult(dict):
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
-        return pulumi.get(self, "schema")
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetRowAccessPoliciesRowAccessPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 created_on: str,
+                 database_name: str,
+                 kind: str,
+                 name: str,
+                 options: str,
+                 owner: str,
+                 owner_role_type: str,
+                 schema_name: str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> str:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type

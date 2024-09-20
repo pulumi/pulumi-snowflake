@@ -991,6 +991,142 @@ export interface GetGrantsGrantsToShareArgs {
     shareName: pulumi.Input<string>;
 }
 
+export interface GetMaskingPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetMaskingPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetMaskingPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetMaskingPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetRowAccessPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetRowAccessPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetRowAccessPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetRowAccessPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetSchemasIn {
     /**
      * Returns records for the entire account.
@@ -1353,19 +1489,39 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     objectTypePlural: pulumi.Input<string>;
 }
 
-export interface MaskingPolicySignature {
-    columns: pulumi.Input<pulumi.Input<inputs.MaskingPolicySignatureColumn>[]>;
-}
-
-export interface MaskingPolicySignatureColumn {
+export interface MaskingPolicyArgument {
     /**
-     * Specifies the column name to mask.
+     * The argument name
      */
     name: pulumi.Input<string>;
     /**
-     * Specifies the column type to mask.
+     * The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     type: pulumi.Input<string>;
+}
+
+export interface MaskingPolicyDescribeOutput {
+    body?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    returnType?: pulumi.Input<string>;
+    signatures?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyDescribeOutputSignature>[]>;
+}
+
+export interface MaskingPolicyDescribeOutputSignature {
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface MaskingPolicyShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    exemptOtherPolicies?: pulumi.Input<boolean>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
 }
 
 export interface MaterializedViewTag {
@@ -1781,6 +1937,22 @@ export interface ProviderTokenAccessor {
     tokenEndpoint: pulumi.Input<string>;
 }
 
+export interface ResourceMonitorShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    creditQuota?: pulumi.Input<number>;
+    endTime?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    remainingCredits?: pulumi.Input<number>;
+    startTime?: pulumi.Input<string>;
+    suspendAt?: pulumi.Input<number>;
+    suspendImmediateAt?: pulumi.Input<number>;
+    usedCredits?: pulumi.Input<number>;
+}
+
 export interface RoleShowOutput {
     assignedToUsers?: pulumi.Input<number>;
     comment?: pulumi.Input<string>;
@@ -1792,6 +1964,41 @@ export interface RoleShowOutput {
     isInherited?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
+}
+
+export interface RowAccessPolicyArgument {
+    /**
+     * The argument name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface RowAccessPolicyDescribeOutput {
+    body?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    returnType?: pulumi.Input<string>;
+    signatures?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyDescribeOutputSignature>[]>;
+}
+
+export interface RowAccessPolicyDescribeOutputSignature {
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface RowAccessPolicyShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    options?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
 }
 
 export interface Saml2IntegrationDescribeOutput {

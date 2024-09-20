@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -42,65 +44,49 @@ export class ResourceMonitor extends pulumi.CustomResource {
     }
 
     /**
-     * The number of credits allocated monthly to the resource monitor.
+     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
-    public readonly creditQuota!: pulumi.Output<number>;
+    public readonly creditQuota!: pulumi.Output<number | undefined>;
     /**
      * The date and time when the resource monitor suspends the assigned warehouses.
      */
     public readonly endTimestamp!: pulumi.Output<string | undefined>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    public readonly frequency!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account.
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of percentage thresholds at which to send an alert to subscribed users.
+     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
     public readonly notifyTriggers!: pulumi.Output<number[] | undefined>;
     /**
-     * Specifies the list of users to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
      */
     public readonly notifyUsers!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
+     * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
-    public readonly setForAccount!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ResourceMonitorShowOutput[]>;
     /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    public readonly startTimestamp!: pulumi.Output<string>;
+    public readonly startTimestamp!: pulumi.Output<string | undefined>;
     /**
-     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     public readonly suspendImmediateTrigger!: pulumi.Output<number | undefined>;
     /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendImmediateTrigger instead
-     */
-    public readonly suspendImmediateTriggers!: pulumi.Output<number[] | undefined>;
-    /**
-     * The number that represents the percentage threshold at which to suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     public readonly suspendTrigger!: pulumi.Output<number | undefined>;
-    /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendTrigger instead
-     */
-    public readonly suspendTriggers!: pulumi.Output<number[] | undefined>;
-    /**
-     * A list of warehouses to apply the resource monitor to.
-     */
-    public readonly warehouses!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ResourceMonitor resource with the given unique name, arguments, and options.
@@ -122,13 +108,10 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
             resourceInputs["notifyUsers"] = state ? state.notifyUsers : undefined;
-            resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
             resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
             resourceInputs["suspendImmediateTrigger"] = state ? state.suspendImmediateTrigger : undefined;
-            resourceInputs["suspendImmediateTriggers"] = state ? state.suspendImmediateTriggers : undefined;
             resourceInputs["suspendTrigger"] = state ? state.suspendTrigger : undefined;
-            resourceInputs["suspendTriggers"] = state ? state.suspendTriggers : undefined;
-            resourceInputs["warehouses"] = state ? state.warehouses : undefined;
         } else {
             const args = argsOrState as ResourceMonitorArgs | undefined;
             resourceInputs["creditQuota"] = args ? args.creditQuota : undefined;
@@ -137,14 +120,11 @@ export class ResourceMonitor extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
             resourceInputs["notifyUsers"] = args ? args.notifyUsers : undefined;
-            resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
             resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
             resourceInputs["suspendImmediateTrigger"] = args ? args.suspendImmediateTrigger : undefined;
-            resourceInputs["suspendImmediateTriggers"] = args ? args.suspendImmediateTriggers : undefined;
             resourceInputs["suspendTrigger"] = args ? args.suspendTrigger : undefined;
-            resourceInputs["suspendTriggers"] = args ? args.suspendTriggers : undefined;
-            resourceInputs["warehouses"] = args ? args.warehouses : undefined;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceMonitor.__pulumiType, name, resourceInputs, opts);
@@ -156,7 +136,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
  */
 export interface ResourceMonitorState {
     /**
-     * The number of credits allocated monthly to the resource monitor.
+     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
     creditQuota?: pulumi.Input<number>;
     /**
@@ -164,7 +144,7 @@ export interface ResourceMonitorState {
      */
     endTimestamp?: pulumi.Input<string>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
     frequency?: pulumi.Input<string>;
     /**
@@ -172,49 +152,33 @@ export interface ResourceMonitorState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account.
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of percentage thresholds at which to send an alert to subscribed users.
+     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies the list of users to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
+     * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
-    setForAccount?: pulumi.Input<boolean>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ResourceMonitorShowOutput>[]>;
     /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
     startTimestamp?: pulumi.Input<string>;
     /**
-     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     suspendImmediateTrigger?: pulumi.Input<number>;
     /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendImmediateTrigger instead
-     */
-    suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * The number that represents the percentage threshold at which to suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     suspendTrigger?: pulumi.Input<number>;
-    /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendTrigger instead
-     */
-    suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * A list of warehouses to apply the resource monitor to.
-     */
-    warehouses?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -222,7 +186,7 @@ export interface ResourceMonitorState {
  */
 export interface ResourceMonitorArgs {
     /**
-     * The number of credits allocated monthly to the resource monitor.
+     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
     creditQuota?: pulumi.Input<number>;
     /**
@@ -230,51 +194,31 @@ export interface ResourceMonitorArgs {
      */
     endTimestamp?: pulumi.Input<string>;
     /**
-     * The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.
+     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
     frequency?: pulumi.Input<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account.
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of percentage thresholds at which to send an alert to subscribed users.
+     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies the list of users to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).
-     */
-    setForAccount?: pulumi.Input<boolean>;
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
     startTimestamp?: pulumi.Input<string>;
     /**
-     * The number that represents the percentage threshold at which to immediately suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     suspendImmediateTrigger?: pulumi.Input<number>;
     /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendImmediateTrigger instead
-     */
-    suspendImmediateTriggers?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * The number that represents the percentage threshold at which to suspend all warehouses.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
     suspendTrigger?: pulumi.Input<number>;
-    /**
-     * A list of percentage thresholds at which to suspend all warehouses.
-     *
-     * @deprecated Use suspendTrigger instead
-     */
-    suspendTriggers?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * A list of warehouses to apply the resource monitor to.
-     */
-    warehouses?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -22,10 +22,13 @@ class GetResourceMonitorsResult:
     """
     A collection of values returned by getResourceMonitors.
     """
-    def __init__(__self__, id=None, resource_monitors=None):
+    def __init__(__self__, id=None, like=None, resource_monitors=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
         if resource_monitors and not isinstance(resource_monitors, list):
             raise TypeError("Expected argument 'resource_monitors' to be a list")
         pulumi.set(__self__, "resource_monitors", resource_monitors)
@@ -39,10 +42,18 @@ class GetResourceMonitorsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def like(self) -> Optional[str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
+        return pulumi.get(self, "like")
+
+    @property
     @pulumi.getter(name="resourceMonitors")
     def resource_monitors(self) -> Sequence['outputs.GetResourceMonitorsResourceMonitorResult']:
         """
-        The resource monitors in the database
+        Holds the aggregated output of all resource monitor details queries.
         """
         return pulumi.get(self, "resource_monitors")
 
@@ -54,39 +65,40 @@ class AwaitableGetResourceMonitorsResult(GetResourceMonitorsResult):
             yield self
         return GetResourceMonitorsResult(
             id=self.id,
+            like=self.like,
             resource_monitors=self.resource_monitors)
 
 
-def get_resource_monitors(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceMonitorsResult:
+def get_resource_monitors(like: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceMonitorsResult:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
+    Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
 
-    current = snowflake.get_resource_monitors()
-    ```
+
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
+    __args__['like'] = like
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getResourceMonitors:getResourceMonitors', __args__, opts=opts, typ=GetResourceMonitorsResult).value
 
     return AwaitableGetResourceMonitorsResult(
         id=pulumi.get(__ret__, 'id'),
+        like=pulumi.get(__ret__, 'like'),
         resource_monitors=pulumi.get(__ret__, 'resource_monitors'))
 
 
 @_utilities.lift_output_func(get_resource_monitors)
-def get_resource_monitors_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceMonitorsResult]:
+def get_resource_monitors_output(like: Optional[pulumi.Input[Optional[str]]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceMonitorsResult]:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
+    Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
 
-    current = snowflake.get_resource_monitors()
-    ```
+
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     ...

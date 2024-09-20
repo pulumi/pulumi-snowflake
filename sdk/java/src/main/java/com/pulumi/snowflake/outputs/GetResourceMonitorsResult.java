@@ -9,6 +9,8 @@ import com.pulumi.snowflake.outputs.GetResourceMonitorsResourceMonitor;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResourceMonitorsResult {
@@ -18,7 +20,12 @@ public final class GetResourceMonitorsResult {
      */
     private String id;
     /**
-     * @return The resource monitors in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all resource monitor details queries.
      * 
      */
     private List<GetResourceMonitorsResourceMonitor> resourceMonitors;
@@ -32,7 +39,14 @@ public final class GetResourceMonitorsResult {
         return this.id;
     }
     /**
-     * @return The resource monitors in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all resource monitor details queries.
      * 
      */
     public List<GetResourceMonitorsResourceMonitor> resourceMonitors() {
@@ -49,11 +63,13 @@ public final class GetResourceMonitorsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable String like;
         private List<GetResourceMonitorsResourceMonitor> resourceMonitors;
         public Builder() {}
         public Builder(GetResourceMonitorsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.like = defaults.like;
     	      this.resourceMonitors = defaults.resourceMonitors;
         }
 
@@ -63,6 +79,12 @@ public final class GetResourceMonitorsResult {
               throw new MissingRequiredPropertyException("GetResourceMonitorsResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -79,6 +101,7 @@ public final class GetResourceMonitorsResult {
         public GetResourceMonitorsResult build() {
             final var _resultValue = new GetResourceMonitorsResult();
             _resultValue.id = id;
+            _resultValue.like = like;
             _resultValue.resourceMonitors = resourceMonitors;
             return _resultValue;
         }

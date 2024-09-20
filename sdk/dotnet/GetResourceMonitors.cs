@@ -12,42 +12,49 @@ namespace Pulumi.Snowflake
     public static class GetResourceMonitors
     {
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetResourceMonitors.Invoke();
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
         /// </summary>
-        public static Task<GetResourceMonitorsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetResourceMonitorsResult> InvokeAsync(GetResourceMonitorsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", args ?? new GetResourceMonitorsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetResourceMonitors.Invoke();
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
         /// </summary>
-        public static Output<GetResourceMonitorsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetResourceMonitorsResult> Invoke(GetResourceMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", args ?? new GetResourceMonitorsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetResourceMonitorsArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public string? Like { get; set; }
+
+        public GetResourceMonitorsArgs()
+        {
+        }
+        public static new GetResourceMonitorsArgs Empty => new GetResourceMonitorsArgs();
+    }
+
+    public sealed class GetResourceMonitorsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        public GetResourceMonitorsInvokeArgs()
+        {
+        }
+        public static new GetResourceMonitorsInvokeArgs Empty => new GetResourceMonitorsInvokeArgs();
     }
 
 
@@ -59,7 +66,11 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The resource monitors in the database
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all resource monitor details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResourceMonitorsResourceMonitorResult> ResourceMonitors;
 
@@ -67,9 +78,12 @@ namespace Pulumi.Snowflake
         private GetResourceMonitorsResult(
             string id,
 
+            string? like,
+
             ImmutableArray<Outputs.GetResourceMonitorsResourceMonitorResult> resourceMonitors)
         {
             Id = id;
+            Like = like;
             ResourceMonitors = resourceMonitors;
         }
     }

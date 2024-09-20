@@ -38,7 +38,7 @@ class ViewArgs:
         :param pulumi.Input[str] statement: Specifies the query used to create the view.
         :param pulumi.Input['ViewAggregationPolicyArgs'] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
@@ -139,7 +139,7 @@ class ViewArgs:
     @pulumi.getter
     def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]]]:
         """
-        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         """
         return pulumi.get(self, "columns")
 
@@ -275,7 +275,7 @@ class _ViewState:
         Input properties used for looking up and filtering View resources.
         :param pulumi.Input['ViewAggregationPolicyArgs'] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
@@ -355,7 +355,7 @@ class _ViewState:
     @pulumi.getter
     def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]]]:
         """
-        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         """
         return pulumi.get(self, "columns")
 
@@ -570,7 +570,7 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
@@ -695,7 +695,7 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[str] comment: Specifies a comment for the view.
         :param pulumi.Input[bool] copy_grants: Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
@@ -754,7 +754,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def columns(self) -> pulumi.Output[Optional[Sequence['outputs.ViewColumn']]]:
         """
-        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+        If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         """
         return pulumi.get(self, "columns")
 

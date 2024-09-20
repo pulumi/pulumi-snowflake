@@ -2919,29 +2919,16 @@
                 "objectTypePlural"
             ]
         },
-        "snowflake:index/MaskingPolicySignature:MaskingPolicySignature": {
-            "properties": {
-                "columns": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/snowflake:index/MaskingPolicySignatureColumn:MaskingPolicySignatureColumn"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "columns"
-            ]
-        },
-        "snowflake:index/MaskingPolicySignatureColumn:MaskingPolicySignatureColumn": {
+        "snowflake:index/MaskingPolicyArgument:MaskingPolicyArgument": {
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Specifies the column name to mask.\n"
+                    "description": "The argument name\n",
+                    "willReplaceOnChanges": true
                 },
                 "type": {
                     "type": "string",
-                    "description": "Specifies the column type to mask.\n",
+                    "description": "The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2950,6 +2937,102 @@
                 "name",
                 "type"
             ]
+        },
+        "snowflake:index/MaskingPolicyDescribeOutput:MaskingPolicyDescribeOutput": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "returnType": {
+                    "type": "string"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicyDescribeOutputSignature:MaskingPolicyDescribeOutputSignature"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "body",
+                        "name",
+                        "returnType",
+                        "signatures"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/MaskingPolicyDescribeOutputSignature:MaskingPolicyDescribeOutputSignature": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/MaskingPolicyShowOutput:MaskingPolicyShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "exemptOtherPolicies": {
+                    "type": "boolean"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comment",
+                        "createdOn",
+                        "databaseName",
+                        "exemptOtherPolicies",
+                        "kind",
+                        "name",
+                        "owner",
+                        "ownerRoleType",
+                        "schemaName"
+                    ]
+                }
+            }
         },
         "snowflake:index/MaterializedViewTag:MaterializedViewTag": {
             "properties": {
@@ -4508,6 +4591,69 @@
                 }
             }
         },
+        "snowflake:index/ResourceMonitorShowOutput:ResourceMonitorShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "creditQuota": {
+                    "type": "number"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "frequency": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "remainingCredits": {
+                    "type": "number"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "suspendAt": {
+                    "type": "integer"
+                },
+                "suspendImmediateAt": {
+                    "type": "integer"
+                },
+                "usedCredits": {
+                    "type": "number"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comment",
+                        "createdOn",
+                        "creditQuota",
+                        "endTime",
+                        "frequency",
+                        "level",
+                        "name",
+                        "owner",
+                        "remainingCredits",
+                        "startTime",
+                        "suspendAt",
+                        "suspendImmediateAt",
+                        "usedCredits"
+                    ]
+                }
+            }
+        },
         "snowflake:index/RoleShowOutput:RoleShowOutput": {
             "properties": {
                 "assignedToUsers": {
@@ -4555,6 +4701,121 @@
                         "isInherited",
                         "name",
                         "owner"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/RowAccessPolicyArgument:RowAccessPolicyArgument": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The argument name\n",
+                    "willReplaceOnChanges": true
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ]
+        },
+        "snowflake:index/RowAccessPolicyDescribeOutput:RowAccessPolicyDescribeOutput": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "returnType": {
+                    "type": "string"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RowAccessPolicyDescribeOutputSignature:RowAccessPolicyDescribeOutputSignature"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "body",
+                        "name",
+                        "returnType",
+                        "signatures"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/RowAccessPolicyDescribeOutputSignature:RowAccessPolicyDescribeOutputSignature": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/RowAccessPolicyShowOutput:RowAccessPolicyShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comment",
+                        "createdOn",
+                        "databaseName",
+                        "kind",
+                        "name",
+                        "options",
+                        "owner",
+                        "ownerRoleType",
+                        "schemaName"
                     ]
                 }
             }
@@ -11012,13 +11273,139 @@
                 "shareName"
             ]
         },
+        "snowflake:index/getMaskingPoliciesIn:getMaskingPoliciesIn": {
+            "properties": {
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "application": {
+                    "type": "string",
+                    "description": "Returns records for the specified application.\n"
+                },
+                "applicationPackage": {
+                    "type": "string",
+                    "description": "Returns records for the specified application package.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Returns records for the current database in use or for a specified database.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Returns records for the current schema in use or a specified schema. Use fully qualified name.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getMaskingPoliciesLimit:getMaskingPoliciesLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
         "snowflake:index/getMaskingPoliciesMaskingPolicy:getMaskingPoliciesMaskingPolicy": {
+            "properties": {
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesMaskingPolicyDescribeOutput:getMaskingPoliciesMaskingPolicyDescribeOutput"
+                    },
+                    "description": "Holds the output of DESCRIBE MASKING POLICY.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesMaskingPolicyShowOutput:getMaskingPoliciesMaskingPolicyShowOutput"
+                    },
+                    "description": "Holds the output of SHOW MASKING POLICIES.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "describeOutputs",
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getMaskingPoliciesMaskingPolicyDescribeOutput:getMaskingPoliciesMaskingPolicyDescribeOutput": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "returnType": {
+                    "type": "string"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesMaskingPolicyDescribeOutputSignature:getMaskingPoliciesMaskingPolicyDescribeOutputSignature"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "body",
+                "name",
+                "returnType",
+                "signatures"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getMaskingPoliciesMaskingPolicyDescribeOutputSignature:getMaskingPoliciesMaskingPolicyDescribeOutputSignature": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getMaskingPoliciesMaskingPolicyShowOutput:getMaskingPoliciesMaskingPolicyShowOutput": {
             "properties": {
                 "comment": {
                     "type": "string"
                 },
-                "database": {
+                "createdOn": {
                     "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "exemptOtherPolicies": {
+                    "type": "boolean"
                 },
                 "kind": {
                     "type": "string"
@@ -11026,17 +11413,27 @@
                 "name": {
                     "type": "string"
                 },
-                "schema": {
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
                     "type": "string"
                 }
             },
             "type": "object",
             "required": [
                 "comment",
-                "database",
+                "createdOn",
+                "databaseName",
+                "exemptOtherPolicies",
                 "kind",
                 "name",
-                "schema"
+                "owner",
+                "ownerRoleType",
+                "schemaName"
             ],
             "language": {
                 "nodejs": {
@@ -11278,25 +11675,81 @@
         },
         "snowflake:index/getResourceMonitorsResourceMonitor:getResourceMonitorsResourceMonitor": {
             "properties": {
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getResourceMonitorsResourceMonitorShowOutput:getResourceMonitorsResourceMonitorShowOutput"
+                    },
+                    "description": "Holds the output of SHOW RESOURCE MONITORS.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getResourceMonitorsResourceMonitorShowOutput:getResourceMonitorsResourceMonitorShowOutput": {
+            "properties": {
                 "comment": {
                     "type": "string"
                 },
+                "createdOn": {
+                    "type": "string"
+                },
                 "creditQuota": {
+                    "type": "number"
+                },
+                "endTime": {
                     "type": "string"
                 },
                 "frequency": {
                     "type": "string"
                 },
+                "level": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "remainingCredits": {
+                    "type": "number"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "suspendAt": {
+                    "type": "integer"
+                },
+                "suspendImmediateAt": {
+                    "type": "integer"
+                },
+                "usedCredits": {
+                    "type": "number"
                 }
             },
             "type": "object",
             "required": [
                 "comment",
+                "createdOn",
                 "creditQuota",
+                "endTime",
                 "frequency",
-                "name"
+                "level",
+                "name",
+                "owner",
+                "remainingCredits",
+                "startTime",
+                "suspendAt",
+                "suspendImmediateAt",
+                "usedCredits"
             ],
             "language": {
                 "nodejs": {
@@ -11376,27 +11829,167 @@
                 }
             }
         },
-        "snowflake:index/getRowAccessPoliciesRowAccessPolicy:getRowAccessPoliciesRowAccessPolicy": {
+        "snowflake:index/getRowAccessPoliciesIn:getRowAccessPoliciesIn": {
             "properties": {
-                "comment": {
-                    "type": "string"
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "application": {
+                    "type": "string",
+                    "description": "Returns records for the specified application.\n"
+                },
+                "applicationPackage": {
+                    "type": "string",
+                    "description": "Returns records for the specified application package.\n"
                 },
                 "database": {
+                    "type": "string",
+                    "description": "Returns records for the current database in use or for a specified database.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Returns records for the current schema in use or a specified schema. Use fully qualified name.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getRowAccessPoliciesLimit:getRowAccessPoliciesLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
+        "snowflake:index/getRowAccessPoliciesRowAccessPolicy:getRowAccessPoliciesRowAccessPolicy": {
+            "properties": {
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesRowAccessPolicyDescribeOutput:getRowAccessPoliciesRowAccessPolicyDescribeOutput"
+                    },
+                    "description": "Holds the output of DESCRIBE ROW ACCESS POLICY.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesRowAccessPolicyShowOutput:getRowAccessPoliciesRowAccessPolicyShowOutput"
+                    },
+                    "description": "Holds the output of SHOW ROW ACCESS POLICIES.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "describeOutputs",
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getRowAccessPoliciesRowAccessPolicyDescribeOutput:getRowAccessPoliciesRowAccessPolicyDescribeOutput": {
+            "properties": {
+                "body": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
-                "schema": {
+                "returnType": {
+                    "type": "string"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesRowAccessPolicyDescribeOutputSignature:getRowAccessPoliciesRowAccessPolicyDescribeOutputSignature"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "body",
+                "name",
+                "returnType",
+                "signatures"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getRowAccessPoliciesRowAccessPolicyDescribeOutputSignature:getRowAccessPoliciesRowAccessPolicyDescribeOutputSignature": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getRowAccessPoliciesRowAccessPolicyShowOutput:getRowAccessPoliciesRowAccessPolicyShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
                     "type": "string"
                 }
             },
             "type": "object",
             "required": [
                 "comment",
-                "database",
+                "createdOn",
+                "databaseName",
+                "kind",
                 "name",
-                "schema"
+                "options",
+                "owner",
+                "ownerRoleType",
+                "schemaName"
             ],
             "language": {
                 "nodejs": {
@@ -23406,163 +23999,182 @@
             }
         },
         "snowflake:index/maskingPolicy:MaskingPolicy": {
-            "description": "\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example 'dbName|schemaName|policyName'\n```\n\n",
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\".\"\u003cmasking_policy_name\u003e\"'\n```\n\n",
             "properties": {
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicyArgument:MaskingPolicyArgument"
+                    },
+                    "description": "List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.\n"
+                },
+                "body": {
+                    "type": "string",
+                    "description": "Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                },
                 "comment": {
                     "type": "string",
                     "description": "Specifies a comment for the masking policy.\n"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The database in which to create the masking policy.\n"
+                    "description": "The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
+                },
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicyDescribeOutput:MaskingPolicyDescribeOutput"
+                    },
+                    "description": "Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.\n"
                 },
                 "exemptOtherPolicies": {
-                    "type": "boolean",
-                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
+                    "type": "string",
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 },
                 "fullyQualifiedName": {
                     "type": "string",
                     "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
                 },
-                "ifNotExists": {
-                    "type": "boolean",
-                    "description": "Prevent overwriting a previous masking policy with the same name.\n"
-                },
-                "maskingExpression": {
-                    "type": "string",
-                    "description": "Specifies the SQL expression that transforms the data.\n"
-                },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
-                },
-                "orReplace": {
-                    "type": "boolean",
-                    "description": "Whether to override a previous masking policy with the same name.\n"
+                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
                 "returnDataType": {
                     "type": "string",
-                    "description": "Specifies the data type to return.\n"
+                    "description": "The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).\n"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema in which to create the masking policy.\n"
+                    "description": "The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
-                "signature": {
-                    "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
-                    "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicyShowOutput:MaskingPolicyShowOutput"
+                    },
+                    "description": "Outputs the result of `SHOW MASKING POLICY` for the given masking policy.\n"
                 }
             },
             "required": [
+                "arguments",
+                "body",
                 "database",
+                "describeOutputs",
                 "fullyQualifiedName",
-                "maskingExpression",
                 "name",
                 "returnDataType",
                 "schema",
-                "signature"
+                "showOutputs"
             ],
             "inputProperties": {
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/MaskingPolicyArgument:MaskingPolicyArgument"
+                    },
+                    "description": "List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.\n",
+                    "willReplaceOnChanges": true
+                },
+                "body": {
+                    "type": "string",
+                    "description": "Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                },
                 "comment": {
                     "type": "string",
                     "description": "Specifies a comment for the masking policy.\n"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The database in which to create the masking policy.\n",
+                    "description": "The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                     "willReplaceOnChanges": true
                 },
                 "exemptOtherPolicies": {
-                    "type": "boolean",
-                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
-                },
-                "ifNotExists": {
-                    "type": "boolean",
-                    "description": "Prevent overwriting a previous masking policy with the same name.\n"
-                },
-                "maskingExpression": {
                     "type": "string",
-                    "description": "Specifies the SQL expression that transforms the data.\n"
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
+                    "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
-                },
-                "orReplace": {
-                    "type": "boolean",
-                    "description": "Whether to override a previous masking policy with the same name.\n"
+                    "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
                 "returnDataType": {
                     "type": "string",
-                    "description": "Specifies the data type to return.\n",
+                    "description": "The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).\n",
                     "willReplaceOnChanges": true
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema in which to create the masking policy.\n",
+                    "description": "The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                     "willReplaceOnChanges": true
-                },
-                "signature": {
-                    "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
-                    "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
                 }
             },
             "requiredInputs": [
+                "arguments",
+                "body",
                 "database",
-                "maskingExpression",
                 "returnDataType",
-                "schema",
-                "signature"
+                "schema"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering MaskingPolicy resources.\n",
                 "properties": {
+                    "arguments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/MaskingPolicyArgument:MaskingPolicyArgument"
+                        },
+                        "description": "List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                    },
                     "comment": {
                         "type": "string",
                         "description": "Specifies a comment for the masking policy.\n"
                     },
                     "database": {
                         "type": "string",
-                        "description": "The database in which to create the masking policy.\n",
+                        "description": "The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                         "willReplaceOnChanges": true
                     },
+                    "describeOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/MaskingPolicyDescribeOutput:MaskingPolicyDescribeOutput"
+                        },
+                        "description": "Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.\n"
+                    },
                     "exemptOtherPolicies": {
-                        "type": "boolean",
-                        "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy.\n"
+                        "type": "string",
+                        "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
+                        "willReplaceOnChanges": true
                     },
                     "fullyQualifiedName": {
                         "type": "string",
                         "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
                     },
-                    "ifNotExists": {
-                        "type": "boolean",
-                        "description": "Prevent overwriting a previous masking policy with the same name.\n"
-                    },
-                    "maskingExpression": {
-                        "type": "string",
-                        "description": "Specifies the SQL expression that transforms the data.\n"
-                    },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created.\n"
-                    },
-                    "orReplace": {
-                        "type": "boolean",
-                        "description": "Whether to override a previous masking policy with the same name.\n"
+                        "description": "Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                     },
                     "returnDataType": {
                         "type": "string",
-                        "description": "Specifies the data type to return.\n",
+                        "description": "The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).\n",
                         "willReplaceOnChanges": true
                     },
                     "schema": {
                         "type": "string",
-                        "description": "The schema in which to create the masking policy.\n",
+                        "description": "The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                         "willReplaceOnChanges": true
                     },
-                    "signature": {
-                        "$ref": "#/types/snowflake:index/MaskingPolicySignature:MaskingPolicySignature",
-                        "description": "The signature for the masking policy; specifies the input columns and data types to evaluate at query runtime.\n"
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/MaskingPolicyShowOutput:MaskingPolicyShowOutput"
+                        },
+                        "description": "Outputs the result of `SHOW MASKING POLICY` for the given masking policy.\n"
                     }
                 },
                 "type": "object"
@@ -25759,7 +26371,7 @@
             "properties": {
                 "creditQuota": {
                     "type": "integer",
-                    "description": "The number of credits allocated monthly to the resource monitor.\n"
+                    "description": "The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.\n"
                 },
                 "endTimestamp": {
                     "type": "string",
@@ -25767,7 +26379,7 @@
                 },
                 "frequency": {
                     "type": "string",
-                    "description": "The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.\n"
+                    "description": "The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                 },
                 "fullyQualifiedName": {
                     "type": "string",
@@ -25775,73 +26387,51 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Identifier for the resource monitor; must be unique for your account.\n"
+                    "description": "Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
                 "notifyTriggers": {
                     "type": "array",
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
+                    "description": "Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.\n"
                 },
                 "notifyUsers": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the list of users to receive email notifications on resource monitors.\n"
+                    "description": "Specifies the list of users (their identifiers) to receive email notifications on resource monitors.\n"
                 },
-                "setForAccount": {
-                    "type": "boolean",
-                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ResourceMonitorShowOutput:ResourceMonitorShowOutput"
+                    },
+                    "description": "Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.\n"
                 },
                 "startTimestamp": {
                     "type": "string",
-                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                 },
                 "suspendImmediateTrigger": {
                     "type": "integer",
-                    "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
-                },
-                "suspendImmediateTriggers": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                    "deprecationMessage": "Use suspend_immediate_trigger instead"
+                    "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                 },
                 "suspendTrigger": {
                     "type": "integer",
-                    "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
-                },
-                "suspendTriggers": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                    "deprecationMessage": "Use suspend_trigger instead"
-                },
-                "warehouses": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of warehouses to apply the resource monitor to.\n"
+                    "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                 }
             },
             "required": [
-                "creditQuota",
-                "frequency",
                 "fullyQualifiedName",
                 "name",
-                "startTimestamp"
+                "showOutputs"
             ],
             "inputProperties": {
                 "creditQuota": {
                     "type": "integer",
-                    "description": "The number of credits allocated monthly to the resource monitor.\n"
+                    "description": "The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.\n"
                 },
                 "endTimestamp": {
                     "type": "string",
@@ -25849,11 +26439,11 @@
                 },
                 "frequency": {
                     "type": "string",
-                    "description": "The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.\n"
+                    "description": "The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Identifier for the resource monitor; must be unique for your account.\n",
+                    "description": "Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                     "willReplaceOnChanges": true
                 },
                 "notifyTriggers": {
@@ -25861,53 +26451,26 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
+                    "description": "Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.\n"
                 },
                 "notifyUsers": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the list of users to receive email notifications on resource monitors.\n"
-                },
-                "setForAccount": {
-                    "type": "boolean",
-                    "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
+                    "description": "Specifies the list of users (their identifiers) to receive email notifications on resource monitors.\n"
                 },
                 "startTimestamp": {
                     "type": "string",
-                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                 },
                 "suspendImmediateTrigger": {
                     "type": "integer",
-                    "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
-                },
-                "suspendImmediateTriggers": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                    "deprecationMessage": "Use suspend_immediate_trigger instead"
+                    "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                 },
                 "suspendTrigger": {
                     "type": "integer",
-                    "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
-                },
-                "suspendTriggers": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                    "deprecationMessage": "Use suspend_trigger instead"
-                },
-                "warehouses": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of warehouses to apply the resource monitor to.\n"
+                    "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                 }
             },
             "stateInputs": {
@@ -25915,7 +26478,7 @@
                 "properties": {
                     "creditQuota": {
                         "type": "integer",
-                        "description": "The number of credits allocated monthly to the resource monitor.\n"
+                        "description": "The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.\n"
                     },
                     "endTimestamp": {
                         "type": "string",
@@ -25923,7 +26486,7 @@
                     },
                     "frequency": {
                         "type": "string",
-                        "description": "The frequency interval at which the credit usage resets to 0. If you set a frequency for a resource monitor, you must also set START_TIMESTAMP.\n"
+                        "description": "The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                     },
                     "fullyQualifiedName": {
                         "type": "string",
@@ -25931,7 +26494,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Identifier for the resource monitor; must be unique for your account.\n",
+                        "description": "Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                         "willReplaceOnChanges": true
                     },
                     "notifyTriggers": {
@@ -25939,53 +26502,33 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "A list of percentage thresholds at which to send an alert to subscribed users.\n"
+                        "description": "Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.\n"
                     },
                     "notifyUsers": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the list of users to receive email notifications on resource monitors.\n"
+                        "description": "Specifies the list of users (their identifiers) to receive email notifications on resource monitors.\n"
                     },
-                    "setForAccount": {
-                        "type": "boolean",
-                        "description": "Specifies whether the resource monitor should be applied globally to your Snowflake account (defaults to false).\n"
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/ResourceMonitorShowOutput:ResourceMonitorShowOutput"
+                        },
+                        "description": "Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.\n"
                     },
                     "startTimestamp": {
                         "type": "string",
-                        "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses.\n"
+                        "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
                     },
                     "suspendImmediateTrigger": {
                         "type": "integer",
-                        "description": "The number that represents the percentage threshold at which to immediately suspend all warehouses.\n"
-                    },
-                    "suspendImmediateTriggers": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        },
-                        "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                        "deprecationMessage": "Use suspend_immediate_trigger instead"
+                        "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                     },
                     "suspendTrigger": {
                         "type": "integer",
-                        "description": "The number that represents the percentage threshold at which to suspend all warehouses.\n"
-                    },
-                    "suspendTriggers": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        },
-                        "description": "A list of percentage thresholds at which to suspend all warehouses.\n",
-                        "deprecationMessage": "Use suspend_trigger instead"
-                    },
-                    "warehouses": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "A list of warehouses to apply the resource monitor to.\n"
+                        "description": "Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.\n"
                     }
                 },
                 "type": "object"
@@ -26053,15 +26596,33 @@
             }
         },
         "snowflake:index/rowAccessPolicy:RowAccessPolicy": {
-            "description": "\n\n## Import\n\nformat is database name | schema name | policy name\n\n```sh\n$ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example 'dbName|schemaName|policyName'\n```\n\n",
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\".\"\u003crow_access_policy_name\u003e\"'\n```\n\n",
             "properties": {
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RowAccessPolicyArgument:RowAccessPolicyArgument"
+                    },
+                    "description": "List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.\n"
+                },
+                "body": {
+                    "type": "string",
+                    "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                },
                 "comment": {
                     "type": "string",
                     "description": "Specifies a comment for the row access policy.\n"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The database in which to create the row access policy.\n"
+                    "description": "The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
+                },
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RowAccessPolicyDescribeOutput:RowAccessPolicyDescribeOutput"
+                    },
+                    "description": "Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.\n"
                 },
                 "fullyQualifiedName": {
                     "type": "string",
@@ -26069,82 +26630,98 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.\n"
-                },
-                "rowAccessExpression": {
-                    "type": "string",
-                    "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression.\n"
+                    "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema in which to create the row access policy.\n"
+                    "description": "The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
-                "signature": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RowAccessPolicyShowOutput:RowAccessPolicyShowOutput"
                     },
-                    "description": "Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.\n"
+                    "description": "Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.\n"
                 }
             },
             "required": [
+                "arguments",
+                "body",
                 "database",
+                "describeOutputs",
                 "fullyQualifiedName",
                 "name",
-                "rowAccessExpression",
                 "schema",
-                "signature"
+                "showOutputs"
             ],
             "inputProperties": {
+                "arguments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/RowAccessPolicyArgument:RowAccessPolicyArgument"
+                    },
+                    "description": "List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.\n",
+                    "willReplaceOnChanges": true
+                },
+                "body": {
+                    "type": "string",
+                    "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                },
                 "comment": {
                     "type": "string",
                     "description": "Specifies a comment for the row access policy.\n"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The database in which to create the row access policy.\n",
+                    "description": "The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.\n",
-                    "willReplaceOnChanges": true
-                },
-                "rowAccessExpression": {
-                    "type": "string",
-                    "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression.\n"
+                    "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema in which to create the row access policy.\n",
-                    "willReplaceOnChanges": true
-                },
-                "signature": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.\n",
+                    "description": "The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                     "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
+                "arguments",
+                "body",
                 "database",
-                "rowAccessExpression",
-                "schema",
-                "signature"
+                "schema"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RowAccessPolicy resources.\n",
                 "properties": {
+                    "arguments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/RowAccessPolicyArgument:RowAccessPolicyArgument"
+                        },
+                        "description": "List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.\n"
+                    },
                     "comment": {
                         "type": "string",
                         "description": "Specifies a comment for the row access policy.\n"
                     },
                     "database": {
                         "type": "string",
-                        "description": "The database in which to create the row access policy.\n",
+                        "description": "The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                         "willReplaceOnChanges": true
+                    },
+                    "describeOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/RowAccessPolicyDescribeOutput:RowAccessPolicyDescribeOutput"
+                        },
+                        "description": "Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.\n"
                     },
                     "fullyQualifiedName": {
                         "type": "string",
@@ -26152,25 +26729,19 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created.\n",
-                        "willReplaceOnChanges": true
-                    },
-                    "rowAccessExpression": {
-                        "type": "string",
-                        "description": "Specifies the SQL expression. The expression can be any boolean-valued SQL expression.\n"
+                        "description": "Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n"
                     },
                     "schema": {
                         "type": "string",
-                        "description": "The schema in which to create the row access policy.\n",
+                        "description": "The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `\"`\n",
                         "willReplaceOnChanges": true
                     },
-                    "signature": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/RowAccessPolicyShowOutput:RowAccessPolicyShowOutput"
                         },
-                        "description": "Specifies signature (arguments) for the row access policy (uppercase and sorted to avoid recreation of resource). A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy.\n",
-                        "willReplaceOnChanges": true
+                        "description": "Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.\n"
                     }
                 },
                 "type": "object"
@@ -31110,7 +31681,7 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ViewColumn:ViewColumn"
                     },
-                    "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)\n"
+                    "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -31203,7 +31774,7 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/ViewColumn:ViewColumn"
                     },
-                    "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)\n"
+                    "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -31278,7 +31849,7 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/ViewColumn:ViewColumn"
                         },
-                        "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)\n"
+                        "description": "If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.\n"
                     },
                     "comment": {
                         "type": "string",
@@ -31420,7 +31991,7 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/WarehouseShowOutput:WarehouseShowOutput"
                     },
-                    "description": "Outputs the result of `SHOW WAREHOUSE` for the given warehouse.\n"
+                    "description": "Outputs the result of `SHOW WAREHOUSES` for the given warehouse.\n"
                 },
                 "statementQueuedTimeoutInSeconds": {
                     "type": "integer",
@@ -31581,7 +32152,7 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/WarehouseShowOutput:WarehouseShowOutput"
                         },
-                        "description": "Outputs the result of `SHOW WAREHOUSE` for the given warehouse.\n"
+                        "description": "Outputs the result of `SHOW WAREHOUSES` for the given warehouse.\n"
                     },
                     "statementQueuedTimeoutInSeconds": {
                         "type": "integer",
@@ -31930,7 +32501,7 @@
             }
         },
         "snowflake:index/getDatabaseRoles:getDatabaseRoles": {
-            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetDatabaseRolesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var dbRoles = SnowflakeFunctions.getDatabaseRoles(GetDatabaseRolesArgs.builder()\n            .database(\"MYDB\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  dbRoles:\n    fn::invoke:\n      Function: snowflake:getDatabaseRoles\n      Arguments:\n        database: MYDB\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getDatabaseRoles.\n",
                 "properties": {
@@ -32428,52 +32999,62 @@
             }
         },
         "snowflake:index/getMaskingPolicies:getMaskingPolicies": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getMaskingPolicies({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_masking_policies(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetMaskingPolicies.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Schema = \"MYSCHEMA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetMaskingPolicies(ctx, \u0026snowflake.GetMaskingPoliciesArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tSchema:   \"MYSCHEMA\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getMaskingPolicies(GetMaskingPoliciesArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getMaskingPolicies\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getMaskingPolicies.\n",
                 "properties": {
-                    "database": {
-                        "type": "string",
-                        "description": "The database from which to return the schemas from.\n"
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesIn:getMaskingPoliciesIn",
+                        "description": "IN clause to filter the list of masking policies\n"
                     },
-                    "schema": {
+                    "like": {
                         "type": "string",
-                        "description": "The schema from which to return the maskingPolicies from.\n"
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesLimit:getMaskingPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.\n"
+                    },
+                    "withDescribe": {
+                        "type": "boolean",
+                        "description": "Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "database",
-                    "schema"
-                ]
+                "type": "object"
             },
             "outputs": {
                 "description": "A collection of values returned by getMaskingPolicies.\n",
                 "properties": {
-                    "database": {
-                        "description": "The database from which to return the schemas from.\n",
-                        "type": "string"
-                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
                     },
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesIn:getMaskingPoliciesIn",
+                        "description": "IN clause to filter the list of masking policies\n"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getMaskingPoliciesLimit:getMaskingPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.\n"
+                    },
                     "maskingPolicies": {
-                        "description": "The maskingPolicies in the schema\n",
+                        "description": "Holds the aggregated output of all views details queries.\n",
                         "items": {
                             "$ref": "#/types/snowflake:index/getMaskingPoliciesMaskingPolicy:getMaskingPoliciesMaskingPolicy"
                         },
                         "type": "array"
                     },
-                    "schema": {
-                        "description": "The schema from which to return the maskingPolicies from.\n",
-                        "type": "string"
+                    "withDescribe": {
+                        "description": "Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n",
+                        "type": "boolean"
                     }
                 },
                 "required": [
-                    "database",
                     "maskingPolicies",
-                    "schema",
                     "id"
                 ],
                 "type": "object"
@@ -32752,7 +33333,17 @@
             }
         },
         "snowflake:index/getResourceMonitors:getResourceMonitors": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getResourceMonitors({});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_resource_monitors()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetResourceMonitors.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetResourceMonitors(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getResourceMonitors();\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getResourceMonitors\n      Arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResourceMonitors.\n",
+                "properties": {
+                    "like": {
+                        "type": "string",
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    }
+                },
+                "type": "object"
+            },
             "outputs": {
                 "description": "A collection of values returned by getResourceMonitors.\n",
                 "properties": {
@@ -32760,8 +33351,12 @@
                         "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
                     },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
                     "resourceMonitors": {
-                        "description": "The resource monitors in the database\n",
+                        "description": "Holds the aggregated output of all resource monitor details queries.\n",
                         "items": {
                             "$ref": "#/types/snowflake:index/getResourceMonitorsResourceMonitor:getResourceMonitorsResourceMonitor"
                         },
@@ -32861,52 +33456,62 @@
             }
         },
         "snowflake:index/getRowAccessPolicies:getRowAccessPolicies": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst current = snowflake.getRowAccessPolicies({\n    database: \"MYDB\",\n    schema: \"MYSCHEMA\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\ncurrent = snowflake.get_row_access_policies(database=\"MYDB\",\n    schema=\"MYSCHEMA\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var current = Snowflake.GetRowAccessPolicies.Invoke(new()\n    {\n        Database = \"MYDB\",\n        Schema = \"MYSCHEMA\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := snowflake.GetRowAccessPolicies(ctx, \u0026snowflake.GetRowAccessPoliciesArgs{\n\t\t\tDatabase: \"MYDB\",\n\t\t\tSchema:   \"MYSCHEMA\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetRowAccessPoliciesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getRowAccessPolicies(GetRowAccessPoliciesArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getRowAccessPolicies\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getRowAccessPolicies.\n",
                 "properties": {
-                    "database": {
-                        "type": "string",
-                        "description": "The database from which to return the schemas from.\n"
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesIn:getRowAccessPoliciesIn",
+                        "description": "IN clause to filter the list of row access policies\n"
                     },
-                    "schema": {
+                    "like": {
                         "type": "string",
-                        "description": "The schema from which to return the row access policy from.\n"
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesLimit:getRowAccessPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.\n"
+                    },
+                    "withDescribe": {
+                        "type": "boolean",
+                        "description": "Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n"
                     }
                 },
-                "type": "object",
-                "required": [
-                    "database",
-                    "schema"
-                ]
+                "type": "object"
             },
             "outputs": {
                 "description": "A collection of values returned by getRowAccessPolicies.\n",
                 "properties": {
-                    "database": {
-                        "description": "The database from which to return the schemas from.\n",
-                        "type": "string"
-                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
                     },
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesIn:getRowAccessPoliciesIn",
+                        "description": "IN clause to filter the list of row access policies\n"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getRowAccessPoliciesLimit:getRowAccessPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.\n"
+                    },
                     "rowAccessPolicies": {
-                        "description": "The row access policy in the schema\n",
+                        "description": "Holds the aggregated output of all views details queries.\n",
                         "items": {
                             "$ref": "#/types/snowflake:index/getRowAccessPoliciesRowAccessPolicy:getRowAccessPoliciesRowAccessPolicy"
                         },
                         "type": "array"
                     },
-                    "schema": {
-                        "description": "The schema from which to return the row access policy from.\n",
-                        "type": "string"
+                    "withDescribe": {
+                        "description": "Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n",
+                        "type": "boolean"
                     }
                 },
                 "required": [
-                    "database",
                     "rowAccessPolicies",
-                    "schema",
                     "id"
                 ],
                 "type": "object"
@@ -33661,7 +34266,7 @@
             }
         },
         "snowflake:index/getViews:getViews": {
-            "description": "Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetViewsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var current = SnowflakeFunctions.getViews(GetViewsArgs.builder()\n            .database(\"MYDB\")\n            .schema(\"MYSCHEMA\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      Function: snowflake:getViews\n      Arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "!\u003e **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.\n\nDatasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getViews.\n",
                 "properties": {

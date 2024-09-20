@@ -11,7 +11,7 @@ replace (
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v0.95.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake v0.96.0
 	github.com/pulumi/providertest v0.0.14
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.0
 	github.com/pulumi/pulumi/sdk/v3 v3.133.0
@@ -77,7 +77,6 @@ require (
 	github.com/bgentry/speakeasy v0.1.0 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/brianvoe/gofakeit/v6 v6.28.0 // indirect
-	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/charmbracelet/bubbles v0.16.1 // indirect
 	github.com/charmbracelet/bubbletea v0.25.0 // indirect

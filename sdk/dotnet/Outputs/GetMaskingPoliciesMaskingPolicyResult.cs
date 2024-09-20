@@ -13,29 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetMaskingPoliciesMaskingPolicyResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Kind;
-        public readonly string Name;
-        public readonly string Schema;
+        /// <summary>
+        /// Holds the output of DESCRIBE MASKING POLICY.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW MASKING POLICIES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetMaskingPoliciesMaskingPolicyShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetMaskingPoliciesMaskingPolicyResult(
-            string comment,
+            ImmutableArray<Outputs.GetMaskingPoliciesMaskingPolicyDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string kind,
-
-            string name,
-
-            string schema)
+            ImmutableArray<Outputs.GetMaskingPoliciesMaskingPolicyShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Kind = kind;
-            Name = name;
-            Schema = schema;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

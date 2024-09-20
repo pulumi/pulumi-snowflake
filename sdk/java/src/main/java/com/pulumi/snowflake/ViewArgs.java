@@ -54,14 +54,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<ViewColumnArgs>> columns;
 
     /**
-     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     public Optional<Output<List<ViewColumnArgs>>> columns() {
@@ -313,7 +313,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. (You do not need to specify the data types of the columns.)
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
