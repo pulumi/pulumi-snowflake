@@ -46,14 +46,20 @@ type GetSecurityIntegrationsResult struct {
 
 func GetSecurityIntegrationsOutput(ctx *pulumi.Context, args GetSecurityIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityIntegrationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSecurityIntegrationsResult, error) {
+		ApplyT(func(v interface{}) (GetSecurityIntegrationsResultOutput, error) {
 			args := v.(GetSecurityIntegrationsArgs)
-			r, err := GetSecurityIntegrations(ctx, &args, opts...)
-			var s GetSecurityIntegrationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSecurityIntegrationsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args, &rv, "", opts...)
+			if err != nil {
+				return GetSecurityIntegrationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSecurityIntegrationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSecurityIntegrationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetSecurityIntegrationsResultOutput)
 }
 

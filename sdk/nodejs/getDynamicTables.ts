@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getDynamicTables(args?: GetDynamicTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamicTablesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDynamicTables:getDynamicTables", {
         "in": args.in,
@@ -70,7 +69,14 @@ export interface GetDynamicTablesResult {
     readonly startsWith?: string;
 }
 export function getDynamicTablesOutput(args?: GetDynamicTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamicTablesResult> {
-    return pulumi.output(args).apply((a: any) => getDynamicTables(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getDynamicTables:getDynamicTables", {
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+    }, opts);
 }
 
 /**

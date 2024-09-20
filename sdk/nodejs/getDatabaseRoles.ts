@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  */
 export function getDatabaseRoles(args: GetDatabaseRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseRolesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", {
         "inDatabase": args.inDatabase,
@@ -66,7 +65,12 @@ export interface GetDatabaseRolesResult {
  * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  */
 export function getDatabaseRolesOutput(args: GetDatabaseRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRolesResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseRoles(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getDatabaseRoles:getDatabaseRoles", {
+        "inDatabase": args.inDatabase,
+        "like": args.like,
+        "limit": args.limit,
+    }, opts);
 }
 
 /**

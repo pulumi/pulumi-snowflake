@@ -69,14 +69,20 @@ type GetPipesResult struct {
 
 func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi.InvokeOption) GetPipesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPipesResult, error) {
+		ApplyT(func(v interface{}) (GetPipesResultOutput, error) {
 			args := v.(GetPipesArgs)
-			r, err := GetPipes(ctx, &args, opts...)
-			var s GetPipesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPipesResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getPipes:getPipes", args, &rv, "", opts...)
+			if err != nil {
+				return GetPipesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPipesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPipesResultOutput), nil
+			}
+			return output, nil
 		}).(GetPipesResultOutput)
 }
 

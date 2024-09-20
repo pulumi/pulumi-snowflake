@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getMaskingPolicies(args: GetMaskingPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetMaskingPoliciesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetMaskingPoliciesResult {
  * ```
  */
 export function getMaskingPoliciesOutput(args: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
-    return pulumi.output(args).apply((a: any) => getMaskingPolicies(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getMaskingPolicies:getMaskingPolicies", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

@@ -53,13 +53,19 @@ type GetResourceMonitorsResult struct {
 }
 
 func GetResourceMonitorsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetResourceMonitorsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetResourceMonitorsResult, error) {
-		r, err := GetResourceMonitors(ctx, opts...)
-		var s GetResourceMonitorsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetResourceMonitorsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetResourceMonitorsResult
+		secret, err := ctx.InvokePackageRaw("snowflake:index/getResourceMonitors:getResourceMonitors", nil, &rv, "", opts...)
+		if err != nil {
+			return GetResourceMonitorsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetResourceMonitorsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetResourceMonitorsResultOutput), nil
+		}
+		return output, nil
 	}).(GetResourceMonitorsResultOutput)
 }
 

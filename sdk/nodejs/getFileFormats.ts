@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOptions): Promise<GetFileFormatsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getFileFormats:getFileFormats", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetFileFormatsResult {
  * ```
  */
 export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileFormatsResult> {
-    return pulumi.output(args).apply((a: any) => getFileFormats(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getFileFormats:getFileFormats", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

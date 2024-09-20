@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getExternalTables(args: GetExternalTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalTablesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getExternalTables:getExternalTables", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetExternalTablesResult {
  * ```
  */
 export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalTablesResult> {
-    return pulumi.output(args).apply((a: any) => getExternalTables(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getExternalTables:getExternalTables", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

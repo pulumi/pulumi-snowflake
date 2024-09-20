@@ -30,13 +30,19 @@ type GetCurrentRoleResult struct {
 }
 
 func GetCurrentRoleOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentRoleResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentRoleResult, error) {
-		r, err := GetCurrentRole(ctx, opts...)
-		var s GetCurrentRoleResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentRoleResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCurrentRoleResult
+		secret, err := ctx.InvokePackageRaw("snowflake:index/getCurrentRole:getCurrentRole", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCurrentRoleResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCurrentRoleResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCurrentRoleResultOutput), nil
+		}
+		return output, nil
 	}).(GetCurrentRoleResultOutput)
 }
 

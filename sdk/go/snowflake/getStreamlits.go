@@ -54,14 +54,20 @@ type GetStreamlitsResult struct {
 
 func GetStreamlitsOutput(ctx *pulumi.Context, args GetStreamlitsOutputArgs, opts ...pulumi.InvokeOption) GetStreamlitsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetStreamlitsResult, error) {
+		ApplyT(func(v interface{}) (GetStreamlitsResultOutput, error) {
 			args := v.(GetStreamlitsArgs)
-			r, err := GetStreamlits(ctx, &args, opts...)
-			var s GetStreamlitsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetStreamlitsResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getStreamlits:getStreamlits", args, &rv, "", opts...)
+			if err != nil {
+				return GetStreamlitsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetStreamlitsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetStreamlitsResultOutput), nil
+			}
+			return output, nil
 		}).(GetStreamlitsResultOutput)
 }
 

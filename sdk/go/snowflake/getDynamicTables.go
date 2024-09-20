@@ -51,14 +51,20 @@ type GetDynamicTablesResult struct {
 
 func GetDynamicTablesOutput(ctx *pulumi.Context, args GetDynamicTablesOutputArgs, opts ...pulumi.InvokeOption) GetDynamicTablesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDynamicTablesResult, error) {
+		ApplyT(func(v interface{}) (GetDynamicTablesResultOutput, error) {
 			args := v.(GetDynamicTablesArgs)
-			r, err := GetDynamicTables(ctx, &args, opts...)
-			var s GetDynamicTablesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDynamicTablesResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getDynamicTables:getDynamicTables", args, &rv, "", opts...)
+			if err != nil {
+				return GetDynamicTablesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDynamicTablesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDynamicTablesResultOutput), nil
+			}
+			return output, nil
 		}).(GetDynamicTablesResultOutput)
 }
 

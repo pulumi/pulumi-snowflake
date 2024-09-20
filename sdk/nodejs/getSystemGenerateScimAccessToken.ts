@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGenerateScimAccessTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
         "integrationName": args.integrationName,
@@ -64,7 +63,10 @@ export interface GetSystemGenerateScimAccessTokenResult {
  * ```
  */
 export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateScimAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGenerateScimAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => getSystemGenerateScimAccessToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
+        "integrationName": args.integrationName,
+    }, opts);
 }
 
 /**

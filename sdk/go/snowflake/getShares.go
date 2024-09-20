@@ -68,14 +68,20 @@ type GetSharesResult struct {
 
 func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulumi.InvokeOption) GetSharesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSharesResult, error) {
+		ApplyT(func(v interface{}) (GetSharesResultOutput, error) {
 			args := v.(GetSharesArgs)
-			r, err := GetShares(ctx, &args, opts...)
-			var s GetSharesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSharesResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getShares:getShares", args, &rv, "", opts...)
+			if err != nil {
+				return GetSharesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSharesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSharesResultOutput), nil
+			}
+			return output, nil
 		}).(GetSharesResultOutput)
 }
 

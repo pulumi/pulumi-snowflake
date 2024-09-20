@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  */
 export function getSecurityIntegrations(args?: GetSecurityIntegrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityIntegrationsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", {
         "like": args.like,
@@ -62,7 +61,12 @@ export interface GetSecurityIntegrationsResult {
  * Datasource used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
  */
 export function getSecurityIntegrationsOutput(args?: GetSecurityIntegrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityIntegrationsResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityIntegrations(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", {
+        "like": args.like,
+        "withDescribe": args.withDescribe,
+    }, opts);
 }
 
 /**

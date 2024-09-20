@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRowAccessPolicies(args: GetRowAccessPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetRowAccessPoliciesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", {
         "database": args.database,
@@ -77,7 +76,11 @@ export interface GetRowAccessPoliciesResult {
  * ```
  */
 export function getRowAccessPoliciesOutput(args: GetRowAccessPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRowAccessPoliciesResult> {
-    return pulumi.output(args).apply((a: any) => getRowAccessPolicies(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", {
+        "database": args.database,
+        "schema": args.schema,
+    }, opts);
 }
 
 /**

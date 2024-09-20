@@ -69,14 +69,20 @@ type GetProceduresResult struct {
 
 func GetProceduresOutput(ctx *pulumi.Context, args GetProceduresOutputArgs, opts ...pulumi.InvokeOption) GetProceduresResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetProceduresResult, error) {
+		ApplyT(func(v interface{}) (GetProceduresResultOutput, error) {
 			args := v.(GetProceduresArgs)
-			r, err := GetProcedures(ctx, &args, opts...)
-			var s GetProceduresResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetProceduresResult
+			secret, err := ctx.InvokePackageRaw("snowflake:index/getProcedures:getProcedures", args, &rv, "", opts...)
+			if err != nil {
+				return GetProceduresResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetProceduresResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetProceduresResultOutput), nil
+			}
+			return output, nil
 		}).(GetProceduresResultOutput)
 }
 

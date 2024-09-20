@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  */
 export function getWarehouses(args?: GetWarehousesArgs, opts?: pulumi.InvokeOptions): Promise<GetWarehousesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getWarehouses:getWarehouses", {
         "like": args.like,
@@ -71,7 +70,13 @@ export interface GetWarehousesResult {
  * Datasource used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
 export function getWarehousesOutput(args?: GetWarehousesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWarehousesResult> {
-    return pulumi.output(args).apply((a: any) => getWarehouses(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("snowflake:index/getWarehouses:getWarehouses", {
+        "like": args.like,
+        "withDescribe": args.withDescribe,
+        "withParameters": args.withParameters,
+    }, opts);
 }
 
 /**
