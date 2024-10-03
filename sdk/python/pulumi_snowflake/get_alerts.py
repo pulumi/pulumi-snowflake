@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -126,9 +131,6 @@ def get_alerts(database: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         pattern=pulumi.get(__ret__, 'pattern'),
         schema=pulumi.get(__ret__, 'schema'))
-
-
-@_utilities.lift_output_func(get_alerts)
 def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
                       pattern: Optional[pulumi.Input[Optional[str]]] = None,
                       schema: Optional[pulumi.Input[Optional[str]]] = None,
@@ -149,4 +151,15 @@ def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
     :param str pattern: Filters the command output by object name.
     :param str schema: The schema from which to return the alerts from.
     """
-    ...
+    __args__ = dict()
+    __args__['database'] = database
+    __args__['pattern'] = pattern
+    __args__['schema'] = schema
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAlerts:getAlerts', __args__, opts=opts, typ=GetAlertsResult)
+    return __ret__.apply(lambda __response__: GetAlertsResult(
+        alerts=pulumi.get(__response__, 'alerts'),
+        database=pulumi.get(__response__, 'database'),
+        id=pulumi.get(__response__, 'id'),
+        pattern=pulumi.get(__response__, 'pattern'),
+        schema=pulumi.get(__response__, 'schema')))

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := snowflake.GetCurrentAccount(ctx, nil, nil)
+//			this, err := snowflake.GetCurrentAccount(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

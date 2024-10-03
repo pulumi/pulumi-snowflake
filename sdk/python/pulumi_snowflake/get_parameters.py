@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -168,9 +173,6 @@ def get_parameters(object_name: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         pattern=pulumi.get(__ret__, 'pattern'),
         user=pulumi.get(__ret__, 'user'))
-
-
-@_utilities.lift_output_func(get_parameters)
 def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = None,
                           object_type: Optional[pulumi.Input[Optional[str]]] = None,
                           parameter_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -205,4 +207,19 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[str]]] = N
     :param str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
     :param str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
-    ...
+    __args__ = dict()
+    __args__['objectName'] = object_name
+    __args__['objectType'] = object_type
+    __args__['parameterType'] = parameter_type
+    __args__['pattern'] = pattern
+    __args__['user'] = user
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getParameters:getParameters', __args__, opts=opts, typ=GetParametersResult)
+    return __ret__.apply(lambda __response__: GetParametersResult(
+        id=pulumi.get(__response__, 'id'),
+        object_name=pulumi.get(__response__, 'object_name'),
+        object_type=pulumi.get(__response__, 'object_type'),
+        parameter_type=pulumi.get(__response__, 'parameter_type'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        pattern=pulumi.get(__response__, 'pattern'),
+        user=pulumi.get(__response__, 'user')))

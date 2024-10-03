@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -110,9 +115,6 @@ def get_file_formats(database: Optional[str] = None,
         file_formats=pulumi.get(__ret__, 'file_formats'),
         id=pulumi.get(__ret__, 'id'),
         schema=pulumi.get(__ret__, 'schema'))
-
-
-@_utilities.lift_output_func(get_file_formats)
 def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
                             schema: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileFormatsResult]:
@@ -131,4 +133,13 @@ def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
     :param str database: The database from which to return the schemas from.
     :param str schema: The schema from which to return the file formats from.
     """
-    ...
+    __args__ = dict()
+    __args__['database'] = database
+    __args__['schema'] = schema
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFileFormats:getFileFormats', __args__, opts=opts, typ=GetFileFormatsResult)
+    return __ret__.apply(lambda __response__: GetFileFormatsResult(
+        database=pulumi.get(__response__, 'database'),
+        file_formats=pulumi.get(__response__, 'file_formats'),
+        id=pulumi.get(__response__, 'id'),
+        schema=pulumi.get(__response__, 'schema')))
