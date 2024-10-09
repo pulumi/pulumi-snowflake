@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -104,9 +109,6 @@ def get_roles(in_class: Optional[str] = None,
         in_class=pulumi.get(__ret__, 'in_class'),
         like=pulumi.get(__ret__, 'like'),
         roles=pulumi.get(__ret__, 'roles'))
-
-
-@_utilities.lift_output_func(get_roles)
 def get_roles_output(in_class: Optional[pulumi.Input[Optional[str]]] = None,
                      like: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
@@ -119,4 +121,13 @@ def get_roles_output(in_class: Optional[pulumi.Input[Optional[str]]] = None,
     :param str in_class: Filters the SHOW GRANTS output by class name.
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
-    ...
+    __args__ = dict()
+    __args__['inClass'] = in_class
+    __args__['like'] = like
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult)
+    return __ret__.apply(lambda __response__: GetRolesResult(
+        id=pulumi.get(__response__, 'id'),
+        in_class=pulumi.get(__response__, 'in_class'),
+        like=pulumi.get(__response__, 'like'),
+        roles=pulumi.get(__response__, 'roles')))

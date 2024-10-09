@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -104,9 +109,6 @@ def get_network_policies(like: Optional[str] = None,
         like=pulumi.get(__ret__, 'like'),
         network_policies=pulumi.get(__ret__, 'network_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-
-
-@_utilities.lift_output_func(get_network_policies)
 def get_network_policies_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                                 with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPoliciesResult]:
@@ -119,4 +121,13 @@ def get_network_policies_output(like: Optional[pulumi.Input[Optional[str]]] = No
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param bool with_describe: Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getNetworkPolicies:getNetworkPolicies', __args__, opts=opts, typ=GetNetworkPoliciesResult)
+    return __ret__.apply(lambda __response__: GetNetworkPoliciesResult(
+        id=pulumi.get(__response__, 'id'),
+        like=pulumi.get(__response__, 'like'),
+        network_policies=pulumi.get(__response__, 'network_policies'),
+        with_describe=pulumi.get(__response__, 'with_describe')))
