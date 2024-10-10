@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -122,9 +127,6 @@ def get_database_role(database: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'))
-
-
-@_utilities.lift_output_func(get_database_role)
 def get_database_role_output(database: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseRoleResult]:
@@ -143,4 +145,14 @@ def get_database_role_output(database: Optional[pulumi.Input[str]] = None,
     :param str database: The database from which to return the database role from.
     :param str name: Database role name.
     """
-    ...
+    __args__ = dict()
+    __args__['database'] = database
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDatabaseRole:getDatabaseRole', __args__, opts=opts, typ=GetDatabaseRoleResult)
+    return __ret__.apply(lambda __response__: GetDatabaseRoleResult(
+        comment=pulumi.get(__response__, 'comment'),
+        database=pulumi.get(__response__, 'database'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner')))

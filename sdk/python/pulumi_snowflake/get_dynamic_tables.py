@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -134,9 +139,6 @@ def get_dynamic_tables(in_: Optional[Union['GetDynamicTablesInArgs', 'GetDynamic
         limit=pulumi.get(__ret__, 'limit'),
         records=pulumi.get(__ret__, 'records'),
         starts_with=pulumi.get(__ret__, 'starts_with'))
-
-
-@_utilities.lift_output_func(get_dynamic_tables)
 def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict']]]] = None,
                               like: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict']]]] = None,
                               limit: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict']]]] = None,
@@ -150,4 +152,17 @@ def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDyna
     :param Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
     :param str starts_with: Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDynamicTables:getDynamicTables', __args__, opts=opts, typ=GetDynamicTablesResult)
+    return __ret__.apply(lambda __response__: GetDynamicTablesResult(
+        id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        records=pulumi.get(__response__, 'records'),
+        starts_with=pulumi.get(__response__, 'starts_with')))

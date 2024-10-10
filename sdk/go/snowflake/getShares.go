@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetShares(ctx, nil, nil)
+//			_, err := snowflake.GetShares(ctx, &snowflake.GetSharesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

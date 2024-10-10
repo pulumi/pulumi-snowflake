@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -153,9 +158,6 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
         starts_with=pulumi.get(__ret__, 'starts_with'),
         views=pulumi.get(__ret__, 'views'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-
-
-@_utilities.lift_output_func(get_views)
 def get_views_output(in_: Optional[pulumi.Input[Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']]]] = None,
                      like: Optional[pulumi.Input[Optional[str]]] = None,
                      limit: Optional[pulumi.Input[Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict']]]] = None,
@@ -174,4 +176,19 @@ def get_views_output(in_: Optional[pulumi.Input[Optional[Union['GetViewsInArgs',
     :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param bool with_describe: Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getViews:getViews', __args__, opts=opts, typ=GetViewsResult)
+    return __ret__.apply(lambda __response__: GetViewsResult(
+        id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        views=pulumi.get(__response__, 'views'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -92,9 +97,6 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
         aws_sns_topic_arn=pulumi.get(__ret__, 'aws_sns_topic_arn'),
         aws_sns_topic_policy_json=pulumi.get(__ret__, 'aws_sns_topic_policy_json'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_system_get_aws_sns_iam_policy)
 def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
     """
@@ -110,4 +112,11 @@ def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.
 
     :param str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """
-    ...
+    __args__ = dict()
+    __args__['awsSnsTopicArn'] = aws_sns_topic_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy', __args__, opts=opts, typ=GetSystemGetAwsSnsIamPolicyResult)
+    return __ret__.apply(lambda __response__: GetSystemGetAwsSnsIamPolicyResult(
+        aws_sns_topic_arn=pulumi.get(__response__, 'aws_sns_topic_arn'),
+        aws_sns_topic_policy_json=pulumi.get(__response__, 'aws_sns_topic_policy_json'),
+        id=pulumi.get(__response__, 'id')))
