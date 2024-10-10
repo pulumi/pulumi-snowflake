@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -120,9 +125,6 @@ def get_warehouses(like: Optional[str] = None,
         warehouses=pulumi.get(__ret__, 'warehouses'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-
-
-@_utilities.lift_output_func(get_warehouses)
 def get_warehouses_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                           with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                           with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -137,4 +139,15 @@ def get_warehouses_output(like: Optional[pulumi.Input[Optional[str]]] = None,
     :param bool with_describe: Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getWarehouses:getWarehouses', __args__, opts=opts, typ=GetWarehousesResult)
+    return __ret__.apply(lambda __response__: GetWarehousesResult(
+        id=pulumi.get(__response__, 'id'),
+        like=pulumi.get(__response__, 'like'),
+        warehouses=pulumi.get(__response__, 'warehouses'),
+        with_describe=pulumi.get(__response__, 'with_describe'),
+        with_parameters=pulumi.get(__response__, 'with_parameters')))

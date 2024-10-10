@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -137,9 +142,6 @@ def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'G
         limit=pulumi.get(__ret__, 'limit'),
         row_access_policies=pulumi.get(__ret__, 'row_access_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-
-
-@_utilities.lift_output_func(get_row_access_policies)
 def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict']]]] = None,
                                    like: Optional[pulumi.Input[Optional[str]]] = None,
                                    limit: Optional[pulumi.Input[Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict']]]] = None,
@@ -156,4 +158,17 @@ def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['Ge
     :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param bool with_describe: Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['withDescribe'] = with_describe
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getRowAccessPolicies:getRowAccessPolicies', __args__, opts=opts, typ=GetRowAccessPoliciesResult)
+    return __ret__.apply(lambda __response__: GetRowAccessPoliciesResult(
+        id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        row_access_policies=pulumi.get(__response__, 'row_access_policies'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

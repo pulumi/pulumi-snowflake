@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -237,9 +242,6 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
         grants_on=pulumi.get(__ret__, 'grants_on'),
         grants_to=pulumi.get(__ret__, 'grants_to'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_grants)
 def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']]]] = None,
                       future_grants_to: Optional[pulumi.Input[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']]]] = None,
                       grants_of: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
@@ -342,4 +344,19 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['Ge
     :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict'] grants_on: Lists all privileges that have been granted on an object or on an account.
     :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict'] grants_to: Lists all privileges granted to the object.
     """
-    ...
+    __args__ = dict()
+    __args__['futureGrantsIn'] = future_grants_in
+    __args__['futureGrantsTo'] = future_grants_to
+    __args__['grantsOf'] = grants_of
+    __args__['grantsOn'] = grants_on
+    __args__['grantsTo'] = grants_to
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getGrants:getGrants', __args__, opts=opts, typ=GetGrantsResult)
+    return __ret__.apply(lambda __response__: GetGrantsResult(
+        future_grants_in=pulumi.get(__response__, 'future_grants_in'),
+        future_grants_to=pulumi.get(__response__, 'future_grants_to'),
+        grants=pulumi.get(__response__, 'grants'),
+        grants_of=pulumi.get(__response__, 'grants_of'),
+        grants_on=pulumi.get(__response__, 'grants_on'),
+        grants_to=pulumi.get(__response__, 'grants_to'),
+        id=pulumi.get(__response__, 'id')))

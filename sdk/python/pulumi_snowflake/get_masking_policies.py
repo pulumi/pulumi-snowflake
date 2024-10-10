@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -137,9 +142,6 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
         limit=pulumi.get(__ret__, 'limit'),
         masking_policies=pulumi.get(__ret__, 'masking_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-
-
-@_utilities.lift_output_func(get_masking_policies)
 def get_masking_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict']]]] = None,
                                 like: Optional[pulumi.Input[Optional[str]]] = None,
                                 limit: Optional[pulumi.Input[Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict']]]] = None,
@@ -156,4 +158,17 @@ def get_masking_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetMa
     :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param bool with_describe: Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['withDescribe'] = with_describe
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getMaskingPolicies:getMaskingPolicies', __args__, opts=opts, typ=GetMaskingPoliciesResult)
+    return __ret__.apply(lambda __response__: GetMaskingPoliciesResult(
+        id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        masking_policies=pulumi.get(__response__, 'masking_policies'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

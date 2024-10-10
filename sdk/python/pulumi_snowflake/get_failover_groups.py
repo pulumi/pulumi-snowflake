@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -85,9 +90,6 @@ def get_failover_groups(in_account: Optional[str] = None,
         failover_groups=pulumi.get(__ret__, 'failover_groups'),
         id=pulumi.get(__ret__, 'id'),
         in_account=pulumi.get(__ret__, 'in_account'))
-
-
-@_utilities.lift_output_func(get_failover_groups)
 def get_failover_groups_output(in_account: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFailoverGroupsResult]:
     """
@@ -95,4 +97,11 @@ def get_failover_groups_output(in_account: Optional[pulumi.Input[Optional[str]]]
 
     :param str in_account: Specifies the identifier for the account
     """
-    ...
+    __args__ = dict()
+    __args__['inAccount'] = in_account
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFailoverGroups:getFailoverGroups', __args__, opts=opts, typ=GetFailoverGroupsResult)
+    return __ret__.apply(lambda __response__: GetFailoverGroupsResult(
+        failover_groups=pulumi.get(__response__, 'failover_groups'),
+        id=pulumi.get(__response__, 'id'),
+        in_account=pulumi.get(__response__, 'in_account')))

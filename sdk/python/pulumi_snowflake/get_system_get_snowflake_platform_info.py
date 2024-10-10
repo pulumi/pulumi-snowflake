@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -80,11 +85,14 @@ def get_system_get_snowflake_platform_info(opts: Optional[pulumi.InvokeOptions] 
         aws_vpc_ids=pulumi.get(__ret__, 'aws_vpc_ids'),
         azure_vnet_subnet_ids=pulumi.get(__ret__, 'azure_vnet_subnet_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_system_get_snowflake_platform_info)
 def get_system_get_snowflake_platform_info_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetSnowflakePlatformInfoResult]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo', __args__, opts=opts, typ=GetSystemGetSnowflakePlatformInfoResult)
+    return __ret__.apply(lambda __response__: GetSystemGetSnowflakePlatformInfoResult(
+        aws_vpc_ids=pulumi.get(__response__, 'aws_vpc_ids'),
+        azure_vnet_subnet_ids=pulumi.get(__response__, 'azure_vnet_subnet_ids'),
+        id=pulumi.get(__response__, 'id')))

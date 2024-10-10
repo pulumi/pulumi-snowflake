@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -153,9 +158,6 @@ def get_users(like: Optional[str] = None,
         users=pulumi.get(__ret__, 'users'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                      limit: Optional[pulumi.Input[Optional[Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict']]]] = None,
                      starts_with: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,4 +176,19 @@ def get_users_output(like: Optional[pulumi.Input[Optional[str]]] = None,
     :param bool with_describe: Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        id=pulumi.get(__response__, 'id'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        users=pulumi.get(__response__, 'users'),
+        with_describe=pulumi.get(__response__, 'with_describe'),
+        with_parameters=pulumi.get(__response__, 'with_parameters')))

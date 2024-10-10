@@ -26,7 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Simple usage
-//			simple, err := snowflake.GetCortexSearchServices(ctx, nil, nil)
+//			simple, err := snowflake.GetCortexSearchServices(ctx, &snowflake.GetCortexSearchServicesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

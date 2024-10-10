@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -159,9 +164,6 @@ def get_database(name: Optional[str] = None,
         origin=pulumi.get(__ret__, 'origin'),
         owner=pulumi.get(__ret__, 'owner'),
         retention_time=pulumi.get(__ret__, 'retention_time'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
@@ -177,4 +179,18 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The database from which to return its metadata.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        comment=pulumi.get(__response__, 'comment'),
+        created_on=pulumi.get(__response__, 'created_on'),
+        id=pulumi.get(__response__, 'id'),
+        is_current=pulumi.get(__response__, 'is_current'),
+        is_default=pulumi.get(__response__, 'is_default'),
+        name=pulumi.get(__response__, 'name'),
+        options=pulumi.get(__response__, 'options'),
+        origin=pulumi.get(__response__, 'origin'),
+        owner=pulumi.get(__response__, 'owner'),
+        retention_time=pulumi.get(__response__, 'retention_time')))
