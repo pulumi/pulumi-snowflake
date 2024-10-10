@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -121,9 +126,6 @@ def get_database_roles(in_database: Optional[str] = None,
         in_database=pulumi.get(__ret__, 'in_database'),
         like=pulumi.get(__ret__, 'like'),
         limit=pulumi.get(__ret__, 'limit'))
-
-
-@_utilities.lift_output_func(get_database_roles)
 def get_database_roles_output(in_database: Optional[pulumi.Input[str]] = None,
                               like: Optional[pulumi.Input[Optional[str]]] = None,
                               limit: Optional[pulumi.Input[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']]]] = None,
@@ -138,4 +140,15 @@ def get_database_roles_output(in_database: Optional[pulumi.Input[str]] = None,
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
-    ...
+    __args__ = dict()
+    __args__['inDatabase'] = in_database
+    __args__['like'] = like
+    __args__['limit'] = limit
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDatabaseRoles:getDatabaseRoles', __args__, opts=opts, typ=GetDatabaseRolesResult)
+    return __ret__.apply(lambda __response__: GetDatabaseRolesResult(
+        database_roles=pulumi.get(__response__, 'database_roles'),
+        id=pulumi.get(__response__, 'id'),
+        in_database=pulumi.get(__response__, 'in_database'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit')))

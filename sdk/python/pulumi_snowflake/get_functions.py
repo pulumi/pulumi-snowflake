@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -110,9 +115,6 @@ def get_functions(database: Optional[str] = None,
         functions=pulumi.get(__ret__, 'functions'),
         id=pulumi.get(__ret__, 'id'),
         schema=pulumi.get(__ret__, 'schema'))
-
-
-@_utilities.lift_output_func(get_functions)
 def get_functions_output(database: Optional[pulumi.Input[str]] = None,
                          schema: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsResult]:
@@ -131,4 +133,13 @@ def get_functions_output(database: Optional[pulumi.Input[str]] = None,
     :param str database: The database from which to return the schemas from.
     :param str schema: The schema from which to return the functions from.
     """
-    ...
+    __args__ = dict()
+    __args__['database'] = database
+    __args__['schema'] = schema
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult)
+    return __ret__.apply(lambda __response__: GetFunctionsResult(
+        database=pulumi.get(__response__, 'database'),
+        functions=pulumi.get(__response__, 'functions'),
+        id=pulumi.get(__response__, 'id'),
+        schema=pulumi.get(__response__, 'schema')))

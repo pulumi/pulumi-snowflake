@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -104,9 +109,6 @@ def get_security_integrations(like: Optional[str] = None,
         like=pulumi.get(__ret__, 'like'),
         security_integrations=pulumi.get(__ret__, 'security_integrations'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-
-
-@_utilities.lift_output_func(get_security_integrations)
 def get_security_integrations_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                                      with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
@@ -119,4 +121,13 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[str]]]
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param bool with_describe: Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSecurityIntegrations:getSecurityIntegrations', __args__, opts=opts, typ=GetSecurityIntegrationsResult)
+    return __ret__.apply(lambda __response__: GetSecurityIntegrationsResult(
+        id=pulumi.get(__response__, 'id'),
+        like=pulumi.get(__response__, 'like'),
+        security_integrations=pulumi.get(__response__, 'security_integrations'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			snowflakePrivateLink, err := snowflake.GetSystemGetPrivateLinkConfig(ctx, nil, nil)
+//			snowflakePrivateLink, err := snowflake.GetSystemGetPrivateLinkConfig(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

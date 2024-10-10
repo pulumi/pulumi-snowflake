@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -110,9 +115,6 @@ def get_external_tables(database: Optional[str] = None,
         external_tables=pulumi.get(__ret__, 'external_tables'),
         id=pulumi.get(__ret__, 'id'),
         schema=pulumi.get(__ret__, 'schema'))
-
-
-@_utilities.lift_output_func(get_external_tables)
 def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
                                schema: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalTablesResult]:
@@ -131,4 +133,13 @@ def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
     :param str database: The database from which to return the schemas from.
     :param str schema: The schema from which to return the external tables from.
     """
-    ...
+    __args__ = dict()
+    __args__['database'] = database
+    __args__['schema'] = schema
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getExternalTables:getExternalTables', __args__, opts=opts, typ=GetExternalTablesResult)
+    return __ret__.apply(lambda __response__: GetExternalTablesResult(
+        database=pulumi.get(__response__, 'database'),
+        external_tables=pulumi.get(__response__, 'external_tables'),
+        id=pulumi.get(__response__, 'id'),
+        schema=pulumi.get(__response__, 'schema')))
