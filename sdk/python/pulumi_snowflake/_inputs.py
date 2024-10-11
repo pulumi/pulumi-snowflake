@@ -4,315 +4,639 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AccountRoleShowOutputArgs',
+    'AccountRoleShowOutputArgsDict',
     'AlertAlertScheduleArgs',
+    'AlertAlertScheduleArgsDict',
     'AlertAlertScheduleCronArgs',
+    'AlertAlertScheduleCronArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs',
+    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs',
+    'ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs',
+    'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict',
     'DatabaseOldReplicationConfigurationArgs',
+    'DatabaseOldReplicationConfigurationArgsDict',
     'DatabaseReplicationArgs',
+    'DatabaseReplicationArgsDict',
     'DatabaseReplicationEnableToAccountArgs',
+    'DatabaseReplicationEnableToAccountArgsDict',
     'DatabaseRoleShowOutputArgs',
+    'DatabaseRoleShowOutputArgsDict',
     'DynamicTableTargetLagArgs',
+    'DynamicTableTargetLagArgsDict',
     'ExternalFunctionArgArgs',
+    'ExternalFunctionArgArgsDict',
     'ExternalFunctionHeaderArgs',
+    'ExternalFunctionHeaderArgsDict',
     'ExternalOauthIntegrationDescribeOutputArgs',
+    'ExternalOauthIntegrationDescribeOutputArgsDict',
     'ExternalOauthIntegrationDescribeOutputCommentArgs',
+    'ExternalOauthIntegrationDescribeOutputCommentArgsDict',
     'ExternalOauthIntegrationDescribeOutputEnabledArgs',
+    'ExternalOauthIntegrationDescribeOutputEnabledArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2Args',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2ArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgsDict',
     'ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgs',
+    'ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgsDict',
     'ExternalOauthIntegrationRelatedParameterArgs',
+    'ExternalOauthIntegrationRelatedParameterArgsDict',
     'ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgs',
+    'ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgsDict',
     'ExternalOauthIntegrationShowOutputArgs',
+    'ExternalOauthIntegrationShowOutputArgsDict',
     'ExternalTableColumnArgs',
+    'ExternalTableColumnArgsDict',
     'ExternalTableTagArgs',
+    'ExternalTableTagArgsDict',
     'FailoverGroupFromReplicaArgs',
+    'FailoverGroupFromReplicaArgsDict',
     'FailoverGroupReplicationScheduleArgs',
+    'FailoverGroupReplicationScheduleArgsDict',
     'FailoverGroupReplicationScheduleCronArgs',
+    'FailoverGroupReplicationScheduleCronArgsDict',
     'FunctionArgumentArgs',
+    'FunctionArgumentArgsDict',
     'GrantOwnershipOnArgs',
+    'GrantOwnershipOnArgsDict',
     'GrantOwnershipOnAllArgs',
+    'GrantOwnershipOnAllArgsDict',
     'GrantOwnershipOnFutureArgs',
+    'GrantOwnershipOnFutureArgsDict',
     'GrantPrivilegesToAccountRoleOnAccountObjectArgs',
+    'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict',
     'GrantPrivilegesToAccountRoleOnSchemaArgs',
+    'GrantPrivilegesToAccountRoleOnSchemaArgsDict',
     'GrantPrivilegesToAccountRoleOnSchemaObjectArgs',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict',
     'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict',
     'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaArgs',
+    'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs',
+    'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs',
+    'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs',
+    'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict',
     'MaskingPolicyArgumentArgs',
+    'MaskingPolicyArgumentArgsDict',
     'MaskingPolicyDescribeOutputArgs',
+    'MaskingPolicyDescribeOutputArgsDict',
     'MaskingPolicyDescribeOutputSignatureArgs',
+    'MaskingPolicyDescribeOutputSignatureArgsDict',
     'MaskingPolicyShowOutputArgs',
+    'MaskingPolicyShowOutputArgsDict',
     'MaterializedViewTagArgs',
+    'MaterializedViewTagArgsDict',
     'NetworkPolicyDescribeOutputArgs',
+    'NetworkPolicyDescribeOutputArgsDict',
     'NetworkPolicyShowOutputArgs',
+    'NetworkPolicyShowOutputArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputCommentArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputCommentArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputEnabledArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputEnabledArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgs',
+    'OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgsDict',
     'OauthIntegrationForCustomClientsShowOutputArgs',
+    'OauthIntegrationForCustomClientsShowOutputArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgs',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgsDict',
     'OauthIntegrationForPartnerApplicationsShowOutputArgs',
+    'OauthIntegrationForPartnerApplicationsShowOutputArgsDict',
     'ObjectParameterObjectIdentifierArgs',
+    'ObjectParameterObjectIdentifierArgsDict',
     'ProcedureArgumentArgs',
+    'ProcedureArgumentArgsDict',
     'ProviderTokenAccessorArgs',
+    'ProviderTokenAccessorArgsDict',
     'ResourceMonitorShowOutputArgs',
+    'ResourceMonitorShowOutputArgsDict',
     'RoleShowOutputArgs',
+    'RoleShowOutputArgsDict',
     'RowAccessPolicyArgumentArgs',
+    'RowAccessPolicyArgumentArgsDict',
     'RowAccessPolicyDescribeOutputArgs',
+    'RowAccessPolicyDescribeOutputArgsDict',
     'RowAccessPolicyDescribeOutputSignatureArgs',
+    'RowAccessPolicyDescribeOutputSignatureArgsDict',
     'RowAccessPolicyShowOutputArgs',
+    'RowAccessPolicyShowOutputArgsDict',
     'Saml2IntegrationDescribeOutputArgs',
+    'Saml2IntegrationDescribeOutputArgsDict',
     'Saml2IntegrationDescribeOutputAllowedEmailPatternArgs',
+    'Saml2IntegrationDescribeOutputAllowedEmailPatternArgsDict',
     'Saml2IntegrationDescribeOutputAllowedUserDomainArgs',
+    'Saml2IntegrationDescribeOutputAllowedUserDomainArgsDict',
     'Saml2IntegrationDescribeOutputCommentArgs',
+    'Saml2IntegrationDescribeOutputCommentArgsDict',
     'Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs',
+    'Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgsDict',
     'Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs',
+    'Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgsDict',
     'Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs',
+    'Saml2IntegrationDescribeOutputSaml2ForceAuthnArgsDict',
     'Saml2IntegrationDescribeOutputSaml2IssuerArgs',
+    'Saml2IntegrationDescribeOutputSaml2IssuerArgsDict',
     'Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs',
+    'Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgsDict',
     'Saml2IntegrationDescribeOutputSaml2ProviderArgs',
+    'Saml2IntegrationDescribeOutputSaml2ProviderArgsDict',
     'Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs',
+    'Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SignRequestArgs',
+    'Saml2IntegrationDescribeOutputSaml2SignRequestArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs',
+    'Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs',
+    'Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs',
+    'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SsoUrlArgs',
+    'Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict',
     'Saml2IntegrationDescribeOutputSaml2X509CertArgs',
+    'Saml2IntegrationDescribeOutputSaml2X509CertArgsDict',
     'Saml2IntegrationShowOutputArgs',
+    'Saml2IntegrationShowOutputArgsDict',
     'SchemaDescribeOutputArgs',
+    'SchemaDescribeOutputArgsDict',
     'SchemaParameterArgs',
+    'SchemaParameterArgsDict',
     'SchemaParameterCatalogArgs',
+    'SchemaParameterCatalogArgsDict',
     'SchemaParameterDataRetentionTimeInDayArgs',
+    'SchemaParameterDataRetentionTimeInDayArgsDict',
     'SchemaParameterDefaultDdlCollationArgs',
+    'SchemaParameterDefaultDdlCollationArgsDict',
     'SchemaParameterEnableConsoleOutputArgs',
+    'SchemaParameterEnableConsoleOutputArgsDict',
     'SchemaParameterExternalVolumeArgs',
+    'SchemaParameterExternalVolumeArgsDict',
     'SchemaParameterLogLevelArgs',
+    'SchemaParameterLogLevelArgsDict',
     'SchemaParameterMaxDataExtensionTimeInDayArgs',
+    'SchemaParameterMaxDataExtensionTimeInDayArgsDict',
     'SchemaParameterPipeExecutionPausedArgs',
+    'SchemaParameterPipeExecutionPausedArgsDict',
     'SchemaParameterQuotedIdentifiersIgnoreCaseArgs',
+    'SchemaParameterQuotedIdentifiersIgnoreCaseArgsDict',
     'SchemaParameterReplaceInvalidCharacterArgs',
+    'SchemaParameterReplaceInvalidCharacterArgsDict',
     'SchemaParameterStorageSerializationPolicyArgs',
+    'SchemaParameterStorageSerializationPolicyArgsDict',
     'SchemaParameterSuspendTaskAfterNumFailureArgs',
+    'SchemaParameterSuspendTaskAfterNumFailureArgsDict',
     'SchemaParameterTaskAutoRetryAttemptArgs',
+    'SchemaParameterTaskAutoRetryAttemptArgsDict',
     'SchemaParameterTraceLevelArgs',
+    'SchemaParameterTraceLevelArgsDict',
     'SchemaParameterUserTaskManagedInitialWarehouseSizeArgs',
+    'SchemaParameterUserTaskManagedInitialWarehouseSizeArgsDict',
     'SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs',
+    'SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgsDict',
     'SchemaParameterUserTaskTimeoutMArgs',
+    'SchemaParameterUserTaskTimeoutMArgsDict',
     'SchemaShowOutputArgs',
+    'SchemaShowOutputArgsDict',
     'ScimIntegrationDescribeOutputArgs',
+    'ScimIntegrationDescribeOutputArgsDict',
     'ScimIntegrationDescribeOutputCommentArgs',
+    'ScimIntegrationDescribeOutputCommentArgsDict',
     'ScimIntegrationDescribeOutputEnabledArgs',
+    'ScimIntegrationDescribeOutputEnabledArgsDict',
     'ScimIntegrationDescribeOutputNetworkPolicyArgs',
+    'ScimIntegrationDescribeOutputNetworkPolicyArgsDict',
     'ScimIntegrationDescribeOutputRunAsRoleArgs',
+    'ScimIntegrationDescribeOutputRunAsRoleArgsDict',
     'ScimIntegrationDescribeOutputSyncPasswordArgs',
+    'ScimIntegrationDescribeOutputSyncPasswordArgsDict',
     'ScimIntegrationShowOutputArgs',
+    'ScimIntegrationShowOutputArgsDict',
     'StageTagArgs',
+    'StageTagArgsDict',
     'StreamlitDescribeOutputArgs',
+    'StreamlitDescribeOutputArgsDict',
     'StreamlitShowOutputArgs',
+    'StreamlitShowOutputArgsDict',
     'TableColumnArgs',
+    'TableColumnArgsDict',
     'TableColumnDefaultArgs',
+    'TableColumnDefaultArgsDict',
     'TableColumnIdentityArgs',
+    'TableColumnIdentityArgsDict',
     'TableConstraintForeignKeyPropertiesArgs',
+    'TableConstraintForeignKeyPropertiesArgsDict',
     'TableConstraintForeignKeyPropertiesReferencesArgs',
+    'TableConstraintForeignKeyPropertiesReferencesArgsDict',
     'TablePrimaryKeyArgs',
+    'TablePrimaryKeyArgsDict',
     'TableTagArgs',
+    'TableTagArgsDict',
     'TagAssociationObjectIdentifierArgs',
+    'TagAssociationObjectIdentifierArgsDict',
     'UserParameterArgs',
+    'UserParameterArgsDict',
     'UserParameterAbortDetachedQueryArgs',
+    'UserParameterAbortDetachedQueryArgsDict',
     'UserParameterAutocommitArgs',
+    'UserParameterAutocommitArgsDict',
     'UserParameterBinaryInputFormatArgs',
+    'UserParameterBinaryInputFormatArgsDict',
     'UserParameterBinaryOutputFormatArgs',
+    'UserParameterBinaryOutputFormatArgsDict',
     'UserParameterClientMemoryLimitArgs',
+    'UserParameterClientMemoryLimitArgsDict',
     'UserParameterClientMetadataRequestUseConnectionCtxArgs',
+    'UserParameterClientMetadataRequestUseConnectionCtxArgsDict',
     'UserParameterClientPrefetchThreadArgs',
+    'UserParameterClientPrefetchThreadArgsDict',
     'UserParameterClientResultChunkSizeArgs',
+    'UserParameterClientResultChunkSizeArgsDict',
     'UserParameterClientResultColumnCaseInsensitiveArgs',
+    'UserParameterClientResultColumnCaseInsensitiveArgsDict',
     'UserParameterClientSessionKeepAlifeArgs',
+    'UserParameterClientSessionKeepAlifeArgsDict',
     'UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs',
+    'UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict',
     'UserParameterClientTimestampTypeMappingArgs',
+    'UserParameterClientTimestampTypeMappingArgsDict',
     'UserParameterDateInputFormatArgs',
+    'UserParameterDateInputFormatArgsDict',
     'UserParameterDateOutputFormatArgs',
+    'UserParameterDateOutputFormatArgsDict',
     'UserParameterEnableUnloadPhysicalTypeOptimizationArgs',
+    'UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict',
     'UserParameterEnableUnredactedQuerySyntaxErrorArgs',
+    'UserParameterEnableUnredactedQuerySyntaxErrorArgsDict',
     'UserParameterErrorOnNondeterministicMergeArgs',
+    'UserParameterErrorOnNondeterministicMergeArgsDict',
     'UserParameterErrorOnNondeterministicUpdateArgs',
+    'UserParameterErrorOnNondeterministicUpdateArgsDict',
     'UserParameterGeographyOutputFormatArgs',
+    'UserParameterGeographyOutputFormatArgsDict',
     'UserParameterGeometryOutputFormatArgs',
+    'UserParameterGeometryOutputFormatArgsDict',
     'UserParameterJdbcTreatDecimalAsIntArgs',
+    'UserParameterJdbcTreatDecimalAsIntArgsDict',
     'UserParameterJdbcTreatTimestampNtzAsUtcArgs',
+    'UserParameterJdbcTreatTimestampNtzAsUtcArgsDict',
     'UserParameterJdbcUseSessionTimezoneArgs',
+    'UserParameterJdbcUseSessionTimezoneArgsDict',
     'UserParameterJsonIndentArgs',
+    'UserParameterJsonIndentArgsDict',
     'UserParameterLockTimeoutArgs',
+    'UserParameterLockTimeoutArgsDict',
     'UserParameterLogLevelArgs',
+    'UserParameterLogLevelArgsDict',
     'UserParameterMultiStatementCountArgs',
+    'UserParameterMultiStatementCountArgsDict',
     'UserParameterNetworkPolicyArgs',
+    'UserParameterNetworkPolicyArgsDict',
     'UserParameterNoorderSequenceAsDefaultArgs',
+    'UserParameterNoorderSequenceAsDefaultArgsDict',
     'UserParameterOdbcTreatDecimalAsIntArgs',
+    'UserParameterOdbcTreatDecimalAsIntArgsDict',
     'UserParameterPreventUnloadToInternalStageArgs',
+    'UserParameterPreventUnloadToInternalStageArgsDict',
     'UserParameterQueryTagArgs',
+    'UserParameterQueryTagArgsDict',
     'UserParameterQuotedIdentifiersIgnoreCaseArgs',
+    'UserParameterQuotedIdentifiersIgnoreCaseArgsDict',
     'UserParameterRowsPerResultsetArgs',
+    'UserParameterRowsPerResultsetArgsDict',
     'UserParameterS3StageVpceDnsNameArgs',
+    'UserParameterS3StageVpceDnsNameArgsDict',
     'UserParameterSearchPathArgs',
+    'UserParameterSearchPathArgsDict',
     'UserParameterSimulatedDataSharingConsumerArgs',
+    'UserParameterSimulatedDataSharingConsumerArgsDict',
     'UserParameterStatementQueuedTimeoutInSecondArgs',
+    'UserParameterStatementQueuedTimeoutInSecondArgsDict',
     'UserParameterStatementTimeoutInSecondArgs',
+    'UserParameterStatementTimeoutInSecondArgsDict',
     'UserParameterStrictJsonOutputArgs',
+    'UserParameterStrictJsonOutputArgsDict',
     'UserParameterTimeInputFormatArgs',
+    'UserParameterTimeInputFormatArgsDict',
     'UserParameterTimeOutputFormatArgs',
+    'UserParameterTimeOutputFormatArgsDict',
     'UserParameterTimestampDayIsAlways24hArgs',
+    'UserParameterTimestampDayIsAlways24hArgsDict',
     'UserParameterTimestampInputFormatArgs',
+    'UserParameterTimestampInputFormatArgsDict',
     'UserParameterTimestampLtzOutputFormatArgs',
+    'UserParameterTimestampLtzOutputFormatArgsDict',
     'UserParameterTimestampNtzOutputFormatArgs',
+    'UserParameterTimestampNtzOutputFormatArgsDict',
     'UserParameterTimestampOutputFormatArgs',
+    'UserParameterTimestampOutputFormatArgsDict',
     'UserParameterTimestampTypeMappingArgs',
+    'UserParameterTimestampTypeMappingArgsDict',
     'UserParameterTimestampTzOutputFormatArgs',
+    'UserParameterTimestampTzOutputFormatArgsDict',
     'UserParameterTimezoneArgs',
+    'UserParameterTimezoneArgsDict',
     'UserParameterTraceLevelArgs',
+    'UserParameterTraceLevelArgsDict',
     'UserParameterTransactionAbortOnErrorArgs',
+    'UserParameterTransactionAbortOnErrorArgsDict',
     'UserParameterTransactionDefaultIsolationLevelArgs',
+    'UserParameterTransactionDefaultIsolationLevelArgsDict',
     'UserParameterTwoDigitCenturyStartArgs',
+    'UserParameterTwoDigitCenturyStartArgsDict',
     'UserParameterUnsupportedDdlActionArgs',
+    'UserParameterUnsupportedDdlActionArgsDict',
     'UserParameterUseCachedResultArgs',
+    'UserParameterUseCachedResultArgsDict',
     'UserParameterWeekOfYearPolicyArgs',
+    'UserParameterWeekOfYearPolicyArgsDict',
     'UserParameterWeekStartArgs',
+    'UserParameterWeekStartArgsDict',
     'UserShowOutputArgs',
+    'UserShowOutputArgsDict',
     'ViewAggregationPolicyArgs',
+    'ViewAggregationPolicyArgsDict',
     'ViewColumnArgs',
+    'ViewColumnArgsDict',
     'ViewColumnMaskingPolicyArgs',
+    'ViewColumnMaskingPolicyArgsDict',
     'ViewColumnProjectionPolicyArgs',
+    'ViewColumnProjectionPolicyArgsDict',
     'ViewDataMetricFunctionArgs',
+    'ViewDataMetricFunctionArgsDict',
     'ViewDataMetricScheduleArgs',
+    'ViewDataMetricScheduleArgsDict',
     'ViewDescribeOutputArgs',
+    'ViewDescribeOutputArgsDict',
     'ViewRowAccessPolicyArgs',
+    'ViewRowAccessPolicyArgsDict',
     'ViewShowOutputArgs',
+    'ViewShowOutputArgsDict',
     'WarehouseParameterArgs',
+    'WarehouseParameterArgsDict',
     'WarehouseParameterMaxConcurrencyLevelArgs',
+    'WarehouseParameterMaxConcurrencyLevelArgsDict',
     'WarehouseParameterStatementQueuedTimeoutInSecondArgs',
+    'WarehouseParameterStatementQueuedTimeoutInSecondArgsDict',
     'WarehouseParameterStatementTimeoutInSecondArgs',
+    'WarehouseParameterStatementTimeoutInSecondArgsDict',
     'WarehouseShowOutputArgs',
+    'WarehouseShowOutputArgsDict',
     'GetCortexSearchServicesInArgs',
+    'GetCortexSearchServicesInArgsDict',
     'GetCortexSearchServicesLimitArgs',
+    'GetCortexSearchServicesLimitArgsDict',
     'GetDatabaseRolesLimitArgs',
+    'GetDatabaseRolesLimitArgsDict',
     'GetDatabasesLimitArgs',
+    'GetDatabasesLimitArgsDict',
     'GetDynamicTablesInArgs',
+    'GetDynamicTablesInArgsDict',
     'GetDynamicTablesLikeArgs',
+    'GetDynamicTablesLikeArgsDict',
     'GetDynamicTablesLimitArgs',
+    'GetDynamicTablesLimitArgsDict',
     'GetGrantsFutureGrantsInArgs',
+    'GetGrantsFutureGrantsInArgsDict',
     'GetGrantsFutureGrantsToArgs',
+    'GetGrantsFutureGrantsToArgsDict',
     'GetGrantsGrantsOfArgs',
+    'GetGrantsGrantsOfArgsDict',
     'GetGrantsGrantsOnArgs',
+    'GetGrantsGrantsOnArgsDict',
     'GetGrantsGrantsToArgs',
+    'GetGrantsGrantsToArgsDict',
     'GetGrantsGrantsToShareArgs',
+    'GetGrantsGrantsToShareArgsDict',
     'GetMaskingPoliciesInArgs',
+    'GetMaskingPoliciesInArgsDict',
     'GetMaskingPoliciesLimitArgs',
+    'GetMaskingPoliciesLimitArgsDict',
     'GetRowAccessPoliciesInArgs',
+    'GetRowAccessPoliciesInArgsDict',
     'GetRowAccessPoliciesLimitArgs',
+    'GetRowAccessPoliciesLimitArgsDict',
     'GetSchemasInArgs',
+    'GetSchemasInArgsDict',
     'GetSchemasLimitArgs',
+    'GetSchemasLimitArgsDict',
     'GetStreamlitsInArgs',
+    'GetStreamlitsInArgsDict',
     'GetStreamlitsLimitArgs',
+    'GetStreamlitsLimitArgsDict',
     'GetUsersLimitArgs',
+    'GetUsersLimitArgsDict',
     'GetViewsInArgs',
+    'GetViewsInArgsDict',
     'GetViewsLimitArgs',
+    'GetViewsLimitArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountRoleShowOutputArgsDict(TypedDict):
+        assigned_to_users: NotRequired[pulumi.Input[int]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        granted_roles: NotRequired[pulumi.Input[int]]
+        granted_to_roles: NotRequired[pulumi.Input[int]]
+        is_current: NotRequired[pulumi.Input[bool]]
+        is_default: NotRequired[pulumi.Input[bool]]
+        is_inherited: NotRequired[pulumi.Input[bool]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+elif False:
+    AccountRoleShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountRoleShowOutputArgs:
@@ -439,6 +763,19 @@ class AccountRoleShowOutputArgs:
         pulumi.set(self, "owner", value)
 
 
+if not MYPY:
+    class AlertAlertScheduleArgsDict(TypedDict):
+        cron: NotRequired[pulumi.Input['AlertAlertScheduleCronArgsDict']]
+        """
+        Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+elif False:
+    AlertAlertScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertAlertScheduleArgs:
     def __init__(__self__, *,
@@ -478,6 +815,19 @@ class AlertAlertScheduleArgs:
         pulumi.set(self, "interval", value)
 
 
+if not MYPY:
+    class AlertAlertScheduleCronArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        time_zone: pulumi.Input[str]
+        """
+        Specifies the time zone for alert refresh.
+        """
+elif False:
+    AlertAlertScheduleCronArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertAlertScheduleCronArgs:
     def __init__(__self__, *,
@@ -514,6 +864,23 @@ class AlertAlertScheduleCronArgs:
     def time_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_zone", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict(TypedDict):
+        auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgsDict']]]]
+        oauth_access_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgsDict']]]]
+        oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict']]]]
+        oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
+        oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict']]]]
+        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict']]]]
+        oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict']]]]
+        oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
+        oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict']]]]
+        parent_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgsDict']]]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
@@ -664,6 +1031,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
         pulumi.set(self, "parent_integrations", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgs:
     def __init__(__self__, *,
@@ -716,6 +1092,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTy
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgs:
@@ -770,6 +1155,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommen
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgs:
     def __init__(__self__, *,
@@ -822,6 +1216,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnable
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgs:
@@ -876,6 +1279,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthA
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgs:
     def __init__(__self__, *,
@@ -928,6 +1340,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthA
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgs:
@@ -982,6 +1403,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthA
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs:
     def __init__(__self__, *,
@@ -1034,6 +1464,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthC
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs:
@@ -1088,6 +1527,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthC
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs:
     def __init__(__self__, *,
@@ -1140,6 +1588,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthG
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs:
@@ -1194,6 +1651,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthR
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgs:
     def __init__(__self__, *,
@@ -1247,6 +1713,15 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthT
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgs:
     def __init__(__self__, *,
@@ -1299,6 +1774,17 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParent
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs:
@@ -1376,6 +1862,23 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgsDict(TypedDict):
+        auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgsDict']]]]
+        oauth_access_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgsDict']]]]
+        oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict']]]]
+        oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
+        oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict']]]]
+        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict']]]]
+        oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict']]]]
+        oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
+        oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict']]]]
+        parent_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgsDict']]]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
@@ -1526,6 +2029,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
         pulumi.set(self, "parent_integrations", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgs:
     def __init__(__self__, *,
@@ -1578,6 +2090,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArg
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgs:
@@ -1632,6 +2153,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgs
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgs:
     def __init__(__self__, *,
@@ -1684,6 +2214,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgs
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgs:
@@ -1738,6 +2277,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccess
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgs:
     def __init__(__self__, *,
@@ -1790,6 +2338,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowe
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgs:
@@ -1844,6 +2401,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthor
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs:
     def __init__(__self__, *,
@@ -1896,6 +2462,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClient
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs:
@@ -1950,6 +2525,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClient
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs:
     def __init__(__self__, *,
@@ -2002,6 +2586,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantA
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs:
@@ -2056,6 +2649,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefres
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgs:
     def __init__(__self__, *,
@@ -2109,6 +2711,15 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenE
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgs:
     def __init__(__self__, *,
@@ -2161,6 +2772,17 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentInteg
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs:
@@ -2238,6 +2860,23 @@ class ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict(TypedDict):
+        auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgsDict']]]]
+        oauth_access_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgsDict']]]]
+        oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict']]]]
+        oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
+        oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict']]]]
+        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict']]]]
+        oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict']]]]
+        oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
+        oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict']]]]
+        parent_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict']]]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
@@ -2388,6 +3027,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
         pulumi.set(self, "parent_integrations", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgs:
     def __init__(__self__, *,
@@ -2440,6 +3088,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgs:
@@ -2494,6 +3151,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgs:
     def __init__(__self__, *,
@@ -2546,6 +3212,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgs:
@@ -2600,6 +3275,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenVal
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgs:
     def __init__(__self__, *,
@@ -2652,6 +3336,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeAr
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgs:
@@ -2706,6 +3399,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationE
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs:
     def __init__(__self__, *,
@@ -2758,6 +3460,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMeth
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs:
@@ -2812,6 +3523,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs:
     def __init__(__self__, *,
@@ -2864,6 +3584,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs:
@@ -2918,6 +3647,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenVa
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgs:
     def __init__(__self__, *,
@@ -2971,6 +3709,15 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointA
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgs:
     def __init__(__self__, *,
@@ -3023,6 +3770,17 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationAr
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs:
@@ -3101,6 +3859,13 @@ class ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class DatabaseOldReplicationConfigurationArgsDict(TypedDict):
+        accounts: pulumi.Input[Sequence[pulumi.Input[str]]]
+        ignore_edition_check: NotRequired[pulumi.Input[bool]]
+elif False:
+    DatabaseOldReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseOldReplicationConfigurationArgs:
     def __init__(__self__, *,
@@ -3128,6 +3893,19 @@ class DatabaseOldReplicationConfigurationArgs:
     def ignore_edition_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_edition_check", value)
 
+
+if not MYPY:
+    class DatabaseReplicationArgsDict(TypedDict):
+        enable_to_accounts: pulumi.Input[Sequence[pulumi.Input['DatabaseReplicationEnableToAccountArgsDict']]]
+        """
+        Entry to enable replication and optionally failover for a given account identifier.
+        """
+        ignore_edition_check: NotRequired[pulumi.Input[bool]]
+        """
+        Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
+        """
+elif False:
+    DatabaseReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseReplicationArgs:
@@ -3167,6 +3945,19 @@ class DatabaseReplicationArgs:
         pulumi.set(self, "ignore_edition_check", value)
 
 
+if not MYPY:
+    class DatabaseReplicationEnableToAccountArgsDict(TypedDict):
+        account_identifier: pulumi.Input[str]
+        """
+        Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+        """
+        with_failover: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if failover should be enabled for the specified account identifier
+        """
+elif False:
+    DatabaseReplicationEnableToAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseReplicationEnableToAccountArgs:
     def __init__(__self__, *,
@@ -3204,6 +3995,23 @@ class DatabaseReplicationEnableToAccountArgs:
     def with_failover(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "with_failover", value)
 
+
+if not MYPY:
+    class DatabaseRoleShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        granted_database_roles: NotRequired[pulumi.Input[int]]
+        granted_to_database_roles: NotRequired[pulumi.Input[int]]
+        granted_to_roles: NotRequired[pulumi.Input[int]]
+        is_current: NotRequired[pulumi.Input[bool]]
+        is_default: NotRequired[pulumi.Input[bool]]
+        is_inherited: NotRequired[pulumi.Input[bool]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+elif False:
+    DatabaseRoleShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseRoleShowOutputArgs:
@@ -3354,6 +4162,19 @@ class DatabaseRoleShowOutputArgs:
         pulumi.set(self, "owner_role_type", value)
 
 
+if not MYPY:
+    class DynamicTableTargetLagArgsDict(TypedDict):
+        downstream: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the target lag time is downstream.
+        """
+        maximum_duration: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum target lag time for the dynamic table.
+        """
+elif False:
+    DynamicTableTargetLagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DynamicTableTargetLagArgs:
     def __init__(__self__, *,
@@ -3393,6 +4214,19 @@ class DynamicTableTargetLagArgs:
         pulumi.set(self, "maximum_duration", value)
 
 
+if not MYPY:
+    class ExternalFunctionArgArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Argument name
+        """
+        type: pulumi.Input[str]
+        """
+        Argument type, e.g. VARCHAR
+        """
+elif False:
+    ExternalFunctionArgArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalFunctionArgArgs:
     def __init__(__self__, *,
@@ -3430,6 +4264,19 @@ class ExternalFunctionArgArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ExternalFunctionHeaderArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Header name
+        """
+        value: pulumi.Input[str]
+        """
+        Header value
+        """
+elif False:
+    ExternalFunctionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalFunctionHeaderArgs:
     def __init__(__self__, *,
@@ -3466,6 +4313,24 @@ class ExternalFunctionHeaderArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputArgsDict(TypedDict):
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputEnabledArgsDict']]]]
+        external_oauth_allowed_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgsDict']]]]
+        external_oauth_any_role_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgsDict']]]]
+        external_oauth_audience_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgsDict']]]]
+        external_oauth_blocked_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgsDict']]]]
+        external_oauth_issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgsDict']]]]
+        external_oauth_jws_keys_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgsDict']]]]
+        external_oauth_rsa_public_key2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2ArgsDict']]]]
+        external_oauth_rsa_public_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgsDict']]]]
+        external_oauth_scope_delimiters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgsDict']]]]
+        external_oauth_snowflake_user_mapping_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgsDict']]]]
+        external_oauth_token_user_mapping_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgsDict']]]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputArgs:
@@ -3628,6 +4493,15 @@ class ExternalOauthIntegrationDescribeOutputArgs:
         pulumi.set(self, "external_oauth_token_user_mapping_claims", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputCommentArgs:
     def __init__(__self__, *,
@@ -3680,6 +4554,15 @@ class ExternalOauthIntegrationDescribeOutputCommentArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputEnabledArgs:
@@ -3734,6 +4617,15 @@ class ExternalOauthIntegrationDescribeOutputEnabledArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgs:
     def __init__(__self__, *,
@@ -3786,6 +4678,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgs:
@@ -3840,6 +4741,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgs:
     def __init__(__self__, *,
@@ -3892,6 +4802,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgs:
@@ -3946,6 +4865,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgs:
     def __init__(__self__, *,
@@ -3998,6 +4926,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgs:
@@ -4052,6 +4989,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2ArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2Args:
     def __init__(__self__, *,
@@ -4104,6 +5050,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2Args:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgs:
@@ -4158,6 +5113,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgs:
     def __init__(__self__, *,
@@ -4210,6 +5174,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgs:
@@ -4264,6 +5237,15 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAtt
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgs:
     def __init__(__self__, *,
@@ -4317,6 +5299,12 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimAr
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ExternalOauthIntegrationRelatedParameterArgsDict(TypedDict):
+        external_oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgsDict']]]]
+elif False:
+    ExternalOauthIntegrationRelatedParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalOauthIntegrationRelatedParameterArgs:
     def __init__(__self__, *,
@@ -4333,6 +5321,16 @@ class ExternalOauthIntegrationRelatedParameterArgs:
     def external_oauth_add_privileged_roles_to_blocked_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgs']]]]):
         pulumi.set(self, "external_oauth_add_privileged_roles_to_blocked_lists", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgs:
@@ -4398,6 +5396,17 @@ class ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToB
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ExternalOauthIntegrationShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ExternalOauthIntegrationShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalOauthIntegrationShowOutputArgs:
@@ -4476,6 +5485,23 @@ class ExternalOauthIntegrationShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ExternalTableColumnArgsDict(TypedDict):
+        as_: pulumi.Input[str]
+        """
+        String that specifies the expression for the column. When queried, the column returns results derived from this expression.
+        """
+        name: pulumi.Input[str]
+        """
+        Column name
+        """
+        type: pulumi.Input[str]
+        """
+        Column type, e.g. VARIANT
+        """
+elif False:
+    ExternalTableColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExternalTableColumnArgs:
     def __init__(__self__, *,
@@ -4527,6 +5553,27 @@ class ExternalTableColumnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ExternalTableTagArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Tag name, e.g. department.
+        """
+        value: pulumi.Input[str]
+        """
+        Tag value, e.g. marketing_info.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the tag was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the tag was created in.
+        """
+elif False:
+    ExternalTableTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExternalTableTagArgs:
@@ -4597,6 +5644,23 @@ class ExternalTableTagArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class FailoverGroupFromReplicaArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Identifier for the primary failover group in the source account.
+        """
+        organization_name: pulumi.Input[str]
+        """
+        Name of your Snowflake organization.
+        """
+        source_account_name: pulumi.Input[str]
+        """
+        Source account from which you are enabling replication and failover of the specified objects.
+        """
+elif False:
+    FailoverGroupFromReplicaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupFromReplicaArgs:
     def __init__(__self__, *,
@@ -4649,6 +5713,19 @@ class FailoverGroupFromReplicaArgs:
         pulumi.set(self, "source_account_name", value)
 
 
+if not MYPY:
+    class FailoverGroupReplicationScheduleArgsDict(TypedDict):
+        cron: NotRequired[pulumi.Input['FailoverGroupReplicationScheduleCronArgsDict']]
+        """
+        Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
+        """
+elif False:
+    FailoverGroupReplicationScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReplicationScheduleArgs:
     def __init__(__self__, *,
@@ -4688,6 +5765,19 @@ class FailoverGroupReplicationScheduleArgs:
         pulumi.set(self, "interval", value)
 
 
+if not MYPY:
+    class FailoverGroupReplicationScheduleCronArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
+        """
+        time_zone: pulumi.Input[str]
+        """
+        Specifies the time zone for secondary group refresh.
+        """
+elif False:
+    FailoverGroupReplicationScheduleCronArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReplicationScheduleCronArgs:
     def __init__(__self__, *,
@@ -4725,6 +5815,19 @@ class FailoverGroupReplicationScheduleCronArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class FunctionArgumentArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The argument name
+        """
+        type: pulumi.Input[str]
+        """
+        The argument type
+        """
+elif False:
+    FunctionArgumentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionArgumentArgs:
     def __init__(__self__, *,
@@ -4761,6 +5864,27 @@ class FunctionArgumentArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GrantOwnershipOnArgsDict(TypedDict):
+        all: NotRequired[pulumi.Input['GrantOwnershipOnAllArgsDict']]
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        future: NotRequired[pulumi.Input['GrantOwnershipOnFutureArgsDict']]
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        object_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the identifier for the object on which you are transferring ownership.
+        """
+        object_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        """
+elif False:
+    GrantOwnershipOnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantOwnershipOnArgs:
@@ -4833,6 +5957,23 @@ class GrantOwnershipOnArgs:
         pulumi.set(self, "object_type", value)
 
 
+if not MYPY:
+    class GrantOwnershipOnAllArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        in_schema: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantOwnershipOnAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GrantOwnershipOnAllArgs:
     def __init__(__self__, *,
@@ -4886,6 +6027,23 @@ class GrantOwnershipOnAllArgs:
     def in_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "in_schema", value)
 
+
+if not MYPY:
+    class GrantOwnershipOnFutureArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        in_schema: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantOwnershipOnFutureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantOwnershipOnFutureArgs:
@@ -4941,6 +6099,19 @@ class GrantOwnershipOnFutureArgs:
         pulumi.set(self, "in_schema", value)
 
 
+if not MYPY:
+    class GrantPrivilegesToAccountRoleOnAccountObjectArgsDict(TypedDict):
+        object_name: pulumi.Input[str]
+        """
+        The fully qualified name of the object on which privileges will be granted.
+        """
+        object_type: pulumi.Input[str]
+        """
+        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        """
+elif False:
+    GrantPrivilegesToAccountRoleOnAccountObjectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     def __init__(__self__, *,
@@ -4977,6 +6148,23 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     def object_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_type", value)
 
+
+if not MYPY:
+    class GrantPrivilegesToAccountRoleOnSchemaArgsDict(TypedDict):
+        all_schemas_in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        future_schemas_in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantPrivilegesToAccountRoleOnSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantPrivilegesToAccountRoleOnSchemaArgs:
@@ -5032,6 +6220,27 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
 
+
+if not MYPY:
+    class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
+        all: NotRequired[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict']]
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        future: NotRequired[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict']]
+        """
+        Configures the privilege to be granted on future objects in either a database or schema.
+        """
+        object_name: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the object on which privileges will be granted.
+        """
+        object_type: NotRequired[pulumi.Input[str]]
+        """
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
+        """
+elif False:
+    GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
@@ -5104,6 +6313,17 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         pulumi.set(self, "object_type", value)
 
 
+if not MYPY:
+    class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        in_schema: NotRequired[pulumi.Input[str]]
+elif False:
+    GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     def __init__(__self__, *,
@@ -5150,6 +6370,17 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
         pulumi.set(self, "in_schema", value)
 
 
+if not MYPY:
+    class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        in_schema: NotRequired[pulumi.Input[str]]
+elif False:
+    GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     def __init__(__self__, *,
@@ -5195,6 +6426,23 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     def in_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "in_schema", value)
 
+
+if not MYPY:
+    class GrantPrivilegesToDatabaseRoleOnSchemaArgsDict(TypedDict):
+        all_schemas_in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        future_schemas_in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantPrivilegesToDatabaseRoleOnSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
@@ -5250,6 +6498,27 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
 
+
+if not MYPY:
+    class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
+        all: NotRequired[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict']]
+        """
+        Configures the privilege to be granted on all objects in either a database or schema.
+        """
+        future: NotRequired[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict']]
+        """
+        Configures the privilege to be granted on future objects in either a database or schema.
+        """
+        object_name: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the object on which privileges will be granted.
+        """
+        object_type: NotRequired[pulumi.Input[str]]
+        """
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET
+        """
+elif False:
+    GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
@@ -5322,6 +6591,23 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         pulumi.set(self, "object_type", value)
 
 
+if not MYPY:
+    class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        in_schema: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     def __init__(__self__, *,
@@ -5375,6 +6661,23 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     def in_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "in_schema", value)
 
+
+if not MYPY:
+    class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
+        object_type_plural: pulumi.Input[str]
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.
+        """
+        in_database: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the database.
+        """
+        in_schema: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of the schema.
+        """
+elif False:
+    GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
@@ -5430,6 +6733,19 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
         pulumi.set(self, "in_schema", value)
 
 
+if not MYPY:
+    class MaskingPolicyArgumentArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The argument name
+        """
+        type: pulumi.Input[str]
+        """
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+elif False:
+    MaskingPolicyArgumentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaskingPolicyArgumentArgs:
     def __init__(__self__, *,
@@ -5466,6 +6782,15 @@ class MaskingPolicyArgumentArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MaskingPolicyDescribeOutputArgsDict(TypedDict):
+        body: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        return_type: NotRequired[pulumi.Input[str]]
+        signatures: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgsDict']]]]
+elif False:
+    MaskingPolicyDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaskingPolicyDescribeOutputArgs:
@@ -5520,6 +6845,13 @@ class MaskingPolicyDescribeOutputArgs:
         pulumi.set(self, "signatures", value)
 
 
+if not MYPY:
+    class MaskingPolicyDescribeOutputSignatureArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    MaskingPolicyDescribeOutputSignatureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaskingPolicyDescribeOutputSignatureArgs:
     def __init__(__self__, *,
@@ -5548,6 +6880,20 @@ class MaskingPolicyDescribeOutputSignatureArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class MaskingPolicyShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        exempt_other_policies: NotRequired[pulumi.Input[bool]]
+        kind: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+elif False:
+    MaskingPolicyShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MaskingPolicyShowOutputArgs:
@@ -5662,6 +7008,27 @@ class MaskingPolicyShowOutputArgs:
         pulumi.set(self, "schema_name", value)
 
 
+if not MYPY:
+    class MaterializedViewTagArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Tag name, e.g. department.
+        """
+        value: pulumi.Input[str]
+        """
+        Tag value, e.g. marketing_info.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the tag was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the tag was created in.
+        """
+elif False:
+    MaterializedViewTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaterializedViewTagArgs:
     def __init__(__self__, *,
@@ -5731,6 +7098,15 @@ class MaterializedViewTagArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class NetworkPolicyDescribeOutputArgsDict(TypedDict):
+        allowed_ip_list: NotRequired[pulumi.Input[str]]
+        allowed_network_rule_list: NotRequired[pulumi.Input[str]]
+        blocked_ip_list: NotRequired[pulumi.Input[str]]
+        blocked_network_rule_list: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkPolicyDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkPolicyDescribeOutputArgs:
     def __init__(__self__, *,
@@ -5783,6 +7159,18 @@ class NetworkPolicyDescribeOutputArgs:
     def blocked_network_rule_list(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "blocked_network_rule_list", value)
 
+
+if not MYPY:
+    class NetworkPolicyShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        entries_in_allowed_ip_list: NotRequired[pulumi.Input[int]]
+        entries_in_allowed_network_rules: NotRequired[pulumi.Input[int]]
+        entries_in_blocked_ip_list: NotRequired[pulumi.Input[int]]
+        entries_in_blocked_network_rules: NotRequired[pulumi.Input[int]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkPolicyShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkPolicyShowOutputArgs:
@@ -5872,6 +7260,30 @@ class NetworkPolicyShowOutputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputArgsDict(TypedDict):
+        blocked_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputEnabledArgsDict']]]]
+        network_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgsDict']]]]
+        oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict']]]]
+        oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]
+        oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]
+        oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
+        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict']]]]
+        oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]
+        oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]
+        oauth_client_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict']]]]
+        oauth_enforce_pkces: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict']]]]
+        oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]
+        oauth_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict']]]]
+        oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
+        oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict']]]]
+        oauth_use_secondary_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]
+        pre_authorized_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgsDict']]]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputArgs:
@@ -6106,6 +7518,15 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
         pulumi.set(self, "pre_authorized_roles_lists", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs:
     def __init__(__self__, *,
@@ -6158,6 +7579,15 @@ class OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputCommentArgs:
@@ -6212,6 +7642,15 @@ class OauthIntegrationForCustomClientsDescribeOutputCommentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputEnabledArgs:
     def __init__(__self__, *,
@@ -6264,6 +7703,15 @@ class OauthIntegrationForCustomClientsDescribeOutputEnabledArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgs:
@@ -6318,6 +7766,15 @@ class OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgs:
     def __init__(__self__, *,
@@ -6370,6 +7827,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriA
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgs:
@@ -6424,6 +7890,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEnd
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgs:
     def __init__(__self__, *,
@@ -6476,6 +7951,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArg
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs:
@@ -6530,6 +8014,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointAr
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs:
     def __init__(__self__, *,
@@ -6582,6 +8075,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs:
@@ -6636,6 +8138,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpAr
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs:
     def __init__(__self__, *,
@@ -6688,6 +8199,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArg
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs:
@@ -6742,6 +8262,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs:
     def __init__(__self__, *,
@@ -6794,6 +8323,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs:
@@ -6848,6 +8386,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs:
     def __init__(__self__, *,
@@ -6900,6 +8447,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs:
@@ -6954,6 +8510,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArg
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs:
     def __init__(__self__, *,
@@ -7006,6 +8571,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs:
@@ -7060,6 +8634,15 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgs:
     def __init__(__self__, *,
@@ -7112,6 +8695,17 @@ class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForCustomClientsShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForCustomClientsShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsShowOutputArgs:
@@ -7189,6 +8783,30 @@ class OauthIntegrationForCustomClientsShowOutputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict(TypedDict):
+        blocked_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgsDict']]]]
+        network_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgsDict']]]]
+        oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict']]]]
+        oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]
+        oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]
+        oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
+        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict']]]]
+        oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]
+        oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]
+        oauth_client_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict']]]]
+        oauth_enforce_pkces: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict']]]]
+        oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]
+        oauth_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict']]]]
+        oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
+        oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict']]]]
+        oauth_use_secondary_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]
+        pre_authorized_roles_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgsDict']]]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
@@ -7423,6 +9041,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
         pulumi.set(self, "pre_authorized_roles_lists", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgs:
     def __init__(__self__, *,
@@ -7475,6 +9102,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgs:
@@ -7529,6 +9165,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgs:
     def __init__(__self__, *,
@@ -7581,6 +9226,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgs:
@@ -7635,6 +9289,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgs:
     def __init__(__self__, *,
@@ -7687,6 +9350,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedire
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgs:
@@ -7741,6 +9413,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizat
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgs:
     def __init__(__self__, *,
@@ -7793,6 +9474,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpo
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs:
@@ -7847,6 +9537,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndp
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs:
     def __init__(__self__, *,
@@ -7899,6 +9598,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs:
@@ -7953,6 +9661,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKe
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs:
     def __init__(__self__, *,
@@ -8005,6 +9722,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKe
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs:
@@ -8059,6 +9785,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs:
     def __init__(__self__, *,
@@ -8111,6 +9846,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs:
@@ -8165,6 +9909,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs:
     def __init__(__self__, *,
@@ -8217,6 +9970,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs:
@@ -8271,6 +10033,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValid
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs:
     def __init__(__self__, *,
@@ -8323,6 +10094,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgs:
@@ -8377,6 +10157,15 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleA
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgs:
     def __init__(__self__, *,
@@ -8429,6 +10218,17 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OauthIntegrationForPartnerApplicationsShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    OauthIntegrationForPartnerApplicationsShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsShowOutputArgs:
@@ -8507,6 +10307,23 @@ class OauthIntegrationForPartnerApplicationsShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ObjectParameterObjectIdentifierArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the object to set the parameter for.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the object was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the object was created in.
+        """
+elif False:
+    ObjectParameterObjectIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ObjectParameterObjectIdentifierArgs:
     def __init__(__self__, *,
@@ -8561,6 +10378,19 @@ class ObjectParameterObjectIdentifierArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class ProcedureArgumentArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The argument name
+        """
+        type: pulumi.Input[str]
+        """
+        The argument type
+        """
+elif False:
+    ProcedureArgumentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProcedureArgumentArgs:
     def __init__(__self__, *,
@@ -8597,6 +10427,31 @@ class ProcedureArgumentArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ProviderTokenAccessorArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The client ID for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID` environment variable.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET` environment variable.
+        """
+        redirect_uri: pulumi.Input[str]
+        """
+        The redirect URI for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI` environment variable.
+        """
+        refresh_token: pulumi.Input[str]
+        """
+        The refresh token for the OAuth provider when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN` environment variable.
+        """
+        token_endpoint: pulumi.Input[str]
+        """
+        The token endpoint for the OAuth provider e.g. https://{yourDomain}/oauth/token when using a refresh token to renew access token. Can also be sourced from the `SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT` environment variable.
+        """
+elif False:
+    ProviderTokenAccessorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderTokenAccessorArgs:
@@ -8679,6 +10534,24 @@ class ProviderTokenAccessorArgs:
     def token_endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "token_endpoint", value)
 
+
+if not MYPY:
+    class ResourceMonitorShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        credit_quota: NotRequired[pulumi.Input[float]]
+        end_time: NotRequired[pulumi.Input[str]]
+        frequency: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        remaining_credits: NotRequired[pulumi.Input[float]]
+        start_time: NotRequired[pulumi.Input[str]]
+        suspend_at: NotRequired[pulumi.Input[int]]
+        suspend_immediate_at: NotRequired[pulumi.Input[int]]
+        used_credits: NotRequired[pulumi.Input[float]]
+elif False:
+    ResourceMonitorShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceMonitorShowOutputArgs:
@@ -8841,6 +10714,21 @@ class ResourceMonitorShowOutputArgs:
         pulumi.set(self, "used_credits", value)
 
 
+if not MYPY:
+    class RoleShowOutputArgsDict(TypedDict):
+        assigned_to_users: NotRequired[pulumi.Input[int]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        granted_roles: NotRequired[pulumi.Input[int]]
+        granted_to_roles: NotRequired[pulumi.Input[int]]
+        is_current: NotRequired[pulumi.Input[bool]]
+        is_default: NotRequired[pulumi.Input[bool]]
+        is_inherited: NotRequired[pulumi.Input[bool]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+elif False:
+    RoleShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoleShowOutputArgs:
     def __init__(__self__, *,
@@ -8966,6 +10854,19 @@ class RoleShowOutputArgs:
         pulumi.set(self, "owner", value)
 
 
+if not MYPY:
+    class RowAccessPolicyArgumentArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The argument name
+        """
+        type: pulumi.Input[str]
+        """
+        The argument type. VECTOR data types are not yet supported. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+elif False:
+    RowAccessPolicyArgumentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RowAccessPolicyArgumentArgs:
     def __init__(__self__, *,
@@ -9002,6 +10903,15 @@ class RowAccessPolicyArgumentArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class RowAccessPolicyDescribeOutputArgsDict(TypedDict):
+        body: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        return_type: NotRequired[pulumi.Input[str]]
+        signatures: NotRequired[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgsDict']]]]
+elif False:
+    RowAccessPolicyDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RowAccessPolicyDescribeOutputArgs:
@@ -9056,6 +10966,13 @@ class RowAccessPolicyDescribeOutputArgs:
         pulumi.set(self, "signatures", value)
 
 
+if not MYPY:
+    class RowAccessPolicyDescribeOutputSignatureArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    RowAccessPolicyDescribeOutputSignatureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RowAccessPolicyDescribeOutputSignatureArgs:
     def __init__(__self__, *,
@@ -9084,6 +11001,20 @@ class RowAccessPolicyDescribeOutputSignatureArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class RowAccessPolicyShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        kind: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        options: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+elif False:
+    RowAccessPolicyShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RowAccessPolicyShowOutputArgs:
@@ -9197,6 +11128,30 @@ class RowAccessPolicyShowOutputArgs:
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputArgsDict(TypedDict):
+        allowed_email_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedEmailPatternArgsDict']]]]
+        allowed_user_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedUserDomainArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputCommentArgsDict']]]]
+        saml2_digest_methods_useds: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgsDict']]]]
+        saml2_enable_sp_initiateds: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgsDict']]]]
+        saml2_force_authns: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ForceAuthnArgsDict']]]]
+        saml2_issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2IssuerArgsDict']]]]
+        saml2_post_logout_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgsDict']]]]
+        saml2_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ProviderArgsDict']]]]
+        saml2_requested_nameid_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgsDict']]]]
+        saml2_sign_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignRequestArgsDict']]]]
+        saml2_signature_methods_useds: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgsDict']]]]
+        saml2_snowflake_acs_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict']]]]
+        saml2_snowflake_issuer_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict']]]]
+        saml2_snowflake_metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict']]]]
+        saml2_snowflake_x509_certs: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict']]]]
+        saml2_sp_initiated_login_page_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict']]]]
+        saml2_sso_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict']]]]
+        saml2_x509_certs: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2X509CertArgsDict']]]]
+elif False:
+    Saml2IntegrationDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputArgs:
@@ -9431,6 +11386,15 @@ class Saml2IntegrationDescribeOutputArgs:
         pulumi.set(self, "saml2_x509_certs", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputAllowedEmailPatternArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputAllowedEmailPatternArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputAllowedEmailPatternArgs:
     def __init__(__self__, *,
@@ -9483,6 +11447,15 @@ class Saml2IntegrationDescribeOutputAllowedEmailPatternArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputAllowedUserDomainArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputAllowedUserDomainArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputAllowedUserDomainArgs:
@@ -9537,6 +11510,15 @@ class Saml2IntegrationDescribeOutputAllowedUserDomainArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputCommentArgs:
     def __init__(__self__, *,
@@ -9589,6 +11571,15 @@ class Saml2IntegrationDescribeOutputCommentArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs:
@@ -9643,6 +11634,15 @@ class Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs:
     def __init__(__self__, *,
@@ -9695,6 +11695,15 @@ class Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2ForceAuthnArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2ForceAuthnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs:
@@ -9749,6 +11758,15 @@ class Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2IssuerArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2IssuerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2IssuerArgs:
     def __init__(__self__, *,
@@ -9801,6 +11819,15 @@ class Saml2IntegrationDescribeOutputSaml2IssuerArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs:
@@ -9855,6 +11882,15 @@ class Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2ProviderArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2ProviderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2ProviderArgs:
     def __init__(__self__, *,
@@ -9907,6 +11943,15 @@ class Saml2IntegrationDescribeOutputSaml2ProviderArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs:
@@ -9961,6 +12006,15 @@ class Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SignRequestArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SignRequestArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SignRequestArgs:
     def __init__(__self__, *,
@@ -10013,6 +12067,15 @@ class Saml2IntegrationDescribeOutputSaml2SignRequestArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs:
@@ -10067,6 +12130,15 @@ class Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs:
     def __init__(__self__, *,
@@ -10119,6 +12191,15 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs:
@@ -10173,6 +12254,15 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs:
     def __init__(__self__, *,
@@ -10225,6 +12315,15 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs:
@@ -10279,6 +12378,15 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs:
     def __init__(__self__, *,
@@ -10331,6 +12439,15 @@ class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SsoUrlArgs:
@@ -10385,6 +12502,15 @@ class Saml2IntegrationDescribeOutputSaml2SsoUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class Saml2IntegrationDescribeOutputSaml2X509CertArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationDescribeOutputSaml2X509CertArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2X509CertArgs:
     def __init__(__self__, *,
@@ -10437,6 +12563,17 @@ class Saml2IntegrationDescribeOutputSaml2X509CertArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class Saml2IntegrationShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    Saml2IntegrationShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class Saml2IntegrationShowOutputArgs:
@@ -10515,6 +12652,14 @@ class Saml2IntegrationShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class SchemaDescribeOutputArgsDict(TypedDict):
+        created_on: NotRequired[pulumi.Input[str]]
+        kind: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaDescribeOutputArgs:
     def __init__(__self__, *,
@@ -10555,6 +12700,28 @@ class SchemaDescribeOutputArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SchemaParameterArgsDict(TypedDict):
+        catalogs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterCatalogArgsDict']]]]
+        data_retention_time_in_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgsDict']]]]
+        default_ddl_collations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgsDict']]]]
+        enable_console_outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgsDict']]]]
+        external_volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgsDict']]]]
+        log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterLogLevelArgsDict']]]]
+        max_data_extension_time_in_days: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgsDict']]]]
+        pipe_execution_pauseds: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgsDict']]]]
+        quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]
+        replace_invalid_characters: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgsDict']]]]
+        storage_serialization_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgsDict']]]]
+        suspend_task_after_num_failures: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgsDict']]]]
+        task_auto_retry_attempts: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgsDict']]]]
+        trace_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterTraceLevelArgsDict']]]]
+        user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgsDict']]]]
+        user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgsDict']]]]
+        user_task_timeout_ms: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgsDict']]]]
+elif False:
+    SchemaParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterArgs:
@@ -10765,6 +12932,16 @@ class SchemaParameterArgs:
         pulumi.set(self, "user_task_timeout_ms", value)
 
 
+if not MYPY:
+    class SchemaParameterCatalogArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterCatalogArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterCatalogArgs:
     def __init__(__self__, *,
@@ -10829,6 +13006,16 @@ class SchemaParameterCatalogArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterDataRetentionTimeInDayArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterDataRetentionTimeInDayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterDataRetentionTimeInDayArgs:
@@ -10895,6 +13082,16 @@ class SchemaParameterDataRetentionTimeInDayArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterDefaultDdlCollationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterDefaultDdlCollationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterDefaultDdlCollationArgs:
     def __init__(__self__, *,
@@ -10959,6 +13156,16 @@ class SchemaParameterDefaultDdlCollationArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterEnableConsoleOutputArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterEnableConsoleOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterEnableConsoleOutputArgs:
@@ -11025,6 +13232,16 @@ class SchemaParameterEnableConsoleOutputArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterExternalVolumeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterExternalVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterExternalVolumeArgs:
     def __init__(__self__, *,
@@ -11089,6 +13306,16 @@ class SchemaParameterExternalVolumeArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterLogLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterLogLevelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterLogLevelArgs:
@@ -11155,6 +13382,16 @@ class SchemaParameterLogLevelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterMaxDataExtensionTimeInDayArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterMaxDataExtensionTimeInDayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterMaxDataExtensionTimeInDayArgs:
     def __init__(__self__, *,
@@ -11219,6 +13456,16 @@ class SchemaParameterMaxDataExtensionTimeInDayArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterPipeExecutionPausedArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterPipeExecutionPausedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterPipeExecutionPausedArgs:
@@ -11285,6 +13532,16 @@ class SchemaParameterPipeExecutionPausedArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterQuotedIdentifiersIgnoreCaseArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterQuotedIdentifiersIgnoreCaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterQuotedIdentifiersIgnoreCaseArgs:
     def __init__(__self__, *,
@@ -11349,6 +13606,16 @@ class SchemaParameterQuotedIdentifiersIgnoreCaseArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterReplaceInvalidCharacterArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterReplaceInvalidCharacterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterReplaceInvalidCharacterArgs:
@@ -11415,6 +13682,16 @@ class SchemaParameterReplaceInvalidCharacterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterStorageSerializationPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterStorageSerializationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterStorageSerializationPolicyArgs:
     def __init__(__self__, *,
@@ -11479,6 +13756,16 @@ class SchemaParameterStorageSerializationPolicyArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterSuspendTaskAfterNumFailureArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterSuspendTaskAfterNumFailureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterSuspendTaskAfterNumFailureArgs:
@@ -11545,6 +13832,16 @@ class SchemaParameterSuspendTaskAfterNumFailureArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterTaskAutoRetryAttemptArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterTaskAutoRetryAttemptArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterTaskAutoRetryAttemptArgs:
     def __init__(__self__, *,
@@ -11609,6 +13906,16 @@ class SchemaParameterTaskAutoRetryAttemptArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterTraceLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterTraceLevelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterTraceLevelArgs:
@@ -11675,6 +13982,16 @@ class SchemaParameterTraceLevelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterUserTaskManagedInitialWarehouseSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterUserTaskManagedInitialWarehouseSizeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterUserTaskManagedInitialWarehouseSizeArgs:
     def __init__(__self__, *,
@@ -11739,6 +14056,16 @@ class SchemaParameterUserTaskManagedInitialWarehouseSizeArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs:
@@ -11805,6 +14132,16 @@ class SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class SchemaParameterUserTaskTimeoutMArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaParameterUserTaskTimeoutMArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaParameterUserTaskTimeoutMArgs:
     def __init__(__self__, *,
@@ -11869,6 +14206,22 @@ class SchemaParameterUserTaskTimeoutMArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SchemaShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        dropped_on: NotRequired[pulumi.Input[str]]
+        is_current: NotRequired[pulumi.Input[bool]]
+        is_default: NotRequired[pulumi.Input[bool]]
+        name: NotRequired[pulumi.Input[str]]
+        options: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        retention_time: NotRequired[pulumi.Input[str]]
+elif False:
+    SchemaShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaShowOutputArgs:
@@ -12007,6 +14360,16 @@ class SchemaShowOutputArgs:
         pulumi.set(self, "retention_time", value)
 
 
+if not MYPY:
+    class ScimIntegrationDescribeOutputArgsDict(TypedDict):
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputEnabledArgsDict']]]]
+        network_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputNetworkPolicyArgsDict']]]]
+        run_as_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputRunAsRoleArgsDict']]]]
+        sync_passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputSyncPasswordArgsDict']]]]
+elif False:
+    ScimIntegrationDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScimIntegrationDescribeOutputArgs:
     def __init__(__self__, *,
@@ -12072,6 +14435,15 @@ class ScimIntegrationDescribeOutputArgs:
         pulumi.set(self, "sync_passwords", value)
 
 
+if not MYPY:
+    class ScimIntegrationDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScimIntegrationDescribeOutputCommentArgs:
     def __init__(__self__, *,
@@ -12124,6 +14496,15 @@ class ScimIntegrationDescribeOutputCommentArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ScimIntegrationDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScimIntegrationDescribeOutputEnabledArgs:
@@ -12178,6 +14559,15 @@ class ScimIntegrationDescribeOutputEnabledArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ScimIntegrationDescribeOutputNetworkPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationDescribeOutputNetworkPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScimIntegrationDescribeOutputNetworkPolicyArgs:
     def __init__(__self__, *,
@@ -12230,6 +14620,15 @@ class ScimIntegrationDescribeOutputNetworkPolicyArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ScimIntegrationDescribeOutputRunAsRoleArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationDescribeOutputRunAsRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScimIntegrationDescribeOutputRunAsRoleArgs:
@@ -12284,6 +14683,15 @@ class ScimIntegrationDescribeOutputRunAsRoleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ScimIntegrationDescribeOutputSyncPasswordArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationDescribeOutputSyncPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScimIntegrationDescribeOutputSyncPasswordArgs:
     def __init__(__self__, *,
@@ -12336,6 +14744,17 @@ class ScimIntegrationDescribeOutputSyncPasswordArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ScimIntegrationShowOutputArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        integration_type: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ScimIntegrationShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScimIntegrationShowOutputArgs:
@@ -12414,6 +14833,27 @@ class ScimIntegrationShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class StageTagArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Tag name, e.g. department.
+        """
+        value: pulumi.Input[str]
+        """
+        Tag value, e.g. marketing_info.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the tag was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the tag was created in.
+        """
+elif False:
+    StageTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StageTagArgs:
     def __init__(__self__, *,
@@ -12482,6 +14922,22 @@ class StageTagArgs:
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
 
+
+if not MYPY:
+    class StreamlitDescribeOutputArgsDict(TypedDict):
+        default_packages: NotRequired[pulumi.Input[str]]
+        external_access_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        external_access_secrets: NotRequired[pulumi.Input[str]]
+        import_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        main_file: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        query_warehouse: NotRequired[pulumi.Input[str]]
+        root_location: NotRequired[pulumi.Input[str]]
+        title: NotRequired[pulumi.Input[str]]
+        url_id: NotRequired[pulumi.Input[str]]
+        user_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    StreamlitDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamlitDescribeOutputArgs:
@@ -12620,6 +15076,21 @@ class StreamlitDescribeOutputArgs:
         pulumi.set(self, "user_packages", value)
 
 
+if not MYPY:
+    class StreamlitShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        query_warehouse: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+        title: NotRequired[pulumi.Input[str]]
+        url_id: NotRequired[pulumi.Input[str]]
+elif False:
+    StreamlitShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamlitShowOutputArgs:
     def __init__(__self__, *,
@@ -12744,6 +15215,47 @@ class StreamlitShowOutputArgs:
     def url_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url_id", value)
 
+
+if not MYPY:
+    class TableColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Column name
+        """
+        type: pulumi.Input[str]
+        """
+        Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        collate: NotRequired[pulumi.Input[str]]
+        """
+        Column collation, e.g. utf8
+        """
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        Column comment
+        """
+        default: NotRequired[pulumi.Input['TableColumnDefaultArgsDict']]
+        """
+        Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
+        """
+        identity: NotRequired[pulumi.Input['TableColumnIdentityArgsDict']]
+        """
+        Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
+        """
+        masking_policy: NotRequired[pulumi.Input[str]]
+        """
+        Masking policy to apply on column. It has to be a fully qualified name.
+        """
+        nullable: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        """
+        schema_evolution_record: NotRequired[pulumi.Input[str]]
+        """
+        Record of schema evolution.
+        """
+elif False:
+    TableColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableColumnArgs:
@@ -12894,6 +15406,23 @@ class TableColumnArgs:
         pulumi.set(self, "schema_evolution_record", value)
 
 
+if not MYPY:
+    class TableColumnDefaultArgsDict(TypedDict):
+        constant: NotRequired[pulumi.Input[str]]
+        """
+        The default constant value for the column
+        """
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        The default expression value for the column
+        """
+        sequence: NotRequired[pulumi.Input[str]]
+        """
+        The default sequence to use for the column
+        """
+elif False:
+    TableColumnDefaultArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableColumnDefaultArgs:
     def __init__(__self__, *,
@@ -12949,6 +15478,19 @@ class TableColumnDefaultArgs:
         pulumi.set(self, "sequence", value)
 
 
+if not MYPY:
+    class TableColumnIdentityArgsDict(TypedDict):
+        start_num: NotRequired[pulumi.Input[int]]
+        """
+        The number to start incrementing at.
+        """
+        step_num: NotRequired[pulumi.Input[int]]
+        """
+        Step size to increment by.
+        """
+elif False:
+    TableColumnIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableColumnIdentityArgs:
     def __init__(__self__, *,
@@ -12987,6 +15529,27 @@ class TableColumnIdentityArgs:
     def step_num(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "step_num", value)
 
+
+if not MYPY:
+    class TableConstraintForeignKeyPropertiesArgsDict(TypedDict):
+        references: pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgsDict']
+        """
+        The table and columns that the foreign key references.
+        """
+        match: NotRequired[pulumi.Input[str]]
+        """
+        The match type for the foreign key. Not applicable for primary/unique keys
+        """
+        on_delete: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        """
+        on_update: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        """
+elif False:
+    TableConstraintForeignKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableConstraintForeignKeyPropertiesArgs:
@@ -13058,6 +15621,19 @@ class TableConstraintForeignKeyPropertiesArgs:
         pulumi.set(self, "on_update", value)
 
 
+if not MYPY:
+    class TableConstraintForeignKeyPropertiesReferencesArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Columns to use in foreign key reference
+        """
+        table_id: pulumi.Input[str]
+        """
+        Name of constraint
+        """
+elif False:
+    TableConstraintForeignKeyPropertiesReferencesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableConstraintForeignKeyPropertiesReferencesArgs:
     def __init__(__self__, *,
@@ -13094,6 +15670,19 @@ class TableConstraintForeignKeyPropertiesReferencesArgs:
     def table_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_id", value)
 
+
+if not MYPY:
+    class TablePrimaryKeyArgsDict(TypedDict):
+        keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Columns to use in primary key
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of constraint
+        """
+elif False:
+    TablePrimaryKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TablePrimaryKeyArgs:
@@ -13132,6 +15721,27 @@ class TablePrimaryKeyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TableTagArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Tag name, e.g. department.
+        """
+        value: pulumi.Input[str]
+        """
+        Tag value, e.g. marketing_info.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the tag was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the tag was created in.
+        """
+elif False:
+    TableTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableTagArgs:
@@ -13202,6 +15812,23 @@ class TableTagArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class TagAssociationObjectIdentifierArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the object to associate the tag with.
+        """
+        database: NotRequired[pulumi.Input[str]]
+        """
+        Name of the database that the object was created in.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema that the object was created in.
+        """
+elif False:
+    TagAssociationObjectIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagAssociationObjectIdentifierArgs:
     def __init__(__self__, *,
@@ -13255,6 +15882,69 @@ class TagAssociationObjectIdentifierArgs:
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
 
+
+if not MYPY:
+    class UserParameterArgsDict(TypedDict):
+        abort_detached_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgsDict']]]]
+        autocommits: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterAutocommitArgsDict']]]]
+        binary_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterBinaryInputFormatArgsDict']]]]
+        binary_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterBinaryOutputFormatArgsDict']]]]
+        client_memory_limits: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgsDict']]]]
+        client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]
+        client_prefetch_threads: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientPrefetchThreadArgsDict']]]]
+        client_result_chunk_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientResultChunkSizeArgsDict']]]]
+        client_result_column_case_insensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientResultColumnCaseInsensitiveArgsDict']]]]
+        client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]
+        client_session_keep_alives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientSessionKeepAlifeArgsDict']]]]
+        client_timestamp_type_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterClientTimestampTypeMappingArgsDict']]]]
+        date_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterDateInputFormatArgsDict']]]]
+        date_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterDateOutputFormatArgsDict']]]]
+        enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]
+        enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]
+        error_on_nondeterministic_merges: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicMergeArgsDict']]]]
+        error_on_nondeterministic_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicUpdateArgsDict']]]]
+        geography_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterGeographyOutputFormatArgsDict']]]]
+        geometry_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterGeometryOutputFormatArgsDict']]]]
+        jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgsDict']]]]
+        jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]
+        jdbc_use_session_timezones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgsDict']]]]
+        json_indents: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterJsonIndentArgsDict']]]]
+        lock_timeouts: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterLockTimeoutArgsDict']]]]
+        log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterLogLevelArgsDict']]]]
+        multi_statement_counts: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterMultiStatementCountArgsDict']]]]
+        network_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterNetworkPolicyArgsDict']]]]
+        noorder_sequence_as_defaults: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterNoorderSequenceAsDefaultArgsDict']]]]
+        odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterOdbcTreatDecimalAsIntArgsDict']]]]
+        prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgsDict']]]]
+        query_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterQueryTagArgsDict']]]]
+        quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]
+        rows_per_resultsets: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterRowsPerResultsetArgsDict']]]]
+        s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterS3StageVpceDnsNameArgsDict']]]]
+        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterSearchPathArgsDict']]]]
+        simulated_data_sharing_consumers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterSimulatedDataSharingConsumerArgsDict']]]]
+        statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterStatementQueuedTimeoutInSecondArgsDict']]]]
+        statement_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterStatementTimeoutInSecondArgsDict']]]]
+        strict_json_outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterStrictJsonOutputArgsDict']]]]
+        time_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimeInputFormatArgsDict']]]]
+        time_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimeOutputFormatArgsDict']]]]
+        timestamp_day_is_always24hs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampDayIsAlways24hArgsDict']]]]
+        timestamp_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampInputFormatArgsDict']]]]
+        timestamp_ltz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampLtzOutputFormatArgsDict']]]]
+        timestamp_ntz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampNtzOutputFormatArgsDict']]]]
+        timestamp_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampOutputFormatArgsDict']]]]
+        timestamp_type_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampTypeMappingArgsDict']]]]
+        timestamp_tz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimestampTzOutputFormatArgsDict']]]]
+        timezones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTimezoneArgsDict']]]]
+        trace_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTraceLevelArgsDict']]]]
+        transaction_abort_on_errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTransactionAbortOnErrorArgsDict']]]]
+        transaction_default_isolation_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTransactionDefaultIsolationLevelArgsDict']]]]
+        two_digit_century_starts: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterTwoDigitCenturyStartArgsDict']]]]
+        unsupported_ddl_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterUnsupportedDdlActionArgsDict']]]]
+        use_cached_results: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterUseCachedResultArgsDict']]]]
+        week_of_year_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterWeekOfYearPolicyArgsDict']]]]
+        week_starts: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterWeekStartArgsDict']]]]
+elif False:
+    UserParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterArgs:
@@ -13957,6 +16647,16 @@ class UserParameterArgs:
         pulumi.set(self, "week_starts", value)
 
 
+if not MYPY:
+    class UserParameterAbortDetachedQueryArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterAbortDetachedQueryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterAbortDetachedQueryArgs:
     def __init__(__self__, *,
@@ -14021,6 +16721,16 @@ class UserParameterAbortDetachedQueryArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterAutocommitArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterAutocommitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterAutocommitArgs:
@@ -14087,6 +16797,16 @@ class UserParameterAutocommitArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterBinaryInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterBinaryInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterBinaryInputFormatArgs:
     def __init__(__self__, *,
@@ -14151,6 +16871,16 @@ class UserParameterBinaryInputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterBinaryOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterBinaryOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterBinaryOutputFormatArgs:
@@ -14217,6 +16947,16 @@ class UserParameterBinaryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterClientMemoryLimitArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientMemoryLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterClientMemoryLimitArgs:
     def __init__(__self__, *,
@@ -14281,6 +17021,16 @@ class UserParameterClientMemoryLimitArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterClientMetadataRequestUseConnectionCtxArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientMetadataRequestUseConnectionCtxArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterClientMetadataRequestUseConnectionCtxArgs:
@@ -14347,6 +17097,16 @@ class UserParameterClientMetadataRequestUseConnectionCtxArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterClientPrefetchThreadArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientPrefetchThreadArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterClientPrefetchThreadArgs:
     def __init__(__self__, *,
@@ -14411,6 +17171,16 @@ class UserParameterClientPrefetchThreadArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterClientResultChunkSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientResultChunkSizeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterClientResultChunkSizeArgs:
@@ -14477,6 +17247,16 @@ class UserParameterClientResultChunkSizeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterClientResultColumnCaseInsensitiveArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientResultColumnCaseInsensitiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterClientResultColumnCaseInsensitiveArgs:
     def __init__(__self__, *,
@@ -14541,6 +17321,16 @@ class UserParameterClientResultColumnCaseInsensitiveArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterClientSessionKeepAlifeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientSessionKeepAlifeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterClientSessionKeepAlifeArgs:
@@ -14607,6 +17397,16 @@ class UserParameterClientSessionKeepAlifeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs:
     def __init__(__self__, *,
@@ -14671,6 +17471,16 @@ class UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterClientTimestampTypeMappingArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterClientTimestampTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterClientTimestampTypeMappingArgs:
@@ -14737,6 +17547,16 @@ class UserParameterClientTimestampTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterDateInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterDateInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterDateInputFormatArgs:
     def __init__(__self__, *,
@@ -14801,6 +17621,16 @@ class UserParameterDateInputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterDateOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterDateOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterDateOutputFormatArgs:
@@ -14867,6 +17697,16 @@ class UserParameterDateOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterEnableUnloadPhysicalTypeOptimizationArgs:
     def __init__(__self__, *,
@@ -14931,6 +17771,16 @@ class UserParameterEnableUnloadPhysicalTypeOptimizationArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterEnableUnredactedQuerySyntaxErrorArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterEnableUnredactedQuerySyntaxErrorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterEnableUnredactedQuerySyntaxErrorArgs:
@@ -14997,6 +17847,16 @@ class UserParameterEnableUnredactedQuerySyntaxErrorArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterErrorOnNondeterministicMergeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterErrorOnNondeterministicMergeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterErrorOnNondeterministicMergeArgs:
     def __init__(__self__, *,
@@ -15061,6 +17921,16 @@ class UserParameterErrorOnNondeterministicMergeArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterErrorOnNondeterministicUpdateArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterErrorOnNondeterministicUpdateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterErrorOnNondeterministicUpdateArgs:
@@ -15127,6 +17997,16 @@ class UserParameterErrorOnNondeterministicUpdateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterGeographyOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterGeographyOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterGeographyOutputFormatArgs:
     def __init__(__self__, *,
@@ -15191,6 +18071,16 @@ class UserParameterGeographyOutputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterGeometryOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterGeometryOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterGeometryOutputFormatArgs:
@@ -15257,6 +18147,16 @@ class UserParameterGeometryOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterJdbcTreatDecimalAsIntArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterJdbcTreatDecimalAsIntArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterJdbcTreatDecimalAsIntArgs:
     def __init__(__self__, *,
@@ -15321,6 +18221,16 @@ class UserParameterJdbcTreatDecimalAsIntArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterJdbcTreatTimestampNtzAsUtcArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterJdbcTreatTimestampNtzAsUtcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterJdbcTreatTimestampNtzAsUtcArgs:
@@ -15387,6 +18297,16 @@ class UserParameterJdbcTreatTimestampNtzAsUtcArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterJdbcUseSessionTimezoneArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterJdbcUseSessionTimezoneArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterJdbcUseSessionTimezoneArgs:
     def __init__(__self__, *,
@@ -15451,6 +18371,16 @@ class UserParameterJdbcUseSessionTimezoneArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterJsonIndentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterJsonIndentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterJsonIndentArgs:
@@ -15517,6 +18447,16 @@ class UserParameterJsonIndentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterLockTimeoutArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterLockTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterLockTimeoutArgs:
     def __init__(__self__, *,
@@ -15581,6 +18521,16 @@ class UserParameterLockTimeoutArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterLogLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterLogLevelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterLogLevelArgs:
@@ -15647,6 +18597,16 @@ class UserParameterLogLevelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterMultiStatementCountArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterMultiStatementCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterMultiStatementCountArgs:
     def __init__(__self__, *,
@@ -15711,6 +18671,16 @@ class UserParameterMultiStatementCountArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterNetworkPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterNetworkPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterNetworkPolicyArgs:
@@ -15777,6 +18747,16 @@ class UserParameterNetworkPolicyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterNoorderSequenceAsDefaultArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterNoorderSequenceAsDefaultArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterNoorderSequenceAsDefaultArgs:
     def __init__(__self__, *,
@@ -15841,6 +18821,16 @@ class UserParameterNoorderSequenceAsDefaultArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterOdbcTreatDecimalAsIntArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterOdbcTreatDecimalAsIntArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterOdbcTreatDecimalAsIntArgs:
@@ -15907,6 +18897,16 @@ class UserParameterOdbcTreatDecimalAsIntArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterPreventUnloadToInternalStageArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterPreventUnloadToInternalStageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterPreventUnloadToInternalStageArgs:
     def __init__(__self__, *,
@@ -15971,6 +18971,16 @@ class UserParameterPreventUnloadToInternalStageArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterQueryTagArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterQueryTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterQueryTagArgs:
@@ -16037,6 +19047,16 @@ class UserParameterQueryTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterQuotedIdentifiersIgnoreCaseArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterQuotedIdentifiersIgnoreCaseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterQuotedIdentifiersIgnoreCaseArgs:
     def __init__(__self__, *,
@@ -16101,6 +19121,16 @@ class UserParameterQuotedIdentifiersIgnoreCaseArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterRowsPerResultsetArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterRowsPerResultsetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterRowsPerResultsetArgs:
@@ -16167,6 +19197,16 @@ class UserParameterRowsPerResultsetArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterS3StageVpceDnsNameArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterS3StageVpceDnsNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterS3StageVpceDnsNameArgs:
     def __init__(__self__, *,
@@ -16231,6 +19271,16 @@ class UserParameterS3StageVpceDnsNameArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterSearchPathArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterSearchPathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterSearchPathArgs:
@@ -16297,6 +19347,16 @@ class UserParameterSearchPathArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterSimulatedDataSharingConsumerArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterSimulatedDataSharingConsumerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterSimulatedDataSharingConsumerArgs:
     def __init__(__self__, *,
@@ -16361,6 +19421,16 @@ class UserParameterSimulatedDataSharingConsumerArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterStatementQueuedTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterStatementQueuedTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterStatementQueuedTimeoutInSecondArgs:
@@ -16427,6 +19497,16 @@ class UserParameterStatementQueuedTimeoutInSecondArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterStatementTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterStatementTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterStatementTimeoutInSecondArgs:
     def __init__(__self__, *,
@@ -16491,6 +19571,16 @@ class UserParameterStatementTimeoutInSecondArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterStrictJsonOutputArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterStrictJsonOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterStrictJsonOutputArgs:
@@ -16557,6 +19647,16 @@ class UserParameterStrictJsonOutputArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTimeInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimeInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTimeInputFormatArgs:
     def __init__(__self__, *,
@@ -16621,6 +19721,16 @@ class UserParameterTimeInputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTimeOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimeOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTimeOutputFormatArgs:
@@ -16687,6 +19797,16 @@ class UserParameterTimeOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTimestampDayIsAlways24hArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampDayIsAlways24hArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTimestampDayIsAlways24hArgs:
     def __init__(__self__, *,
@@ -16751,6 +19871,16 @@ class UserParameterTimestampDayIsAlways24hArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTimestampInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampInputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTimestampInputFormatArgs:
@@ -16817,6 +19947,16 @@ class UserParameterTimestampInputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTimestampLtzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampLtzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTimestampLtzOutputFormatArgs:
     def __init__(__self__, *,
@@ -16881,6 +20021,16 @@ class UserParameterTimestampLtzOutputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTimestampNtzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampNtzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTimestampNtzOutputFormatArgs:
@@ -16947,6 +20097,16 @@ class UserParameterTimestampNtzOutputFormatArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTimestampOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTimestampOutputFormatArgs:
     def __init__(__self__, *,
@@ -17011,6 +20171,16 @@ class UserParameterTimestampOutputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTimestampTypeMappingArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTimestampTypeMappingArgs:
@@ -17077,6 +20247,16 @@ class UserParameterTimestampTypeMappingArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTimestampTzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimestampTzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTimestampTzOutputFormatArgs:
     def __init__(__self__, *,
@@ -17141,6 +20321,16 @@ class UserParameterTimestampTzOutputFormatArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTimezoneArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTimezoneArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTimezoneArgs:
@@ -17207,6 +20397,16 @@ class UserParameterTimezoneArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTraceLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTraceLevelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTraceLevelArgs:
     def __init__(__self__, *,
@@ -17271,6 +20471,16 @@ class UserParameterTraceLevelArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTransactionAbortOnErrorArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTransactionAbortOnErrorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTransactionAbortOnErrorArgs:
@@ -17337,6 +20547,16 @@ class UserParameterTransactionAbortOnErrorArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterTransactionDefaultIsolationLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTransactionDefaultIsolationLevelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterTransactionDefaultIsolationLevelArgs:
     def __init__(__self__, *,
@@ -17401,6 +20621,16 @@ class UserParameterTransactionDefaultIsolationLevelArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterTwoDigitCenturyStartArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterTwoDigitCenturyStartArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterTwoDigitCenturyStartArgs:
@@ -17467,6 +20697,16 @@ class UserParameterTwoDigitCenturyStartArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterUnsupportedDdlActionArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterUnsupportedDdlActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterUnsupportedDdlActionArgs:
     def __init__(__self__, *,
@@ -17531,6 +20771,16 @@ class UserParameterUnsupportedDdlActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserParameterUseCachedResultArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterUseCachedResultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserParameterUseCachedResultArgs:
@@ -17597,6 +20847,16 @@ class UserParameterUseCachedResultArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterWeekOfYearPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterWeekOfYearPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterWeekOfYearPolicyArgs:
     def __init__(__self__, *,
@@ -17662,6 +20922,16 @@ class UserParameterWeekOfYearPolicyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class UserParameterWeekStartArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    UserParameterWeekStartArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserParameterWeekStartArgs:
     def __init__(__self__, *,
@@ -17726,6 +20996,39 @@ class UserParameterWeekStartArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class UserShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        days_to_expiry: NotRequired[pulumi.Input[str]]
+        default_namespace: NotRequired[pulumi.Input[str]]
+        default_role: NotRequired[pulumi.Input[str]]
+        default_secondary_roles: NotRequired[pulumi.Input[str]]
+        default_warehouse: NotRequired[pulumi.Input[str]]
+        disabled: NotRequired[pulumi.Input[bool]]
+        display_name: NotRequired[pulumi.Input[str]]
+        email: NotRequired[pulumi.Input[str]]
+        expires_at_time: NotRequired[pulumi.Input[str]]
+        ext_authn_duo: NotRequired[pulumi.Input[bool]]
+        ext_authn_uid: NotRequired[pulumi.Input[str]]
+        first_name: NotRequired[pulumi.Input[str]]
+        has_mfa: NotRequired[pulumi.Input[bool]]
+        has_password: NotRequired[pulumi.Input[bool]]
+        has_rsa_public_key: NotRequired[pulumi.Input[bool]]
+        last_name: NotRequired[pulumi.Input[str]]
+        last_success_login: NotRequired[pulumi.Input[str]]
+        locked_until_time: NotRequired[pulumi.Input[str]]
+        login_name: NotRequired[pulumi.Input[str]]
+        mins_to_bypass_mfa: NotRequired[pulumi.Input[str]]
+        mins_to_unlock: NotRequired[pulumi.Input[str]]
+        must_change_password: NotRequired[pulumi.Input[bool]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        snowflake_lock: NotRequired[pulumi.Input[bool]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    UserShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserShowOutputArgs:
@@ -18068,6 +21371,19 @@ class UserShowOutputArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ViewAggregationPolicyArgsDict(TypedDict):
+        policy_name: pulumi.Input[str]
+        """
+        Aggregation policy name.
+        """
+        entity_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Defines which columns uniquely identify an entity within the view.
+        """
+elif False:
+    ViewAggregationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewAggregationPolicyArgs:
     def __init__(__self__, *,
@@ -18105,6 +21421,21 @@ class ViewAggregationPolicyArgs:
     def entity_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "entity_keys", value)
 
+
+if not MYPY:
+    class ViewColumnArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Specifies affected column name.
+        """
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a comment for the column.
+        """
+        masking_policy: NotRequired[pulumi.Input['ViewColumnMaskingPolicyArgsDict']]
+        projection_policy: NotRequired[pulumi.Input['ViewColumnProjectionPolicyArgsDict']]
+elif False:
+    ViewColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ViewColumnArgs:
@@ -18168,6 +21499,19 @@ class ViewColumnArgs:
         pulumi.set(self, "projection_policy", value)
 
 
+if not MYPY:
+    class ViewColumnMaskingPolicyArgsDict(TypedDict):
+        policy_name: pulumi.Input[str]
+        """
+        Specifies the masking policy to set on a column.
+        """
+        usings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the arguments to pass into the conditional masking policy SQL expression. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+        """
+elif False:
+    ViewColumnMaskingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewColumnMaskingPolicyArgs:
     def __init__(__self__, *,
@@ -18206,6 +21550,15 @@ class ViewColumnMaskingPolicyArgs:
         pulumi.set(self, "usings", value)
 
 
+if not MYPY:
+    class ViewColumnProjectionPolicyArgsDict(TypedDict):
+        policy_name: pulumi.Input[str]
+        """
+        Specifies the projection policy to set on a column.
+        """
+elif False:
+    ViewColumnProjectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewColumnProjectionPolicyArgs:
     def __init__(__self__, *,
@@ -18227,6 +21580,23 @@ class ViewColumnProjectionPolicyArgs:
     def policy_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_name", value)
 
+
+if not MYPY:
+    class ViewDataMetricFunctionArgsDict(TypedDict):
+        function_name: pulumi.Input[str]
+        """
+        Identifier of the data metric function to add to the table or view or drop from the table or view. This function identifier must be provided without arguments in parenthesis.
+        """
+        ons: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The table or view columns on which to associate the data metric function. The data types of the columns must match the data types of the columns specified in the data metric function definition.
+        """
+        schedule_status: pulumi.Input[str]
+        """
+        The status of the metrics association. Valid values are: `STARTED` | `SUSPENDED`. When status of a data metric function is changed, it is being reassigned with `DROP DATA METRIC FUNCTION` and `ADD DATA METRIC FUNCTION`, and then its status is changed by `MODIFY DATA METRIC FUNCTION`
+        """
+elif False:
+    ViewDataMetricFunctionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ViewDataMetricFunctionArgs:
@@ -18280,6 +21650,19 @@ class ViewDataMetricFunctionArgs:
         pulumi.set(self, "schedule_status", value)
 
 
+if not MYPY:
+    class ViewDataMetricScheduleArgsDict(TypedDict):
+        minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field is not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+        """
+        using_cron: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
+        """
+elif False:
+    ViewDataMetricScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewDataMetricScheduleArgs:
     def __init__(__self__, *,
@@ -18318,6 +21701,23 @@ class ViewDataMetricScheduleArgs:
     def using_cron(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "using_cron", value)
 
+
+if not MYPY:
+    class ViewDescribeOutputArgsDict(TypedDict):
+        check: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        default: NotRequired[pulumi.Input[str]]
+        expression: NotRequired[pulumi.Input[str]]
+        is_nullable: NotRequired[pulumi.Input[bool]]
+        is_primary: NotRequired[pulumi.Input[bool]]
+        is_unique: NotRequired[pulumi.Input[bool]]
+        kind: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        policy_name: NotRequired[pulumi.Input[str]]
+        privacy_domain: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    ViewDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ViewDescribeOutputArgs:
@@ -18468,6 +21868,19 @@ class ViewDescribeOutputArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ViewRowAccessPolicyArgsDict(TypedDict):
+        ons: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Defines which columns are affected by the policy.
+        """
+        policy_name: pulumi.Input[str]
+        """
+        Row access policy name.
+        """
+elif False:
+    ViewRowAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewRowAccessPolicyArgs:
     def __init__(__self__, *,
@@ -18504,6 +21917,24 @@ class ViewRowAccessPolicyArgs:
     def policy_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_name", value)
 
+
+if not MYPY:
+    class ViewShowOutputArgsDict(TypedDict):
+        change_tracking: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        is_materialized: NotRequired[pulumi.Input[bool]]
+        is_secure: NotRequired[pulumi.Input[bool]]
+        kind: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        reserved: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+        text: NotRequired[pulumi.Input[str]]
+elif False:
+    ViewShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ViewShowOutputArgs:
@@ -18666,6 +22097,14 @@ class ViewShowOutputArgs:
         pulumi.set(self, "text", value)
 
 
+if not MYPY:
+    class WarehouseParameterArgsDict(TypedDict):
+        max_concurrency_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['WarehouseParameterMaxConcurrencyLevelArgsDict']]]]
+        statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['WarehouseParameterStatementQueuedTimeoutInSecondArgsDict']]]]
+        statement_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['WarehouseParameterStatementTimeoutInSecondArgsDict']]]]
+elif False:
+    WarehouseParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WarehouseParameterArgs:
     def __init__(__self__, *,
@@ -18706,6 +22145,16 @@ class WarehouseParameterArgs:
     def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseParameterStatementTimeoutInSecondArgs']]]]):
         pulumi.set(self, "statement_timeout_in_seconds", value)
 
+
+if not MYPY:
+    class WarehouseParameterMaxConcurrencyLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    WarehouseParameterMaxConcurrencyLevelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WarehouseParameterMaxConcurrencyLevelArgs:
@@ -18772,6 +22221,16 @@ class WarehouseParameterMaxConcurrencyLevelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WarehouseParameterStatementQueuedTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    WarehouseParameterStatementQueuedTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WarehouseParameterStatementQueuedTimeoutInSecondArgs:
     def __init__(__self__, *,
@@ -18837,6 +22296,16 @@ class WarehouseParameterStatementQueuedTimeoutInSecondArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WarehouseParameterStatementTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    WarehouseParameterStatementTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WarehouseParameterStatementTimeoutInSecondArgs:
     def __init__(__self__, *,
@@ -18901,6 +22370,38 @@ class WarehouseParameterStatementTimeoutInSecondArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WarehouseShowOutputArgsDict(TypedDict):
+        auto_resume: NotRequired[pulumi.Input[bool]]
+        auto_suspend: NotRequired[pulumi.Input[int]]
+        available: NotRequired[pulumi.Input[float]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        enable_query_acceleration: NotRequired[pulumi.Input[bool]]
+        is_current: NotRequired[pulumi.Input[bool]]
+        is_default: NotRequired[pulumi.Input[bool]]
+        max_cluster_count: NotRequired[pulumi.Input[int]]
+        min_cluster_count: NotRequired[pulumi.Input[int]]
+        name: NotRequired[pulumi.Input[str]]
+        other: NotRequired[pulumi.Input[float]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        provisioning: NotRequired[pulumi.Input[float]]
+        query_acceleration_max_scale_factor: NotRequired[pulumi.Input[int]]
+        queued: NotRequired[pulumi.Input[int]]
+        quiescing: NotRequired[pulumi.Input[float]]
+        resource_monitor: NotRequired[pulumi.Input[str]]
+        resumed_on: NotRequired[pulumi.Input[str]]
+        running: NotRequired[pulumi.Input[int]]
+        scaling_policy: NotRequired[pulumi.Input[str]]
+        size: NotRequired[pulumi.Input[str]]
+        started_clusters: NotRequired[pulumi.Input[int]]
+        state: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+        updated_on: NotRequired[pulumi.Input[str]]
+elif False:
+    WarehouseShowOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WarehouseShowOutputArgs:
@@ -19231,6 +22732,23 @@ class WarehouseShowOutputArgs:
         pulumi.set(self, "updated_on", value)
 
 
+if not MYPY:
+    class GetCortexSearchServicesInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+elif False:
+    GetCortexSearchServicesInArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetCortexSearchServicesInArgs:
     def __init__(__self__, *,
@@ -19286,6 +22804,19 @@ class GetCortexSearchServicesInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetCortexSearchServicesLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetCortexSearchServicesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetCortexSearchServicesLimitArgs:
     def __init__(__self__, *,
@@ -19323,6 +22854,19 @@ class GetCortexSearchServicesLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetDatabaseRolesLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetDatabaseRolesLimitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDatabaseRolesLimitArgs:
@@ -19362,6 +22906,19 @@ class GetDatabaseRolesLimitArgs:
         pulumi.set(self, "from_", value)
 
 
+if not MYPY:
+    class GetDatabasesLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetDatabasesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetDatabasesLimitArgs:
     def __init__(__self__, *,
@@ -19399,6 +22956,23 @@ class GetDatabasesLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetDynamicTablesInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+elif False:
+    GetDynamicTablesInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDynamicTablesInArgs:
@@ -19455,6 +23029,15 @@ class GetDynamicTablesInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetDynamicTablesLikeArgsDict(TypedDict):
+        pattern: str
+        """
+        Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+        """
+elif False:
+    GetDynamicTablesLikeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetDynamicTablesLikeArgs:
     def __init__(__self__, *,
@@ -19476,6 +23059,19 @@ class GetDynamicTablesLikeArgs:
     def pattern(self, value: str):
         pulumi.set(self, "pattern", value)
 
+
+if not MYPY:
+    class GetDynamicTablesLimitArgsDict(TypedDict):
+        from_: NotRequired[str]
+        """
+        The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+        """
+        rows: NotRequired[int]
+        """
+        Specifies the maximum number of rows to return.
+        """
+elif False:
+    GetDynamicTablesLimitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDynamicTablesLimitArgs:
@@ -19516,6 +23112,19 @@ class GetDynamicTablesLimitArgs:
         pulumi.set(self, "rows", value)
 
 
+if not MYPY:
+    class GetGrantsFutureGrantsInArgsDict(TypedDict):
+        database: NotRequired[str]
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
+        """
+        schema: NotRequired[str]
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        """
+elif False:
+    GetGrantsFutureGrantsInArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetGrantsFutureGrantsInArgs:
     def __init__(__self__, *,
@@ -19555,6 +23164,19 @@ class GetGrantsFutureGrantsInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetGrantsFutureGrantsToArgsDict(TypedDict):
+        account_role: NotRequired[str]
+        """
+        Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
+        """
+        database_role: NotRequired[str]
+        """
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+elif False:
+    GetGrantsFutureGrantsToArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetGrantsFutureGrantsToArgs:
     def __init__(__self__, *,
@@ -19593,6 +23215,27 @@ class GetGrantsFutureGrantsToArgs:
     def database_role(self, value: Optional[str]):
         pulumi.set(self, "database_role", value)
 
+
+if not MYPY:
+    class GetGrantsGrantsOfArgsDict(TypedDict):
+        account_role: NotRequired[str]
+        """
+        Lists all users and roles to which the account role has been granted.
+        """
+        application_role: NotRequired[str]
+        """
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        database_role: NotRequired[str]
+        """
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        share: NotRequired[str]
+        """
+        Lists all the accounts for the share and indicates the accounts that are using the share.
+        """
+elif False:
+    GetGrantsGrantsOfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetGrantsGrantsOfArgs:
@@ -19665,6 +23308,23 @@ class GetGrantsGrantsOfArgs:
         pulumi.set(self, "share", value)
 
 
+if not MYPY:
+    class GetGrantsGrantsOnArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
+        """
+        object_name: NotRequired[str]
+        """
+        Name of object to list privileges on.
+        """
+        object_type: NotRequired[str]
+        """
+        Type of object to list privileges on.
+        """
+elif False:
+    GetGrantsGrantsOnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetGrantsGrantsOnArgs:
     def __init__(__self__, *,
@@ -19719,6 +23379,35 @@ class GetGrantsGrantsOnArgs:
     def object_type(self, value: Optional[str]):
         pulumi.set(self, "object_type", value)
 
+
+if not MYPY:
+    class GetGrantsGrantsToArgsDict(TypedDict):
+        account_role: NotRequired[str]
+        """
+        Lists all privileges and roles granted to the role.
+        """
+        application: NotRequired[str]
+        """
+        Lists all the privileges and roles granted to the application.
+        """
+        application_role: NotRequired[str]
+        """
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        """
+        database_role: NotRequired[str]
+        """
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        """
+        share: NotRequired['GetGrantsGrantsToShareArgsDict']
+        """
+        Lists all the privileges granted to the share.
+        """
+        user: NotRequired[str]
+        """
+        Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
+        """
+elif False:
+    GetGrantsGrantsToArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetGrantsGrantsToArgs:
@@ -19823,6 +23512,15 @@ class GetGrantsGrantsToArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class GetGrantsGrantsToShareArgsDict(TypedDict):
+        share_name: str
+        """
+        Lists all of the privileges and roles granted to the specified share.
+        """
+elif False:
+    GetGrantsGrantsToShareArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetGrantsGrantsToShareArgs:
     def __init__(__self__, *,
@@ -19844,6 +23542,31 @@ class GetGrantsGrantsToShareArgs:
     def share_name(self, value: str):
         pulumi.set(self, "share_name", value)
 
+
+if not MYPY:
+    class GetMaskingPoliciesInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetMaskingPoliciesInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetMaskingPoliciesInArgs:
@@ -19932,6 +23655,19 @@ class GetMaskingPoliciesInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetMaskingPoliciesLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetMaskingPoliciesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetMaskingPoliciesLimitArgs:
     def __init__(__self__, *,
@@ -19969,6 +23705,31 @@ class GetMaskingPoliciesLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetRowAccessPoliciesInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetRowAccessPoliciesInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRowAccessPoliciesInArgs:
@@ -20057,6 +23818,19 @@ class GetRowAccessPoliciesInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetRowAccessPoliciesLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetRowAccessPoliciesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRowAccessPoliciesLimitArgs:
     def __init__(__self__, *,
@@ -20094,6 +23868,27 @@ class GetRowAccessPoliciesLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetSchemasInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+elif False:
+    GetSchemasInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemasInArgs:
@@ -20166,6 +23961,19 @@ class GetSchemasInArgs:
         pulumi.set(self, "database", value)
 
 
+if not MYPY:
+    class GetSchemasLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetSchemasLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemasLimitArgs:
     def __init__(__self__, *,
@@ -20203,6 +24011,23 @@ class GetSchemasLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetStreamlitsInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database (db_name).
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema (schema_name).
+        """
+elif False:
+    GetStreamlitsInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetStreamlitsInArgs:
@@ -20259,6 +24084,19 @@ class GetStreamlitsInArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class GetStreamlitsLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetStreamlitsLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetStreamlitsLimitArgs:
     def __init__(__self__, *,
@@ -20297,6 +24135,19 @@ class GetStreamlitsLimitArgs:
         pulumi.set(self, "from_", value)
 
 
+if not MYPY:
+    class GetUsersLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetUsersLimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetUsersLimitArgs:
     def __init__(__self__, *,
@@ -20334,6 +24185,23 @@ class GetUsersLimitArgs:
     def from_(self, value: Optional[str]):
         pulumi.set(self, "from_", value)
 
+
+if not MYPY:
+    class GetViewsInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetViewsInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetViewsInArgs:
@@ -20389,6 +24257,19 @@ class GetViewsInArgs:
     def schema(self, value: Optional[str]):
         pulumi.set(self, "schema", value)
 
+
+if not MYPY:
+    class GetViewsLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetViewsLimitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetViewsLimitArgs:

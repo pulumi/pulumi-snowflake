@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -169,9 +174,6 @@ def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-
-
-@_utilities.lift_output_func(get_schemas)
 def get_schemas_output(in_: Optional[pulumi.Input[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]]] = None,
                        like: Optional[pulumi.Input[Optional[str]]] = None,
                        limit: Optional[pulumi.Input[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']]]] = None,
@@ -192,4 +194,21 @@ def get_schemas_output(in_: Optional[pulumi.Input[Optional[Union['GetSchemasInAr
     :param bool with_describe: Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
     :param bool with_parameters: Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
+    __args__['withParameters'] = with_parameters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSchemas:getSchemas', __args__, opts=opts, typ=GetSchemasResult)
+    return __ret__.apply(lambda __response__: GetSchemasResult(
+        id=pulumi.get(__response__, 'id'),
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        schemas=pulumi.get(__response__, 'schemas'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        with_describe=pulumi.get(__response__, 'with_describe'),
+        with_parameters=pulumi.get(__response__, 'with_parameters')))

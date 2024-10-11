@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -94,9 +99,6 @@ def get_shares(pattern: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         pattern=pulumi.get(__ret__, 'pattern'),
         shares=pulumi.get(__ret__, 'shares'))
-
-
-@_utilities.lift_output_func(get_shares)
 def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharesResult]:
     """
@@ -113,4 +115,11 @@ def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str pattern: Filters the command output by object name.
     """
-    ...
+    __args__ = dict()
+    __args__['pattern'] = pattern
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('snowflake:index/getShares:getShares', __args__, opts=opts, typ=GetSharesResult)
+    return __ret__.apply(lambda __response__: GetSharesResult(
+        id=pulumi.get(__response__, 'id'),
+        pattern=pulumi.get(__response__, 'pattern'),
+        shares=pulumi.get(__response__, 'shares')))
