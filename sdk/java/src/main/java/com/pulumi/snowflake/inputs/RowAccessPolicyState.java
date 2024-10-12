@@ -140,14 +140,14 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<RowAccessPolicyShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * @return Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      * 
      */
     public Optional<Output<List<RowAccessPolicyShowOutputArgs>>> showOutputs() {
@@ -375,7 +375,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+         * @param showOutputs Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
          * 
          * @return builder
          * 

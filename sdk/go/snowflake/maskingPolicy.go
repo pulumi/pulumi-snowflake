@@ -40,7 +40,7 @@ type MaskingPolicy struct {
 	ReturnDataType pulumi.StringOutput `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+	// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
 	ShowOutputs MaskingPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
@@ -109,7 +109,7 @@ type maskingPolicyState struct {
 	ReturnDataType *string `pulumi:"returnDataType"`
 	// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema *string `pulumi:"schema"`
-	// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+	// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
 	ShowOutputs []MaskingPolicyShowOutput `pulumi:"showOutputs"`
 }
 
@@ -134,7 +134,7 @@ type MaskingPolicyState struct {
 	ReturnDataType pulumi.StringPtrInput
 	// The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringPtrInput
-	// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+	// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
 	ShowOutputs MaskingPolicyShowOutputArrayInput
 }
 
@@ -318,7 +318,7 @@ func (o MaskingPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaskingPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
 func (o MaskingPolicyOutput) ShowOutputs() MaskingPolicyShowOutputArrayOutput {
 	return o.ApplyT(func(v *MaskingPolicy) MaskingPolicyShowOutputArrayOutput { return v.ShowOutputs }).(MaskingPolicyShowOutputArrayOutput)
 }

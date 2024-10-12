@@ -80,7 +80,7 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        /// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.MaskingPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.MaskingPolicyShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        /// Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         /// </summary>
         public InputList<Inputs.MaskingPolicyShowOutputGetArgs> ShowOutputs
         {

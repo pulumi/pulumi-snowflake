@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/user:User example userName
+    /// $ pulumi import snowflake:index/user:User example '"&lt;user_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/user:User")]

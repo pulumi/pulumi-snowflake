@@ -14,7 +14,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/user:User example userName
+// $ pulumi import snowflake:index/user:User example '"<user_name>"'
 // ```
 type User struct {
 	pulumi.CustomResourceState

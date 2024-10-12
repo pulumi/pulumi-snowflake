@@ -2675,7 +2675,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/user:User example userName
+        $ pulumi import snowflake:index/user:User example '"<user_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -2765,7 +2765,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/user:User example userName
+        $ pulumi import snowflake:index/user:User example '"<user_name>"'
         ```
 
         :param str resource_name: The name of the resource.

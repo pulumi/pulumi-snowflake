@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        /// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.RowAccessPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.RowAccessPolicyShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        /// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         /// </summary>
         public InputList<Inputs.RowAccessPolicyShowOutputGetArgs> ShowOutputs
         {

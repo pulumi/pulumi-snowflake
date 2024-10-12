@@ -140,7 +140,7 @@ class _RowAccessPolicyState:
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
-        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -261,7 +261,7 @@ class _RowAccessPolicyState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -392,7 +392,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyShowOutputArgs', 'RowAccessPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyShowOutputArgs', 'RowAccessPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -477,7 +477,7 @@ class RowAccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.RowAccessPolicyShowOutput']]:
         """
-        Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+        Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
         """
         return pulumi.get(self, "show_outputs")
 

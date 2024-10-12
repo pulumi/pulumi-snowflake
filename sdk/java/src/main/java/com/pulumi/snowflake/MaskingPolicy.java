@@ -169,14 +169,14 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      * 
      */
     @Export(name="showOutputs", refs={List.class,MaskingPolicyShowOutput.class}, tree="[0,1]")
     private Output<List<MaskingPolicyShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * @return Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      * 
      */
     public Output<List<MaskingPolicyShowOutput>> showOutputs() {

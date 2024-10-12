@@ -74,7 +74,7 @@ export class RowAccessPolicy extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.RowAccessPolicyShowOutput[]>;
 
@@ -166,7 +166,7 @@ export interface RowAccessPolicyState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyShowOutput>[]>;
 }

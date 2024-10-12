@@ -123,14 +123,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the file format for the stage.
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      * 
      */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
     /**
-     * @return Specifies the file format for the stage.
+     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      * 
      */
     public Optional<Output<String>> fileFormat() {
@@ -436,7 +436,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileFormat Specifies the file format for the stage.
+         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileFormat Specifies the file format for the stage.
+         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
          * 
          * @return builder
          * 

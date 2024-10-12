@@ -175,7 +175,7 @@ class _MaskingPolicyState:
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         :param pulumi.Input[str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
-        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -324,7 +324,7 @@ class _MaskingPolicyState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -469,7 +469,7 @@ class MaskingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         :param pulumi.Input[str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyShowOutputArgs', 'MaskingPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyShowOutputArgs', 'MaskingPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -572,7 +572,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.MaskingPolicyShowOutput']]:
         """
-        Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+        Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         return pulumi.get(self, "show_outputs")
 

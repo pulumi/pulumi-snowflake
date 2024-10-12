@@ -44,6 +44,7 @@ public final class GetUsersUserDescribeOutput {
     private String rsaPublicKeyFp;
     private Boolean snowflakeLock;
     private Boolean snowflakeSupport;
+    private String type;
 
     private GetUsersUserDescribeOutput() {}
     public String comment() {
@@ -139,6 +140,9 @@ public final class GetUsersUserDescribeOutput {
     public Boolean snowflakeSupport() {
         return this.snowflakeSupport;
     }
+    public String type() {
+        return this.type;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -180,6 +184,7 @@ public final class GetUsersUserDescribeOutput {
         private String rsaPublicKeyFp;
         private Boolean snowflakeLock;
         private Boolean snowflakeSupport;
+        private String type;
         public Builder() {}
         public Builder(GetUsersUserDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -214,6 +219,7 @@ public final class GetUsersUserDescribeOutput {
     	      this.rsaPublicKeyFp = defaults.rsaPublicKeyFp;
     	      this.snowflakeLock = defaults.snowflakeLock;
     	      this.snowflakeSupport = defaults.snowflakeSupport;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -464,6 +470,14 @@ public final class GetUsersUserDescribeOutput {
             this.snowflakeSupport = snowflakeSupport;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "type");
+            }
+            this.type = type;
+            return this;
+        }
         public GetUsersUserDescribeOutput build() {
             final var _resultValue = new GetUsersUserDescribeOutput();
             _resultValue.comment = comment;
@@ -497,6 +511,7 @@ public final class GetUsersUserDescribeOutput {
             _resultValue.rsaPublicKeyFp = rsaPublicKeyFp;
             _resultValue.snowflakeLock = snowflakeLock;
             _resultValue.snowflakeSupport = snowflakeSupport;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

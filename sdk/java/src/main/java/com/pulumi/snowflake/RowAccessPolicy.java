@@ -141,14 +141,14 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      * 
      */
     @Export(name="showOutputs", refs={List.class,RowAccessPolicyShowOutput.class}, tree="[0,1]")
     private Output<List<RowAccessPolicyShowOutput>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+     * @return Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      * 
      */
     public Output<List<RowAccessPolicyShowOutput>> showOutputs() {

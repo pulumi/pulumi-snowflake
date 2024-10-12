@@ -76,6 +76,7 @@ from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_share import *
+from .legacy_service_user import *
 from .managed_account import *
 from .masking_policy import *
 from .materialized_view import *
@@ -100,12 +101,15 @@ from .schema import *
 from .scim_integration import *
 from .secondary_database import *
 from .sequence import *
+from .service_user import *
 from .session_parameter import *
 from .share import *
 from .shared_database import *
 from .stage import *
 from .storage_integration import *
 from .stream import *
+from .stream_on_external_table import *
+from .stream_on_table import *
 from .streamlit import *
 from .table import *
 from .table_column_masking_policy_application import *
@@ -359,6 +363,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/legacyServiceUser",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/legacyServiceUser:LegacyServiceUser": "LegacyServiceUser"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/managedAccount",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -543,6 +555,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/serviceUser",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/serviceUser:ServiceUser": "ServiceUser"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/sessionParameter",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -587,6 +607,22 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/stream:Stream": "Stream"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/streamOnExternalTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/streamOnExternalTable:StreamOnExternalTable": "StreamOnExternalTable"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/streamOnTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/streamOnTable:StreamOnTable": "StreamOnTable"
   }
  },
  {

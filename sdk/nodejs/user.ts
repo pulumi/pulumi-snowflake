@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/user:User example userName
+ * $ pulumi import snowflake:index/user:User example '"<user_name>"'
  * ```
  */
 export class User extends pulumi.CustomResource {

@@ -170,14 +170,14 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<MaskingPolicyShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * @return Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      * 
      */
     public Optional<Output<List<MaskingPolicyShowOutputArgs>>> showOutputs() {
@@ -449,7 +449,7 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+         * @param showOutputs Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+         * @param showOutputs Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class MaskingPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+         * @param showOutputs Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
          * 
          * @return builder
          * 
