@@ -127,14 +127,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryption);
     }
     /**
-     * Specifies the file format for the stage.
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      * 
      */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
     /**
-     * @return Specifies the file format for the stage.
+     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      * 
      */
     public Output<Optional<String>> fileFormat() {

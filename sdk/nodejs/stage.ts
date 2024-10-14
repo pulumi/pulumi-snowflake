@@ -72,7 +72,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the file format for the stage.
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      */
     public readonly fileFormat!: pulumi.Output<string | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface StageState {
      */
     encryption?: pulumi.Input<string>;
     /**
-     * Specifies the file format for the stage.
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      */
     fileFormat?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface StageArgs {
      */
     encryption?: pulumi.Input<string>;
     /**
-     * Specifies the file format for the stage.
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
      */
     fileFormat?: pulumi.Input<string>;
     /**

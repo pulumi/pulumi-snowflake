@@ -82,7 +82,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.MaskingPolicyShowOutput[]>;
 
@@ -189,7 +189,7 @@ export interface MaskingPolicyState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Outputs the result of `SHOW MASKING POLICY` for the given masking policy.
+     * Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyShowOutput>[]>;
 }

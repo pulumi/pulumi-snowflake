@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the file format for the stage.
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
         /// </summary>
         [Output("fileFormat")]
         public Output<string?> FileFormat { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Encryption { get; set; }
 
         /// <summary>
-        /// Specifies the file format for the stage.
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
         /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Encryption { get; set; }
 
         /// <summary>
-        /// Specifies the file format for the stage.
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
         /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }

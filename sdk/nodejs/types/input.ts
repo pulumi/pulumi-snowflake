@@ -1489,6 +1489,562 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     objectTypePlural: pulumi.Input<string>;
 }
 
+export interface LegacyServiceUserParameter {
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAbortDetachedQuery>[]>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAutocommit>[]>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryInputFormat>[]>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryOutputFormat>[]>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMemoryLimit>[]>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx>[]>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientPrefetchThread>[]>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultChunkSize>[]>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive>[]>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAlife>[]>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientTimestampTypeMapping>[]>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateInputFormat>[]>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateOutputFormat>[]>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization>[]>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError>[]>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicMerge>[]>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate>[]>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeographyOutputFormat>[]>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeometryOutputFormat>[]>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt>[]>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc>[]>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcUseSessionTimezone>[]>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJsonIndent>[]>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLockTimeout>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLogLevel>[]>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterMultiStatementCount>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNetworkPolicy>[]>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNoorderSequenceAsDefault>[]>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt>[]>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPreventUnloadToInternalStage>[]>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQueryTag>[]>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase>[]>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterRowsPerResultset>[]>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterS3StageVpceDnsName>[]>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSearchPath>[]>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSimulatedDataSharingConsumer>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementTimeoutInSecond>[]>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStrictJsonOutput>[]>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeInputFormat>[]>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeOutputFormat>[]>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampDayIsAlways24h>[]>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampInputFormat>[]>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampLtzOutputFormat>[]>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampNtzOutputFormat>[]>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampOutputFormat>[]>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTypeMapping>[]>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTzOutputFormat>[]>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimezone>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTraceLevel>[]>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionAbortOnError>[]>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionDefaultIsolationLevel>[]>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTwoDigitCenturyStart>[]>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUnsupportedDdlAction>[]>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUseCachedResult>[]>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekOfYearPolicy>[]>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekStart>[]>;
+}
+
+export interface LegacyServiceUserParameterAbortDetachedQuery {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterAutocommit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterBinaryInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterBinaryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientMemoryLimit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientPrefetchThread {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientResultChunkSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientResultColumnCaseInsensitive {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientSessionKeepAlife {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterClientTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterDateInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterDateOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterEnableUnredactedQuerySyntaxError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterErrorOnNondeterministicMerge {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterErrorOnNondeterministicUpdate {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterGeographyOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterGeometryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterJdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterJsonIndent {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterLockTimeout {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterMultiStatementCount {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterNetworkPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterNoorderSequenceAsDefault {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterOdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterQueryTag {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterRowsPerResultset {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterS3StageVpceDnsName {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterSearchPath {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterSimulatedDataSharingConsumer {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterStrictJsonOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimeInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimeOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampDayIsAlways24h {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampLtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampNtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimestampTzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTransactionAbortOnError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTransactionDefaultIsolationLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterTwoDigitCenturyStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterUnsupportedDdlAction {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterUseCachedResult {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterWeekOfYearPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserParameterWeekStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    daysToExpiry?: pulumi.Input<string>;
+    defaultNamespace?: pulumi.Input<string>;
+    defaultRole?: pulumi.Input<string>;
+    defaultSecondaryRoles?: pulumi.Input<string>;
+    defaultWarehouse?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean>;
+    displayName?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
+    expiresAtTime?: pulumi.Input<string>;
+    extAuthnDuo?: pulumi.Input<boolean>;
+    extAuthnUid?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
+    hasMfa?: pulumi.Input<boolean>;
+    hasPassword?: pulumi.Input<boolean>;
+    hasRsaPublicKey?: pulumi.Input<boolean>;
+    lastName?: pulumi.Input<string>;
+    lastSuccessLogin?: pulumi.Input<string>;
+    lockedUntilTime?: pulumi.Input<string>;
+    loginName?: pulumi.Input<string>;
+    minsToBypassMfa?: pulumi.Input<string>;
+    minsToUnlock?: pulumi.Input<string>;
+    mustChangePassword?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    snowflakeLock?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
 export interface MaskingPolicyArgument {
     /**
      * The argument name
@@ -2393,6 +2949,562 @@ export interface ScimIntegrationShowOutput {
     name?: pulumi.Input<string>;
 }
 
+export interface ServiceUserParameter {
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAbortDetachedQuery>[]>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAutocommit>[]>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryInputFormat>[]>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryOutputFormat>[]>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMemoryLimit>[]>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx>[]>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientPrefetchThread>[]>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultChunkSize>[]>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultColumnCaseInsensitive>[]>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAlife>[]>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientTimestampTypeMapping>[]>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateInputFormat>[]>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateOutputFormat>[]>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization>[]>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnredactedQuerySyntaxError>[]>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicMerge>[]>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicUpdate>[]>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeographyOutputFormat>[]>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeometryOutputFormat>[]>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatDecimalAsInt>[]>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc>[]>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcUseSessionTimezone>[]>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJsonIndent>[]>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLockTimeout>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLogLevel>[]>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterMultiStatementCount>[]>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNetworkPolicy>[]>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNoorderSequenceAsDefault>[]>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterOdbcTreatDecimalAsInt>[]>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPreventUnloadToInternalStage>[]>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQueryTag>[]>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQuotedIdentifiersIgnoreCase>[]>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterRowsPerResultset>[]>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterS3StageVpceDnsName>[]>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSearchPath>[]>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSimulatedDataSharingConsumer>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementTimeoutInSecond>[]>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStrictJsonOutput>[]>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeInputFormat>[]>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeOutputFormat>[]>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampDayIsAlways24h>[]>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampInputFormat>[]>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampLtzOutputFormat>[]>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampNtzOutputFormat>[]>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampOutputFormat>[]>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTypeMapping>[]>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTzOutputFormat>[]>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimezone>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTraceLevel>[]>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionAbortOnError>[]>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionDefaultIsolationLevel>[]>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTwoDigitCenturyStart>[]>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUnsupportedDdlAction>[]>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUseCachedResult>[]>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekOfYearPolicy>[]>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekStart>[]>;
+}
+
+export interface ServiceUserParameterAbortDetachedQuery {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterAutocommit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterBinaryInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterBinaryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientMemoryLimit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientPrefetchThread {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientResultChunkSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientResultColumnCaseInsensitive {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientSessionKeepAlife {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterClientTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterDateInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterDateOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterEnableUnloadPhysicalTypeOptimization {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterEnableUnredactedQuerySyntaxError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterErrorOnNondeterministicMerge {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterErrorOnNondeterministicUpdate {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterGeographyOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterGeometryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterJdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterJdbcTreatTimestampNtzAsUtc {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterJsonIndent {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterLockTimeout {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterMultiStatementCount {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterNetworkPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterNoorderSequenceAsDefault {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterOdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterPreventUnloadToInternalStage {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterQueryTag {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterRowsPerResultset {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterS3StageVpceDnsName {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterSearchPath {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterSimulatedDataSharingConsumer {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterStrictJsonOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimeInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimeOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampDayIsAlways24h {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampLtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampNtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimestampTzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTransactionAbortOnError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTransactionDefaultIsolationLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterTwoDigitCenturyStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterUnsupportedDdlAction {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterUseCachedResult {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterWeekOfYearPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserParameterWeekStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ServiceUserShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    daysToExpiry?: pulumi.Input<string>;
+    defaultNamespace?: pulumi.Input<string>;
+    defaultRole?: pulumi.Input<string>;
+    defaultSecondaryRoles?: pulumi.Input<string>;
+    defaultWarehouse?: pulumi.Input<string>;
+    disabled?: pulumi.Input<boolean>;
+    displayName?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
+    expiresAtTime?: pulumi.Input<string>;
+    extAuthnDuo?: pulumi.Input<boolean>;
+    extAuthnUid?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
+    hasMfa?: pulumi.Input<boolean>;
+    hasPassword?: pulumi.Input<boolean>;
+    hasRsaPublicKey?: pulumi.Input<boolean>;
+    lastName?: pulumi.Input<string>;
+    lastSuccessLogin?: pulumi.Input<string>;
+    lockedUntilTime?: pulumi.Input<string>;
+    loginName?: pulumi.Input<string>;
+    minsToBypassMfa?: pulumi.Input<string>;
+    minsToUnlock?: pulumi.Input<string>;
+    mustChangePassword?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    snowflakeLock?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
 export interface StageTag {
     /**
      * Name of the database that the tag was created in.
@@ -2410,6 +3522,154 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface StreamOnExternalTableAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnExternalTableBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnExternalTableDescribeOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<string>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnExternalTableShowOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<string>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnTableAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnTableBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnTableDescribeOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<string>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnTableShowOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<string>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface StreamlitDescribeOutput {
@@ -3194,7 +4454,7 @@ export interface ViewDataMetricFunction {
 
 export interface ViewDataMetricSchedule {
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field is not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
      */
     minutes?: pulumi.Input<number>;
     /**

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/user:User example userName
+ * $ pulumi import snowflake:index/user:User example &#39;&#34;&lt;user_name&gt;&#34;&#39;
  * ```
  * 
  */

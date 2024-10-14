@@ -36,7 +36,7 @@ type Stage struct {
 	Directory pulumi.StringPtrOutput `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
-	// Specifies the file format for the stage.
+	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -113,7 +113,7 @@ type stageState struct {
 	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
-	// Specifies the file format for the stage.
+	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 	FileFormat *string `pulumi:"fileFormat"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -148,7 +148,7 @@ type StageState struct {
 	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
-	// Specifies the file format for the stage.
+	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 	FileFormat pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type stageArgs struct {
 	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
-	// Specifies the file format for the stage.
+	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
@@ -221,7 +221,7 @@ type StageArgs struct {
 	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
-	// Specifies the file format for the stage.
+	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 	FileFormat pulumi.StringPtrInput
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o StageOutput) Encryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the file format for the stage.
+// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
 func (o StageOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }

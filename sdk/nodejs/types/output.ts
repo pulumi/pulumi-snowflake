@@ -2507,6 +2507,7 @@ export interface GetUsersUserDescribeOutput {
     rsaPublicKeyFp: string;
     snowflakeLock: boolean;
     snowflakeSupport: boolean;
+    type: string;
 }
 
 export interface GetUsersUserParameter {
@@ -3390,6 +3391,562 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     objectTypePlural: string;
 }
 
+export interface LegacyServiceUserParameter {
+    abortDetachedQueries: outputs.LegacyServiceUserParameterAbortDetachedQuery[];
+    autocommits: outputs.LegacyServiceUserParameterAutocommit[];
+    binaryInputFormats: outputs.LegacyServiceUserParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.LegacyServiceUserParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.LegacyServiceUserParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.LegacyServiceUserParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.LegacyServiceUserParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.LegacyServiceUserParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.LegacyServiceUserParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.LegacyServiceUserParameterDateInputFormat[];
+    dateOutputFormats: outputs.LegacyServiceUserParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization[];
+    enableUnredactedQuerySyntaxErrors: outputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError[];
+    errorOnNondeterministicMerges: outputs.LegacyServiceUserParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.LegacyServiceUserParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.LegacyServiceUserParameterGeometryOutputFormat[];
+    jdbcTreatDecimalAsInts: outputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.LegacyServiceUserParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.LegacyServiceUserParameterJsonIndent[];
+    lockTimeouts: outputs.LegacyServiceUserParameterLockTimeout[];
+    logLevels: outputs.LegacyServiceUserParameterLogLevel[];
+    multiStatementCounts: outputs.LegacyServiceUserParameterMultiStatementCount[];
+    networkPolicies: outputs.LegacyServiceUserParameterNetworkPolicy[];
+    noorderSequenceAsDefaults: outputs.LegacyServiceUserParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt[];
+    preventUnloadToInternalStages: outputs.LegacyServiceUserParameterPreventUnloadToInternalStage[];
+    queryTags: outputs.LegacyServiceUserParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.LegacyServiceUserParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.LegacyServiceUserParameterS3StageVpceDnsName[];
+    searchPaths: outputs.LegacyServiceUserParameterSearchPath[];
+    simulatedDataSharingConsumers: outputs.LegacyServiceUserParameterSimulatedDataSharingConsumer[];
+    statementQueuedTimeoutInSeconds: outputs.LegacyServiceUserParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.LegacyServiceUserParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.LegacyServiceUserParameterStrictJsonOutput[];
+    timeInputFormats: outputs.LegacyServiceUserParameterTimeInputFormat[];
+    timeOutputFormats: outputs.LegacyServiceUserParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.LegacyServiceUserParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.LegacyServiceUserParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.LegacyServiceUserParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.LegacyServiceUserParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.LegacyServiceUserParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.LegacyServiceUserParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.LegacyServiceUserParameterTimestampTzOutputFormat[];
+    timezones: outputs.LegacyServiceUserParameterTimezone[];
+    traceLevels: outputs.LegacyServiceUserParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.LegacyServiceUserParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.LegacyServiceUserParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.LegacyServiceUserParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.LegacyServiceUserParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.LegacyServiceUserParameterUseCachedResult[];
+    weekOfYearPolicies: outputs.LegacyServiceUserParameterWeekOfYearPolicy[];
+    weekStarts: outputs.LegacyServiceUserParameterWeekStart[];
+}
+
+export interface LegacyServiceUserParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterEnableUnredactedQuerySyntaxError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterJdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterNetworkPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterSimulatedDataSharingConsumer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserShowOutput {
+    comment: string;
+    createdOn: string;
+    daysToExpiry: string;
+    defaultNamespace: string;
+    defaultRole: string;
+    defaultSecondaryRoles: string;
+    defaultWarehouse: string;
+    disabled: boolean;
+    displayName: string;
+    email: string;
+    expiresAtTime: string;
+    extAuthnDuo: boolean;
+    extAuthnUid: string;
+    firstName: string;
+    hasMfa: boolean;
+    hasPassword: boolean;
+    hasRsaPublicKey: boolean;
+    lastName: string;
+    lastSuccessLogin: string;
+    lockedUntilTime: string;
+    loginName: string;
+    minsToBypassMfa: string;
+    minsToUnlock: string;
+    mustChangePassword: boolean;
+    name: string;
+    owner: string;
+    snowflakeLock: boolean;
+    type: string;
+}
+
 export interface MaskingPolicyArgument {
     /**
      * The argument name
@@ -4271,6 +4828,562 @@ export interface ScimIntegrationShowOutput {
     name: string;
 }
 
+export interface ServiceUserParameter {
+    abortDetachedQueries: outputs.ServiceUserParameterAbortDetachedQuery[];
+    autocommits: outputs.ServiceUserParameterAutocommit[];
+    binaryInputFormats: outputs.ServiceUserParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.ServiceUserParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.ServiceUserParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.ServiceUserParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.ServiceUserParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.ServiceUserParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.ServiceUserParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.ServiceUserParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.ServiceUserParameterDateInputFormat[];
+    dateOutputFormats: outputs.ServiceUserParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization[];
+    enableUnredactedQuerySyntaxErrors: outputs.ServiceUserParameterEnableUnredactedQuerySyntaxError[];
+    errorOnNondeterministicMerges: outputs.ServiceUserParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.ServiceUserParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.ServiceUserParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.ServiceUserParameterGeometryOutputFormat[];
+    jdbcTreatDecimalAsInts: outputs.ServiceUserParameterJdbcTreatDecimalAsInt[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.ServiceUserParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.ServiceUserParameterJsonIndent[];
+    lockTimeouts: outputs.ServiceUserParameterLockTimeout[];
+    logLevels: outputs.ServiceUserParameterLogLevel[];
+    multiStatementCounts: outputs.ServiceUserParameterMultiStatementCount[];
+    networkPolicies: outputs.ServiceUserParameterNetworkPolicy[];
+    noorderSequenceAsDefaults: outputs.ServiceUserParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.ServiceUserParameterOdbcTreatDecimalAsInt[];
+    preventUnloadToInternalStages: outputs.ServiceUserParameterPreventUnloadToInternalStage[];
+    queryTags: outputs.ServiceUserParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.ServiceUserParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.ServiceUserParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.ServiceUserParameterS3StageVpceDnsName[];
+    searchPaths: outputs.ServiceUserParameterSearchPath[];
+    simulatedDataSharingConsumers: outputs.ServiceUserParameterSimulatedDataSharingConsumer[];
+    statementQueuedTimeoutInSeconds: outputs.ServiceUserParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.ServiceUserParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.ServiceUserParameterStrictJsonOutput[];
+    timeInputFormats: outputs.ServiceUserParameterTimeInputFormat[];
+    timeOutputFormats: outputs.ServiceUserParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.ServiceUserParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.ServiceUserParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.ServiceUserParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.ServiceUserParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.ServiceUserParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.ServiceUserParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.ServiceUserParameterTimestampTzOutputFormat[];
+    timezones: outputs.ServiceUserParameterTimezone[];
+    traceLevels: outputs.ServiceUserParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.ServiceUserParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.ServiceUserParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.ServiceUserParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.ServiceUserParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.ServiceUserParameterUseCachedResult[];
+    weekOfYearPolicies: outputs.ServiceUserParameterWeekOfYearPolicy[];
+    weekStarts: outputs.ServiceUserParameterWeekStart[];
+}
+
+export interface ServiceUserParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterEnableUnredactedQuerySyntaxError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterJdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterNetworkPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterSimulatedDataSharingConsumer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserShowOutput {
+    comment: string;
+    createdOn: string;
+    daysToExpiry: string;
+    defaultNamespace: string;
+    defaultRole: string;
+    defaultSecondaryRoles: string;
+    defaultWarehouse: string;
+    disabled: boolean;
+    displayName: string;
+    email: string;
+    expiresAtTime: string;
+    extAuthnDuo: boolean;
+    extAuthnUid: string;
+    firstName: string;
+    hasMfa: boolean;
+    hasPassword: boolean;
+    hasRsaPublicKey: boolean;
+    lastName: string;
+    lastSuccessLogin: string;
+    lockedUntilTime: string;
+    loginName: string;
+    minsToBypassMfa: string;
+    minsToUnlock: string;
+    mustChangePassword: boolean;
+    name: string;
+    owner: string;
+    snowflakeLock: boolean;
+    type: string;
+}
+
 export interface StageTag {
     /**
      * Name of the database that the tag was created in.
@@ -4288,6 +5401,154 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface StreamOnExternalTableAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnExternalTableBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnExternalTableDescribeOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: string;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnExternalTableShowOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: string;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnTableAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnTableBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnTableDescribeOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: string;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnTableShowOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: string;
+    staleAfter: string;
+    tableName: string;
+    type: string;
 }
 
 export interface StreamlitDescribeOutput {
@@ -5072,7 +6333,7 @@ export interface ViewDataMetricFunction {
 
 export interface ViewDataMetricSchedule {
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field is not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
      */
     minutes?: number;
     /**

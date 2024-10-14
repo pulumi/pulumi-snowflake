@@ -44,6 +44,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string RsaPublicKeyFp;
         public readonly bool SnowflakeLock;
         public readonly bool SnowflakeSupport;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetUsersUserDescribeOutputResult(
@@ -107,7 +108,9 @@ namespace Pulumi.Snowflake.Outputs
 
             bool snowflakeLock,
 
-            bool snowflakeSupport)
+            bool snowflakeSupport,
+
+            string type)
         {
             Comment = comment;
             CustomLandingPageUrl = customLandingPageUrl;
@@ -140,6 +143,7 @@ namespace Pulumi.Snowflake.Outputs
             RsaPublicKeyFp = rsaPublicKeyFp;
             SnowflakeLock = snowflakeLock;
             SnowflakeSupport = snowflakeSupport;
+            Type = type;
         }
     }
 }

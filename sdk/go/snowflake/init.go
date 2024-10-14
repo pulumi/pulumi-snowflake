@@ -77,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToDatabaseRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
+	case "snowflake:index/legacyServiceUser:LegacyServiceUser":
+		r = &LegacyServiceUser{}
 	case "snowflake:index/managedAccount:ManagedAccount":
 		r = &ManagedAccount{}
 	case "snowflake:index/maskingPolicy:MaskingPolicy":
@@ -123,6 +125,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecondaryDatabase{}
 	case "snowflake:index/sequence:Sequence":
 		r = &Sequence{}
+	case "snowflake:index/serviceUser:ServiceUser":
+		r = &ServiceUser{}
 	case "snowflake:index/sessionParameter:SessionParameter":
 		r = &SessionParameter{}
 	case "snowflake:index/share:Share":
@@ -135,6 +139,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StorageIntegration{}
 	case "snowflake:index/stream:Stream":
 		r = &Stream{}
+	case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
+		r = &StreamOnExternalTable{}
+	case "snowflake:index/streamOnTable:StreamOnTable":
+		r = &StreamOnTable{}
 	case "snowflake:index/streamlit:Streamlit":
 		r = &Streamlit{}
 	case "snowflake:index/table:Table":
@@ -336,6 +344,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/legacyServiceUser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/managedAccount",
 		&module{version},
 	)
@@ -451,6 +464,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/serviceUser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/sessionParameter",
 		&module{version},
 	)
@@ -477,6 +495,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/stream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/streamOnExternalTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/streamOnTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

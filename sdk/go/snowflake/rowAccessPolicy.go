@@ -36,7 +36,7 @@ type RowAccessPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs RowAccessPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
@@ -98,7 +98,7 @@ type rowAccessPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema *string `pulumi:"schema"`
-	// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs []RowAccessPolicyShowOutput `pulumi:"showOutputs"`
 }
 
@@ -119,7 +119,7 @@ type RowAccessPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Schema pulumi.StringPtrInput
-	// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs RowAccessPolicyShowOutputArrayInput
 }
 
@@ -285,7 +285,7 @@ func (o RowAccessPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Outputs the result of `SHOW ROW ACCESS POLICY` for the given row access policy.
+// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 func (o RowAccessPolicyOutput) ShowOutputs() RowAccessPolicyShowOutputArrayOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) RowAccessPolicyShowOutputArrayOutput { return v.ShowOutputs }).(RowAccessPolicyShowOutputArrayOutput)
 }

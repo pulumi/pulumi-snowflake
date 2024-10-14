@@ -360,6 +360,11 @@ export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPri
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
 
+export { LegacyServiceUserArgs, LegacyServiceUserState } from "./legacyServiceUser";
+export type LegacyServiceUser = import("./legacyServiceUser").LegacyServiceUser;
+export const LegacyServiceUser: typeof import("./legacyServiceUser").LegacyServiceUser = null as any;
+utilities.lazyLoad(exports, ["LegacyServiceUser"], () => require("./legacyServiceUser"));
+
 export { ManagedAccountArgs, ManagedAccountState } from "./managedAccount";
 export type ManagedAccount = import("./managedAccount").ManagedAccount;
 export const ManagedAccount: typeof import("./managedAccount").ManagedAccount = null as any;
@@ -480,6 +485,11 @@ export type Sequence = import("./sequence").Sequence;
 export const Sequence: typeof import("./sequence").Sequence = null as any;
 utilities.lazyLoad(exports, ["Sequence"], () => require("./sequence"));
 
+export { ServiceUserArgs, ServiceUserState } from "./serviceUser";
+export type ServiceUser = import("./serviceUser").ServiceUser;
+export const ServiceUser: typeof import("./serviceUser").ServiceUser = null as any;
+utilities.lazyLoad(exports, ["ServiceUser"], () => require("./serviceUser"));
+
 export { SessionParameterArgs, SessionParameterState } from "./sessionParameter";
 export type SessionParameter = import("./sessionParameter").SessionParameter;
 export const SessionParameter: typeof import("./sessionParameter").SessionParameter = null as any;
@@ -509,6 +519,16 @@ export { StreamArgs, StreamState } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
+export { StreamOnExternalTableArgs, StreamOnExternalTableState } from "./streamOnExternalTable";
+export type StreamOnExternalTable = import("./streamOnExternalTable").StreamOnExternalTable;
+export const StreamOnExternalTable: typeof import("./streamOnExternalTable").StreamOnExternalTable = null as any;
+utilities.lazyLoad(exports, ["StreamOnExternalTable"], () => require("./streamOnExternalTable"));
+
+export { StreamOnTableArgs, StreamOnTableState } from "./streamOnTable";
+export type StreamOnTable = import("./streamOnTable").StreamOnTable;
+export const StreamOnTable: typeof import("./streamOnTable").StreamOnTable = null as any;
+utilities.lazyLoad(exports, ["StreamOnTable"], () => require("./streamOnTable"));
 
 export { StreamlitArgs, StreamlitState } from "./streamlit";
 export type Streamlit = import("./streamlit").Streamlit;
@@ -650,6 +670,8 @@ const _module = {
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
+            case "snowflake:index/legacyServiceUser:LegacyServiceUser":
+                return new LegacyServiceUser(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
                 return new ManagedAccount(name, <any>undefined, { urn })
             case "snowflake:index/maskingPolicy:MaskingPolicy":
@@ -696,6 +718,8 @@ const _module = {
                 return new SecondaryDatabase(name, <any>undefined, { urn })
             case "snowflake:index/sequence:Sequence":
                 return new Sequence(name, <any>undefined, { urn })
+            case "snowflake:index/serviceUser:ServiceUser":
+                return new ServiceUser(name, <any>undefined, { urn })
             case "snowflake:index/sessionParameter:SessionParameter":
                 return new SessionParameter(name, <any>undefined, { urn })
             case "snowflake:index/share:Share":
@@ -708,6 +732,10 @@ const _module = {
                 return new StorageIntegration(name, <any>undefined, { urn })
             case "snowflake:index/stream:Stream":
                 return new Stream(name, <any>undefined, { urn })
+            case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
+                return new StreamOnExternalTable(name, <any>undefined, { urn })
+            case "snowflake:index/streamOnTable:StreamOnTable":
+                return new StreamOnTable(name, <any>undefined, { urn })
             case "snowflake:index/streamlit:Streamlit":
                 return new Streamlit(name, <any>undefined, { urn })
             case "snowflake:index/table:Table":
@@ -769,6 +797,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _module)
@@ -792,12 +821,15 @@ pulumi.runtime.registerResourceModule("snowflake", "index/schema", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/scimIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/secondaryDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sessionParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/streamOnExternalTable", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/streamOnTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamlit", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPolicyApplication", _module)
