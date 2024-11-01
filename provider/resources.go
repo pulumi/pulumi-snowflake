@@ -15,7 +15,9 @@
 package snowflake
 
 import (
+	"bytes"
 	"fmt"
+	"os"
 	"path/filepath"
 	"unicode"
 
@@ -68,6 +70,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		GitHubOrg:   "Snowflake-Labs",
 		Repository:  "https://github.com/pulumi/pulumi-snowflake",
+		DocRules:    &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account": {
 				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_ACCOUNT"}},
@@ -169,6 +172,79 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	edits := []tfbridge.DocsEdit{
+		removeNotes,
+		fixExample,
+	}
+	edits = append(edits,
+		defaults...,
+	)
+	return append(
+		edits,
+	)
+}
+
+// These notes concern upstream-internal bookkeeping and maintenance
+var removeNotes = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		replacesDir := "docs/index-md-replaces/"
+		changes := []string{
+			"disclaimer",
+			"note-1",
+			"note-2",
+		}
+		for _, file := range changes {
+			input, err := os.ReadFile(replacesDir + file + "-input.md")
+			if err != nil {
+				return nil, err
+			}
+			if bytes.Contains(content, input) {
+				content = bytes.ReplaceAll(
+					content,
+					input,
+					nil,
+				)
+			} else {
+				// Hard error to ensure we keep this content up to date
+				return nil, fmt.Errorf("could not find text in upstream index.md, "+
+					"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+file+"-input.md", string(input))
+			}
+		}
+		return content, nil
+	},
+}
+
+// Separates multiple "provider" declarations in top-level example
+var fixExample = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		replacesDir := "docs/index-md-replaces/"
+
+		input, err := os.ReadFile(replacesDir + "example-input.md")
+		if err != nil {
+			return nil, err
+		}
+		desired, err := os.ReadFile(replacesDir + "example-desired.md")
+		if err != nil {
+			return nil, err
+		}
+		if bytes.Contains(content, input) {
+			content = bytes.ReplaceAll(
+				content,
+				input,
+				desired,
+			)
+		} else {
+			// Hard error to ensure we keep this content up to date
+			return nil, fmt.Errorf("could not find text in upstream index.md, "+
+				"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+"example-input.md", string(input))
+		}
+		return content, nil
+	},
 }
 
 //go:embed cmd/pulumi-resource-snowflake/bridge-metadata.json

@@ -1,4 +1,5 @@
 ---
+# *** WARNING: This file was auto-generated. Do not edit by hand unless you're certain you know what you are doing! ***
 title: Snowflake Provider
 meta_desc: Provides an overview on how to configure the Pulumi Snowflake provider.
 layout: package
@@ -14,37 +15,370 @@ The snowflake provider is available as a package in all Pulumi languages:
 * Java: [`com.pulumi/snowflake`](https://central.sonatype.com/artifact/com.pulumi/snowflake)
 ## Overview
 
-> **Disclaimer** the project is still in the 0.x.x version, which means it’s still in the experimental phase (check [Go module versioning](https://go.dev/doc/modules/version-numbers#v0-number) for more details). It can be used in production but makes no stability or backward compatibility guarantees. We do not provide backward bug fixes and, therefore, always suggest using the newest version. We are providing only limited support for the provider; priorities will be assigned on a case-by-case basis. Our main current goals are stabilization, addressing existing issues, and providing the missing features (prioritizing the GA features; supporting PrPr and PuPr features are not high priorities now). With all that in mind, we aim to reach V1 with a stable, reliable, and functional provider. V1 will be free of all the above limitations.
-
-> **Note** Please check the migration guide when changing the version of the provider.
-
-> **Note** the current roadmap is available in our GitHub repository: ROADMAP.md.
-
 This is a pulumi provider plugin for managing [Snowflake](https://www.snowflake.com/) accounts.
 Coverage is focused on part of Snowflake related to access control.
 ## Example Provider Configuration
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: nodejs
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{% choosable language python %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: python
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{% choosable language csharp %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: dotnet
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{% choosable language go %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: go
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{% choosable language yaml %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: yaml
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{% choosable language java %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: java
+config:
+    snowflake:account:
+        value: '...'
+    snowflake:authenticator:
+        value: '...'
+    snowflake:host:
+        value: '...'
+    snowflake:oauthAccessToken:
+        value: '...'
+    snowflake:oauthClientId:
+        value: '...'
+    snowflake:oauthClientSecret:
+        value: '...'
+    snowflake:oauthEndpoint:
+        value: '...'
+    snowflake:oauthRedirectUrl:
+        value: '...'
+    snowflake:oauthRefreshToken:
+        value: '...'
+    snowflake:password:
+        value: '...'
+    snowflake:privateKey:
+        value: '...'
+    snowflake:privateKeyPassphrase:
+        value: '...'
+    snowflake:privateKeyPath:
+        value: '...'
+    snowflake:region:
+        value: '...'
+    snowflake:role:
+        value: '...'
+    snowflake:sessionParams:
+        value:
+            query_tag: '...'
+    snowflake:username:
+        value: '...'
+    snowflake:warehouse:
+        value: '...'
+
+```
 
 {{% /choosable %}}
 {{< /chooser >}}
-## Configuration Configuration Reference
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{% choosable language typescript %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: nodejs
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{% choosable language python %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: python
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{% choosable language csharp %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: dotnet
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{% choosable language go %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: go
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{% choosable language yaml %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: yaml
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{% choosable language java %}}
+```yaml
+# Pulumi.yaml provider configuration file
+name: configuration-example
+runtime: java
+config:
+    snowflake:profile:
+        value: securityadmin
+
+```
+
+{{% /choosable %}}
+{{< /chooser >}}
+## Configuration Reference
 
 **Warning: these values are passed directly to the gosnowflake library, which may not work exactly the way you expect. See the [gosnowflake docs](https://godoc.org/github.com/snowflakedb/gosnowflake#hdr-Connection_Parameters) for more.**
 ## Configuration Reference
@@ -91,11 +425,11 @@ Coverage is focused on part of Snowflake related to access control.
 - `tokenAccessor` (Block List, Max: 1) (see below for nested schema)
 - `user` (String) Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
 - `username` (String, Deprecated) Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable. Required unless using `profile`.
-- `validateDefaultParameters` (Boolean) True by default. If false, disables the validation checks for Database, Configuration Reference, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+- `validateDefaultParameters` (Boolean) True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 - `warehouse` (String) Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 
 <a id="nestedblock--token_accessor"></a>
-### Nested Configuration Reference for `tokenAccessor`
+### Nested Schema for `tokenAccessor`
 
 Required:
 
@@ -215,6 +549,6 @@ The Snowflake provider will use the following order of precedence when determini
 - snowflake.OauthIntegration
 - snowflake.Role - use snowflake.AccountRole instead
 - snowflake.SamlIntegration - use snowflake.Saml2Integration instead
-## Currently deprecated datasources
+## Currently deprecated functions
 
 - snowflake.Role - use snowflake.getRoles instead
