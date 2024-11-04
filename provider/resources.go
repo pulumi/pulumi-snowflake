@@ -179,11 +179,9 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		removeNotes,
 		fixExample,
 	}
-	edits = append(edits,
-		defaults...,
-	)
 	return append(
 		edits,
+		defaults...,
 	)
 }
 
