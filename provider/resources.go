@@ -56,9 +56,7 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(snowflake.Provider(),
-		shimv2.WithPlanResourceChange(func(_ string) bool { return true }),
-	)
+	p := shimv2.NewProvider(snowflake.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
