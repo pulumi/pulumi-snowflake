@@ -12,49 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetStreams
     {
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStreams.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
         /// </summary>
-        public static Task<GetStreamsResult> InvokeAsync(GetStreamsArgs args, InvokeOptions? options = null)
+        public static Task<GetStreamsResult> InvokeAsync(GetStreamsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamsResult>("snowflake:index/getStreams:getStreams", args ?? new GetStreamsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStreams.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
         /// </summary>
-        public static Output<GetStreamsResult> Invoke(GetStreamsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetStreamsResult> Invoke(GetStreamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamsResult>("snowflake:index/getStreams:getStreams", args ?? new GetStreamsInvokeArgs(), options.WithDefaults());
     }
 
@@ -62,16 +32,34 @@ namespace Pulumi.Snowflake
     public sealed class GetStreamsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the streams from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetStreamsInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the streams from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Inputs.GetStreamsLimitArgs? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public string? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
 
         public GetStreamsArgs()
         {
@@ -82,16 +70,34 @@ namespace Pulumi.Snowflake
     public sealed class GetStreamsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the streams from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetStreamsInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the streams from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Input<Inputs.GetStreamsLimitInputArgs>? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public Input<string>? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
 
         public GetStreamsInvokeArgs()
         {
@@ -104,36 +110,57 @@ namespace Pulumi.Snowflake
     public sealed class GetStreamsResult
     {
         /// <summary>
-        /// The database from which to return the streams from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schema from which to return the streams from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        public readonly string Schema;
+        public readonly Outputs.GetStreamsInResult? In;
         /// <summary>
-        /// The streams in the schema
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        public readonly Outputs.GetStreamsLimitResult? Limit;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        public readonly string? StartsWith;
+        /// <summary>
+        /// Holds the aggregated output of all streams details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamsStreamResult> Streams;
+        /// <summary>
+        /// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetStreamsResult(
-            string database,
-
             string id,
 
-            string schema,
+            Outputs.GetStreamsInResult? @in,
 
-            ImmutableArray<Outputs.GetStreamsStreamResult> streams)
+            string? like,
+
+            Outputs.GetStreamsLimitResult? limit,
+
+            string? startsWith,
+
+            ImmutableArray<Outputs.GetStreamsStreamResult> streams,
+
+            bool? withDescribe)
         {
-            Database = database;
             Id = id;
-            Schema = schema;
+            In = @in;
+            Like = like;
+            Limit = limit;
+            StartsWith = startsWith;
             Streams = streams;
+            WithDescribe = withDescribe;
         }
     }
 }

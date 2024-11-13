@@ -16,6 +16,8 @@ import (
 // ```sh
 // $ pulumi import snowflake:index/user:User example '"<user_name>"'
 // ```
+//
+// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
 type User struct {
 	pulumi.CustomResourceState
 

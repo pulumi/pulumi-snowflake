@@ -42,6 +42,9 @@ type StreamOnExternalTable struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnExternalTableShowOutputArrayOutput `pulumi:"showOutputs"`
+	Stale       pulumi.BoolOutput                          `pulumi:"stale"`
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType pulumi.StringOutput `pulumi:"streamType"`
 }
 
 // NewStreamOnExternalTable registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +108,9 @@ type streamOnExternalTableState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs []StreamOnExternalTableShowOutput `pulumi:"showOutputs"`
+	Stale       *bool                             `pulumi:"stale"`
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType *string `pulumi:"streamType"`
 }
 
 type StreamOnExternalTableState struct {
@@ -130,6 +136,9 @@ type StreamOnExternalTableState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnExternalTableShowOutputArrayInput
+	Stale       pulumi.BoolPtrInput
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType pulumi.StringPtrInput
 }
 
 func (StreamOnExternalTableState) ElementType() reflect.Type {
@@ -320,6 +329,15 @@ func (o StreamOnExternalTableOutput) Schema() pulumi.StringOutput {
 // Outputs the result of `SHOW STREAMS` for the given stream.
 func (o StreamOnExternalTableOutput) ShowOutputs() StreamOnExternalTableShowOutputArrayOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) StreamOnExternalTableShowOutputArrayOutput { return v.ShowOutputs }).(StreamOnExternalTableShowOutputArrayOutput)
+}
+
+func (o StreamOnExternalTableOutput) Stale() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StreamOnExternalTable) pulumi.BoolOutput { return v.Stale }).(pulumi.BoolOutput)
+}
+
+// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+func (o StreamOnExternalTableOutput) StreamType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamOnExternalTable) pulumi.StringOutput { return v.StreamType }).(pulumi.StringOutput)
 }
 
 type StreamOnExternalTableArrayOutput struct{ *pulumi.OutputState }

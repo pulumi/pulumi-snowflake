@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
  *
  * ```sh
- * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole \"app_role_1\"|ACCOUNT_ROLE|\"my_role\""
+ * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example '"my_application"."app_role_1"|ACCOUNT_ROLE|"my_role"'
  * ```
  */
 export class GrantApplicationRole extends pulumi.CustomResource {

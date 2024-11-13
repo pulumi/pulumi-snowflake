@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "snowflake:index/account:Account":
 		r = &Account{}
+	case "snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment":
+		r = &AccountAuthenticationPolicyAttachment{}
 	case "snowflake:index/accountParameter:AccountParameter":
 		r = &AccountParameter{}
 	case "snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiAuthenticationIntegrationWithJwtBearer{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
 		r = &ApiIntegration{}
+	case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
+		r = &AuthenticationPolicy{}
 	case "snowflake:index/cortexSearchService:CortexSearchService":
 		r = &CortexSearchService{}
 	case "snowflake:index/database:Database":
@@ -57,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExternalOauthIntegration{}
 	case "snowflake:index/externalTable:ExternalTable":
 		r = &ExternalTable{}
+	case "snowflake:index/externalVolume:ExternalVolume":
+		r = &ExternalVolume{}
 	case "snowflake:index/failoverGroup:FailoverGroup":
 		r = &FailoverGroup{}
 	case "snowflake:index/fileFormat:FileFormat":
@@ -105,6 +111,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PasswordPolicy{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
+	case "snowflake:index/primaryConnection:PrimaryConnection":
+		r = &PrimaryConnection{}
 	case "snowflake:index/procedure:Procedure":
 		r = &Procedure{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
@@ -121,8 +129,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Schema{}
 	case "snowflake:index/scimIntegration:ScimIntegration":
 		r = &ScimIntegration{}
+	case "snowflake:index/secondaryConnection:SecondaryConnection":
+		r = &SecondaryConnection{}
 	case "snowflake:index/secondaryDatabase:SecondaryDatabase":
 		r = &SecondaryDatabase{}
+	case "snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant":
+		r = &SecretWithAuthorizationCodeGrant{}
+	case "snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication":
+		r = &SecretWithBasicAuthentication{}
+	case "snowflake:index/secretWithClientCredentials:SecretWithClientCredentials":
+		r = &SecretWithClientCredentials{}
+	case "snowflake:index/secretWithGenericString:SecretWithGenericString":
+		r = &SecretWithGenericString{}
 	case "snowflake:index/sequence:Sequence":
 		r = &Sequence{}
 	case "snowflake:index/serviceUser:ServiceUser":
@@ -139,10 +157,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StorageIntegration{}
 	case "snowflake:index/stream:Stream":
 		r = &Stream{}
+	case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
+		r = &StreamOnDirectoryTable{}
 	case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
 		r = &StreamOnExternalTable{}
 	case "snowflake:index/streamOnTable:StreamOnTable":
 		r = &StreamOnTable{}
+	case "snowflake:index/streamOnView:StreamOnView":
+		r = &StreamOnView{}
 	case "snowflake:index/streamlit:Streamlit":
 		r = &Streamlit{}
 	case "snowflake:index/table:Table":
@@ -163,6 +185,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UnsafeExecute{}
 	case "snowflake:index/user:User":
 		r = &User{}
+	case "snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment":
+		r = &UserAuthenticationPolicyAttachment{}
 	case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
 		r = &UserPasswordPolicyAttachment{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
@@ -209,6 +233,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/accountAuthenticationPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/accountParameter",
 		&module{version},
 	)
@@ -245,6 +274,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/apiIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/authenticationPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -290,6 +324,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/externalTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/externalVolume",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -414,6 +453,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/primaryConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/procedure",
 		&module{version},
 	)
@@ -454,7 +498,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/secondaryConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/secondaryDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/secretWithAuthorizationCodeGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/secretWithBasicAuthentication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/secretWithClientCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/secretWithGenericString",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -499,12 +568,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/streamOnDirectoryTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/streamOnExternalTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/streamOnTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/streamOnView",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -555,6 +634,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/userAuthenticationPolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

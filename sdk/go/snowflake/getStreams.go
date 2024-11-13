@@ -11,32 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetStreams(ctx, &snowflake.GetStreamsArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
 func GetStreams(ctx *pulumi.Context, args *GetStreamsArgs, opts ...pulumi.InvokeOption) (*GetStreamsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamsResult
@@ -49,22 +26,34 @@ func GetStreams(ctx *pulumi.Context, args *GetStreamsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsArgs struct {
-	// The database from which to return the streams from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the streams from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In *GetStreamsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetStreamsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getStreams.
 type GetStreamsResult struct {
-	// The database from which to return the streams from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The schema from which to return the streams from.
-	Schema string `pulumi:"schema"`
-	// The streams in the schema
+	// IN clause to filter the list of objects
+	In *GetStreamsIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetStreamsLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Holds the aggregated output of all streams details queries.
 	Streams []GetStreamsStream `pulumi:"streams"`
+	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pulumi.InvokeOption) GetStreamsResultOutput {
@@ -88,10 +77,16 @@ func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getStreams.
 type GetStreamsOutputArgs struct {
-	// The database from which to return the streams from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the streams from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In GetStreamsInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetStreamsLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetStreamsOutputArgs) ElementType() reflect.Type {
@@ -113,24 +108,39 @@ func (o GetStreamsResultOutput) ToGetStreamsResultOutputWithContext(ctx context.
 	return o
 }
 
-// The database from which to return the streams from.
-func (o GetStreamsResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStreamsResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetStreamsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the streams from.
-func (o GetStreamsResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStreamsResult) string { return v.Schema }).(pulumi.StringOutput)
+// IN clause to filter the list of objects
+func (o GetStreamsResultOutput) In() GetStreamsInPtrOutput {
+	return o.ApplyT(func(v GetStreamsResult) *GetStreamsIn { return v.In }).(GetStreamsInPtrOutput)
 }
 
-// The streams in the schema
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetStreamsResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStreamsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetStreamsResultOutput) Limit() GetStreamsLimitPtrOutput {
+	return o.ApplyT(func(v GetStreamsResult) *GetStreamsLimit { return v.Limit }).(GetStreamsLimitPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetStreamsResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStreamsResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all streams details queries.
 func (o GetStreamsResultOutput) Streams() GetStreamsStreamArrayOutput {
 	return o.ApplyT(func(v GetStreamsResult) []GetStreamsStream { return v.Streams }).(GetStreamsStreamArrayOutput)
+}
+
+// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetStreamsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStreamsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

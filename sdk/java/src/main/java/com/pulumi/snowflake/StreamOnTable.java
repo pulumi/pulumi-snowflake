@@ -174,6 +174,26 @@ public class StreamOnTable extends com.pulumi.resources.CustomResource {
     public Output<List<StreamOnTableShowOutput>> showOutputs() {
         return this.showOutputs;
     }
+    @Export(name="stale", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> stale;
+
+    public Output<Boolean> stale() {
+        return this.stale;
+    }
+    /**
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * 
+     */
+    @Export(name="streamType", refs={String.class}, tree="[0]")
+    private Output<String> streamType;
+
+    /**
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * 
+     */
+    public Output<String> streamType() {
+        return this.streamType;
+    }
     /**
      * Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 

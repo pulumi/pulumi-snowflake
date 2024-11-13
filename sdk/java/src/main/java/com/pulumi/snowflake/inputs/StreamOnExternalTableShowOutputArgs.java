@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,9 +95,9 @@ public final class StreamOnExternalTableShowOutputArgs extends com.pulumi.resour
     }
 
     @Import(name="stale")
-    private @Nullable Output<String> stale;
+    private @Nullable Output<Boolean> stale;
 
-    public Optional<Output<String>> stale() {
+    public Optional<Output<Boolean>> stale() {
         return Optional.ofNullable(this.stale);
     }
 
@@ -262,12 +263,12 @@ public final class StreamOnExternalTableShowOutputArgs extends com.pulumi.resour
             return sourceType(Output.of(sourceType));
         }
 
-        public Builder stale(@Nullable Output<String> stale) {
+        public Builder stale(@Nullable Output<Boolean> stale) {
             $.stale = stale;
             return this;
         }
 
-        public Builder stale(String stale) {
+        public Builder stale(Boolean stale) {
             return stale(Output.of(stale));
         }
 

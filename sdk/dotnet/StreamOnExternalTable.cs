@@ -85,6 +85,15 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.StreamOnExternalTableShowOutput>> ShowOutputs { get; private set; } = null!;
 
+        [Output("stale")]
+        public Output<bool> Stale { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// </summary>
+        [Output("streamType")]
+        public Output<string> StreamType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StreamOnExternalTable resource with the given unique name, arguments, and options.
@@ -264,6 +273,15 @@ namespace Pulumi.Snowflake
             get => _showOutputs ?? (_showOutputs = new InputList<Inputs.StreamOnExternalTableShowOutputGetArgs>());
             set => _showOutputs = value;
         }
+
+        [Input("stale")]
+        public Input<bool>? Stale { get; set; }
+
+        /// <summary>
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// </summary>
+        [Input("streamType")]
+        public Input<string>? StreamType { get; set; }
 
         public StreamOnExternalTableState()
         {

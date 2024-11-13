@@ -23,43 +23,43 @@ import javax.annotation.Nullable;
  * #### OnObject on Schema ToAccountRole
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership \&#34;schema_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnObject|SCHEMA|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
  * ```
  * 
  * #### OnObject on Schema ToDatabaseRole
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership \&#34;schema_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToDatabaseRole|&#34;database_name&#34;.&#34;database_role_name&#34;|COPY|OnObject|SCHEMA|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
  * ```
  * 
  * #### OnObject on Table
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership \&#34;table_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnObject|TABLE|&#34;database_name&#34;.&#34;schema_name&#34;.&#34;table_name&#34;&#39;`
  * ```
  * 
  * #### OnAll InDatabase
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership `&#34;ToAccountRole|\&#34;account_role\&#34;|REVOKE|OnAll|TABLES|InDatabase|\&#34;database_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|REVOKE|OnAll|TABLES|InDatabase|&#34;database_name&#34;&#39;`
  * ```
  * 
  * #### OnAll InSchema
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership \&#34;schema_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;||OnAll|TABLES|InSchema|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
  * ```
  * 
  * #### OnFuture InDatabase
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership `&#34;ToAccountRole|\&#34;account_role\&#34;||OnFuture|TABLES|InDatabase|\&#34;database_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;||OnFuture|TABLES|InDatabase|&#34;database_name&#34;&#39;`
  * ```
  * 
  * #### OnFuture InSchema
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantOwnership:GrantOwnership \&#34;schema_name\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnFuture|TABLES|InSchema|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
  * ```
  * 
  */

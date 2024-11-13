@@ -24,19 +24,31 @@ class _ExportableConfig(types.ModuleType):
     @property
     def account(self) -> Optional[str]:
         """
-        Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
-        [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
-        from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
+        Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
+        The [account
+        locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
+        is not supported. For information about account identifiers, see the [Snowflake
+        documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
+        Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
         """
         return __config__.get('account') or _utilities.get_env('SNOWFLAKE_ACCOUNT')
+
+    @property
+    def account_name(self) -> Optional[str]:
+        """
+        Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
+        [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
+        unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+        """
+        return __config__.get('accountName')
 
     @property
     def authenticator(self) -> Optional[str]:
         """
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-        connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
-        explicitly to JWT for private key authentication.
+        connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
+        | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
+        sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return __config__.get('authenticator')
 
@@ -55,33 +67,41 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientIp')
 
     @property
-    def client_request_mfa_token(self) -> Optional[bool]:
+    def client_request_mfa_token(self) -> Optional[str]:
         """
         When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
         be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         """
-        return __config__.get_bool('clientRequestMfaToken')
+        return __config__.get('clientRequestMfaToken')
 
     @property
-    def client_store_temporary_credential(self) -> Optional[bool]:
+    def client_store_temporary_credential(self) -> Optional[str]:
         """
         When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
         sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
         """
-        return __config__.get_bool('clientStoreTemporaryCredential')
+        return __config__.get('clientStoreTemporaryCredential')
 
     @property
     def client_timeout(self) -> Optional[int]:
         """
-        The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
-        the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        The timeout in seconds for the client to complete the authentication. Can also be sourced from the
+        `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
         """
         return __config__.get_int('clientTimeout')
 
     @property
+    def disable_console_login(self) -> Optional[str]:
+        """
+        Indicates whether console login should be disabled in the driver. Can also be sourced from the
+        `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+        """
+        return __config__.get('disableConsoleLogin')
+
+    @property
     def disable_query_context_cache(self) -> Optional[bool]:
         """
-        Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+        Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
         environment variable.
         """
         return __config__.get_bool('disableQueryContextCache')
@@ -89,25 +109,41 @@ class _ExportableConfig(types.ModuleType):
     @property
     def disable_telemetry(self) -> Optional[bool]:
         """
-        Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+        Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         """
         return __config__.get_bool('disableTelemetry')
 
     @property
+    def driver_tracing(self) -> Optional[str]:
+        """
+        Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
+        `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        """
+        return __config__.get('driverTracing')
+
+    @property
     def external_browser_timeout(self) -> Optional[int]:
         """
-        The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
-        sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+        The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
+        `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         """
         return __config__.get_int('externalBrowserTimeout')
 
     @property
     def host(self) -> Optional[str]:
         """
-        Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
-        the `SNOWFLAKE_HOST` environment variable.
+        Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
+        `SNOWFLAKE_HOST` environment variable.
         """
         return __config__.get('host') or _utilities.get_env('SNOWFLAKE_HOST')
+
+    @property
+    def include_retry_reason(self) -> Optional[str]:
+        """
+        Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
+        variable.
+        """
+        return __config__.get('includeRetryReason')
 
     @property
     def insecure_mode(self) -> Optional[bool]:
@@ -121,8 +157,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def jwt_client_timeout(self) -> Optional[int]:
         """
-        The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
-        from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+        The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
+        `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         """
         return __config__.get_int('jwtClientTimeout')
 
@@ -144,10 +180,18 @@ class _ExportableConfig(types.ModuleType):
     @property
     def login_timeout(self) -> Optional[int]:
         """
-        Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
         `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         """
         return __config__.get_int('loginTimeout')
+
+    @property
+    def max_retry_count(self) -> Optional[int]:
+        """
+        Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
+        `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        """
+        return __config__.get_int('maxRetryCount')
 
     @property
     def oauth_access_token(self) -> Optional[str]:
@@ -199,25 +243,36 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('oauthRefreshToken') or _utilities.get_env('SNOWFLAKE_OAUTH_REFRESH_TOKEN')
 
     @property
-    def ocsp_fail_open(self) -> Optional[bool]:
+    def ocsp_fail_open(self) -> Optional[str]:
         """
         True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
         sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         """
-        return __config__.get_bool('ocspFailOpen')
+        return __config__.get('ocspFailOpen')
 
     @property
     def okta_url(self) -> Optional[str]:
         """
-        The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
-        variable.
+        The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
+        in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
+        `SNOWFLAKE_OKTA_URL` environment variable.
         """
         return __config__.get('oktaUrl')
 
     @property
+    def organization_name(self) -> Optional[str]:
+        """
+        Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
+        [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
+        unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+        """
+        return __config__.get('organizationName')
+
+    @property
     def params(self) -> Optional[str]:
         """
-        Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
+        This field can not be set with environmental variables.
         """
         return __config__.get('params')
 
@@ -232,15 +287,15 @@ class _ExportableConfig(types.ModuleType):
     @property
     def passcode_in_password(self) -> Optional[bool]:
         """
-        False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
-        of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+        False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
+        `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
         """
         return __config__.get_bool('passcodeInPassword')
 
     @property
     def password(self) -> Optional[str]:
         """
-        Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+        Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
         the `SNOWFLAKE_PASSWORD` environment variable.
         """
         return __config__.get('password') or _utilities.get_env('SNOWFLAKE_PASSWORD')
@@ -248,7 +303,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def port(self) -> Optional[int]:
         """
-        Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+        Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
         `SNOWFLAKE_PORT` environment variable.
         """
         return __config__.get_int('port') or _utilities.get_env_int('SNOWFLAKE_PORT')
@@ -257,7 +312,7 @@ class _ExportableConfig(types.ModuleType):
     def private_key(self) -> Optional[str]:
         """
         Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-        `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        the `SNOWFLAKE_PRIVATE_KEY` environment variable.
         """
         return __config__.get('privateKey')
 
@@ -265,7 +320,7 @@ class _ExportableConfig(types.ModuleType):
     def private_key_passphrase(self) -> Optional[str]:
         """
         Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-        des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+        des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         """
         return __config__.get('privateKeyPassphrase') or _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')
 
@@ -288,7 +343,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def protocol(self) -> Optional[str]:
         """
-        Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
+        `SNOWFLAKE_PROTOCOL` environment variable.
         """
         return __config__.get('protocol') or _utilities.get_env('SNOWFLAKE_PROTOCOL')
 
@@ -307,7 +363,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def request_timeout(self) -> Optional[int]:
         """
-        request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
         `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         """
         return __config__.get_int('requestTimeout')
@@ -316,7 +372,7 @@ class _ExportableConfig(types.ModuleType):
     def role(self) -> Optional[str]:
         """
         Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-        `SNOWFLAKE_ROLE` environment variable. .
+        `SNOWFLAKE_ROLE` environment variable.
         """
         return __config__.get('role') or _utilities.get_env('SNOWFLAKE_ROLE')
 
@@ -326,6 +382,14 @@ class _ExportableConfig(types.ModuleType):
         Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
         """
         return __config__.get('sessionParams')
+
+    @property
+    def tmp_directory_path(self) -> Optional[str]:
+        """
+        Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
+        the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+        """
+        return __config__.get('tmpDirectoryPath')
 
     @property
     def token(self) -> Optional[str]:
@@ -342,25 +406,25 @@ class _ExportableConfig(types.ModuleType):
     @property
     def user(self) -> Optional[str]:
         """
-        Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         """
         return __config__.get('user')
 
     @property
     def username(self) -> Optional[str]:
         """
-        Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
-        Required unless using `profile`.
+        Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
+        `SNOWFLAKE_USERNAME` environment variable.
         """
         return __config__.get('username') or _utilities.get_env('SNOWFLAKE_USER')
 
     @property
-    def validate_default_parameters(self) -> Optional[bool]:
+    def validate_default_parameters(self) -> Optional[str]:
         """
         True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
         connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         """
-        return __config__.get_bool('validateDefaultParameters')
+        return __config__.get('validateDefaultParameters')
 
     @property
     def warehouse(self) -> Optional[str]:

@@ -16,6 +16,8 @@ import (
 // ```sh
 // $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example '"<user_name>"'
 // ```
+//
+// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
 type LegacyServiceUser struct {
 	pulumi.CustomResourceState
 

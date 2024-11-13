@@ -175,7 +175,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
         format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
 
         ```sh
-        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \\"test_db_role\\"|ROLE|\\"test_parent_role\\""
+        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -197,7 +197,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
         format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
 
         ```sh
-        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \\"test_db_role\\"|ROLE|\\"test_parent_role\\""
+        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,6 +13,8 @@ import com.pulumi.snowflake.inputs.GetAccountsArgs;
 import com.pulumi.snowflake.inputs.GetAccountsPlainArgs;
 import com.pulumi.snowflake.inputs.GetAlertsArgs;
 import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
+import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+import com.pulumi.snowflake.inputs.GetConnectionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
 import com.pulumi.snowflake.inputs.GetCortexSearchServicesPlainArgs;
 import com.pulumi.snowflake.inputs.GetDatabaseArgs;
@@ -59,6 +61,8 @@ import com.pulumi.snowflake.inputs.GetRowAccessPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetRowAccessPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetSchemasArgs;
 import com.pulumi.snowflake.inputs.GetSchemasPlainArgs;
+import com.pulumi.snowflake.inputs.GetSecretsArgs;
+import com.pulumi.snowflake.inputs.GetSecretsPlainArgs;
 import com.pulumi.snowflake.inputs.GetSecurityIntegrationsArgs;
 import com.pulumi.snowflake.inputs.GetSecurityIntegrationsPlainArgs;
 import com.pulumi.snowflake.inputs.GetSequencesArgs;
@@ -87,6 +91,7 @@ import com.pulumi.snowflake.inputs.GetWarehousesArgs;
 import com.pulumi.snowflake.inputs.GetWarehousesPlainArgs;
 import com.pulumi.snowflake.outputs.GetAccountsResult;
 import com.pulumi.snowflake.outputs.GetAlertsResult;
+import com.pulumi.snowflake.outputs.GetConnectionsResult;
 import com.pulumi.snowflake.outputs.GetCortexSearchServicesResult;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
 import com.pulumi.snowflake.outputs.GetCurrentRoleResult;
@@ -112,6 +117,7 @@ import com.pulumi.snowflake.outputs.GetRoleResult;
 import com.pulumi.snowflake.outputs.GetRolesResult;
 import com.pulumi.snowflake.outputs.GetRowAccessPoliciesResult;
 import com.pulumi.snowflake.outputs.GetSchemasResult;
+import com.pulumi.snowflake.outputs.GetSecretsResult;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
 import com.pulumi.snowflake.outputs.GetSharesResult;
@@ -394,6 +400,342 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections() {
+        return getConnections(GetConnectionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain() {
+        return getConnectionsPlain(GetConnectionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args) {
+        return getConnections(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(GetConnectionsPlainArgs args) {
+        return getConnectionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getConnections();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("connection-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getConnections(GetConnectionsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getConnectionsResult -> getConnectionsResult.connections()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(GetConnectionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage
@@ -2244,6 +2586,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2420,6 +2764,8 @@ public final class SnowflakeFunctions {
         return getGrants(GetGrantsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2596,6 +2942,8 @@ public final class SnowflakeFunctions {
         return getGrantsPlain(GetGrantsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2772,6 +3120,8 @@ public final class SnowflakeFunctions {
         return getGrants(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2948,6 +3298,8 @@ public final class SnowflakeFunctions {
         return getGrantsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3124,6 +3476,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4656,6 +5010,432 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets() {
+        return getSecrets(GetSecretsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain() {
+        return getSecretsPlain(GetSecretsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
+        return getSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
+        return getSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
+     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Simple usage
+     *         final var simple = SnowflakeFunctions.getSecrets();
+     * 
+     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (like)
+     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("secret-name")
+     *             .build());
+     * 
+     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering by prefix (like)
+     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .like("prefix%")
+     *             .build());
+     * 
+     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Filtering (in)
+     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .in(GetSecretsInArgs.builder()
+     *                 .schema(test.fullyQualifiedName())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         // Without additional data (to limit the number of calls make for every found secret)
+     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
      * 
      * Datasource used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
@@ -5566,6 +6346,100 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStreamlits:getStreamlits", TypeShape.of(GetStreamlitsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetStreamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStreamsResult> getStreams() {
+        return getStreams(GetStreamsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetStreamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = SnowflakeFunctions.getStreams(GetStreamsArgs.builder()
+     *             .database("MYDB")
+     *             .schema("MYSCHEMA")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetStreamsResult> getStreamsPlain() {
+        return getStreamsPlain(GetStreamsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -5607,6 +6481,10 @@ public final class SnowflakeFunctions {
         return getStreams(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -5648,6 +6526,10 @@ public final class SnowflakeFunctions {
         return getStreamsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -5689,6 +6571,10 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStreams:getStreams", TypeShape.of(GetStreamsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+     * 
+     * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;

@@ -2529,6 +2529,8 @@ class LegacyServiceUser(pulumi.CustomResource):
         $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example '"<user_name>"'
         ```
 
+        Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -2615,6 +2617,8 @@ class LegacyServiceUser(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example '"<user_name>"'
         ```
+
+        Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
 
         :param str resource_name: The name of the resource.
         :param LegacyServiceUserArgs args: The arguments to use to populate this resource's properties.

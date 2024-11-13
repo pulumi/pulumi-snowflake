@@ -26,25 +26,25 @@ import javax.annotation.Nullable;
  * #### Grant all privileges OnDatabase
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \&#34;test_db_role\&#34;|false|false|ALL|OnDatabase|\&#34;test_db\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|ALL|OnDatabase|&#34;test_db&#34;&#39;`
  * ```
  * 
  * #### Grant list of privileges OnAllSchemasInDatabase
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \&#34;test_db_role\&#34;|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\&#34;test_db\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|&#34;test_db&#34;&#39;`
  * ```
  * 
  * #### Grant list of privileges on table
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \&#34;test_table\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|&#34;test_db&#34;.&#34;test_schema&#34;.&#34;test_table&#34;&#39;`
  * ```
  * 
  * #### Grant list of privileges OnAll tables in schema
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole \&#34;test_schema\&#34;&#34;`
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|&#34;test_db&#34;.&#34;test_schema&#34;&#39;`
  * ```
  * 
  */

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole \&#34;app_role_1\&#34;|ACCOUNT_ROLE|\&#34;my_role\&#34;&#34;
+ * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example &#39;&#34;my_application&#34;.&#34;app_role_1&#34;|ACCOUNT_ROLE|&#34;my_role&#34;&#39;
  * ```
  * 
  */

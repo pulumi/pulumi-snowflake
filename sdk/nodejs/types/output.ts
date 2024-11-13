@@ -364,6 +364,28 @@ export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
     name: string;
 }
 
+export interface AuthenticationPolicyDescribeOutput {
+    authenticationMethods: string;
+    clientTypes: string;
+    comment: string;
+    mfaAuthenticationMethods: string;
+    mfaEnrollment: string;
+    name: string;
+    owner: string;
+    securityIntegrations: string;
+}
+
+export interface AuthenticationPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface DatabaseOldReplicationConfiguration {
     accounts: string[];
     ignoreEditionCheck?: boolean;
@@ -601,6 +623,52 @@ export interface ExternalTableTag {
     value: string;
 }
 
+export interface ExternalVolumeDescribeOutput {
+    default: string;
+    name: string;
+    parent: string;
+    type: string;
+    value: string;
+}
+
+export interface ExternalVolumeShowOutput {
+    allowWrites: boolean;
+    comment: string;
+    name: string;
+}
+
+export interface ExternalVolumeStorageLocation {
+    /**
+     * Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+     */
+    azureTenantId?: string;
+    /**
+     * Specifies the ID for the KMS-managed key used to encrypt files.
+     */
+    encryptionKmsKeyId?: string;
+    /**
+     * Specifies the encryption type used.
+     */
+    encryptionType?: string;
+    /**
+     * External ID that Snowflake uses to establish a trust relationship with AWS.
+     */
+    storageAwsExternalId: string;
+    /**
+     * Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
+     */
+    storageAwsRoleArn?: string;
+    /**
+     * Specifies the base URL for your cloud storage location.
+     */
+    storageBaseUrl: string;
+    storageLocationName: string;
+    /**
+     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     */
+    storageProvider: string;
+}
+
 export interface FailoverGroupFromReplica {
     /**
      * Identifier for the primary failover group in the source account.
@@ -745,6 +813,28 @@ export interface GetAlertsAlert {
      * Schema in which the alert is stored.
      */
     schemaName: string;
+}
+
+export interface GetConnectionsConnection {
+    /**
+     * Holds the output of SHOW CONNECTIONS.
+     */
+    showOutputs: outputs.GetConnectionsConnectionShowOutput[];
+}
+
+export interface GetConnectionsConnectionShowOutput {
+    accountLocator: string;
+    accountName: string;
+    comment: string;
+    connectionUrl: string;
+    createdOn: string;
+    failoverAllowedToAccounts: string[];
+    isPrimary: boolean;
+    name: string;
+    organizationName: string;
+    primary: string;
+    regionGroup: string;
+    snowflakeRegion: string;
 }
 
 export interface GetCortexSearchServicesCortexSearchService {
@@ -1846,6 +1936,67 @@ export interface GetSchemasSchemaShowOutput {
     retentionTime: string;
 }
 
+export interface GetSecretsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSecretsSecret {
+    /**
+     * Holds the output of DESCRIBE SECRET.
+     */
+    describeOutputs: outputs.GetSecretsSecretDescribeOutput[];
+    /**
+     * Holds the output of SHOW SECRETS.
+     */
+    showOutputs: outputs.GetSecretsSecretShowOutput[];
+}
+
+export interface GetSecretsSecretDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    integrationName: string;
+    name: string;
+    oauthAccessTokenExpiryTime: string;
+    oauthRefreshTokenExpiryTime: string;
+    oauthScopes: string[];
+    owner: string;
+    schemaName: string;
+    secretType: string;
+    username: string;
+}
+
+export interface GetSecretsSecretShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    oauthScopes: string[];
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    secretType: string;
+}
+
 export interface GetSecurityIntegrationsSecurityIntegration {
     /**
      * Holds the output of DESCRIBE SECURITY INTEGRATIONS.
@@ -2426,12 +2577,85 @@ export interface GetStreamlitsStreamlitShowOutput {
     urlId: string;
 }
 
+export interface GetStreamsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetStreamsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetStreamsStream {
+    /**
+     * Holds the output of DESCRIBE STREAM.
+     */
+    describeOutputs: outputs.GetStreamsStreamDescribeOutput[];
+    /**
+     * Holds the output of SHOW STREAMS.
+     */
+    showOutputs: outputs.GetStreamsStreamShowOutput[];
+}
+
+export interface GetStreamsStreamDescribeOutput {
+    baseTables: string[];
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
     name: string;
-    schema: string;
-    table: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface GetStreamsStreamShowOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
 }
 
 export interface GetTablesTable {
@@ -4361,6 +4585,21 @@ export interface ObjectParameterObjectIdentifier {
     schema?: string;
 }
 
+export interface PrimaryConnectionShowOutput {
+    accountLocator: string;
+    accountName: string;
+    comment: string;
+    connectionUrl: string;
+    createdOn: string;
+    failoverAllowedToAccounts: string[];
+    isPrimary: boolean;
+    name: string;
+    organizationName: string;
+    primary: string;
+    regionGroup: string;
+    snowflakeRegion: string;
+}
+
 export interface ProcedureArgument {
     /**
      * The argument name
@@ -4826,6 +5065,129 @@ export interface ScimIntegrationShowOutput {
     enabled: boolean;
     integrationType: string;
     name: string;
+}
+
+export interface SecondaryConnectionShowOutput {
+    accountLocator: string;
+    accountName: string;
+    comment: string;
+    connectionUrl: string;
+    createdOn: string;
+    failoverAllowedToAccounts: string[];
+    isPrimary: boolean;
+    name: string;
+    organizationName: string;
+    primary: string;
+    regionGroup: string;
+    snowflakeRegion: string;
+}
+
+export interface SecretWithAuthorizationCodeGrantDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    integrationName: string;
+    name: string;
+    oauthAccessTokenExpiryTime: string;
+    oauthRefreshTokenExpiryTime: string;
+    oauthScopes: string[];
+    owner: string;
+    schemaName: string;
+    secretType: string;
+    username: string;
+}
+
+export interface SecretWithAuthorizationCodeGrantShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    oauthScopes: string[];
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    secretType: string;
+}
+
+export interface SecretWithBasicAuthenticationDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    integrationName: string;
+    name: string;
+    oauthAccessTokenExpiryTime: string;
+    oauthRefreshTokenExpiryTime: string;
+    oauthScopes: string[];
+    owner: string;
+    schemaName: string;
+    secretType: string;
+    username: string;
+}
+
+export interface SecretWithBasicAuthenticationShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    oauthScopes: string[];
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    secretType: string;
+}
+
+export interface SecretWithClientCredentialsDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    integrationName: string;
+    name: string;
+    oauthAccessTokenExpiryTime: string;
+    oauthRefreshTokenExpiryTime: string;
+    oauthScopes: string[];
+    owner: string;
+    schemaName: string;
+    secretType: string;
+    username: string;
+}
+
+export interface SecretWithClientCredentialsShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    oauthScopes: string[];
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    secretType: string;
+}
+
+export interface SecretWithGenericStringDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    integrationName: string;
+    name: string;
+    oauthAccessTokenExpiryTime: string;
+    oauthRefreshTokenExpiryTime: string;
+    oauthScopes: string[];
+    owner: string;
+    schemaName: string;
+    secretType: string;
+    username: string;
+}
+
+export interface SecretWithGenericStringShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    oauthScopes: string[];
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    secretType: string;
 }
 
 export interface ServiceUserParameter {
@@ -5403,6 +5765,42 @@ export interface StageTag {
     value: string;
 }
 
+export interface StreamOnDirectoryTableDescribeOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnDirectoryTableShowOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
 export interface StreamOnExternalTableAt {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
@@ -5453,7 +5851,7 @@ export interface StreamOnExternalTableDescribeOutput {
     ownerRoleType: string;
     schemaName: string;
     sourceType: string;
-    stale: string;
+    stale: boolean;
     staleAfter: string;
     tableName: string;
     type: string;
@@ -5471,7 +5869,7 @@ export interface StreamOnExternalTableShowOutput {
     ownerRoleType: string;
     schemaName: string;
     sourceType: string;
-    stale: string;
+    stale: boolean;
     staleAfter: string;
     tableName: string;
     type: string;
@@ -5527,7 +5925,7 @@ export interface StreamOnTableDescribeOutput {
     ownerRoleType: string;
     schemaName: string;
     sourceType: string;
-    stale: string;
+    stale: boolean;
     staleAfter: string;
     tableName: string;
     type: string;
@@ -5545,7 +5943,81 @@ export interface StreamOnTableShowOutput {
     ownerRoleType: string;
     schemaName: string;
     sourceType: string;
-    stale: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnViewAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnViewBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: string;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: string;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: string;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: string;
+}
+
+export interface StreamOnViewDescribeOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
+    staleAfter: string;
+    tableName: string;
+    type: string;
+}
+
+export interface StreamOnViewShowOutput {
+    baseTables: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    invalidReason: string;
+    mode: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    sourceType: string;
+    stale: boolean;
     staleAfter: string;
     tableName: string;
     type: string;

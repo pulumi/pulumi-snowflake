@@ -6,6 +6,7 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .account_authentication_policy_attachment import *
 from .account_parameter import *
 from .account_password_policy_attachment import *
 from .account_role import *
@@ -14,6 +15,7 @@ from .api_authentication_integration_with_authorization_code_grant import *
 from .api_authentication_integration_with_client_credentials import *
 from .api_authentication_integration_with_jwt_bearer import *
 from .api_integration import *
+from .authentication_policy import *
 from .cortex_search_service import *
 from .database import *
 from .database_old import *
@@ -23,11 +25,13 @@ from .email_notification_integration import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
+from .external_volume import *
 from .failover_group import *
 from .file_format import *
 from .function import *
 from .get_accounts import *
 from .get_alerts import *
+from .get_connections import *
 from .get_cortex_search_services import *
 from .get_current_account import *
 from .get_current_role import *
@@ -53,6 +57,7 @@ from .get_role import *
 from .get_roles import *
 from .get_row_access_policies import *
 from .get_schemas import *
+from .get_secrets import *
 from .get_security_integrations import *
 from .get_sequences import *
 from .get_shares import *
@@ -90,6 +95,7 @@ from .oauth_integration_for_partner_applications import *
 from .object_parameter import *
 from .password_policy import *
 from .pipe import *
+from .primary_connection import *
 from .procedure import *
 from .provider import *
 from .resource_monitor import *
@@ -99,7 +105,12 @@ from .saml2_integration import *
 from .saml_integration import *
 from .schema import *
 from .scim_integration import *
+from .secondary_connection import *
 from .secondary_database import *
+from .secret_with_authorization_code_grant import *
+from .secret_with_basic_authentication import *
+from .secret_with_client_credentials import *
+from .secret_with_generic_string import *
 from .sequence import *
 from .service_user import *
 from .session_parameter import *
@@ -108,8 +119,10 @@ from .shared_database import *
 from .stage import *
 from .storage_integration import *
 from .stream import *
+from .stream_on_directory_table import *
 from .stream_on_external_table import *
 from .stream_on_table import *
+from .stream_on_view import *
 from .streamlit import *
 from .table import *
 from .table_column_masking_policy_application import *
@@ -120,6 +133,7 @@ from .tag_masking_policy_association import *
 from .task import *
 from .unsafe_execute import *
 from .user import *
+from .user_authentication_policy_attachment import *
 from .user_password_policy_attachment import *
 from .user_public_keys import *
 from .view import *
@@ -143,6 +157,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/accountAuthenticationPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment": "AccountAuthenticationPolicyAttachment"
   }
  },
  {
@@ -207,6 +229,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/apiIntegration:ApiIntegration": "ApiIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/authenticationPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/authenticationPolicy:AuthenticationPolicy": "AuthenticationPolicy"
   }
  },
  {
@@ -279,6 +309,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/externalTable:ExternalTable": "ExternalTable"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/externalVolume",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/externalVolume:ExternalVolume": "ExternalVolume"
   }
  },
  {
@@ -475,6 +513,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/primaryConnection",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/primaryConnection:PrimaryConnection": "PrimaryConnection"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/procedure",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -539,10 +585,50 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/secondaryConnection",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/secondaryConnection:SecondaryConnection": "SecondaryConnection"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/secondaryDatabase",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/secondaryDatabase:SecondaryDatabase": "SecondaryDatabase"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/secretWithAuthorizationCodeGrant",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant": "SecretWithAuthorizationCodeGrant"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/secretWithBasicAuthentication",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication": "SecretWithBasicAuthentication"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/secretWithClientCredentials",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/secretWithClientCredentials:SecretWithClientCredentials": "SecretWithClientCredentials"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/secretWithGenericString",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/secretWithGenericString:SecretWithGenericString": "SecretWithGenericString"
   }
  },
  {
@@ -611,6 +697,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/streamOnDirectoryTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable": "StreamOnDirectoryTable"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/streamOnExternalTable",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -623,6 +717,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/streamOnTable:StreamOnTable": "StreamOnTable"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/streamOnView",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/streamOnView:StreamOnView": "StreamOnView"
   }
  },
  {
@@ -703,6 +805,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userAuthenticationPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment": "UserAuthenticationPolicyAttachment"
   }
  },
  {

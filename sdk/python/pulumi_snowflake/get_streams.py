@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetStreamsResult',
@@ -27,27 +28,28 @@ class GetStreamsResult:
     """
     A collection of values returned by getStreams.
     """
-    def __init__(__self__, database=None, id=None, schema=None, streams=None):
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
+    def __init__(__self__, id=None, in_=None, like=None, limit=None, starts_with=None, streams=None, with_describe=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if limit and not isinstance(limit, dict):
+            raise TypeError("Expected argument 'limit' to be a dict")
+        pulumi.set(__self__, "limit", limit)
+        if starts_with and not isinstance(starts_with, str):
+            raise TypeError("Expected argument 'starts_with' to be a str")
+        pulumi.set(__self__, "starts_with", starts_with)
         if streams and not isinstance(streams, list):
             raise TypeError("Expected argument 'streams' to be a list")
         pulumi.set(__self__, "streams", streams)
-
-    @property
-    @pulumi.getter
-    def database(self) -> str:
-        """
-        The database from which to return the streams from.
-        """
-        return pulumi.get(self, "database")
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @property
     @pulumi.getter
@@ -58,20 +60,52 @@ class GetStreamsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetStreamsInResult']:
+        """
+        IN clause to filter the list of objects
+        """
+        return pulumi.get(self, "in_")
+
+    @property
     @pulumi.getter
-    def schema(self) -> str:
+    def like(self) -> Optional[str]:
         """
-        The schema from which to return the streams from.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "like")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.GetStreamsLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
+        return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def streams(self) -> Sequence['outputs.GetStreamsStreamResult']:
         """
-        The streams in the schema
+        Holds the aggregated output of all streams details queries.
         """
         return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[bool]:
+        """
+        Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetStreamsResult(GetStreamsResult):
@@ -80,66 +114,81 @@ class AwaitableGetStreamsResult(GetStreamsResult):
         if False:
             yield self
         return GetStreamsResult(
-            database=self.database,
             id=self.id,
-            schema=self.schema,
-            streams=self.streams)
+            in_=self.in_,
+            like=self.like,
+            limit=self.limit,
+            starts_with=self.starts_with,
+            streams=self.streams,
+            with_describe=self.with_describe)
 
 
-def get_streams(database: Optional[str] = None,
-                schema: Optional[str] = None,
+def get_streams(in_: Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']] = None,
+                like: Optional[str] = None,
+                limit: Optional[Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict']] = None,
+                starts_with: Optional[str] = None,
+                with_describe: Optional[bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamsResult:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_streams(database="MYDB",
-        schema="MYSCHEMA")
-    ```
+    Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
 
 
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
+    :param Union['GetStreamsInArgs', 'GetStreamsInArgsDict'] in_: IN clause to filter the list of objects
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStreams:getStreams', __args__, opts=opts, typ=GetStreamsResult).value
 
     return AwaitableGetStreamsResult(
-        database=pulumi.get(__ret__, 'database'),
         id=pulumi.get(__ret__, 'id'),
-        schema=pulumi.get(__ret__, 'schema'),
-        streams=pulumi.get(__ret__, 'streams'))
-def get_streams_output(database: Optional[pulumi.Input[str]] = None,
-                       schema: Optional[pulumi.Input[str]] = None,
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
+        limit=pulumi.get(__ret__, 'limit'),
+        starts_with=pulumi.get(__ret__, 'starts_with'),
+        streams=pulumi.get(__ret__, 'streams'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_streams_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']]]] = None,
+                       like: Optional[pulumi.Input[Optional[str]]] = None,
+                       limit: Optional[pulumi.Input[Optional[Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict']]]] = None,
+                       starts_with: Optional[pulumi.Input[Optional[str]]] = None,
+                       with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamsResult]:
     """
-    ## Example Usage
+    !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_streams(database="MYDB",
-        schema="MYSCHEMA")
-    ```
+    Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
 
 
-    :param str database: The database from which to return the streams from.
-    :param str schema: The schema from which to return the streams from.
+    :param Union['GetStreamsInArgs', 'GetStreamsInArgsDict'] in_: IN clause to filter the list of objects
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param bool with_describe: Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getStreams:getStreams', __args__, opts=opts, typ=GetStreamsResult)
     return __ret__.apply(lambda __response__: GetStreamsResult(
-        database=pulumi.get(__response__, 'database'),
         id=pulumi.get(__response__, 'id'),
-        schema=pulumi.get(__response__, 'schema'),
-        streams=pulumi.get(__response__, 'streams')))
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        streams=pulumi.get(__response__, 'streams'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

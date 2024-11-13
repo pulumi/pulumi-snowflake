@@ -177,6 +177,28 @@ public final class StreamOnTableState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.showOutputs);
     }
 
+    @Import(name="stale")
+    private @Nullable Output<Boolean> stale;
+
+    public Optional<Output<Boolean>> stale() {
+        return Optional.ofNullable(this.stale);
+    }
+
+    /**
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * 
+     */
+    @Import(name="streamType")
+    private @Nullable Output<String> streamType;
+
+    /**
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * 
+     */
+    public Optional<Output<String>> streamType() {
+        return Optional.ofNullable(this.streamType);
+    }
+
     /**
      * Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
      * 
@@ -207,6 +229,8 @@ public final class StreamOnTableState extends com.pulumi.resources.ResourceArgs 
         this.schema = $.schema;
         this.showInitialRows = $.showInitialRows;
         this.showOutputs = $.showOutputs;
+        this.stale = $.stale;
+        this.streamType = $.streamType;
         this.table = $.table;
     }
 
@@ -462,6 +486,36 @@ public final class StreamOnTableState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder showOutputs(StreamOnTableShowOutputArgs... showOutputs) {
             return showOutputs(List.of(showOutputs));
+        }
+
+        public Builder stale(@Nullable Output<Boolean> stale) {
+            $.stale = stale;
+            return this;
+        }
+
+        public Builder stale(Boolean stale) {
+            return stale(Output.of(stale));
+        }
+
+        /**
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamType(@Nullable Output<String> streamType) {
+            $.streamType = streamType;
+            return this;
+        }
+
+        /**
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamType(String streamType) {
+            return streamType(Output.of(streamType));
         }
 
         /**

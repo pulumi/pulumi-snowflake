@@ -13,29 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetStreamsStreamResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Name;
-        public readonly string Schema;
-        public readonly string Table;
+        /// <summary>
+        /// Holds the output of DESCRIBE STREAM.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStreamsStreamDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW STREAMS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStreamsStreamShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetStreamsStreamResult(
-            string comment,
+            ImmutableArray<Outputs.GetStreamsStreamDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string name,
-
-            string schema,
-
-            string table)
+            ImmutableArray<Outputs.GetStreamsStreamShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Name = name;
-            Schema = schema;
-            Table = table;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

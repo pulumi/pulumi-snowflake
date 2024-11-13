@@ -41,6 +41,9 @@ type StreamOnTable struct {
 	ShowInitialRows pulumi.StringPtrOutput `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnTableShowOutputArrayOutput `pulumi:"showOutputs"`
+	Stale       pulumi.BoolOutput                  `pulumi:"stale"`
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType pulumi.StringOutput `pulumi:"streamType"`
 	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Table pulumi.StringOutput `pulumi:"table"`
 }
@@ -105,6 +108,9 @@ type streamOnTableState struct {
 	ShowInitialRows *string `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs []StreamOnTableShowOutput `pulumi:"showOutputs"`
+	Stale       *bool                     `pulumi:"stale"`
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType *string `pulumi:"streamType"`
 	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Table *string `pulumi:"table"`
 }
@@ -131,6 +137,9 @@ type StreamOnTableState struct {
 	ShowInitialRows pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnTableShowOutputArrayInput
+	Stale       pulumi.BoolPtrInput
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+	StreamType pulumi.StringPtrInput
 	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
 	Table pulumi.StringPtrInput
 }
@@ -322,6 +331,15 @@ func (o StreamOnTableOutput) ShowInitialRows() pulumi.StringPtrOutput {
 // Outputs the result of `SHOW STREAMS` for the given stream.
 func (o StreamOnTableOutput) ShowOutputs() StreamOnTableShowOutputArrayOutput {
 	return o.ApplyT(func(v *StreamOnTable) StreamOnTableShowOutputArrayOutput { return v.ShowOutputs }).(StreamOnTableShowOutputArrayOutput)
+}
+
+func (o StreamOnTableOutput) Stale() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StreamOnTable) pulumi.BoolOutput { return v.Stale }).(pulumi.BoolOutput)
+}
+
+// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+func (o StreamOnTableOutput) StreamType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.StreamType }).(pulumi.StringOutput)
 }
 
 // Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`

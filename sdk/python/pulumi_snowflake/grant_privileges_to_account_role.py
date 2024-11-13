@@ -369,25 +369,25 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         #### Grant all privileges OnAccountObject (Database)
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\\"test_db_role\\"|false|false|ALL|OnAccountObject|DATABASE|\\"test_db\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
         ```
 
         #### Grant list of privileges OnAllSchemasInDatabase
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\\"test_db_role\\"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\\"test_db\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
         ```
 
         #### Grant list of privileges on table
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \\"test_table\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
         ```
 
         #### Grant list of privileges OnAll tables in schema
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \\"test_schema\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
         ```
 
         :param str resource_name: The name of the resource.
@@ -416,25 +416,25 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         #### Grant all privileges OnAccountObject (Database)
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\\"test_db_role\\"|false|false|ALL|OnAccountObject|DATABASE|\\"test_db\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
         ```
 
         #### Grant list of privileges OnAllSchemasInDatabase
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole `"\\"test_db_role\\"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|\\"test_db\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
         ```
 
         #### Grant list of privileges on table
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \\"test_table\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
         ```
 
         #### Grant list of privileges OnAll tables in schema
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole \\"test_schema\\""`
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
         ```
 
         :param str resource_name: The name of the resource.
