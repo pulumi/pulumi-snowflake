@@ -83,6 +83,11 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamOnExternalTableShowOutput[]>;
+    public /*out*/ readonly stale!: pulumi.Output<boolean>;
+    /**
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     */
+    public /*out*/ readonly streamType!: pulumi.Output<string>;
 
     /**
      * Create a StreamOnExternalTable resource with the given unique name, arguments, and options.
@@ -109,6 +114,8 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["stale"] = state ? state.stale : undefined;
+            resourceInputs["streamType"] = state ? state.streamType : undefined;
         } else {
             const args = argsOrState as StreamOnExternalTableArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -132,6 +139,8 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
+            resourceInputs["stale"] = undefined /*out*/;
+            resourceInputs["streamType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StreamOnExternalTable.__pulumiType, name, resourceInputs, opts);
@@ -184,6 +193,11 @@ export interface StreamOnExternalTableState {
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableShowOutput>[]>;
+    stale?: pulumi.Input<boolean>;
+    /**
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     */
+    streamType?: pulumi.Input<string>;
 }
 
 /**

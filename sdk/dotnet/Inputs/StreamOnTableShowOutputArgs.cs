@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? SourceType { get; set; }
 
         [Input("stale")]
-        public Input<string>? Stale { get; set; }
+        public Input<bool>? Stale { get; set; }
 
         [Input("staleAfter")]
         public Input<string>? StaleAfter { get; set; }

@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +24,7 @@ public final class StreamOnTableDescribeOutput {
     private @Nullable String ownerRoleType;
     private @Nullable String schemaName;
     private @Nullable String sourceType;
-    private @Nullable String stale;
+    private @Nullable Boolean stale;
     private @Nullable String staleAfter;
     private @Nullable String tableName;
     private @Nullable String type;
@@ -62,7 +63,7 @@ public final class StreamOnTableDescribeOutput {
     public Optional<String> sourceType() {
         return Optional.ofNullable(this.sourceType);
     }
-    public Optional<String> stale() {
+    public Optional<Boolean> stale() {
         return Optional.ofNullable(this.stale);
     }
     public Optional<String> staleAfter() {
@@ -95,7 +96,7 @@ public final class StreamOnTableDescribeOutput {
         private @Nullable String ownerRoleType;
         private @Nullable String schemaName;
         private @Nullable String sourceType;
-        private @Nullable String stale;
+        private @Nullable Boolean stale;
         private @Nullable String staleAfter;
         private @Nullable String tableName;
         private @Nullable String type;
@@ -189,7 +190,7 @@ public final class StreamOnTableDescribeOutput {
             return this;
         }
         @CustomType.Setter
-        public Builder stale(@Nullable String stale) {
+        public Builder stale(@Nullable Boolean stale) {
 
             this.stale = stale;
             return this;

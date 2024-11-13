@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
  * 
  * ```sh
- * $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole \&#34;test_db_role\&#34;|ROLE|\&#34;test_parent_role\&#34;&#34;
+ * $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example &#39;&#34;ABC&#34;.&#34;test_db_role&#34;|ROLE|&#34;test_parent_role&#34;&#39;
  * ```
  * 
  */

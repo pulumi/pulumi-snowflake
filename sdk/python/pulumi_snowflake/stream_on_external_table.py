@@ -173,7 +173,9 @@ class _StreamOnExternalTableState:
                  insert_only: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnExternalTableShowOutputArgs']]]] = None):
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnExternalTableShowOutputArgs']]]] = None,
+                 stale: Optional[pulumi.Input[bool]] = None,
+                 stream_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StreamOnExternalTable resources.
         :param pulumi.Input[str] comment: Specifies a comment for the stream.
@@ -186,6 +188,7 @@ class _StreamOnExternalTableState:
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnExternalTableShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         if at is not None:
             pulumi.set(__self__, "at", at)
@@ -211,6 +214,10 @@ class _StreamOnExternalTableState:
             pulumi.set(__self__, "schema", schema)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
+        if stale is not None:
+            pulumi.set(__self__, "stale", stale)
+        if stream_type is not None:
+            pulumi.set(__self__, "stream_type", stream_type)
 
     @property
     @pulumi.getter
@@ -350,6 +357,27 @@ class _StreamOnExternalTableState:
     def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnExternalTableShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
+    @property
+    @pulumi.getter
+    def stale(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "stale")
+
+    @stale.setter
+    def stale(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stale", value)
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        """
+        return pulumi.get(self, "stream_type")
+
+    @stream_type.setter
+    def stream_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_type", value)
+
 
 class StreamOnExternalTable(pulumi.CustomResource):
     @overload
@@ -447,6 +475,8 @@ class StreamOnExternalTable(pulumi.CustomResource):
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
+            __props__.__dict__["stale"] = None
+            __props__.__dict__["stream_type"] = None
         super(StreamOnExternalTable, __self__).__init__(
             'snowflake:index/streamOnExternalTable:StreamOnExternalTable',
             resource_name,
@@ -468,7 +498,9 @@ class StreamOnExternalTable(pulumi.CustomResource):
             insert_only: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamOnExternalTableShowOutputArgs', 'StreamOnExternalTableShowOutputArgsDict']]]]] = None) -> 'StreamOnExternalTable':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamOnExternalTableShowOutputArgs', 'StreamOnExternalTableShowOutputArgsDict']]]]] = None,
+            stale: Optional[pulumi.Input[bool]] = None,
+            stream_type: Optional[pulumi.Input[str]] = None) -> 'StreamOnExternalTable':
         """
         Get an existing StreamOnExternalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -486,6 +518,7 @@ class StreamOnExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnExternalTableShowOutputArgs', 'StreamOnExternalTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -503,6 +536,8 @@ class StreamOnExternalTable(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
         __props__.__dict__["show_outputs"] = show_outputs
+        __props__.__dict__["stale"] = stale
+        __props__.__dict__["stream_type"] = stream_type
         return StreamOnExternalTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -594,4 +629,17 @@ class StreamOnExternalTable(pulumi.CustomResource):
         Outputs the result of `SHOW STREAMS` for the given stream.
         """
         return pulumi.get(self, "show_outputs")
+
+    @property
+    @pulumi.getter
+    def stale(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "stale")
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> pulumi.Output[str]:
+        """
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        """
+        return pulumi.get(self, "stream_type")
 

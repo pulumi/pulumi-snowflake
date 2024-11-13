@@ -82,6 +82,15 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.StreamOnTableShowOutput>> ShowOutputs { get; private set; } = null!;
 
+        [Output("stale")]
+        public Output<bool> Stale { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// </summary>
+        [Output("streamType")]
+        public Output<string> StreamType { get; private set; } = null!;
+
         /// <summary>
         /// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         /// </summary>
@@ -267,6 +276,15 @@ namespace Pulumi.Snowflake
             get => _showOutputs ?? (_showOutputs = new InputList<Inputs.StreamOnTableShowOutputGetArgs>());
             set => _showOutputs = value;
         }
+
+        [Input("stale")]
+        public Input<bool>? Stale { get; set; }
+
+        /// <summary>
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// </summary>
+        [Input("streamType")]
+        public Input<string>? StreamType { get; set; }
 
         /// <summary>
         /// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`

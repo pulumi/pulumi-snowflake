@@ -339,7 +339,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         ### OnView
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
+        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
         ```
 
         :param str resource_name: The name of the resource.
@@ -366,7 +366,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         ### OnView
 
         ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare <view_name>"`
+        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
         ```
 
         :param str resource_name: The name of the resource.

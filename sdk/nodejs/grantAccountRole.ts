@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
  *
  * ```sh
- * $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole "\"test_role\"|ROLE|\"test_parent_role\""
+ * $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
  * ```
  */
 export class GrantAccountRole extends pulumi.CustomResource {

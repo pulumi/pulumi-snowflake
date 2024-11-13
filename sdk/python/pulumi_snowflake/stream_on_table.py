@@ -186,6 +186,8 @@ class _StreamOnTableState:
                  schema: Optional[pulumi.Input[str]] = None,
                  show_initial_rows: Optional[pulumi.Input[str]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]] = None,
+                 stale: Optional[pulumi.Input[bool]] = None,
+                 stream_type: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StreamOnTable resources.
@@ -198,6 +200,7 @@ class _StreamOnTableState:
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[str] table: Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         if append_only is not None:
@@ -224,6 +227,10 @@ class _StreamOnTableState:
             pulumi.set(__self__, "show_initial_rows", show_initial_rows)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
+        if stale is not None:
+            pulumi.set(__self__, "stale", stale)
+        if stream_type is not None:
+            pulumi.set(__self__, "stream_type", stream_type)
         if table is not None:
             pulumi.set(__self__, "table", table)
 
@@ -364,6 +371,27 @@ class _StreamOnTableState:
 
     @property
     @pulumi.getter
+    def stale(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "stale")
+
+    @stale.setter
+    def stale(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stale", value)
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        """
+        return pulumi.get(self, "stream_type")
+
+    @stream_type.setter
+    def stream_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_type", value)
+
+    @property
+    @pulumi.getter
     def table(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
@@ -474,6 +502,8 @@ class StreamOnTable(pulumi.CustomResource):
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
+            __props__.__dict__["stale"] = None
+            __props__.__dict__["stream_type"] = None
         super(StreamOnTable, __self__).__init__(
             'snowflake:index/streamOnTable:StreamOnTable',
             resource_name,
@@ -496,6 +526,8 @@ class StreamOnTable(pulumi.CustomResource):
             schema: Optional[pulumi.Input[str]] = None,
             show_initial_rows: Optional[pulumi.Input[str]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]]] = None,
+            stale: Optional[pulumi.Input[bool]] = None,
+            stream_type: Optional[pulumi.Input[str]] = None,
             table: Optional[pulumi.Input[str]] = None) -> 'StreamOnTable':
         """
         Get an existing StreamOnTable resource's state with the given name, id, and optional extra
@@ -513,6 +545,7 @@ class StreamOnTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[str] table: Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -531,6 +564,8 @@ class StreamOnTable(pulumi.CustomResource):
         __props__.__dict__["schema"] = schema
         __props__.__dict__["show_initial_rows"] = show_initial_rows
         __props__.__dict__["show_outputs"] = show_outputs
+        __props__.__dict__["stale"] = stale
+        __props__.__dict__["stream_type"] = stream_type
         __props__.__dict__["table"] = table
         return StreamOnTable(resource_name, opts=opts, __props__=__props__)
 
@@ -620,6 +655,19 @@ class StreamOnTable(pulumi.CustomResource):
         Outputs the result of `SHOW STREAMS` for the given stream.
         """
         return pulumi.get(self, "show_outputs")
+
+    @property
+    @pulumi.getter
+    def stale(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "stale")
+
+    @property
+    @pulumi.getter(name="streamType")
+    def stream_type(self) -> pulumi.Output[str]:
+        """
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        """
+        return pulumi.get(self, "stream_type")
 
     @property
     @pulumi.getter

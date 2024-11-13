@@ -10,9 +10,12 @@ declare var exports: any;
 const __config = new pulumi.Config("snowflake");
 
 /**
- * Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
- * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
- * from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
+ * Use `accountName` and `organizationName` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
+ * The [account
+ * locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
+ * is not supported. For information about account identifiers, see the [Snowflake
+ * documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
+ * Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
  */
 export declare const account: string | undefined;
 Object.defineProperty(exports, "account", {
@@ -23,10 +26,23 @@ Object.defineProperty(exports, "account", {
 });
 
 /**
+ * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
+ * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
+ * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+ */
+export declare const accountName: string | undefined;
+Object.defineProperty(exports, "accountName", {
+    get() {
+        return __config.get("accountName");
+    },
+    enumerable: true,
+});
+
+/**
  * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
- * connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
- * UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
- * explicitly to JWT for private key authentication.
+ * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
+ * | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
+ * sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  */
 export declare const authenticator: string | undefined;
 Object.defineProperty(exports, "authenticator", {
@@ -62,10 +78,10 @@ Object.defineProperty(exports, "clientIp", {
  * When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
  * be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
  */
-export declare const clientRequestMfaToken: boolean | undefined;
+export declare const clientRequestMfaToken: string | undefined;
 Object.defineProperty(exports, "clientRequestMfaToken", {
     get() {
-        return __config.getObject<boolean>("clientRequestMfaToken");
+        return __config.get("clientRequestMfaToken");
     },
     enumerable: true,
 });
@@ -74,17 +90,17 @@ Object.defineProperty(exports, "clientRequestMfaToken", {
  * When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
  * sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
  */
-export declare const clientStoreTemporaryCredential: boolean | undefined;
+export declare const clientStoreTemporaryCredential: string | undefined;
 Object.defineProperty(exports, "clientStoreTemporaryCredential", {
     get() {
-        return __config.getObject<boolean>("clientStoreTemporaryCredential");
+        return __config.get("clientStoreTemporaryCredential");
     },
     enumerable: true,
 });
 
 /**
- * The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
- * the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+ * The timeout in seconds for the client to complete the authentication. Can also be sourced from the
+ * `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
  */
 export declare const clientTimeout: number | undefined;
 Object.defineProperty(exports, "clientTimeout", {
@@ -95,7 +111,19 @@ Object.defineProperty(exports, "clientTimeout", {
 });
 
 /**
- * Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+ * Indicates whether console login should be disabled in the driver. Can also be sourced from the
+ * `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+ */
+export declare const disableConsoleLogin: string | undefined;
+Object.defineProperty(exports, "disableConsoleLogin", {
+    get() {
+        return __config.get("disableConsoleLogin");
+    },
+    enumerable: true,
+});
+
+/**
+ * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
  * environment variable.
  */
 export declare const disableQueryContextCache: boolean | undefined;
@@ -107,7 +135,7 @@ Object.defineProperty(exports, "disableQueryContextCache", {
 });
 
 /**
- * Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+ * Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
  */
 export declare const disableTelemetry: boolean | undefined;
 Object.defineProperty(exports, "disableTelemetry", {
@@ -118,8 +146,20 @@ Object.defineProperty(exports, "disableTelemetry", {
 });
 
 /**
- * The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
- * sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+ * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
+ * `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+ */
+export declare const driverTracing: string | undefined;
+Object.defineProperty(exports, "driverTracing", {
+    get() {
+        return __config.get("driverTracing");
+    },
+    enumerable: true,
+});
+
+/**
+ * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
+ * `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
  */
 export declare const externalBrowserTimeout: number | undefined;
 Object.defineProperty(exports, "externalBrowserTimeout", {
@@ -130,13 +170,25 @@ Object.defineProperty(exports, "externalBrowserTimeout", {
 });
 
 /**
- * Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
- * the `SNOWFLAKE_HOST` environment variable.
+ * Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
+ * `SNOWFLAKE_HOST` environment variable.
  */
 export declare const host: string | undefined;
 Object.defineProperty(exports, "host", {
     get() {
         return __config.get("host") ?? utilities.getEnv("SNOWFLAKE_HOST");
+    },
+    enumerable: true,
+});
+
+/**
+ * Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
+ * variable.
+ */
+export declare const includeRetryReason: string | undefined;
+Object.defineProperty(exports, "includeRetryReason", {
+    get() {
+        return __config.get("includeRetryReason");
     },
     enumerable: true,
 });
@@ -155,8 +207,8 @@ Object.defineProperty(exports, "insecureMode", {
 });
 
 /**
- * The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
- * from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+ * The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
+ * `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
  */
 export declare const jwtClientTimeout: number | undefined;
 Object.defineProperty(exports, "jwtClientTimeout", {
@@ -190,13 +242,25 @@ Object.defineProperty(exports, "keepSessionAlive", {
 });
 
 /**
- * Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+ * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
  * `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
  */
 export declare const loginTimeout: number | undefined;
 Object.defineProperty(exports, "loginTimeout", {
     get() {
         return __config.getObject<number>("loginTimeout");
+    },
+    enumerable: true,
+});
+
+/**
+ * Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
+ * `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+ */
+export declare const maxRetryCount: number | undefined;
+Object.defineProperty(exports, "maxRetryCount", {
+    get() {
+        return __config.getObject<number>("maxRetryCount");
     },
     enumerable: true,
 });
@@ -277,17 +341,18 @@ Object.defineProperty(exports, "oauthRefreshToken", {
  * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
  * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
  */
-export declare const ocspFailOpen: boolean | undefined;
+export declare const ocspFailOpen: string | undefined;
 Object.defineProperty(exports, "ocspFailOpen", {
     get() {
-        return __config.getObject<boolean>("ocspFailOpen");
+        return __config.get("ocspFailOpen");
     },
     enumerable: true,
 });
 
 /**
- * The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
- * variable.
+ * The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
+ * in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
+ * `SNOWFLAKE_OKTA_URL` environment variable.
  */
 export declare const oktaUrl: string | undefined;
 Object.defineProperty(exports, "oktaUrl", {
@@ -298,7 +363,21 @@ Object.defineProperty(exports, "oktaUrl", {
 });
 
 /**
- * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+ * Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
+ * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
+ * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+ */
+export declare const organizationName: string | undefined;
+Object.defineProperty(exports, "organizationName", {
+    get() {
+        return __config.get("organizationName");
+    },
+    enumerable: true,
+});
+
+/**
+ * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
+ * This field can not be set with environmental variables.
  */
 export declare const params: {[key: string]: string} | undefined;
 Object.defineProperty(exports, "params", {
@@ -321,8 +400,8 @@ Object.defineProperty(exports, "passcode", {
 });
 
 /**
- * False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
- * of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+ * False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
+ * `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
  */
 export declare const passcodeInPassword: boolean | undefined;
 Object.defineProperty(exports, "passcodeInPassword", {
@@ -333,7 +412,7 @@ Object.defineProperty(exports, "passcodeInPassword", {
 });
 
 /**
- * Password for username+password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the
+ * Password for user + password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the
  * `SNOWFLAKE_PASSWORD` environment variable.
  */
 export declare const password: string | undefined;
@@ -345,7 +424,7 @@ Object.defineProperty(exports, "password", {
 });
 
 /**
- * Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+ * Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
  * `SNOWFLAKE_PORT` environment variable.
  */
 export declare const port: number | undefined;
@@ -357,7 +436,7 @@ Object.defineProperty(exports, "port", {
 });
 
 /**
- * Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from
+ * Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from the
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  */
 export declare const privateKey: string | undefined;
@@ -370,7 +449,7 @@ Object.defineProperty(exports, "privateKey", {
 
 /**
  * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
- * des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+ * des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
  */
 export declare const privateKeyPassphrase: string | undefined;
 Object.defineProperty(exports, "privateKeyPassphrase", {
@@ -405,7 +484,8 @@ Object.defineProperty(exports, "profile", {
 });
 
 /**
- * Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+ * A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
+ * `SNOWFLAKE_PROTOCOL` environment variable.
  */
 export declare const protocol: string | undefined;
 Object.defineProperty(exports, "protocol", {
@@ -432,7 +512,7 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
- * request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+ * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
  * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
  */
 export declare const requestTimeout: number | undefined;
@@ -445,7 +525,7 @@ Object.defineProperty(exports, "requestTimeout", {
 
 /**
  * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
- * `SNOWFLAKE_ROLE` environment variable. .
+ * `SNOWFLAKE_ROLE` environment variable.
  */
 export declare const role: string | undefined;
 Object.defineProperty(exports, "role", {
@@ -462,6 +542,18 @@ export declare const sessionParams: {[key: string]: string} | undefined;
 Object.defineProperty(exports, "sessionParams", {
     get() {
         return __config.getObject<{[key: string]: string}>("sessionParams");
+    },
+    enumerable: true,
+});
+
+/**
+ * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
+ * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+ */
+export declare const tmpDirectoryPath: string | undefined;
+Object.defineProperty(exports, "tmpDirectoryPath", {
+    get() {
+        return __config.get("tmpDirectoryPath");
     },
     enumerable: true,
 });
@@ -487,7 +579,7 @@ Object.defineProperty(exports, "tokenAccessor", {
 });
 
 /**
- * Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+ * Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
  */
 export declare const user: string | undefined;
 Object.defineProperty(exports, "user", {
@@ -498,8 +590,8 @@ Object.defineProperty(exports, "user", {
 });
 
 /**
- * Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
- * Required unless using `profile`.
+ * Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
+ * `SNOWFLAKE_USERNAME` environment variable.
  */
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {
@@ -513,10 +605,10 @@ Object.defineProperty(exports, "username", {
  * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
  * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
  */
-export declare const validateDefaultParameters: boolean | undefined;
+export declare const validateDefaultParameters: string | undefined;
 Object.defineProperty(exports, "validateDefaultParameters", {
     get() {
-        return __config.getObject<boolean>("validateDefaultParameters");
+        return __config.get("validateDefaultParameters");
     },
     enumerable: true,
 });

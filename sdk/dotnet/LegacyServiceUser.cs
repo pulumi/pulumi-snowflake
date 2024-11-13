@@ -15,6 +15,8 @@ namespace Pulumi.Snowflake
     /// ```sh
     /// $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example '"&lt;user_name&gt;"'
     /// ```
+    /// 
+    /// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
     /// </summary>
     [SnowflakeResourceType("snowflake:index/legacyServiceUser:LegacyServiceUser")]
     public partial class LegacyServiceUser : global::Pulumi.CustomResource

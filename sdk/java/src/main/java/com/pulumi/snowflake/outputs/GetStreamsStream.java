@@ -5,32 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetStreamsStreamDescribeOutput;
+import com.pulumi.snowflake.outputs.GetStreamsStreamShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetStreamsStream {
-    private String comment;
-    private String database;
-    private String name;
-    private String schema;
-    private String table;
+    /**
+     * @return Holds the output of DESCRIBE STREAM.
+     * 
+     */
+    private List<GetStreamsStreamDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW STREAMS.
+     * 
+     */
+    private List<GetStreamsStreamShowOutput> showOutputs;
 
     private GetStreamsStream() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE STREAM.
+     * 
+     */
+    public List<GetStreamsStreamDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
-    }
-    public String table() {
-        return this.table;
+    /**
+     * @return Holds the output of SHOW STREAMS.
+     * 
+     */
+    public List<GetStreamsStreamShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +48,41 @@ public final class GetStreamsStream {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String name;
-        private String schema;
-        private String table;
+        private List<GetStreamsStreamDescribeOutput> describeOutputs;
+        private List<GetStreamsStreamShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetStreamsStream defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
-    	      this.table = defaults.table;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetStreamsStream", "comment");
+        public Builder describeOutputs(List<GetStreamsStreamDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStreamsStream", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetStreamsStream", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetStreamsStreamDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetStreamsStream", "name");
+        public Builder showOutputs(List<GetStreamsStreamShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStreamsStream", "showOutputs");
             }
-            this.name = name;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetStreamsStream", "schema");
-            }
-            this.schema = schema;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder table(String table) {
-            if (table == null) {
-              throw new MissingRequiredPropertyException("GetStreamsStream", "table");
-            }
-            this.table = table;
-            return this;
+        public Builder showOutputs(GetStreamsStreamShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetStreamsStream build() {
             final var _resultValue = new GetStreamsStream();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
-            _resultValue.table = table;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

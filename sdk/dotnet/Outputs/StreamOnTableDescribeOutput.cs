@@ -24,7 +24,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? OwnerRoleType;
         public readonly string? SchemaName;
         public readonly string? SourceType;
-        public readonly string? Stale;
+        public readonly bool? Stale;
         public readonly string? StaleAfter;
         public readonly string? TableName;
         public readonly string? Type;
@@ -53,7 +53,7 @@ namespace Pulumi.Snowflake.Outputs
 
             string? sourceType,
 
-            string? stale,
+            bool? stale,
 
             string? staleAfter,
 

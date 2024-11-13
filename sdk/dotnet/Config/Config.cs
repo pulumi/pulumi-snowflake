@@ -34,9 +34,12 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _account = new __Value<string?>(() => __config.Get("account") ?? Utilities.GetEnv("SNOWFLAKE_ACCOUNT"));
         /// <summary>
-        /// Specifies your Snowflake account identifier assigned, by Snowflake. For information about account identifiers, see the
-        /// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Can also be sourced
-        /// from the `SNOWFLAKE_ACCOUNT` environment variable. Required unless using `profile`.
+        /// Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
+        /// The [account
+        /// locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
+        /// is not supported. For information about account identifiers, see the [Snowflake
+        /// documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
+        /// Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
         /// </summary>
         public static string? Account
         {
@@ -44,12 +47,24 @@ namespace Pulumi.Snowflake
             set => _account.Set(value);
         }
 
+        private static readonly __Value<string?> _accountName = new __Value<string?>(() => __config.Get("accountName"));
+        /// <summary>
+        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
+        /// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
+        /// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+        /// </summary>
+        public static string? AccountName
+        {
+            get => _accountName.Get();
+            set => _accountName.Set(value);
+        }
+
         private static readonly __Value<string?> _authenticator = new __Value<string?>(() => __config.Get("authenticator"));
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-        /// connecting to Snowflake. Valid values include: Snowflake, OAuth, ExternalBrowser, Okta, JWT, TokenAccessor,
-        /// UsernamePasswordMFA. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable. It has to be set
-        /// explicitly to JWT for private key authentication.
+        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
+        /// | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
+        /// sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         public static string? Authenticator
         {
@@ -77,23 +92,23 @@ namespace Pulumi.Snowflake
             set => _clientIp.Set(value);
         }
 
-        private static readonly __Value<bool?> _clientRequestMfaToken = new __Value<bool?>(() => __config.GetBoolean("clientRequestMfaToken"));
+        private static readonly __Value<string?> _clientRequestMfaToken = new __Value<string?>(() => __config.Get("clientRequestMfaToken"));
         /// <summary>
         /// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
         /// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         /// </summary>
-        public static bool? ClientRequestMfaToken
+        public static string? ClientRequestMfaToken
         {
             get => _clientRequestMfaToken.Get();
             set => _clientRequestMfaToken.Set(value);
         }
 
-        private static readonly __Value<bool?> _clientStoreTemporaryCredential = new __Value<bool?>(() => __config.GetBoolean("clientStoreTemporaryCredential"));
+        private static readonly __Value<string?> _clientStoreTemporaryCredential = new __Value<string?>(() => __config.Get("clientStoreTemporaryCredential"));
         /// <summary>
         /// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
         /// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
         /// </summary>
-        public static bool? ClientStoreTemporaryCredential
+        public static string? ClientStoreTemporaryCredential
         {
             get => _clientStoreTemporaryCredential.Get();
             set => _clientStoreTemporaryCredential.Set(value);
@@ -101,8 +116,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<int?> _clientTimeout = new __Value<int?>(() => __config.GetInt32("clientTimeout"));
         /// <summary>
-        /// The timeout in seconds for the client to complete the authentication. Default is 900 seconds. Can also be sourced from
-        /// the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        /// The timeout in seconds for the client to complete the authentication. Can also be sourced from the
+        /// `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
         /// </summary>
         public static int? ClientTimeout
         {
@@ -110,9 +125,20 @@ namespace Pulumi.Snowflake
             set => _clientTimeout.Set(value);
         }
 
+        private static readonly __Value<string?> _disableConsoleLogin = new __Value<string?>(() => __config.Get("disableConsoleLogin"));
+        /// <summary>
+        /// Indicates whether console login should be disabled in the driver. Can also be sourced from the
+        /// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+        /// </summary>
+        public static string? DisableConsoleLogin
+        {
+            get => _disableConsoleLogin.Get();
+            set => _disableConsoleLogin.Set(value);
+        }
+
         private static readonly __Value<bool?> _disableQueryContextCache = new __Value<bool?>(() => __config.GetBoolean("disableQueryContextCache"));
         /// <summary>
-        /// Should HTAP query context cache be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
+        /// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
         /// environment variable.
         /// </summary>
         public static bool? DisableQueryContextCache
@@ -123,7 +149,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<bool?> _disableTelemetry = new __Value<bool?>(() => __config.GetBoolean("disableTelemetry"));
         /// <summary>
-        /// Indicates whether to disable telemetry. Can also be sourced from the `SNOWFLAKE_DISABLE_TELEMETRY` environment variable.
+        /// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         /// </summary>
         public static bool? DisableTelemetry
         {
@@ -131,10 +157,21 @@ namespace Pulumi.Snowflake
             set => _disableTelemetry.Set(value);
         }
 
+        private static readonly __Value<string?> _driverTracing = new __Value<string?>(() => __config.Get("driverTracing"));
+        /// <summary>
+        /// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
+        /// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        /// </summary>
+        public static string? DriverTracing
+        {
+            get => _driverTracing.Get();
+            set => _driverTracing.Set(value);
+        }
+
         private static readonly __Value<int?> _externalBrowserTimeout = new __Value<int?>(() => __config.GetInt32("externalBrowserTimeout"));
         /// <summary>
-        /// The timeout in seconds for the external browser to complete the authentication. Default is 120 seconds. Can also be
-        /// sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+        /// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
+        /// `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         /// </summary>
         public static int? ExternalBrowserTimeout
         {
@@ -144,13 +181,24 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _host = new __Value<string?>(() => __config.Get("host") ?? Utilities.GetEnv("SNOWFLAKE_HOST"));
         /// <summary>
-        /// Supports passing in a custom host value to the snowflake go driver for use with privatelink. Can also be sourced from
-        /// the `SNOWFLAKE_HOST` environment variable.
+        /// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
+        /// `SNOWFLAKE_HOST` environment variable.
         /// </summary>
         public static string? Host
         {
             get => _host.Get();
             set => _host.Set(value);
+        }
+
+        private static readonly __Value<string?> _includeRetryReason = new __Value<string?>(() => __config.Get("includeRetryReason"));
+        /// <summary>
+        /// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
+        /// variable.
+        /// </summary>
+        public static string? IncludeRetryReason
+        {
+            get => _includeRetryReason.Get();
+            set => _includeRetryReason.Set(value);
         }
 
         private static readonly __Value<bool?> _insecureMode = new __Value<bool?>(() => __config.GetBoolean("insecureMode"));
@@ -167,8 +215,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<int?> _jwtClientTimeout = new __Value<int?>(() => __config.GetInt32("jwtClientTimeout"));
         /// <summary>
-        /// The timeout in seconds for the JWT client to complete the authentication. Default is 10 seconds. Can also be sourced
-        /// from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+        /// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
+        /// `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         /// </summary>
         public static int? JwtClientTimeout
         {
@@ -199,13 +247,24 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<int?> _loginTimeout = new __Value<int?>(() => __config.GetInt32("loginTimeout"));
         /// <summary>
-        /// Login retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        /// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
         /// `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         /// </summary>
         public static int? LoginTimeout
         {
             get => _loginTimeout.Get();
             set => _loginTimeout.Set(value);
+        }
+
+        private static readonly __Value<int?> _maxRetryCount = new __Value<int?>(() => __config.GetInt32("maxRetryCount"));
+        /// <summary>
+        /// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
+        /// `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        /// </summary>
+        public static int? MaxRetryCount
+        {
+            get => _maxRetryCount.Get();
+            set => _maxRetryCount.Set(value);
         }
 
         private static readonly __Value<string?> _oauthAccessToken = new __Value<string?>(() => __config.Get("oauthAccessToken") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN"));
@@ -275,12 +334,12 @@ namespace Pulumi.Snowflake
             set => _oauthRefreshToken.Set(value);
         }
 
-        private static readonly __Value<bool?> _ocspFailOpen = new __Value<bool?>(() => __config.GetBoolean("ocspFailOpen"));
+        private static readonly __Value<string?> _ocspFailOpen = new __Value<string?>(() => __config.Get("ocspFailOpen"));
         /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
         /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         /// </summary>
-        public static bool? OcspFailOpen
+        public static string? OcspFailOpen
         {
             get => _ocspFailOpen.Get();
             set => _ocspFailOpen.Set(value);
@@ -288,8 +347,9 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _oktaUrl = new __Value<string?>(() => __config.Get("oktaUrl"));
         /// <summary>
-        /// The URL of the Okta server. e.g. https://example.okta.com. Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment
-        /// variable.
+        /// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
+        /// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
+        /// `SNOWFLAKE_OKTA_URL` environment variable.
         /// </summary>
         public static string? OktaUrl
         {
@@ -297,9 +357,22 @@ namespace Pulumi.Snowflake
             set => _oktaUrl.Set(value);
         }
 
+        private static readonly __Value<string?> _organizationName = new __Value<string?>(() => __config.Get("organizationName"));
+        /// <summary>
+        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
+        /// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
+        /// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+        /// </summary>
+        public static string? OrganizationName
+        {
+            get => _organizationName.Get();
+            set => _organizationName.Set(value);
+        }
+
         private static readonly __Value<ImmutableDictionary<string, string>?> _params = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("params"));
         /// <summary>
-        /// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
+        /// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
+        /// This field can not be set with environmental variables.
         /// </summary>
         public static ImmutableDictionary<string, string>? Params
         {
@@ -320,8 +393,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<bool?> _passcodeInPassword = new __Value<bool?>(() => __config.GetBoolean("passcodeInPassword"));
         /// <summary>
-        /// False by default. Set to true if the MFA passcode is embedded in the login password. Appends the MFA passcode to the end
-        /// of the password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+        /// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
+        /// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
         /// </summary>
         public static bool? PasscodeInPassword
         {
@@ -331,7 +404,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password") ?? Utilities.GetEnv("SNOWFLAKE_PASSWORD"));
         /// <summary>
-        /// Password for username+password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
+        /// Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
         /// the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public static string? Password
@@ -342,7 +415,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<int?> _port = new __Value<int?>(() => __config.GetInt32("port") ?? Utilities.GetEnvInt32("SNOWFLAKE_PORT"));
         /// <summary>
-        /// Support custom port values to snowflake go driver for use with privatelink. Can also be sourced from the
+        /// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
         /// `SNOWFLAKE_PORT` environment variable.
         /// </summary>
         public static int? Port
@@ -354,7 +427,7 @@ namespace Pulumi.Snowflake
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));
         /// <summary>
         /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// the `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public static string? PrivateKey
         {
@@ -365,7 +438,7 @@ namespace Pulumi.Snowflake
         private static readonly __Value<string?> _privateKeyPassphrase = new __Value<string?>(() => __config.Get("privateKeyPassphrase") ?? Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"));
         /// <summary>
         /// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-        /// des-ede3-cbc. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+        /// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         /// </summary>
         public static string? PrivateKeyPassphrase
         {
@@ -397,7 +470,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _protocol = new __Value<string?>(() => __config.Get("protocol") ?? Utilities.GetEnv("SNOWFLAKE_PROTOCOL"));
         /// <summary>
-        /// Either http or https, defaults to https. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        /// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
+        /// `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         public static string? Protocol
         {
@@ -422,7 +496,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));
         /// <summary>
-        /// request retry timeout EXCLUDING network roundtrip and read out http response. Can also be sourced from the
+        /// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
         /// `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         /// </summary>
         public static int? RequestTimeout
@@ -434,7 +508,7 @@ namespace Pulumi.Snowflake
         private static readonly __Value<string?> _role = new __Value<string?>(() => __config.Get("role") ?? Utilities.GetEnv("SNOWFLAKE_ROLE"));
         /// <summary>
         /// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-        /// `SNOWFLAKE_ROLE` environment variable. .
+        /// `SNOWFLAKE_ROLE` environment variable.
         /// </summary>
         public static string? Role
         {
@@ -450,6 +524,17 @@ namespace Pulumi.Snowflake
         {
             get => _sessionParams.Get();
             set => _sessionParams.Set(value);
+        }
+
+        private static readonly __Value<string?> _tmpDirectoryPath = new __Value<string?>(() => __config.Get("tmpDirectoryPath"));
+        /// <summary>
+        /// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
+        /// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+        /// </summary>
+        public static string? TmpDirectoryPath
+        {
+            get => _tmpDirectoryPath.Get();
+            set => _tmpDirectoryPath.Set(value);
         }
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
@@ -472,7 +557,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _user = new __Value<string?>(() => __config.Get("user"));
         /// <summary>
-        /// Username. Can also be sourced from the `SNOWFLAKE_USER` environment variable. Required unless using `profile`.
+        /// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
         public static string? User
         {
@@ -482,8 +567,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username") ?? Utilities.GetEnv("SNOWFLAKE_USER"));
         /// <summary>
-        /// Username for username+password authentication. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
-        /// Required unless using `profile`.
+        /// Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
+        /// `SNOWFLAKE_USERNAME` environment variable.
         /// </summary>
         public static string? Username
         {
@@ -491,12 +576,12 @@ namespace Pulumi.Snowflake
             set => _username.Set(value);
         }
 
-        private static readonly __Value<bool?> _validateDefaultParameters = new __Value<bool?>(() => __config.GetBoolean("validateDefaultParameters"));
+        private static readonly __Value<string?> _validateDefaultParameters = new __Value<string?>(() => __config.Get("validateDefaultParameters"));
         /// <summary>
         /// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
         /// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         /// </summary>
-        public static bool? ValidateDefaultParameters
+        public static string? ValidateDefaultParameters
         {
             get => _validateDefaultParameters.Get();
             set => _validateDefaultParameters.Set(value);

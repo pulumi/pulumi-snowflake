@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example &#39;&#34;&lt;user_name&gt;&#34;&#39;
  * ```
  * 
+ * Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
+ * 
  */
 @ResourceType(type="snowflake:index/legacyServiceUser:LegacyServiceUser")
 public class LegacyServiceUser extends com.pulumi.resources.CustomResource {

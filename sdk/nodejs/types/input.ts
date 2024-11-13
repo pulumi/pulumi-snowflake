@@ -364,6 +364,28 @@ export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
     name?: pulumi.Input<string>;
 }
 
+export interface AuthenticationPolicyDescribeOutput {
+    authenticationMethods?: pulumi.Input<string>;
+    clientTypes?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    mfaAuthenticationMethods?: pulumi.Input<string>;
+    mfaEnrollment?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    securityIntegrations?: pulumi.Input<string>;
+}
+
+export interface AuthenticationPolicyShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    options?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
 export interface DatabaseOldReplicationConfiguration {
     accounts: pulumi.Input<pulumi.Input<string>[]>;
     ignoreEditionCheck?: pulumi.Input<boolean>;
@@ -599,6 +621,52 @@ export interface ExternalTableTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeDescribeOutput {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    parent?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeShowOutput {
+    allowWrites?: pulumi.Input<boolean>;
+    comment?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeStorageLocation {
+    /**
+     * Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+     */
+    azureTenantId?: pulumi.Input<string>;
+    /**
+     * Specifies the ID for the KMS-managed key used to encrypt files.
+     */
+    encryptionKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the encryption type used.
+     */
+    encryptionType?: pulumi.Input<string>;
+    /**
+     * External ID that Snowflake uses to establish a trust relationship with AWS.
+     */
+    storageAwsExternalId?: pulumi.Input<string>;
+    /**
+     * Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
+     */
+    storageAwsRoleArn?: pulumi.Input<string>;
+    /**
+     * Specifies the base URL for your cloud storage location.
+     */
+    storageBaseUrl: pulumi.Input<string>;
+    storageLocationName: pulumi.Input<string>;
+    /**
+     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     */
+    storageProvider: pulumi.Input<string>;
 }
 
 export interface FailoverGroupFromReplica {
@@ -1187,6 +1255,52 @@ export interface GetSchemasLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetSecretsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSecretsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
 export interface GetStreamlitsIn {
     /**
      * Returns records for the entire account.
@@ -1229,6 +1343,74 @@ export interface GetStreamlitsLimit {
 }
 
 export interface GetStreamlitsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetStreamsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetStreamsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetStreamsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetStreamsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
@@ -2459,6 +2641,21 @@ export interface ObjectParameterObjectIdentifier {
     schema?: pulumi.Input<string>;
 }
 
+export interface PrimaryConnectionShowOutput {
+    accountLocator?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    connectionUrl?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    isPrimary?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
+    primary?: pulumi.Input<string>;
+    regionGroup?: pulumi.Input<string>;
+    snowflakeRegion?: pulumi.Input<string>;
+}
+
 export interface ProcedureArgument {
     /**
      * The argument name
@@ -2947,6 +3144,129 @@ export interface ScimIntegrationShowOutput {
     enabled?: pulumi.Input<boolean>;
     integrationType?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+}
+
+export interface SecondaryConnectionShowOutput {
+    accountLocator?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    connectionUrl?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    isPrimary?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
+    primary?: pulumi.Input<string>;
+    regionGroup?: pulumi.Input<string>;
+    snowflakeRegion?: pulumi.Input<string>;
+}
+
+export interface SecretWithAuthorizationCodeGrantDescribeOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface SecretWithAuthorizationCodeGrantShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+}
+
+export interface SecretWithBasicAuthenticationDescribeOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface SecretWithBasicAuthenticationShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+}
+
+export interface SecretWithClientCredentialsDescribeOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface SecretWithClientCredentialsShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+}
+
+export interface SecretWithGenericStringDescribeOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface SecretWithGenericStringShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string>;
 }
 
 export interface ServiceUserParameter {
@@ -3524,6 +3844,42 @@ export interface StageTag {
     value: pulumi.Input<string>;
 }
 
+export interface StreamOnDirectoryTableDescribeOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnDirectoryTableShowOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
 export interface StreamOnExternalTableAt {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
@@ -3574,7 +3930,7 @@ export interface StreamOnExternalTableDescribeOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
     staleAfter?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -3592,7 +3948,7 @@ export interface StreamOnExternalTableShowOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
     staleAfter?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -3648,7 +4004,7 @@ export interface StreamOnTableDescribeOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
     staleAfter?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -3666,7 +4022,81 @@ export interface StreamOnTableShowOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnViewAt {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnViewBefore {
+    /**
+     * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
+     */
+    offset?: pulumi.Input<string>;
+    /**
+     * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
+     */
+    statement?: pulumi.Input<string>;
+    /**
+     * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
+     */
+    stream?: pulumi.Input<string>;
+    /**
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     */
+    timestamp?: pulumi.Input<string>;
+}
+
+export interface StreamOnViewDescribeOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
+    staleAfter?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StreamOnViewShowOutput {
+    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    invalidReason?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
+    stale?: pulumi.Input<boolean>;
     staleAfter?: pulumi.Input<string>;
     tableName?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
