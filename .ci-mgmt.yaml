@@ -38,3 +38,4 @@ license:
   # they are under Apache-2.0.
   - github.com/apache/arrow
 pulumiConvert: 1
+registryDocs: true
