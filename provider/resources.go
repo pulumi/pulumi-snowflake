@@ -178,6 +178,7 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	edits := []tfbridge.DocsEdit{
 		removeNotes,
 		fixExample,
+		removeMainTf,
 	}
 	return append(
 		edits,
@@ -242,6 +243,14 @@ var fixExample = tfbridge.DocsEdit{
 				"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+"example-input.md", string(input))
 		}
 		return content, nil
+	},
+}
+
+var removeMainTf = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		removeBytes := []byte(" in `main.tf` in a configuration directory")
+		return bytes.ReplaceAll(content, removeBytes, nil), nil
 	},
 }
 

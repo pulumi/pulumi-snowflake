@@ -19,7 +19,7 @@ This is a pulumi provider plugin for managing [Snowflake](https://www.snowflake.
 Coverage is focused on part of Snowflake related to access control.
 ## Example Provider Configuration
 
-This is an example configuration of the provider in `main.tf` in a configuration directory. More examples are provided below.
+This is an example configuration of the provider. More examples are provided below.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
