@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The snowflake provider is available as a package in all Pulumi languages:
+The Snowflake provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/snowflake`](https://www.npmjs.com/package/@pulumi/snowflake)
 * Python: [`pulumi-snowflake`](https://pypi.org/project/pulumi-snowflake/)
