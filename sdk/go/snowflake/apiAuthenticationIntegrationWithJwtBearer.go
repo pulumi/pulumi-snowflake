@@ -28,7 +28,7 @@ type ApiAuthenticationIntegrationWithJwtBearer struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrOutput `pulumi:"oauthAccessTokenValidity"`
@@ -99,7 +99,7 @@ type apiAuthenticationIntegrationWithJwtBearerState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int    `pulumi:"oauthAccessTokenValidity"`
@@ -129,7 +129,7 @@ type ApiAuthenticationIntegrationWithJwtBearerState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -159,7 +159,7 @@ type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int   `pulumi:"oauthAccessTokenValidity"`
@@ -184,7 +184,7 @@ type ApiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -312,7 +312,7 @@ func (o ApiAuthenticationIntegrationWithJwtBearerOutput) FullyQualifiedName() pu
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ApiAuthenticationIntegrationWithJwtBearerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -2665,12 +2665,646 @@ export interface GetTablesTable {
     schema: string;
 }
 
-export interface GetTasksTask {
+export interface GetTagsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTagsTag {
+    /**
+     * Holds the output of SHOW TAGS.
+     */
+    showOutputs: outputs.GetTagsTagShowOutput[];
+}
+
+export interface GetTagsTagShowOutput {
+    allowedValues: string[];
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
     name: string;
-    schema: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GetTasksIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTasksLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetTasksTask {
+    /**
+     * Holds the output of SHOW PARAMETERS FOR TASK.
+     */
+    parameters: outputs.GetTasksTaskParameter[];
+    /**
+     * Holds the output of SHOW TASKS.
+     */
+    showOutputs: outputs.GetTasksTaskShowOutput[];
+}
+
+export interface GetTasksTaskParameter {
+    abortDetachedQueries: outputs.GetTasksTaskParameterAbortDetachedQuery[];
+    autocommits: outputs.GetTasksTaskParameterAutocommit[];
+    binaryInputFormats: outputs.GetTasksTaskParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.GetTasksTaskParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.GetTasksTaskParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.GetTasksTaskParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.GetTasksTaskParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.GetTasksTaskParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.GetTasksTaskParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.GetTasksTaskParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.GetTasksTaskParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.GetTasksTaskParameterDateInputFormat[];
+    dateOutputFormats: outputs.GetTasksTaskParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.GetTasksTaskParameterEnableUnloadPhysicalTypeOptimization[];
+    errorOnNondeterministicMerges: outputs.GetTasksTaskParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.GetTasksTaskParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.GetTasksTaskParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.GetTasksTaskParameterGeometryOutputFormat[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.GetTasksTaskParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.GetTasksTaskParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.GetTasksTaskParameterJsonIndent[];
+    lockTimeouts: outputs.GetTasksTaskParameterLockTimeout[];
+    logLevels: outputs.GetTasksTaskParameterLogLevel[];
+    multiStatementCounts: outputs.GetTasksTaskParameterMultiStatementCount[];
+    noorderSequenceAsDefaults: outputs.GetTasksTaskParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.GetTasksTaskParameterOdbcTreatDecimalAsInt[];
+    queryTags: outputs.GetTasksTaskParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.GetTasksTaskParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.GetTasksTaskParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.GetTasksTaskParameterS3StageVpceDnsName[];
+    searchPaths: outputs.GetTasksTaskParameterSearchPath[];
+    statementQueuedTimeoutInSeconds: outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.GetTasksTaskParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.GetTasksTaskParameterStrictJsonOutput[];
+    suspendTaskAfterNumFailures: outputs.GetTasksTaskParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.GetTasksTaskParameterTaskAutoRetryAttempt[];
+    timeInputFormats: outputs.GetTasksTaskParameterTimeInputFormat[];
+    timeOutputFormats: outputs.GetTasksTaskParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.GetTasksTaskParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.GetTasksTaskParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.GetTasksTaskParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.GetTasksTaskParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.GetTasksTaskParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.GetTasksTaskParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.GetTasksTaskParameterTimestampTzOutputFormat[];
+    timezones: outputs.GetTasksTaskParameterTimezone[];
+    traceLevels: outputs.GetTasksTaskParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.GetTasksTaskParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.GetTasksTaskParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.GetTasksTaskParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.GetTasksTaskParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.GetTasksTaskParameterUseCachedResult[];
+    userTaskManagedInitialWarehouseSizes: outputs.GetTasksTaskParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.GetTasksTaskParameterUserTaskTimeoutM[];
+    weekOfYearPolicies: outputs.GetTasksTaskParameterWeekOfYearPolicy[];
+    weekStarts: outputs.GetTasksTaskParameterWeekStart[];
+}
+
+export interface GetTasksTaskParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskShowOutput {
+    allowOverlappingExecution: boolean;
+    budget: string;
+    comment: string;
+    condition: string;
+    config: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
+    id: string;
+    lastCommittedOn: string;
+    lastSuspendedOn: string;
+    lastSuspendedReason: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    predecessors: string[];
+    schedule: string;
+    schemaName: string;
+    state: string;
+    taskRelations: outputs.GetTasksTaskShowOutputTaskRelation[];
     warehouse: string;
+}
+
+export interface GetTasksTaskShowOutputTaskRelation {
+    finalizedRootTask: string;
+    finalizer: string;
+    predecessors: string[];
 }
 
 export interface GetUsersLimit {
@@ -6188,6 +6822,584 @@ export interface TagAssociationObjectIdentifier {
      * Name of the schema that the object was created in.
      */
     schema?: string;
+}
+
+export interface TagShowOutput {
+    allowedValues: string[];
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface TaskParameter {
+    abortDetachedQueries: outputs.TaskParameterAbortDetachedQuery[];
+    autocommits: outputs.TaskParameterAutocommit[];
+    binaryInputFormats: outputs.TaskParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.TaskParameterBinaryOutputFormat[];
+    clientMemoryLimits: outputs.TaskParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.TaskParameterClientMetadataRequestUseConnectionCtx[];
+    clientPrefetchThreads: outputs.TaskParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.TaskParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.TaskParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.TaskParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.TaskParameterClientTimestampTypeMapping[];
+    dateInputFormats: outputs.TaskParameterDateInputFormat[];
+    dateOutputFormats: outputs.TaskParameterDateOutputFormat[];
+    enableUnloadPhysicalTypeOptimizations: outputs.TaskParameterEnableUnloadPhysicalTypeOptimization[];
+    errorOnNondeterministicMerges: outputs.TaskParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.TaskParameterErrorOnNondeterministicUpdate[];
+    geographyOutputFormats: outputs.TaskParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.TaskParameterGeometryOutputFormat[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.TaskParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.TaskParameterJdbcUseSessionTimezone[];
+    jsonIndents: outputs.TaskParameterJsonIndent[];
+    lockTimeouts: outputs.TaskParameterLockTimeout[];
+    logLevels: outputs.TaskParameterLogLevel[];
+    multiStatementCounts: outputs.TaskParameterMultiStatementCount[];
+    noorderSequenceAsDefaults: outputs.TaskParameterNoorderSequenceAsDefault[];
+    odbcTreatDecimalAsInts: outputs.TaskParameterOdbcTreatDecimalAsInt[];
+    queryTags: outputs.TaskParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.TaskParameterQuotedIdentifiersIgnoreCase[];
+    rowsPerResultsets: outputs.TaskParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.TaskParameterS3StageVpceDnsName[];
+    searchPaths: outputs.TaskParameterSearchPath[];
+    statementQueuedTimeoutInSeconds: outputs.TaskParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.TaskParameterStatementTimeoutInSecond[];
+    strictJsonOutputs: outputs.TaskParameterStrictJsonOutput[];
+    suspendTaskAfterNumFailures: outputs.TaskParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.TaskParameterTaskAutoRetryAttempt[];
+    timeInputFormats: outputs.TaskParameterTimeInputFormat[];
+    timeOutputFormats: outputs.TaskParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.TaskParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.TaskParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.TaskParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.TaskParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.TaskParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.TaskParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.TaskParameterTimestampTzOutputFormat[];
+    timezones: outputs.TaskParameterTimezone[];
+    traceLevels: outputs.TaskParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.TaskParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.TaskParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.TaskParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.TaskParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.TaskParameterUseCachedResult[];
+    userTaskManagedInitialWarehouseSizes: outputs.TaskParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.TaskParameterUserTaskTimeoutM[];
+    weekOfYearPolicies: outputs.TaskParameterWeekOfYearPolicy[];
+    weekStarts: outputs.TaskParameterWeekStart[];
+}
+
+export interface TaskParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskSchedule {
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     */
+    minutes?: number;
+    /**
+     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     */
+    usingCron?: string;
+}
+
+export interface TaskShowOutput {
+    allowOverlappingExecution: boolean;
+    budget: string;
+    comment: string;
+    condition: string;
+    config: string;
+    createdOn: string;
+    databaseName: string;
+    definition: string;
+    errorIntegration: string;
+    id: string;
+    lastCommittedOn: string;
+    lastSuspendedOn: string;
+    lastSuspendedReason: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    predecessors: string[];
+    schedule: string;
+    schemaName: string;
+    state: string;
+    taskRelations: outputs.TaskShowOutputTaskRelation[];
+    warehouse: string;
+}
+
+export interface TaskShowOutputTaskRelation {
+    finalizedRootTask: string;
+    finalizer: string;
+    predecessors: string[];
 }
 
 export interface UserParameter {

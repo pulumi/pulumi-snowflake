@@ -24,19 +24,19 @@ type StreamOnDirectoryTable struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnDirectoryTableDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnDirectoryTableShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Stage pulumi.StringOutput `pulumi:"stage"`
 	Stale pulumi.BoolOutput   `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -86,19 +86,19 @@ type streamOnDirectoryTableState struct {
 	Comment *string `pulumi:"comment"`
 	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs []StreamOnDirectoryTableDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs []StreamOnDirectoryTableShowOutput `pulumi:"showOutputs"`
-	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Stage *string `pulumi:"stage"`
 	Stale *bool   `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -110,19 +110,19 @@ type StreamOnDirectoryTableState struct {
 	Comment pulumi.StringPtrInput
 	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnDirectoryTableDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnDirectoryTableShowOutputArrayInput
-	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Stage pulumi.StringPtrInput
 	Stale pulumi.BoolPtrInput
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -138,13 +138,13 @@ type streamOnDirectoryTableArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema string `pulumi:"schema"`
-	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Stage string `pulumi:"stage"`
 }
 
@@ -154,13 +154,13 @@ type StreamOnDirectoryTableArgs struct {
 	Comment pulumi.StringPtrInput
 	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringInput
-	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Stage pulumi.StringInput
 }
 
@@ -261,7 +261,7 @@ func (o StreamOnDirectoryTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o StreamOnDirectoryTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -278,12 +278,12 @@ func (o StreamOnDirectoryTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o StreamOnDirectoryTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o StreamOnDirectoryTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -293,7 +293,7 @@ func (o StreamOnDirectoryTableOutput) ShowOutputs() StreamOnDirectoryTableShowOu
 	return o.ApplyT(func(v *StreamOnDirectoryTable) StreamOnDirectoryTableShowOutputArrayOutput { return v.ShowOutputs }).(StreamOnDirectoryTableShowOutputArrayOutput)
 }
 
-// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o StreamOnDirectoryTableOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnDirectoryTable) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
 }

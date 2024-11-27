@@ -12,17 +12,15 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is database name | schema name | tag name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+    /// $ pulumi import snowflake:index/tag:Tag example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;tag_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of allowed values for the tag.
+        /// Set of allowed values for the tag.
         /// </summary>
         [Output("allowedValues")]
         public Output<ImmutableArray<string>> AllowedValues { get; private set; } = null!;
@@ -34,7 +32,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the tag.
+        /// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -46,16 +44,28 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        /// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        /// </summary>
+        [Output("maskingPolicies")]
+        public Output<ImmutableArray<string>> MaskingPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the tag.
+        /// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `SHOW TAGS` for the given tag.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.TagShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,7 +117,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedValues;
 
         /// <summary>
-        /// List of allowed values for the tag.
+        /// Set of allowed values for the tag.
         /// </summary>
         public InputList<string> AllowedValues
         {
@@ -122,19 +132,31 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the tag.
+        /// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        [Input("maskingPolicies")]
+        private InputList<string>? _maskingPolicies;
+
         /// <summary>
-        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        /// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        /// </summary>
+        public InputList<string> MaskingPolicies
+        {
+            get => _maskingPolicies ?? (_maskingPolicies = new InputList<string>());
+            set => _maskingPolicies = value;
+        }
+
+        /// <summary>
+        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the tag.
+        /// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -151,7 +173,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedValues;
 
         /// <summary>
-        /// List of allowed values for the tag.
+        /// Set of allowed values for the tag.
         /// </summary>
         public InputList<string> AllowedValues
         {
@@ -166,7 +188,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the tag.
+        /// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -177,17 +199,41 @@ namespace Pulumi.Snowflake
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
+        [Input("maskingPolicies")]
+        private InputList<string>? _maskingPolicies;
+
         /// <summary>
-        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        /// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        /// </summary>
+        public InputList<string> MaskingPolicies
+        {
+            get => _maskingPolicies ?? (_maskingPolicies = new InputList<string>());
+            set => _maskingPolicies = value;
+        }
+
+        /// <summary>
+        /// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the tag.
+        /// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.TagShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Outputs the result of `SHOW TAGS` for the given tag.
+        /// </summary>
+        public InputList<Inputs.TagShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.TagShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public TagState()
         {

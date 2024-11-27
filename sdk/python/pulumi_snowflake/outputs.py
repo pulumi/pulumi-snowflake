@@ -368,6 +368,69 @@ __all__ = [
     'TablePrimaryKey',
     'TableTag',
     'TagAssociationObjectIdentifier',
+    'TagShowOutput',
+    'TaskParameter',
+    'TaskParameterAbortDetachedQuery',
+    'TaskParameterAutocommit',
+    'TaskParameterBinaryInputFormat',
+    'TaskParameterBinaryOutputFormat',
+    'TaskParameterClientMemoryLimit',
+    'TaskParameterClientMetadataRequestUseConnectionCtx',
+    'TaskParameterClientPrefetchThread',
+    'TaskParameterClientResultChunkSize',
+    'TaskParameterClientResultColumnCaseInsensitive',
+    'TaskParameterClientSessionKeepAlife',
+    'TaskParameterClientSessionKeepAliveHeartbeatFrequency',
+    'TaskParameterClientTimestampTypeMapping',
+    'TaskParameterDateInputFormat',
+    'TaskParameterDateOutputFormat',
+    'TaskParameterEnableUnloadPhysicalTypeOptimization',
+    'TaskParameterErrorOnNondeterministicMerge',
+    'TaskParameterErrorOnNondeterministicUpdate',
+    'TaskParameterGeographyOutputFormat',
+    'TaskParameterGeometryOutputFormat',
+    'TaskParameterJdbcTreatTimestampNtzAsUtc',
+    'TaskParameterJdbcUseSessionTimezone',
+    'TaskParameterJsonIndent',
+    'TaskParameterLockTimeout',
+    'TaskParameterLogLevel',
+    'TaskParameterMultiStatementCount',
+    'TaskParameterNoorderSequenceAsDefault',
+    'TaskParameterOdbcTreatDecimalAsInt',
+    'TaskParameterQueryTag',
+    'TaskParameterQuotedIdentifiersIgnoreCase',
+    'TaskParameterRowsPerResultset',
+    'TaskParameterS3StageVpceDnsName',
+    'TaskParameterSearchPath',
+    'TaskParameterStatementQueuedTimeoutInSecond',
+    'TaskParameterStatementTimeoutInSecond',
+    'TaskParameterStrictJsonOutput',
+    'TaskParameterSuspendTaskAfterNumFailure',
+    'TaskParameterTaskAutoRetryAttempt',
+    'TaskParameterTimeInputFormat',
+    'TaskParameterTimeOutputFormat',
+    'TaskParameterTimestampDayIsAlways24h',
+    'TaskParameterTimestampInputFormat',
+    'TaskParameterTimestampLtzOutputFormat',
+    'TaskParameterTimestampNtzOutputFormat',
+    'TaskParameterTimestampOutputFormat',
+    'TaskParameterTimestampTypeMapping',
+    'TaskParameterTimestampTzOutputFormat',
+    'TaskParameterTimezone',
+    'TaskParameterTraceLevel',
+    'TaskParameterTransactionAbortOnError',
+    'TaskParameterTransactionDefaultIsolationLevel',
+    'TaskParameterTwoDigitCenturyStart',
+    'TaskParameterUnsupportedDdlAction',
+    'TaskParameterUseCachedResult',
+    'TaskParameterUserTaskManagedInitialWarehouseSize',
+    'TaskParameterUserTaskMinimumTriggerIntervalInSecond',
+    'TaskParameterUserTaskTimeoutM',
+    'TaskParameterWeekOfYearPolicy',
+    'TaskParameterWeekStart',
+    'TaskSchedule',
+    'TaskShowOutput',
+    'TaskShowOutputTaskRelation',
     'UserParameter',
     'UserParameterAbortDetachedQuery',
     'UserParameterAutocommit',
@@ -613,7 +676,73 @@ __all__ = [
     'GetStreamsStreamDescribeOutputResult',
     'GetStreamsStreamShowOutputResult',
     'GetTablesTableResult',
+    'GetTagsInResult',
+    'GetTagsTagResult',
+    'GetTagsTagShowOutputResult',
+    'GetTasksInResult',
+    'GetTasksLimitResult',
     'GetTasksTaskResult',
+    'GetTasksTaskParameterResult',
+    'GetTasksTaskParameterAbortDetachedQueryResult',
+    'GetTasksTaskParameterAutocommitResult',
+    'GetTasksTaskParameterBinaryInputFormatResult',
+    'GetTasksTaskParameterBinaryOutputFormatResult',
+    'GetTasksTaskParameterClientMemoryLimitResult',
+    'GetTasksTaskParameterClientMetadataRequestUseConnectionCtxResult',
+    'GetTasksTaskParameterClientPrefetchThreadResult',
+    'GetTasksTaskParameterClientResultChunkSizeResult',
+    'GetTasksTaskParameterClientResultColumnCaseInsensitiveResult',
+    'GetTasksTaskParameterClientSessionKeepAlifeResult',
+    'GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequencyResult',
+    'GetTasksTaskParameterClientTimestampTypeMappingResult',
+    'GetTasksTaskParameterDateInputFormatResult',
+    'GetTasksTaskParameterDateOutputFormatResult',
+    'GetTasksTaskParameterEnableUnloadPhysicalTypeOptimizationResult',
+    'GetTasksTaskParameterErrorOnNondeterministicMergeResult',
+    'GetTasksTaskParameterErrorOnNondeterministicUpdateResult',
+    'GetTasksTaskParameterGeographyOutputFormatResult',
+    'GetTasksTaskParameterGeometryOutputFormatResult',
+    'GetTasksTaskParameterJdbcTreatTimestampNtzAsUtcResult',
+    'GetTasksTaskParameterJdbcUseSessionTimezoneResult',
+    'GetTasksTaskParameterJsonIndentResult',
+    'GetTasksTaskParameterLockTimeoutResult',
+    'GetTasksTaskParameterLogLevelResult',
+    'GetTasksTaskParameterMultiStatementCountResult',
+    'GetTasksTaskParameterNoorderSequenceAsDefaultResult',
+    'GetTasksTaskParameterOdbcTreatDecimalAsIntResult',
+    'GetTasksTaskParameterQueryTagResult',
+    'GetTasksTaskParameterQuotedIdentifiersIgnoreCaseResult',
+    'GetTasksTaskParameterRowsPerResultsetResult',
+    'GetTasksTaskParameterS3StageVpceDnsNameResult',
+    'GetTasksTaskParameterSearchPathResult',
+    'GetTasksTaskParameterStatementQueuedTimeoutInSecondResult',
+    'GetTasksTaskParameterStatementTimeoutInSecondResult',
+    'GetTasksTaskParameterStrictJsonOutputResult',
+    'GetTasksTaskParameterSuspendTaskAfterNumFailureResult',
+    'GetTasksTaskParameterTaskAutoRetryAttemptResult',
+    'GetTasksTaskParameterTimeInputFormatResult',
+    'GetTasksTaskParameterTimeOutputFormatResult',
+    'GetTasksTaskParameterTimestampDayIsAlways24hResult',
+    'GetTasksTaskParameterTimestampInputFormatResult',
+    'GetTasksTaskParameterTimestampLtzOutputFormatResult',
+    'GetTasksTaskParameterTimestampNtzOutputFormatResult',
+    'GetTasksTaskParameterTimestampOutputFormatResult',
+    'GetTasksTaskParameterTimestampTypeMappingResult',
+    'GetTasksTaskParameterTimestampTzOutputFormatResult',
+    'GetTasksTaskParameterTimezoneResult',
+    'GetTasksTaskParameterTraceLevelResult',
+    'GetTasksTaskParameterTransactionAbortOnErrorResult',
+    'GetTasksTaskParameterTransactionDefaultIsolationLevelResult',
+    'GetTasksTaskParameterTwoDigitCenturyStartResult',
+    'GetTasksTaskParameterUnsupportedDdlActionResult',
+    'GetTasksTaskParameterUseCachedResultResult',
+    'GetTasksTaskParameterUserTaskManagedInitialWarehouseSizeResult',
+    'GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecondResult',
+    'GetTasksTaskParameterUserTaskTimeoutMResult',
+    'GetTasksTaskParameterWeekOfYearPolicyResult',
+    'GetTasksTaskParameterWeekStartResult',
+    'GetTasksTaskShowOutputResult',
+    'GetTasksTaskShowOutputTaskRelationResult',
     'GetUsersLimitResult',
     'GetUsersUserResult',
     'GetUsersUserDescribeOutputResult',
@@ -21304,6 +21433,3616 @@ class TagAssociationObjectIdentifier(dict):
 
 
 @pulumi.output_type
+class TagShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 comment: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 schema_name: Optional[str] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class TaskParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortDetachedQueries":
+            suggest = "abort_detached_queries"
+        elif key == "binaryInputFormats":
+            suggest = "binary_input_formats"
+        elif key == "binaryOutputFormats":
+            suggest = "binary_output_formats"
+        elif key == "clientMemoryLimits":
+            suggest = "client_memory_limits"
+        elif key == "clientMetadataRequestUseConnectionCtxes":
+            suggest = "client_metadata_request_use_connection_ctxes"
+        elif key == "clientPrefetchThreads":
+            suggest = "client_prefetch_threads"
+        elif key == "clientResultChunkSizes":
+            suggest = "client_result_chunk_sizes"
+        elif key == "clientResultColumnCaseInsensitives":
+            suggest = "client_result_column_case_insensitives"
+        elif key == "clientSessionKeepAliveHeartbeatFrequencies":
+            suggest = "client_session_keep_alive_heartbeat_frequencies"
+        elif key == "clientSessionKeepAlives":
+            suggest = "client_session_keep_alives"
+        elif key == "clientTimestampTypeMappings":
+            suggest = "client_timestamp_type_mappings"
+        elif key == "dateInputFormats":
+            suggest = "date_input_formats"
+        elif key == "dateOutputFormats":
+            suggest = "date_output_formats"
+        elif key == "enableUnloadPhysicalTypeOptimizations":
+            suggest = "enable_unload_physical_type_optimizations"
+        elif key == "errorOnNondeterministicMerges":
+            suggest = "error_on_nondeterministic_merges"
+        elif key == "errorOnNondeterministicUpdates":
+            suggest = "error_on_nondeterministic_updates"
+        elif key == "geographyOutputFormats":
+            suggest = "geography_output_formats"
+        elif key == "geometryOutputFormats":
+            suggest = "geometry_output_formats"
+        elif key == "jdbcTreatTimestampNtzAsUtcs":
+            suggest = "jdbc_treat_timestamp_ntz_as_utcs"
+        elif key == "jdbcUseSessionTimezones":
+            suggest = "jdbc_use_session_timezones"
+        elif key == "jsonIndents":
+            suggest = "json_indents"
+        elif key == "lockTimeouts":
+            suggest = "lock_timeouts"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "multiStatementCounts":
+            suggest = "multi_statement_counts"
+        elif key == "noorderSequenceAsDefaults":
+            suggest = "noorder_sequence_as_defaults"
+        elif key == "odbcTreatDecimalAsInts":
+            suggest = "odbc_treat_decimal_as_ints"
+        elif key == "queryTags":
+            suggest = "query_tags"
+        elif key == "quotedIdentifiersIgnoreCases":
+            suggest = "quoted_identifiers_ignore_cases"
+        elif key == "rowsPerResultsets":
+            suggest = "rows_per_resultsets"
+        elif key == "s3StageVpceDnsNames":
+            suggest = "s3_stage_vpce_dns_names"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "statementQueuedTimeoutInSeconds":
+            suggest = "statement_queued_timeout_in_seconds"
+        elif key == "statementTimeoutInSeconds":
+            suggest = "statement_timeout_in_seconds"
+        elif key == "strictJsonOutputs":
+            suggest = "strict_json_outputs"
+        elif key == "suspendTaskAfterNumFailures":
+            suggest = "suspend_task_after_num_failures"
+        elif key == "taskAutoRetryAttempts":
+            suggest = "task_auto_retry_attempts"
+        elif key == "timeInputFormats":
+            suggest = "time_input_formats"
+        elif key == "timeOutputFormats":
+            suggest = "time_output_formats"
+        elif key == "timestampDayIsAlways24hs":
+            suggest = "timestamp_day_is_always24hs"
+        elif key == "timestampInputFormats":
+            suggest = "timestamp_input_formats"
+        elif key == "timestampLtzOutputFormats":
+            suggest = "timestamp_ltz_output_formats"
+        elif key == "timestampNtzOutputFormats":
+            suggest = "timestamp_ntz_output_formats"
+        elif key == "timestampOutputFormats":
+            suggest = "timestamp_output_formats"
+        elif key == "timestampTypeMappings":
+            suggest = "timestamp_type_mappings"
+        elif key == "timestampTzOutputFormats":
+            suggest = "timestamp_tz_output_formats"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+        elif key == "transactionAbortOnErrors":
+            suggest = "transaction_abort_on_errors"
+        elif key == "transactionDefaultIsolationLevels":
+            suggest = "transaction_default_isolation_levels"
+        elif key == "twoDigitCenturyStarts":
+            suggest = "two_digit_century_starts"
+        elif key == "unsupportedDdlActions":
+            suggest = "unsupported_ddl_actions"
+        elif key == "useCachedResults":
+            suggest = "use_cached_results"
+        elif key == "userTaskManagedInitialWarehouseSizes":
+            suggest = "user_task_managed_initial_warehouse_sizes"
+        elif key == "userTaskMinimumTriggerIntervalInSeconds":
+            suggest = "user_task_minimum_trigger_interval_in_seconds"
+        elif key == "userTaskTimeoutMs":
+            suggest = "user_task_timeout_ms"
+        elif key == "weekOfYearPolicies":
+            suggest = "week_of_year_policies"
+        elif key == "weekStarts":
+            suggest = "week_starts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 abort_detached_queries: Optional[Sequence['outputs.TaskParameterAbortDetachedQuery']] = None,
+                 autocommits: Optional[Sequence['outputs.TaskParameterAutocommit']] = None,
+                 binary_input_formats: Optional[Sequence['outputs.TaskParameterBinaryInputFormat']] = None,
+                 binary_output_formats: Optional[Sequence['outputs.TaskParameterBinaryOutputFormat']] = None,
+                 client_memory_limits: Optional[Sequence['outputs.TaskParameterClientMemoryLimit']] = None,
+                 client_metadata_request_use_connection_ctxes: Optional[Sequence['outputs.TaskParameterClientMetadataRequestUseConnectionCtx']] = None,
+                 client_prefetch_threads: Optional[Sequence['outputs.TaskParameterClientPrefetchThread']] = None,
+                 client_result_chunk_sizes: Optional[Sequence['outputs.TaskParameterClientResultChunkSize']] = None,
+                 client_result_column_case_insensitives: Optional[Sequence['outputs.TaskParameterClientResultColumnCaseInsensitive']] = None,
+                 client_session_keep_alive_heartbeat_frequencies: Optional[Sequence['outputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency']] = None,
+                 client_session_keep_alives: Optional[Sequence['outputs.TaskParameterClientSessionKeepAlife']] = None,
+                 client_timestamp_type_mappings: Optional[Sequence['outputs.TaskParameterClientTimestampTypeMapping']] = None,
+                 date_input_formats: Optional[Sequence['outputs.TaskParameterDateInputFormat']] = None,
+                 date_output_formats: Optional[Sequence['outputs.TaskParameterDateOutputFormat']] = None,
+                 enable_unload_physical_type_optimizations: Optional[Sequence['outputs.TaskParameterEnableUnloadPhysicalTypeOptimization']] = None,
+                 error_on_nondeterministic_merges: Optional[Sequence['outputs.TaskParameterErrorOnNondeterministicMerge']] = None,
+                 error_on_nondeterministic_updates: Optional[Sequence['outputs.TaskParameterErrorOnNondeterministicUpdate']] = None,
+                 geography_output_formats: Optional[Sequence['outputs.TaskParameterGeographyOutputFormat']] = None,
+                 geometry_output_formats: Optional[Sequence['outputs.TaskParameterGeometryOutputFormat']] = None,
+                 jdbc_treat_timestamp_ntz_as_utcs: Optional[Sequence['outputs.TaskParameterJdbcTreatTimestampNtzAsUtc']] = None,
+                 jdbc_use_session_timezones: Optional[Sequence['outputs.TaskParameterJdbcUseSessionTimezone']] = None,
+                 json_indents: Optional[Sequence['outputs.TaskParameterJsonIndent']] = None,
+                 lock_timeouts: Optional[Sequence['outputs.TaskParameterLockTimeout']] = None,
+                 log_levels: Optional[Sequence['outputs.TaskParameterLogLevel']] = None,
+                 multi_statement_counts: Optional[Sequence['outputs.TaskParameterMultiStatementCount']] = None,
+                 noorder_sequence_as_defaults: Optional[Sequence['outputs.TaskParameterNoorderSequenceAsDefault']] = None,
+                 odbc_treat_decimal_as_ints: Optional[Sequence['outputs.TaskParameterOdbcTreatDecimalAsInt']] = None,
+                 query_tags: Optional[Sequence['outputs.TaskParameterQueryTag']] = None,
+                 quoted_identifiers_ignore_cases: Optional[Sequence['outputs.TaskParameterQuotedIdentifiersIgnoreCase']] = None,
+                 rows_per_resultsets: Optional[Sequence['outputs.TaskParameterRowsPerResultset']] = None,
+                 s3_stage_vpce_dns_names: Optional[Sequence['outputs.TaskParameterS3StageVpceDnsName']] = None,
+                 search_paths: Optional[Sequence['outputs.TaskParameterSearchPath']] = None,
+                 statement_queued_timeout_in_seconds: Optional[Sequence['outputs.TaskParameterStatementQueuedTimeoutInSecond']] = None,
+                 statement_timeout_in_seconds: Optional[Sequence['outputs.TaskParameterStatementTimeoutInSecond']] = None,
+                 strict_json_outputs: Optional[Sequence['outputs.TaskParameterStrictJsonOutput']] = None,
+                 suspend_task_after_num_failures: Optional[Sequence['outputs.TaskParameterSuspendTaskAfterNumFailure']] = None,
+                 task_auto_retry_attempts: Optional[Sequence['outputs.TaskParameterTaskAutoRetryAttempt']] = None,
+                 time_input_formats: Optional[Sequence['outputs.TaskParameterTimeInputFormat']] = None,
+                 time_output_formats: Optional[Sequence['outputs.TaskParameterTimeOutputFormat']] = None,
+                 timestamp_day_is_always24hs: Optional[Sequence['outputs.TaskParameterTimestampDayIsAlways24h']] = None,
+                 timestamp_input_formats: Optional[Sequence['outputs.TaskParameterTimestampInputFormat']] = None,
+                 timestamp_ltz_output_formats: Optional[Sequence['outputs.TaskParameterTimestampLtzOutputFormat']] = None,
+                 timestamp_ntz_output_formats: Optional[Sequence['outputs.TaskParameterTimestampNtzOutputFormat']] = None,
+                 timestamp_output_formats: Optional[Sequence['outputs.TaskParameterTimestampOutputFormat']] = None,
+                 timestamp_type_mappings: Optional[Sequence['outputs.TaskParameterTimestampTypeMapping']] = None,
+                 timestamp_tz_output_formats: Optional[Sequence['outputs.TaskParameterTimestampTzOutputFormat']] = None,
+                 timezones: Optional[Sequence['outputs.TaskParameterTimezone']] = None,
+                 trace_levels: Optional[Sequence['outputs.TaskParameterTraceLevel']] = None,
+                 transaction_abort_on_errors: Optional[Sequence['outputs.TaskParameterTransactionAbortOnError']] = None,
+                 transaction_default_isolation_levels: Optional[Sequence['outputs.TaskParameterTransactionDefaultIsolationLevel']] = None,
+                 two_digit_century_starts: Optional[Sequence['outputs.TaskParameterTwoDigitCenturyStart']] = None,
+                 unsupported_ddl_actions: Optional[Sequence['outputs.TaskParameterUnsupportedDdlAction']] = None,
+                 use_cached_results: Optional[Sequence['outputs.TaskParameterUseCachedResult']] = None,
+                 user_task_managed_initial_warehouse_sizes: Optional[Sequence['outputs.TaskParameterUserTaskManagedInitialWarehouseSize']] = None,
+                 user_task_minimum_trigger_interval_in_seconds: Optional[Sequence['outputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond']] = None,
+                 user_task_timeout_ms: Optional[Sequence['outputs.TaskParameterUserTaskTimeoutM']] = None,
+                 week_of_year_policies: Optional[Sequence['outputs.TaskParameterWeekOfYearPolicy']] = None,
+                 week_starts: Optional[Sequence['outputs.TaskParameterWeekStart']] = None):
+        if abort_detached_queries is not None:
+            pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        if autocommits is not None:
+            pulumi.set(__self__, "autocommits", autocommits)
+        if binary_input_formats is not None:
+            pulumi.set(__self__, "binary_input_formats", binary_input_formats)
+        if binary_output_formats is not None:
+            pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        if client_memory_limits is not None:
+            pulumi.set(__self__, "client_memory_limits", client_memory_limits)
+        if client_metadata_request_use_connection_ctxes is not None:
+            pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        if client_prefetch_threads is not None:
+            pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
+        if client_result_chunk_sizes is not None:
+            pulumi.set(__self__, "client_result_chunk_sizes", client_result_chunk_sizes)
+        if client_result_column_case_insensitives is not None:
+            pulumi.set(__self__, "client_result_column_case_insensitives", client_result_column_case_insensitives)
+        if client_session_keep_alive_heartbeat_frequencies is not None:
+            pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequencies", client_session_keep_alive_heartbeat_frequencies)
+        if client_session_keep_alives is not None:
+            pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
+        if client_timestamp_type_mappings is not None:
+            pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        if date_input_formats is not None:
+            pulumi.set(__self__, "date_input_formats", date_input_formats)
+        if date_output_formats is not None:
+            pulumi.set(__self__, "date_output_formats", date_output_formats)
+        if enable_unload_physical_type_optimizations is not None:
+            pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
+        if error_on_nondeterministic_merges is not None:
+            pulumi.set(__self__, "error_on_nondeterministic_merges", error_on_nondeterministic_merges)
+        if error_on_nondeterministic_updates is not None:
+            pulumi.set(__self__, "error_on_nondeterministic_updates", error_on_nondeterministic_updates)
+        if geography_output_formats is not None:
+            pulumi.set(__self__, "geography_output_formats", geography_output_formats)
+        if geometry_output_formats is not None:
+            pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        if jdbc_treat_timestamp_ntz_as_utcs is not None:
+            pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
+        if jdbc_use_session_timezones is not None:
+            pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        if json_indents is not None:
+            pulumi.set(__self__, "json_indents", json_indents)
+        if lock_timeouts is not None:
+            pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if multi_statement_counts is not None:
+            pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
+        if noorder_sequence_as_defaults is not None:
+            pulumi.set(__self__, "noorder_sequence_as_defaults", noorder_sequence_as_defaults)
+        if odbc_treat_decimal_as_ints is not None:
+            pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
+        if query_tags is not None:
+            pulumi.set(__self__, "query_tags", query_tags)
+        if quoted_identifiers_ignore_cases is not None:
+            pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        if rows_per_resultsets is not None:
+            pulumi.set(__self__, "rows_per_resultsets", rows_per_resultsets)
+        if s3_stage_vpce_dns_names is not None:
+            pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        if statement_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        if strict_json_outputs is not None:
+            pulumi.set(__self__, "strict_json_outputs", strict_json_outputs)
+        if suspend_task_after_num_failures is not None:
+            pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if task_auto_retry_attempts is not None:
+            pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        if time_input_formats is not None:
+            pulumi.set(__self__, "time_input_formats", time_input_formats)
+        if time_output_formats is not None:
+            pulumi.set(__self__, "time_output_formats", time_output_formats)
+        if timestamp_day_is_always24hs is not None:
+            pulumi.set(__self__, "timestamp_day_is_always24hs", timestamp_day_is_always24hs)
+        if timestamp_input_formats is not None:
+            pulumi.set(__self__, "timestamp_input_formats", timestamp_input_formats)
+        if timestamp_ltz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_ltz_output_formats", timestamp_ltz_output_formats)
+        if timestamp_ntz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_ntz_output_formats", timestamp_ntz_output_formats)
+        if timestamp_output_formats is not None:
+            pulumi.set(__self__, "timestamp_output_formats", timestamp_output_formats)
+        if timestamp_type_mappings is not None:
+            pulumi.set(__self__, "timestamp_type_mappings", timestamp_type_mappings)
+        if timestamp_tz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_tz_output_formats", timestamp_tz_output_formats)
+        if timezones is not None:
+            pulumi.set(__self__, "timezones", timezones)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+        if transaction_abort_on_errors is not None:
+            pulumi.set(__self__, "transaction_abort_on_errors", transaction_abort_on_errors)
+        if transaction_default_isolation_levels is not None:
+            pulumi.set(__self__, "transaction_default_isolation_levels", transaction_default_isolation_levels)
+        if two_digit_century_starts is not None:
+            pulumi.set(__self__, "two_digit_century_starts", two_digit_century_starts)
+        if unsupported_ddl_actions is not None:
+            pulumi.set(__self__, "unsupported_ddl_actions", unsupported_ddl_actions)
+        if use_cached_results is not None:
+            pulumi.set(__self__, "use_cached_results", use_cached_results)
+        if user_task_managed_initial_warehouse_sizes is not None:
+            pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        if user_task_minimum_trigger_interval_in_seconds is not None:
+            pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        if user_task_timeout_ms is not None:
+            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+        if week_of_year_policies is not None:
+            pulumi.set(__self__, "week_of_year_policies", week_of_year_policies)
+        if week_starts is not None:
+            pulumi.set(__self__, "week_starts", week_starts)
+
+    @property
+    @pulumi.getter(name="abortDetachedQueries")
+    def abort_detached_queries(self) -> Optional[Sequence['outputs.TaskParameterAbortDetachedQuery']]:
+        return pulumi.get(self, "abort_detached_queries")
+
+    @property
+    @pulumi.getter
+    def autocommits(self) -> Optional[Sequence['outputs.TaskParameterAutocommit']]:
+        return pulumi.get(self, "autocommits")
+
+    @property
+    @pulumi.getter(name="binaryInputFormats")
+    def binary_input_formats(self) -> Optional[Sequence['outputs.TaskParameterBinaryInputFormat']]:
+        return pulumi.get(self, "binary_input_formats")
+
+    @property
+    @pulumi.getter(name="binaryOutputFormats")
+    def binary_output_formats(self) -> Optional[Sequence['outputs.TaskParameterBinaryOutputFormat']]:
+        return pulumi.get(self, "binary_output_formats")
+
+    @property
+    @pulumi.getter(name="clientMemoryLimits")
+    def client_memory_limits(self) -> Optional[Sequence['outputs.TaskParameterClientMemoryLimit']]:
+        return pulumi.get(self, "client_memory_limits")
+
+    @property
+    @pulumi.getter(name="clientMetadataRequestUseConnectionCtxes")
+    def client_metadata_request_use_connection_ctxes(self) -> Optional[Sequence['outputs.TaskParameterClientMetadataRequestUseConnectionCtx']]:
+        return pulumi.get(self, "client_metadata_request_use_connection_ctxes")
+
+    @property
+    @pulumi.getter(name="clientPrefetchThreads")
+    def client_prefetch_threads(self) -> Optional[Sequence['outputs.TaskParameterClientPrefetchThread']]:
+        return pulumi.get(self, "client_prefetch_threads")
+
+    @property
+    @pulumi.getter(name="clientResultChunkSizes")
+    def client_result_chunk_sizes(self) -> Optional[Sequence['outputs.TaskParameterClientResultChunkSize']]:
+        return pulumi.get(self, "client_result_chunk_sizes")
+
+    @property
+    @pulumi.getter(name="clientResultColumnCaseInsensitives")
+    def client_result_column_case_insensitives(self) -> Optional[Sequence['outputs.TaskParameterClientResultColumnCaseInsensitive']]:
+        return pulumi.get(self, "client_result_column_case_insensitives")
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequencies")
+    def client_session_keep_alive_heartbeat_frequencies(self) -> Optional[Sequence['outputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency']]:
+        return pulumi.get(self, "client_session_keep_alive_heartbeat_frequencies")
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAlives")
+    def client_session_keep_alives(self) -> Optional[Sequence['outputs.TaskParameterClientSessionKeepAlife']]:
+        return pulumi.get(self, "client_session_keep_alives")
+
+    @property
+    @pulumi.getter(name="clientTimestampTypeMappings")
+    def client_timestamp_type_mappings(self) -> Optional[Sequence['outputs.TaskParameterClientTimestampTypeMapping']]:
+        return pulumi.get(self, "client_timestamp_type_mappings")
+
+    @property
+    @pulumi.getter(name="dateInputFormats")
+    def date_input_formats(self) -> Optional[Sequence['outputs.TaskParameterDateInputFormat']]:
+        return pulumi.get(self, "date_input_formats")
+
+    @property
+    @pulumi.getter(name="dateOutputFormats")
+    def date_output_formats(self) -> Optional[Sequence['outputs.TaskParameterDateOutputFormat']]:
+        return pulumi.get(self, "date_output_formats")
+
+    @property
+    @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
+    def enable_unload_physical_type_optimizations(self) -> Optional[Sequence['outputs.TaskParameterEnableUnloadPhysicalTypeOptimization']]:
+        return pulumi.get(self, "enable_unload_physical_type_optimizations")
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicMerges")
+    def error_on_nondeterministic_merges(self) -> Optional[Sequence['outputs.TaskParameterErrorOnNondeterministicMerge']]:
+        return pulumi.get(self, "error_on_nondeterministic_merges")
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicUpdates")
+    def error_on_nondeterministic_updates(self) -> Optional[Sequence['outputs.TaskParameterErrorOnNondeterministicUpdate']]:
+        return pulumi.get(self, "error_on_nondeterministic_updates")
+
+    @property
+    @pulumi.getter(name="geographyOutputFormats")
+    def geography_output_formats(self) -> Optional[Sequence['outputs.TaskParameterGeographyOutputFormat']]:
+        return pulumi.get(self, "geography_output_formats")
+
+    @property
+    @pulumi.getter(name="geometryOutputFormats")
+    def geometry_output_formats(self) -> Optional[Sequence['outputs.TaskParameterGeometryOutputFormat']]:
+        return pulumi.get(self, "geometry_output_formats")
+
+    @property
+    @pulumi.getter(name="jdbcTreatTimestampNtzAsUtcs")
+    def jdbc_treat_timestamp_ntz_as_utcs(self) -> Optional[Sequence['outputs.TaskParameterJdbcTreatTimestampNtzAsUtc']]:
+        return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utcs")
+
+    @property
+    @pulumi.getter(name="jdbcUseSessionTimezones")
+    def jdbc_use_session_timezones(self) -> Optional[Sequence['outputs.TaskParameterJdbcUseSessionTimezone']]:
+        return pulumi.get(self, "jdbc_use_session_timezones")
+
+    @property
+    @pulumi.getter(name="jsonIndents")
+    def json_indents(self) -> Optional[Sequence['outputs.TaskParameterJsonIndent']]:
+        return pulumi.get(self, "json_indents")
+
+    @property
+    @pulumi.getter(name="lockTimeouts")
+    def lock_timeouts(self) -> Optional[Sequence['outputs.TaskParameterLockTimeout']]:
+        return pulumi.get(self, "lock_timeouts")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.TaskParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="multiStatementCounts")
+    def multi_statement_counts(self) -> Optional[Sequence['outputs.TaskParameterMultiStatementCount']]:
+        return pulumi.get(self, "multi_statement_counts")
+
+    @property
+    @pulumi.getter(name="noorderSequenceAsDefaults")
+    def noorder_sequence_as_defaults(self) -> Optional[Sequence['outputs.TaskParameterNoorderSequenceAsDefault']]:
+        return pulumi.get(self, "noorder_sequence_as_defaults")
+
+    @property
+    @pulumi.getter(name="odbcTreatDecimalAsInts")
+    def odbc_treat_decimal_as_ints(self) -> Optional[Sequence['outputs.TaskParameterOdbcTreatDecimalAsInt']]:
+        return pulumi.get(self, "odbc_treat_decimal_as_ints")
+
+    @property
+    @pulumi.getter(name="queryTags")
+    def query_tags(self) -> Optional[Sequence['outputs.TaskParameterQueryTag']]:
+        return pulumi.get(self, "query_tags")
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Optional[Sequence['outputs.TaskParameterQuotedIdentifiersIgnoreCase']]:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @property
+    @pulumi.getter(name="rowsPerResultsets")
+    def rows_per_resultsets(self) -> Optional[Sequence['outputs.TaskParameterRowsPerResultset']]:
+        return pulumi.get(self, "rows_per_resultsets")
+
+    @property
+    @pulumi.getter(name="s3StageVpceDnsNames")
+    def s3_stage_vpce_dns_names(self) -> Optional[Sequence['outputs.TaskParameterS3StageVpceDnsName']]:
+        return pulumi.get(self, "s3_stage_vpce_dns_names")
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[Sequence['outputs.TaskParameterSearchPath']]:
+        return pulumi.get(self, "search_paths")
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[Sequence['outputs.TaskParameterStatementQueuedTimeoutInSecond']]:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Optional[Sequence['outputs.TaskParameterStatementTimeoutInSecond']]:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="strictJsonOutputs")
+    def strict_json_outputs(self) -> Optional[Sequence['outputs.TaskParameterStrictJsonOutput']]:
+        return pulumi.get(self, "strict_json_outputs")
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Optional[Sequence['outputs.TaskParameterSuspendTaskAfterNumFailure']]:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Optional[Sequence['outputs.TaskParameterTaskAutoRetryAttempt']]:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @property
+    @pulumi.getter(name="timeInputFormats")
+    def time_input_formats(self) -> Optional[Sequence['outputs.TaskParameterTimeInputFormat']]:
+        return pulumi.get(self, "time_input_formats")
+
+    @property
+    @pulumi.getter(name="timeOutputFormats")
+    def time_output_formats(self) -> Optional[Sequence['outputs.TaskParameterTimeOutputFormat']]:
+        return pulumi.get(self, "time_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampDayIsAlways24hs")
+    def timestamp_day_is_always24hs(self) -> Optional[Sequence['outputs.TaskParameterTimestampDayIsAlways24h']]:
+        return pulumi.get(self, "timestamp_day_is_always24hs")
+
+    @property
+    @pulumi.getter(name="timestampInputFormats")
+    def timestamp_input_formats(self) -> Optional[Sequence['outputs.TaskParameterTimestampInputFormat']]:
+        return pulumi.get(self, "timestamp_input_formats")
+
+    @property
+    @pulumi.getter(name="timestampLtzOutputFormats")
+    def timestamp_ltz_output_formats(self) -> Optional[Sequence['outputs.TaskParameterTimestampLtzOutputFormat']]:
+        return pulumi.get(self, "timestamp_ltz_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampNtzOutputFormats")
+    def timestamp_ntz_output_formats(self) -> Optional[Sequence['outputs.TaskParameterTimestampNtzOutputFormat']]:
+        return pulumi.get(self, "timestamp_ntz_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampOutputFormats")
+    def timestamp_output_formats(self) -> Optional[Sequence['outputs.TaskParameterTimestampOutputFormat']]:
+        return pulumi.get(self, "timestamp_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampTypeMappings")
+    def timestamp_type_mappings(self) -> Optional[Sequence['outputs.TaskParameterTimestampTypeMapping']]:
+        return pulumi.get(self, "timestamp_type_mappings")
+
+    @property
+    @pulumi.getter(name="timestampTzOutputFormats")
+    def timestamp_tz_output_formats(self) -> Optional[Sequence['outputs.TaskParameterTimestampTzOutputFormat']]:
+        return pulumi.get(self, "timestamp_tz_output_formats")
+
+    @property
+    @pulumi.getter
+    def timezones(self) -> Optional[Sequence['outputs.TaskParameterTimezone']]:
+        return pulumi.get(self, "timezones")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.TaskParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+    @property
+    @pulumi.getter(name="transactionAbortOnErrors")
+    def transaction_abort_on_errors(self) -> Optional[Sequence['outputs.TaskParameterTransactionAbortOnError']]:
+        return pulumi.get(self, "transaction_abort_on_errors")
+
+    @property
+    @pulumi.getter(name="transactionDefaultIsolationLevels")
+    def transaction_default_isolation_levels(self) -> Optional[Sequence['outputs.TaskParameterTransactionDefaultIsolationLevel']]:
+        return pulumi.get(self, "transaction_default_isolation_levels")
+
+    @property
+    @pulumi.getter(name="twoDigitCenturyStarts")
+    def two_digit_century_starts(self) -> Optional[Sequence['outputs.TaskParameterTwoDigitCenturyStart']]:
+        return pulumi.get(self, "two_digit_century_starts")
+
+    @property
+    @pulumi.getter(name="unsupportedDdlActions")
+    def unsupported_ddl_actions(self) -> Optional[Sequence['outputs.TaskParameterUnsupportedDdlAction']]:
+        return pulumi.get(self, "unsupported_ddl_actions")
+
+    @property
+    @pulumi.getter(name="useCachedResults")
+    def use_cached_results(self) -> Optional[Sequence['outputs.TaskParameterUseCachedResult']]:
+        return pulumi.get(self, "use_cached_results")
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Optional[Sequence['outputs.TaskParameterUserTaskManagedInitialWarehouseSize']]:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[Sequence['outputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond']]:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Optional[Sequence['outputs.TaskParameterUserTaskTimeoutM']]:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @property
+    @pulumi.getter(name="weekOfYearPolicies")
+    def week_of_year_policies(self) -> Optional[Sequence['outputs.TaskParameterWeekOfYearPolicy']]:
+        return pulumi.get(self, "week_of_year_policies")
+
+    @property
+    @pulumi.getter(name="weekStarts")
+    def week_starts(self) -> Optional[Sequence['outputs.TaskParameterWeekStart']]:
+        return pulumi.get(self, "week_starts")
+
+
+@pulumi.output_type
+class TaskParameterAbortDetachedQuery(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterAutocommit(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterBinaryInputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterBinaryOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientMemoryLimit(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientMetadataRequestUseConnectionCtx(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientPrefetchThread(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientResultChunkSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientResultColumnCaseInsensitive(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientSessionKeepAlife(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientSessionKeepAliveHeartbeatFrequency(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterClientTimestampTypeMapping(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterDateInputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterDateOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterEnableUnloadPhysicalTypeOptimization(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterErrorOnNondeterministicMerge(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterErrorOnNondeterministicUpdate(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterGeographyOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterGeometryOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterJdbcTreatTimestampNtzAsUtc(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterJdbcUseSessionTimezone(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterJsonIndent(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterLockTimeout(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterMultiStatementCount(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterNoorderSequenceAsDefault(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterOdbcTreatDecimalAsInt(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterQueryTag(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterQuotedIdentifiersIgnoreCase(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterRowsPerResultset(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterS3StageVpceDnsName(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterSearchPath(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterStatementQueuedTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterStatementTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterStrictJsonOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterSuspendTaskAfterNumFailure(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTaskAutoRetryAttempt(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimeInputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimeOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampDayIsAlways24h(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampInputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampLtzOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampNtzOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampTypeMapping(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimestampTzOutputFormat(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTimezone(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTransactionAbortOnError(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTransactionDefaultIsolationLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterTwoDigitCenturyStart(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterUnsupportedDdlAction(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterUseCachedResult(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterUserTaskManagedInitialWarehouseSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterUserTaskMinimumTriggerIntervalInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterUserTaskTimeoutM(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterWeekOfYearPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterWeekStart(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usingCron":
+            suggest = "using_cron"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minutes: Optional[int] = None,
+                 using_cron: Optional[str] = None):
+        """
+        :param int minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        :param str using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if using_cron is not None:
+            pulumi.set(__self__, "using_cron", using_cron)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[int]:
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter(name="usingCron")
+    def using_cron(self) -> Optional[str]:
+        """
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        """
+        return pulumi.get(self, "using_cron")
+
+
+@pulumi.output_type
+class TaskShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowOverlappingExecution":
+            suggest = "allow_overlapping_execution"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "errorIntegration":
+            suggest = "error_integration"
+        elif key == "lastCommittedOn":
+            suggest = "last_committed_on"
+        elif key == "lastSuspendedOn":
+            suggest = "last_suspended_on"
+        elif key == "lastSuspendedReason":
+            suggest = "last_suspended_reason"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "taskRelations":
+            suggest = "task_relations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_overlapping_execution: Optional[bool] = None,
+                 budget: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 condition: Optional[str] = None,
+                 config: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 definition: Optional[str] = None,
+                 error_integration: Optional[str] = None,
+                 id: Optional[str] = None,
+                 last_committed_on: Optional[str] = None,
+                 last_suspended_on: Optional[str] = None,
+                 last_suspended_reason: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 owner_role_type: Optional[str] = None,
+                 predecessors: Optional[Sequence[str]] = None,
+                 schedule: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 state: Optional[str] = None,
+                 task_relations: Optional[Sequence['outputs.TaskShowOutputTaskRelation']] = None,
+                 warehouse: Optional[str] = None):
+        if allow_overlapping_execution is not None:
+            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
+        if budget is not None:
+            pulumi.set(__self__, "budget", budget)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_committed_on is not None:
+            pulumi.set(__self__, "last_committed_on", last_committed_on)
+        if last_suspended_on is not None:
+            pulumi.set(__self__, "last_suspended_on", last_suspended_on)
+        if last_suspended_reason is not None:
+            pulumi.set(__self__, "last_suspended_reason", last_suspended_reason)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if predecessors is not None:
+            pulumi.set(__self__, "predecessors", predecessors)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if task_relations is not None:
+            pulumi.set(__self__, "task_relations", task_relations)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_overlapping_execution")
+
+    @property
+    @pulumi.getter
+    def budget(self) -> Optional[str]:
+        return pulumi.get(self, "budget")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[str]:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[str]:
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[str]:
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[str]:
+        return pulumi.get(self, "error_integration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastCommittedOn")
+    def last_committed_on(self) -> Optional[str]:
+        return pulumi.get(self, "last_committed_on")
+
+    @property
+    @pulumi.getter(name="lastSuspendedOn")
+    def last_suspended_on(self) -> Optional[str]:
+        return pulumi.get(self, "last_suspended_on")
+
+    @property
+    @pulumi.getter(name="lastSuspendedReason")
+    def last_suspended_reason(self) -> Optional[str]:
+        return pulumi.get(self, "last_suspended_reason")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "predecessors")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[str]:
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskRelations")
+    def task_relations(self) -> Optional[Sequence['outputs.TaskShowOutputTaskRelation']]:
+        return pulumi.get(self, "task_relations")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Optional[str]:
+        return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class TaskShowOutputTaskRelation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "finalizedRootTask":
+            suggest = "finalized_root_task"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskShowOutputTaskRelation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskShowOutputTaskRelation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskShowOutputTaskRelation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finalized_root_task: Optional[str] = None,
+                 finalizer: Optional[str] = None,
+                 predecessors: Optional[Sequence[str]] = None):
+        if finalized_root_task is not None:
+            pulumi.set(__self__, "finalized_root_task", finalized_root_task)
+        if finalizer is not None:
+            pulumi.set(__self__, "finalizer", finalizer)
+        if predecessors is not None:
+            pulumi.set(__self__, "predecessors", predecessors)
+
+    @property
+    @pulumi.getter(name="finalizedRootTask")
+    def finalized_root_task(self) -> Optional[str]:
+        return pulumi.get(self, "finalized_root_task")
+
+    @property
+    @pulumi.getter
+    def finalizer(self) -> Optional[str]:
+        return pulumi.get(self, "finalizer")
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "predecessors")
+
+
+@pulumi.output_type
 class UserParameter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -33905,18 +37644,114 @@ class GetTablesTableResult(dict):
 
 
 @pulumi.output_type
-class GetTasksTaskResult(dict):
+class GetTagsInResult(dict):
     def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetTagsTagResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetTagsTagShowOutputResult']):
+        """
+        :param Sequence['GetTagsTagShowOutputArgs'] show_outputs: Holds the output of SHOW TAGS.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetTagsTagShowOutputResult']:
+        """
+        Holds the output of SHOW TAGS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetTagsTagShowOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_values: Sequence[str],
                  comment: str,
-                 database: str,
+                 created_on: str,
+                 database_name: str,
                  name: str,
-                 schema: str,
-                 warehouse: str):
+                 owner: str,
+                 owner_role_type: str,
+                 schema_name: str):
+        pulumi.set(__self__, "allowed_values", allowed_values)
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "warehouse", warehouse)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[str]:
+        return pulumi.get(self, "allowed_values")
 
     @property
     @pulumi.getter
@@ -33924,9 +37759,14 @@ class GetTasksTaskResult(dict):
         return pulumi.get(self, "comment")
 
     @property
-    @pulumi.getter
-    def database(self) -> str:
-        return pulumi.get(self, "database")
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
@@ -33935,13 +37775,3060 @@ class GetTasksTaskResult(dict):
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetTasksInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetTasksLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetTasksTaskResult(dict):
+    def __init__(__self__, *,
+                 parameters: Sequence['outputs.GetTasksTaskParameterResult'],
+                 show_outputs: Sequence['outputs.GetTasksTaskShowOutputResult']):
+        """
+        :param Sequence['GetTasksTaskParameterArgs'] parameters: Holds the output of SHOW PARAMETERS FOR TASK.
+        :param Sequence['GetTasksTaskShowOutputArgs'] show_outputs: Holds the output of SHOW TASKS.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetTasksTaskParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS FOR TASK.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetTasksTaskShowOutputResult']:
+        """
+        Holds the output of SHOW TASKS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterResult(dict):
+    def __init__(__self__, *,
+                 abort_detached_queries: Sequence['outputs.GetTasksTaskParameterAbortDetachedQueryResult'],
+                 autocommits: Sequence['outputs.GetTasksTaskParameterAutocommitResult'],
+                 binary_input_formats: Sequence['outputs.GetTasksTaskParameterBinaryInputFormatResult'],
+                 binary_output_formats: Sequence['outputs.GetTasksTaskParameterBinaryOutputFormatResult'],
+                 client_memory_limits: Sequence['outputs.GetTasksTaskParameterClientMemoryLimitResult'],
+                 client_metadata_request_use_connection_ctxes: Sequence['outputs.GetTasksTaskParameterClientMetadataRequestUseConnectionCtxResult'],
+                 client_prefetch_threads: Sequence['outputs.GetTasksTaskParameterClientPrefetchThreadResult'],
+                 client_result_chunk_sizes: Sequence['outputs.GetTasksTaskParameterClientResultChunkSizeResult'],
+                 client_result_column_case_insensitives: Sequence['outputs.GetTasksTaskParameterClientResultColumnCaseInsensitiveResult'],
+                 client_session_keep_alive_heartbeat_frequencies: Sequence['outputs.GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequencyResult'],
+                 client_session_keep_alives: Sequence['outputs.GetTasksTaskParameterClientSessionKeepAlifeResult'],
+                 client_timestamp_type_mappings: Sequence['outputs.GetTasksTaskParameterClientTimestampTypeMappingResult'],
+                 date_input_formats: Sequence['outputs.GetTasksTaskParameterDateInputFormatResult'],
+                 date_output_formats: Sequence['outputs.GetTasksTaskParameterDateOutputFormatResult'],
+                 enable_unload_physical_type_optimizations: Sequence['outputs.GetTasksTaskParameterEnableUnloadPhysicalTypeOptimizationResult'],
+                 error_on_nondeterministic_merges: Sequence['outputs.GetTasksTaskParameterErrorOnNondeterministicMergeResult'],
+                 error_on_nondeterministic_updates: Sequence['outputs.GetTasksTaskParameterErrorOnNondeterministicUpdateResult'],
+                 geography_output_formats: Sequence['outputs.GetTasksTaskParameterGeographyOutputFormatResult'],
+                 geometry_output_formats: Sequence['outputs.GetTasksTaskParameterGeometryOutputFormatResult'],
+                 jdbc_treat_timestamp_ntz_as_utcs: Sequence['outputs.GetTasksTaskParameterJdbcTreatTimestampNtzAsUtcResult'],
+                 jdbc_use_session_timezones: Sequence['outputs.GetTasksTaskParameterJdbcUseSessionTimezoneResult'],
+                 json_indents: Sequence['outputs.GetTasksTaskParameterJsonIndentResult'],
+                 lock_timeouts: Sequence['outputs.GetTasksTaskParameterLockTimeoutResult'],
+                 log_levels: Sequence['outputs.GetTasksTaskParameterLogLevelResult'],
+                 multi_statement_counts: Sequence['outputs.GetTasksTaskParameterMultiStatementCountResult'],
+                 noorder_sequence_as_defaults: Sequence['outputs.GetTasksTaskParameterNoorderSequenceAsDefaultResult'],
+                 odbc_treat_decimal_as_ints: Sequence['outputs.GetTasksTaskParameterOdbcTreatDecimalAsIntResult'],
+                 query_tags: Sequence['outputs.GetTasksTaskParameterQueryTagResult'],
+                 quoted_identifiers_ignore_cases: Sequence['outputs.GetTasksTaskParameterQuotedIdentifiersIgnoreCaseResult'],
+                 rows_per_resultsets: Sequence['outputs.GetTasksTaskParameterRowsPerResultsetResult'],
+                 s3_stage_vpce_dns_names: Sequence['outputs.GetTasksTaskParameterS3StageVpceDnsNameResult'],
+                 search_paths: Sequence['outputs.GetTasksTaskParameterSearchPathResult'],
+                 statement_queued_timeout_in_seconds: Sequence['outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecondResult'],
+                 statement_timeout_in_seconds: Sequence['outputs.GetTasksTaskParameterStatementTimeoutInSecondResult'],
+                 strict_json_outputs: Sequence['outputs.GetTasksTaskParameterStrictJsonOutputResult'],
+                 suspend_task_after_num_failures: Sequence['outputs.GetTasksTaskParameterSuspendTaskAfterNumFailureResult'],
+                 task_auto_retry_attempts: Sequence['outputs.GetTasksTaskParameterTaskAutoRetryAttemptResult'],
+                 time_input_formats: Sequence['outputs.GetTasksTaskParameterTimeInputFormatResult'],
+                 time_output_formats: Sequence['outputs.GetTasksTaskParameterTimeOutputFormatResult'],
+                 timestamp_day_is_always24hs: Sequence['outputs.GetTasksTaskParameterTimestampDayIsAlways24hResult'],
+                 timestamp_input_formats: Sequence['outputs.GetTasksTaskParameterTimestampInputFormatResult'],
+                 timestamp_ltz_output_formats: Sequence['outputs.GetTasksTaskParameterTimestampLtzOutputFormatResult'],
+                 timestamp_ntz_output_formats: Sequence['outputs.GetTasksTaskParameterTimestampNtzOutputFormatResult'],
+                 timestamp_output_formats: Sequence['outputs.GetTasksTaskParameterTimestampOutputFormatResult'],
+                 timestamp_type_mappings: Sequence['outputs.GetTasksTaskParameterTimestampTypeMappingResult'],
+                 timestamp_tz_output_formats: Sequence['outputs.GetTasksTaskParameterTimestampTzOutputFormatResult'],
+                 timezones: Sequence['outputs.GetTasksTaskParameterTimezoneResult'],
+                 trace_levels: Sequence['outputs.GetTasksTaskParameterTraceLevelResult'],
+                 transaction_abort_on_errors: Sequence['outputs.GetTasksTaskParameterTransactionAbortOnErrorResult'],
+                 transaction_default_isolation_levels: Sequence['outputs.GetTasksTaskParameterTransactionDefaultIsolationLevelResult'],
+                 two_digit_century_starts: Sequence['outputs.GetTasksTaskParameterTwoDigitCenturyStartResult'],
+                 unsupported_ddl_actions: Sequence['outputs.GetTasksTaskParameterUnsupportedDdlActionResult'],
+                 use_cached_results: Sequence['outputs.GetTasksTaskParameterUseCachedResultResult'],
+                 user_task_managed_initial_warehouse_sizes: Sequence['outputs.GetTasksTaskParameterUserTaskManagedInitialWarehouseSizeResult'],
+                 user_task_minimum_trigger_interval_in_seconds: Sequence['outputs.GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecondResult'],
+                 user_task_timeout_ms: Sequence['outputs.GetTasksTaskParameterUserTaskTimeoutMResult'],
+                 week_of_year_policies: Sequence['outputs.GetTasksTaskParameterWeekOfYearPolicyResult'],
+                 week_starts: Sequence['outputs.GetTasksTaskParameterWeekStartResult']):
+        pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        pulumi.set(__self__, "autocommits", autocommits)
+        pulumi.set(__self__, "binary_input_formats", binary_input_formats)
+        pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        pulumi.set(__self__, "client_memory_limits", client_memory_limits)
+        pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
+        pulumi.set(__self__, "client_result_chunk_sizes", client_result_chunk_sizes)
+        pulumi.set(__self__, "client_result_column_case_insensitives", client_result_column_case_insensitives)
+        pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequencies", client_session_keep_alive_heartbeat_frequencies)
+        pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
+        pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        pulumi.set(__self__, "date_input_formats", date_input_formats)
+        pulumi.set(__self__, "date_output_formats", date_output_formats)
+        pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
+        pulumi.set(__self__, "error_on_nondeterministic_merges", error_on_nondeterministic_merges)
+        pulumi.set(__self__, "error_on_nondeterministic_updates", error_on_nondeterministic_updates)
+        pulumi.set(__self__, "geography_output_formats", geography_output_formats)
+        pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
+        pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        pulumi.set(__self__, "json_indents", json_indents)
+        pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
+        pulumi.set(__self__, "noorder_sequence_as_defaults", noorder_sequence_as_defaults)
+        pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
+        pulumi.set(__self__, "query_tags", query_tags)
+        pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        pulumi.set(__self__, "rows_per_resultsets", rows_per_resultsets)
+        pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
+        pulumi.set(__self__, "search_paths", search_paths)
+        pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        pulumi.set(__self__, "strict_json_outputs", strict_json_outputs)
+        pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        pulumi.set(__self__, "time_input_formats", time_input_formats)
+        pulumi.set(__self__, "time_output_formats", time_output_formats)
+        pulumi.set(__self__, "timestamp_day_is_always24hs", timestamp_day_is_always24hs)
+        pulumi.set(__self__, "timestamp_input_formats", timestamp_input_formats)
+        pulumi.set(__self__, "timestamp_ltz_output_formats", timestamp_ltz_output_formats)
+        pulumi.set(__self__, "timestamp_ntz_output_formats", timestamp_ntz_output_formats)
+        pulumi.set(__self__, "timestamp_output_formats", timestamp_output_formats)
+        pulumi.set(__self__, "timestamp_type_mappings", timestamp_type_mappings)
+        pulumi.set(__self__, "timestamp_tz_output_formats", timestamp_tz_output_formats)
+        pulumi.set(__self__, "timezones", timezones)
+        pulumi.set(__self__, "trace_levels", trace_levels)
+        pulumi.set(__self__, "transaction_abort_on_errors", transaction_abort_on_errors)
+        pulumi.set(__self__, "transaction_default_isolation_levels", transaction_default_isolation_levels)
+        pulumi.set(__self__, "two_digit_century_starts", two_digit_century_starts)
+        pulumi.set(__self__, "unsupported_ddl_actions", unsupported_ddl_actions)
+        pulumi.set(__self__, "use_cached_results", use_cached_results)
+        pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+        pulumi.set(__self__, "week_of_year_policies", week_of_year_policies)
+        pulumi.set(__self__, "week_starts", week_starts)
+
+    @property
+    @pulumi.getter(name="abortDetachedQueries")
+    def abort_detached_queries(self) -> Sequence['outputs.GetTasksTaskParameterAbortDetachedQueryResult']:
+        return pulumi.get(self, "abort_detached_queries")
+
+    @property
+    @pulumi.getter
+    def autocommits(self) -> Sequence['outputs.GetTasksTaskParameterAutocommitResult']:
+        return pulumi.get(self, "autocommits")
+
+    @property
+    @pulumi.getter(name="binaryInputFormats")
+    def binary_input_formats(self) -> Sequence['outputs.GetTasksTaskParameterBinaryInputFormatResult']:
+        return pulumi.get(self, "binary_input_formats")
+
+    @property
+    @pulumi.getter(name="binaryOutputFormats")
+    def binary_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterBinaryOutputFormatResult']:
+        return pulumi.get(self, "binary_output_formats")
+
+    @property
+    @pulumi.getter(name="clientMemoryLimits")
+    def client_memory_limits(self) -> Sequence['outputs.GetTasksTaskParameterClientMemoryLimitResult']:
+        return pulumi.get(self, "client_memory_limits")
+
+    @property
+    @pulumi.getter(name="clientMetadataRequestUseConnectionCtxes")
+    def client_metadata_request_use_connection_ctxes(self) -> Sequence['outputs.GetTasksTaskParameterClientMetadataRequestUseConnectionCtxResult']:
+        return pulumi.get(self, "client_metadata_request_use_connection_ctxes")
+
+    @property
+    @pulumi.getter(name="clientPrefetchThreads")
+    def client_prefetch_threads(self) -> Sequence['outputs.GetTasksTaskParameterClientPrefetchThreadResult']:
+        return pulumi.get(self, "client_prefetch_threads")
+
+    @property
+    @pulumi.getter(name="clientResultChunkSizes")
+    def client_result_chunk_sizes(self) -> Sequence['outputs.GetTasksTaskParameterClientResultChunkSizeResult']:
+        return pulumi.get(self, "client_result_chunk_sizes")
+
+    @property
+    @pulumi.getter(name="clientResultColumnCaseInsensitives")
+    def client_result_column_case_insensitives(self) -> Sequence['outputs.GetTasksTaskParameterClientResultColumnCaseInsensitiveResult']:
+        return pulumi.get(self, "client_result_column_case_insensitives")
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequencies")
+    def client_session_keep_alive_heartbeat_frequencies(self) -> Sequence['outputs.GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequencyResult']:
+        return pulumi.get(self, "client_session_keep_alive_heartbeat_frequencies")
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAlives")
+    def client_session_keep_alives(self) -> Sequence['outputs.GetTasksTaskParameterClientSessionKeepAlifeResult']:
+        return pulumi.get(self, "client_session_keep_alives")
+
+    @property
+    @pulumi.getter(name="clientTimestampTypeMappings")
+    def client_timestamp_type_mappings(self) -> Sequence['outputs.GetTasksTaskParameterClientTimestampTypeMappingResult']:
+        return pulumi.get(self, "client_timestamp_type_mappings")
+
+    @property
+    @pulumi.getter(name="dateInputFormats")
+    def date_input_formats(self) -> Sequence['outputs.GetTasksTaskParameterDateInputFormatResult']:
+        return pulumi.get(self, "date_input_formats")
+
+    @property
+    @pulumi.getter(name="dateOutputFormats")
+    def date_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterDateOutputFormatResult']:
+        return pulumi.get(self, "date_output_formats")
+
+    @property
+    @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
+    def enable_unload_physical_type_optimizations(self) -> Sequence['outputs.GetTasksTaskParameterEnableUnloadPhysicalTypeOptimizationResult']:
+        return pulumi.get(self, "enable_unload_physical_type_optimizations")
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicMerges")
+    def error_on_nondeterministic_merges(self) -> Sequence['outputs.GetTasksTaskParameterErrorOnNondeterministicMergeResult']:
+        return pulumi.get(self, "error_on_nondeterministic_merges")
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicUpdates")
+    def error_on_nondeterministic_updates(self) -> Sequence['outputs.GetTasksTaskParameterErrorOnNondeterministicUpdateResult']:
+        return pulumi.get(self, "error_on_nondeterministic_updates")
+
+    @property
+    @pulumi.getter(name="geographyOutputFormats")
+    def geography_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterGeographyOutputFormatResult']:
+        return pulumi.get(self, "geography_output_formats")
+
+    @property
+    @pulumi.getter(name="geometryOutputFormats")
+    def geometry_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterGeometryOutputFormatResult']:
+        return pulumi.get(self, "geometry_output_formats")
+
+    @property
+    @pulumi.getter(name="jdbcTreatTimestampNtzAsUtcs")
+    def jdbc_treat_timestamp_ntz_as_utcs(self) -> Sequence['outputs.GetTasksTaskParameterJdbcTreatTimestampNtzAsUtcResult']:
+        return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utcs")
+
+    @property
+    @pulumi.getter(name="jdbcUseSessionTimezones")
+    def jdbc_use_session_timezones(self) -> Sequence['outputs.GetTasksTaskParameterJdbcUseSessionTimezoneResult']:
+        return pulumi.get(self, "jdbc_use_session_timezones")
+
+    @property
+    @pulumi.getter(name="jsonIndents")
+    def json_indents(self) -> Sequence['outputs.GetTasksTaskParameterJsonIndentResult']:
+        return pulumi.get(self, "json_indents")
+
+    @property
+    @pulumi.getter(name="lockTimeouts")
+    def lock_timeouts(self) -> Sequence['outputs.GetTasksTaskParameterLockTimeoutResult']:
+        return pulumi.get(self, "lock_timeouts")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Sequence['outputs.GetTasksTaskParameterLogLevelResult']:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="multiStatementCounts")
+    def multi_statement_counts(self) -> Sequence['outputs.GetTasksTaskParameterMultiStatementCountResult']:
+        return pulumi.get(self, "multi_statement_counts")
+
+    @property
+    @pulumi.getter(name="noorderSequenceAsDefaults")
+    def noorder_sequence_as_defaults(self) -> Sequence['outputs.GetTasksTaskParameterNoorderSequenceAsDefaultResult']:
+        return pulumi.get(self, "noorder_sequence_as_defaults")
+
+    @property
+    @pulumi.getter(name="odbcTreatDecimalAsInts")
+    def odbc_treat_decimal_as_ints(self) -> Sequence['outputs.GetTasksTaskParameterOdbcTreatDecimalAsIntResult']:
+        return pulumi.get(self, "odbc_treat_decimal_as_ints")
+
+    @property
+    @pulumi.getter(name="queryTags")
+    def query_tags(self) -> Sequence['outputs.GetTasksTaskParameterQueryTagResult']:
+        return pulumi.get(self, "query_tags")
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Sequence['outputs.GetTasksTaskParameterQuotedIdentifiersIgnoreCaseResult']:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @property
+    @pulumi.getter(name="rowsPerResultsets")
+    def rows_per_resultsets(self) -> Sequence['outputs.GetTasksTaskParameterRowsPerResultsetResult']:
+        return pulumi.get(self, "rows_per_resultsets")
+
+    @property
+    @pulumi.getter(name="s3StageVpceDnsNames")
+    def s3_stage_vpce_dns_names(self) -> Sequence['outputs.GetTasksTaskParameterS3StageVpceDnsNameResult']:
+        return pulumi.get(self, "s3_stage_vpce_dns_names")
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Sequence['outputs.GetTasksTaskParameterSearchPathResult']:
+        return pulumi.get(self, "search_paths")
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Sequence['outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Sequence['outputs.GetTasksTaskParameterStatementTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="strictJsonOutputs")
+    def strict_json_outputs(self) -> Sequence['outputs.GetTasksTaskParameterStrictJsonOutputResult']:
+        return pulumi.get(self, "strict_json_outputs")
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Sequence['outputs.GetTasksTaskParameterSuspendTaskAfterNumFailureResult']:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Sequence['outputs.GetTasksTaskParameterTaskAutoRetryAttemptResult']:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @property
+    @pulumi.getter(name="timeInputFormats")
+    def time_input_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimeInputFormatResult']:
+        return pulumi.get(self, "time_input_formats")
+
+    @property
+    @pulumi.getter(name="timeOutputFormats")
+    def time_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimeOutputFormatResult']:
+        return pulumi.get(self, "time_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampDayIsAlways24hs")
+    def timestamp_day_is_always24hs(self) -> Sequence['outputs.GetTasksTaskParameterTimestampDayIsAlways24hResult']:
+        return pulumi.get(self, "timestamp_day_is_always24hs")
+
+    @property
+    @pulumi.getter(name="timestampInputFormats")
+    def timestamp_input_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimestampInputFormatResult']:
+        return pulumi.get(self, "timestamp_input_formats")
+
+    @property
+    @pulumi.getter(name="timestampLtzOutputFormats")
+    def timestamp_ltz_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimestampLtzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_ltz_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampNtzOutputFormats")
+    def timestamp_ntz_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimestampNtzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_ntz_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampOutputFormats")
+    def timestamp_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimestampOutputFormatResult']:
+        return pulumi.get(self, "timestamp_output_formats")
+
+    @property
+    @pulumi.getter(name="timestampTypeMappings")
+    def timestamp_type_mappings(self) -> Sequence['outputs.GetTasksTaskParameterTimestampTypeMappingResult']:
+        return pulumi.get(self, "timestamp_type_mappings")
+
+    @property
+    @pulumi.getter(name="timestampTzOutputFormats")
+    def timestamp_tz_output_formats(self) -> Sequence['outputs.GetTasksTaskParameterTimestampTzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_tz_output_formats")
+
+    @property
+    @pulumi.getter
+    def timezones(self) -> Sequence['outputs.GetTasksTaskParameterTimezoneResult']:
+        return pulumi.get(self, "timezones")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Sequence['outputs.GetTasksTaskParameterTraceLevelResult']:
+        return pulumi.get(self, "trace_levels")
+
+    @property
+    @pulumi.getter(name="transactionAbortOnErrors")
+    def transaction_abort_on_errors(self) -> Sequence['outputs.GetTasksTaskParameterTransactionAbortOnErrorResult']:
+        return pulumi.get(self, "transaction_abort_on_errors")
+
+    @property
+    @pulumi.getter(name="transactionDefaultIsolationLevels")
+    def transaction_default_isolation_levels(self) -> Sequence['outputs.GetTasksTaskParameterTransactionDefaultIsolationLevelResult']:
+        return pulumi.get(self, "transaction_default_isolation_levels")
+
+    @property
+    @pulumi.getter(name="twoDigitCenturyStarts")
+    def two_digit_century_starts(self) -> Sequence['outputs.GetTasksTaskParameterTwoDigitCenturyStartResult']:
+        return pulumi.get(self, "two_digit_century_starts")
+
+    @property
+    @pulumi.getter(name="unsupportedDdlActions")
+    def unsupported_ddl_actions(self) -> Sequence['outputs.GetTasksTaskParameterUnsupportedDdlActionResult']:
+        return pulumi.get(self, "unsupported_ddl_actions")
+
+    @property
+    @pulumi.getter(name="useCachedResults")
+    def use_cached_results(self) -> Sequence['outputs.GetTasksTaskParameterUseCachedResultResult']:
+        return pulumi.get(self, "use_cached_results")
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Sequence['outputs.GetTasksTaskParameterUserTaskManagedInitialWarehouseSizeResult']:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Sequence['outputs.GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecondResult']:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Sequence['outputs.GetTasksTaskParameterUserTaskTimeoutMResult']:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @property
+    @pulumi.getter(name="weekOfYearPolicies")
+    def week_of_year_policies(self) -> Sequence['outputs.GetTasksTaskParameterWeekOfYearPolicyResult']:
+        return pulumi.get(self, "week_of_year_policies")
+
+    @property
+    @pulumi.getter(name="weekStarts")
+    def week_starts(self) -> Sequence['outputs.GetTasksTaskParameterWeekStartResult']:
+        return pulumi.get(self, "week_starts")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterAbortDetachedQueryResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterAutocommitResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterBinaryInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterBinaryOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientMemoryLimitResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientMetadataRequestUseConnectionCtxResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientPrefetchThreadResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientResultChunkSizeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientResultColumnCaseInsensitiveResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientSessionKeepAlifeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientSessionKeepAliveHeartbeatFrequencyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterClientTimestampTypeMappingResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterDateInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterDateOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterEnableUnloadPhysicalTypeOptimizationResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterErrorOnNondeterministicMergeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterErrorOnNondeterministicUpdateResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterGeographyOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterGeometryOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterJdbcTreatTimestampNtzAsUtcResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterJdbcUseSessionTimezoneResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterJsonIndentResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterLockTimeoutResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterLogLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterMultiStatementCountResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterNoorderSequenceAsDefaultResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterOdbcTreatDecimalAsIntResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterQueryTagResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterQuotedIdentifiersIgnoreCaseResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterRowsPerResultsetResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterS3StageVpceDnsNameResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterSearchPathResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterStatementQueuedTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterStatementTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterStrictJsonOutputResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterSuspendTaskAfterNumFailureResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTaskAutoRetryAttemptResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimeInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimeOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampDayIsAlways24hResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampLtzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampNtzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampTypeMappingResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimestampTzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTimezoneResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTraceLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTransactionAbortOnErrorResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTransactionDefaultIsolationLevelResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterTwoDigitCenturyStartResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterUnsupportedDdlActionResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterUseCachedResultResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterUserTaskManagedInitialWarehouseSizeResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterUserTaskMinimumTriggerIntervalInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterUserTaskTimeoutMResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterWeekOfYearPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterWeekStartResult(dict):
+    def __init__(__self__, *,
+                 default: str,
+                 description: str,
+                 key: str,
+                 level: str,
+                 value: str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskShowOutputResult(dict):
+    def __init__(__self__, *,
+                 allow_overlapping_execution: bool,
+                 budget: str,
+                 comment: str,
+                 condition: str,
+                 config: str,
+                 created_on: str,
+                 database_name: str,
+                 definition: str,
+                 error_integration: str,
+                 id: str,
+                 last_committed_on: str,
+                 last_suspended_on: str,
+                 last_suspended_reason: str,
+                 name: str,
+                 owner: str,
+                 owner_role_type: str,
+                 predecessors: Sequence[str],
+                 schedule: str,
+                 schema_name: str,
+                 state: str,
+                 task_relations: Sequence['outputs.GetTasksTaskShowOutputTaskRelationResult'],
+                 warehouse: str):
+        pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
+        pulumi.set(__self__, "budget", budget)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "config", config)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "error_integration", error_integration)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_committed_on", last_committed_on)
+        pulumi.set(__self__, "last_suspended_on", last_suspended_on)
+        pulumi.set(__self__, "last_suspended_reason", last_suspended_reason)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "predecessors", predecessors)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "task_relations", task_relations)
+        pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> bool:
+        return pulumi.get(self, "allow_overlapping_execution")
+
+    @property
+    @pulumi.getter
+    def budget(self) -> str:
+        return pulumi.get(self, "budget")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> str:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def config(self) -> str:
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> str:
+        return pulumi.get(self, "error_integration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastCommittedOn")
+    def last_committed_on(self) -> str:
+        return pulumi.get(self, "last_committed_on")
+
+    @property
+    @pulumi.getter(name="lastSuspendedOn")
+    def last_suspended_on(self) -> str:
+        return pulumi.get(self, "last_suspended_on")
+
+    @property
+    @pulumi.getter(name="lastSuspendedReason")
+    def last_suspended_reason(self) -> str:
+        return pulumi.get(self, "last_suspended_reason")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Sequence[str]:
+        return pulumi.get(self, "predecessors")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="taskRelations")
+    def task_relations(self) -> Sequence['outputs.GetTasksTaskShowOutputTaskRelationResult']:
+        return pulumi.get(self, "task_relations")
 
     @property
     @pulumi.getter
     def warehouse(self) -> str:
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class GetTasksTaskShowOutputTaskRelationResult(dict):
+    def __init__(__self__, *,
+                 finalized_root_task: str,
+                 finalizer: str,
+                 predecessors: Sequence[str]):
+        pulumi.set(__self__, "finalized_root_task", finalized_root_task)
+        pulumi.set(__self__, "finalizer", finalizer)
+        pulumi.set(__self__, "predecessors", predecessors)
+
+    @property
+    @pulumi.getter(name="finalizedRootTask")
+    def finalized_root_task(self) -> str:
+        return pulumi.get(self, "finalized_root_task")
+
+    @property
+    @pulumi.getter
+    def finalizer(self) -> str:
+        return pulumi.get(self, "finalizer")
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Sequence[str]:
+        return pulumi.get(self, "predecessors")
 
 
 @pulumi.output_type

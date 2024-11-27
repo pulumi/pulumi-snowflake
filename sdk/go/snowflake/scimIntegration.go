@@ -28,7 +28,7 @@ type ScimIntegration struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
@@ -89,7 +89,7 @@ type scimIntegrationState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -112,7 +112,7 @@ type ScimIntegrationState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy that controls SCIM network traffic.
 	NetworkPolicy pulumi.StringPtrInput
@@ -135,7 +135,7 @@ type scimIntegrationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specify whether the security integration is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -153,7 +153,7 @@ type ScimIntegrationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specify whether the security integration is enabled.
 	Enabled pulumi.BoolInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy that controls SCIM network traffic.
 	NetworkPolicy pulumi.StringPtrInput
@@ -272,7 +272,7 @@ func (o ScimIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ScimIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -32,6 +32,7 @@ class StorageIntegrationArgs:
         """
         The set of arguments for constructing a StorageIntegration resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
+        :param pulumi.Input[str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
         :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         """
@@ -69,6 +70,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter(name="storageProvider")
     def storage_provider(self) -> pulumi.Input[str]:
+        """
+        Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        """
         return pulumi.get(self, "storage_provider")
 
     @storage_provider.setter
@@ -186,6 +190,7 @@ class _StorageIntegrationState:
         :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
+        :param pulumi.Input[str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
         """
         if azure_consent_url is not None:
             pulumi.set(__self__, "azure_consent_url", azure_consent_url)
@@ -390,6 +395,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter(name="storageProvider")
     def storage_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        """
         return pulumi.get(self, "storage_provider")
 
     @storage_provider.setter
@@ -434,6 +442,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
+        :param pulumi.Input[str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
         """
         ...
     @overload
@@ -547,6 +556,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
+        :param pulumi.Input[str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -679,6 +689,9 @@ class StorageIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageProvider")
     def storage_provider(self) -> pulumi.Output[str]:
+        """
+        Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        """
         return pulumi.get(self, "storage_provider")
 
     @property

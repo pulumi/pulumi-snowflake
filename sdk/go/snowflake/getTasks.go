@@ -11,32 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetTasks(ctx, &snowflake.GetTasksArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
 func GetTasks(ctx *pulumi.Context, args *GetTasksArgs, opts ...pulumi.InvokeOption) (*GetTasksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTasksResult
@@ -49,22 +26,38 @@ func GetTasks(ctx *pulumi.Context, args *GetTasksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getTasks.
 type GetTasksArgs struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In *GetTasksIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetTasksLimit `pulumi:"limit"`
+	// Filters the command output to return only root tasks (tasks with no predecessors).
+	RootOnly *bool `pulumi:"rootOnly"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getTasks.
 type GetTasksResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The schema from which to return the tasks from.
-	Schema string `pulumi:"schema"`
-	// The tasks in the schema
+	// IN clause to filter the list of objects
+	In *GetTasksIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetTasksLimit `pulumi:"limit"`
+	// Filters the command output to return only root tasks (tasks with no predecessors).
+	RootOnly *bool `pulumi:"rootOnly"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Holds the aggregated output of all task details queries.
 	Tasks []GetTasksTask `pulumi:"tasks"`
+	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi.InvokeOption) GetTasksResultOutput {
@@ -88,10 +81,18 @@ func GetTasksOutput(ctx *pulumi.Context, args GetTasksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getTasks.
 type GetTasksOutputArgs struct {
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the tasks from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In GetTasksInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetTasksLimitPtrInput `pulumi:"limit"`
+	// Filters the command output to return only root tasks (tasks with no predecessors).
+	RootOnly pulumi.BoolPtrInput `pulumi:"rootOnly"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
 func (GetTasksOutputArgs) ElementType() reflect.Type {
@@ -113,24 +114,44 @@ func (o GetTasksResultOutput) ToGetTasksResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The database from which to return the schemas from.
-func (o GetTasksResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTasksResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetTasksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTasksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the tasks from.
-func (o GetTasksResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTasksResult) string { return v.Schema }).(pulumi.StringOutput)
+// IN clause to filter the list of objects
+func (o GetTasksResultOutput) In() GetTasksInPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *GetTasksIn { return v.In }).(GetTasksInPtrOutput)
 }
 
-// The tasks in the schema
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetTasksResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetTasksResultOutput) Limit() GetTasksLimitPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *GetTasksLimit { return v.Limit }).(GetTasksLimitPtrOutput)
+}
+
+// Filters the command output to return only root tasks (tasks with no predecessors).
+func (o GetTasksResultOutput) RootOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *bool { return v.RootOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetTasksResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all task details queries.
 func (o GetTasksResultOutput) Tasks() GetTasksTaskArrayOutput {
 	return o.ApplyT(func(v GetTasksResult) []GetTasksTask { return v.Tasks }).(GetTasksTaskArrayOutput)
+}
+
+// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+func (o GetTasksResultOutput) WithParameters() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTasksResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

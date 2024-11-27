@@ -37,7 +37,7 @@ type Warehouse struct {
 	MaxConcurrencyLevel pulumi.IntOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrOutput `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters WarehouseParameterArrayOutput `pulumi:"parameters"`
@@ -107,7 +107,7 @@ type warehouseState struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters []WarehouseParameter `pulumi:"parameters"`
@@ -148,7 +148,7 @@ type WarehouseState struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
 	Parameters WarehouseParameterArrayInput
@@ -191,7 +191,7 @@ type warehouseArgs struct {
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
@@ -227,7 +227,7 @@ type WarehouseArgs struct {
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
-	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
@@ -377,7 +377,7 @@ func (o WarehouseOutput) MinClusterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.MinClusterCount }).(pulumi.IntPtrOutput)
 }
 
-// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o WarehouseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

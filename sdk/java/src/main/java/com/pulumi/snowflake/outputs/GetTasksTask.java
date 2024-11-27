@@ -5,32 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetTasksTaskParameter;
+import com.pulumi.snowflake.outputs.GetTasksTaskShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetTasksTask {
-    private String comment;
-    private String database;
-    private String name;
-    private String schema;
-    private String warehouse;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR TASK.
+     * 
+     */
+    private List<GetTasksTaskParameter> parameters;
+    /**
+     * @return Holds the output of SHOW TASKS.
+     * 
+     */
+    private List<GetTasksTaskShowOutput> showOutputs;
 
     private GetTasksTask() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of SHOW PARAMETERS FOR TASK.
+     * 
+     */
+    public List<GetTasksTaskParameter> parameters() {
+        return this.parameters;
     }
-    public String database() {
-        return this.database;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
-    }
-    public String warehouse() {
-        return this.warehouse;
+    /**
+     * @return Holds the output of SHOW TASKS.
+     * 
+     */
+    public List<GetTasksTaskShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +48,41 @@ public final class GetTasksTask {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String name;
-        private String schema;
-        private String warehouse;
+        private List<GetTasksTaskParameter> parameters;
+        private List<GetTasksTaskShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetTasksTask defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
-    	      this.warehouse = defaults.warehouse;
+    	      this.parameters = defaults.parameters;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetTasksTask", "comment");
+        public Builder parameters(List<GetTasksTaskParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetTasksTask", "parameters");
             }
-            this.comment = comment;
+            this.parameters = parameters;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetTasksTask", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder parameters(GetTasksTaskParameter... parameters) {
+            return parameters(List.of(parameters));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetTasksTask", "name");
+        public Builder showOutputs(List<GetTasksTaskShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetTasksTask", "showOutputs");
             }
-            this.name = name;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetTasksTask", "schema");
-            }
-            this.schema = schema;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder warehouse(String warehouse) {
-            if (warehouse == null) {
-              throw new MissingRequiredPropertyException("GetTasksTask", "warehouse");
-            }
-            this.warehouse = warehouse;
-            return this;
+        public Builder showOutputs(GetTasksTaskShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetTasksTask build() {
             final var _resultValue = new GetTasksTask();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
-            _resultValue.warehouse = warehouse;
+            _resultValue.parameters = parameters;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

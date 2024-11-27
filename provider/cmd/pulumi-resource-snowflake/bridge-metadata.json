@@ -1807,6 +1807,19 @@
                 "fields": {
                     "allowed_values": {
                         "maxItemsOne": false
+                    },
+                    "masking_policies": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1826,6 +1839,210 @@
                 "fields": {
                     "after": {
                         "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "abort_detached_query": {
+                                    "maxItemsOne": false
+                                },
+                                "autocommit": {
+                                    "maxItemsOne": false
+                                },
+                                "binary_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "binary_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "client_memory_limit": {
+                                    "maxItemsOne": false
+                                },
+                                "client_metadata_request_use_connection_ctx": {
+                                    "maxItemsOne": false
+                                },
+                                "client_prefetch_threads": {
+                                    "maxItemsOne": false
+                                },
+                                "client_result_chunk_size": {
+                                    "maxItemsOne": false
+                                },
+                                "client_result_column_case_insensitive": {
+                                    "maxItemsOne": false
+                                },
+                                "client_session_keep_alive": {
+                                    "maxItemsOne": false
+                                },
+                                "client_session_keep_alive_heartbeat_frequency": {
+                                    "maxItemsOne": false
+                                },
+                                "client_timestamp_type_mapping": {
+                                    "maxItemsOne": false
+                                },
+                                "date_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "date_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "enable_unload_physical_type_optimization": {
+                                    "maxItemsOne": false
+                                },
+                                "error_on_nondeterministic_merge": {
+                                    "maxItemsOne": false
+                                },
+                                "error_on_nondeterministic_update": {
+                                    "maxItemsOne": false
+                                },
+                                "geography_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "geometry_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "jdbc_treat_timestamp_ntz_as_utc": {
+                                    "maxItemsOne": false
+                                },
+                                "jdbc_use_session_timezone": {
+                                    "maxItemsOne": false
+                                },
+                                "json_indent": {
+                                    "maxItemsOne": false
+                                },
+                                "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_level": {
+                                    "maxItemsOne": false
+                                },
+                                "multi_statement_count": {
+                                    "maxItemsOne": false
+                                },
+                                "noorder_sequence_as_default": {
+                                    "maxItemsOne": false
+                                },
+                                "odbc_treat_decimal_as_int": {
+                                    "maxItemsOne": false
+                                },
+                                "query_tag": {
+                                    "maxItemsOne": false
+                                },
+                                "quoted_identifiers_ignore_case": {
+                                    "maxItemsOne": false
+                                },
+                                "rows_per_resultset": {
+                                    "maxItemsOne": false
+                                },
+                                "s3_stage_vpce_dns_name": {
+                                    "maxItemsOne": false
+                                },
+                                "search_path": {
+                                    "maxItemsOne": false
+                                },
+                                "statement_queued_timeout_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "statement_timeout_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "strict_json_output": {
+                                    "maxItemsOne": false
+                                },
+                                "suspend_task_after_num_failures": {
+                                    "maxItemsOne": false
+                                },
+                                "task_auto_retry_attempts": {
+                                    "maxItemsOne": false
+                                },
+                                "time_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "time_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_day_is_always_24h": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_input_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_ltz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_ntz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_type_mapping": {
+                                    "maxItemsOne": false
+                                },
+                                "timestamp_tz_output_format": {
+                                    "maxItemsOne": false
+                                },
+                                "timezone": {
+                                    "maxItemsOne": false
+                                },
+                                "trace_level": {
+                                    "maxItemsOne": false
+                                },
+                                "transaction_abort_on_error": {
+                                    "maxItemsOne": false
+                                },
+                                "transaction_default_isolation_level": {
+                                    "maxItemsOne": false
+                                },
+                                "two_digit_century_start": {
+                                    "maxItemsOne": false
+                                },
+                                "unsupported_ddl_action": {
+                                    "maxItemsOne": false
+                                },
+                                "use_cached_result": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_managed_initial_warehouse_size": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_minimum_trigger_interval_in_seconds": {
+                                    "maxItemsOne": false
+                                },
+                                "user_task_timeout_ms": {
+                                    "maxItemsOne": false
+                                },
+                                "week_of_year_policy": {
+                                    "maxItemsOne": false
+                                },
+                                "week_start": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "schedule": {
+                        "maxItemsOne": true
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "predecessors": {
+                                    "maxItemsOne": false
+                                },
+                                "task_relations": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "predecessors": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -2991,11 +3208,247 @@
                     }
                 }
             },
+            "snowflake_tags": {
+                "current": "snowflake:index/getTags:getTags",
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "tags": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "show_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_tasks": {
                 "current": "snowflake:index/getTasks:getTasks",
                 "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
                     "tasks": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "abort_detached_query": {
+                                                "maxItemsOne": false
+                                            },
+                                            "autocommit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_memory_limit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_metadata_request_use_connection_ctx": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_prefetch_threads": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_chunk_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_column_case_insensitive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive_heartbeat_frequency": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unload_physical_type_optimization": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_merge": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_update": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geography_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geometry_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_treat_timestamp_ntz_as_utc": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_use_session_timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "json_indent": {
+                                                "maxItemsOne": false
+                                            },
+                                            "lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "multi_statement_count": {
+                                                "maxItemsOne": false
+                                            },
+                                            "noorder_sequence_as_default": {
+                                                "maxItemsOne": false
+                                            },
+                                            "odbc_treat_decimal_as_int": {
+                                                "maxItemsOne": false
+                                            },
+                                            "query_tag": {
+                                                "maxItemsOne": false
+                                            },
+                                            "quoted_identifiers_ignore_case": {
+                                                "maxItemsOne": false
+                                            },
+                                            "rows_per_resultset": {
+                                                "maxItemsOne": false
+                                            },
+                                            "s3_stage_vpce_dns_name": {
+                                                "maxItemsOne": false
+                                            },
+                                            "search_path": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_queued_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "strict_json_output": {
+                                                "maxItemsOne": false
+                                            },
+                                            "suspend_task_after_num_failures": {
+                                                "maxItemsOne": false
+                                            },
+                                            "task_auto_retry_attempts": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_day_is_always_24h": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ltz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ntz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_tz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "trace_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_abort_on_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_default_isolation_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "two_digit_century_start": {
+                                                "maxItemsOne": false
+                                            },
+                                            "unsupported_ddl_action": {
+                                                "maxItemsOne": false
+                                            },
+                                            "use_cached_result": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_managed_initial_warehouse_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_minimum_trigger_interval_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_timeout_ms": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_of_year_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_start": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "predecessors": {
+                                                "maxItemsOne": false
+                                            },
+                                            "task_relations": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "predecessors": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },

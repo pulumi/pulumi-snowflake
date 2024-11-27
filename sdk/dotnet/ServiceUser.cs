@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
         public Output<int> MultiStatementCount { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -763,7 +763,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1223,7 +1223,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

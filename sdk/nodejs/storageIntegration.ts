@@ -84,6 +84,9 @@ export class StorageIntegration extends pulumi.CustomResource {
      * This is the name of the Snowflake Google Service Account created for your account.
      */
     public /*out*/ readonly storageGcpServiceAccount!: pulumi.Output<string>;
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     */
     public readonly storageProvider!: pulumi.Output<string>;
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -197,6 +200,9 @@ export interface StorageIntegrationState {
      * This is the name of the Snowflake Google Service Account created for your account.
      */
     storageGcpServiceAccount?: pulumi.Input<string>;
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     */
     storageProvider?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }
@@ -222,6 +228,9 @@ export interface StorageIntegrationArgs {
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
     storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     */
     storageProvider: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }
