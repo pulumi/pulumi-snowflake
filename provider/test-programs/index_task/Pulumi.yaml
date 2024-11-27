@@ -15,10 +15,12 @@ resources:
   my_task:
     properties:
       database: ${my_database.name}
-      schedule: USING CRON 0 9 * * * UTC
+      schedule:
+        minutes: 5
       schema: ${my_schema.name}
       sqlStatement: INSERT INTO my_target_table SELECT * FROM my_source_table;
       warehouse: ${my_warehouse.name}
+      started: true
     type: snowflake:Task
   my_warehouse:
     properties:
