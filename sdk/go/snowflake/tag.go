@@ -14,26 +14,28 @@ import (
 
 // ## Import
 //
-// format is database name | schema name | tag name
-//
 // ```sh
-// $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+// $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
 // ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// List of allowed values for the tag.
+	// Set of allowed values for the tag.
 	AllowedValues pulumi.StringArrayOutput `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the tag.
+	// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+	// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+	MaskingPolicies pulumi.StringArrayOutput `pulumi:"maskingPolicies"`
+	// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the tag.
+	// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Outputs the result of `SHOW TAGS` for the given tag.
+	ShowOutputs TagShowOutputArrayOutput `pulumi:"showOutputs"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -72,33 +74,41 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// List of allowed values for the tag.
+	// Set of allowed values for the tag.
 	AllowedValues []string `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the tag.
+	// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database *string `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+	// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+	MaskingPolicies []string `pulumi:"maskingPolicies"`
+	// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
-	// The schema in which to create the tag.
+	// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema *string `pulumi:"schema"`
+	// Outputs the result of `SHOW TAGS` for the given tag.
+	ShowOutputs []TagShowOutput `pulumi:"showOutputs"`
 }
 
 type TagState struct {
-	// List of allowed values for the tag.
+	// Set of allowed values for the tag.
 	AllowedValues pulumi.StringArrayInput
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the tag.
+	// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+	// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+	MaskingPolicies pulumi.StringArrayInput
+	// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
-	// The schema in which to create the tag.
+	// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringPtrInput
+	// Outputs the result of `SHOW TAGS` for the given tag.
+	ShowOutputs TagShowOutputArrayInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -106,29 +116,33 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// List of allowed values for the tag.
+	// Set of allowed values for the tag.
 	AllowedValues []string `pulumi:"allowedValues"`
 	// Specifies a comment for the tag.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the tag.
+	// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+	// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+	MaskingPolicies []string `pulumi:"maskingPolicies"`
+	// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
-	// The schema in which to create the tag.
+	// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// List of allowed values for the tag.
+	// Set of allowed values for the tag.
 	AllowedValues pulumi.StringArrayInput
 	// Specifies a comment for the tag.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the tag.
+	// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringInput
-	// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+	// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+	MaskingPolicies pulumi.StringArrayInput
+	// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
-	// The schema in which to create the tag.
+	// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringInput
 }
 
@@ -219,7 +233,7 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// List of allowed values for the tag.
+// Set of allowed values for the tag.
 func (o TagOutput) AllowedValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringArrayOutput { return v.AllowedValues }).(pulumi.StringArrayOutput)
 }
@@ -229,7 +243,7 @@ func (o TagOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the tag.
+// The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o TagOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -239,14 +253,24 @@ func (o TagOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+// Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+func (o TagOutput) MaskingPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringArrayOutput { return v.MaskingPolicies }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o TagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the tag.
+// The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o TagOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `SHOW TAGS` for the given tag.
+func (o TagOutput) ShowOutputs() TagShowOutputArrayOutput {
+	return o.ApplyT(func(v *Tag) TagShowOutputArrayOutput { return v.ShowOutputs }).(TagShowOutputArrayOutput)
 }
 
 type TagArrayOutput struct{ *pulumi.OutputState }

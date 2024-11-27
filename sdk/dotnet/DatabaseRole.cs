@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

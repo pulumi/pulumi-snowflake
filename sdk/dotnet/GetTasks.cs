@@ -12,49 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetTasks
     {
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetTasks.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
         /// </summary>
-        public static Task<GetTasksResult> InvokeAsync(GetTasksArgs args, InvokeOptions? options = null)
+        public static Task<GetTasksResult> InvokeAsync(GetTasksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
+        /// !&gt; **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetTasks.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
         /// </summary>
-        public static Output<GetTasksResult> Invoke(GetTasksInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetTasksResult> Invoke(GetTasksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksInvokeArgs(), options.WithDefaults());
     }
 
@@ -62,16 +32,40 @@ namespace Pulumi.Snowflake
     public sealed class GetTasksArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetTasksInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the tasks from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Inputs.GetTasksLimitArgs? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
+        [Input("rootOnly")]
+        public bool? RootOnly { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public string? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public bool? WithParameters { get; set; }
 
         public GetTasksArgs()
         {
@@ -82,16 +76,40 @@ namespace Pulumi.Snowflake
     public sealed class GetTasksInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetTasksInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the tasks from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        [Input("limit")]
+        public Input<Inputs.GetTasksLimitInputArgs>? Limit { get; set; }
+
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
+        [Input("rootOnly")]
+        public Input<bool>? RootOnly { get; set; }
+
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        [Input("startsWith")]
+        public Input<string>? StartsWith { get; set; }
+
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        [Input("withParameters")]
+        public Input<bool>? WithParameters { get; set; }
 
         public GetTasksInvokeArgs()
         {
@@ -104,36 +122,64 @@ namespace Pulumi.Snowflake
     public sealed class GetTasksResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schema from which to return the tasks from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        public readonly string Schema;
+        public readonly Outputs.GetTasksInResult? In;
         /// <summary>
-        /// The tasks in the schema
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
+        public readonly Outputs.GetTasksLimitResult? Limit;
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
+        public readonly bool? RootOnly;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
+        public readonly string? StartsWith;
+        /// <summary>
+        /// Holds the aggregated output of all task details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTasksTaskResult> Tasks;
+        /// <summary>
+        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithParameters;
 
         [OutputConstructor]
         private GetTasksResult(
-            string database,
-
             string id,
 
-            string schema,
+            Outputs.GetTasksInResult? @in,
 
-            ImmutableArray<Outputs.GetTasksTaskResult> tasks)
+            string? like,
+
+            Outputs.GetTasksLimitResult? limit,
+
+            bool? rootOnly,
+
+            string? startsWith,
+
+            ImmutableArray<Outputs.GetTasksTaskResult> tasks,
+
+            bool? withParameters)
         {
-            Database = database;
             Id = id;
-            Schema = schema;
+            In = @in;
+            Like = like;
+            Limit = limit;
+            RootOnly = rootOnly;
+            StartsWith = startsWith;
             Tasks = tasks;
+            WithParameters = withParameters;
         }
     }
 }

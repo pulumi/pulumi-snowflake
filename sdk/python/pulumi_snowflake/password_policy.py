@@ -614,8 +614,7 @@ class PasswordPolicy(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
-
+        Create a PasswordPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
@@ -643,8 +642,7 @@ class PasswordPolicy(pulumi.CustomResource):
                  args: PasswordPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
-
+        Create a PasswordPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PasswordPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

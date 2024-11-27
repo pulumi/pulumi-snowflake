@@ -34,7 +34,7 @@ type View struct {
 	DataMetricFunctions ViewDataMetricFunctionArrayOutput `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrOutput `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs ViewDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -44,11 +44,11 @@ type View struct {
 	IsRecursive pulumi.StringPtrOutput `pulumi:"isRecursive"`
 	IsSecure    pulumi.StringPtrOutput `pulumi:"isSecure"`
 	IsTemporary pulumi.StringPtrOutput `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrOutput `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs ViewShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -109,7 +109,7 @@ type viewState struct {
 	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs []ViewDescribeOutput `pulumi:"describeOutputs"`
@@ -119,11 +119,11 @@ type viewState struct {
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs []ViewShowOutput `pulumi:"showOutputs"`
@@ -146,7 +146,7 @@ type ViewState struct {
 	DataMetricFunctions ViewDataMetricFunctionArrayInput
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrInput
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs ViewDescribeOutputArrayInput
@@ -156,11 +156,11 @@ type ViewState struct {
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrInput
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs ViewShowOutputArrayInput
@@ -187,17 +187,17 @@ type viewArgs struct {
 	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database string `pulumi:"database"`
 	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema string `pulumi:"schema"`
 	// Specifies the query used to create the view.
 	Statement string `pulumi:"statement"`
@@ -219,17 +219,17 @@ type ViewArgs struct {
 	DataMetricFunctions ViewDataMetricFunctionArrayInput
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrInput
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringInput
 	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrInput
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringInput
 	// Specifies the query used to create the view.
 	Statement pulumi.StringInput
@@ -357,7 +357,7 @@ func (o ViewOutput) DataMetricSchedule() ViewDataMetricSchedulePtrOutput {
 	return o.ApplyT(func(v *View) ViewDataMetricSchedulePtrOutput { return v.DataMetricSchedule }).(ViewDataMetricSchedulePtrOutput)
 }
 
-// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -385,7 +385,7 @@ func (o ViewOutput) IsTemporary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsTemporary }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -395,7 +395,7 @@ func (o ViewOutput) RowAccessPolicy() ViewRowAccessPolicyPtrOutput {
 	return o.ApplyT(func(v *View) ViewRowAccessPolicyPtrOutput { return v.RowAccessPolicy }).(ViewRowAccessPolicyPtrOutput)
 }
 
-// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

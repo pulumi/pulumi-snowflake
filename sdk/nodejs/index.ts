@@ -330,6 +330,11 @@ export const getTables: typeof import("./getTables").getTables = null as any;
 export const getTablesOutput: typeof import("./getTables").getTablesOutput = null as any;
 utilities.lazyLoad(exports, ["getTables","getTablesOutput"], () => require("./getTables"));
 
+export { GetTagsArgs, GetTagsResult, GetTagsOutputArgs } from "./getTags";
+export const getTags: typeof import("./getTags").getTags = null as any;
+export const getTagsOutput: typeof import("./getTags").getTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getTags","getTagsOutput"], () => require("./getTags"));
+
 export { GetTasksArgs, GetTasksResult, GetTasksOutputArgs } from "./getTasks";
 export const getTasks: typeof import("./getTasks").getTasks = null as any;
 export const getTasksOutput: typeof import("./getTasks").getTasksOutput = null as any;

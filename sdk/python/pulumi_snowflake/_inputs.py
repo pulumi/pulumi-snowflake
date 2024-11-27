@@ -721,6 +721,132 @@ __all__ = [
     'TableTagArgsDict',
     'TagAssociationObjectIdentifierArgs',
     'TagAssociationObjectIdentifierArgsDict',
+    'TagShowOutputArgs',
+    'TagShowOutputArgsDict',
+    'TaskParameterArgs',
+    'TaskParameterArgsDict',
+    'TaskParameterAbortDetachedQueryArgs',
+    'TaskParameterAbortDetachedQueryArgsDict',
+    'TaskParameterAutocommitArgs',
+    'TaskParameterAutocommitArgsDict',
+    'TaskParameterBinaryInputFormatArgs',
+    'TaskParameterBinaryInputFormatArgsDict',
+    'TaskParameterBinaryOutputFormatArgs',
+    'TaskParameterBinaryOutputFormatArgsDict',
+    'TaskParameterClientMemoryLimitArgs',
+    'TaskParameterClientMemoryLimitArgsDict',
+    'TaskParameterClientMetadataRequestUseConnectionCtxArgs',
+    'TaskParameterClientMetadataRequestUseConnectionCtxArgsDict',
+    'TaskParameterClientPrefetchThreadArgs',
+    'TaskParameterClientPrefetchThreadArgsDict',
+    'TaskParameterClientResultChunkSizeArgs',
+    'TaskParameterClientResultChunkSizeArgsDict',
+    'TaskParameterClientResultColumnCaseInsensitiveArgs',
+    'TaskParameterClientResultColumnCaseInsensitiveArgsDict',
+    'TaskParameterClientSessionKeepAlifeArgs',
+    'TaskParameterClientSessionKeepAlifeArgsDict',
+    'TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs',
+    'TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict',
+    'TaskParameterClientTimestampTypeMappingArgs',
+    'TaskParameterClientTimestampTypeMappingArgsDict',
+    'TaskParameterDateInputFormatArgs',
+    'TaskParameterDateInputFormatArgsDict',
+    'TaskParameterDateOutputFormatArgs',
+    'TaskParameterDateOutputFormatArgsDict',
+    'TaskParameterEnableUnloadPhysicalTypeOptimizationArgs',
+    'TaskParameterEnableUnloadPhysicalTypeOptimizationArgsDict',
+    'TaskParameterErrorOnNondeterministicMergeArgs',
+    'TaskParameterErrorOnNondeterministicMergeArgsDict',
+    'TaskParameterErrorOnNondeterministicUpdateArgs',
+    'TaskParameterErrorOnNondeterministicUpdateArgsDict',
+    'TaskParameterGeographyOutputFormatArgs',
+    'TaskParameterGeographyOutputFormatArgsDict',
+    'TaskParameterGeometryOutputFormatArgs',
+    'TaskParameterGeometryOutputFormatArgsDict',
+    'TaskParameterJdbcTreatTimestampNtzAsUtcArgs',
+    'TaskParameterJdbcTreatTimestampNtzAsUtcArgsDict',
+    'TaskParameterJdbcUseSessionTimezoneArgs',
+    'TaskParameterJdbcUseSessionTimezoneArgsDict',
+    'TaskParameterJsonIndentArgs',
+    'TaskParameterJsonIndentArgsDict',
+    'TaskParameterLockTimeoutArgs',
+    'TaskParameterLockTimeoutArgsDict',
+    'TaskParameterLogLevelArgs',
+    'TaskParameterLogLevelArgsDict',
+    'TaskParameterMultiStatementCountArgs',
+    'TaskParameterMultiStatementCountArgsDict',
+    'TaskParameterNoorderSequenceAsDefaultArgs',
+    'TaskParameterNoorderSequenceAsDefaultArgsDict',
+    'TaskParameterOdbcTreatDecimalAsIntArgs',
+    'TaskParameterOdbcTreatDecimalAsIntArgsDict',
+    'TaskParameterQueryTagArgs',
+    'TaskParameterQueryTagArgsDict',
+    'TaskParameterQuotedIdentifiersIgnoreCaseArgs',
+    'TaskParameterQuotedIdentifiersIgnoreCaseArgsDict',
+    'TaskParameterRowsPerResultsetArgs',
+    'TaskParameterRowsPerResultsetArgsDict',
+    'TaskParameterS3StageVpceDnsNameArgs',
+    'TaskParameterS3StageVpceDnsNameArgsDict',
+    'TaskParameterSearchPathArgs',
+    'TaskParameterSearchPathArgsDict',
+    'TaskParameterStatementQueuedTimeoutInSecondArgs',
+    'TaskParameterStatementQueuedTimeoutInSecondArgsDict',
+    'TaskParameterStatementTimeoutInSecondArgs',
+    'TaskParameterStatementTimeoutInSecondArgsDict',
+    'TaskParameterStrictJsonOutputArgs',
+    'TaskParameterStrictJsonOutputArgsDict',
+    'TaskParameterSuspendTaskAfterNumFailureArgs',
+    'TaskParameterSuspendTaskAfterNumFailureArgsDict',
+    'TaskParameterTaskAutoRetryAttemptArgs',
+    'TaskParameterTaskAutoRetryAttemptArgsDict',
+    'TaskParameterTimeInputFormatArgs',
+    'TaskParameterTimeInputFormatArgsDict',
+    'TaskParameterTimeOutputFormatArgs',
+    'TaskParameterTimeOutputFormatArgsDict',
+    'TaskParameterTimestampDayIsAlways24hArgs',
+    'TaskParameterTimestampDayIsAlways24hArgsDict',
+    'TaskParameterTimestampInputFormatArgs',
+    'TaskParameterTimestampInputFormatArgsDict',
+    'TaskParameterTimestampLtzOutputFormatArgs',
+    'TaskParameterTimestampLtzOutputFormatArgsDict',
+    'TaskParameterTimestampNtzOutputFormatArgs',
+    'TaskParameterTimestampNtzOutputFormatArgsDict',
+    'TaskParameterTimestampOutputFormatArgs',
+    'TaskParameterTimestampOutputFormatArgsDict',
+    'TaskParameterTimestampTypeMappingArgs',
+    'TaskParameterTimestampTypeMappingArgsDict',
+    'TaskParameterTimestampTzOutputFormatArgs',
+    'TaskParameterTimestampTzOutputFormatArgsDict',
+    'TaskParameterTimezoneArgs',
+    'TaskParameterTimezoneArgsDict',
+    'TaskParameterTraceLevelArgs',
+    'TaskParameterTraceLevelArgsDict',
+    'TaskParameterTransactionAbortOnErrorArgs',
+    'TaskParameterTransactionAbortOnErrorArgsDict',
+    'TaskParameterTransactionDefaultIsolationLevelArgs',
+    'TaskParameterTransactionDefaultIsolationLevelArgsDict',
+    'TaskParameterTwoDigitCenturyStartArgs',
+    'TaskParameterTwoDigitCenturyStartArgsDict',
+    'TaskParameterUnsupportedDdlActionArgs',
+    'TaskParameterUnsupportedDdlActionArgsDict',
+    'TaskParameterUseCachedResultArgs',
+    'TaskParameterUseCachedResultArgsDict',
+    'TaskParameterUserTaskManagedInitialWarehouseSizeArgs',
+    'TaskParameterUserTaskManagedInitialWarehouseSizeArgsDict',
+    'TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs',
+    'TaskParameterUserTaskMinimumTriggerIntervalInSecondArgsDict',
+    'TaskParameterUserTaskTimeoutMArgs',
+    'TaskParameterUserTaskTimeoutMArgsDict',
+    'TaskParameterWeekOfYearPolicyArgs',
+    'TaskParameterWeekOfYearPolicyArgsDict',
+    'TaskParameterWeekStartArgs',
+    'TaskParameterWeekStartArgsDict',
+    'TaskScheduleArgs',
+    'TaskScheduleArgsDict',
+    'TaskShowOutputArgs',
+    'TaskShowOutputArgsDict',
+    'TaskShowOutputTaskRelationArgs',
+    'TaskShowOutputTaskRelationArgsDict',
     'UserParameterArgs',
     'UserParameterArgsDict',
     'UserParameterAbortDetachedQueryArgs',
@@ -917,6 +1043,12 @@ __all__ = [
     'GetStreamsInArgsDict',
     'GetStreamsLimitArgs',
     'GetStreamsLimitArgsDict',
+    'GetTagsInArgs',
+    'GetTagsInArgsDict',
+    'GetTasksInArgs',
+    'GetTasksInArgsDict',
+    'GetTasksLimitArgs',
+    'GetTasksLimitArgsDict',
     'GetUsersLimitArgs',
     'GetUsersLimitArgsDict',
     'GetViewsInArgs',
@@ -31374,6 +31506,5631 @@ class TagAssociationObjectIdentifierArgs:
 
 
 if not MYPY:
+    class TagShowOutputArgsDict(TypedDict):
+        allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        comment: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+elif False:
+    TagShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TagShowOutputArgs:
+    def __init__(__self__, *,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class TaskParameterArgsDict(TypedDict):
+        abort_detached_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgsDict']]]]
+        autocommits: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterAutocommitArgsDict']]]]
+        binary_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgsDict']]]]
+        binary_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgsDict']]]]
+        client_memory_limits: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgsDict']]]]
+        client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]
+        client_prefetch_threads: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgsDict']]]]
+        client_result_chunk_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgsDict']]]]
+        client_result_column_case_insensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgsDict']]]]
+        client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]
+        client_session_keep_alives: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgsDict']]]]
+        client_timestamp_type_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgsDict']]]]
+        date_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateInputFormatArgsDict']]]]
+        date_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgsDict']]]]
+        enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]
+        error_on_nondeterministic_merges: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgsDict']]]]
+        error_on_nondeterministic_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgsDict']]]]
+        geography_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgsDict']]]]
+        geometry_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgsDict']]]]
+        jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]
+        jdbc_use_session_timezones: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgsDict']]]]
+        json_indents: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterJsonIndentArgsDict']]]]
+        lock_timeouts: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterLockTimeoutArgsDict']]]]
+        log_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterLogLevelArgsDict']]]]
+        multi_statement_counts: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgsDict']]]]
+        noorder_sequence_as_defaults: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgsDict']]]]
+        odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgsDict']]]]
+        query_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterQueryTagArgsDict']]]]
+        quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]
+        rows_per_resultsets: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgsDict']]]]
+        s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgsDict']]]]
+        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgsDict']]]]
+        statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgsDict']]]]
+        statement_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgsDict']]]]
+        strict_json_outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgsDict']]]]
+        suspend_task_after_num_failures: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgsDict']]]]
+        task_auto_retry_attempts: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgsDict']]]]
+        time_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgsDict']]]]
+        time_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgsDict']]]]
+        timestamp_day_is_always24hs: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgsDict']]]]
+        timestamp_input_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgsDict']]]]
+        timestamp_ltz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgsDict']]]]
+        timestamp_ntz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgsDict']]]]
+        timestamp_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgsDict']]]]
+        timestamp_type_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgsDict']]]]
+        timestamp_tz_output_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgsDict']]]]
+        timezones: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimezoneArgsDict']]]]
+        trace_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTraceLevelArgsDict']]]]
+        transaction_abort_on_errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgsDict']]]]
+        transaction_default_isolation_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgsDict']]]]
+        two_digit_century_starts: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgsDict']]]]
+        unsupported_ddl_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgsDict']]]]
+        use_cached_results: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterUseCachedResultArgsDict']]]]
+        user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgsDict']]]]
+        user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgsDict']]]]
+        user_task_timeout_ms: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgsDict']]]]
+        week_of_year_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgsDict']]]]
+        week_starts: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekStartArgsDict']]]]
+elif False:
+    TaskParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterArgs:
+    def __init__(__self__, *,
+                 abort_detached_queries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgs']]]] = None,
+                 autocommits: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAutocommitArgs']]]] = None,
+                 binary_input_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgs']]]] = None,
+                 binary_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgs']]]] = None,
+                 client_memory_limits: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgs']]]] = None,
+                 client_metadata_request_use_connection_ctxes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgs']]]] = None,
+                 client_prefetch_threads: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgs']]]] = None,
+                 client_result_chunk_sizes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgs']]]] = None,
+                 client_result_column_case_insensitives: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgs']]]] = None,
+                 client_session_keep_alive_heartbeat_frequencies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]] = None,
+                 client_session_keep_alives: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgs']]]] = None,
+                 client_timestamp_type_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgs']]]] = None,
+                 date_input_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateInputFormatArgs']]]] = None,
+                 date_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgs']]]] = None,
+                 enable_unload_physical_type_optimizations: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgs']]]] = None,
+                 error_on_nondeterministic_merges: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgs']]]] = None,
+                 error_on_nondeterministic_updates: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgs']]]] = None,
+                 geography_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgs']]]] = None,
+                 geometry_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgs']]]] = None,
+                 jdbc_treat_timestamp_ntz_as_utcs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgs']]]] = None,
+                 jdbc_use_session_timezones: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgs']]]] = None,
+                 json_indents: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJsonIndentArgs']]]] = None,
+                 lock_timeouts: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLockTimeoutArgs']]]] = None,
+                 log_levels: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLogLevelArgs']]]] = None,
+                 multi_statement_counts: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgs']]]] = None,
+                 noorder_sequence_as_defaults: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgs']]]] = None,
+                 odbc_treat_decimal_as_ints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgs']]]] = None,
+                 query_tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQueryTagArgs']]]] = None,
+                 quoted_identifiers_ignore_cases: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgs']]]] = None,
+                 rows_per_resultsets: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgs']]]] = None,
+                 s3_stage_vpce_dns_names: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgs']]]] = None,
+                 search_paths: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]] = None,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgs']]]] = None,
+                 statement_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgs']]]] = None,
+                 strict_json_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgs']]]] = None,
+                 suspend_task_after_num_failures: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgs']]]] = None,
+                 task_auto_retry_attempts: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgs']]]] = None,
+                 time_input_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgs']]]] = None,
+                 time_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgs']]]] = None,
+                 timestamp_day_is_always24hs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgs']]]] = None,
+                 timestamp_input_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgs']]]] = None,
+                 timestamp_ltz_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgs']]]] = None,
+                 timestamp_ntz_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgs']]]] = None,
+                 timestamp_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgs']]]] = None,
+                 timestamp_type_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgs']]]] = None,
+                 timestamp_tz_output_formats: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgs']]]] = None,
+                 timezones: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimezoneArgs']]]] = None,
+                 trace_levels: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTraceLevelArgs']]]] = None,
+                 transaction_abort_on_errors: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgs']]]] = None,
+                 transaction_default_isolation_levels: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgs']]]] = None,
+                 two_digit_century_starts: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgs']]]] = None,
+                 unsupported_ddl_actions: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgs']]]] = None,
+                 use_cached_results: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUseCachedResultArgs']]]] = None,
+                 user_task_managed_initial_warehouse_sizes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgs']]]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]] = None,
+                 user_task_timeout_ms: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgs']]]] = None,
+                 week_of_year_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgs']]]] = None,
+                 week_starts: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekStartArgs']]]] = None):
+        if abort_detached_queries is not None:
+            pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        if autocommits is not None:
+            pulumi.set(__self__, "autocommits", autocommits)
+        if binary_input_formats is not None:
+            pulumi.set(__self__, "binary_input_formats", binary_input_formats)
+        if binary_output_formats is not None:
+            pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        if client_memory_limits is not None:
+            pulumi.set(__self__, "client_memory_limits", client_memory_limits)
+        if client_metadata_request_use_connection_ctxes is not None:
+            pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        if client_prefetch_threads is not None:
+            pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
+        if client_result_chunk_sizes is not None:
+            pulumi.set(__self__, "client_result_chunk_sizes", client_result_chunk_sizes)
+        if client_result_column_case_insensitives is not None:
+            pulumi.set(__self__, "client_result_column_case_insensitives", client_result_column_case_insensitives)
+        if client_session_keep_alive_heartbeat_frequencies is not None:
+            pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequencies", client_session_keep_alive_heartbeat_frequencies)
+        if client_session_keep_alives is not None:
+            pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
+        if client_timestamp_type_mappings is not None:
+            pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        if date_input_formats is not None:
+            pulumi.set(__self__, "date_input_formats", date_input_formats)
+        if date_output_formats is not None:
+            pulumi.set(__self__, "date_output_formats", date_output_formats)
+        if enable_unload_physical_type_optimizations is not None:
+            pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
+        if error_on_nondeterministic_merges is not None:
+            pulumi.set(__self__, "error_on_nondeterministic_merges", error_on_nondeterministic_merges)
+        if error_on_nondeterministic_updates is not None:
+            pulumi.set(__self__, "error_on_nondeterministic_updates", error_on_nondeterministic_updates)
+        if geography_output_formats is not None:
+            pulumi.set(__self__, "geography_output_formats", geography_output_formats)
+        if geometry_output_formats is not None:
+            pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        if jdbc_treat_timestamp_ntz_as_utcs is not None:
+            pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
+        if jdbc_use_session_timezones is not None:
+            pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        if json_indents is not None:
+            pulumi.set(__self__, "json_indents", json_indents)
+        if lock_timeouts is not None:
+            pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if multi_statement_counts is not None:
+            pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
+        if noorder_sequence_as_defaults is not None:
+            pulumi.set(__self__, "noorder_sequence_as_defaults", noorder_sequence_as_defaults)
+        if odbc_treat_decimal_as_ints is not None:
+            pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
+        if query_tags is not None:
+            pulumi.set(__self__, "query_tags", query_tags)
+        if quoted_identifiers_ignore_cases is not None:
+            pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        if rows_per_resultsets is not None:
+            pulumi.set(__self__, "rows_per_resultsets", rows_per_resultsets)
+        if s3_stage_vpce_dns_names is not None:
+            pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        if statement_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        if strict_json_outputs is not None:
+            pulumi.set(__self__, "strict_json_outputs", strict_json_outputs)
+        if suspend_task_after_num_failures is not None:
+            pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if task_auto_retry_attempts is not None:
+            pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        if time_input_formats is not None:
+            pulumi.set(__self__, "time_input_formats", time_input_formats)
+        if time_output_formats is not None:
+            pulumi.set(__self__, "time_output_formats", time_output_formats)
+        if timestamp_day_is_always24hs is not None:
+            pulumi.set(__self__, "timestamp_day_is_always24hs", timestamp_day_is_always24hs)
+        if timestamp_input_formats is not None:
+            pulumi.set(__self__, "timestamp_input_formats", timestamp_input_formats)
+        if timestamp_ltz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_ltz_output_formats", timestamp_ltz_output_formats)
+        if timestamp_ntz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_ntz_output_formats", timestamp_ntz_output_formats)
+        if timestamp_output_formats is not None:
+            pulumi.set(__self__, "timestamp_output_formats", timestamp_output_formats)
+        if timestamp_type_mappings is not None:
+            pulumi.set(__self__, "timestamp_type_mappings", timestamp_type_mappings)
+        if timestamp_tz_output_formats is not None:
+            pulumi.set(__self__, "timestamp_tz_output_formats", timestamp_tz_output_formats)
+        if timezones is not None:
+            pulumi.set(__self__, "timezones", timezones)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+        if transaction_abort_on_errors is not None:
+            pulumi.set(__self__, "transaction_abort_on_errors", transaction_abort_on_errors)
+        if transaction_default_isolation_levels is not None:
+            pulumi.set(__self__, "transaction_default_isolation_levels", transaction_default_isolation_levels)
+        if two_digit_century_starts is not None:
+            pulumi.set(__self__, "two_digit_century_starts", two_digit_century_starts)
+        if unsupported_ddl_actions is not None:
+            pulumi.set(__self__, "unsupported_ddl_actions", unsupported_ddl_actions)
+        if use_cached_results is not None:
+            pulumi.set(__self__, "use_cached_results", use_cached_results)
+        if user_task_managed_initial_warehouse_sizes is not None:
+            pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        if user_task_minimum_trigger_interval_in_seconds is not None:
+            pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        if user_task_timeout_ms is not None:
+            pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+        if week_of_year_policies is not None:
+            pulumi.set(__self__, "week_of_year_policies", week_of_year_policies)
+        if week_starts is not None:
+            pulumi.set(__self__, "week_starts", week_starts)
+
+    @property
+    @pulumi.getter(name="abortDetachedQueries")
+    def abort_detached_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgs']]]]:
+        return pulumi.get(self, "abort_detached_queries")
+
+    @abort_detached_queries.setter
+    def abort_detached_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgs']]]]):
+        pulumi.set(self, "abort_detached_queries", value)
+
+    @property
+    @pulumi.getter
+    def autocommits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAutocommitArgs']]]]:
+        return pulumi.get(self, "autocommits")
+
+    @autocommits.setter
+    def autocommits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterAutocommitArgs']]]]):
+        pulumi.set(self, "autocommits", value)
+
+    @property
+    @pulumi.getter(name="binaryInputFormats")
+    def binary_input_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgs']]]]:
+        return pulumi.get(self, "binary_input_formats")
+
+    @binary_input_formats.setter
+    def binary_input_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgs']]]]):
+        pulumi.set(self, "binary_input_formats", value)
+
+    @property
+    @pulumi.getter(name="binaryOutputFormats")
+    def binary_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgs']]]]:
+        return pulumi.get(self, "binary_output_formats")
+
+    @binary_output_formats.setter
+    def binary_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgs']]]]):
+        pulumi.set(self, "binary_output_formats", value)
+
+    @property
+    @pulumi.getter(name="clientMemoryLimits")
+    def client_memory_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgs']]]]:
+        return pulumi.get(self, "client_memory_limits")
+
+    @client_memory_limits.setter
+    def client_memory_limits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgs']]]]):
+        pulumi.set(self, "client_memory_limits", value)
+
+    @property
+    @pulumi.getter(name="clientMetadataRequestUseConnectionCtxes")
+    def client_metadata_request_use_connection_ctxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgs']]]]:
+        return pulumi.get(self, "client_metadata_request_use_connection_ctxes")
+
+    @client_metadata_request_use_connection_ctxes.setter
+    def client_metadata_request_use_connection_ctxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgs']]]]):
+        pulumi.set(self, "client_metadata_request_use_connection_ctxes", value)
+
+    @property
+    @pulumi.getter(name="clientPrefetchThreads")
+    def client_prefetch_threads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgs']]]]:
+        return pulumi.get(self, "client_prefetch_threads")
+
+    @client_prefetch_threads.setter
+    def client_prefetch_threads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgs']]]]):
+        pulumi.set(self, "client_prefetch_threads", value)
+
+    @property
+    @pulumi.getter(name="clientResultChunkSizes")
+    def client_result_chunk_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgs']]]]:
+        return pulumi.get(self, "client_result_chunk_sizes")
+
+    @client_result_chunk_sizes.setter
+    def client_result_chunk_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgs']]]]):
+        pulumi.set(self, "client_result_chunk_sizes", value)
+
+    @property
+    @pulumi.getter(name="clientResultColumnCaseInsensitives")
+    def client_result_column_case_insensitives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgs']]]]:
+        return pulumi.get(self, "client_result_column_case_insensitives")
+
+    @client_result_column_case_insensitives.setter
+    def client_result_column_case_insensitives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgs']]]]):
+        pulumi.set(self, "client_result_column_case_insensitives", value)
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequencies")
+    def client_session_keep_alive_heartbeat_frequencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]:
+        return pulumi.get(self, "client_session_keep_alive_heartbeat_frequencies")
+
+    @client_session_keep_alive_heartbeat_frequencies.setter
+    def client_session_keep_alive_heartbeat_frequencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]):
+        pulumi.set(self, "client_session_keep_alive_heartbeat_frequencies", value)
+
+    @property
+    @pulumi.getter(name="clientSessionKeepAlives")
+    def client_session_keep_alives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgs']]]]:
+        return pulumi.get(self, "client_session_keep_alives")
+
+    @client_session_keep_alives.setter
+    def client_session_keep_alives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgs']]]]):
+        pulumi.set(self, "client_session_keep_alives", value)
+
+    @property
+    @pulumi.getter(name="clientTimestampTypeMappings")
+    def client_timestamp_type_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgs']]]]:
+        return pulumi.get(self, "client_timestamp_type_mappings")
+
+    @client_timestamp_type_mappings.setter
+    def client_timestamp_type_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgs']]]]):
+        pulumi.set(self, "client_timestamp_type_mappings", value)
+
+    @property
+    @pulumi.getter(name="dateInputFormats")
+    def date_input_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateInputFormatArgs']]]]:
+        return pulumi.get(self, "date_input_formats")
+
+    @date_input_formats.setter
+    def date_input_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateInputFormatArgs']]]]):
+        pulumi.set(self, "date_input_formats", value)
+
+    @property
+    @pulumi.getter(name="dateOutputFormats")
+    def date_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgs']]]]:
+        return pulumi.get(self, "date_output_formats")
+
+    @date_output_formats.setter
+    def date_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgs']]]]):
+        pulumi.set(self, "date_output_formats", value)
+
+    @property
+    @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
+    def enable_unload_physical_type_optimizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]:
+        return pulumi.get(self, "enable_unload_physical_type_optimizations")
+
+    @enable_unload_physical_type_optimizations.setter
+    def enable_unload_physical_type_optimizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]):
+        pulumi.set(self, "enable_unload_physical_type_optimizations", value)
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicMerges")
+    def error_on_nondeterministic_merges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgs']]]]:
+        return pulumi.get(self, "error_on_nondeterministic_merges")
+
+    @error_on_nondeterministic_merges.setter
+    def error_on_nondeterministic_merges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgs']]]]):
+        pulumi.set(self, "error_on_nondeterministic_merges", value)
+
+    @property
+    @pulumi.getter(name="errorOnNondeterministicUpdates")
+    def error_on_nondeterministic_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgs']]]]:
+        return pulumi.get(self, "error_on_nondeterministic_updates")
+
+    @error_on_nondeterministic_updates.setter
+    def error_on_nondeterministic_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgs']]]]):
+        pulumi.set(self, "error_on_nondeterministic_updates", value)
+
+    @property
+    @pulumi.getter(name="geographyOutputFormats")
+    def geography_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgs']]]]:
+        return pulumi.get(self, "geography_output_formats")
+
+    @geography_output_formats.setter
+    def geography_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgs']]]]):
+        pulumi.set(self, "geography_output_formats", value)
+
+    @property
+    @pulumi.getter(name="geometryOutputFormats")
+    def geometry_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgs']]]]:
+        return pulumi.get(self, "geometry_output_formats")
+
+    @geometry_output_formats.setter
+    def geometry_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgs']]]]):
+        pulumi.set(self, "geometry_output_formats", value)
+
+    @property
+    @pulumi.getter(name="jdbcTreatTimestampNtzAsUtcs")
+    def jdbc_treat_timestamp_ntz_as_utcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgs']]]]:
+        return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utcs")
+
+    @jdbc_treat_timestamp_ntz_as_utcs.setter
+    def jdbc_treat_timestamp_ntz_as_utcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgs']]]]):
+        pulumi.set(self, "jdbc_treat_timestamp_ntz_as_utcs", value)
+
+    @property
+    @pulumi.getter(name="jdbcUseSessionTimezones")
+    def jdbc_use_session_timezones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgs']]]]:
+        return pulumi.get(self, "jdbc_use_session_timezones")
+
+    @jdbc_use_session_timezones.setter
+    def jdbc_use_session_timezones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgs']]]]):
+        pulumi.set(self, "jdbc_use_session_timezones", value)
+
+    @property
+    @pulumi.getter(name="jsonIndents")
+    def json_indents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJsonIndentArgs']]]]:
+        return pulumi.get(self, "json_indents")
+
+    @json_indents.setter
+    def json_indents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterJsonIndentArgs']]]]):
+        pulumi.set(self, "json_indents", value)
+
+    @property
+    @pulumi.getter(name="lockTimeouts")
+    def lock_timeouts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLockTimeoutArgs']]]]:
+        return pulumi.get(self, "lock_timeouts")
+
+    @lock_timeouts.setter
+    def lock_timeouts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLockTimeoutArgs']]]]):
+        pulumi.set(self, "lock_timeouts", value)
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLogLevelArgs']]]]:
+        return pulumi.get(self, "log_levels")
+
+    @log_levels.setter
+    def log_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterLogLevelArgs']]]]):
+        pulumi.set(self, "log_levels", value)
+
+    @property
+    @pulumi.getter(name="multiStatementCounts")
+    def multi_statement_counts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgs']]]]:
+        return pulumi.get(self, "multi_statement_counts")
+
+    @multi_statement_counts.setter
+    def multi_statement_counts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgs']]]]):
+        pulumi.set(self, "multi_statement_counts", value)
+
+    @property
+    @pulumi.getter(name="noorderSequenceAsDefaults")
+    def noorder_sequence_as_defaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgs']]]]:
+        return pulumi.get(self, "noorder_sequence_as_defaults")
+
+    @noorder_sequence_as_defaults.setter
+    def noorder_sequence_as_defaults(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgs']]]]):
+        pulumi.set(self, "noorder_sequence_as_defaults", value)
+
+    @property
+    @pulumi.getter(name="odbcTreatDecimalAsInts")
+    def odbc_treat_decimal_as_ints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgs']]]]:
+        return pulumi.get(self, "odbc_treat_decimal_as_ints")
+
+    @odbc_treat_decimal_as_ints.setter
+    def odbc_treat_decimal_as_ints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgs']]]]):
+        pulumi.set(self, "odbc_treat_decimal_as_ints", value)
+
+    @property
+    @pulumi.getter(name="queryTags")
+    def query_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQueryTagArgs']]]]:
+        return pulumi.get(self, "query_tags")
+
+    @query_tags.setter
+    def query_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQueryTagArgs']]]]):
+        pulumi.set(self, "query_tags", value)
+
+    @property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgs']]]]:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @quoted_identifiers_ignore_cases.setter
+    def quoted_identifiers_ignore_cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgs']]]]):
+        pulumi.set(self, "quoted_identifiers_ignore_cases", value)
+
+    @property
+    @pulumi.getter(name="rowsPerResultsets")
+    def rows_per_resultsets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgs']]]]:
+        return pulumi.get(self, "rows_per_resultsets")
+
+    @rows_per_resultsets.setter
+    def rows_per_resultsets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgs']]]]):
+        pulumi.set(self, "rows_per_resultsets", value)
+
+    @property
+    @pulumi.getter(name="s3StageVpceDnsNames")
+    def s3_stage_vpce_dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgs']]]]:
+        return pulumi.get(self, "s3_stage_vpce_dns_names")
+
+    @s3_stage_vpce_dns_names.setter
+    def s3_stage_vpce_dns_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgs']]]]):
+        pulumi.set(self, "s3_stage_vpce_dns_names", value)
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]]:
+        return pulumi.get(self, "search_paths")
+
+    @search_paths.setter
+    def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]]):
+        pulumi.set(self, "search_paths", value)
+
+    @property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgs']]]]:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @statement_queued_timeout_in_seconds.setter
+    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgs']]]]):
+        pulumi.set(self, "statement_queued_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgs']]]]:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @statement_timeout_in_seconds.setter
+    def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgs']]]]):
+        pulumi.set(self, "statement_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="strictJsonOutputs")
+    def strict_json_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgs']]]]:
+        return pulumi.get(self, "strict_json_outputs")
+
+    @strict_json_outputs.setter
+    def strict_json_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgs']]]]):
+        pulumi.set(self, "strict_json_outputs", value)
+
+    @property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgs']]]]:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @suspend_task_after_num_failures.setter
+    def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgs']]]]):
+        pulumi.set(self, "suspend_task_after_num_failures", value)
+
+    @property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgs']]]]:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @task_auto_retry_attempts.setter
+    def task_auto_retry_attempts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgs']]]]):
+        pulumi.set(self, "task_auto_retry_attempts", value)
+
+    @property
+    @pulumi.getter(name="timeInputFormats")
+    def time_input_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgs']]]]:
+        return pulumi.get(self, "time_input_formats")
+
+    @time_input_formats.setter
+    def time_input_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgs']]]]):
+        pulumi.set(self, "time_input_formats", value)
+
+    @property
+    @pulumi.getter(name="timeOutputFormats")
+    def time_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgs']]]]:
+        return pulumi.get(self, "time_output_formats")
+
+    @time_output_formats.setter
+    def time_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgs']]]]):
+        pulumi.set(self, "time_output_formats", value)
+
+    @property
+    @pulumi.getter(name="timestampDayIsAlways24hs")
+    def timestamp_day_is_always24hs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgs']]]]:
+        return pulumi.get(self, "timestamp_day_is_always24hs")
+
+    @timestamp_day_is_always24hs.setter
+    def timestamp_day_is_always24hs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgs']]]]):
+        pulumi.set(self, "timestamp_day_is_always24hs", value)
+
+    @property
+    @pulumi.getter(name="timestampInputFormats")
+    def timestamp_input_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgs']]]]:
+        return pulumi.get(self, "timestamp_input_formats")
+
+    @timestamp_input_formats.setter
+    def timestamp_input_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgs']]]]):
+        pulumi.set(self, "timestamp_input_formats", value)
+
+    @property
+    @pulumi.getter(name="timestampLtzOutputFormats")
+    def timestamp_ltz_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgs']]]]:
+        return pulumi.get(self, "timestamp_ltz_output_formats")
+
+    @timestamp_ltz_output_formats.setter
+    def timestamp_ltz_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgs']]]]):
+        pulumi.set(self, "timestamp_ltz_output_formats", value)
+
+    @property
+    @pulumi.getter(name="timestampNtzOutputFormats")
+    def timestamp_ntz_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgs']]]]:
+        return pulumi.get(self, "timestamp_ntz_output_formats")
+
+    @timestamp_ntz_output_formats.setter
+    def timestamp_ntz_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgs']]]]):
+        pulumi.set(self, "timestamp_ntz_output_formats", value)
+
+    @property
+    @pulumi.getter(name="timestampOutputFormats")
+    def timestamp_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgs']]]]:
+        return pulumi.get(self, "timestamp_output_formats")
+
+    @timestamp_output_formats.setter
+    def timestamp_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgs']]]]):
+        pulumi.set(self, "timestamp_output_formats", value)
+
+    @property
+    @pulumi.getter(name="timestampTypeMappings")
+    def timestamp_type_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgs']]]]:
+        return pulumi.get(self, "timestamp_type_mappings")
+
+    @timestamp_type_mappings.setter
+    def timestamp_type_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgs']]]]):
+        pulumi.set(self, "timestamp_type_mappings", value)
+
+    @property
+    @pulumi.getter(name="timestampTzOutputFormats")
+    def timestamp_tz_output_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgs']]]]:
+        return pulumi.get(self, "timestamp_tz_output_formats")
+
+    @timestamp_tz_output_formats.setter
+    def timestamp_tz_output_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgs']]]]):
+        pulumi.set(self, "timestamp_tz_output_formats", value)
+
+    @property
+    @pulumi.getter
+    def timezones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimezoneArgs']]]]:
+        return pulumi.get(self, "timezones")
+
+    @timezones.setter
+    def timezones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTimezoneArgs']]]]):
+        pulumi.set(self, "timezones", value)
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTraceLevelArgs']]]]:
+        return pulumi.get(self, "trace_levels")
+
+    @trace_levels.setter
+    def trace_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTraceLevelArgs']]]]):
+        pulumi.set(self, "trace_levels", value)
+
+    @property
+    @pulumi.getter(name="transactionAbortOnErrors")
+    def transaction_abort_on_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgs']]]]:
+        return pulumi.get(self, "transaction_abort_on_errors")
+
+    @transaction_abort_on_errors.setter
+    def transaction_abort_on_errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgs']]]]):
+        pulumi.set(self, "transaction_abort_on_errors", value)
+
+    @property
+    @pulumi.getter(name="transactionDefaultIsolationLevels")
+    def transaction_default_isolation_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgs']]]]:
+        return pulumi.get(self, "transaction_default_isolation_levels")
+
+    @transaction_default_isolation_levels.setter
+    def transaction_default_isolation_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgs']]]]):
+        pulumi.set(self, "transaction_default_isolation_levels", value)
+
+    @property
+    @pulumi.getter(name="twoDigitCenturyStarts")
+    def two_digit_century_starts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgs']]]]:
+        return pulumi.get(self, "two_digit_century_starts")
+
+    @two_digit_century_starts.setter
+    def two_digit_century_starts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgs']]]]):
+        pulumi.set(self, "two_digit_century_starts", value)
+
+    @property
+    @pulumi.getter(name="unsupportedDdlActions")
+    def unsupported_ddl_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgs']]]]:
+        return pulumi.get(self, "unsupported_ddl_actions")
+
+    @unsupported_ddl_actions.setter
+    def unsupported_ddl_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgs']]]]):
+        pulumi.set(self, "unsupported_ddl_actions", value)
+
+    @property
+    @pulumi.getter(name="useCachedResults")
+    def use_cached_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUseCachedResultArgs']]]]:
+        return pulumi.get(self, "use_cached_results")
+
+    @use_cached_results.setter
+    def use_cached_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUseCachedResultArgs']]]]):
+        pulumi.set(self, "use_cached_results", value)
+
+    @property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgs']]]]:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @user_task_managed_initial_warehouse_sizes.setter
+    def user_task_managed_initial_warehouse_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgs']]]]):
+        pulumi.set(self, "user_task_managed_initial_warehouse_sizes", value)
+
+    @property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @user_task_minimum_trigger_interval_in_seconds.setter
+    def user_task_minimum_trigger_interval_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]):
+        pulumi.set(self, "user_task_minimum_trigger_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgs']]]]:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @user_task_timeout_ms.setter
+    def user_task_timeout_ms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgs']]]]):
+        pulumi.set(self, "user_task_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="weekOfYearPolicies")
+    def week_of_year_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgs']]]]:
+        return pulumi.get(self, "week_of_year_policies")
+
+    @week_of_year_policies.setter
+    def week_of_year_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgs']]]]):
+        pulumi.set(self, "week_of_year_policies", value)
+
+    @property
+    @pulumi.getter(name="weekStarts")
+    def week_starts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekStartArgs']]]]:
+        return pulumi.get(self, "week_starts")
+
+    @week_starts.setter
+    def week_starts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterWeekStartArgs']]]]):
+        pulumi.set(self, "week_starts", value)
+
+
+if not MYPY:
+    class TaskParameterAbortDetachedQueryArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterAbortDetachedQueryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterAbortDetachedQueryArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterAutocommitArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterAutocommitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterAutocommitArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterBinaryInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterBinaryInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterBinaryInputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterBinaryOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterBinaryOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterBinaryOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientMemoryLimitArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientMemoryLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientMemoryLimitArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientMetadataRequestUseConnectionCtxArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientMetadataRequestUseConnectionCtxArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientMetadataRequestUseConnectionCtxArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientPrefetchThreadArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientPrefetchThreadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientPrefetchThreadArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientResultChunkSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientResultChunkSizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientResultChunkSizeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientResultColumnCaseInsensitiveArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientResultColumnCaseInsensitiveArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientResultColumnCaseInsensitiveArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientSessionKeepAlifeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientSessionKeepAlifeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientSessionKeepAlifeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterClientTimestampTypeMappingArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterClientTimestampTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterClientTimestampTypeMappingArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterDateInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterDateInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterDateInputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterDateOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterDateOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterDateOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterEnableUnloadPhysicalTypeOptimizationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterEnableUnloadPhysicalTypeOptimizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterEnableUnloadPhysicalTypeOptimizationArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterErrorOnNondeterministicMergeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterErrorOnNondeterministicMergeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterErrorOnNondeterministicMergeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterErrorOnNondeterministicUpdateArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterErrorOnNondeterministicUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterErrorOnNondeterministicUpdateArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterGeographyOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterGeographyOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterGeographyOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterGeometryOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterGeometryOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterGeometryOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterJdbcTreatTimestampNtzAsUtcArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterJdbcTreatTimestampNtzAsUtcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterJdbcTreatTimestampNtzAsUtcArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterJdbcUseSessionTimezoneArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterJdbcUseSessionTimezoneArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterJdbcUseSessionTimezoneArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterJsonIndentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterJsonIndentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterJsonIndentArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterLockTimeoutArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterLockTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterLockTimeoutArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterLogLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterLogLevelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterLogLevelArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterMultiStatementCountArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterMultiStatementCountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterMultiStatementCountArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterNoorderSequenceAsDefaultArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterNoorderSequenceAsDefaultArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterNoorderSequenceAsDefaultArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterOdbcTreatDecimalAsIntArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterOdbcTreatDecimalAsIntArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterOdbcTreatDecimalAsIntArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterQueryTagArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterQueryTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterQueryTagArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterQuotedIdentifiersIgnoreCaseArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterQuotedIdentifiersIgnoreCaseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterQuotedIdentifiersIgnoreCaseArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterRowsPerResultsetArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterRowsPerResultsetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterRowsPerResultsetArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterS3StageVpceDnsNameArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterS3StageVpceDnsNameArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterS3StageVpceDnsNameArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterSearchPathArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterSearchPathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterSearchPathArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterStatementQueuedTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterStatementQueuedTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterStatementQueuedTimeoutInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterStatementTimeoutInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterStatementTimeoutInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterStatementTimeoutInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterStrictJsonOutputArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterStrictJsonOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterStrictJsonOutputArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterSuspendTaskAfterNumFailureArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterSuspendTaskAfterNumFailureArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterSuspendTaskAfterNumFailureArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTaskAutoRetryAttemptArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTaskAutoRetryAttemptArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTaskAutoRetryAttemptArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimeInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimeInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimeInputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimeOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimeOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimeOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampDayIsAlways24hArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampDayIsAlways24hArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampDayIsAlways24hArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampInputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampInputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampInputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampLtzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampLtzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampLtzOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampNtzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampNtzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampNtzOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampTypeMappingArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampTypeMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampTypeMappingArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimestampTzOutputFormatArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimestampTzOutputFormatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimestampTzOutputFormatArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTimezoneArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTimezoneArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTimezoneArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTraceLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTraceLevelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTraceLevelArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTransactionAbortOnErrorArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTransactionAbortOnErrorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTransactionAbortOnErrorArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTransactionDefaultIsolationLevelArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTransactionDefaultIsolationLevelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTransactionDefaultIsolationLevelArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterTwoDigitCenturyStartArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterTwoDigitCenturyStartArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterTwoDigitCenturyStartArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterUnsupportedDdlActionArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterUnsupportedDdlActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterUnsupportedDdlActionArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterUseCachedResultArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterUseCachedResultArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterUseCachedResultArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterUserTaskManagedInitialWarehouseSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterUserTaskManagedInitialWarehouseSizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterUserTaskManagedInitialWarehouseSizeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterUserTaskMinimumTriggerIntervalInSecondArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterUserTaskMinimumTriggerIntervalInSecondArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterUserTaskTimeoutMArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterUserTaskTimeoutMArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterUserTaskTimeoutMArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterWeekOfYearPolicyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterWeekOfYearPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterWeekOfYearPolicyArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterWeekStartArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[str]]
+        description: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskParameterWeekStartArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterWeekStartArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskScheduleArgsDict(TypedDict):
+        minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        """
+        using_cron: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        """
+elif False:
+    TaskScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskScheduleArgs:
+    def __init__(__self__, *,
+                 minutes: Optional[pulumi.Input[int]] = None,
+                 using_cron: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        :param pulumi.Input[str] using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if using_cron is not None:
+            pulumi.set(__self__, "using_cron", using_cron)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter(name="usingCron")
+    def using_cron(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        """
+        return pulumi.get(self, "using_cron")
+
+    @using_cron.setter
+    def using_cron(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "using_cron", value)
+
+
+if not MYPY:
+    class TaskShowOutputArgsDict(TypedDict):
+        allow_overlapping_execution: NotRequired[pulumi.Input[bool]]
+        budget: NotRequired[pulumi.Input[str]]
+        comment: NotRequired[pulumi.Input[str]]
+        condition: NotRequired[pulumi.Input[str]]
+        config: NotRequired[pulumi.Input[str]]
+        created_on: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        definition: NotRequired[pulumi.Input[str]]
+        error_integration: NotRequired[pulumi.Input[str]]
+        id: NotRequired[pulumi.Input[str]]
+        last_committed_on: NotRequired[pulumi.Input[str]]
+        last_suspended_on: NotRequired[pulumi.Input[str]]
+        last_suspended_reason: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        owner: NotRequired[pulumi.Input[str]]
+        owner_role_type: NotRequired[pulumi.Input[str]]
+        predecessors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        schedule: NotRequired[pulumi.Input[str]]
+        schema_name: NotRequired[pulumi.Input[str]]
+        state: NotRequired[pulumi.Input[str]]
+        task_relations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgsDict']]]]
+        warehouse: NotRequired[pulumi.Input[str]]
+elif False:
+    TaskShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskShowOutputArgs:
+    def __init__(__self__, *,
+                 allow_overlapping_execution: Optional[pulumi.Input[bool]] = None,
+                 budget: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 config: Optional[pulumi.Input[str]] = None,
+                 created_on: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[str]] = None,
+                 error_integration: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 last_committed_on: Optional[pulumi.Input[str]] = None,
+                 last_suspended_on: Optional[pulumi.Input[str]] = None,
+                 last_suspended_reason: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 owner_role_type: Optional[pulumi.Input[str]] = None,
+                 predecessors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 task_relations: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]] = None,
+                 warehouse: Optional[pulumi.Input[str]] = None):
+        if allow_overlapping_execution is not None:
+            pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
+        if budget is not None:
+            pulumi.set(__self__, "budget", budget)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if error_integration is not None:
+            pulumi.set(__self__, "error_integration", error_integration)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_committed_on is not None:
+            pulumi.set(__self__, "last_committed_on", last_committed_on)
+        if last_suspended_on is not None:
+            pulumi.set(__self__, "last_suspended_on", last_suspended_on)
+        if last_suspended_reason is not None:
+            pulumi.set(__self__, "last_suspended_reason", last_suspended_reason)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if predecessors is not None:
+            pulumi.set(__self__, "predecessors", predecessors)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if task_relations is not None:
+            pulumi.set(__self__, "task_relations", task_relations)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowOverlappingExecution")
+    def allow_overlapping_execution(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_overlapping_execution")
+
+    @allow_overlapping_execution.setter
+    def allow_overlapping_execution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_overlapping_execution", value)
+
+    @property
+    @pulumi.getter
+    def budget(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "budget")
+
+    @budget.setter
+    def budget(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "budget", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="errorIntegration")
+    def error_integration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error_integration")
+
+    @error_integration.setter
+    def error_integration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_integration", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="lastCommittedOn")
+    def last_committed_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_committed_on")
+
+    @last_committed_on.setter
+    def last_committed_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_committed_on", value)
+
+    @property
+    @pulumi.getter(name="lastSuspendedOn")
+    def last_suspended_on(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_suspended_on")
+
+    @last_suspended_on.setter
+    def last_suspended_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_suspended_on", value)
+
+    @property
+    @pulumi.getter(name="lastSuspendedReason")
+    def last_suspended_reason(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_suspended_reason")
+
+    @last_suspended_reason.setter
+    def last_suspended_reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_suspended_reason", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "predecessors")
+
+    @predecessors.setter
+    def predecessors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "predecessors", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="taskRelations")
+    def task_relations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]]:
+        return pulumi.get(self, "task_relations")
+
+    @task_relations.setter
+    def task_relations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]]):
+        pulumi.set(self, "task_relations", value)
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warehouse", value)
+
+
+if not MYPY:
+    class TaskShowOutputTaskRelationArgsDict(TypedDict):
+        finalized_root_task: NotRequired[pulumi.Input[str]]
+        finalizer: NotRequired[pulumi.Input[str]]
+        predecessors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    TaskShowOutputTaskRelationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskShowOutputTaskRelationArgs:
+    def __init__(__self__, *,
+                 finalized_root_task: Optional[pulumi.Input[str]] = None,
+                 finalizer: Optional[pulumi.Input[str]] = None,
+                 predecessors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if finalized_root_task is not None:
+            pulumi.set(__self__, "finalized_root_task", finalized_root_task)
+        if finalizer is not None:
+            pulumi.set(__self__, "finalizer", finalizer)
+        if predecessors is not None:
+            pulumi.set(__self__, "predecessors", predecessors)
+
+    @property
+    @pulumi.getter(name="finalizedRootTask")
+    def finalized_root_task(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "finalized_root_task")
+
+    @finalized_root_task.setter
+    def finalized_root_task(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "finalized_root_task", value)
+
+    @property
+    @pulumi.getter
+    def finalizer(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "finalizer")
+
+    @finalizer.setter
+    def finalizer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "finalizer", value)
+
+    @property
+    @pulumi.getter
+    def predecessors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "predecessors")
+
+    @predecessors.setter
+    def predecessors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "predecessors", value)
+
+
+if not MYPY:
     class UserParameterArgsDict(TypedDict):
         abort_detached_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgsDict']]]]
         autocommits: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserParameterAutocommitArgsDict']]]]
@@ -39864,6 +45621,281 @@ elif False:
 
 @pulumi.input_type
 class GetStreamsLimitArgs:
+    def __init__(__self__, *,
+                 rows: int,
+                 from_: Optional[str] = None):
+        """
+        :param int rows: The maximum number of rows to return.
+        :param str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
+    class GetTagsInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetTagsInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTagsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetTasksInArgsDict(TypedDict):
+        account: NotRequired[bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetTasksInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTasksInArgs:
+    def __init__(__self__, *,
+                 account: Optional[bool] = None,
+                 application: Optional[str] = None,
+                 application_package: Optional[str] = None,
+                 database: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param bool account: Returns records for the entire account.
+        :param str application: Returns records for the specified application.
+        :param str application_package: Returns records for the specified application package.
+        :param str database: Returns records for the current database in use or for a specified database.
+        :param str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetTasksLimitArgsDict(TypedDict):
+        rows: int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetTasksLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTasksLimitArgs:
     def __init__(__self__, *,
                  rows: int,
                  from_: Optional[str] = None):

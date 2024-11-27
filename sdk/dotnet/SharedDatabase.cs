@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> LogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Snowflake
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

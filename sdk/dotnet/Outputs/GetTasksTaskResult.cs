@@ -13,29 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetTasksTaskResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Name;
-        public readonly string Schema;
-        public readonly string Warehouse;
+        /// <summary>
+        /// Holds the output of SHOW PARAMETERS FOR TASK.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTasksTaskParameterResult> Parameters;
+        /// <summary>
+        /// Holds the output of SHOW TASKS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTasksTaskShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetTasksTaskResult(
-            string comment,
+            ImmutableArray<Outputs.GetTasksTaskParameterResult> parameters,
 
-            string database,
-
-            string name,
-
-            string schema,
-
-            string warehouse)
+            ImmutableArray<Outputs.GetTasksTaskShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Name = name;
-            Schema = schema;
-            Warehouse = warehouse;
+            Parameters = parameters;
+            ShowOutputs = showOutputs;
         }
     }
 }

@@ -16,10 +16,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
- * 
- */
 @ResourceType(type="snowflake:index/passwordPolicy:PasswordPolicy")
 public class PasswordPolicy extends com.pulumi.resources.CustomResource {
     /**

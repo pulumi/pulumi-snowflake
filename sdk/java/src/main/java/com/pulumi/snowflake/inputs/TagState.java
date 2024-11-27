@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.TagShowOutputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,14 +18,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     public static final TagState Empty = new TagState();
 
     /**
-     * List of allowed values for the tag.
+     * Set of allowed values for the tag.
      * 
      */
     @Import(name="allowedValues")
     private @Nullable Output<List<String>> allowedValues;
 
     /**
-     * @return List of allowed values for the tag.
+     * @return Set of allowed values for the tag.
      * 
      */
     public Optional<Output<List<String>>> allowedValues() {
@@ -47,14 +48,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the tag.
+     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the tag.
+     * @return The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     public Optional<Output<String>> database() {
@@ -77,14 +78,29 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     * 
+     */
+    @Import(name="maskingPolicies")
+    private @Nullable Output<List<String>> maskingPolicies;
+
+    /**
+     * @return Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     * 
+     */
+    public Optional<Output<List<String>>> maskingPolicies() {
+        return Optional.ofNullable(this.maskingPolicies);
+    }
+
+    /**
+     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+     * @return Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,18 +108,33 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the tag.
+     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the tag.
+     * @return The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
+    }
+
+    /**
+     * Outputs the result of `SHOW TAGS` for the given tag.
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<TagShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW TAGS` for the given tag.
+     * 
+     */
+    public Optional<Output<List<TagShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
     }
 
     private TagState() {}
@@ -113,8 +144,10 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.database = $.database;
         this.fullyQualifiedName = $.fullyQualifiedName;
+        this.maskingPolicies = $.maskingPolicies;
         this.name = $.name;
         this.schema = $.schema;
+        this.showOutputs = $.showOutputs;
     }
 
     public static Builder builder() {
@@ -136,7 +169,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValues List of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag.
          * 
          * @return builder
          * 
@@ -147,7 +180,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValues List of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag.
          * 
          * @return builder
          * 
@@ -157,7 +190,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValues List of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag.
          * 
          * @return builder
          * 
@@ -188,7 +221,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the tag.
+         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -199,7 +232,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the tag.
+         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -230,7 +263,38 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maskingPolicies(@Nullable Output<List<String>> maskingPolicies) {
+            $.maskingPolicies = maskingPolicies;
+            return this;
+        }
+
+        /**
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maskingPolicies(List<String> maskingPolicies) {
+            return maskingPolicies(Output.of(maskingPolicies));
+        }
+
+        /**
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maskingPolicies(String... maskingPolicies) {
+            return maskingPolicies(List.of(maskingPolicies));
+        }
+
+        /**
+         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -241,7 +305,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -251,7 +315,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the tag.
+         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -262,13 +326,44 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the tag.
+         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW TAGS` for the given tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<TagShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW TAGS` for the given tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<TagShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Outputs the result of `SHOW TAGS` for the given tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(TagShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         public TagState build() {

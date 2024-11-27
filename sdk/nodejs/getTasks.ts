@@ -7,23 +7,20 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getTasks({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
  */
-export function getTasks(args: GetTasksArgs, opts?: pulumi.InvokeOptions): Promise<GetTasksResult> {
+export function getTasks(args?: GetTasksArgs, opts?: pulumi.InvokeOptions): Promise<GetTasksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getTasks:getTasks", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "rootOnly": args.rootOnly,
+        "startsWith": args.startsWith,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -32,13 +29,29 @@ export function getTasks(args: GetTasksArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetTasksArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: string;
+    in?: inputs.GetTasksIn;
     /**
-     * The schema from which to return the tasks from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetTasksLimit;
+    /**
+     * Filters the command output to return only root tasks (tasks with no predecessors).
+     */
+    rootOnly?: boolean;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: string;
+    /**
+     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: boolean;
 }
 
 /**
@@ -46,40 +59,53 @@ export interface GetTasksArgs {
  */
 export interface GetTasksResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The schema from which to return the tasks from.
+     * IN clause to filter the list of objects
      */
-    readonly schema: string;
+    readonly in?: outputs.GetTasksIn;
     /**
-     * The tasks in the schema
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetTasksLimit;
+    /**
+     * Filters the command output to return only root tasks (tasks with no predecessors).
+     */
+    readonly rootOnly?: boolean;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    readonly startsWith?: string;
+    /**
+     * Holds the aggregated output of all task details queries.
      */
     readonly tasks: outputs.GetTasksTask[];
+    /**
+     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     */
+    readonly withParameters?: boolean;
 }
 /**
- * ## Example Usage
+ * !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getTasks({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
+ * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
  */
-export function getTasksOutput(args: GetTasksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTasksResult> {
+export function getTasksOutput(args?: GetTasksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTasksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getTasks:getTasks", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "rootOnly": args.rootOnly,
+        "startsWith": args.startsWith,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -88,11 +114,27 @@ export function getTasksOutput(args: GetTasksOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetTasksOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetTasksInArgs>;
     /**
-     * The schema from which to return the tasks from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetTasksLimitArgs>;
+    /**
+     * Filters the command output to return only root tasks (tasks with no predecessors).
+     */
+    rootOnly?: pulumi.Input<boolean>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: pulumi.Input<string>;
+    /**
+     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     */
+    withParameters?: pulumi.Input<boolean>;
 }

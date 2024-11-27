@@ -202,9 +202,17 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.storageGcpServiceAccount);
     }
 
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     @Import(name="storageProvider")
     private @Nullable Output<String> storageProvider;
 
+    /**
+     * @return Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     public Optional<Output<String>> storageProvider() {
         return Optional.ofNullable(this.storageProvider);
     }
@@ -531,11 +539,23 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
             return storageGcpServiceAccount(Output.of(storageGcpServiceAccount));
         }
 
+        /**
+         * @param storageProvider Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageProvider(@Nullable Output<String> storageProvider) {
             $.storageProvider = storageProvider;
             return this;
         }
 
+        /**
+         * @param storageProvider Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageProvider(String storageProvider) {
             return storageProvider(Output.of(storageProvider));
         }

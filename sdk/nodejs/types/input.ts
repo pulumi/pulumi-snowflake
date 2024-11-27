@@ -1421,6 +1421,120 @@ export interface GetStreamsLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetTagsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTagsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetTasksIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTasksInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetTasksLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetTasksLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetUsersLimit {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
@@ -4267,6 +4381,584 @@ export interface TagAssociationObjectIdentifier {
      * Name of the schema that the object was created in.
      */
     schema?: pulumi.Input<string>;
+}
+
+export interface TagShowOutput {
+    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface TaskParameter {
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.TaskParameterAbortDetachedQuery>[]>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.TaskParameterAutocommit>[]>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryInputFormat>[]>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryOutputFormat>[]>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMemoryLimit>[]>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMetadataRequestUseConnectionCtx>[]>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientPrefetchThread>[]>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultChunkSize>[]>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultColumnCaseInsensitive>[]>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAlife>[]>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientTimestampTypeMapping>[]>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateInputFormat>[]>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateOutputFormat>[]>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.TaskParameterEnableUnloadPhysicalTypeOptimization>[]>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicMerge>[]>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicUpdate>[]>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeographyOutputFormat>[]>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeometryOutputFormat>[]>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcTreatTimestampNtzAsUtc>[]>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcUseSessionTimezone>[]>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.TaskParameterJsonIndent>[]>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.TaskParameterLockTimeout>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterLogLevel>[]>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.TaskParameterMultiStatementCount>[]>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.TaskParameterNoorderSequenceAsDefault>[]>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.TaskParameterOdbcTreatDecimalAsInt>[]>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.TaskParameterQueryTag>[]>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.TaskParameterQuotedIdentifiersIgnoreCase>[]>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.TaskParameterRowsPerResultset>[]>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.TaskParameterS3StageVpceDnsName>[]>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.TaskParameterSearchPath>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementTimeoutInSecond>[]>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.TaskParameterStrictJsonOutput>[]>;
+    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.TaskParameterSuspendTaskAfterNumFailure>[]>;
+    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTaskAutoRetryAttempt>[]>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeInputFormat>[]>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeOutputFormat>[]>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampDayIsAlways24h>[]>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampInputFormat>[]>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampLtzOutputFormat>[]>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampNtzOutputFormat>[]>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampOutputFormat>[]>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTypeMapping>[]>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTzOutputFormat>[]>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimezone>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTraceLevel>[]>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionAbortOnError>[]>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionDefaultIsolationLevel>[]>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTwoDigitCenturyStart>[]>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.TaskParameterUnsupportedDdlAction>[]>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.TaskParameterUseCachedResult>[]>;
+    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskManagedInitialWarehouseSize>[]>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond>[]>;
+    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskTimeoutM>[]>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekOfYearPolicy>[]>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekStart>[]>;
+}
+
+export interface TaskParameterAbortDetachedQuery {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterAutocommit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterBinaryInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterBinaryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientMemoryLimit {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientMetadataRequestUseConnectionCtx {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientPrefetchThread {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientResultChunkSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientResultColumnCaseInsensitive {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientSessionKeepAlife {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientSessionKeepAliveHeartbeatFrequency {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterClientTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterDateInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterDateOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterEnableUnloadPhysicalTypeOptimization {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterErrorOnNondeterministicMerge {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterErrorOnNondeterministicUpdate {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterGeographyOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterGeometryOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterJdbcTreatTimestampNtzAsUtc {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterJdbcUseSessionTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterJsonIndent {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterLockTimeout {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterMultiStatementCount {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterNoorderSequenceAsDefault {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterOdbcTreatDecimalAsInt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterQueryTag {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterQuotedIdentifiersIgnoreCase {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterRowsPerResultset {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterS3StageVpceDnsName {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterSearchPath {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterStrictJsonOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterSuspendTaskAfterNumFailure {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTaskAutoRetryAttempt {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimeInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimeOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampDayIsAlways24h {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampInputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampLtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampNtzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampTypeMapping {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimestampTzOutputFormat {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTimezone {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTransactionAbortOnError {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTransactionDefaultIsolationLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterTwoDigitCenturyStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterUnsupportedDdlAction {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterUseCachedResult {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterUserTaskManagedInitialWarehouseSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterUserTaskMinimumTriggerIntervalInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterUserTaskTimeoutM {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterWeekOfYearPolicy {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterWeekStart {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskSchedule {
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     */
+    minutes?: pulumi.Input<number>;
+    /**
+     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     */
+    usingCron?: pulumi.Input<string>;
+}
+
+export interface TaskShowOutput {
+    allowOverlappingExecution?: pulumi.Input<boolean>;
+    budget?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
+    config?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    definition?: pulumi.Input<string>;
+    errorIntegration?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    lastCommittedOn?: pulumi.Input<string>;
+    lastSuspendedOn?: pulumi.Input<string>;
+    lastSuspendedReason?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    predecessors?: pulumi.Input<pulumi.Input<string>[]>;
+    schedule?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
+    taskRelations?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTaskRelation>[]>;
+    warehouse?: pulumi.Input<string>;
+}
+
+export interface TaskShowOutputTaskRelation {
+    finalizedRootTask?: pulumi.Input<string>;
+    finalizer?: pulumi.Input<string>;
+    predecessors?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface UserParameter {

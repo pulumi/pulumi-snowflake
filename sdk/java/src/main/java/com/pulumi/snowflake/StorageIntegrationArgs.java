@@ -98,9 +98,17 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.storageBlockedLocations);
     }
 
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     @Import(name="storageProvider", required=true)
     private Output<String> storageProvider;
 
+    /**
+     * @return Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     public Output<String> storageProvider() {
         return this.storageProvider;
     }
@@ -273,11 +281,23 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
             return storageBlockedLocations(List.of(storageBlockedLocations));
         }
 
+        /**
+         * @param storageProvider Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageProvider(Output<String> storageProvider) {
             $.storageProvider = storageProvider;
             return this;
         }
 
+        /**
+         * @param storageProvider Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageProvider(String storageProvider) {
             return storageProvider(Output.of(storageProvider));
         }
