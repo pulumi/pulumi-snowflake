@@ -196,9 +196,17 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> storageGcpServiceAccount() {
         return this.storageGcpServiceAccount;
     }
+    /**
+     * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     @Export(name="storageProvider", refs={String.class}, tree="[0]")
     private Output<String> storageProvider;
 
+    /**
+     * @return Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+     * 
+     */
     public Output<String> storageProvider() {
         return this.storageProvider;
     }

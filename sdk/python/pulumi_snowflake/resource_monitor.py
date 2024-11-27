@@ -35,7 +35,7 @@ class ResourceMonitorArgs:
         :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
@@ -101,7 +101,7 @@ class ResourceMonitorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -190,7 +190,7 @@ class _ResourceMonitorState:
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
@@ -273,7 +273,7 @@ class _ResourceMonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -383,7 +383,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         :param pulumi.Input[str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
@@ -481,7 +481,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
@@ -542,7 +542,7 @@ class ResourceMonitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 

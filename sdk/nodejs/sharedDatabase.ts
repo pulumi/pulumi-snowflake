@@ -72,7 +72,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly logLevel!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface SharedDatabaseState {
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface SharedDatabaseArgs {
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**

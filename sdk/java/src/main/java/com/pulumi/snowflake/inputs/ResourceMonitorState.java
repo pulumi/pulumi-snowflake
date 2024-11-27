@@ -79,14 +79,14 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     public Optional<Output<String>> name() {
@@ -302,7 +302,7 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
          * 
          * @return builder
          * 

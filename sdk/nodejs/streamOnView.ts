@@ -56,7 +56,7 @@ export class StreamOnView extends pulumi.CustomResource {
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -68,11 +68,11 @@ export class StreamOnView extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly showInitialRows!: pulumi.Output<string | undefined>;
@@ -86,7 +86,7 @@ export class StreamOnView extends pulumi.CustomResource {
      */
     public /*out*/ readonly streamType!: pulumi.Output<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly view!: pulumi.Output<string>;
 
@@ -169,7 +169,7 @@ export interface StreamOnViewState {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database?: pulumi.Input<string>;
     /**
@@ -181,11 +181,11 @@ export interface StreamOnViewState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema?: pulumi.Input<string>;
     showInitialRows?: pulumi.Input<string>;
@@ -199,7 +199,7 @@ export interface StreamOnViewState {
      */
     streamType?: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     view?: pulumi.Input<string>;
 }
@@ -223,20 +223,20 @@ export interface StreamOnViewArgs {
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema: pulumi.Input<string>;
     showInitialRows?: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     view: pulumi.Input<string>;
 }

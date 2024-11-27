@@ -12,7 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
 type PasswordPolicy struct {
 	pulumi.CustomResourceState
 

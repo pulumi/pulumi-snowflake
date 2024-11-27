@@ -80,6 +80,7 @@
         "getSystemGetPrivateLinkConfig.ts",
         "getSystemGetSnowflakePlatformInfo.ts",
         "getTables.ts",
+        "getTags.ts",
         "getTasks.ts",
         "getUsers.ts",
         "getViews.ts",

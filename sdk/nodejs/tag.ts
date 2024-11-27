@@ -2,15 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Import
  *
- * format is database name | schema name | tag name
- *
  * ```sh
- * $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+ * $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
  * ```
  */
 export class Tag extends pulumi.CustomResource {
@@ -42,7 +42,7 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /**
-     * List of allowed values for the tag.
+     * Set of allowed values for the tag.
      */
     public readonly allowedValues!: pulumi.Output<string[] | undefined>;
     /**
@@ -50,7 +50,7 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the tag.
+     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -58,13 +58,21 @@ export class Tag extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     */
+    public readonly maskingPolicies!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the tag.
+     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * Outputs the result of `SHOW TAGS` for the given tag.
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.TagShowOutput[]>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -83,8 +91,10 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
+            resourceInputs["maskingPolicies"] = state ? state.maskingPolicies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -96,9 +106,11 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["allowedValues"] = args ? args.allowedValues : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["maskingPolicies"] = args ? args.maskingPolicies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Tag.__pulumiType, name, resourceInputs, opts);
@@ -110,7 +122,7 @@ export class Tag extends pulumi.CustomResource {
  */
 export interface TagState {
     /**
-     * List of allowed values for the tag.
+     * Set of allowed values for the tag.
      */
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -118,7 +130,7 @@ export interface TagState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the tag.
+     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database?: pulumi.Input<string>;
     /**
@@ -126,13 +138,21 @@ export interface TagState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     */
+    maskingPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the tag.
+     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `SHOW TAGS` for the given tag.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.TagShowOutput>[]>;
 }
 
 /**
@@ -140,7 +160,7 @@ export interface TagState {
  */
 export interface TagArgs {
     /**
-     * List of allowed values for the tag.
+     * Set of allowed values for the tag.
      */
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -148,15 +168,19 @@ export interface TagArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the tag.
+     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     */
+    maskingPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the tag.
+     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema: pulumi.Input<string>;
 }

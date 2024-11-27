@@ -212,7 +212,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly mustChangePassword!: pulumi.Output<string | undefined>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -723,7 +723,7 @@ export interface UserState {
      */
     mustChangePassword?: pulumi.Input<string>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -1042,7 +1042,7 @@ export interface UserArgs {
      */
     mustChangePassword?: pulumi.Input<string>;
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**

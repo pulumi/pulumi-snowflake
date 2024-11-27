@@ -78,7 +78,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly minClusterCount!: pulumi.Output<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -218,7 +218,7 @@ export interface WarehouseState {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface WarehouseArgs {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**

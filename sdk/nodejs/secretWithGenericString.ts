@@ -46,7 +46,7 @@ export class SecretWithGenericString extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -58,11 +58,11 @@ export class SecretWithGenericString extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly secretString!: pulumi.Output<string>;
@@ -134,7 +134,7 @@ export interface SecretWithGenericStringState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database?: pulumi.Input<string>;
     /**
@@ -146,11 +146,11 @@ export interface SecretWithGenericStringState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema?: pulumi.Input<string>;
     secretString?: pulumi.Input<string>;
@@ -173,15 +173,15 @@ export interface SecretWithGenericStringArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema: pulumi.Input<string>;
     secretString: pulumi.Input<string>;

@@ -22,16 +22,16 @@ type SecretWithBasicAuthentication struct {
 
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithBasicAuthenticationDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name     pulumi.StringOutput `pulumi:"name"`
 	Password pulumi.StringOutput `pulumi:"password"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringOutput `pulumi:"secretType"`
@@ -96,16 +96,16 @@ func GetSecretWithBasicAuthentication(ctx *pulumi.Context,
 type secretWithBasicAuthenticationState struct {
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs []SecretWithBasicAuthenticationDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name     *string `pulumi:"name"`
 	Password *string `pulumi:"password"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema *string `pulumi:"schema"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType *string `pulumi:"secretType"`
@@ -118,16 +118,16 @@ type secretWithBasicAuthenticationState struct {
 type SecretWithBasicAuthenticationState struct {
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithBasicAuthenticationDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name     pulumi.StringPtrInput
 	Password pulumi.StringPtrInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringPtrInput
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringPtrInput
@@ -144,12 +144,12 @@ func (SecretWithBasicAuthenticationState) ElementType() reflect.Type {
 type secretWithBasicAuthenticationArgs struct {
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database string `pulumi:"database"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name     *string `pulumi:"name"`
 	Password string  `pulumi:"password"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema string `pulumi:"schema"`
 	// Specifies the username value to store in the secret.
 	Username string `pulumi:"username"`
@@ -159,12 +159,12 @@ type secretWithBasicAuthenticationArgs struct {
 type SecretWithBasicAuthenticationArgs struct {
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Database pulumi.StringInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name     pulumi.StringPtrInput
 	Password pulumi.StringInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Schema pulumi.StringInput
 	// Specifies the username value to store in the secret.
 	Username pulumi.StringInput
@@ -262,7 +262,7 @@ func (o SecretWithBasicAuthenticationOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o SecretWithBasicAuthenticationOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -279,7 +279,7 @@ func (o SecretWithBasicAuthenticationOutput) FullyQualifiedName() pulumi.StringO
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o SecretWithBasicAuthenticationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -288,7 +288,7 @@ func (o SecretWithBasicAuthenticationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o SecretWithBasicAuthenticationOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithBasicAuthentication) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

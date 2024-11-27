@@ -29,7 +29,7 @@ type ResourceMonitor struct {
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayOutput `pulumi:"notifyTriggers"`
@@ -83,7 +83,7 @@ type resourceMonitorState struct {
 	Frequency *string `pulumi:"frequency"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
@@ -108,7 +108,7 @@ type ResourceMonitorState struct {
 	Frequency pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayInput
@@ -135,7 +135,7 @@ type resourceMonitorArgs struct {
 	EndTimestamp *string `pulumi:"endTimestamp"`
 	// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	Frequency *string `pulumi:"frequency"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name *string `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
@@ -157,7 +157,7 @@ type ResourceMonitorArgs struct {
 	EndTimestamp pulumi.StringPtrInput
 	// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	Frequency pulumi.StringPtrInput
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 	Name pulumi.StringPtrInput
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayInput
@@ -278,7 +278,7 @@ func (o ResourceMonitorOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
 func (o ResourceMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

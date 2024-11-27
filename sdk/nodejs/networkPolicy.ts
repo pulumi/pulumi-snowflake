@@ -70,7 +70,7 @@ export class NetworkPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export interface NetworkPolicyState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface NetworkPolicyArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
 }

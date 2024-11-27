@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
- */
 export class PasswordPolicy extends pulumi.CustomResource {
     /**
      * Get an existing PasswordPolicy resource's state with the given name, ID, and optional extra

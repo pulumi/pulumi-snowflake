@@ -47,7 +47,7 @@ class WarehouseArgs:
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
@@ -189,7 +189,7 @@ class WarehouseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -315,7 +315,7 @@ class _WarehouseState:
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -477,7 +477,7 @@ class _WarehouseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -633,7 +633,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
         :param pulumi.Input[str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
@@ -759,7 +759,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        :param pulumi.Input[str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
@@ -871,7 +871,7 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 

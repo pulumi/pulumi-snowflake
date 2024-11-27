@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TagArgs', 'Tag']
 
@@ -23,14 +25,16 @@ class TagArgs:
                  schema: pulumi.Input[str],
                  allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[str] database: The database in which to create the tag.
-        :param pulumi.Input[str] schema: The schema in which to create the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
+        :param pulumi.Input[str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: Set of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
-        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -38,6 +42,8 @@ class TagArgs:
             pulumi.set(__self__, "allowed_values", allowed_values)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if masking_policies is not None:
+            pulumi.set(__self__, "masking_policies", masking_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -45,7 +51,7 @@ class TagArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the tag.
+        The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -57,7 +63,7 @@ class TagArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        The schema in which to create the tag.
+        The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "schema")
 
@@ -69,7 +75,7 @@ class TagArgs:
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed values for the tag.
+        Set of allowed values for the tag.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -90,10 +96,22 @@ class TagArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="maskingPolicies")
+    def masking_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        """
+        return pulumi.get(self, "masking_policies")
+
+    @masking_policies.setter
+    def masking_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "masking_policies", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -109,16 +127,20 @@ class _TagState:
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  fully_qualified_name: Optional[pulumi.Input[str]] = None,
+                 masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
+                 schema: Optional[pulumi.Input[str]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: Set of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
-        :param pulumi.Input[str] database: The database in which to create the tag.
+        :param pulumi.Input[str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
-        :param pulumi.Input[str] schema: The schema in which to create the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
         """
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
@@ -128,16 +150,20 @@ class _TagState:
             pulumi.set(__self__, "database", database)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if masking_policies is not None:
+            pulumi.set(__self__, "masking_policies", masking_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
 
     @property
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed values for the tag.
+        Set of allowed values for the tag.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -161,7 +187,7 @@ class _TagState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the tag.
+        The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -182,10 +208,22 @@ class _TagState:
         pulumi.set(self, "fully_qualified_name", value)
 
     @property
+    @pulumi.getter(name="maskingPolicies")
+    def masking_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        """
+        return pulumi.get(self, "masking_policies")
+
+    @masking_policies.setter
+    def masking_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "masking_policies", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -197,13 +235,25 @@ class _TagState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema in which to create the tag.
+        The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]]]:
+        """
+        Outputs the result of `SHOW TAGS` for the given tag.
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
 
 class Tag(pulumi.CustomResource):
@@ -214,25 +264,25 @@ class Tag(pulumi.CustomResource):
                  allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         ## Import
 
-        format is database name | schema name | tag name
-
         ```sh
-        $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: Set of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
-        :param pulumi.Input[str] database: The database in which to create the tag.
-        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
-        :param pulumi.Input[str] schema: The schema in which to create the tag.
+        :param pulumi.Input[str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         ...
     @overload
@@ -243,10 +293,8 @@ class Tag(pulumi.CustomResource):
         """
         ## Import
 
-        format is database name | schema name | tag name
-
         ```sh
-        $ pulumi import snowflake:index/tag:Tag example 'dbName|schemaName|tagName'
+        $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,6 +315,7 @@ class Tag(pulumi.CustomResource):
                  allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -283,11 +332,13 @@ class Tag(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["masking_policies"] = masking_policies
             __props__.__dict__["name"] = name
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["show_outputs"] = None
         super(Tag, __self__).__init__(
             'snowflake:index/tag:Tag',
             resource_name,
@@ -302,8 +353,10 @@ class Tag(pulumi.CustomResource):
             comment: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             fully_qualified_name: Optional[pulumi.Input[str]] = None,
+            masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            schema: Optional[pulumi.Input[str]] = None) -> 'Tag':
+            schema: Optional[pulumi.Input[str]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,12 +364,14 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: List of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_values: Set of allowed values for the tag.
         :param pulumi.Input[str] comment: Specifies a comment for the tag.
-        :param pulumi.Input[str] database: The database in which to create the tag.
+        :param pulumi.Input[str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created.
-        :param pulumi.Input[str] schema: The schema in which to create the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        :param pulumi.Input[str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -326,15 +381,17 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
+        __props__.__dict__["masking_policies"] = masking_policies
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["show_outputs"] = show_outputs
         return Tag(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="allowedValues")
     def allowed_values(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of allowed values for the tag.
+        Set of allowed values for the tag.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -350,7 +407,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the tag.
+        The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "database")
 
@@ -363,10 +420,18 @@ class Tag(pulumi.CustomResource):
         return pulumi.get(self, "fully_qualified_name")
 
     @property
+    @pulumi.getter(name="maskingPolicies")
+    def masking_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+        """
+        return pulumi.get(self, "masking_policies")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the tag; must be unique for the database in which the tag is created.
+        Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "name")
 
@@ -374,7 +439,15 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema in which to create the tag.
+        The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.TagShowOutput']]:
+        """
+        Outputs the result of `SHOW TAGS` for the given tag.
+        """
+        return pulumi.get(self, "show_outputs")
 

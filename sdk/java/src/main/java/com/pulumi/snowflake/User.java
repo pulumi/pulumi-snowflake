@@ -630,14 +630,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mustChangePassword);
     }
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `&#34;`
+     * @return Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
      * 
      */
     public Output<String> name() {

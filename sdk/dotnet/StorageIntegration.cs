@@ -94,6 +94,9 @@ namespace Pulumi.Snowflake
         [Output("storageGcpServiceAccount")]
         public Output<string> StorageGcpServiceAccount { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        /// </summary>
         [Output("storageProvider")]
         public Output<string> StorageProvider { get; private set; } = null!;
 
@@ -191,6 +194,9 @@ namespace Pulumi.Snowflake
             set => _storageBlockedLocations = value;
         }
 
+        /// <summary>
+        /// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        /// </summary>
         [Input("storageProvider", required: true)]
         public Input<string> StorageProvider { get; set; } = null!;
 
@@ -292,6 +298,9 @@ namespace Pulumi.Snowflake
         [Input("storageGcpServiceAccount")]
         public Input<string>? StorageGcpServiceAccount { get; set; }
 
+        /// <summary>
+        /// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        /// </summary>
         [Input("storageProvider")]
         public Input<string>? StorageProvider { get; set; }
 

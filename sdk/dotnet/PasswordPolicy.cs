@@ -9,9 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/passwordPolicy:PasswordPolicy")]
     public partial class PasswordPolicy : global::Pulumi.CustomResource
     {

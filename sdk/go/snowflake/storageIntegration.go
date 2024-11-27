@@ -44,9 +44,10 @@ type StorageIntegration struct {
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayOutput `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
-	StorageGcpServiceAccount pulumi.StringOutput    `pulumi:"storageGcpServiceAccount"`
-	StorageProvider          pulumi.StringOutput    `pulumi:"storageProvider"`
-	Type                     pulumi.StringPtrOutput `pulumi:"type"`
+	StorageGcpServiceAccount pulumi.StringOutput `pulumi:"storageGcpServiceAccount"`
+	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+	StorageProvider pulumi.StringOutput    `pulumi:"storageProvider"`
+	Type            pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewStorageIntegration registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +111,9 @@ type storageIntegrationState struct {
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
 	StorageGcpServiceAccount *string `pulumi:"storageGcpServiceAccount"`
-	StorageProvider          *string `pulumi:"storageProvider"`
-	Type                     *string `pulumi:"type"`
+	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+	StorageProvider *string `pulumi:"storageProvider"`
+	Type            *string `pulumi:"type"`
 }
 
 type StorageIntegrationState struct {
@@ -140,8 +142,9 @@ type StorageIntegrationState struct {
 	StorageBlockedLocations pulumi.StringArrayInput
 	// This is the name of the Snowflake Google Service Account created for your account.
 	StorageGcpServiceAccount pulumi.StringPtrInput
-	StorageProvider          pulumi.StringPtrInput
-	Type                     pulumi.StringPtrInput
+	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+	StorageProvider pulumi.StringPtrInput
+	Type            pulumi.StringPtrInput
 }
 
 func (StorageIntegrationState) ElementType() reflect.Type {
@@ -160,8 +163,9 @@ type storageIntegrationArgs struct {
 	StorageAwsRoleArn   *string `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
-	StorageProvider         string   `pulumi:"storageProvider"`
-	Type                    *string  `pulumi:"type"`
+	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+	StorageProvider string  `pulumi:"storageProvider"`
+	Type            *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StorageIntegration resource.
@@ -177,8 +181,9 @@ type StorageIntegrationArgs struct {
 	StorageAwsRoleArn   pulumi.StringPtrInput
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayInput
-	StorageProvider         pulumi.StringInput
-	Type                    pulumi.StringPtrInput
+	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+	StorageProvider pulumi.StringInput
+	Type            pulumi.StringPtrInput
 }
 
 func (StorageIntegrationArgs) ElementType() reflect.Type {
@@ -338,6 +343,7 @@ func (o StorageIntegrationOutput) StorageGcpServiceAccount() pulumi.StringOutput
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageGcpServiceAccount }).(pulumi.StringOutput)
 }
 
+// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
 func (o StorageIntegrationOutput) StorageProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageProvider }).(pulumi.StringOutput)
 }

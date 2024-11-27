@@ -70,7 +70,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly dataMetricSchedule!: pulumi.Output<outputs.ViewDataMetricSchedule | undefined>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class View extends pulumi.CustomResource {
     public readonly isSecure!: pulumi.Output<string | undefined>;
     public readonly isTemporary!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly rowAccessPolicy!: pulumi.Output<outputs.ViewRowAccessPolicy | undefined>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface ViewState {
      */
     dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface ViewState {
     isSecure?: pulumi.Input<string>;
     isTemporary?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface ViewState {
      */
     rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface ViewArgs {
      */
     dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     database: pulumi.Input<string>;
     /**
@@ -289,7 +289,7 @@ export interface ViewArgs {
     isSecure?: pulumi.Input<string>;
     isTemporary?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     name?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface ViewArgs {
      */
     rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `(`, `)`, `"`
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
      */
     schema: pulumi.Input<string>;
     /**
