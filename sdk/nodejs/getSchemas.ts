@@ -96,7 +96,7 @@ export interface GetSchemasResult {
  *
  * Datasource used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
-export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
+export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemasResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSchemas:getSchemas", {

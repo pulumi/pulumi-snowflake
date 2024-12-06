@@ -117,7 +117,7 @@ def get_stages(database: Optional[str] = None,
         stages=pulumi.get(__ret__, 'stages'))
 def get_stages_output(database: Optional[pulumi.Input[str]] = None,
                       schema: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStagesResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStagesResult]:
     """
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_stages_output(database: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['database'] = database
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getStages:getStages', __args__, opts=opts, typ=GetStagesResult)
     return __ret__.apply(lambda __response__: GetStagesResult(
         database=pulumi.get(__response__, 'database'),

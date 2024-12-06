@@ -85,7 +85,7 @@ export interface GetAlertsResult {
  * });
  * ```
  */
-export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsResult> {
+export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getAlerts:getAlerts", {

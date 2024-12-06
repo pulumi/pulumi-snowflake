@@ -98,7 +98,7 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[str] = None,
         aws_sns_topic_policy_json=pulumi.get(__ret__, 'aws_sns_topic_policy_json'),
         id=pulumi.get(__ret__, 'id'))
 def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
     """
     ## Example Usage
 
@@ -114,7 +114,7 @@ def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.
     """
     __args__ = dict()
     __args__['awsSnsTopicArn'] = aws_sns_topic_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy', __args__, opts=opts, typ=GetSystemGetAwsSnsIamPolicyResult)
     return __ret__.apply(lambda __response__: GetSystemGetAwsSnsIamPolicyResult(
         aws_sns_topic_arn=pulumi.get(__response__, 'aws_sns_topic_arn'),

@@ -62,7 +62,7 @@ export interface GetSystemGetAwsSnsIamPolicyResult {
  * });
  * ```
  */
-export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
+export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", {
         "awsSnsTopicArn": args.awsSnsTopicArn,

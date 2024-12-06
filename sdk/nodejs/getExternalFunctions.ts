@@ -76,7 +76,7 @@ export interface GetExternalFunctionsResult {
  * });
  * ```
  */
-export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalFunctionsResult> {
+export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalFunctionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getExternalFunctions:getExternalFunctions", {

@@ -72,12 +72,12 @@ def get_current_role(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetCurrentRoleResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_current_role_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCurrentRoleResult]:
+def get_current_role_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurrentRoleResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getCurrentRole:getCurrentRole', __args__, opts=opts, typ=GetCurrentRoleResult)
     return __ret__.apply(lambda __response__: GetCurrentRoleResult(
         id=pulumi.get(__response__, 'id'),

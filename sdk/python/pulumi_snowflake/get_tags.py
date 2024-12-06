@@ -112,7 +112,7 @@ def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_tags_output(in_: Optional[pulumi.Input[Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']]]] = None,
                     like: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     !> **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -125,7 +125,7 @@ def get_tags_output(in_: Optional[pulumi.Input[Optional[Union['GetTagsInArgs', '
     __args__ = dict()
     __args__['in'] = in_
     __args__['like'] = like
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getTags:getTags', __args__, opts=opts, typ=GetTagsResult)
     return __ret__.apply(lambda __response__: GetTagsResult(
         id=pulumi.get(__response__, 'id'),

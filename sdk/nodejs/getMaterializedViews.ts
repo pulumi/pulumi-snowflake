@@ -75,7 +75,7 @@ export interface GetMaterializedViewsResult {
  * });
  * ```
  */
-export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaterializedViewsResult> {
+export function getMaterializedViewsOutput(args: GetMaterializedViewsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaterializedViewsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getMaterializedViews:getMaterializedViews", {
         "database": args.database,
