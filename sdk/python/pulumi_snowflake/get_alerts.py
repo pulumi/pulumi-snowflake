@@ -134,7 +134,7 @@ def get_alerts(database: Optional[str] = None,
 def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
                       pattern: Optional[pulumi.Input[Optional[str]]] = None,
                       schema: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsResult]:
     """
     ## Example Usage
 
@@ -155,7 +155,7 @@ def get_alerts_output(database: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['database'] = database
     __args__['pattern'] = pattern
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAlerts:getAlerts', __args__, opts=opts, typ=GetAlertsResult)
     return __ret__.apply(lambda __response__: GetAlertsResult(
         alerts=pulumi.get(__response__, 'alerts'),

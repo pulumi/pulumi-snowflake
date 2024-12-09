@@ -98,7 +98,7 @@ def get_system_generate_scim_access_token(integration_name: Optional[str] = None
         id=pulumi.get(__ret__, 'id'),
         integration_name=pulumi.get(__ret__, 'integration_name'))
 def get_system_generate_scim_access_token_output(integration_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGenerateScimAccessTokenResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGenerateScimAccessTokenResult]:
     """
     ## Example Usage
 
@@ -114,7 +114,7 @@ def get_system_generate_scim_access_token_output(integration_name: Optional[pulu
     """
     __args__ = dict()
     __args__['integrationName'] = integration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken', __args__, opts=opts, typ=GetSystemGenerateScimAccessTokenResult)
     return __ret__.apply(lambda __response__: GetSystemGenerateScimAccessTokenResult(
         access_token=pulumi.get(__response__, 'access_token'),

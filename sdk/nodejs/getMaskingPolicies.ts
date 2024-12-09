@@ -78,7 +78,7 @@ export interface GetMaskingPoliciesResult {
  *
  * Datasource used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
  */
-export function getMaskingPoliciesOutput(args?: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaskingPoliciesResult> {
+export function getMaskingPoliciesOutput(args?: GetMaskingPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaskingPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getMaskingPolicies:getMaskingPolicies", {

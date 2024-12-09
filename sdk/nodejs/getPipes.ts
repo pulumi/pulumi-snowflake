@@ -75,7 +75,7 @@ export interface GetPipesResult {
  * });
  * ```
  */
-export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipesResult> {
+export function getPipesOutput(args: GetPipesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getPipes:getPipes", {
         "database": args.database,

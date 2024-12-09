@@ -27,7 +27,7 @@ export interface GetSystemGetSnowflakePlatformInfoResult {
      */
     readonly id: string;
 }
-export function getSystemGetSnowflakePlatformInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetSnowflakePlatformInfoResult> {
+export function getSystemGetSnowflakePlatformInfoOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetSnowflakePlatformInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", {
     }, opts);

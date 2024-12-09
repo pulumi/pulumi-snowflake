@@ -78,7 +78,7 @@ export interface GetStreamlitsResult {
  *
  * Datasource used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
  */
-export function getStreamlitsOutput(args?: GetStreamlitsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamlitsResult> {
+export function getStreamlitsOutput(args?: GetStreamlitsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamlitsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getStreamlits:getStreamlits", {

@@ -87,7 +87,7 @@ export interface GetUsersResult {
  *
  * Datasource used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `showOutput` (only empty or default values), the DESCRIBE command cannot be called, so you have to set `withDescribe = false`. Only `parameters` output is not affected by the lack of privileges.
  */
-export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getUsers:getUsers", {

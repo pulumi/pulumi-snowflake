@@ -331,7 +331,7 @@ export interface GetGrantsResult {
  * });
  * ```
  */
-export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantsResult> {
+export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrantsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getGrants:getGrants", {

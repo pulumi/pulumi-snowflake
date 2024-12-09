@@ -117,7 +117,7 @@ def get_sequences(database: Optional[str] = None,
         sequences=pulumi.get(__ret__, 'sequences'))
 def get_sequences_output(database: Optional[pulumi.Input[str]] = None,
                          schema: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSequencesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSequencesResult]:
     """
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_sequences_output(database: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['database'] = database
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSequences:getSequences', __args__, opts=opts, typ=GetSequencesResult)
     return __ret__.apply(lambda __response__: GetSequencesResult(
         database=pulumi.get(__response__, 'database'),

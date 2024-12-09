@@ -117,7 +117,7 @@ def get_external_tables(database: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'))
 def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
                                schema: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalTablesResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalTablesResult]:
     """
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_external_tables_output(database: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['database'] = database
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getExternalTables:getExternalTables', __args__, opts=opts, typ=GetExternalTablesResult)
     return __ret__.apply(lambda __response__: GetExternalTablesResult(
         database=pulumi.get(__response__, 'database'),

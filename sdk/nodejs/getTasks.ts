@@ -96,7 +96,7 @@ export interface GetTasksResult {
  *
  * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
  */
-export function getTasksOutput(args?: GetTasksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTasksResult> {
+export function getTasksOutput(args?: GetTasksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTasksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getTasks:getTasks", {

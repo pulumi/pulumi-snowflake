@@ -75,7 +75,7 @@ export interface GetStagesResult {
  * });
  * ```
  */
-export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStagesResult> {
+export function getStagesOutput(args: GetStagesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStagesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getStages:getStages", {
         "database": args.database,
