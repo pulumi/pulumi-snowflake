@@ -91,7 +91,7 @@ def get_accounts(pattern: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         pattern=pulumi.get(__ret__, 'pattern'))
 def get_accounts_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountsResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountsResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -99,7 +99,7 @@ def get_accounts_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['pattern'] = pattern
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAccounts:getAccounts', __args__, opts=opts, typ=GetAccountsResult)
     return __ret__.apply(lambda __response__: GetAccountsResult(
         accounts=pulumi.get(__response__, 'accounts'),

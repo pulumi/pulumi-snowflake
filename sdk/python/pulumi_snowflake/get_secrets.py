@@ -154,7 +154,7 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
 def get_secrets_output(in_: Optional[pulumi.Input[Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]]] = None,
                        like: Optional[pulumi.Input[Optional[str]]] = None,
                        with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     !> **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -194,7 +194,7 @@ def get_secrets_output(in_: Optional[pulumi.Input[Optional[Union['GetSecretsInAr
     __args__['in'] = in_
     __args__['like'] = like
     __args__['withDescribe'] = with_describe
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
     return __ret__.apply(lambda __response__: GetSecretsResult(
         id=pulumi.get(__response__, 'id'),

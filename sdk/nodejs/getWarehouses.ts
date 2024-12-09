@@ -69,7 +69,7 @@ export interface GetWarehousesResult {
  *
  * Datasource used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
  */
-export function getWarehousesOutput(args?: GetWarehousesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWarehousesResult> {
+export function getWarehousesOutput(args?: GetWarehousesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWarehousesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getWarehouses:getWarehouses", {

@@ -45,7 +45,7 @@ export interface GetStorageIntegrationsResult {
  * const current = snowflake.getStorageIntegrations({});
  * ```
  */
-export function getStorageIntegrationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageIntegrationsResult> {
+export function getStorageIntegrationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageIntegrationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", {
     }, opts);

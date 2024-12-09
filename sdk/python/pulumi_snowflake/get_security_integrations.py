@@ -111,7 +111,7 @@ def get_security_integrations(like: Optional[str] = None,
         with_describe=pulumi.get(__ret__, 'with_describe'))
 def get_security_integrations_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                                      with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -124,7 +124,7 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[str]]]
     __args__ = dict()
     __args__['like'] = like
     __args__['withDescribe'] = with_describe
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSecurityIntegrations:getSecurityIntegrations', __args__, opts=opts, typ=GetSecurityIntegrationsResult)
     return __ret__.apply(lambda __response__: GetSecurityIntegrationsResult(
         id=pulumi.get(__response__, 'id'),

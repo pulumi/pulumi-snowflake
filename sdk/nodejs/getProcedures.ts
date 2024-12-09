@@ -75,7 +75,7 @@ export interface GetProceduresResult {
  * });
  * ```
  */
-export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProceduresResult> {
+export function getProceduresOutput(args: GetProceduresOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProceduresResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getProcedures:getProcedures", {
         "database": args.database,

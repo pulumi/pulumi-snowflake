@@ -117,7 +117,7 @@ def get_file_formats(database: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'))
 def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
                             schema: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileFormatsResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileFormatsResult]:
     """
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_file_formats_output(database: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['database'] = database
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFileFormats:getFileFormats', __args__, opts=opts, typ=GetFileFormatsResult)
     return __ret__.apply(lambda __response__: GetFileFormatsResult(
         database=pulumi.get(__response__, 'database'),

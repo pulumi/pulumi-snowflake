@@ -75,7 +75,7 @@ export interface GetFileFormatsResult {
  * });
  * ```
  */
-export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileFormatsResult> {
+export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileFormatsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getFileFormats:getFileFormats", {
         "database": args.database,

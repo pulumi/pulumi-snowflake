@@ -87,7 +87,7 @@ export interface GetStreamsResult {
  *
  * Datasource used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
  */
-export function getStreamsOutput(args?: GetStreamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamsResult> {
+export function getStreamsOutput(args?: GetStreamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getStreams:getStreams", {
