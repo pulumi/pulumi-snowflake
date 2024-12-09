@@ -165,7 +165,7 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
                                       like: Optional[pulumi.Input[Optional[str]]] = None,
                                       limit: Optional[pulumi.Input[Optional[Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict']]]] = None,
                                       starts_with: Optional[pulumi.Input[Optional[str]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCortexSearchServicesResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCortexSearchServicesResult]:
     """
     ## Example Usage
 
@@ -201,7 +201,7 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
     __args__['like'] = like
     __args__['limit'] = limit
     __args__['startsWith'] = starts_with
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getCortexSearchServices:getCortexSearchServices', __args__, opts=opts, typ=GetCortexSearchServicesResult)
     return __ret__.apply(lambda __response__: GetCortexSearchServicesResult(
         cortex_search_services=pulumi.get(__response__, 'cortex_search_services'),

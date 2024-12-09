@@ -75,7 +75,7 @@ export interface GetExternalTablesResult {
  * });
  * ```
  */
-export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalTablesResult> {
+export function getExternalTablesOutput(args: GetExternalTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalTablesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getExternalTables:getExternalTables", {
         "database": args.database,

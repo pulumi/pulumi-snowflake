@@ -77,7 +77,7 @@ export interface GetDatabaseRoleResult {
  * });
  * ```
  */
-export function getDatabaseRoleOutput(args: GetDatabaseRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseRoleResult> {
+export function getDatabaseRoleOutput(args: GetDatabaseRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getDatabaseRole:getDatabaseRole", {
         "database": args.database,

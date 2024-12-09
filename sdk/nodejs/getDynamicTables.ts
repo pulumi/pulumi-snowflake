@@ -68,7 +68,7 @@ export interface GetDynamicTablesResult {
      */
     readonly startsWith?: string;
 }
-export function getDynamicTablesOutput(args?: GetDynamicTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamicTablesResult> {
+export function getDynamicTablesOutput(args?: GetDynamicTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamicTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getDynamicTables:getDynamicTables", {

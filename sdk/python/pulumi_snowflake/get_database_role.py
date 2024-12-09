@@ -129,7 +129,7 @@ def get_database_role(database: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'))
 def get_database_role_output(database: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseRoleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRoleResult]:
     """
     ## Example Usage
 
@@ -148,7 +148,7 @@ def get_database_role_output(database: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['database'] = database
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDatabaseRole:getDatabaseRole', __args__, opts=opts, typ=GetDatabaseRoleResult)
     return __ret__.apply(lambda __response__: GetDatabaseRoleResult(
         comment=pulumi.get(__response__, 'comment'),

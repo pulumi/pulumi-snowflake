@@ -100,7 +100,7 @@ def get_shares(pattern: Optional[str] = None,
         pattern=pulumi.get(__ret__, 'pattern'),
         shares=pulumi.get(__ret__, 'shares'))
 def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharesResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharesResult]:
     """
     ## Example Usage
 
@@ -117,7 +117,7 @@ def get_shares_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['pattern'] = pattern
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getShares:getShares', __args__, opts=opts, typ=GetSharesResult)
     return __ret__.apply(lambda __response__: GetSharesResult(
         id=pulumi.get(__response__, 'id'),

@@ -143,7 +143,7 @@ def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDyna
                               like: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict']]]] = None,
                               limit: Optional[pulumi.Input[Optional[Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict']]]] = None,
                               starts_with: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDynamicTablesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamicTablesResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -157,7 +157,7 @@ def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDyna
     __args__['like'] = like
     __args__['limit'] = limit
     __args__['startsWith'] = starts_with
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDynamicTables:getDynamicTables', __args__, opts=opts, typ=GetDynamicTablesResult)
     return __ret__.apply(lambda __response__: GetDynamicTablesResult(
         id=pulumi.get(__response__, 'id'),
