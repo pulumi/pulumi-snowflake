@@ -23,7 +23,7 @@ export interface GetCurrentRoleResult {
      */
     readonly name: string;
 }
-export function getCurrentRoleOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCurrentRoleResult> {
+export function getCurrentRoleOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurrentRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getCurrentRole:getCurrentRole", {
     }, opts);

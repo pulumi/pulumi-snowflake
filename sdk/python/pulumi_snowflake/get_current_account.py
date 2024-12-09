@@ -110,7 +110,7 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         url=pulumi.get(__ret__, 'url'))
-def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCurrentAccountResult]:
+def get_current_account_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurrentAccountResult]:
     """
     ## Example Usage
 
@@ -127,7 +127,7 @@ def get_current_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getCurrentAccount:getCurrentAccount', __args__, opts=opts, typ=GetCurrentAccountResult)
     return __ret__.apply(lambda __response__: GetCurrentAccountResult(
         account=pulumi.get(__response__, 'account'),

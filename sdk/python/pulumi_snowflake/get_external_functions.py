@@ -117,7 +117,7 @@ def get_external_functions(database: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'))
 def get_external_functions_output(database: Optional[pulumi.Input[Optional[str]]] = None,
                                   schema: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalFunctionsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalFunctionsResult]:
     """
     ## Example Usage
 
@@ -136,7 +136,7 @@ def get_external_functions_output(database: Optional[pulumi.Input[Optional[str]]
     __args__ = dict()
     __args__['database'] = database
     __args__['schema'] = schema
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getExternalFunctions:getExternalFunctions', __args__, opts=opts, typ=GetExternalFunctionsResult)
     return __ret__.apply(lambda __response__: GetExternalFunctionsResult(
         database=pulumi.get(__response__, 'database'),

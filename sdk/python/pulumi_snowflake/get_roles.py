@@ -111,7 +111,7 @@ def get_roles(in_class: Optional[str] = None,
         roles=pulumi.get(__ret__, 'roles'))
 def get_roles_output(in_class: Optional[pulumi.Input[Optional[str]]] = None,
                      like: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolesResult]:
     """
     !> **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -124,7 +124,7 @@ def get_roles_output(in_class: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['inClass'] = in_class
     __args__['like'] = like
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult)
     return __ret__.apply(lambda __response__: GetRolesResult(
         id=pulumi.get(__response__, 'id'),

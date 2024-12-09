@@ -100,7 +100,7 @@ def get_role(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_role_output(name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use get_roles instead. <deprecation>
 
@@ -118,7 +118,7 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getRole:getRole', __args__, opts=opts, typ=GetRoleResult)
     return __ret__.apply(lambda __response__: GetRoleResult(
         comment=pulumi.get(__response__, 'comment'),

@@ -128,7 +128,7 @@ def get_warehouses(like: Optional[str] = None,
 def get_warehouses_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                           with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
                           with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWarehousesResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWarehousesResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -143,7 +143,7 @@ def get_warehouses_output(like: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['like'] = like
     __args__['withDescribe'] = with_describe
     __args__['withParameters'] = with_parameters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getWarehouses:getWarehouses', __args__, opts=opts, typ=GetWarehousesResult)
     return __ret__.apply(lambda __response__: GetWarehousesResult(
         id=pulumi.get(__response__, 'id'),

@@ -180,7 +180,7 @@ def get_tasks_output(in_: Optional[pulumi.Input[Optional[Union['GetTasksInArgs',
                      root_only: Optional[pulumi.Input[Optional[bool]]] = None,
                      starts_with: Optional[pulumi.Input[Optional[str]]] = None,
                      with_parameters: Optional[pulumi.Input[Optional[bool]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTasksResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -201,7 +201,7 @@ def get_tasks_output(in_: Optional[pulumi.Input[Optional[Union['GetTasksInArgs',
     __args__['rootOnly'] = root_only
     __args__['startsWith'] = starts_with
     __args__['withParameters'] = with_parameters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getTasks:getTasks', __args__, opts=opts, typ=GetTasksResult)
     return __ret__.apply(lambda __response__: GetTasksResult(
         id=pulumi.get(__response__, 'id'),

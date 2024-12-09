@@ -224,7 +224,7 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         regionless_account_url=pulumi.get(__ret__, 'regionless_account_url'),
         regionless_snowsight_url=pulumi.get(__ret__, 'regionless_snowsight_url'),
         snowsight_url=pulumi.get(__ret__, 'snowsight_url'))
-def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
+def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
     """
     ## Example Usage
 
@@ -277,7 +277,7 @@ def get_system_get_private_link_config_output(opts: Optional[pulumi.InvokeOption
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig', __args__, opts=opts, typ=GetSystemGetPrivateLinkConfigResult)
     return __ret__.apply(lambda __response__: GetSystemGetPrivateLinkConfigResult(
         account_name=pulumi.get(__response__, 'account_name'),

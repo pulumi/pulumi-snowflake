@@ -163,7 +163,7 @@ def get_streams_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamsInAr
                        limit: Optional[pulumi.Input[Optional[Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict']]]] = None,
                        starts_with: Optional[pulumi.Input[Optional[str]]] = None,
                        with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamsResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamsResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -182,7 +182,7 @@ def get_streams_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamsInAr
     __args__['limit'] = limit
     __args__['startsWith'] = starts_with
     __args__['withDescribe'] = with_describe
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getStreams:getStreams', __args__, opts=opts, typ=GetStreamsResult)
     return __ret__.apply(lambda __response__: GetStreamsResult(
         id=pulumi.get(__response__, 'id'),

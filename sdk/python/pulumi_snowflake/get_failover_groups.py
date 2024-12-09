@@ -91,7 +91,7 @@ def get_failover_groups(in_account: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         in_account=pulumi.get(__ret__, 'in_account'))
 def get_failover_groups_output(in_account: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFailoverGroupsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFailoverGroupsResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -99,7 +99,7 @@ def get_failover_groups_output(in_account: Optional[pulumi.Input[Optional[str]]]
     """
     __args__ = dict()
     __args__['inAccount'] = in_account
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFailoverGroups:getFailoverGroups', __args__, opts=opts, typ=GetFailoverGroupsResult)
     return __ret__.apply(lambda __response__: GetFailoverGroupsResult(
         failover_groups=pulumi.get(__response__, 'failover_groups'),

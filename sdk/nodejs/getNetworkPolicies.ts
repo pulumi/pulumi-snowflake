@@ -60,7 +60,7 @@ export interface GetNetworkPoliciesResult {
  *
  * Datasource used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
  */
-export function getNetworkPoliciesOutput(args?: GetNetworkPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPoliciesResult> {
+export function getNetworkPoliciesOutput(args?: GetNetworkPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getNetworkPolicies:getNetworkPolicies", {

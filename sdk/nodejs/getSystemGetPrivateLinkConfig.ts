@@ -167,7 +167,7 @@ export interface GetSystemGetPrivateLinkConfigResult {
  * });
  * ```
  */
-export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
+export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {
     }, opts);

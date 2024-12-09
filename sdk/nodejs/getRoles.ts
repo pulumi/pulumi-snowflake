@@ -60,7 +60,7 @@ export interface GetRolesResult {
  *
  * Datasource used to get details of filtered roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
  */
-export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
+export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRolesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getRoles:getRoles", {
