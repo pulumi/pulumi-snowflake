@@ -249,7 +249,7 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['Ge
                       grants_of: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
                       grants_on: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']]]] = None,
                       grants_to: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrantsResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantsResult]:
     """
     !> **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
 
@@ -354,7 +354,7 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['Ge
     __args__['grantsOf'] = grants_of
     __args__['grantsOn'] = grants_on
     __args__['grantsTo'] = grants_to
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getGrants:getGrants', __args__, opts=opts, typ=GetGrantsResult)
     return __ret__.apply(lambda __response__: GetGrantsResult(
         future_grants_in=pulumi.get(__response__, 'future_grants_in'),

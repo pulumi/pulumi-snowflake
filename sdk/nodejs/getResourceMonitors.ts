@@ -51,7 +51,7 @@ export interface GetResourceMonitorsResult {
  *
  * Datasource used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
  */
-export function getResourceMonitorsOutput(args?: GetResourceMonitorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceMonitorsResult> {
+export function getResourceMonitorsOutput(args?: GetResourceMonitorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceMonitorsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getResourceMonitors:getResourceMonitors", {

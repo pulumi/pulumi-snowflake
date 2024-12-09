@@ -146,7 +146,7 @@ def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['Ge
                                    like: Optional[pulumi.Input[Optional[str]]] = None,
                                    limit: Optional[pulumi.Input[Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict']]]] = None,
                                    with_describe: Optional[pulumi.Input[Optional[bool]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -163,7 +163,7 @@ def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['Ge
     __args__['like'] = like
     __args__['limit'] = limit
     __args__['withDescribe'] = with_describe
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getRowAccessPolicies:getRowAccessPolicies', __args__, opts=opts, typ=GetRowAccessPoliciesResult)
     return __ret__.apply(lambda __response__: GetRowAccessPoliciesResult(
         id=pulumi.get(__response__, 'id'),

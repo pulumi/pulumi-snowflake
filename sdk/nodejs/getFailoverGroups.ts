@@ -41,7 +41,7 @@ export interface GetFailoverGroupsResult {
      */
     readonly inAccount?: string;
 }
-export function getFailoverGroupsOutput(args?: GetFailoverGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupsResult> {
+export function getFailoverGroupsOutput(args?: GetFailoverGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFailoverGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getFailoverGroups:getFailoverGroups", {

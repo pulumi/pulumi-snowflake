@@ -129,7 +129,7 @@ def get_database_roles(in_database: Optional[str] = None,
 def get_database_roles_output(in_database: Optional[pulumi.Input[str]] = None,
                               like: Optional[pulumi.Input[Optional[str]]] = None,
                               limit: Optional[pulumi.Input[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseRolesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRolesResult]:
     """
     !> **V1 release candidate** This data source was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
 
@@ -144,7 +144,7 @@ def get_database_roles_output(in_database: Optional[pulumi.Input[str]] = None,
     __args__['inDatabase'] = in_database
     __args__['like'] = like
     __args__['limit'] = limit
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getDatabaseRoles:getDatabaseRoles', __args__, opts=opts, typ=GetDatabaseRolesResult)
     return __ret__.apply(lambda __response__: GetDatabaseRolesResult(
         database_roles=pulumi.get(__response__, 'database_roles'),

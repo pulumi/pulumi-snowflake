@@ -128,7 +128,7 @@ export interface GetCortexSearchServicesResult {
  * export const limitOutput = limit.then(limit => limit.cortexSearchServices);
  * ```
  */
-export function getCortexSearchServicesOutput(args?: GetCortexSearchServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCortexSearchServicesResult> {
+export function getCortexSearchServicesOutput(args?: GetCortexSearchServicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCortexSearchServicesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getCortexSearchServices:getCortexSearchServices", {

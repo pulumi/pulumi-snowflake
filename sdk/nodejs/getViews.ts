@@ -87,7 +87,7 @@ export interface GetViewsResult {
  *
  * Datasource used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
  */
-export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewsResult> {
+export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getViews:getViews", {
