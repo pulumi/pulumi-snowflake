@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"regexp"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
@@ -134,10 +135,19 @@ func Provider() info.Provider {
 }
 
 func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
+	//nolint:lll
+	const (
+		roadmap = `-> **Note** The current roadmap is available in our GitHub repository: [ROADMAP.md](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/ROADMAP.md).
+`
+		migration = `~> **Note** Please check the [migration guide](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/MIGRATION_GUIDE.md) when changing the version of the provider.
+`
+	)
 	edits := []info.DocsEdit{
-		removeNotes,
+		removeLiteralFromIndex(roadmap),
+		removeLiteralFromIndex(migration),
 		fixExample,
 		removeMainTf,
+		removePreviewFeatures(),
 	}
 	return append(
 		edits,
@@ -145,35 +155,46 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 	)
 }
 
-// These notes concern upstream-internal bookkeeping and maintenance
-var removeNotes = info.DocsEdit{
-	Path: "index.md",
-	Edit: func(_ string, content []byte) ([]byte, error) {
-		replacesDir := "docs/index-md-replaces/"
-		changes := []string{
-			"disclaimer",
-			"note-1",
-			"note-2",
-		}
-		for _, file := range changes {
-			input, err := os.ReadFile(replacesDir + file + "-input.md")
-			if err != nil {
-				return nil, err
+func removeLiteralFromIndex(s string) info.DocsEdit {
+	b := []byte(s)
+	return info.DocsEdit{
+		Path: "index.md",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			dst := bytes.ReplaceAll(content, b, nil)
+			if len(dst) == len(content) {
+				return nil, fmt.Errorf("could not find %q to remove", s)
 			}
-			if bytes.Contains(content, input) {
-				content = bytes.ReplaceAll(
-					content,
-					input,
-					nil,
-				)
-			} else {
-				// Hard error to ensure we keep this content up to date
-				return nil, fmt.Errorf("could not find text in upstream index.md, "+
-					"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+file+"-input.md", string(input))
+			return dst, nil
+		},
+	}
+}
+
+func removePreviewFeatures() info.DocsEdit {
+	const disclaimerPrefix = "~> **Disclaimer** The project is in v1 version, but some features are in preview."
+	disclaimer := regexp.MustCompile("(?m)" + regexp.QuoteMeta(disclaimerPrefix) + ".*?\n")
+
+	const featureFlagPrefix = "- `preview_features_enabled` (Set of String) A list of preview features"
+	featureFlag := regexp.MustCompile("(?m)" + regexp.QuoteMeta(featureFlagPrefix) + ".*?\n")
+
+	remove := func(src []byte, regexp ...*regexp.Regexp) ([]byte, error) {
+		for _, r := range regexp {
+			dst := r.ReplaceAllLiteral(src, nil)
+			if len(src) == len(dst) {
+				return nil, fmt.Errorf("did not find regexp %s in %s", r, string(src))
 			}
+			src = dst
 		}
-		return content, nil
-	},
+		return src, nil
+	}
+	return info.DocsEdit{
+		Path:  "index.md",
+		Phase: info.PostCodeTranslation,
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return remove(content,
+				disclaimer, featureFlag,
+			)
+		},
+	}
 }
 
 // Separates multiple "provider" declarations in top-level example

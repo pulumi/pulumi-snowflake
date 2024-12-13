@@ -400,10 +400,8 @@ config:
 **Warning: these values are passed directly to the gosnowflake library, which may not work exactly the way you expect. See the [gosnowflake docs](https://godoc.org/github.com/snowflakedb/gosnowflake#hdr-Connection_Parameters) for more.**
 ## Configuration Reference
 
-- `account` (String, Deprecated) Use `accountName` and `organizationName` instead. Specifies your Snowflake account identifier assigned, by Snowflake. The [account locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format is not supported. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
 - `accountName` (String) Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-- `authenticator` (String) Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
-- `browserAuth` (Boolean, Deprecated) Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+- `authenticator` (String) Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 - `clientIp` (String) IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 - `clientRequestMfaToken` (String) When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 - `clientStoreTemporaryCredential` (String) When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -421,34 +419,24 @@ config:
 - `keepSessionAlive` (Boolean) Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 - `loginTimeout` (Number) Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 - `maxRetryCount` (Number) Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
-- `oauthAccessToken` (String, Sensitive, Deprecated) Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browserAuth`, `privateKeyPath`, `oauthRefreshToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment variable.
-- `oauthClientId` (String, Sensitive, Deprecated) Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-- `oauthClientSecret` (String, Sensitive, Deprecated) Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
-- `oauthEndpoint` (String, Sensitive, Deprecated) Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-- `oauthRedirectUrl` (String, Sensitive, Deprecated) Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
-- `oauthRefreshToken` (String, Sensitive, Deprecated) Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with `oauthClientId`, `oauthClientSecret`, `oauthEndpoint`, `oauthRedirectUrl`. Cannot be used with `browserAuth`, `privateKeyPath`, `oauthAccessToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment variable.
 - `ocspFailOpen` (String) True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 - `oktaUrl` (String) The URL of the Okta server. e.g. <https://example.okta.com>. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 - `organizationName` (String) Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 - `params` (Map of String) Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
 - `passcode` (String) Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 - `passcodeInPassword` (Boolean) False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
-- `password` (String, Sensitive) Password for user + password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+- `password` (String, Sensitive) Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 - `port` (Number) Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
-- `privateKey` (String, Sensitive) Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+- `privateKey` (String, Sensitive) Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 - `privateKeyPassphrase` (String, Sensitive) Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
-- `privateKeyPath` (String, Sensitive, Deprecated) Path to a private key for using keypair authentication. Cannot be used with `browserAuth`, `oauthAccessToken` or `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 - `profile` (String) Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 - `protocol` (String) A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
-- `region` (String, Deprecated) Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best to specify the region as part of the account parameter. For details, see the description of the account parameter. [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use.  Required if using the [legacy format for the `account` identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region) in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
 - `requestTimeout` (Number) request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 - `role` (String) Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
-- `sessionParams` (Map of String, Deprecated) Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 - `tmpDirectoryPath` (String) Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 - `token` (String, Sensitive) Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 - `tokenAccessor` (Block List, Max: 1) (see below for nested schema)
 - `user` (String) Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
-- `username` (String, Deprecated) Username for user + password authentication. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USERNAME` environment variable.
 - `validateDefaultParameters` (String) True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 - `warehouse` (String) Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 
@@ -489,7 +477,7 @@ To export the variables into your provider:
 
 ```shell
 export SNOWFLAKE_USER="..."
-export SNOWFLAKE_PRIVATE_KEY_PATH="~/.ssh/snowflake_key"
+export SNOWFLAKE_PRIVATE_KEY="~/.ssh/snowflake_key"
 ```
 ### Keypair Authentication Passphrase
 
@@ -510,7 +498,7 @@ To export the variables into your provider:
 
 ```shell
 export SNOWFLAKE_USER="..."
-export SNOWFLAKE_PRIVATE_KEY_PATH="~/.ssh/snowflake_key.p8"
+export SNOWFLAKE_PRIVATE_KEY="~/.ssh/snowflake_key.p8"
 export SNOWFLAKE_PRIVATE_KEY_PASSPHRASE="..."
 ```
 ### OAuth Access Token
@@ -519,7 +507,7 @@ If you have an OAuth access token, export these credentials as environment varia
 
 ```shell
 export SNOWFLAKE_USER='...'
-export SNOWFLAKE_OAUTH_ACCESS_TOKEN='...'
+export SNOWFLAKE_TOKEN='...'
 ```
 
 Note that once this access token expires, you'll need to request a new one through an external application.
@@ -528,11 +516,11 @@ Note that once this access token expires, you'll need to request a new one throu
 If you have an OAuth Refresh token, export these credentials as environment variables:
 
 ```shell
-export SNOWFLAKE_OAUTH_REFRESH_TOKEN='...'
-export SNOWFLAKE_OAUTH_CLIENT_ID='...'
-export SNOWFLAKE_OAUTH_CLIENT_SECRET='...'
-export SNOWFLAKE_OAUTH_ENDPOINT='...'
-export SNOWFLAKE_OAUTH_REDIRECT_URL='https://localhost.com'
+export SNOWFLAKE_TOKEN_ACCESSOR_REFRESH_TOKEN='...'
+export SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_ID='...'
+export SNOWFLAKE_TOKEN_ACCESSOR_CLIENT_SECRET='...'
+export SNOWFLAKE_TOKEN_ACCESSOR_TOKEN_ENDPOINT='...'
+export SNOWFLAKE_TOKEN_ACCESSOR_REDIRECT_URI='https://localhost.com'
 ```
 
 Note because access token have a short life; typically 10 minutes, by passing refresh token new access token will be generated.
@@ -666,7 +654,7 @@ config:
 
 ```bash
 export SNOWFLAKE_USER="..."
-export SNOWFLAKE_PRIVATE_KEY_PATH="~/.ssh/snowflake_key"
+export SNOWFLAKE_PRIVATE_KEY="~/.ssh/snowflake_key"
 ```
 
 3. In a TOML file (default in ~/.snowflake/config). Notice the use of different profiles. The profile name needs to be specified in the Pulumi configuration file in `profile` field. When this is not specified, `default` profile is loaded.
@@ -1254,13 +1242,7 @@ config:
 
 {{% /choosable %}}
 {{< /chooser >}}
-## Currently deprecated resources
 
-- snowflake.DatabaseOld
-- snowflake.OauthIntegration
-- snowflake.Role - use snowflake.AccountRole instead
-- snowflake.SamlIntegration - use snowflake.Saml2Integration instead
-- snowflake.Stream
-## Currently deprecated functions
+<!-- Section of deprecated resources -->
 
-- snowflake.Role - use snowflake.getRoles instead
+<!-- Section of deprecated functions -->
