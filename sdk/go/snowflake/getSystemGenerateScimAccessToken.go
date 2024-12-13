@@ -63,21 +63,11 @@ type GetSystemGenerateScimAccessTokenResult struct {
 }
 
 func GetSystemGenerateScimAccessTokenOutput(ctx *pulumi.Context, args GetSystemGenerateScimAccessTokenOutputArgs, opts ...pulumi.InvokeOption) GetSystemGenerateScimAccessTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSystemGenerateScimAccessTokenResultOutput, error) {
 			args := v.(GetSystemGenerateScimAccessTokenArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSystemGenerateScimAccessTokenResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args, &rv, "", opts...)
-			if err != nil {
-				return GetSystemGenerateScimAccessTokenResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSystemGenerateScimAccessTokenResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSystemGenerateScimAccessTokenResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args, GetSystemGenerateScimAccessTokenResultOutput{}, options).(GetSystemGenerateScimAccessTokenResultOutput), nil
 		}).(GetSystemGenerateScimAccessTokenResultOutput)
 }
 

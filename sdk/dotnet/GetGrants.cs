@@ -390,6 +390,196 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetGrantsResult> Invoke(GetGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     //#################################
+        ///     //## SHOW GRANTS ON ...
+        ///     //#################################
+        ///     // account
+        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             Account = true,
+        ///         },
+        ///     });
+        /// 
+        ///     // account object (e.g. database)
+        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "some_database",
+        ///             ObjectType = "DATABASE",
+        ///         },
+        ///     });
+        /// 
+        ///     // database object (e.g. schema)
+        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\"",
+        ///             ObjectType = "SCHEMA",
+        ///         },
+        ///     });
+        /// 
+        ///     // schema object (e.g. table)
+        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
+        ///         {
+        ///             ObjectName = "\"some_database\".\"some_schema\".\"some_table\"",
+        ///             ObjectType = "TABLE",
+        ///         },
+        ///     });
+        /// 
+        ///     // application
+        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             Application = "some_application",
+        ///         },
+        ///     });
+        /// 
+        ///     // application role
+        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // account role
+        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     // database role
+        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // share
+        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             Share = new Snowflake.Inputs.GetGrantsGrantsToShareInputArgs
+        ///             {
+        ///                 ShareName = "some_share",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     // user
+        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
+        ///         {
+        ///             User = "some_user",
+        ///         },
+        ///     });
+        /// 
+        ///     // application role
+        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             ApplicationRole = "\"some_application\".\"some_application_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // database role
+        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // account role
+        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     // share
+        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
+        ///         {
+        ///             Share = "some_share",
+        ///         },
+        ///     });
+        /// 
+        ///     // database
+        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     // schema
+        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // account role
+        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
+        ///         {
+        ///             AccountRole = "some_role",
+        ///         },
+        ///     });
+        /// 
+        ///     // database role
+        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
+        ///         {
+        ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGrantsResult> Invoke(GetGrantsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -38,21 +38,11 @@ type GetFailoverGroupsResult struct {
 }
 
 func GetFailoverGroupsOutput(ctx *pulumi.Context, args GetFailoverGroupsOutputArgs, opts ...pulumi.InvokeOption) GetFailoverGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFailoverGroupsResultOutput, error) {
 			args := v.(GetFailoverGroupsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFailoverGroupsResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getFailoverGroups:getFailoverGroups", args, &rv, "", opts...)
-			if err != nil {
-				return GetFailoverGroupsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFailoverGroupsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFailoverGroupsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getFailoverGroups:getFailoverGroups", args, GetFailoverGroupsResultOutput{}, options).(GetFailoverGroupsResultOutput), nil
 		}).(GetFailoverGroupsResultOutput)
 }
 

@@ -56,6 +56,29 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("snowflake:index/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Snowflake.GetFunctions.Invoke(new()
+        ///     {
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("snowflake:index/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -56,6 +56,29 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetExternalTablesResult> Invoke(GetExternalTablesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Snowflake.GetExternalTables.Invoke(new()
+        ///     {
+        ///         Database = "MYDB",
+        ///         Schema = "MYSCHEMA",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExternalTablesResult> Invoke(GetExternalTablesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExternalTablesResult>("snowflake:index/getExternalTables:getExternalTables", args ?? new GetExternalTablesInvokeArgs(), options.WithDefaults());
     }
 
 

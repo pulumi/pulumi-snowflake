@@ -100,6 +100,51 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetParametersResult> Invoke(GetParametersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var d = new Snowflake.Database("d", new()
+        ///     {
+        ///         Name = "TEST_DB",
+        ///     });
+        /// 
+        ///     // read all object parameters in database TEST_DB
+        ///     var p = Snowflake.GetParameters.Invoke(new()
+        ///     {
+        ///         ParameterType = "OBJECT",
+        ///         ObjectType = "DATABASE",
+        ///         ObjectName = d.Name,
+        ///     });
+        /// 
+        ///     // read all account parameters with the pattern '%TIMESTAMP%'
+        ///     var p2 = Snowflake.GetParameters.Invoke(new()
+        ///     {
+        ///         ParameterType = "ACCOUNT",
+        ///         Pattern = "%TIMESTAMP%",
+        ///     });
+        /// 
+        ///     // read the exact session parameter ROWS_PER_RESULTSET
+        ///     var p3 = Snowflake.GetParameters.Invoke(new()
+        ///     {
+        ///         ParameterType = "SESSION",
+        ///         Pattern = "ROWS_PER_RESULTSET",
+        ///         User = "TEST_USER",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetParametersResult> Invoke(GetParametersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersInvokeArgs(), options.WithDefaults());
     }
 
 

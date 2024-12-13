@@ -49,21 +49,11 @@ type GetWarehousesResult struct {
 }
 
 func GetWarehousesOutput(ctx *pulumi.Context, args GetWarehousesOutputArgs, opts ...pulumi.InvokeOption) GetWarehousesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetWarehousesResultOutput, error) {
 			args := v.(GetWarehousesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetWarehousesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getWarehouses:getWarehouses", args, &rv, "", opts...)
-			if err != nil {
-				return GetWarehousesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetWarehousesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetWarehousesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getWarehouses:getWarehouses", args, GetWarehousesResultOutput{}, options).(GetWarehousesResultOutput), nil
 		}).(GetWarehousesResultOutput)
 }
 

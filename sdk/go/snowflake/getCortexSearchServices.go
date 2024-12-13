@@ -102,21 +102,11 @@ type GetCortexSearchServicesResult struct {
 }
 
 func GetCortexSearchServicesOutput(ctx *pulumi.Context, args GetCortexSearchServicesOutputArgs, opts ...pulumi.InvokeOption) GetCortexSearchServicesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCortexSearchServicesResultOutput, error) {
 			args := v.(GetCortexSearchServicesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCortexSearchServicesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getCortexSearchServices:getCortexSearchServices", args, &rv, "", opts...)
-			if err != nil {
-				return GetCortexSearchServicesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCortexSearchServicesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCortexSearchServicesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getCortexSearchServices:getCortexSearchServices", args, GetCortexSearchServicesResultOutput{}, options).(GetCortexSearchServicesResultOutput), nil
 		}).(GetCortexSearchServicesResultOutput)
 }
 

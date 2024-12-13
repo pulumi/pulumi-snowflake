@@ -56,6 +56,29 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetDatabaseRoleResult> Invoke(GetDatabaseRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRoleResult>("snowflake:index/getDatabaseRole:getDatabaseRole", args ?? new GetDatabaseRoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var dbRole = Snowflake.GetDatabaseRole.Invoke(new()
+        ///     {
+        ///         Database = "MYDB",
+        ///         Name = "DBROLE",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDatabaseRoleResult> Invoke(GetDatabaseRoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRoleResult>("snowflake:index/getDatabaseRole:getDatabaseRole", args ?? new GetDatabaseRoleInvokeArgs(), options.WithDefaults());
     }
 
 
